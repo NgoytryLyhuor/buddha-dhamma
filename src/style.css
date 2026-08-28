@@ -159,7 +159,7 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 }
 .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.topnav-inner a { position: relative; }
+.topnav-inner a { position: relative; white-space: nowrap; }
 .topnav-inner a.active { color: var(--accent) !important; }
 .topnav-inner a.active::after {
   content: ''; position: absolute; left: 8px; right: 8px; bottom: -2px;

@@ -28,8 +28,8 @@
         </div>
 
         <!-- Desktop horizontal nav -->
-        <nav class="desktop-nav overflow-x-auto mt-2 -mb-px">
-          <div class="topnav-inner flex gap-1 text-[13px] font-bold">
+        <nav class="desktop-nav mt-2 -mb-px">
+          <div class="topnav-inner flex flex-wrap items-center justify-center gap-1 text-[13px] font-bold">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
               class="px-3 py-2.5 flex items-center gap-1.5 transition hover:opacity-80"
               :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">

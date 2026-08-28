@@ -189,3 +189,34 @@ details[open] > summary .caret { transform: rotate(180deg); }
 @media (min-width: 1024px) {
   .mobile-nav { display: none !important; }
 }
+
+/* Search overlay */
+.search-overlay {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(20, 16, 10, 0.55);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 6vh 16px 16px;
+  backdrop-filter: blur(2px);
+}
+.search-panel {
+  width: 100%; max-width: 560px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 18px;
+  box-shadow: 0 12px 40px rgba(60, 45, 20, 0.25);
+}
+.search-panel input:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 2px var(--halo); }
+
+/* Footer share bar */
+.footer-share .share-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  background: var(--bg-card);
+  transition: all 0.2s;
+}
+.footer-share .share-btn:hover { border-color: var(--accent); color: var(--accent); }

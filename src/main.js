@@ -13,6 +13,10 @@ const routes = [
   { path: '/suttas', name: 'suttas', component: () => import('./views/SuttasView.vue') },
   { path: '/life', name: 'life', component: () => import('./views/LifeView.vue') },
   { path: '/gathas', name: 'gathas', component: () => import('./views/GathaView.vue') },
+  { path: '/chanting', name: 'chanting', component: () => import('./views/ChantingView.vue') },
+  { path: '/glossary', name: 'glossary', component: () => import('./views/GlossaryView.vue') },
+  { path: '/stories', name: 'stories', component: () => import('./views/StoriesView.vue') },
+  { path: '/questions', name: 'questions', component: () => import('./views/QuestionsView.vue') },
 ]
 
 const router = createRouter({

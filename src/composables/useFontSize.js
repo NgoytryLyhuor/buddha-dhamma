@@ -33,6 +33,22 @@ function decreaseFontSize() {
   setFontSize(index.value - 1)
 }
 
+const SPACING_KEY = 'bd_spacing'
+const spacingSaved = localStorage.getItem(SPACING_KEY)
+const spacing = ref(spacingSaved === 'relaxed' ? 'relaxed' : 'normal')
+
+function applySpacing() {
+  document.documentElement.setAttribute('data-spacing', spacing.value)
+}
+
+applySpacing()
+
+function setSpacing(next) {
+  spacing.value = next === 'relaxed' ? 'relaxed' : 'normal'
+  localStorage.setItem(SPACING_KEY, spacing.value)
+  applySpacing()
+}
+
 export function useFontSize() {
-  return { fontSizeIndex: index, SIZES, increaseFontSize, decreaseFontSize }
+  return { fontSizeIndex: index, SIZES, increaseFontSize, decreaseFontSize, spacing, setSpacing }
 }

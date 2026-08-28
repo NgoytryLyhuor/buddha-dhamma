@@ -48,6 +48,33 @@
               </div>
               <button class="font-btn" @click="increaseFontSize" :disabled="fontSizeIndex === SIZES.length - 1" :title="t('អក្សរធំជាង', 'Larger text')">A+</button>
             </div>
+
+            <p class="settings-label mt-4">{{ t('ប្រភេទអក្សរ', 'Font style') }}</p>
+            <div class="flex gap-2">
+              <button class="lang-pick" :class="font === 'sans' ? 'on' : ''" @click="setFont('sans')">{{ t('សម័យ', 'Sans') }}</button>
+              <button class="lang-pick" :class="font === 'serif' ? 'on' : ''" @click="setFont('serif')">{{ t('សេរីហ្វ', 'Serif') }}</button>
+            </div>
+
+            <p class="settings-label mt-4">{{ t('គម្លាតបន្ទាត់', 'Line spacing') }}</p>
+            <div class="flex gap-2">
+              <button class="lang-pick" :class="spacing === 'normal' ? 'on' : ''" @click="setSpacing('normal')">{{ t('ធម្មតា', 'Normal') }}</button>
+              <button class="lang-pick" :class="spacing === 'relaxed' ? 'on' : ''" @click="setSpacing('relaxed')">{{ t('ធំទូលាយ', 'Relaxed') }}</button>
+            </div>
+
+            <button class="setting-row mt-4" @click="setShowPali(!showPali)">
+              <span>{{ showPali ? '☑' : '☐' }}</span>
+              <span>{{ t('បង្ហាញភាសារ៉ូម៉ាំង', 'Show Roman Pali') }}</span>
+            </button>
+
+            <button class="setting-row mt-2" @click="setMotion(motion === 'off' ? 'on' : 'off')">
+              <span>{{ motion === 'off' ? '☑' : '☐' }}</span>
+              <span>{{ t('កាត់បន្ថយចលនា', 'Reduce motion') }}</span>
+            </button>
+
+            <button class="setting-row reset-btn mt-4" @click="resetSettings">
+              <span>&#8634;</span>
+              <span>{{ t('កំណត់ឡើងវិញទាំងអស់', 'Reset all settings') }}</span>
+            </button>
             </div>
           </div>
         </transition>
@@ -166,13 +193,25 @@ import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
+import { useFont } from './composables/useFont'
+import { useMotion } from './composables/useMotion'
+import { usePali } from './composables/usePali'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
 const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
-const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize } = useFontSize()
+const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSpacing } = useFontSize()
+const { font, setFont } = useFont()
+const { motion, setMotion } = useMotion()
+const { showPali, setShowPali } = usePali()
+
+function resetSettings() {
+  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_motion', 'bd_pali']
+    .forEach(k => localStorage.removeItem(k))
+  location.reload()
+}
 
 const settingsOpen = ref(false)
 

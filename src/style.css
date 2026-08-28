@@ -170,6 +170,8 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 .lang-pick.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .setting-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-soft); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
 .setting-row:hover { border-color: var(--accent); color: var(--accent); }
+.setting-row.reset-btn { border-style: dashed; color: var(--ink-muted); }
+.setting-row.reset-btn:hover { border-color: var(--red); color: var(--red); background: var(--accent-soft); }
 .settings-dots { flex: 1; display: flex; justify-content: center; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); transition: all 0.2s; }
 .dot.on { background: var(--accent); }
@@ -342,6 +344,29 @@ details[open]::details-content > * {
 /* Scroll to top button */
 .fade-enter-active, .fade-leave-active { transition: opacity 0.25s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
+
+/* ===== Reading & motion settings ===== */
+
+/* Face: serif (traditional scripture look) vs default sans */
+html.font-serif body,
+html.font-serif .font-display {
+  font-family: 'Noto Serif Khmer', 'Kantumruy Pro', serif;
+}
+
+/* Line spacing: relaxed (easier for older readers & Khmer stacking) */
+html[data-spacing="relaxed"] body,
+html[data-spacing="relaxed"] p,
+html[data-spacing="relaxed"] li,
+html[data-spacing="relaxed"] .leading-loose,
+html[data-spacing="relaxed"] .leading-relaxed,
+html[data-spacing="relaxed"] .leading-loose > * {
+  line-height: 2 !important;
+}
+
+/* Show/hide Roman Pali globally */
+html[data-pali="off"] .paali { display: none !important; }
+
+/* Reduce motion: manual override (plus OS preference) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -349,6 +374,12 @@ details[open]::details-content > * {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+html.motion-off *, html.motion-off *::before, html.motion-off *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
 }
 
 /* Scroll to top button */

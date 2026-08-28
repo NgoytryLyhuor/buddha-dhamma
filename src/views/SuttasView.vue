@@ -62,7 +62,8 @@
           </ul>
 
           <div class="verse-box p-4 mt-4">
-            <p v-if="s.raw" class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">{{ s.raw }}</p>
+            <p v-if="s.pali" class="paali text-sm" :style="{ color: 'var(--ink-soft)' }">{{ s.pali }}</p>
+            <p v-if="s.raw" class="text-sm italic mt-1" :style="{ color: 'var(--ink-muted)' }">{{ s.raw }}</p>
             <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t(s.kmVerse, s.enVerse) }}</p>
           </div>
 
@@ -118,6 +119,7 @@ const suttas = [
       { km: 'ទេសនាចប់ អញ្ញាកុណ្ឌញ្ញៈ បានសម្រេចសោតាបត្តិផល — ព្រះធម្មចក្រ ក៏បានប្រព្រឹត្តទៅក្នុងលោក។', en: 'At the end, Kondañña attained stream-entry — the wheel of Dhamma had been set rolling.' },
     ],
     raw: 'ទ្វេ ខោ មេ ភិក្ខវេ អន្តា បព្វជិតេន ន សេវិតព្ពា ។ កាមេសុ កាមសុខល្លិកានុយោគោ ហីនោ គម្មោ បុថុជ្ជនិកោ អនរិយោ អនត្ថសំហិតោ; អត្តកិលមថានុយោគោ ទុក្ខោ អនរិយោ អនត្ថសំហិតោ ។',
+    pali: 'Dveme, bhikkhave, antā pabbajitena na sevitabbā. Kāmesu kāmasukhallikānuyogo hīno gammo pothujjaniko anariyo anatthasaṃhito; attakilamathānuyogo dukkho anariyo anatthasaṃhito.',
     kmVerse: '«បណ្ឌិតមិនគួរជាប់ក្នុងរឿងត្រេកត្រអាល ក៏មិនគួរធ្វើទុក្ខដាក់ខ្លួន — គួរដើរតាមផ្លូវកណ្តាល»', enVerse: '"One should not indulge in sensual pleasures, nor torment the self — walk the Middle Way."',
     applyK: 'ក្នុងជីវិតប្រចាំថ្ងៃ៖ កុំបណ្តោយខ្លួនតាមកាម ក៏កុំធ្វើទុក្ខដាក់ខ្លួន — ដើរលើផ្លូវកណ្តាល ដោយថ្នម ស្មើ និងប្រុងប្រយ័ត្ន។', applyE: 'In daily life: neither chase pleasures nor punish yourself — walk the middle way with care and balance.',
     tags: ['First Sermon', '4 Noble Truths', '8-fold Path', 'Middle Way'],
@@ -135,6 +137,7 @@ const suttas = [
       { km: 'គ្មានអ្នកណា ជាម្ចាស់នៃអ្វី ដែលជាអនត្តា បានឡើយ — ពេលទេសនាចប់ លោកអស្សជិ បានអរហត្តផលមុនគេ ហើយទាំង ៥ អង្គ ក៏បានសម្រេច។', en: 'No one is the owner of what is not-self. When the teaching ended, Assaji first, then all five ascetics, attained arahantship.' },
     ],
     raw: 'រូបំ អនត្តា … វេទនា អនត្តា … សញ្ញា អនត្តា … សង្ខារា អនត្តា … វិញ្ញាណំ អនត្តា ។',
+    pali: 'Rūpaṃ anattā, vedanā anattā, saññā anattā, saṅkhārā anattā, viññāṇaṃ anattā.',
     kmVerse: '«រូប វេទនា សញ្ញា សង្ខារ វិញ្ញាណ សុទ្ធតែមិនមែនជាខ្លួន»', enVerse: '"Form, feeling, perception, formations, consciousness — all are not-self."',
     applyK: 'ពេលជាប់ចិត្តនឹងកាយ ឬ អារម្មណ៍ថា «របស់អញ» — រំលឹកថា អ្វីៗនេះកំពុងរលត់ ជួយបន្ធូរការប្រកាន់។', applyE: 'When clinging to your body or feelings as "mine", remember they are already passing away — this loosens the grasp.',
     tags: ['Not-Self', '5 Aggregates', 'First Arahants'],
@@ -152,6 +155,7 @@ const suttas = [
       { km: 'អ្នកបណ្តុះមេត្តា រមែងបានអនិសង្ស ១១ ប្រការ — ១) គេងលក់ស្រួល ២) ភ្ញាក់រីករាយ ៣) មិនសុបិន្តអាក្រក់ ៤) មនុស្សរាប់អានស្រឡាញ់ ៥) អមនុស្ស រាប់អាន ៦) ទេវតារក្សា ៧) ភ្លើង ពិស គ្រឿងអាវុធ មិនប៉ះពាល់ ៨) ចិត្តតាំងសមាធិបានឆាប់ ៩) មុខភ្លឺថ្លា ១០) ស្លាប់មិនភ័ន្តស្មារតី ១១) កើតក្នុងព្រហ្មលោក។', en: 'Cultivating mettā brings eleven blessings — 1) sleeping well, 2) waking happily, 3) no bad dreams, 4) loved by humans, 5) loved by non-humans, 6) guarded by devas, 7) fire, poison and weapons cannot harm, 8) quick concentration of mind, 9) a serene bright face, 10) dying unconfused, 11) rebirth in the Brahma realm.' },
     ],
     raw: 'មាតា យថា និយំ បុត្តំ អាយុសា ឯកបុត្តមនុរក្ខេ ឯវម្បិ សព្វភូតេសុ មានសម្ភាវេយ្យ អបរិមាណំ ។',
+    pali: 'Mātā yathā niyaṃ puttaṃ, āyusā ekaputtamanurakkhe; evampi sabbabhūtesu, mānasaṃ bhāvaye aparimāṇaṃ.',
     kmVerse: '«ដូចម្តាយមួយជីវិតរក្សាបុត្រ យ៉ាងណា ចូរអ្នកបាចសាយចិត្តសប្បុរសដល់សត្វទាំងអស់»', enVerse: '"Even as a mother guards her only child with her life, so let one cultivate a boundless heart toward all beings."',
     applyK: 'រាល់ព្រឹក ផ្សាយមេត្តាដល់ខ្លួនឯង ក្រុមគ្រួសារ មិត្ត — រួមទាំងអ្នកដែលធ្វើអាក្រក់ដាក់ខ្លួន — រយៈ ២-៣ នាទី។', applyE: 'Each morning, radiate mettā to yourself, your family and friends — even those who have wronged you — for two or three minutes.',
     tags: ['Goodwill', '11 Blessings', 'Paritta'],
@@ -170,6 +174,7 @@ const suttas = [
       { km: 'រហូតដល់ចិត្តមិនរវើយ កាលប៉ះពាល់នឹងធម៌លោក — នេះជាមង្គលដ៏ឧត្តម ដែលនាំដល់ព្រះនិព្វាន។', en: 'Up to an unshaken mind when touched by the ways of the world — the supreme blessing that leads to Nibbāna.' },
     ],
     raw: 'អសេវនា ច ពាលានំ បណ្ឌិតានញ្ច សេវនា បូជា ច បូជនីយានំ ឯតំ មង្គលមុត្តមំ ។',
+    pali: 'Asevanā ca bālānaṃ, paṇḍitānañca sevanā; pūjā ca pūjanīyānaṃ, etaṃ maṅgalamuttamaṃ.',
     kmVerse: '«ការមិនផ្គរជាមួយអ្នកល្ងង់ ការផ្គរជាមួយអ្នកប្រាជ្ញ ការបូជាចំពោះអ្នកគួរបូជា — នេះជាមង្គលដ៏ខ្ពស់»', enVerse: '"Not consorting with fools, consorting with the wise, honouring those worthy of honour — this is the highest blessing."',
     applyK: 'ពិនិត្យខ្លួននូវមង្គល ៣៨ ម្តងម្កាល — តើថ្ងៃនេះ យើងកំពុងបោះជំហានលើមង្គលណា?', applyE: 'From time to time check yourself against the 38 blessings — on which blessing are you standing today?',
     tags: ['38 Blessings', 'Devata Question'],
@@ -187,6 +192,7 @@ const suttas = [
       { km: 'រាល់រតនៈក្នុងលោកនេះ លោកខាងមុខ ក្នុងសួគ៌ — គ្មានអ្វីស្មើនឹងព្រះពុទ្ធ ព្រះធម៌ ព្រះសង្ឃ ។', en: 'Whatever treasure there is here or beyond, in heavens — none equals the Buddha, the Dhamma, the Sangha.' },
     ],
     raw: 'យំ កិញ្ចិ វិត្តមិធ វា ហុរម្ហិវា សគ្គេសុ វា យំ រតនំ បណីតំ ន នោ សមំ អត្ថិ តថាគតេន ។',
+    pali: 'Yaṃ kiñci vittamidha vā huramhi vā, saggesu vā yaṃ ratanaṃ paṇītaṃ; na no samaṃ atthi Tathāgatena.',
     kmVerse: '«ទ្រព្យណា ទេវៈណា ក្នុងលោកនេះ ឬលោកខាងមុខ គ្មានទេវៈណា ស្មើនឹងព្រះតថាគតឡើយ»', enVerse: '"Whatever treasure there is here or beyond, none equals the Tathāgata."',
     applyK: 'ពេលមានភ័យ ឬ សំណាងអាក្រក់ — រំលឹកគុណរតនត្រ័យ ហើយសូត្ររតនបរិត្ត។', applyE: 'In moments of fear or misfortune, recollect the Three Jewels and recite the Ratana paritta.',
     tags: ['Three Jewels', 'Protection Sutta'],
@@ -204,6 +210,7 @@ const suttas = [
       { km: 'នេះជាសេចក្តីពន្យល់ ដែលស្របនឹងបញ្ញារបស់ ព្រះអរិយៈ — ព្រះពុទ្ធទ្រង់ត្រាស់ឲ្យពិនិត្យ ដោយវែកញែកដោយខ្លួនឯង។', en: 'This is an explanation in line with the wisdom of the noble ones — the Buddha urges you to investigate it for yourself.' },
     ],
     raw: 'មាយំ សុត្តេន … មា បរំបរស្ស … មា សមណោ នោ គរុ … យទា តុម្ហេ អត្តនាវ ជានេថ អប្បេតេ ធម្មា អកុសលា សាវជ្ជា វិញ្ញុគរហិតា តទា ត្វេ បជហេថ ។',
+    pali: 'Mā anussavena, mā paramparāya, mā itikirāya, mā piṭakasampadānena, mā takkahetu, mā nayahetu, mā ākāraparivitakkena, mā diṭṭhinijjhānakkhantiyā, mā bhabbarūpatāya, mā samaṇo no garū. Yadā tumhe, kālāmā, attanāva jāneyyātha — ime dhammā akusalā, sāvajjā, viññugarahitā — atha tumhe, kālāmā, pajaheyyātha.',
     kmVerse: '«ពេលដឹងដោយខ្លួនឯងថា ធម៌ទាំងនេះអកុសល មានទោស បណ្ឌិតតិះដៀល ទើបអ្នកលះបង់»', enVerse: '"When you know for yourselves that these things are unwholesome, blameworthy, condemned by the wise — then abandon them."',
     applyK: 'ពេលឮដំណឹង ឬ ការបង្រៀនអ្វី — កុំសន្និដ្ឋានភ្លាម តែពិនិត្យលទ្ធផលពិត ដោយខ្លួនឯង។', applyE: 'On hearing any news or teaching, do not jump to conclusions — test the real outcome for yourself.',
     tags: ['Free Inquiry', 'Verify the Teachings'],
@@ -221,6 +228,7 @@ const suttas = [
       { km: 'ទេសនាចប់ ភិក្ខុ ១០០០ អង្គទាំងអស់ បានសម្រេចអរហត្តផល។', en: 'When the sermon ended, all one thousand monks attained arahantship.' },
     ],
     raw: 'សព្វំ ភិក្ខវេ អាទិត្តំ ។ កិញ្ច ភិក្ខវេ សព្វំ អាទិត្តំ? ចក្ខុំ អាទិត្តំ រូបា អាទិត្តា ចក្ខុវិញ្ញាណំ អាទិត្តំ … អាទិត្តា រាគេន អាទិត្តា ទោសេន អាទិត្តា មោហេន ។',
+    pali: 'Sabbaṃ, bhikkhave, ādittaṃ. Kiñca, bhikkhave, sabbaṃ ādittaṃ? Cakkhuṃ ādittaṃ, rūpā ādittā, cakkhuviññāṇaṃ ādittaṃ … ādittaṃ rāgena, ādittaṃ dosena, ādittaṃ mohena.',
     kmVerse: '«អ្វីៗទាំងអស់កំពុងឆេះ — ឆេះដោយភ្លើងរាគៈ ទោសៈ មោហៈ»', enVerse: '"All things are burning — burning with the fires of lust, hatred and delusion."',
     applyK: 'ពេលចិត្តរំជួល ដោយប៉ងប្រាថ្នា ឬ កំហឹង — ដឹងថាភ្លើងកំពុងឆេះ ហើយព្យាយាមពន្លត់។', applyE: 'When craving or anger flames up, recognize that the fire is burning — then work to put it out.',
     tags: ['Burning', '6 Sense Bases', 'Mass Arahantship'],
@@ -238,6 +246,7 @@ const suttas = [
       { km: 'ធម្មានុបស្សនា៖ នីវរណៈ ៥ ខន្ធ ៥ អាយតនៈ ១២ ពោជ្ឈង្គ ៧ អរិយសច្ច ៤ — ដឹងកើត-រលត់។', en: 'Contemplation of dhammas: five hindrances, five aggregates, twelve sense bases, seven awakening factors, Four Noble Truths — watched as they arise and pass.' },
     ],
     raw: 'អេកាយនោ អាយស្មន្តោ មគ្គោ សត្តានំ វិសុទ្ធិយា សោកបរិទេវានំ សមតិក្កមាយ ទុក្ខទោមនស្សានំ អត្ថង្គមាយ ញាយស្ស អធិគមាយ និព្វានស្ស សច្ឆិកិរិយាយ យទិទំ ចត្តារោ សតិប្បដ្ឋានា ។',
+    pali: 'Ekāyano ayaṃ, bhikkhave, maggo sattānaṃ visuddhiyā, sokaparidevānaṃ samatikkamāya, dukkhadomanassānaṃ atthaṅgamāya, ñāyassa adhigamāya, nibbānassa sacchikiriyāya, yadidaṃ cattāro satipaṭṭhānā.',
     kmVerse: '«ផ្លូវតែមួយ បន្សុទ្ធសត្វ ឈ្នះសោក វិនាសទុក្ខ សម្រេចនិព្វាន — គឺសតិប្បដ្ឋាន ៤»', enVerse: '"The one direct path for the purification of beings … for the realization of Nibbāna — the four foundations of mindfulness."',
     applyK: 'ចាប់ផ្តើមពីសតិដង្ហើម ៥-១០ នាទី រាល់ថ្ងៃ — ដូចដែលរៀបរាប់ក្នុងទំព័រសមាធិ។', applyE: 'Begin with mindfulness of the breath for five to ten minutes daily, as taught on the Meditation page.',
     tags: ['Mindfulness', 'Direct Path', 'Insight Manual'],
@@ -257,6 +266,7 @@ const suttas = [
       { km: 'លើសពីនេះ ទ្រង់បង្ហាញមិត្តក្លែងក្លាយ ៤ ប្រភេទ (អ្នកចូលចិត្តតែយក អ្នកចេះតែនិយាយ អ្នកលួងលោម អ្នកដឹកនាំតាមផ្លូវវិនាស) និងមិត្តពិតដោយចិត្តសប្បុរស ៤ ប្រភេទ។', en: 'Beyond this, he reveals the four false friends — the taker, the talker, the flatterer, the companion of ruin — and the four true friends who are warm at heart.' },
     ],
     raw: 'បុរត្ថិមា ទិសា មាតាបិតរោ ទក្ខិណា ទិសា អាចរិយា បច្ឆិមា ទិសា បុត្តទារា ឧត្តរា ទិសា មិត្តាមច្ចា ហេដ្ឋិមា ទិសា ទាសកម្មករា ឧបរិមា ទិសា សមណព្រាហ្មណា ។',
+    pali: 'Cha imā, gahapatiputta, disā veditabbā. Puratthimā disā mātāpitaro veditabbā, dakkhiṇā disā ācariyā veditabbā, pacchimā disā puttadārā veditabbā, uttarā disā mittāmaccā veditabbā, heṭṭhimā disā dāsakammakarā veditabbā, uparimā disā samaṇabrāhmaṇā veditabbā.',
     kmVerse: '«ទិសទាំង ៦ ដែលគួរសេពគប់៖ មាតាបិតា អាចារ្យ ប្រពន្ធ-កូន មិត្ត អ្នកបម្រើ-កម្មករ និងសមណព្រាហ្មណ៍»', enVerse: '"The six directions to be honoured: parents, teachers, wife and children, friends, servants and workers, and ascetics and brahmins."',
     applyK: 'ក្នុងគ្រួសារ និងកន្លែងធ្វើការ — សួរខ្លួនឯងថា «តើខ្ញុំកំពុងបំពេញករណីយកិច្ច ចំពោះអ្នកជុំវិញខ្លួនដែរឬទេ?»', applyE: 'In your family and workplace, ask yourself: am I fulfilling my duties toward everyone around me?',
     tags: ['Lay Ethics', '6 Directions', 'Family Duties'],
@@ -282,6 +292,7 @@ const suttas = [
       { km: 'បិទបញ្ចប់៖ ហេតុវិនាសទាំង ១២ នេះ គួរវៀរចាកទាំងអស់ — អ្នកដែលវៀរបាន មិនចាញ់ទិសណាឡើយ។', en: 'In closing: these twelve causes of ruin should all be avoided — one who avoids them is undefeated in every direction.' },
     ],
     raw: '',
+    pali: 'Parābhavantaṃ purisaṃ, mayaṃ pucchāma Gotama; bhavantaṃ puṭṭhumāgamma, kiṃ parābhavato mukhaṃ?',
     kmVerse: '«បុគ្គលណា ប្រកបនូវហេតុវិនាសទាំងនេះ — បុគ្គលនោះ ឈ្មោះថា អ្នកវិនាស»', enVerse: '"One who pursues these causes is called a person in ruin — abandon them and stand apart."',
     applyK: 'រាល់ល្ងាច សួរខ្លួនឯងថា «ថ្ងៃនេះ ខ្ញុំកំពុងបោះជំហាន លើផ្លូវណា?» — ឃើញវិនាសហើយ កែមកធម៌វិញ។', applyE: 'Each evening ask yourself which of these you might be sliding into — then steer back to the Dhamma.',
     tags: ['Causes of Ruin', 'Lay Advice', 'Devata Question'],

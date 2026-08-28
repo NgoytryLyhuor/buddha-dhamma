@@ -532,6 +532,95 @@ html.dark .offline-banner {
   transition: all 0.25s;
   opacity: 0.9;
 }
+/* Install / download prompt */
+.install-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+.install-card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  padding: 24px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--ink);
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+.install-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.install-close:hover {
+  color: var(--accent);
+}
+.install-ico {
+  font-size: 34px;
+  color: var(--accent-bright);
+}
+.install-title {
+  margin-top: 8px;
+  font-family: 'Kantumruy Pro', 'Noto Serif Khmer', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.install-text {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.install-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-card);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.install-btn:hover {
+  opacity: 0.85;
+}
+.install-dontagain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+.install-dontagain input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 /* Print: show only the reading content, black-on-white, all details open */
 @media print {
   @page {
@@ -548,7 +637,8 @@ html.dark .offline-banner {
   footer,
   .search-overlay,
   .scroll-top-btn,
-  .settings-panel {
+  .settings-panel,
+  .install-backdrop {
     display: none !important;
   }
   main {

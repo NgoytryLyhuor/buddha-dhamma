@@ -218,6 +218,32 @@
         <a href="https://t.me/ngoytrylyhuor" target="_blank" rel="noopener" style="color: var(--accent)">{{ t('ឧបាសកង៉ុយទ្រី លីហួរ', 'NGOYTRY LYHUOR') }}</a>
       </p>
     </footer>
+
+    <!-- Install / download prompt -->
+    <transition name="fade">
+      <div v-if="showInstallPrompt" class="install-backdrop" role="dialog" aria-modal="true" :aria-label="t('ដំឡើងកម្មវិធី', 'Install the app')">
+        <div class="install-card" @click.stop>
+          <button class="install-close" @click="closeInstallPrompt" :aria-label="t('បិទ', 'Close')">&#10005;</button>
+          <div class="install-ico" aria-hidden="true">&#9784;</div>
+          <h3 class="install-title">{{ t('ដំឡើងកម្មវិធី', 'Install the app') }}</h3>
+          <p class="install-text">
+            {{ t(installHelp
+              ? 'ប្រើម៉ឺនុយរបស់កម្មវិធីរុករក "បន្ថែមទៅអេក្រង់ដើម" ដើម្បីអានក្រៅបណ្តាញ។'
+              : 'ដំឡើងកម្មវិធីដើម្បីអានព្រះធម៌សូម្បីតែគ្មានអ៊ីនធឺណិត និងចូលប្រើលឿនជាងមុន។',
+              installHelp
+                ? 'Use your browser menu > "Add to Home Screen" to read offline.'
+                : 'Install the app to read the Dhamma even without internet and open it faster.') }}
+          </p>
+          <button class="install-btn" @click="installApp">
+            {{ t('ទាញយក / ដំឡើង', 'Download / Install') }}
+          </button>
+          <label class="install-dontagain">
+            <input type="checkbox" v-model="installChecked">
+            <span>{{ t('កុំបង្ហាញម្តងទៀត', "Don't show this again") }}</span>
+          </label>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -250,7 +276,7 @@ const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSp
 const { font, setFont } = useFont()
 
 function resetSettings() {
-  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_contrast']
+  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_contrast', 'bd_install_dismissed']
     .forEach(k => localStorage.removeItem(k))
   clearSavedScroll()
   location.reload()
@@ -325,10 +351,40 @@ const online = ref(typeof navigator !== 'undefined' ? navigator.onLine !== false
 function updateOnline() { online.value = navigator.onLine !== false }
 const installPrompt = ref(null)
 const canInstall = computed(() => !!installPrompt.value)
+const isStandalone = ref(
+  typeof navigator !== 'undefined'
+    && ((typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+      || navigator.standalone === true)
+)
+const installDismissed = ref(localStorage.getItem('bd_install_dismissed') === '1')
+const installChecked = ref(false)
+const installHelp = ref(false)
+const showInstallPrompt = ref(false)
+let installTimer = null
+
+function openInstallPrompt() {
+  if (isStandalone.value || installDismissed.value) return
+  showInstallPrompt.value = true
+}
 function installApp() {
-  if (!installPrompt.value) return
-  installPrompt.value.prompt()
-  installPrompt.value = null
+  if (installPrompt.value) {
+    const p = installPrompt.value
+    p.prompt()
+    p.userChoice.then((choice) => {
+      if (choice.outcome === 'accepted') {
+        installPrompt.value = null
+        installChecked.value = true
+        closeInstallPrompt()
+      }
+    })
+  } else {
+    installHelp.value = true
+  }
+}
+function closeInstallPrompt() {
+  if (installChecked.value) localStorage.setItem('bd_install_dismissed', '1')
+  showInstallPrompt.value = false
+  installHelp.value = false
 }
 onMounted(() => {
   window.addEventListener('online', updateOnline)
@@ -338,7 +394,15 @@ onMounted(() => {
     installPrompt.value = e
   }
   window.addEventListener('beforeinstallprompt', onBeforeInstall)
-  window.addEventListener('appinstalled', () => { installPrompt.value = null })
+  window.addEventListener('appinstalled', () => {
+    installPrompt.value = null
+    installChecked.value = true
+    closeInstallPrompt()
+  })
+  installTimer = setTimeout(openInstallPrompt, 1500)
+})
+onBeforeUnmount(() => {
+  if (installTimer) clearTimeout(installTimer)
 })
 
 const query = ref('')

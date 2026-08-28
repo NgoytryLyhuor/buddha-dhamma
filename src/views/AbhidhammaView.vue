@@ -38,8 +38,20 @@
           </summary>
           <div class="px-4 pb-4">
             <p class="text-xs mb-3" :style="{ color: 'var(--ink-muted)' }">{{ t(g.kmBody, g.enBody) }}</p>
-            <div class="flex flex-wrap gap-2">
-              <span v-for="c in g.chips" :key="c" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c }}</span>
+            <div v-for="(sub, si) in g.subs" :key="sub.en" class="mb-3">
+              <p class="flex items-center gap-2 flex-wrap text-xs font-bold" :style="{ color: 'var(--accent)' }">
+                <span>{{ khNum(si + 1) }})</span>
+                <span>{{ t(sub.km, sub.en) }}</span>
+                <span class="paali">{{ sub.n }}</span>
+                <span class="text-[10px] font-normal" :style="{ color: 'var(--ink-muted)' }">{{ sub.factor }}</span>
+              </p>
+              <ol v-if="sub.items" class="mt-1.5 space-y-0.5">
+                <li v-for="(it, ii) in sub.items" :key="sub.en + ii" class="flex gap-2 text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                  <span class="shrink-0" :style="{ color: 'var(--ink-faint)' }">{{ khNum(ii + 1) }}.</span>
+                  <span>{{ t(it.kh, it.en) }}</span>
+                </li>
+              </ol>
+              <p v-if="sub.note" class="text-[11px] italic mt-1" :style="{ color: 'var(--ink-muted)' }">{{ t(sub.note.km, sub.note.en) }}</p>
             </div>
           </div>
         </details>
@@ -140,6 +152,11 @@ Chart.register(...registerables)
 const { theme, getChartColors } = useTheme()
 const { t, lang } = useLanguage()
 
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
+}
+
 const ultimates = [
   { paali: 'CITTA', n: '89', km: 'ចិត្ត', en: 'Consciousness', kmBody: 'ចិត្តដែលដឹងអារម្មណ៍ កើតរលត់រៀងរាល់ខណៈ រាប់មិនអស់។', enBody: 'the moment of knowing an object, arising and passing every instant.' },
   { paali: 'CETASIKA', n: '52', km: 'ចេតសិក', en: 'Mental Factors', kmBody: 'ធម៌ប្រចាំចិត្ត ជាគ្រឿងតាកបែងសភាពល្អ អាក្រក់ កណ្តាល។', enBody: 'factors that accompany citta and colour it good, bad or neutral.' },
@@ -148,12 +165,153 @@ const ultimates = [
 ]
 
 const cittaDetail = [
-  { km: 'អកុសលចិត្ត', en: 'Unwholesome roots', n: '12', kmBody: 'កើតពីលោភៈ ទោសៈ មោហៈ។', enBody: 'rooted in greed, aversion, delusion.', chips: ['លោភមូល ៨ (8)', 'ទោសមូល ២ (2)', 'មោហមូល ២ (2)'] },
-  { km: 'អហេតុកចិត្ត', en: 'Rootless', n: '18', kmBody: 'មិនមានឫសល្អឬអាក្រក់។', enBody: 'without wholesome or unwholesome roots.', chips: ['កុសលវិបាក ៧ (7)', 'អកុសលវិបាក ៧ (7)', 'កិរិយាចិត្ត ៤ (4)'] },
-  { km: 'កាមសោភណចិត្ត', en: 'Sense-sphere beautiful', n: '24', kmBody: 'ចិត្តស្រស់ស្អាតក្នុងកាមលោក។', enBody: 'beautiful consciousness of the sense world.', chips: ['មហាកុសល ៨ (8)', 'មហាវិបាក ៨ (8)', 'មហាកិរិយា ៨ (8)'] },
-  { km: 'រូបាវចរចិត្ត', en: 'Fine-material', n: '15', kmBody: 'ចិត្តឈានទាំង ៥ ដួងៗ គុណ ៣។', enBody: 'five rūpa-jhānas × kusala/vipāka/kiriya.', chips: ['កុសល ៥ (5)', 'វិបាក ៥ (5)', 'កិរិយា ៥ (5)'] },
-  { km: 'អរូបាវចរចិត្ត', en: 'Formless', n: '12', kmBody: 'ឈានអរូប ៤ គឺ អាកាសានញ្ចាយតនៈ វិញ្ញាណញ្ចាយតនៈ អាកិញ្ចញ្ញាយតនៈ នេវសញ្ញានាសញ្ញាយតនៈ។', enBody: 'four arūpa spheres × three.', chips: ['កុសល ៤ (4)', 'វិបាក ៤ (4)', 'កិរិយា ៤ (4)'] },
-  { km: 'លោកុត្តរចិត្ត', en: 'Supramundane', n: '8', kmBody: 'ចិត្តដែលផុតចាកលោក។', enBody: 'transcending the world.', chips: ['សោតាបត្តិមគ្គ· ផល', 'សកទាគាមីមគ្គ· ផល', 'អនាគាមីមគ្គ· ផល', 'អរហត្តមគ្គ· ផល'] },
+  {
+    km: 'អកុសលចិត្ត', en: 'Unwholesome roots', n: '12',
+    kmBody: 'កើតពីឫសអាក្រក់ទាំងបី។', enBody: 'rooted in the three unwholesome roots — 8 + 2 + 2.',
+    subs: [
+      {
+        km: 'លោភមូល', en: 'Greed-rooted', n: '8', factor: 'សោមនស្ស/ឧបេក្ខា × ទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × អសង្ខារិក/សសង្ខារិក = ២×២×២', items: [
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wrong-view, unprompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wrong-view, prompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy, no wrong-view, unprompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy, no wrong-view, prompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wrong-view, unprompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wrong-view, prompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity, no wrong-view, unprompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity, no wrong-view, prompted' },
+        ]
+      },
+      {
+        km: 'ទោសមូល', en: 'Aversion-rooted', n: '2', items: [
+          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត អសង្ខារិក', en: 'displeasure + aversion, unprompted' },
+          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត សសង្ខារិក', en: 'displeasure + aversion, prompted' },
+        ]
+      },
+      {
+        km: 'មោហមូល', en: 'Delusion-rooted', n: '2', items: [
+          { kh: 'ឧបេក្ខាសហគត វិចិកិច្ឆាសម្បយុត្ត', en: 'equanimity + sceptical doubt' },
+          { kh: 'ឧបេក្ខាសហគត ឧទ្ធច្ចសម្បយុត្ត', en: 'equanimity + restlessness' },
+        ]
+      },
+    ]
+  },
+  {
+    km: 'អហេតុកចិត្ត', en: 'Rootless', n: '18',
+    kmBody: 'មានបីពួកគឺ វិបាកអកុសល ៧ វិបាកកុសល ៨ កិរិយា ៣។', enBody: 'three classes — 7 unwholesome resultants, 8 wholesome resultants, 3 functionals.',
+    subs: [
+      {
+        km: 'វិបាកអកុសល', en: 'Unwholesome resultants', n: '7', items: [
+          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness' },
+          { kh: 'ទោមនស្សសហគត សន្តីរណចិត្ត', en: 'investigating, with displeasure' },
+        ]
+      },
+      {
+        km: 'វិបាកកុសល', en: 'Wholesome resultants', n: '8', items: [
+          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness' },
+          { kh: 'សុខសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness, with pleasure' },
+          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness' },
+          { kh: 'ឧបេក្ខាសហគត សន្តីរណចិត្ត', en: 'investigating, with equanimity' },
+          { kh: 'ឧបេក្ខាសហគត តទារម្មណសន្តីរណចិត្ត', en: 'investigating as registering (tadārammaṇa)' },
+        ]
+      },
+      {
+        km: 'កិរិយាចិត្ត', en: 'Functionals (inoperative)', n: '3', items: [
+          { kh: 'ឧបេក្ខាសហគត បញ្ចទ្វារាវជ្ជនចិត្ត', en: 'five-door adverting' },
+          { kh: 'ឧបេក្ខាសហគត មនោទ្វារាវជ្ជនចិត្ត', en: 'mind-door adverting' },
+          { kh: 'សោមនស្សសហគត ហសិតុប្បាទចិត្ត', en: 'smile-producing' },
+        ]
+      },
+    ]
+  },
+  {
+    km: 'កាមសោភណចិត្ត', en: 'Sense-sphere beautiful', n: '24',
+    kmBody: 'ចិត្តល្អក្នុងកាមលោក ៨+៨+៨ — ទាំងបីពួកមានរូបមន្តដូចគ្នា។', enBody: 'beautiful sense-sphere consciousness, 8+8+8 — all three share the same pattern.',
+    subs: [
+      {
+        km: 'មហាកុសល', en: 'Great wholesome', n: '8', factor: '២ ដួងនៃសោមនស្ស/ឧបេក្ខា × ២ នៃទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × ២ នៃអសង្ខារិក/សសង្ខារិក', items: [
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wisdom, unprompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wisdom, prompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy without wisdom, unprompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy without wisdom, prompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wisdom, unprompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wisdom, prompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity without wisdom, unprompted' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity without wisdom, prompted' },
+        ]
+      },
+      {
+        km: 'មហាវិបាក', en: 'Great resultants', n: '8', items: [],
+        note: { km: 'ឈ្មោះ និងរូបមន្ត ៨ ដួង ដូចពួកមហាកុសលខាងលើ ប៉ុន្តែជាប្រភេទវិបាកនៃកុសល។', en: 'Same 8 names and pattern as the great wholesome above, but as their resultants.' }
+      },
+      {
+        km: 'មហាកិរិយា', en: 'Great functionals', n: '8', items: [],
+        note: { km: 'ឈ្មោះ ៨ ដួង ដូចគ្នា ប៉ុន្តែជាកិរិយាចិត្តដែលកើតចំពោះព្រះអរហន្តតែប៉ុណ្ណោះ។', en: 'Same 8 names, but functional — occurring only in the Arahant.' }
+      },
+    ]
+  },
+  {
+    km: 'រូបាវចរចិត្ត', en: 'Fine-material', n: '15',
+    kmBody: 'ឈានរូប ៥ ដួង គុណ ៣ ពួក (៥+៥+៥)។', enBody: 'five fine-material jhānas × three classes (5+5+5).',
+    subs: [
+      {
+        km: 'កុសល ៥', en: '5 wholesome', n: '5', items: [
+          { kh: 'បឋមជ្ឈានចិត្ត', en: '1st jhāna (vitakka·vicāra·pīti·sukha·ekaggatā)' },
+          { kh: 'ទុតិយជ្ឈានចិត្ត', en: '2nd jhāna (vicāra·pīti·sukha·ekaggatā)' },
+          { kh: 'តតិយជ្ឈានចិត្ត', en: '3rd jhāna (pīti·sukha·ekaggatā)' },
+          { kh: 'ចតុត្ថជ្ឈានចិត្ត', en: '4th jhāna (sukha·ekaggatā)' },
+          { kh: 'បញ្ចមជ្ឈានចិត្ត', en: '5th jhāna (upekkhā·ekaggatā)' },
+        ]
+      },
+      { km: 'វិបាក ៥', en: '5 resultants', n: '5', items: [], note: { km: 'ឈ្មោះដូចពួកកុសលខាងលើ តែជាវិបាកនៃឈានកុសល។', en: 'Same 5 jhānas as resultants of the wholesome.' } },
+      { km: 'កិរិយា ៥', en: '5 functionals', n: '5', items: [], note: { km: 'ឈ្មោះដូចគ្នា តែកើតចំពោះព្រះអរហន្ត ក្នុងឈានសមាបត្តិ។', en: 'Same 5, arising only in the Arahant in jhāna attainment.' } },
+    ]
+  },
+  {
+    km: 'អរូបាវចរចិត្ត', en: 'Formless', n: '12',
+    kmBody: 'ឈានអរូប ៤ គុណ ៣ ពួក (៤+៤+៤)។', enBody: 'four formless spheres × three classes (4+4+4).',
+    subs: [
+      {
+        km: 'កុសល ៤', en: '4 wholesome', n: '4', items: [
+          { kh: 'អាកាសានញ្ចាយតនៈ', en: 'base of infinite space' },
+          { kh: 'វិញ្ញាណញ្ចាយតនៈ', en: 'base of infinite consciousness' },
+          { kh: 'អាកិញ្ចញ្ញាយតនៈ', en: 'base of nothingness' },
+          { kh: 'នេវសញ្ញានាសញ្ញាយតនៈ', en: 'base of neither-perception-nor-non-perception' },
+        ]
+      },
+      { km: 'វិបាក ៤', en: '4 resultants', n: '4', items: [], note: { km: 'អាយតនៈ ៤ ដូចខាងលើ ជាវិបាក។', en: 'The same 4 spheres as resultants.' } },
+      { km: 'កិរិយា ៤', en: '4 functionals', n: '4', items: [], note: { km: 'អាយតនៈ ៤ ដូចគ្នា ចំពោះព្រះអរហន្ត។', en: 'The same 4 spheres, only for the Arahant.' } },
+    ]
+  },
+  {
+    km: 'លោកុត្តរចិត្ត', en: 'Supramundane', n: '8',
+    kmBody: 'មគ្គ ៤ និង ផល ៤ (៤+៤)។', enBody: 'four paths and four fruitions (4+4).',
+    subs: [
+      {
+        km: 'មគ្គ ៤', en: '4 Paths', n: '4', items: [
+          { kh: 'សោតាបត្តិមគ្គ', en: 'stream-entry path' },
+          { kh: 'សកទាគាមីមគ្គ', en: 'once-returner path' },
+          { kh: 'អនាគាមីមគ្គ', en: 'non-returner path' },
+          { kh: 'អរហត្តមគ្គ', en: 'arahant path' },
+        ]
+      },
+      {
+        km: 'ផល ៤', en: '4 Fruitions', n: '4', items: [
+          { kh: 'សោតាបត្តិផល', en: 'stream-entry fruition' },
+          { kh: 'សកទាគាមីផល', en: 'once-returner fruition' },
+          { kh: 'អនាគាមីផល', en: 'non-returner fruition' },
+          { kh: 'អរហត្តផល', en: 'arahant fruition' },
+        ]
+      },
+    ]
+  },
 ]
 
 const cetasikaGroups = [

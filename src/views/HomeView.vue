@@ -83,9 +83,9 @@ const { theme, getChartColors } = useTheme()
 const { t, lang } = useLanguage()
 
 const jewels = [
-  { icon: '&#9786;', paali: 'BUDDHO', km: 'ព្រះពុទ្ធ', en: 'The Buddha', kmBody: 'ព្រះអង្គជាអ្នកត្រាស់ដឹងសេចក្តីពិត ដោយព្រះបញ្ញារបស់ព្រះអង្គផ្ទាល់។', enBody: 'The Awakened One who realised the truth by his own wisdom.' },
-  { icon: '&#9784;', paali: 'DHAMMO', km: 'ព្រះធម៌', en: 'The Dhamma', kmBody: 'ពាក្យបង្រៀនដែលត្រាស់ទេសនា អ្នកត្រូវពិនិត្យ ពិចារណា ហើយបដិបត្តិតាម។', enBody: 'The teaching set forth — to be examined, considered, and practised.' },
-  { icon: '&#9837;', paali: 'SAMGHO', km: 'ព្រះសង្ឃ', en: 'The Sangha', kmBody: 'សំណាក់បដិបត្តិដ៏ត្រឹមត្រូវ ជាកុលសម្ពន្ធថ្លៃថ្លារបស់អ្នករកធម៌។', enBody: 'The community of noble practitioners — a precious refuge for the seeker.' },
+  { icon: '☺', paali: 'BUDDHO', km: 'ព្រះពុទ្ធ', en: 'The Buddha', kmBody: 'ព្រះអង្គជាអ្នកត្រាស់ដឹងសេចក្តីពិត ដោយព្រះបញ្ញារបស់ព្រះអង្គផ្ទាល់។', enBody: 'The Awakened One who realised the truth by his own wisdom.' },
+  { icon: '☸', paali: 'DHAMMO', km: 'ព្រះធម៌', en: 'The Dhamma', kmBody: 'ពាក្យបង្រៀនដែលត្រាស់ទេសនា អ្នកត្រូវពិនិត្យ ពិចារណា ហើយបដិបត្តិតាម។', enBody: 'The teaching set forth — to be examined, considered, and practised.' },
+  { icon: '♭', paali: 'SAMGHO', km: 'ព្រះសង្ឃ', en: 'The Sangha', kmBody: 'សំណាក់បដិបត្តិដ៏ត្រឹមត្រូវ ជាកុលសម្ពន្ធថ្លៃថ្លារបស់អ្នករកធម៌។', enBody: 'The community of noble practitioners — a precious refuge for the seeker.' },
 ]
 
 const baskets = [

@@ -14,7 +14,7 @@
 
           <div class="flex items-center gap-2">
             <button class="theme-btn" @click="toggleTheme" :title="t('ប្តូរផ្ទៃ', 'Toggle theme')">
-              {{ theme === 'dark' ? '&#9789;' : '&#9788;' }}
+              {{ theme === 'dark' ? '☽' : '☼' }}
             </button>
             <button class="theme-btn px-3 flex gap-1 items-center text-xs font-bold" @click="toggleLang">
               <span :style="{ color: lang === 'km' ? 'var(--accent)' : 'var(--ink-muted)' }">KM</span>

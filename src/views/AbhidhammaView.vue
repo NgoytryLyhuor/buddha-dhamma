@@ -45,10 +45,13 @@
                 <span class="paali">{{ sub.n }}</span>
                 <span class="text-[10px] font-normal" :style="{ color: 'var(--ink-muted)' }">{{ sub.factor }}</span>
               </p>
-              <ol v-if="sub.items" class="mt-1.5 space-y-0.5">
-                <li v-for="(it, ii) in sub.items" :key="sub.en + ii" class="flex gap-2 text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  <span class="shrink-0" :style="{ color: 'var(--ink-faint)' }">{{ khNum(ii + 1) }}.</span>
-                  <span>{{ t(it.kh, it.en) }}</span>
+              <ol v-if="sub.items" class="mt-1.5 space-y-1.5">
+                <li v-for="(it, ii) in sub.items" :key="sub.en + ii" class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                  <p class="flex gap-2">
+                    <span class="shrink-0" :style="{ color: 'var(--ink-faint)' }">{{ khNum(ii + 1) }}.</span>
+                    <span>{{ t(it.kh, it.en) }}</span>
+                  </p>
+                  <p v-if="it.plain" class="mt-0.5 pl-5 text-[11px] italic" :style="{ color: 'var(--ink-muted)' }">{{ it.plain }}</p>
                 </li>
               </ol>
               <p v-if="sub.note" class="text-[11px] italic mt-1" :style="{ color: 'var(--ink-muted)' }">{{ t(sub.note.km, sub.note.en) }}</p>
@@ -171,26 +174,26 @@ const cittaDetail = [
     subs: [
       {
         km: 'លោភមូល', en: 'Greed-rooted', n: '8', factor: 'សោមនស្ស/ឧបេក្ខា × ទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × អសង្ខារិក/សសង្ខារិក = ២×២×២', items: [
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wrong-view, unprompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wrong-view, prompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy, no wrong-view, unprompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy, no wrong-view, prompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wrong-view, unprompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wrong-view, prompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity, no wrong-view, unprompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity, no wrong-view, prompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy, no wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy, no wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wrong-view, prompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity, no wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity, no wrong-view, prompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ ឥតការយល់ខុស កើតព្រោះគេញុះញង់' },
         ]
       },
       {
         km: 'ទោសមូល', en: 'Aversion-rooted', n: '2', items: [
-          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត អសង្ខារិក', en: 'displeasure + aversion, unprompted' },
-          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត សសង្ខារិក', en: 'displeasure + aversion, prompted' },
+          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត អសង្ខារិក', en: 'displeasure + aversion, unprompted', plain: 'ចិត្តក្រោធ មិនសប្បាយ កើតដោយខ្លួនឯង' },
+          { kh: 'ទោមនស្សសហគត បដិឃសម្បយុត្ត សសង្ខារិក', en: 'displeasure + aversion, prompted', plain: 'ចិត្តក្រោធ មិនសប្បាយ កើតព្រោះគេញុះញង់' },
         ]
       },
       {
         km: 'មោហមូល', en: 'Delusion-rooted', n: '2', items: [
-          { kh: 'ឧបេក្ខាសហគត វិចិកិច្ឆាសម្បយុត្ត', en: 'equanimity + sceptical doubt' },
-          { kh: 'ឧបេក្ខាសហគត ឧទ្ធច្ចសម្បយុត្ត', en: 'equanimity + restlessness' },
+          { kh: 'ឧបេក្ខាសហគត វិចិកិច្ឆាសម្បយុត្ត', en: 'equanimity + sceptical doubt', plain: 'ចិត្តសង្ស័យច្របូកច្របល់ អារម្មណ៍រាបស្មើ' },
+          { kh: 'ឧបេក្ខាសហគត ឧទ្ធច្ចសម្បយុត្ត', en: 'equanimity + restlessness', plain: 'ចិត្តរាយមាយមិនស្ងប់ អារម្មណ៍រាបស្មើ' },
         ]
       },
     ]
@@ -201,32 +204,32 @@ const cittaDetail = [
     subs: [
       {
         km: 'វិបាកអកុសល', en: 'Unwholesome resultants', n: '7', items: [
-          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness' },
-          { kh: 'ទោមនស្សសហគត សន្តីរណចិត្ត', en: 'investigating, with displeasure' },
+          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness', plain: 'ចិត្តដឹងអ្វីដែលឃើញដោយភ្នែក' },
+          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness', plain: 'ចិត្តដឹងអ្វីដែលឮដោយត្រចៀក' },
+          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness', plain: 'ចិត្តដឹងក្លិនដោយច្រមុះ' },
+          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness', plain: 'ចិត្តដឹងរសដោយអណ្ដាត' },
+          { kh: 'ឧបេក្ខាសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness', plain: 'ចិត្តដឹងការប៉ះដោយកាយ' },
+          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness', plain: 'ចិត្តទទួលយកអារម្មណ៍ដែលមកដល់' },
+          { kh: 'ទោមនស្សសហគត សន្តីរណចិត្ត', en: 'investigating, with displeasure', plain: 'ចិត្តពិនិត្យអារម្មណ៍ នឹកមិនសប្បាយ' },
         ]
       },
       {
         km: 'វិបាកកុសល', en: 'Wholesome resultants', n: '8', items: [
-          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness' },
-          { kh: 'សុខសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness, with pleasure' },
-          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness' },
-          { kh: 'ឧបេក្ខាសហគត សន្តីរណចិត្ត', en: 'investigating, with equanimity' },
-          { kh: 'ឧបេក្ខាសហគត តទារម្មណសន្តីរណចិត្ត', en: 'investigating as registering (tadārammaṇa)' },
+          { kh: 'ឧបេក្ខាសហគត ចក្ខុវិញ្ញាណចិត្ត', en: 'eye-consciousness', plain: 'ចិត្តដឹងអ្វីដែលឃើញដោយភ្នែក' },
+          { kh: 'ឧបេក្ខាសហគត សោតវិញ្ញាណចិត្ត', en: 'ear-consciousness', plain: 'ចិត្តដឹងអ្វីដែលឮដោយត្រចៀក' },
+          { kh: 'ឧបេក្ខាសហគត ឃានវិញ្ញាណចិត្ត', en: 'nose-consciousness', plain: 'ចិត្តដឹងក្លិនដោយច្រមុះ' },
+          { kh: 'ឧបេក្ខាសហគត ជីវ្ហាវិញ្ញាណចិត្ត', en: 'tongue-consciousness', plain: 'ចិត្តដឹងរសដោយអណ្ដាត' },
+          { kh: 'សុខសហគត កាយវិញ្ញាណចិត្ត', en: 'body-consciousness, with pleasure', plain: 'ចិត្តដឹងការប៉ះដោយកាយ មានអារម្មណ៍ស្រួលសប្បាយ' },
+          { kh: 'ឧបេក្ខាសហគត សម្បដិច្ឆនចិត្ត', en: 'receiving-consciousness', plain: 'ចិត្តទទួលយកអារម្មណ៍ដែលមកដល់' },
+          { kh: 'ឧបេក្ខាសហគត សន្តីរណចិត្ត', en: 'investigating, with equanimity', plain: 'ចិត្តពិនិត្យអារម្មណ៍ អារម្មណ៍រាបស្មើ' },
+          { kh: 'ឧបេក្ខាសហគត តទារម្មណសន្តីរណចិត្ត', en: 'investigating as registering (tadārammaṇa)', plain: 'ចិត្តពិនិត្យតាមដានអារម្មណ៍ម្ដងទៀត (តទារម្មណ៍)' },
         ]
       },
       {
         km: 'កិរិយាចិត្ត', en: 'Functionals (inoperative)', n: '3', items: [
-          { kh: 'ឧបេក្ខាសហគត បញ្ចទ្វារាវជ្ជនចិត្ត', en: 'five-door adverting' },
-          { kh: 'ឧបេក្ខាសហគត មនោទ្វារាវជ្ជនចិត្ត', en: 'mind-door adverting' },
-          { kh: 'សោមនស្សសហគត ហសិតុប្បាទចិត្ត', en: 'smile-producing' },
+          { kh: 'ឧបេក្ខាសហគត បញ្ចទ្វារាវជ្ជនចិត្ត', en: 'five-door adverting', plain: 'ចិត្តបង្វែរទៅរកអារម្មណ៍តាមទ្វារទាំងប្រាំ' },
+          { kh: 'ឧបេក្ខាសហគត មនោទ្វារាវជ្ជនចិត្ត', en: 'mind-door adverting', plain: 'ចិត្តបង្វែរទៅរកអារម្មណ៍តាមទ្វារចិត្ត (មនសិការ)' },
+          { kh: 'សោមនស្សសហគត ហសិតុប្បាទចិត្ត', en: 'smile-producing', plain: 'ចិត្តបង្កើតសេចក្ដីញញឹម កើតក្នុងព្រះអរហន្តប៉ុណ្ណោះ' },
         ]
       },
     ]
@@ -237,14 +240,14 @@ const cittaDetail = [
     subs: [
       {
         km: 'មហាកុសល', en: 'Great wholesome', n: '8', factor: '២ ដួងនៃសោមនស្ស/ឧបេក្ខា × ២ នៃទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × ២ នៃអសង្ខារិក/សសង្ខារិក', items: [
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wisdom, unprompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wisdom, prompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy without wisdom, unprompted' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy without wisdom, prompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wisdom, unprompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wisdom, prompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity without wisdom, unprompted' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity without wisdom, prompted' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy without wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy without wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wisdom, prompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity without wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity without wisdom, prompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ ឥតបញ្ញា កើតព្រោះគេញុះញង់' },
         ]
       },
       {
@@ -263,11 +266,11 @@ const cittaDetail = [
     subs: [
       {
         km: 'កុសល ៥', en: '5 wholesome', n: '5', items: [
-          { kh: 'បឋមជ្ឈានចិត្ត', en: '1st jhāna (vitakka·vicāra·pīti·sukha·ekaggatā)' },
-          { kh: 'ទុតិយជ្ឈានចិត្ត', en: '2nd jhāna (vicāra·pīti·sukha·ekaggatā)' },
-          { kh: 'តតិយជ្ឈានចិត្ត', en: '3rd jhāna (pīti·sukha·ekaggatā)' },
-          { kh: 'ចតុត្ថជ្ឈានចិត្ត', en: '4th jhāna (sukha·ekaggatā)' },
-          { kh: 'បញ្ចមជ្ឈានចិត្ត', en: '5th jhāna (upekkhā·ekaggatā)' },
+          { kh: 'បឋមជ្ឈានចិត្ត', en: '1st jhāna (vitakka·vicāra·pīti·sukha·ekaggatā)', plain: 'ឈានទី១ — ចិត្តស្ងប់ជ្រៅ មានការគិតពិចារណា រីករាយ ស្រួលសប្បាយ និងមូលចិត្ត' },
+          { kh: 'ទុតិយជ្ឈានចិត្ត', en: '2nd jhāna (vicāra·pīti·sukha·ekaggatā)', plain: 'ឈានទី២ — ចិត្តស្ងប់ជ្រៅ លែងគិត នៅសល់រីករាយ ស្រួលសប្បាយ មូលចិត្ត' },
+          { kh: 'តតិយជ្ឈានចិត្ត', en: '3rd jhāna (pīti·sukha·ekaggatā)', plain: 'ឈានទី៣ — ចិត្តស្ងប់ជ្រៅ លែងរីករាយ នៅសល់ស្រួលសប្បាយ មូលចិត្ត' },
+          { kh: 'ចតុត្ថជ្ឈានចិត្ត', en: '4th jhāna (sukha·ekaggatā)', plain: 'ឈានទី៤ — ចិត្តស្ងប់ជ្រៅ លែងរំភើប មូលចិត្ត' },
+          { kh: 'បញ្ចមជ្ឈានចិត្ត', en: '5th jhāna (upekkhā·ekaggatā)', plain: 'ឈានទី៥ — ចិត្តស្ងប់ជ្រៅ អារម្មណ៍រាបស្មើ មូលចិត្ត' },
         ]
       },
       { km: 'វិបាក ៥', en: '5 resultants', n: '5', items: [], note: { km: 'ឈ្មោះដូចពួកកុសលខាងលើ តែជាវិបាកនៃឈានកុសល។', en: 'Same 5 jhānas as resultants of the wholesome.' } },
@@ -280,10 +283,10 @@ const cittaDetail = [
     subs: [
       {
         km: 'កុសល ៤', en: '4 wholesome', n: '4', items: [
-          { kh: 'អាកាសានញ្ចាយតនៈ', en: 'base of infinite space' },
-          { kh: 'វិញ្ញាណញ្ចាយតនៈ', en: 'base of infinite consciousness' },
-          { kh: 'អាកិញ្ចញ្ញាយតនៈ', en: 'base of nothingness' },
-          { kh: 'នេវសញ្ញានាសញ្ញាយតនៈ', en: 'base of neither-perception-nor-non-perception' },
+          { kh: 'អាកាសានញ្ចាយតនៈ', en: 'base of infinite space', plain: 'កន្លែងនៃលំហអាកាសឥតកំណត់' },
+          { kh: 'វិញ្ញាណញ្ចាយតនៈ', en: 'base of infinite consciousness', plain: 'កន្លែងនៃវិញ្ញាណឥតកំណត់' },
+          { kh: 'អាកិញ្ចញ្ញាយតនៈ', en: 'base of nothingness', plain: 'កន្លែងនៃការដឹងថា គ្មានអ្វីសោះ' },
+          { kh: 'នេវសញ្ញានាសញ្ញាយតនៈ', en: 'base of neither-perception-nor-non-perception', plain: 'កន្លែងដែលឥតមានសញ្ញា ក៏ឥតមិនមានសញ្ញា' },
         ]
       },
       { km: 'វិបាក ៤', en: '4 resultants', n: '4', items: [], note: { km: 'អាយតនៈ ៤ ដូចខាងលើ ជាវិបាក។', en: 'The same 4 spheres as resultants.' } },
@@ -296,18 +299,18 @@ const cittaDetail = [
     subs: [
       {
         km: 'មគ្គ ៤', en: '4 Paths', n: '4', items: [
-          { kh: 'សោតាបត្តិមគ្គ', en: 'stream-entry path' },
-          { kh: 'សកទាគាមីមគ្គ', en: 'once-returner path' },
-          { kh: 'អនាគាមីមគ្គ', en: 'non-returner path' },
-          { kh: 'អរហត្តមគ្គ', en: 'arahant path' },
+          { kh: 'សោតាបត្តិមគ្គ', en: 'stream-entry path', plain: 'ផ្លូវចូលទន្លេសួស្ដី — លំអាងលោកកើតដំបូង កាត់កិលេសធំៗ' },
+          { kh: 'សកទាគាមីមគ្គ', en: 'once-returner path', plain: 'ផ្លូវរបស់អ្នក ដែលត្រឡប់មកកើតក្នុងលោកតែម្ដងទៀតប៉ុណ្ណោះ' },
+          { kh: 'អនាគាមីមគ្គ', en: 'non-returner path', plain: 'ផ្លូវរបស់អ្នក ដែលមិនត្រឡប់មកលោកនេះទៀត' },
+          { kh: 'អរហត្តមគ្គ', en: 'arahant path', plain: 'ផ្លូវរបស់ព្រះអរហន្ត — រំលត់កិលេសទាំងអស់' },
         ]
       },
       {
         km: 'ផល ៤', en: '4 Fruitions', n: '4', items: [
-          { kh: 'សោតាបត្តិផល', en: 'stream-entry fruition' },
-          { kh: 'សកទាគាមីផល', en: 'once-returner fruition' },
-          { kh: 'អនាគាមីផល', en: 'non-returner fruition' },
-          { kh: 'អរហត្តផល', en: 'arahant fruition' },
+          { kh: 'សោតាបត្តិផល', en: 'stream-entry fruition', plain: 'ផល ដែលស្រេចពីផ្លូវចូលទន្លេសួស្ដី' },
+          { kh: 'សកទាគាមីផល', en: 'once-returner fruition', plain: 'ផល ដែលស្រេចពីផ្លូវរបស់អ្នកត្រឡប់មកម្ដងទៀត' },
+          { kh: 'អនាគាមីផល', en: 'non-returner fruition', plain: 'ផល ដែលស្រេចពីផ្លូវរបស់អ្នកមិនត្រឡប់មកទៀត' },
+          { kh: 'អរហត្តផល', en: 'arahant fruition', plain: 'ផល ដែលស្រេចពីផ្លូវព្រះអរហន្ត' },
         ]
       },
     ]

@@ -220,3 +220,32 @@ details[open] > summary .caret { transform: rotate(180deg); }
   transition: all 0.2s;
 }
 .footer-share .share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Scroll to top button */
+.scroll-top-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 55;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--accent);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--halo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  opacity: 0.9;
+}
+.scroll-top-btn:hover {
+  background: var(--accent);
+  color: var(--bg-card);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}

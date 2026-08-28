@@ -79,6 +79,14 @@
       </div>
     </div>
 
+    <!-- Scroll to top -->
+    <button v-if="showScrollTop"
+      class="scroll-top-btn" @click="scrollToTop"
+      :title="t('ត្រឡប់ទៅកំពូល', 'Back to top')"
+      :aria-label="t('ត្រឡប់ទៅកំពូល', 'Back to top')">
+      &#8593;
+    </button>
+
     <!-- Main reading column -->
     <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
       <router-view />
@@ -107,7 +115,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
@@ -134,6 +142,16 @@ const nav = [
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
+
+const showScrollTop = ref(false)
+const onScroll = () => {
+  showScrollTop.value = window.scrollY > 400
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
 const query = ref('')
 const searchOpen = ref(false)

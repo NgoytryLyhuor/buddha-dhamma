@@ -20,7 +20,7 @@
 
     <!-- the chants -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('បន្ទូលជម្រើស ៩ — សូត្ររាល់ថ្ងៃ', 'NINE DAILY RECITALS — CHANT WITH THE HEART') }}</p>
+      <p class="chapter-label">{{ t('បន្ទូលជម្រើស ១០ — សូត្ររាល់ថ្ងៃ', 'TEN DAILY RECITALS — CHANT WITH THE HEART') }}</p>
     </div>
 
     <div class="mt-4 space-y-4">
@@ -331,6 +331,47 @@ const chants = [
     meanE: 'The thirty-eight blessings: 1) not mixing with fools, 2) associating with the wise, 3) honouring the worthy, 4) living in a fitting place, 5) past good deeds, 6) setting oneself aright, 7) much learning, 8) skill in a craft, 9) well-trained discipline, 10) pleasant speech, 11) supporting mother and father, 12) caring for one\'s children and spouse, 13) an orderly livelihood, 14) generosity, 15) righteous conduct, 16) helping relatives, 17) blameless deeds, 18) turning away from evil, 19) abstaining from evil, 20) refraining from intoxicants, 21) diligence in the Dhamma, 22) respect, 23) humility, 24) contentment, 25) gratitude, 26) hearing the Dhamma in season, 27) patience, 28) gentleness and being easy to admonish, 29) seeing recluses, 30) timely discussion of the Dhamma, 31) austerity, 32) the holy life, 33) insight into the noble truths, 34) realization of Nibbāna, 35) a mind unshaken by worldly ways, 36) sorrowless, 37) stainless, 38) secure and at peace. One blessed with all these is undefeated in every direction — safe and happy everywhere.',
     applyK: 'រៀងរាល់ព្រឹក សូត្រមង្គល មួយប្រការ មួយថ្ងៃម្តង — យកមកបដិបត្តិ ជីវិត នឹងប្រែល្អបន្តិចម្តងៗ។',
     applyE: 'Each morning recite one blessing and live it that day — life slowly turns for the better.',
+  },
+  {
+    src: 'PARĀBHAVA SUTTA — SN 1.6',
+    km: 'បរាភវសូត្រ — ហេតុវិនាស', en: 'The Discourse on Downfall (Parābhava Sutta)',
+    noteK: 'ទេវតាអង្គមួយ មកសួរព្រះពុទ្ធ ថាអ្វីជាហេតុនាំឲ្យមនុស្សវិនាស។ ព្រះពុទ្ធ ទ្រង់ត្រាស់ ហេតុវិនាស ១២ ប្រការ។', en: 'A deva asked the Buddha what brings a person to ruin. The Buddha answered with twelve causes of downfall.',
+    lines: [
+      'បរាភវន្តំ បុរិសំ មយំ បុច្ឆាម គោតម; ភវន្តំ បុដ្ឋុមាគម្ម កិំ បរាភវតោ មុខំ។',
+      'សុវិជានោ ភវំ ហោតិ សុវិជានោ បរាភវោ; ធម្មកាមោ ភវំ ហោតិ ធម្មទេស្សី បរាភវោ។',
+      'អសន្តស្ស បិយា ហោន្តិ សន្តេ ន កុរុតេ បិយំ; អសតំ ធម្មំ រោចេតិ តំ បរាភវតោ មុខំ។',
+      'និទ្ទាសីលី សភាសីលី អនុដ្ឋាតា ច យោ នរោ; អលសោ កោធបញ្ញាណោ តំ បរាភវតោ មុខំ។',
+      'យោ មាតរំ បិតរំ វា ជិណ្ណកំ គតយោព្វនំ; បហុ សន្តោ ន ភរតិ តំ បរាភវតោ មុខំ។',
+      'យោ ព្រាហ្មណំ សមណំ វា អញ្ញំ វាបិ វនិព្វកំ; មុសាវាទេន វញ្ចេតិ តំ បរាភវតោ មុខំ។',
+      'បហូតវិត្តោ បុរិសោ សហិរញ្ញោ សភោជនោ; ឯកោ ភុញ្ជតិ សាទូនិ តំ បរាភវតោ មុខំ។',
+      'ជាតិត្ថទ្ធោ ធនត្ថទ្ធោ គោត្តត្ថទ្ធោ ច យោ នរោ; សញ្ញាតិំ អតិមញ្ញេតិ តំ បរាភវតោ មុខំ។',
+      'ឥត្ថិធុត្តោ សុរាធុត្តោ អក្ខធុត្តោ ច យោ នរោ; លទ្ធំ លទ្ធំ វិនាសេតិ តំ បរាភវតោ មុខំ។',
+      'សេហិ ទារេហិ អសន្តុដ្ឋោ វេសិយាសុ បទុស្សតិ; ទុស្សតិ បរាទារេសុ តំ បរាភវតោ មុខំ។',
+      'អតីតយោព្វនោ បោសោ អានេតិ តិម្ពរុត្ថនិំ; តស្សា ឥស្សា ន សុបតិ តំ បរាភវតោ មុខំ។',
+      'ឥត្ថិំ សោណ្ឌិំ វិកិរណិំ បុរិសំ វាបិ តាទិសំ; ឥស្សរិយស្មិំ ឋបេតិ តំ បរាភវតោ មុខំ។',
+      'អប្បភោគោ មហាតណ្ហោ ខត្តិយេ ជាយតេ កុលេ; សោ ច រជ្ជំ បត្ថយតិ តំ បរាភវតោ មុខំ។',
+      'ឯតេ បរាភវេ លោកេ បណ្ឌិតោ សមវេក្ខិយ; អរិយោ ទស្សនសម្បន្នោ ស លោកំ ភជតេ សិវំ។',
+    ],
+    roman: 'Parābhavantaṃ purisaṃ, mayaṃ pucchāma Gotama; bhavantaṃ puṭṭhumāgamma, kiṃ parābhavato mukhaṃ. Suvijāno bhavaṃ hoti, suvijāno parābhavo; dhammakāmo bhavaṃ hoti, dhammadessī parābhavo ... Ete parābhave loke, paṇḍito samavekkhiya; ariyo dassanasampanno, sa lokaṃ bhajate sivaṃ.',
+    gloss: [
+      { w: 'បរាភវន្តំ បុរិសំ', km: 'អំពីបុគ្គល ដែលកំពុងវិនាស', en: 'about a person in decline' },
+      { w: 'មយំ បុច្ឆាម គោតម', km: 'យើងខ្ញុំ សួរព្រះគោតម', en: 'we ask you, Gotama' },
+      { w: 'ភវន្តំ បុដ្ឋុមាគម្ម', km: 'យើង មកទូលសួរ ព្រះអង្គ', en: 'we have come to question you' },
+      { w: 'កិំ បរាភវតោ មុខំ', km: 'អ្វីជាប្រភព នៃសេចក្តីវិនាស', en: 'what is the source of downfall' },
+      { w: 'សុវិជានោ ភវំ ហោតិ', km: 'ងាយ ស្គាល់ អ្នកដែលចម្រើន', en: 'easily known is the progressive one' },
+      { w: 'សុវិជានោ បរាភវោ', km: 'ងាយ ស្គាល់ អ្នកដែលវិនាស', en: 'easily known is the one declining' },
+      { w: 'ធម្មកាមោ ភវំ ហោតិ', km: 'អ្នកស្រឡាញ់ធម៌ ទើបចម្រើន', en: 'one who loves the Dhamma grows' },
+      { w: 'ធម្មទេស្សី បរាភវោ', km: 'អ្នកស្អប់ធម៌ ទើបវិនាស', en: 'one who hates the Dhamma declines' },
+      { w: 'លទ្ធំ លទ្ធំ វិនាសេតិ', km: 'ទ្រព្យ ដែលរកបានរាល់ដង ស្រេចបញ្ចេញឲ្យអស់', en: 'squandering all that is gained' },
+      { w: 'ឯតេ បរាភវេ លោកេ', km: 'ហេតុវិនាស ទាំងនេះ ក្នុងលោក', en: 'these causes of ruin in the world' },
+      { w: 'បណ្ឌិតោ សមវេក្ខិយ', km: 'អ្នកប្រាជ្ញ ឃើញហើយ', en: 'having seen them, the wise' },
+      { w: 'អរិយោ ទស្សនសម្បន្នោ', km: 'អ្នកបរិសុទ្ធ បរិបូណ៌ ដោយបញ្ញាភ្នែកធម៌', en: 'the noble one, endowed with vision' },
+      { w: 'ស លោកំ ភជតេ សិវំ', km: 'អ្នកនោះ បរិភោគលោក ដ៏សេចក្តីសុខ', en: 'they enjoy a world at peace' },
+    ],
+    meanK: 'ទេវតាអង្គមួយ បានមកឱនក្រាប ព្រះពុទ្ធ នៅព្រៃជេតពន ហើយសួរថា៖ «អ្វីជាហេតុនាំឲ្យមនុស្សវិនាស?» ព្រះពុទ្ធ ទ្រង់ត្រាស់ហេតុវិនាស ១២ ប្រការ៖ ១) ស្អប់ធម៌ ២) សេពគប់ជនលាមក ៣) ជាមនុស្សងងុយដេក ខ្ជិលច្រអូស ៤) មិនចិញ្ចឹម មាតាបិតាចាស់ជរា ៥) បញ្ឆោតព្រាហ្មណ៍ សមណៈ ដោយពាក្យកុហក ៦) មានទ្រព្យ តែបរិភោគតែម្នាក់ឯង ៧) ប្រកាន់ត្រកូល ទ្រព្យ មើលងាយញាតិ ៨) ជាប់កាម ស្រា ល្បែង ៩) មិនស្កប់នឹងប្រពន្ធខ្លួន ១០) លើសវ័យ យកប្រពន្ធក្មេង ដេកមិនលក់ ដោយច្រណែន ១១) បញ្ជាន់មនុស្សស្រា អសារឥតការ ឲ្យកាន់អំណាច ១២) ទ្រព្យតិច តែប្រាថ្នាធំ។ អ្នកដែលវៀរហេតុវិនាសទាំងនេះបាន ឈ្នះទិសទាំងពួង បានសេចក្តីសុខ។',
+    meanE: 'A deva came and asked the Buddha at Jeta\'s Grove: "What brings a person to ruin?" The Buddha gave twelve causes of downfall: 1) hating the Dhamma, 2) consorting with the wicked, 3) loving sleep, idleness and anger, 4) not supporting aged parents, 5) deceiving brahmins and recluses by lies, 6) having wealth but enjoying it alone, 7) proud of birth, wealth and clan, despising relatives, 8) addicted to women, drink and gambling, 9) not content with one\'s own spouse, 10) past one\'s youth marrying a younger wife and losing sleep through jealousy, 11) placing the drunken and wasteful in authority, 12) little wealth but great ambition. One who avoids all these causes of ruin is undefeated in every direction and lives in peace.',
+    applyK: 'រាល់ល្ងាច ពិនិត្យខ្លួន នូវហេតុវិនាស ១២ — ឃើញប៉ះកន្លែងណា កែថ្ងៃស្អែកភ្លាម។',
+    applyE: 'Each evening review the twelve causes of ruin — where you slip, correct it the very next day.',
   },
 ]
 </script>

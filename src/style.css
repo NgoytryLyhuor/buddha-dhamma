@@ -302,22 +302,25 @@ details[open] > summary .caret { transform: rotate(180deg); }
 html { scroll-behavior: smooth; }
 
 /* Smooth <details> open/close (used by Chanting, Suttas, Questions, Stories, Abhidhamma, Kamma) */
-details { position: relative; interpolate-size: allow-keywords; }
+details { position: relative; }
 details::details-content {
-  block-size: 0;
-  overflow-y: clip;
-  interpolate-size: allow-keywords;
-  transition: block-size 0.35s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
 }
 details[open]::details-content {
-  block-size: auto;
+  grid-template-rows: 1fr;
 }
 details::details-content > * {
+  min-height: 0;
+  overflow: hidden;
+}
+details::details-content > * > * {
   opacity: 0;
   translate: 0 -8px;
   transition: opacity 0.3s ease, translate 0.3s ease;
 }
-details[open]::details-content > * {
+details[open]::details-content > * > * {
   opacity: 1;
   translate: 0 0;
 }

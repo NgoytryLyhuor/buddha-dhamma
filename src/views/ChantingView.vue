@@ -24,42 +24,52 @@
     </div>
 
     <div class="mt-4 space-y-4">
-      <article v-for="(c, i) in chants" :key="c.en" :id="'chant-' + i" class="card-paper p-6 md:p-8 scroll-mt-24">
-        <div class="flex items-start justify-between gap-3 flex-wrap">
-          <div class="min-w-0">
-            <p class="chapter-label">{{ c.src }}</p>
-            <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(c.km, c.en) }}</h3>
-            <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(c.noteK, c.noteE) }}</p>
+      <details v-for="(c, i) in chants" :key="c.en" :id="'chant-' + i" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget('chant-', i)">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <div class="min-w-0">
+              <p class="chapter-label">{{ c.src }}</p>
+              <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(c.km, c.en) }}</h3>
+              <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(c.noteK, c.noteE) }}</p>
+            </div>
+            <div class="flex items-center gap-3 shrink-0 mt-1">
+              <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
+              <span class="caret" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+            </div>
           </div>
-          <span class="sutra-num mt-1" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-        </div>
+        </summary>
 
-        <div class="verse-box p-4 md:p-5 mt-4">
-          <p v-for="l in c.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
-          <p class="mt-3 text-center"><span class="paali">{{ c.roman }}</span></p>
-        </div>
+        <div class="mt-6">
+          <div class="verse-box p-4 md:p-5">
+            <p v-for="l in c.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
+            <p class="mt-3 text-center"><span class="paali">{{ c.roman }}</span></p>
+          </div>
 
-        <div class="grid md:grid-cols-2 gap-2 mt-4">
-          <div v-for="w in c.gloss" :key="w.w" class="flex items-baseline gap-2 px-3 py-2 rounded-sm" :style="{ background: 'var(--bg-card-2)' }">
-            <span class="paali shrink-0">{{ w.w }}</span>
-            <span class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(w.km, w.en) }}</span>
+          <div class="grid md:grid-cols-2 gap-2 mt-4">
+            <div v-for="w in c.gloss" :key="w.w" class="flex items-baseline gap-2 px-3 py-2 rounded-sm" :style="{ background: 'var(--bg-card-2)' }">
+              <span class="paali shrink-0">{{ w.w }}</span>
+              <span class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(w.km, w.en) }}</span>
+            </div>
+          </div>
+
+          <p class="mt-4 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(c.meanK, c.meanE) }}</p>
+
+          <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អនុវត្តក្នុងជីវិត', 'APPLY IT TODAY') }}</p>
+            <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(c.applyK, c.applyE) }}</p>
           </div>
         </div>
-
-        <p class="mt-4 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(c.meanK, c.meanE) }}</p>
-
-        <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
-          <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អនុវត្តក្នុងជីវិត', 'APPLY IT TODAY') }}</p>
-          <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(c.applyK, c.applyE) }}</p>
-        </div>
-      </article>
+      </details>
     </div>
   </div>
 </template>
 
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
+import { useRoute } from 'vue-router'
 const { t } = useLanguage()
+const route = useRoute()
+const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

@@ -142,9 +142,9 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
-  return String(n)
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
 const samatha = [

@@ -15,7 +15,7 @@
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('បញ្ចសីល ៥', 'The Five Precepts') }}</h3>
       <div class="grid md:grid-cols-5 gap-3 mt-5">
         <div v-for="(s, i) in precepts" :key="s.en" class="p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-          <span class="sutra-num">{{ i + 1 }}</span>
+          <span class="sutra-num">{{ '១២៣៤៥'[i] }}</span>
           <p class="font-bold text-sm mt-1" :style="{ color: 'var(--ink)' }">{{ t(s.km, s.en) }}</p>
           <p class="text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">{{ s.pl }}</p>
         </div>
@@ -56,9 +56,9 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
-  return String(n)
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
 const precepts = [

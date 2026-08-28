@@ -26,7 +26,8 @@
         </div>
 
         <div class="verse-box p-4 mt-4">
-          <p class="text-center text-base md:text-lg leading-loose" :style="{ color: 'var(--ink)' }">{{ s.essenceE }}</p>
+          <p class="text-center text-base md:text-lg leading-loose" :style="{ color: 'var(--ink)' }">{{ s.essenceK }}</p>
+          <p class="text-center text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ s.essenceE }}</p>
         </div>
 
         <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
@@ -42,14 +43,14 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
-  return String(n)
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
 const stories = [
   {
-    src: 'MN 86 · ANGULIMĀLA SUTTA',
+    src: 'MN 86 · អង្គុលីមាលសូត្រ',
     km: 'អង្គុលីមាលៈ — ចោរដែលក្លាយជាព្រះអរហន្ត', en: 'Angulimāla, the bandit who became an arahant',
     noteK: 'រឿងការប្រែចិត្តល្បីល្បាញបំផុត ក្នុងព្រះពុទ្ធសាសនា — បង្រៀនថា ធ្វើខុសប៉ុន្មានក៏ដោយ ក៏អាចផ្លាស់ប្តូរបានដែរ។', en: 'The most famous story of transformation in Buddhism — no matter how much wrong one has done, change is still possible.',
     paras: [
@@ -63,7 +64,7 @@ const stories = [
     lessonE: 'Do not judge a person by an old record — give yourself and others the room to change for the better.',
   },
   {
-    src: 'DHP-A · KISĀGOTAMĪ',
+    src: 'DHP-A · កិសាគោតមី',
     km: 'កិសាគោតមី — អ្នកស្វែងគ្រាប់ម្លញ្ច្រោង', en: 'Kisāgotamī, the mother who carried her dead son',
     noteK: 'រឿងត្រូវបានរៀបរៀងក្នុងអដ្ឋកថាធម្មបទ — បន្ទាប់ពីបាត់បង់កូន នាងបានយល់សច្ចៈ ថា សេចក្តីស្លាប់ ជារឿងគ្រប់គ្នា។', en: 'A story from the Dhammapada commentary — after losing her son, she understood the truth that death touches everyone.',
     paras: [
@@ -77,7 +78,7 @@ const stories = [
     lessonE: 'When you lose someone, do not think you are alone — see impermanence, lift yourself, and practise on.',
   },
   {
-    src: 'DHP-A · PATĀCĀRĀ',
+    src: 'DHP-A · បដាចារា',
     km: 'បដាចារា — បាត់បង់ទាំងអស់ ហើយបានផ្លូវ', en: 'Patācārā, who lost everything and found the path',
     noteK: 'រឿងនៃទុក្ខ ដែលប៉ះគ្រប់បែប នៃជីវិត — តែសតិវិលមកវិញ បាន ពន្លឺ ក៏ភ្លឺទៀត។', en: 'A story of grief that touched every side of life — and how mindfulness, returning, lit the darkness again.',
     paras: [
@@ -104,7 +105,7 @@ const stories = [
     lessonE: 'Giving is measured not by the object but by the heart that releases it — a joyful gift is the purest gift.',
   },
   {
-    src: 'DHP-A · CŪḶAPANTHAKA',
+    src: 'DHP-A · ចូឡបន្ថកៈ',
     km: 'ចូឡបន្ថកៈ — អ្នកយឺត ដែលបានសម្រេច', en: 'Cūḷapanthaka, the slow learner who succeeded',
     noteK: 'រឿងលើកទឹកចិត្ត អ្នកដែលគិតថាខ្លួនខ្សោយ ឬ រៀនយឺត — ជាមេរៀន ជំហានបន្តិចៗ។', en: 'A story to encourage anyone who feels slow or not clever enough — the lesson of small steady steps.',
     paras: [
@@ -117,7 +118,7 @@ const stories = [
     lessonE: 'Do not despair when learning comes slowly — begin small and stay steady.',
   },
   {
-    src: 'UDĀNA 5.3 · SUPPABUDDHAKUṬṬHI',
+    src: 'UDĀNA 5.3 · សុប្បពុទ្ធគុដ្ឋិ',
     km: 'សុប្បពុទ្ធគុដ្ឋិ — កាយឃ្លង់ ចិត្តបរិសុទ្ធ', en: 'Suppabuddha the leper, whose heart was clean',
     noteK: 'រឿងបង្រៀនថា រាងកាយ និងស្ថានភាព មិនកំណត់តម្លៃមនុស្ស ទេ — ចិត្ត ជាអ្នកកំណត់។', en: 'A story showing that the body and circumstances do not fix a persons worth — the heart does.',
     paras: [

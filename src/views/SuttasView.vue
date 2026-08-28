@@ -62,6 +62,7 @@
           </ul>
 
           <div class="verse-box p-4 mt-4">
+            <p v-if="s.raw" class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">{{ s.raw }}</p>
             <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t(s.kmVerse, s.enVerse) }}</p>
           </div>
 
@@ -83,9 +84,9 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
-  return String(n)
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
 const nikayas = [

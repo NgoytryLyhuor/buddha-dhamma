@@ -19,6 +19,11 @@
             <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             </button>
+            <button class="theme-btn px-3 flex gap-1 items-center text-xs font-bold" @click="toggleLang">
+              <span :style="{ color: lang === 'km' ? 'var(--accent)' : 'var(--ink-muted)' }">KM</span>
+              <span :style="{ color: 'var(--ink-faint)' }">/</span>
+              <span :style="{ color: lang === 'en' ? 'var(--accent)' : 'var(--ink-muted)' }">EN</span>
+            </button>
           </div>
         </div>
 
@@ -56,15 +61,16 @@
         </div>
         <input ref="searchInput" v-model="query" type="text" autocomplete="off"
           class="w-full px-3 py-2 rounded-sm outline-none"
-          :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type to search…')"
+          :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
           :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }" />
         <p v-if="query && !results.length" class="text-xs mt-3" style="color: var(--ink-faint)">
           {{ t('រកមិនឃើញ សាកល្បងពាក្យផ្សេងទៀត', 'Nothing found — try another word.') }}
         </p>
         <div class="mt-3 max-h-80 overflow-y-auto -mr-2 pr-2 space-y-1">
-          <router-link v-for="r in results" :key="r.to + r.e" :to="r.to"
+          <router-link v-for="r in results" :key="r.to + r.k" :to="r.to"
             class="block px-3 py-2 rounded-sm transition hover:opacity-80" :style="{ background: 'var(--bg-card-2)' }">
-            <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.e }}</span>
+            <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.k }}</span>
+            <span class="block text-xs" style="color: var(--ink-faint)">{{ r.e }}</span>
           </router-link>
           <p v-if="!query" class="text-xs px-3 py-2" style="color: var(--ink-faint)">
             {{ t('វាយពាក្យមួយចំនួន ដើម្បីរកទំព័រ', 'Type a few letters to find a page.') }}
@@ -112,19 +118,19 @@ const { theme, toggleTheme } = useTheme()
 const { lang, t, toggleLang } = useLanguage()
 
 const nav = [
-  { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '1' },
-  { to: '/core', km: 'ធម៌មូលដ្ឋាន', kmShort: 'មូលដ្ឋាន', en: 'Core', num: '2' },
-  { to: '/abhidhamma', km: 'អភិធម្ម', kmShort: 'អភិធម្ម', en: 'Abhidhamma', num: '3' },
-  { to: '/kamma', km: 'កម្ម និងផល', kmShort: 'កម្មផល', en: 'Kamma', num: '4' },
-  { to: '/ethics', km: 'សីល និងបារមី', kmShort: 'សីល', en: 'Ethics', num: '5' },
-  { to: '/meditation', km: 'សមាធិ', kmShort: 'សមាធិ', en: 'Meditation', num: '6' },
-  { to: '/suttas', km: 'ព្រះសូត្រ', kmShort: 'សូត្រ', en: 'Suttas', num: '7' },
-  { to: '/life', km: 'ជីវប្រវត្តិ', kmShort: 'ជីវិតព្រះពុទ្ធ', en: 'Life', num: '8' },
-  { to: '/gathas', km: 'គាថាព្រះធម៌', kmShort: 'គាថា', en: 'Gāthā', num: '9' },
-  { to: '/chanting', km: 'សូត្រ ១០', kmShort: 'សូត្រមន្ត', en: 'Chanting', num: '10' },
-  { to: '/glossary', km: 'វចនានុក្រមធម៌', kmShort: 'វចនានុក្រម', en: 'Glossary', num: '11' },
-  { to: '/stories', km: 'រឿងល្បីៗ', kmShort: 'រឿង', en: 'Stories', num: '12' },
-  { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '13' },
+  { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },
+  { to: '/core', km: 'ធម៌មូលដ្ឋាន', kmShort: 'មូលដ្ឋាន', en: 'Core', num: '២' },
+  { to: '/abhidhamma', km: 'អភិធម្ម', kmShort: 'អភិធម្ម', en: 'Abhidhamma', num: '៣' },
+  { to: '/kamma', km: 'កម្ម និងផល', kmShort: 'កម្មផល', en: 'Kamma', num: '៤' },
+  { to: '/ethics', km: 'សីល និងបារមី', kmShort: 'សីល', en: 'Ethics', num: '៥' },
+  { to: '/meditation', km: 'សមាធិ', kmShort: 'សមាធិ', en: 'Meditation', num: '៦' },
+  { to: '/suttas', km: 'ព្រះសូត្រ', kmShort: 'សូត្រ', en: 'Suttas', num: '៧' },
+  { to: '/life', km: 'ជីវប្រវត្តិ', kmShort: 'ជីវិតព្រះពុទ្ធ', en: 'Life', num: '៨' },
+  { to: '/gathas', km: 'គាថាព្រះធម៌', kmShort: 'គាថា', en: 'Gāthā', num: '៩' },
+  { to: '/chanting', km: 'សូត្រ ១០', kmShort: 'សូត្រមន្ត', en: 'Chanting', num: '១០' },
+  { to: '/glossary', km: 'វចនានុក្រមធម៌', kmShort: 'វចនានុក្រម', en: 'Glossary', num: '១១' },
+  { to: '/stories', km: 'រឿងល្បីៗ', kmShort: 'រឿង', en: 'Stories', num: '១២' },
+  { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '១៣' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)

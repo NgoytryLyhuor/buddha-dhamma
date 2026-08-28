@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('គាថា គឺជាព្រះវាចា ដែលព្រះពុទ្ធ សម្តែងជាកាព្យបាលី មានចំនួនព្យាង្គត្រឹមត្រូវ ងាយនឹងចងចាំ។ ព្រះអង្គ តែងបញ្ចប់សេចក្តីធម៌ ដោយគាថាពិរោះៗ ឲ្យអ្នកស្តាប់ នាំយកទៅរំពឹងនៅផ្ទះ ឲ្យចិត្តស្ងប់។ ទំព័រនេះ ប្រមូលគាថាល្បីៗ ដែលគ្រហស្ថគួរចងចាំ ដោយបកស្រាយពាក្យមួយៗ ជាភាសាខ្មែរ។', 'A gāthā is a verse of the Buddha words in Pali, shaped with fixed syllables so it is easy to memorise. He often closed his teaching with a lovely verse so listeners could carry the Dhamma home and quiet the mind. This page gathers the most loved verses, with each word explained in plain language.') }}
+      {{ t('គាថា គឺជាព្រះវាចា ដែលព្រះពុទ្ធ សម្តែងជាកាព្យបាលី មានចំនួនព្យាង្គត្រឹមត្រូវ ងាយនឹងចងចាំ។ ព្រះអង្គ តែងបញ្ចប់សេចក្តីធម៌ ដោយគាថាពិរោះៗ ឲ្យអ្នកស្តាប់ នាំយកទៅរំពឹងនៅផ្ទះ ឲ្យចិត្តស្ងប់។ ទំព័រនេះ ប្រមូលគាថាល្បីៗ ដែលគ្រហស្ថគួរចងចាំ ដោយបកស្រាយពាក្យមួយៗ ជាភាសាខ្មែរ។', 'A gāthā is a verse of the Buddha words in Pali, shaped with fixed syllables so it is easy to memorise. He often closed his teaching with a lovely verse so listeners could carry the Dhamma home and quiet the mind. This page gathers the most loved verses, unpacking each word in Khmer.') }}
     </p>
 
     <!-- how to use the verses -->
@@ -35,7 +35,8 @@
         </div>
 
         <div class="verse-box p-4 md:p-5 mt-4">
-          <p class="text-center"><span class="paali">{{ g.roman }}</span></p>
+          <p v-for="l in g.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
+          <p class="mt-3 text-center"><span class="paali">{{ g.roman }}</span></p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-2 mt-4">
@@ -60,9 +61,9 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
-  return String(n)
+  return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
 const tips = [

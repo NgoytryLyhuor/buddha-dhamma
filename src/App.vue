@@ -119,14 +119,28 @@
 
     <footer class="max-w-4xl mx-auto px-4 pb-10 text-center">
       <div class="footer-share">
-        <p class="text-xs font-bold tracking-widest uppercase mb-3" style="color: var(--ink-faint)">
-          {{ t('ចែករំលែក និង ផ្តល់យោបល់', 'Share and Give Feedback') }}
-        </p>
-        <div class="flex items-center justify-center gap-3 flex-wrap">
-          <a class="share-btn" :href="shareTelegram" target="_blank" rel="noopener">Telegram</a>
-          <a class="share-btn" :href="shareWhatsApp" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="share-btn" :href="reportUrl" target="_blank" rel="noopener" style="border-color: var(--accent); color: var(--accent)">
-            {{ t('ចង្អុលពាក្យខ្មែរខុស', 'Report a Khmer Spelling') }}
+        <p class="share-title">{{ t('ចែករំលែក និង ផ្តល់យោបល់', 'Share and Give Feedback') }}</p>
+        <div class="share-row">
+          <a class="share-btn" :href="shareTelegram" target="_blank" rel="noopener">
+            <span class="share-ico" aria-hidden="true">&#9992;</span>
+            <span class="share-txt">
+              <span class="share-name">Telegram</span>
+              <span class="share-sub km">{{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}</span>
+            </span>
+          </a>
+          <a class="share-btn" :href="shareWhatsApp" target="_blank" rel="noopener">
+            <span class="share-ico" aria-hidden="true">&#9742;</span>
+            <span class="share-txt">
+              <span class="share-name">WhatsApp</span>
+              <span class="share-sub km">{{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}</span>
+            </span>
+          </a>
+          <a class="share-btn report" :href="reportUrl" target="_blank" rel="noopener">
+            <span class="share-ico" aria-hidden="true">&#9998;</span>
+            <span class="share-txt">
+              <span class="share-name">{{ t('ចង្អុលពាក្យខ្មែរខុស', 'Report a Khmer Spelling') }}</span>
+              <span class="share-sub km">{{ t('ជួយកែពាក្យឱ្យត្រឹមត្រូវ', 'Help fix a mistake') }}</span>
+            </span>
           </a>
         </div>
       </div>

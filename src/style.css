@@ -159,15 +159,20 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 }
 .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-.font-btn {
-  display: flex; align-items: center; justify-content: center;
-  min-width: 26px; height: 30px; padding: 0 6px; border-radius: 3px;
-  border: none; background: transparent; color: var(--ink-muted);
-  font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s;
-}
-.font-btn:hover:not(:disabled) { color: var(--accent); background: var(--accent-soft); }
+.font-btn { display: flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 3px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-muted); font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s; }
+.font-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .font-btn:disabled { opacity: 0.35; cursor: default; }
-.font-btn-now { font-size: 10px; letter-spacing: -0.04em; }
+
+.settings-panel { position: absolute; right: 0; top: 10px; width: min(300px, calc(100vw - 2rem)); z-index: 60; padding: 18px 18px 16px; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-card); box-shadow: var(--shadow); }
+@media (max-width: 640px) { .settings-panel { right: 0; left: auto; } }
+.settings-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+.lang-pick { flex: 1; padding: 9px 8px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-muted); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.lang-pick.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.setting-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-soft); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.setting-row:hover { border-color: var(--accent); color: var(--accent); }
+.settings-dots { flex: 1; display: flex; justify-content: center; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); transition: all 0.2s; }
+.dot.on { background: var(--accent); }
 
 .topnav-inner a { position: relative; white-space: nowrap; }
 .topnav-inner a.active { color: var(--accent) !important; }

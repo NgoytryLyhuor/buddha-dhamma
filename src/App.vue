@@ -13,26 +13,40 @@
           </router-link>
 
           <div class="flex items-center gap-2">
-            <div class="flex items-center gap-1 rounded-full px-1 py-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }"
-              role="group" :aria-label="t('ទំហំអក្សរ', 'Font size')">
-              <button class="font-btn" @click="decreaseFontSize" :disabled="fontSizeIndex === 0"
-                :title="t('អក្សរតូចជាង', 'Smaller text')">A−</button>
-              <button class="font-btn font-btn-now" aria-hidden="true"
-                :style="{ opacity: 0.5 }" :title="t('ទំហំអក្សរ', 'Font size')">Aa</button>
-              <button class="font-btn" @click="increaseFontSize" :disabled="fontSizeIndex === SIZES.length - 1"
-                :title="t('អក្សរធំជាង', 'Larger text')">A+</button>
-            </div>
-            <button class="theme-btn" @click="toggleTheme" :title="t('ប្តូរផ្ទៃ', 'Toggle theme')">
-              {{ theme === 'dark' ? '☽' : '☼' }}
-            </button>
             <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             </button>
-            <button class="theme-btn px-3 flex gap-1 items-center text-xs font-bold" @click="toggleLang">
-              <span :style="{ color: lang === 'km' ? 'var(--accent)' : 'var(--ink-muted)' }">KM</span>
-              <span :style="{ color: 'var(--ink-faint)' }">/</span>
-              <span :style="{ color: lang === 'en' ? 'var(--accent)' : 'var(--ink-muted)' }">EN</span>
+            <button class="theme-btn px-3 flex gap-1.5 items-center text-xs font-bold" @click="settingsOpen = !settingsOpen"
+              :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
+              :title="t('ការកំណត់', 'Settings')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </button>
+          </div>
+        </div>
+
+        <!-- Settings dropdown -->
+        <div v-if="settingsOpen" class="relative">
+          <div class="settings-panel">
+            <p class="settings-label">{{ t('ភាសា', 'Language') }}</p>
+            <div class="flex gap-2">
+              <button class="lang-pick" :class="lang === 'km' ? 'on' : ''" @click="setLang('km')">ភាសាខ្មែរ</button>
+              <button class="lang-pick" :class="lang === 'en' ? 'on' : ''" @click="setLang('en')">English</button>
+            </div>
+
+            <p class="settings-label mt-4">{{ t('ផ្ទៃមុខ', 'Appearance') }}</p>
+            <button class="setting-row" @click="toggleTheme">
+              <span>{{ theme === 'dark' ? '☽' : '☼' }}</span>
+              <span>{{ t(theme === 'dark' ? 'ប្តូរទៅភ្លឺ' : 'ប្តូរទៅងងឹត', theme === 'dark' ? 'Switch to light' : 'Switch to dark') }}</span>
+            </button>
+
+            <p class="settings-label mt-4">{{ t('ទំហំអក្សរ', 'Font size') }}</p>
+            <div class="flex items-center justify-between gap-2">
+              <button class="font-btn" @click="decreaseFontSize" :disabled="fontSizeIndex === 0" :title="t('អក្សរតូចជាង', 'Smaller text')">A−</button>
+              <div class="settings-dots flex items-center gap-1.5">
+                <span v-for="(s, i) in SIZES" :key="i" class="dot" :class="i <= fontSizeIndex ? 'on' : ''"></span>
+              </div>
+              <button class="font-btn" @click="increaseFontSize" :disabled="fontSizeIndex === SIZES.length - 1" :title="t('អក្សរធំជាង', 'Larger text')">A+</button>
+            </div>
           </div>
         </div>
 
@@ -133,8 +147,10 @@ import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
 const { theme, toggleTheme } = useTheme()
-const { lang, t, toggleLang } = useLanguage()
+const { lang, t, setLang } = useLanguage()
 const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize } = useFontSize()
+
+const settingsOpen = ref(false)
 
 const nav = [
   { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },
@@ -176,7 +192,7 @@ function openSearch() {
 function closeSearch() {
   searchOpen.value = false
 }
-watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false })
+watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false })
 
 const results = computed(() => {
   const q = query.value.trim().toLowerCase()

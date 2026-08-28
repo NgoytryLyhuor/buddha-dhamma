@@ -83,15 +83,17 @@
           <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')">&#10005;</button>
         </div>
         <input ref="searchInput" v-model="query" type="text" autocomplete="off"
-          class="w-full px-3 py-2 rounded-sm outline-none"
           :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
-          :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }" />
+          :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }"
+          @input="onSearchInput" @keydown="onSearchKeydown" />
         <p v-if="query && !results.length" class="text-xs mt-3" style="color: var(--ink-faint)">
           {{ t('រកមិនឃើញ សាកល្បងពាក្យផ្សេងទៀត', 'Nothing found — try another word.') }}
         </p>
         <div class="mt-3 max-h-80 overflow-y-auto -mr-2 pr-2 space-y-1">
-          <router-link v-for="r in results" :key="r.to + r.k" :to="r.to"
-            class="block px-3 py-2 rounded-sm transition hover:opacity-80" :style="{ background: 'var(--bg-card-2)' }">
+          <router-link v-for="(r, i) in results" :key="r.to + r.k" :to="r.to"
+            class="block px-3 py-2 rounded-sm transition hover:opacity-80"
+            :class="i === activeIndex ? 'search-active' : ''"
+            :style="{ background: i === activeIndex ? 'var(--accent-soft)' : 'var(--bg-card-2)' }">
             <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.k }}</span>
             <span class="block text-xs" style="color: var(--ink-faint)">{{ r.e }}</span>
           </router-link>
@@ -139,13 +141,14 @@
 
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
+const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize } = useFontSize()
@@ -183,9 +186,11 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 const query = ref('')
 const searchOpen = ref(false)
 const searchInput = ref(null)
+const activeIndex = ref(0)
 
 function openSearch() {
   query.value = ''
+  activeIndex.value = 0
   searchOpen.value = true
   nextTick(() => { if (searchInput.value) searchInput.value.focus() })
 }
@@ -199,6 +204,32 @@ const results = computed(() => {
   if (!q) return []
   return searchIndex.filter(r => (r.k + ' ' + r.e).toLowerCase().includes(q)).slice(0, 12)
 })
+
+function onSearchInput() {
+  activeIndex.value = 0
+}
+
+function goToResult(i) {
+  const r = results.value[i]
+  if (!r) return
+  closeSearch()
+  router.push(r.to)
+}
+
+function onSearchKeydown(e) {
+  if (e.key === 'ArrowDown') {
+    e.preventDefault()
+    if (results.value.length) activeIndex.value = (activeIndex.value + 1) % results.value.length
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault()
+    if (results.value.length) activeIndex.value = (activeIndex.value - 1 + results.value.length) % results.value.length
+  } else if (e.key === 'Enter') {
+    e.preventDefault()
+    goToResult(activeIndex.value)
+  } else if (e.key === 'Escape') {
+    closeSearch()
+  }
+}
 
 const BASE_URL = 'https://buddha-dhamma.vercel.app'
 const shareTelegram = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('ធម៌ល្អៗ សម្រាប់ជីវិត — ' + BASE_URL))

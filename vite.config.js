@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
+      injectRegister: false,
       includeAssets: ['buddha.jpg'],
       manifest: {
         name: 'ព្រះធម៌ Buddha Dhamma',

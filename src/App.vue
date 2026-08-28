@@ -147,6 +147,18 @@
       </button>
     </transition>
 
+    <!-- New version available toast -->
+    <transition name="toast">
+      <div v-if="needRefresh" class="update-toast" role="status">
+        <span class="update-toast-ico" aria-hidden="true">&#8635;</span>
+        <span class="update-toast-txt">
+          <span class="update-toast-title">{{ t('បានធ្វើបច្ចុប្បន្នភាព ថ្មី', 'A new version is ready') }}</span>
+          <span class="update-toast-sub">{{ t('ចុចដើម្បីធ្វើបច្ចុប្បន្នភាព', 'Tap to update now') }}</span>
+        </span>
+        <button class="update-toast-btn" @click="reload">{{ t('ធ្វើបច្ចុប្បន្នភាព', 'Refresh') }}</button>
+      </div>
+    </transition>
+
     <!-- Main reading column -->
     <main v-if="!hasError" class="max-w-4xl mx-auto px-4 py-8 md:py-12">
       <router-view v-slot="{ Component }">
@@ -212,12 +224,14 @@ import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
 import { useFont } from './composables/useFont'
+import { usePwaUpdate } from './composables/usePwaUpdate'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
 const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
+const { needRefresh, reload } = usePwaUpdate()
 
 const hasError = ref(false)
 onErrorCaptured((err) => {

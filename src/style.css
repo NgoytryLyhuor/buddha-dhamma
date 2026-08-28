@@ -397,6 +397,68 @@ html.dark .offline-banner {
   border-bottom-color: #4a3d1c;
 }
 
+/* New-version toast */
+.update-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 58;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 14px 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--ink);
+  box-shadow: 0 10px 34px var(--halo);
+}
+.update-toast-ico {
+  font-size: 20px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.update-toast-txt {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.update-toast-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+.update-toast-sub {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.update-toast-btn {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--bg-card);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.update-toast-btn:hover {
+  opacity: 0.85;
+}
+.toast-enter-active,
+.toast-leave-active {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.toast-enter-from,
+.toast-leave-to {
+  transform: translateX(-50%) translateY(16px);
+  opacity: 0;
+}
+
 /* Scroll to top button */
 .scroll-top-btn {
   position: fixed;

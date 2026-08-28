@@ -87,4 +87,26 @@ export const searchIndex = [
   { k: 'កើតជាថ្មី បដិសន្ធិ', e: 'rebirth what is reborn', c: 'faq', to: '/questions' },
   { k: 'ស្រា គ្រឿងញៀន ប្រមាទ', e: 'alcohol drugs intoxicants heedlessness', c: 'faq', to: '/questions' },
   { k: 'ទាន ផល បូជារូប', e: 'giving dana statue worship fruit', c: 'faq', to: '/questions' },
+  // paccaya (dependent origination)
+  { k: 'បដិច្ចសមុប្បាទ ច្រវាក់ ១២', e: 'dependent origination paticca samuppada twelve links', c: 'teachings', to: '/paccaya' },
+  { k: 'អវិជ្ជា សង្ខារ វិញ្ញាណ វេទនា តណ្ហា ឧបាទាន', e: 'avijja sankhara vinnana vedana tanha upadana', c: 'teachings', to: '/paccaya' },
+  { k: 'ជរាមរណៈ ជាតិ ភព', e: 'jara marana jati bhava birth ageing death', c: 'teachings', to: '/paccaya' },
+  { k: 'ប្បច្ច័យ ហេតុផល បដិលោម', e: 'conditions patiloma reverse cessation', c: 'teachings', to: '/paccaya' },
+  // sangha (monastic life)
+  { k: 'ជីវិតព្រះសង្ឃ វិន័យ', e: 'monastic life vinaya monks sangha', c: 'practice', to: '/sangha' },
+  { k: 'បិណ្ឌបាត បុណ្យទាន បច្ច័យ ៤', e: 'alms round pindapata four requisites offering', c: 'practice', to: '/sangha' },
+  { k: 'ឧបាសក ឧបាសិកា', e: 'lay disciple upasaka upasika', c: 'practice', to: '/sangha' },
+  // daily
+  { k: 'បដិបត្តិប្រចាំថ្ងៃ ប្រតិបត្តិ', e: 'daily practice routine', c: 'practice', to: '/daily' },
+  { k: 'សីល ៥ កាន់សីល', e: 'five precepts sila keep', c: 'practice', to: '/daily' },
+  { k: 'សីល ៨ ថ្ងៃសីល ឧបោសថ', e: 'eight precepts uposatha sabbath observance', c: 'practice', to: '/daily' },
+  { k: 'មាឃបូជា វិសាខបូជា កឋិនទាន ព្រះវស្សា', e: 'maga puja vesakha kathina vassa festivals', c: 'practice', to: '/daily' },
+  // recollections
+  { k: 'អនុស្សតិ ១០', e: 'recollection anussati ten', c: 'practice', to: '/recollections' },
+  { k: 'រឭកដល់ព្រះពុទ្ធ ធម៌ សង្ឃ', e: 'recollection buddha dhamma sangha', c: 'practice', to: '/recollections' },
+  { k: 'រឭកដល់សេចក្តីស្លាប់ មរណានុស្សតិ', e: 'recollection of death marananussati', c: 'practice', to: '/recollections' },
+  // ariya
+  { k: 'អរិយបុគ្គល ៨', e: 'noble persons ariya puggala eight', c: 'teachings', to: '/ariya' },
+  { k: 'សោតាបន្ន សកទាគាមី អនាគាមី អរហន្ត', e: 'stream enterer once returner non returner arahant sotapanna sakadagami anagami', c: 'teachings', to: '/ariya' },
+  { k: 'អរហន្ត អស់កិលេស', e: 'arahant arahantship taints kilesa', c: 'teachings', to: '/ariya' },
 ]

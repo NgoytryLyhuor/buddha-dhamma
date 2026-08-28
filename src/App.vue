@@ -307,6 +307,11 @@ const nav = [
   { to: '/glossary', km: 'វចនានុក្រមធម៌', kmShort: 'វចនានុក្រម', en: 'Glossary', num: '១១' },
   { to: '/stories', km: 'រឿងល្បីៗ', kmShort: 'រឿង', en: 'Stories', num: '១២' },
   { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '១៣' },
+  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៤' },
+  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៥' },
+  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៦' },
+  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '១៧' },
+  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '១៨' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -447,6 +452,11 @@ const descrMap = {
   glossary: ['វចនានុក្រមពាក្យធម៌ ជាខ្មែរ និងអង់គ្លេស។', 'Glossary of Dhamma terms in Khmer and English.'],
   stories: ['រឿងល្បីៗអំពីព្រះពុទ្ធ និងព្រះអរហន្ត។', 'Famous stories about the Buddha and Arahants.'],
   questions: ['សំណួរ–ចម្លើយ អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', 'Questions and answers about Dhamma and practice.'],
+  paccaya: ['បដិច្ចសមុប្បាទ ច្រវាក់ ១២ នៃហេតុនិងផល។', 'Dependent origination — the twelve links of cause and effect.'],
+  sangha: ['ជីវិតព្រះសង្ឃ វិន័យ និងរបៀបធ្វើបុណ្យទាន។', 'Monastic life, the Vinaya, and how to make offerings.'],
+  daily: ['បដិបត្តិប្រចាំថ្ងៃ សីល ៥ និងពិធីបុណ្យរាល់ឆ្នាំ។', 'A simple daily practice, the five precepts, and observances.'],
+  recollections: ['អនុស្សតិ ១០ និងពិចារណាប្រចាំថ្ងៃ។', 'The ten recollections and daily reflections.'],
+  ariya: ['អរិយបុគ្គល ៨ ពួក សោតាបន្ន ដល់ អរហន្ត។', 'The eight noble persons, from stream-enterer to arahant.'],
   notfound: ['រកមិនឃើញទំព័រ', 'Page not found'],
 }
 function syncPageMeta() {

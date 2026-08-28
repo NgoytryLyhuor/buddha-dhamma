@@ -61,11 +61,6 @@
               <button class="lang-pick" :class="spacing === 'relaxed' ? 'on' : ''" @click="setSpacing('relaxed')">{{ t('ធំទូលាយ', 'Relaxed') }}</button>
             </div>
 
-            <button class="setting-row mt-4" @click="setMotion(motion === 'off' ? 'on' : 'off')">
-              <span>{{ motion === 'off' ? '☑' : '☐' }}</span>
-              <span>{{ t('កាត់បន្ថយចលនា', 'Reduce motion') }}</span>
-            </button>
-
             <button class="setting-row reset-btn mt-4" @click="resetSettings">
               <span>&#8634;</span>
               <span>{{ t('កំណត់ឡើងវិញទាំងអស់', 'Reset all settings') }}</span>
@@ -189,7 +184,6 @@ import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
 import { useFont } from './composables/useFont'
-import { useMotion } from './composables/useMotion'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
@@ -198,10 +192,9 @@ const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSpacing } = useFontSize()
 const { font, setFont } = useFont()
-const { motion, setMotion } = useMotion()
 
 function resetSettings() {
-  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_motion']
+  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing']
     .forEach(k => localStorage.removeItem(k))
   location.reload()
 }

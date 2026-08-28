@@ -361,7 +361,7 @@ html[data-spacing="relaxed"] .leading-loose > * {
   line-height: 2 !important;
 }
 
-/* Reduce motion: manual override (plus OS preference) */
+/* Reduce motion: respect the OS accessibility preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -369,12 +369,6 @@ html[data-spacing="relaxed"] .leading-loose > * {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-html.motion-off *, html.motion-off *::before, html.motion-off *::after {
-  animation-duration: 0.001ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.001ms !important;
-  scroll-behavior: auto !important;
 }
 
 /* Scroll to top button */

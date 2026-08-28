@@ -200,9 +200,9 @@ function closeSearch() {
 watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false })
 
 const results = computed(() => {
-  const q = query.value.trim().toLowerCase()
+  const q = query.value.trim().toLowerCase().normalize('NFC')
   if (!q) return []
-  return searchIndex.filter(r => (r.k + ' ' + r.e).toLowerCase().includes(q)).slice(0, 12)
+  return searchIndex.filter(r => (r.k + ' ' + r.e).toLowerCase().normalize('NFC').includes(q)).slice(0, 12)
 })
 
 function onSearchInput() {

@@ -7,7 +7,7 @@
     <div class="ornament mt-4">&#9784;</div>
 
     <p class="mt-5 text-[15px] md:text-base drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះធម៌របស់ព្រះសម្មាសម្ពុទ្ធ គឺជាការបង្រៀនពីការពិតនៃជីវិត៖ អ្វីជាទុក្ខ ហេតុអ្វីទុក្ខកើតឡើង អ្វីជាការរលត់ទុក្ខ និងផ្លូវប្រតិបត្តិឆ្ពោះទៅកាន់សេចក្តីរំលត់ទុក្ខ។ វេបសាយនេះប្រមូលផ្តុំខ្លឹមសារសំខាន់ៗ ចាប់ពីធម៌វិន័យមូលដ្ឋាន រហូតដល់ព្រះអភិធម្មដ៏ទន់ជ្រាយ ពន្យល់ជាភាសាសាមញ្ញ ពិសោធន៍ដោយខ្លួនឯងបាន។', 'The Buddha\'s Teaching is the truth of life: what suffering is, why it arises, how it ends, and the path leading to its end. This site gathers the essence — from basic discipline to the profound Abhidhamma — explained in plain words you can verify yourself.') }}
+      {{ t('ព្រះធម៌របស់ព្រះសម្មាសម្ពុទ្ធ គឺជាការបង្រៀនពីការពិតនៃជីវិត៖ អ្វីជាទុក្ខ ហេតុអ្វីទុក្ខកើតឡើង អ្វីជាការរលត់ទុក្ខ និងផ្លូវប្រតិបត្តិឆ្ពោះទៅកាន់សេចក្តីរំលត់ទុក្ខ។ វេបសាយនេះប្រមូលផ្តុំខ្លឹមសារសំខាន់ៗ ចាប់ពីធម៌វិន័យមូលដ្ឋាន រហូតដល់ព្រះអភិធម្មដ៏ជ្រាលជ្រៅ ពន្យល់ជាភាសាសាមញ្ញ ពិសោធន៍ដោយខ្លួនឯងបាន។', 'The Buddha\'s Teaching is the truth of life: what suffering is, why it arises, how it ends, and the path leading to its end. This site gathers the essence — from basic discipline to the profound Abhidhamma — explained in plain words you can verify yourself.') }}
     </p>
 
     <!-- Three Jewels -->
@@ -103,7 +103,7 @@ const stats = [
 
 const cittaGroups = [
   { n: '54', km: 'កាមាវចរចិត្ត', en: 'Sense-sphere', kmBody: 'ចិត្តលោកិយកើតក្នុងលោកនៃអារម្មណ៍ទាំងប្រាំ', enBody: 'worldly consciousness bound to the five senses' },
-  { n: '15', km: 'រូបាវចរចិត្ត', en: 'Fine-material', kmBody: 'ចិត្តក្នុងឈានរូប', enBody: 'consciousness of the four fine-material jhānas' },
+  { n: '15', km: 'រូបាវចរចិត្ត', en: 'Fine-material', kmBody: 'ចិត្តក្នុងឈានរូប', enBody: 'consciousness of the five fine-material jhānas' },
   { n: '12', km: 'អរូបាវចរចិត្ត', en: 'Formless', kmBody: 'ចិត្តក្នុងឈានអរូប', enBody: 'consciousness of the four formless spheres' },
   { n: '8', km: 'លោកុត្តរចិត្ត', en: 'Supramundane', kmBody: 'ចិត្តនៃមគ្គផល', enBody: 'path and fruition consciousness' },
 ]

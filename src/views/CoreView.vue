@@ -75,7 +75,7 @@ import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
 const truths = [
-  { paali: 'DUKKHA', km: 'ទុក្ខ', en: 'Suffering', kmBody: 'ជាតិ ជរា មរណៈ ទុក្ខដោយសេចក្តីស្នេហា បែកពីគ្នា នឹងអ្វីដែលស្អប់ ចង់បានមិនបាន — សរុប ការប្រកាន់ខន្ធ ៥ ជាទុក្ខ។', enBody: 'Birth, ageing, death; sorrow, parting, not getting what we want — in short, clinging to the five aggregates is suffering.' },
+  { paali: 'DUKKHA', km: 'ទុក្ខ', en: 'Suffering', kmBody: 'ជាតិ ជរា មរណៈ សោកៈ ខ្សឹកខ្សួល ទុក្ខ ចង្អៀតចង្អល់; បែកព្រាត់ពីអ្វីដែលស្រឡាញ់; ប្រជុំជាមួយអ្វីដែលស្អប់; ចង់បានមិនបាន — សរុប ការប្រកាន់ខន្ធ ៥ ជាទុក្ខ។', enBody: 'Birth, ageing, death; sorrow, lamentation, pain, grief, despair; separation from the loved, union with the hated, not getting what one wants — in short, clinging to the five aggregates is suffering.' },
   { paali: 'SAMUDAYA', km: 'សមុទយៈ', en: 'Origin', kmBody: 'ហេតុនៃទុក្ខ គឺតណ្ហា បី គឺ កាមតណ្ហា ភវតណ្ហា វិភវតណ្ហា ។', enBody: 'The cause of suffering is craving — thirst for sense pleasures, for existence, and for non-existence.' },
   { paali: 'NIRODHA', km: 'និរោធៈ', en: 'Cessation', kmBody: 'ការរលត់នៃតណ្ហា ឲ្យអស់មន្ទិល ទើបដល់និព្វាន ដែលមិនកើត មិនចាស់ មិនស្លាប់។', enBody: 'The utter fading of craving leads to Nibbāna — the unborn, unageing, undying.' },
   { paali: 'MAGGA', km: 'មគ្គៈ', en: 'Path', kmBody: 'ផ្លូវដែលនាំទៅរកទីកណ្តាល មិនបណ្តោយ មិនខំហួស — គឺអរិយដ្ឋង្គិកមគ្គ ទាំង ៨។', enBody: 'The middle way between indulgence and austerity — the Noble Eightfold Path.' },

@@ -35,7 +35,7 @@
       </div>
 
       <div class="verse-box p-4 mt-2">
-        <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">អប្បមាទេន សម្បាទេថ ។</p>
+        <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">វយធម្មា សង្ខារា អប្បមាទេន សម្បាទេថ ។</p>
         <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតហើយត្រូវបាត់ទៅ — អ្នកទាំងឡាយ ចូរព្យាយាមកុំប្រហែសធ្វេស»', '"All things pass away — strive on with diligence."') }}</p>
         <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">{{ t('ព្រះបន្ទូលចុងក្រោយ មុនបរិនិព្វាន', 'Last words before Parinibbāna') }}</p>
       </div>
@@ -67,7 +67,7 @@ function khNum(n) {
 }
 
 const facts = [
-  { val: '623', lbl: 'ខ.ស. (ម.គ)', lblEn: 'BCE Born' },
+  { val: '623', lbl: 'ប្រសូត (មុនគ.ស.)', lblEn: 'Born BCE' },
   { val: '២៩', lbl: 'អាយុចេញបួស', lblEn: 'Years at Renunciation' },
   { val: '៣៥', lbl: 'អាយុត្រាស់ដឹង', lblEn: 'Years at Enlightenment' },
   { val: '៤៥', lbl: 'វស្សាបង្រៀន', lblEn: 'Years Teaching' },
@@ -77,7 +77,7 @@ const events = [
   { year: '623 BCE', km: 'ប្រសូត្រនៅលុម្ពិនី', en: 'Birth at Lumbini', kmBody: 'បុត្រព្រះនាមសិទ្ធត្ថ — អ្នកដែលបំពេញគោលបំណង។', enBody: 'Prince Siddhattha — "he whose purpose is accomplished" — is born.' },
   { year: '594 BCE', km: 'កាលៈ ៤ ប្រឡាក់ចិត្ត', en: 'The Four Sights', kmBody: 'ឃើញអ្នកចាស់ អ្នកឈឺ សព អ្នកបួស — ដឹងច្បាស់ថាលោកពោរពេញដោយទុក្ខ។', enBody: 'An old man, a sick man, a corpse, a recluse — he sees the world\'s suffering.' },
   { year: '594 BCE', km: 'មហាបព្វជ្ជា', en: 'The Great Renunciation', kmBody: 'លះបង់រាជ្យបល្ល័ង្ក ចេញទៅតាមផ្ទះអ្នកគ្មានផ្ទះ ដោយសេះកន្ថក និងសំណាក់ឆន្នៈ។', enBody: 'He leaves palace and kingdom on the horse Kanthaka with the servant Channa.' },
-  { year: '588 BCE', km: 'ត្រាស់ដឹងនៅក្រោមពោធិព្រឹក្ស', en: 'Enlightenment under the Bodhi Tree', kmBody: 'បដិបត្តិកម្មដ្ឋាន ៤៩ ថ្ងៃ ត្រង់ស្ថានពោធិមណ្ឌល ប្រទេសឥណ្ឌា ពេញបូណ៌មីវិសាខ។', enBody: 'After 49 days of contemplation at Bodh Gaya, on the Vesak full moon, he awakens.' },
+  { year: '588 BCE', km: 'ត្រាស់ដឹងនៅក្រោមពោធិព្រឹក្ស', en: 'Enlightenment under the Bodhi Tree', kmBody: 'ក្រោយប្រឹងប្រែងអស់ ៦ វស្សា ក្នុងបូណ៌មីវិសាខ ត្រង់ពោធិព្រឹក្ស ស្ថានពោធិមណ្ឌល ប្រទេសឥណ្ឌា ព្រះអង្គក៏ត្រាស់ដឹង។', enBody: 'After six years of striving, on the Vesak full moon at Bodh Gaya in India, he awakens beneath the Bodhi tree.' },
   { year: '588 BCE', km: 'ធម្មចក្កប្បវត្តនសូត្រ', en: 'The First Sermon', kmBody: 'ត្រាស់ទេសនាដំបូងដល់ពួកបញ្ចវគ្គិយ នៅឥសិបតនៈ — កុណ្ឌញ្ញបានភ្ញាក់ដឹង។', enBody: 'The first discourse to the five ascetics at Isipatana — Kondañña sees the truth.' },
   { year: '588–543 BCE', km: 'បង្រៀនធម៌ ៤៥ វស្សា', en: '45 Years of Teaching', kmBody: 'ធ្វើដំណើរបង្រៀនទូទាំងជនបទឥណ្ឌា ទាំងបព្វជិត ទាំងគ្រហស្ថ ឥតឈប់ឈរ។', enBody: 'He walks all of India teaching both monastics and laypeople without pause.' },
   { year: '543 BCE', km: 'បរិនិព្វាននៅកុសិនារា', en: 'Parinibbāna at Kusinārā', kmBody: 'អាយុ ៨០ វស្សា ត្រង់ចន្លោះដើមសាលពីរ ពោលព្រះបន្ទូលចុងក្រោយស្តីពីការប្រុងប្រយ័ត្ន។', enBody: 'At 80, between two sal trees, he breathes his last with a final word on diligence.' },

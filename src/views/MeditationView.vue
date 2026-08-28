@@ -74,7 +74,7 @@
         <li v-for="s in steps" :key="s.en">{{ t(s.km, s.en) }}</li>
       </ul>
       <div class="verse-box p-3 mt-5">
-        <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('ភាវិតមានត្តយោ ចិត្តំ សុខា នញ្ឆន្តិ មានុសា — ចិត្តដែលបានហ្វឹកហាត់ល្អ ជាមូល នាំសុខមកឲ្យមនុស្ស។', 'A mind well tamed brings happiness to a human being.') }}</p>
+        <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('ចិត្តំ ទន្តំ សុខាវហំ — ចិត្តដែលបានហ្វឹកហាត់ល្អ ជាមូល នាំសុខមកឲ្យមនុស្ស។', 'A mind well tamed brings happiness to a human being.') }}</p>
         <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">Dhammapada 35</p>
       </div>
     </div>
@@ -92,14 +92,14 @@ function khNum(n) {
 
 const samatha = [
   { km: 'កម្មដ្ឋាន ៤០', en: '40 Meditation Subjects', pl: 'kammaṭṭhāna' },
-  { km: 'ប្រគំដង្ហើមតែម្នាក់ឯង', en: 'Single-minded rest', pl: 'ānāpāna' },
+  { km: 'សតិនឹងដង្ហើមចូល-ចេញ', en: 'Mindfulness of breathing', pl: 'ānāpāna' },
   { km: 'ឈាន ៤', en: 'The Four Jhānas', pl: 'jhāna' },
 ]
 
 const vipassana = [
-  { km: 'វិច្ចិក្ខេធ្យ... សញ្ញា', en: 'Insight into the three marks', pl: 'tilakkhaṇa' },
+  { km: 'ឃើញត្រៃលក្ខណ៍ អនិច្ចំ ទុក្ខំ អនត្តា', en: 'Insight into the three marks', pl: 'tilakkhaṇa' },
   { km: 'ដឹងកើតរលត់រៀងរាល់ខណៈ', en: 'Seeing arising & vanishing', pl: 'udayabbaya' },
-  { km: 'ខ្វាត់ចេញពីតណ្ហា', en: 'Letting go of clinging', pl: 'nibbidā' },
+  { km: 'ខ្ពើមឆ្អេះ ផុតចាកតណ្ហា', en: 'Letting go of clinging', pl: 'nibbidā' },
 ]
 
 const sati = [
@@ -128,7 +128,7 @@ const factors = [
 ]
 
 const steps = [
-  { km: 'អង្គុយឲ្យផុយ ខ្នងត្រង់ ប្រព្រឹត្តដោយស្រួល', en: 'Sit comfortably with a straight back and relax the body.' },
+  { km: 'អង្គុយឲ្យស្រួល ខ្នងត្រង់ បន្ធូរកាយស្រាលៗ', en: 'Sit comfortably with a straight back and relax the body.' },
   { km: 'តម្កល់សតិនៅលើដង្ហើមចូល-ចេញ', en: 'Rest attention on the sensation of breathing in and out.' },
   { km: 'ពេលចិត្តរវើយ កុំខឹងរកខ្លួនឯង — ឃើញហើយដឹង ទើបត្រឡប់មកដង្ហើម', en: 'When the mind wanders, do not scold yourself — notice it and gently return.' },
   { km: 'ហាត់រាល់ថ្ងៃ ៥-១០ នាទី ស្ថិរភាពសំខាន់ជាងច្រើន', en: 'Practise daily for 5–10 minutes; consistency beats duration.' },

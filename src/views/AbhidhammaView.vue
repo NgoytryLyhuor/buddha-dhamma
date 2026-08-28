@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('អភិ ប្រែថា ពិសេស ឬជ្រាលជ្រៅ; ធម្ម គឺធម៌។ អភិធម្ម គឺធម៌ដ៏ជ្រាលជ្រៅផុតពីសុទ្ធាន្តធម៌ទូទៅ — វិភាគពិភពនៃសេចក្តីពិតដាច់ខាត ទៅជា បរមត្ថធម៌ ៤ គឺ ចិត្ត ចេតសិក រូប និព្វាន។', 'Abhi means higher or deeper; Dhamma is the teaching. Abhidhamma is the deeper design of reality — it analyses the world of ultimate truths into four paramattha dhammas: Citta, Cetasika, Rūpa and Nibbāna.') }}
+      {{ t('អភិ ប្រែថា ពិសេស ឬជ្រាលជ្រៅ; ធម្ម គឺធម៌។ អភិធម្ម គឺធម៌ដ៏ជ្រាលជ្រៅផុតពីសុត្តន្តធម៌ទូទៅ — វិភាគពិភពនៃសេចក្តីពិតដាច់ខាត ទៅជា បរមត្ថធម៌ ៤ គឺ ចិត្ត ចេតសិក រូប និព្វាន។', 'Abhi means higher or deeper; Dhamma is the teaching. Abhidhamma is the deeper design of reality — it analyses the world of ultimate truths into four paramattha dhammas: Citta, Cetasika, Rūpa and Nibbāna.') }}
     </p>
 
     <!-- 4 ultimate realities -->
@@ -115,7 +115,7 @@
           <span class="sutra-num">{{ '១២៣៤៥៦៧៨៩'[i] || (i === 9 ? '១០' : i === 10 ? '១១' : '១២') }}</span>
           <div>
             <p class="text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ t(l.kh, l.pl) }}</p>
-            <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ l.note }}</p>
+            <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ t(l.note, l.en_note) }}</p>
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@
           <span class="sutra-num">{{ '១២៣៤៥៦៧'[i] }}</span>
           <div>
             <p class="text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ t(b.kh, b.pl) }}</p>
-            <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ b.note }}</p>
+            <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ t(b.note, b.en_note) }}</p>
           </div>
         </div>
       </div>
@@ -159,7 +159,7 @@ function khNum(n) {
 
 const ultimates = [
   { paali: 'CITTA', n: '89', km: 'ចិត្ត', en: 'Consciousness', kmBody: 'ចិត្តដែលដឹងអារម្មណ៍ កើតរលត់រៀងរាល់ខណៈ រាប់មិនអស់។', enBody: 'the moment of knowing an object, arising and passing every instant.' },
-  { paali: 'CETASIKA', n: '52', km: 'ចេតសិក', en: 'Mental Factors', kmBody: 'ធម៌ប្រចាំចិត្ត ជាគ្រឿងតាកបែងសភាពល្អ អាក្រក់ កណ្តាល។', enBody: 'factors that accompany citta and colour it good, bad or neutral.' },
+  { paali: 'CETASIKA', n: '52', km: 'ចេតសិក', en: 'Mental Factors', kmBody: 'ធម៌កើតព្រមជាមួយចិត្ត ដែលធ្វើឲ្យចិត្តល្អ អាក្រក់ ឬ កណ្តាល។', enBody: 'factors that accompany citta and colour it good, bad or neutral.' },
   { paali: 'RŪPA', n: '28', km: 'រូប', en: 'Matter', kmBody: 'រូបធាតុមិនដឹងអារម្មណ៍ តែកើតដោយបច្ច័យរបស់ខ្លួន។', enBody: 'physical phenomena that do not experience anything, yet arise by conditions.' },
   { paali: 'NIBBĀNA', n: '1', km: 'និព្វាន', en: 'Nibbāna', kmBody: 'អសង្ខតធម៌ តែមួយគត់ អត់ជាតិ អត់ជរា អត់មរណៈ។', enBody: 'the one unconditioned reality — no birth, no ageing, no death.' },
 ]
@@ -361,7 +361,7 @@ const cetasikaGroups = [
 ]
 
 const rupaGreat = [
-  { kh: 'បឋវី', pl: 'earth' }, { kh: 'អាបោ', pl: 'water' },
+  { kh: 'បថវី', pl: 'earth' }, { kh: 'អាបោ', pl: 'water' },
   { kh: 'តេជោ', pl: 'fire' }, { kh: 'វាយោ', pl: 'air' },
 ]
 

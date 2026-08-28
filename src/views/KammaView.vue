@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('កម្ម គឺចេតនា គឺស្មារតីគិតហើយធ្វើ។ ព្រះពុទ្ធបរមគ្រូត្រាស់ទេសនាថា៖ «កម្មពីរ គឺចេតនា និងសេចក្តីប្រឹងប្រែង»។ ទង្វើល្អឲ្យផលល្អ ទង្វើអាក្រក់ឲ្យផលអាក្រក់ — មិនមែនព្រះជាអ្នកវិនិច្ឆ័យ គឺច្បាប់ធម្មជាតិនៃហេតុផល។', 'Kamma is intention — willing and acting. The Buddha said: «It is volition that I call kamma.» Good deeds ripen as good result, bad deeds as bad — no judge is needed; it is the natural law of cause and effect.') }}
+      {{ t('កម្ម គឺចេតនា គឺស្មារតីគិតហើយធ្វើ។ ព្រះពុទ្ធបរមគ្រូត្រាស់ទេសនាថា៖ «ចេតនាហើយ ដែលតថាគតហៅថាកម្ម»។ ទង្វើល្អឲ្យផលល្អ ទង្វើអាក្រក់ឲ្យផលអាក្រក់ — មិនមែនព្រះជាអ្នកវិនិច្ឆ័យ គឺច្បាប់ធម្មជាតិនៃហេតុផល។', 'Kamma is intention — willing and acting. The Buddha said: «It is volition that I call kamma.» Good deeds ripen as good result, bad deeds as bad — no judge is needed; it is the natural law of cause and effect.') }}
     </p>
 
     <!-- kusala vs akusala -->

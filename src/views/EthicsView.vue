@@ -77,7 +77,7 @@ const parami = [
   { pl: 'Viriya', km: 'វិរិយៈ', en: 'Energy', kmBody: 'ព្យាយាមឥតឈប់', enBody: 'strenuous effort' },
   { pl: 'Khantī', km: 'ខន្តី', en: 'Patience', kmBody: 'អត់ឱនទ្រាំទ្រ', enBody: 'endurance and forbearance' },
   { pl: 'Sacca', km: 'សច្ចៈ', en: 'Truthfulness', kmBody: 'ស្មោះត្រង់ពាក្យពិត', enBody: 'honesty in word and deed' },
-  { pl: 'Adhiṭṭhāna', km: 'អធិដ្ឋាន', en: 'Determination', kmBody: 'នឹករឹងមាំចំពោះអំពើល្អ', enBody: 'resolute commitment' },
+  { pl: 'Adhiṭṭhāna', km: 'អធិដ្ឋាន', en: 'Determination', kmBody: 'តាំងចិត្តរឹងមាំចំពោះអំពើល្អ', enBody: 'resolute commitment' },
   { pl: 'Mettā', km: 'មេត្តា', en: 'Loving-kindness', kmBody: 'រាប់អានសត្វទាំងអស់', enBody: 'well-wishing toward all' },
   { pl: 'Upekkhā', km: 'ឧបេក្ខា', en: 'Equanimity', kmBody: 'ចិត្តរាបស្មើក្នុងសុខទុក្ខ', enBody: 'steadiness amid gain and loss' },
 ]
@@ -85,6 +85,6 @@ const parami = [
 const quotes = [
   { km: 'អក្កោធេន ជិនេ កោធំ — ឈ្នះអ្នកខឹង ដោយមិនខឹង។', en: 'Conquer anger by non-anger.', pl: 'Dhammapada 223' },
   { km: 'វេរមណី សីលំ — សីល គឺការកាន់ចិត្តឲ្យរួចពីអាក្រក់។', en: 'Virtue is refraining, guarding the heart from harm.', pl: 'Abhidhamma in Daily Life' },
-  { km: 'កម្មស្សកោ មាតិស្សោ — សត្វលោកជាអ្នកមានកម្មជាកេររបស់ខ្លួន។', en: 'Beings are the owners of their kamma.', pl: 'AN 5.57' },
+  { km: 'កម្មស្សកោម្ហិ កម្មទាយាទោម្ហិ — សត្វលោកជាអ្នកមានកម្មជារបស់ខ្លួន ជាអ្នកទទួលកេរដំណែលរបស់កម្ម។', en: 'Beings are the owners of their kamma.', pl: 'AN 5.57' },
 ]
 </script>

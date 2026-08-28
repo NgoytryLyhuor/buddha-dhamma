@@ -128,13 +128,6 @@
               <span class="share-sub km">{{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}</span>
             </span>
           </a>
-          <a class="share-btn" :href="shareWhatsApp" target="_blank" rel="noopener">
-            <span class="share-ico" aria-hidden="true">&#9742;</span>
-            <span class="share-txt">
-              <span class="share-name">WhatsApp</span>
-              <span class="share-sub km">{{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}</span>
-            </span>
-          </a>
           <a class="share-btn report" :href="reportUrl" target="_blank" rel="noopener">
             <span class="share-ico" aria-hidden="true">&#9998;</span>
             <span class="share-txt">
@@ -251,6 +244,5 @@ function onSearchKeydown(e) {
 
 const BASE_URL = 'https://buddha-dhamma.vercel.app'
 const shareTelegram = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('ធម៌ល្អៗ សម្រាប់ជីវិត — ' + BASE_URL))
-const shareWhatsApp = computed(() => 'https://wa.me/?text=' + encodeURIComponent('ព្រះធម៌ ជាជំនួយជីវិត — ' + BASE_URL))
 const reportUrl = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('សូមកែពាក្យខ្មែរ ដែលខ្ញុំឃើញហាក់ខុស នៅលើទំព័រ ' + BASE_URL + ' ៖ '))
 </script>

@@ -10,31 +10,41 @@
     </p>
 
     <!-- the stories -->
+    <div class="mt-8">
+      <p class="chapter-label">{{ t('រឿងជម្រើស ៦ — ចុចដើម្បីបើកមើល', 'SIX SELECTED STORIES — TAP TO OPEN') }}</p>
+    </div>
     <div class="mt-4 space-y-4">
-      <article v-for="(s, i) in stories" :key="s.en" class="card-paper p-6 md:p-8">
-        <div class="flex items-start justify-between gap-3 flex-wrap">
-          <div class="min-w-0">
-            <p class="chapter-label">{{ s.src }}</p>
-            <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(s.km, s.en) }}</h3>
-            <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(s.noteK, s.noteE) }}</p>
+      <details v-for="(s, i) in stories" :key="s.en" class="card-paper p-6 md:p-8" :open="i === 0">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <div class="min-w-0">
+              <p class="chapter-label">{{ s.src }}</p>
+              <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(s.km, s.en) }}</h3>
+              <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(s.noteK, s.noteE) }}</p>
+            </div>
+            <div class="flex items-center gap-3 shrink-0 mt-1">
+              <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
+              <span class="caret" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+            </div>
           </div>
-          <span class="sutra-num mt-1" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-        </div>
+        </summary>
 
-        <div class="mt-4 space-y-3">
-          <p v-for="p in s.paras" :key="p.en" class="leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(p.km, p.en) }}</p>
-        </div>
+        <div class="mt-5">
+          <div class="space-y-3">
+            <p v-for="p in s.paras" :key="p.en" class="leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(p.km, p.en) }}</p>
+          </div>
 
-        <div class="verse-box p-4 mt-4">
-          <p class="text-center text-base md:text-lg leading-loose" :style="{ color: 'var(--ink)' }">{{ s.essenceK }}</p>
-          <p class="text-center text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ s.essenceE }}</p>
-        </div>
+          <div class="verse-box p-4 mt-5">
+            <p class="text-center text-base md:text-lg leading-loose" :style="{ color: 'var(--ink)' }">{{ s.essenceK }}</p>
+            <p class="text-center text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ s.essenceE }}</p>
+          </div>
 
-        <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
-          <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('មេរៀន', 'THE LESSON') }}</p>
-          <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(s.lessonK, s.lessonE) }}</p>
+          <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('មេរៀន', 'THE LESSON') }}</p>
+            <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(s.lessonK, s.lessonE) }}</p>
+          </div>
         </div>
-      </article>
+      </details>
     </div>
   </div>
 </template>
@@ -56,7 +66,7 @@ const stories = [
     paras: [
       { km: 'អង្គុលីមាលៈ ជាកូនព្រាហ្មណ៍ ទៅសិក្សាឯក្រុងតក្កសិលា។ គ្រូរបស់គាត់ ច្រណែននឹងប្រាជ្ញាគាត់ ក៏បញ្ឆោតឲ្យគាត់នាំម្រាមដៃមនុស្ស ១០០០ មកជូន ទើបអាចបញ្ចប់ការសិក្សា។ អង្គុលីមាលៈ ក៏ក្លាយជាចោរសម្លាប់មនុស្ស ដ៏គួរខ្លាច នៅក្នុងព្រៃតែម្នាក់ឯង រហូតបានម្រាមដៃ ៩៩៩ ចងកជាមាលៃ។', en: 'Angulimāla, a Brahmin youth, studied in Takkasilā. His jealous teacher tricked him into gathering one thousand human fingers as a final tribute. He became a dreaded bandit haunting the woods alone, with 999 fingers strung on a thread.' },
       { km: 'ថ្ងៃមួយ ព្រះពុទ្ធ ទ្រង់យាងចូលព្រៃនោះ ដោយមេត្តា។ អង្គុលីមាលៈ រត់ចេញទៅតាម តែព្រះពុទ្ធ ដើរបន្តិចបន្តួច បែរជាមានព្រះហឫទ័យ កើតជាចំពីមុខគាត់ទៅវិញ។ គាត់ស្រែកថា «ឈប់ទៅ សមណៈ!» ព្រះពុទ្ធ ទ្រង់តបថា «យើងឈប់ហើយ អង្គុលីមាលៈ — អ្នកឯងទេ ដែលមិនទាន់ឈប់។» សេចក្តីនោះ ចូលទៅក្នុងចិត្តគាត់ គាត់ក៏សុំបួស។', en: 'One day the Buddha, moved by compassion, walked into that forest. Angulimāla ran after him, yet the Buddha, with a gentle pace, stayed ahead. The bandit shouted, "Stop, ascetic!" The Buddha replied, "I have stopped, Angulimāla — you are the one who has not stopped." Those words pierced his heart, and he asked to be ordained.' },
-      { km: 'គាត់ឧស្សាហ៍វាងវៀត បណ្តុះសីល សមាធិ បញ្ញា រហូតសម្រេចជាព្រះអរហន្ត។ ស្តេចប្រេនកោសល កាលក្រោយ ចងចាំព្រះពុទ្ធ កតើគាត់ជាអ្នកបរិសុទ្ធ — ក៏ថ្វាយបង្គំទាំងពីរ។ អ្នកដែលវិលមកល្អ តែងជាទីគោរព របស់លោក។', en: 'He strove diligently, and at last attained arahantship. When King Pasenadi later learned who he was, he honoured the new monk in awe. One who turns to good earns the respect of the world.' },
+      { km: 'គាត់ឧស្សាហ៍វាងវៀត បណ្តុះសីល សមាធិ បញ្ញា រហូតសម្រេចជាព្រះអរហន្ត។ ស្តេចប្រេនកោសល កាលក្រោយ ដឹងថាគាត់ជាអ្នកបរិសុទ្ធ — ក៏ថ្វាយបង្គំទាំងពីរ។ អ្នកដែលវិលមកល្អ តែងជាទីគោរព របស់លោក។', en: 'He strove diligently, and at last attained arahantship. When King Pasenadi later learned who he was, he honoured the new monk in awe. One who turns to good earns the respect of the world.' },
     ],
     essenceK: 'កិលេស មិនមែនជាវាសនាទេ — មនុស្ស មិនដែលជាប់ជុំ នឹងទង្វើ ណា មួយ ជារៀងរហូតឡើយ។',
     essenceE: 'Defilements are not destiny — no one is chained forever to the deeds of the past.',

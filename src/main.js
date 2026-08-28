@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { inject } from '@vercel/analytics'
 import App from './App.vue'
 import './style.css'
+import { getSavedScroll, saveScroll, SCROLL_THRESHOLD } from './composables/useReadingProgress'
 
 inject()
 
@@ -26,9 +27,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to) {
+  scrollBehavior(to, from) {
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }
+    }
+    if (from.matched.length) saveScroll(from.path, window.scrollY || 0)
+    const saved = getSavedScroll()[to.path]
+    if (saved > SCROLL_THRESHOLD && from.matched.length) {
+      return { top: saved, behavior: 'auto' }
     }
     return { top: 0, behavior: 'smooth' }
   }

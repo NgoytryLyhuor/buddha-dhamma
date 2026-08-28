@@ -39,6 +39,10 @@
               <span>{{ theme === 'dark' ? '☽' : '☼' }}</span>
               <span>{{ t(theme === 'dark' ? 'ប្តូរទៅភ្លឺ' : 'ប្តូរទៅងងឹត', theme === 'dark' ? 'Switch to light' : 'Switch to dark') }}</span>
             </button>
+            <button class="setting-row" @click="toggleContrast">
+              <span>AA</span>
+              <span>{{ t(contrast ? 'ប្តូរទៅពណ៌ធម្មតា' : 'ប្តូរទៅពណ៌ខ្លាំង (ផ្ទុយខ្ពស់)', contrast ? 'Switch to normal contrast' : 'Switch to high contrast') }}</span>
+            </button>
 
             <p class="settings-label mt-4">{{ t('ទំហំអក្សរ', 'Font size') }}</p>
             <div class="flex items-center justify-between gap-2">
@@ -224,7 +228,9 @@ import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
 import { useFont } from './composables/useFont'
+import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
+import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
@@ -232,6 +238,7 @@ const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
+const { contrast, toggleContrast } = useContrast()
 
 const hasError = ref(false)
 onErrorCaptured((err) => {
@@ -243,8 +250,9 @@ const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSp
 const { font, setFont } = useFont()
 
 function resetSettings() {
-  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing']
+  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_contrast']
     .forEach(k => localStorage.removeItem(k))
+  clearSavedScroll()
   location.reload()
 }
 
@@ -269,14 +277,29 @@ const nav = [
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
 
 const showScrollTop = ref(false)
+let saveTimer = null
 const onScroll = () => {
   showScrollTop.value = window.scrollY > 400
+  if (saveTimer) return
+  saveTimer = setTimeout(() => {
+    saveScroll(route.path, window.scrollY || 0)
+    saveTimer = null
+  }, 400)
+}
+const onSaveOnExit = () => {
+  saveScroll(route.path, window.scrollY || 0)
 }
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
-onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('pagehide', onSaveOnExit)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('pagehide', onSaveOnExit)
+})
 
 const printOpenStates = []
 function beforePrint() {

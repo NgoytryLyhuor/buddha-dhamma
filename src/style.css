@@ -46,6 +46,57 @@ html.dark {
   --halo: rgba(240,176,85,0.12);
 }
 
+/* High-contrast mode (light) */
+html.high-contrast {
+  --bg-body: #ffffff;
+  --bg-nav: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-2: #f5f5f5;
+  --bg-input: #ffffff;
+  --ink: #000000;
+  --ink-soft: #000000;
+  --ink-muted: #000000;
+  --ink-faint: #333333;
+  --accent: #000000;
+  --accent-bright: #000000;
+  --accent-soft: rgba(0,0,0,0.06);
+  --gold: #000000;
+  --sage: #000000;
+  --red: #8b0000;
+  --blue: #000080;
+  --purple: #4b0082;
+  --border: #000000;
+  --border-strong: #000000;
+  --shadow: none;
+  --halo: transparent;
+}
+
+/* High-contrast mode (dark) */
+html.high-contrast.dark {
+  --bg-body: #000000;
+  --bg-nav: #000000;
+  --bg-card: #000000;
+  --bg-card-2: #101010;
+  --bg-input: #000000;
+  --ink: #ffffff;
+  --ink-soft: #ffffff;
+  --ink-muted: #ffffff;
+  --ink-faint: #dddddd;
+  --accent: #ffffff;
+  --accent-bright: #ffffff;
+  --accent-soft: rgba(255,255,255,0.08);
+  --gold: #ffffff;
+  --sage: #ffffff;
+  --red: #ff6666;
+  --blue: #7fb3ff;
+  --purple: #d3b0ff;
+  --border: #ffffff;
+  --border-strong: #ffffff;
+  --shadow: none;
+  --halo: transparent;
+  outline-color: #ffffff;
+}
+
 * { scrollbar-width: thin; scrollbar-color: var(--border-strong) var(--bg-card-2); }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-card-2); }

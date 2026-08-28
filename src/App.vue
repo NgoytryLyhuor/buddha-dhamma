@@ -16,7 +16,7 @@
             <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')" :aria-label="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             </button>
-            <button class="theme-btn px-3 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
+            <button ref="settingsBtnRef" class="theme-btn px-3 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
@@ -26,7 +26,7 @@
 
         <!-- Settings dropdown -->
         <transition name="settings">
-          <div v-if="settingsOpen" class="relative">
+          <div v-if="settingsOpen" ref="settingsRef" class="relative">
             <div class="settings-panel">
             <p class="settings-label">{{ t('ភាសា', 'Language') }}</p>
             <div class="flex gap-2">
@@ -283,6 +283,15 @@ function resetSettings() {
 }
 
 const settingsOpen = ref(false)
+const settingsRef = ref(null)
+const settingsBtnRef = ref(null)
+
+function onSettingsGlobalClick(e) {
+  if (!settingsOpen.value) return
+  if (settingsRef.value && settingsRef.value.contains(e.target)) return
+  if (settingsBtnRef.value && settingsBtnRef.value.contains(e.target)) return
+  settingsOpen.value = false
+}
 
 const nav = [
   { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },
@@ -321,10 +330,12 @@ function scrollToTop() {
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
+  document.addEventListener('click', onSettingsGlobalClick)
 })
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('pagehide', onSaveOnExit)
+  document.removeEventListener('click', onSettingsGlobalClick)
 })
 
 const printOpenStates = []

@@ -135,6 +135,10 @@
         {{ t('សទ្ធា និងបញ្ញា គឺជាគូគ្មានពីរ — សិក្សាដោយគោរព បដិបត្តិដោយពិចារណា', 'Faith and wisdom go together — study with respect, practise with reflection.') }}
       </p>
       <p class="text-[10px] mt-1 tracking-widest uppercase" :style="{ color: 'var(--ink-faint)' }">Buddha Dhamma &#183; 2026</p>
+      <p class="text-[10px] mt-3" :style="{ color: 'var(--ink-faint)' }">
+        {{ t('បង្កើតឡើងដោយ', 'Developed by') }} ង៉ុយទ្រី លីហួរ &middot;
+        <a href="https://t.me/ngoytrylyhuor" target="_blank" rel="noopener" style="color: var(--accent)">Telegram @ngoytrylyhuor</a>
+      </p>
     </footer>
   </div>
 </template>

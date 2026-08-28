@@ -33,7 +33,7 @@
           <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">Namo tassa bhagavato arahato sammāsambuddhassa</p>
         </div>
         <p class="text-sm mt-3 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-          {{ t('ពេលចិត្តមិនស្ងប់ ចូររឭកដល់គុណព្រះពុទ្ធ ដោយថា «ព្រះអង្គបរិសុទ្ធ ត្រាស់ដឹងដោយខ្លួនឯង» — ចិត្តនឹងស្ងប់ កើតសទ្ធា។', 'When the mind is disturbed, recollect the Buddha&rsquo;s qualities, thinking &ldquo;He is pure and self-awakened&rdquo; — the mind calms and faith arises.') }}
+          {{ t('ពេលចិត្តមិនស្ងប់ ចូររឭកដល់គុណព្រះពុទ្ធ ដោយថា «ព្រះអង្គបរិសុទ្ធ ត្រាស់ដឹងដោយខ្លួនឯង» — ចិត្តនឹងស្ងប់ កើតសទ្ធា។', 'When the mind is disturbed, recollect the Buddha\u2019s qualities, thinking \u201CHe is pure and self-awakened\u201D — the mind calms and faith arises.') }}
         </p>
       </div>
       <div class="card-paper p-6">
@@ -51,7 +51,7 @@
     <!-- daily reflections -->
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">{{ t('ពិចារណាប្រចាំថ្ងៃ', 'DAILY REFLECTIONS') }}</p>
-      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('វេទនា ៅក្នុងជីវិត', 'The Five Recollections of the Precariousness of Life') }}</h3>
+      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ពិចារណា ៥ ប្រការ អំពីភាពមិនទៀងនៃជីវិត', 'The Five Recollections of the Precariousness of Life') }}</h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ព្រះពុទ្ធទ្រង់ប្រៀនប្រដៅឲ្យពិចារណាប្រចាំថ្ងៃ នូវសេចក្តីពិត ៥ ប្រការនេះ ដើម្បីកុំឲ្យចិត្តប្រមាទ។', 'The Buddha taught these five truths to be reflected on daily so that the mind does not become heedless.') }}
       </p>
@@ -75,11 +75,11 @@ function khNum(n) {
 }
 
 const anussati = [
-  { pl: 'BUDDHĀNUSSATI', km: 'រឭកដល់ព្រះពុទ្ធ', en: 'Recollection of the Buddha', kmBody: 'រឭកនូវគុណរបស់ព្រះពុទ្ធ ឲ្យកើតសទ្ធា ចិត្តស្ងប់។', enBody: 'Recalling the Buddha&rsquo;s qualities to rouse faith and calm the mind.' },
+  { pl: 'BUDDHĀNUSSATI', km: 'រឭកដល់ព្រះពុទ្ធ', en: 'Recollection of the Buddha', kmBody: 'រឭកនូវគុណរបស់ព្រះពុទ្ធ ឲ្យកើតសទ្ធា ចិត្តស្ងប់។', enBody: 'Recalling the Buddha\u2019s qualities to rouse faith and calm the mind.' },
   { pl: 'DHAMMĀNUSSATI', km: 'រឭកដល់ព្រះធម៌', en: 'Recollection of the Dhamma', kmBody: 'ព្រះធម៌ប្រកាសដោយព្រះពុទ្ធ ប្រកបដោយប្រយោជន៍ បរិសុទ្ធ ។', enBody: 'The Dhamma is well-proclaimed, beneficial, and pure.' },
   { pl: 'SAṄGHĀNUSSATI', km: 'រឭកដល់ព្រះសង្ឃ', en: 'Recollection of the Saṅgha', kmBody: 'រឭកដល់គុណព្រះសង្ឃ ជាអ្នកបដិបត្តិល្អ។', enBody: 'Recalling the Saṅgha as followers of the good practice.' },
   { pl: 'SĪLĀNUSSATI', km: 'រឭកដល់សីល', en: 'Recollection of Virtue', kmBody: 'រឭកនូវសីលដែលខ្លួនកាន់ ឲ្យកើតសេចក្តីត្រេកអរក្នុងល្អ។', enBody: 'Recalling the virtue one keeps, rejoicing in the good.' },
-  { pl: 'CĀGĀNUSSATI', km: 'រឭកដល់ភាពហួសវត្ថុ', en: 'Recollection of Generosity', kmBody: 'រឭកនូវទានដែលបានឲ្យ ឲ្យកើតអំណរ និងស្មារតីឲ្យ។', enBody: 'Recalling one&rsquo;s gifts, gladdening and strengthening the spirit of giving.' },
+  { pl: 'CĀGĀNUSSATI', km: 'រឭកដល់ភាពហួសវត្ថុ', en: 'Recollection of Generosity', kmBody: 'រឭកនូវទានដែលបានឲ្យ ឲ្យកើតអំណរ និងស្មារតីឲ្យ។', enBody: 'Recalling one\u2019s gifts, gladdening and strengthening the spirit of giving.' },
   { pl: 'DEVATĀNUSSATI', km: 'រឭកដល់ទេវតា', en: 'Recollection of the Devas', kmBody: 'រឭកនូវគុណ កុសល ដែលទេវតាមាន ហើយបណ្តុះគុណនោះក្នុងខ្លួន។', enBody: 'Recalling the good qualities of devas and cultivating them in oneself.' },
   { pl: 'UPASAMĀNUSSATI', km: 'រឭកដល់សេចក្តីស្ងប់', en: 'Recollection of Peace', kmBody: 'រឭកដល់និព្វាន ជាទីរំលត់ ទីស្ងប់។', enBody: 'Recalling Nibbāna, the stilling and the peace.' },
   { pl: 'MARANĀNUSSATI', km: 'រឭកដល់សេចក្តីស្លាប់', en: 'Recollection of Death', kmBody: 'រឭកថា ជីវិតមិនទៀង នឹងស្លាប់ ដើម្បីដាស់ខ្លួនធ្វើល្អ។', enBody: 'Reflecting that life is impermanent and ends in death, to rouse diligence.' },

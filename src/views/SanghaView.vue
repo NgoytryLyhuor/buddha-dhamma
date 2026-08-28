@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះសង្ឃ ជាស្តូបបន្តនៃព្រះពុទ្ធសាសនា ។ សម្រាប់អ្នកកាន់ឧបាសក–ឧបាសិកា ការយល់អំពីការរស់នៅរបស់ព្រះសង្ឃ ជួយឲ្យដឹងពីរបៀបគាំទ្របដិបត្តិ និងចូលរួមធ្វើបុណ្យ ដោយត្រូវតាមផ្លូវធម៌។', 'The Saṅgha is the living continuation of the Buddha&rsquo;s teaching. For lay men and women, understanding how monks live helps one know how to support their practice and take part in merit-making in a proper way.') }}
+      {{ t('ព្រះសង្ឃ ជាស្តូបបន្តនៃព្រះពុទ្ធសាសនា ។ សម្រាប់អ្នកកាន់ឧបាសក–ឧបាសិកា ការយល់អំពីការរស់នៅរបស់ព្រះសង្ឃ ជួយឲ្យដឹងពីរបៀបគាំទ្របដិបត្តិ និងចូលរួមធ្វើបុណ្យ ដោយត្រូវតាមផ្លូវធម៌។', 'The Saṅgha is the living continuation of the Buddha\u2019s teaching. For lay men and women, understanding how monks live helps one know how to support their practice and take part in merit-making in a proper way.') }}
     </p>
 
     <!-- Three refuges / lay-monial -->
@@ -25,7 +25,7 @@
         <p class="chapter-label">VINAYA</p>
         <h3 class="font-display text-lg mt-2" :style="{ color: 'var(--ink)' }">{{ t('វិន័យភិក្ខុ', 'The Monastic Discipline') }}</h3>
         <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-          {{ t('ភិក្ខុកាន់សីលវិន័យ ២២៧ សិក្ខាបទ ។ គោលធំៗ៖ លះកាម មិនកាន់ប្រាក់ មិនបរិភោគពេលក្រោយថ្ងៃត្រង់ មិនរៀបចំអាហារខ្លួនឯង។', 'A monk keeps 227 training rules. The main points: renounce sensual life, do not handle money, do not eat after midday, do not prepare one&rsquo;s own food.') }}
+          {{ t('ភិក្ខុកាន់សីលវិន័យ ២២៧ សិក្ខាបទ ។ គោលធំៗ៖ លះកាម មិនកាន់ប្រាក់ មិនបរិភោគពេលក្រោយថ្ងៃត្រង់ មិនរៀបចំអាហារខ្លួនឯង។', 'A monk keeps 227 training rules. The main points: renounce sensual life, do not handle money, do not eat after midday, do not prepare one\u2019s own food.') }}
         </p>
         <div class="verse-box p-3 mt-4">
           <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('វិន័យជាអាយុរបស់សាសនា; ពេលវិន័យនៅ សាសនានៅ។', 'The discipline is the life of the teaching; so long as the Vinaya stands, the Dhamma stands.') }}</p>
@@ -54,7 +54,7 @@
       </ul>
       <div class="verse-box p-4 mt-5">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">
-          {{ t('ទាននោះ ត្រូវឲ្យដោយចិត្តសទ្ធា ដោយដៃខ្លួនឯង ដោយវត្ថុសមស្រប ដល់ជនសមស្រប — នេះហៅថា ទក្ខិណេយ្យទក្ខិណា បុណ្យដ៏ប្រសើរ។', 'A gift should be given with faith, with one&rsquo;s own hand, with suitable material, to a suitable recipient — this is called the best of gifts.') }}
+          {{ t('ទាននោះ ត្រូវឲ្យដោយចិត្តសទ្ធា ដោយដៃខ្លួនឯង ដោយវត្ថុសមស្រប ដល់ជនសមស្រប — នេះហៅថា ទក្ខិណេយ្យទក្ខិណា បុណ្យដ៏ប្រសើរ។', 'A gift should be given with faith, with one\u2019s own hand, with suitable material, to a suitable recipient — this is called the best of gifts.') }}
         </p>
       </div>
     </div>
@@ -86,7 +86,7 @@ const { t } = useLanguage()
 const lohaka = [
   { km: 'ឲ្យបាយទានពេលព្រឹក', en: 'Offer morning food', kmBody: 'រៀបចំម្ហូបពីពេលព្រឹក សម្រាប់ព្រះសង្ឃ ព្រមទាំងភាជនៈ។', enBody: 'Prepare food in the morning for the monks, along with bowls.' },
   { km: 'ឲ្យបច្ច័យ ៤', en: 'Offer the four requisites', kmBody: 'ចីវរ បាយ សេនាសនៈ ថ្នាំ ។', enBody: 'Robes, food, lodging, and medicine.' },
-  { km: 'ថែរក្សាវត្តអារាម', en: 'Maintain the temple', kmBody: 'លាងជូត បោសសម្អាត ជួសជុល ទាំងដឹងកាតព្វកិច្ចជនវត្ត។', enBody: 'Clean, repair, and know one&rsquo;s duties to the temple.' },
+  { km: 'ថែរក្សាវត្តអារាម', en: 'Maintain the temple', kmBody: 'លាងជូត បោសសម្អាត ជួសជុល ទាំងដឹងកាតព្វកិច្ចជនវត្ត។', enBody: 'Clean, repair, and know one\u2019s duties to the temple.' },
   { km: 'ការពារព្រះសង្ឃ', en: 'Protect the monks', kmBody: 'កាលព្រះសង្ឃមានទុក្ខ ទៅជួយរំលែក ការពារគ្រោះថ្នាក់។', enBody: 'Help and guard them when they are in trouble or danger.' },
   { km: 'បណ្តុះសទ្ធាក្នុងកូនចៅ', en: 'Nurture faith in children', kmBody: 'បង្រៀនកូនចៅឲ្យចេះគោរព និងធ្វើបុណ្យតាំងពីតូច។', enBody: 'Teach children to respect and make merit from a young age.' },
 ]

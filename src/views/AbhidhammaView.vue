@@ -67,7 +67,7 @@
           <div v-for="cf in cetasikaGroups.slice(0, 2)" :key="cf.en" class="mb-4">
             <p class="font-bold" :style="{ color: 'var(--accent)' }">{{ t(cf.km, cf.en) }} <span class="paali ml-1">{{ cf.n }}</span></p>
             <div class="flex flex-wrap gap-2 mt-2">
-              <span v-for="c in cf.list" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.kh }} · {{ c.pl }}</span>
+              <span v-for="c in cf.list" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.pl }}</span>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
           <div v-for="cf in cetasikaGroups.slice(2)" :key="cf.en" class="mb-4">
             <p class="font-bold" :style="{ color: cf.color }">{{ t(cf.km, cf.en) }} <span class="paali ml-1">{{ cf.n }}</span></p>
             <div class="flex flex-wrap gap-2 mt-2">
-              <span v-for="c in cf.list" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.kh }} · {{ c.pl }}</span>
+              <span v-for="c in cf.list" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.pl }}</span>
             </div>
           </div>
         </div>
@@ -91,14 +91,14 @@
         <div>
           <p class="font-bold" :style="{ color: 'var(--accent)' }">{{ t('មហាភូតរូប ៤', '4 Great Elements') }}</p>
           <div class="flex flex-wrap gap-2 mt-3">
-            <span v-for="c in rupaGreat" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.kh }} · {{ c.pl }}</span>
+            <span v-for="c in rupaGreat" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.pl }}</span>
           </div>
         </div>
         <div>
           <p class="font-bold" :style="{ color: 'var(--accent)' }">{{ t('ឧបាទាយរូប ២៤', '24 Derived Rūpa') }}</p>
           <p class="text-xs mt-2 mb-3" :style="{ color: 'var(--ink-muted)' }">{{ t('បច្ចវត្ថុ ៥ អារម្មណ៍ ៤ ភេទ ២ ហទយ ១ ជីវិតិន្រ្ទិយ ១ អាហារ ១ អាកាស ១ វិញ្ញត្តិ ២ វិការ ៣ លក្ខណៈ ៤ ។', '5 sense organs, 4 objects, 2 sex, heart-base, life faculty, nutriment, space, 2 intimations, 3 transformations, 4 marks.') }}</p>
           <div class="flex flex-wrap gap-2">
-            <span v-for="c in rupaDerived" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.kh }} · {{ c.pl }}</span>
+            <span v-for="c in rupaDerived" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.pl }}</span>
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
       <div class="grid md:grid-cols-3 gap-2 mt-4">
         <div v-for="(l, i) in links" :key="l.pl"
           class="flex items-start gap-2 p-3 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-          <span class="sutra-num">{{ '១២៣៤៥៦៧៨៩'[i] || (i === 9 ? '១០' : i === 10 ? '១១' : '១២') }}</span>
+          <span class="sutra-num">{{ i + 1 }}</span>
           <div>
             <p class="text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ t(l.kh, l.pl) }}</p>
             <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ t(l.note, l.en_note) }}</p>
@@ -130,7 +130,7 @@
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('គម្ពីរ ៧ ក្បាលរបស់អភិធម្មបិដក', 'The 7 Books of the Abhidhamma Pitaka') }}</h3>
       <div class="grid md:grid-cols-2 gap-3 mt-5">
         <div v-for="(b, i) in books" :key="b.pl" class="flex gap-3 p-3 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-          <span class="sutra-num">{{ '១២៣៤៥៦៧'[i] }}</span>
+          <span class="sutra-num">{{ i + 1 }}</span>
           <div>
             <p class="text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ t(b.kh, b.pl) }}</p>
             <p class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ t(b.note, b.en_note) }}</p>
@@ -152,9 +152,9 @@ Chart.register(...registerables)
 const { theme, getChartColors } = useTheme()
 const { t, lang } = useLanguage()
 
-const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+
 function khNum(n) {
-  return String(n).split('').map(d => khDigits[Number(d)]).join('')
+  return String(n)
 }
 
 const ultimates = [

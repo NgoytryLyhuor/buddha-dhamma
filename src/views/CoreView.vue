@@ -13,7 +13,7 @@
     <div class="grid md:grid-cols-2 gap-4 mt-8">
       <div v-for="(tr, i) in truths" :key="tr.en" class="card-paper card-paper-hover p-5">
         <div class="flex items-center gap-3">
-          <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ '១២៣៤'[i] }}</span>
+          <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ i + 1 }}</span>
           <div>
             <h3 class="font-display text-base" :style="{ color: 'var(--ink)' }">{{ t(tr.km, tr.en) }}</h3>
             <span class="paali">{{ tr.paali }}</span>

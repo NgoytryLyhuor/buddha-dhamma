@@ -35,7 +35,7 @@
       </div>
 
       <div class="verse-box p-4 mt-2">
-        <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">វយធម្មា សង្ខារា អប្បមាទេន សម្បាទេថ ។</p>
+        <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">Vayadhammā saṅkhārā appamādena sampādetha.</p>
         <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតហើយត្រូវបាត់ទៅ — អ្នកទាំងឡាយ ចូរព្យាយាមកុំប្រហែសធ្វេស»', '"All things pass away — strive on with diligence."') }}</p>
         <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">{{ t('ព្រះបន្ទូលចុងក្រោយ មុនបរិនិព្វាន', 'Last words before Parinibbāna') }}</p>
       </div>
@@ -61,16 +61,16 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+
 function khNum(n) {
-  return String(n).split('').map(d => khDigits[Number(d)]).join('')
+  return String(n)
 }
 
 const facts = [
   { val: '623', lbl: 'ប្រសូត (មុនគ.ស.)', lblEn: 'Born BCE' },
-  { val: '២៩', lbl: 'អាយុចេញបួស', lblEn: 'Years at Renunciation' },
-  { val: '៣៥', lbl: 'អាយុត្រាស់ដឹង', lblEn: 'Years at Enlightenment' },
-  { val: '៤៥', lbl: 'វស្សាបង្រៀន', lblEn: 'Years Teaching' },
+  { val: '29', lbl: 'អាយុចេញបួស', lblEn: 'Years at Renunciation' },
+  { val: '35', lbl: 'អាយុត្រាស់ដឹង', lblEn: 'Years at Enlightenment' },
+  { val: '45', lbl: 'វស្សាបង្រៀន', lblEn: 'Years Teaching' },
 ]
 
 const events = [

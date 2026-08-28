@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ការសូត្រធម៌ ជាប្រពៃណីរបស់ពុទ្ធបរិស័ទ តាំងពីសម័យព្រះពុទ្ធកាល មកដល់សព្វថ្ងៃ។ ការសូត្រ ដោយយល់ន័យ ញ៉ាំងចិត្តឲ្យស្ងប់ ញ៉ាំងសតិឲ្យរឹងមាំ ហើយបណ្តុះសទ្ធា ក្នុងព្រះរតនត្រ័យ។ ទំព័រនេះ រៀបរៀងបន្ទូលដែលប្រើញឹកញាប់បំផុត គឺបន្ទូលខ្លីៗ ដែលគ្រហស្ថគប្បីចាំសូត្របាន — អក្សរខ្មែរសម្រាប់សូត្រ ជាមួយន័យពន្យល់រាល់ពាក្យ។', 'Chanting is a tradition of Buddhist lay devotees from the time of the Buddha to this day. To chant with understanding calms the mind, strengthens mindfulness and deepens faith in the Triple Gem. This page gathers the most frequent short recitals — written in Khmer script to chant aloud, with every word explained.') }}
+      {{ t('ការសូត្រធម៌ ជាប្រពៃណីរបស់ពុទ្ធបរិស័ទ តាំងពីសម័យព្រះពុទ្ធកាល មកដល់សព្វថ្ងៃ។ ការសូត្រ ដោយយល់ន័យ ញ៉ាំងចិត្តឲ្យស្ងប់ ញ៉ាំងសតិឲ្យរឹងមាំ ហើយបណ្តុះសទ្ធា ក្នុងព្រះរតនត្រ័យ។ ទំព័រនេះ រៀបរៀងបន្ទូលដែលប្រើញឹកញាប់បំផុត គឺបន្ទូលខ្លីៗ ដែលគ្រហស្ថគប្បីចាំសូត្របាន — អក្សរខ្មែរសម្រាប់សូត្រ ជាមួយន័យពន្យល់រាល់ពាក្យ។', 'Chanting is a tradition of Buddhist lay devotees from the time of the Buddha to this day. To chant with understanding calms the mind, strengthens mindfulness and deepens faith in the Triple Gem. This page gathers the most frequent short recitals — short recitals every lay person can learn to chant, with every word explained.') }}
     </p>
 
     <!-- how to chant -->
@@ -35,8 +35,7 @@
         </div>
 
         <div class="verse-box p-4 md:p-5 mt-4">
-          <p v-for="l in c.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
-          <p class="mt-3 text-center"><span class="paali">{{ c.roman }}</span></p>
+          <p class="text-center"><span class="paali">{{ c.roman }}</span></p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-2 mt-4">
@@ -61,9 +60,9 @@
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
-const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+
 function khNum(n) {
-  return String(n).split('').map(d => khDigits[Number(d)]).join('')
+  return String(n)
 }
 
 const tips = [
@@ -75,7 +74,7 @@ const tips = [
 
 const chants = [
   {
-    src: 'NAMOKĀRA — ការថ្វាយបង្គំ',
+    src: 'NAMOKĀRA',
     km: 'នមោការៈ — បន្ទូលថ្វាយបង្គំព្រះរតនត្រ័យ', en: 'The Homage (Namokāra)',
     noteK: 'បន្ទូលដំបូង ដែលគប្បីសូត្រ មុននឹងធ្វើកិច្ចសូត្រអ្វីៗទាំងអស់ — សូត្រ ៣ ដង។', en: 'The very first recital, chanted before any other — recited three times.',
     lines: [
@@ -95,7 +94,7 @@ const chants = [
     applyE: 'Whenever you enter a temple or offer gifts, chant this three times with a respectful heart.',
   },
   {
-    src: 'TISĀRAṆA — តិសរណៈ',
+    src: 'TISĀRAṆA',
     km: 'តិសរណៈ — ការយកព្រះរតនត្រ័យជាទីពឹង', en: 'The Three Refuges (Tisaraṇa)',
     noteK: 'បន្ទូលរួម ប្រើសម្រាប់ឲ្យជាតិសីល — សូត្រតាមព្រះសង្ឃ ក្នុងពិធីចូលវត្ត ឬ សូត្ររាល់ថ្ងៃនៅផ្ទះ។', en: 'The joining verses used when taking the five precepts — chant after the monks, or daily at home.',
     lines: [
@@ -117,7 +116,7 @@ const chants = [
     applyE: 'When afraid or restless, breathe slowly and recite this within, counting the breath — the mind calms down.',
   },
   {
-    src: 'PAÑCA SĪLA — បញ្ចសីល',
+    src: 'PAÑCA SĪLA',
     km: 'បញ្ចសីល — សីល ៥', en: 'The Five Precepts (Pañcasīla)',
     noteK: 'សីល ដែលពុទ្ធបរិស័ទគ្រប់គ្នា គប្បីរក្សា — សូត្រតាមលោកគ្រូ ក្នុងពិធីថ្វាយបង្គំ ឬ សូត្ររាល់ព្រឹកនៅផ្ទះ។', en: 'The precepts every lay Buddhist keeps — recited after the teacher during ceremonies, or each morning at home.',
     lines: [
@@ -144,7 +143,7 @@ const chants = [
     applyE: 'Recite the precepts each morning before starting your day — a reminder of the vows you carry.',
   },
   {
-    src: 'BUDDHĀNUSSATI — ពុទ្ធគុណ',
+    src: 'BUDDHĀNUSSATI',
     km: 'ថ្វាយបង្គំគុណព្រះពុទ្ធ — ឥតិបិ សោ', en: 'Nine Qualities of the Buddha (Iti pi so)',
     noteK: 'បន្ទូលសរសើរគុណព្រះពុទ្ធ ៩ ប្រការ — សូត្រតាមទម្លាប់ គឺសូត្រឡើងវិញ ៣ ដង មុនស្តាប់ធម្មទេសនា។', en: 'The nine virtues of the Buddha — normally recited three times before a sermon.',
     lines: [
@@ -170,7 +169,7 @@ const chants = [
     applyE: 'When anxious or tense, recollect the Buddha qualities — we have a supreme teacher and a path; the mind settles.',
   },
   {
-    src: 'DHAMMĀNUSSATI — ធម្មគុណ',
+    src: 'DHAMMĀNUSSATI',
     km: 'គុណព្រះធម៌ — ស្វាក្ខាតោ ភគវតា', en: 'Six Qualities of the Dhamma (Svākkhāto)',
     noteK: 'បន្ទូលសរសើរគុណព្រះធម៌ ៦ ប្រការ — គូនឹងគុណព្រះពុទ្ធ និងព្រះសង្ឃ សូត្រផ្សំតែម្តង។', en: 'The six virtues of the Dhamma — the pair to the Buddha and Saṅgha virtues.',
     lines: [
@@ -193,7 +192,7 @@ const chants = [
     applyE: 'When others doubt the faith, do not waver — recall these Dhamma qualities: it is practicable and visible here and now.',
   },
   {
-    src: 'SAṄGHĀNUSSATI — សង្ឃគុណ',
+    src: 'SAṄGHĀNUSSATI',
     km: 'គុណព្រះសង្ឃ — សុបដិបន្នោ', en: 'Nine Qualities of the Saṅgha (Supaṭipanno)',
     noteK: 'បន្ទូលសរសើរគុណព្រះសង្ឃ — សូត្របន្ទាប់ពីគុណព្រះពុទ្ធ និងព្រះធម៌។', en: 'The nine virtues of the Saṅgha — recited after the Buddha and Dhamma virtues.',
     lines: [
@@ -262,7 +261,7 @@ const chants = [
     applyE: 'Recite this slowly before sleep each day — sleep peaceful, waking calm.',
   },
   {
-    src: 'RATANA SUTTA — KHP 6 (គាថាទី ២)',
+    src: 'RATANA SUTTA — KHP 6',
     km: 'រតនសូត្រ — គាថាសរសើរព្រះពុទ្ធ', en: 'The Jewel Discourse (Ratana Sutta)',
     noteK: 'គាថាល្បី ពី រតនសូត្រ — ព្រះសូត្រដែលទ្រង់ សម្តែង ពេលរោគ អាសន្ន កើតឡើង ក្នុងក្រុងវេសាលី — ប្រើសូត្រការពារភ័យ។', en: 'A famous verse from the Jewel Discourse, chanted for protection — taught when plague struck the city of Vesālī long ago.',
     lines: [

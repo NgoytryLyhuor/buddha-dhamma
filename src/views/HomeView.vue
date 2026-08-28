@@ -109,10 +109,10 @@ const cittaGroups = [
 ]
 
 const explore = [
-  { to: '/core', num: '២', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ មគ្គ ៨ ត្រៃលក្ខណ៍', enBody: '4 Truths, 8 Path, 3 Marks' },
-  { to: '/abhidhamma', num: '៣', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត ចេតសិក រូប និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
-  { to: '/kamma', num: '៤', km: 'កម្មផល', en: 'Kamma & Rebirth', kmBody: 'កុសល អកុសល ភូមិ ៣១', enBody: 'Wholesome, unwholesome, 31 planes' },
-  { to: '/suttas', num: '៧', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ មេត្តា មង្គល', enBody: 'Dhammacakka, Metta, Mangala' },
+  { to: '/core', num: '2', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ មគ្គ ៨ ត្រៃលក្ខណ៍', enBody: '4 Truths, 8 Path, 3 Marks' },
+  { to: '/abhidhamma', num: '3', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត ចេតសិក រូប និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
+  { to: '/kamma', num: '4', km: 'កម្មផល', en: 'Kamma & Rebirth', kmBody: 'កុសល អកុសល ភូមិ ៣១', enBody: 'Wholesome, unwholesome, 31 planes' },
+  { to: '/suttas', num: '7', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ មេត្តា មង្គល', enBody: 'Dhammacakka, Metta, Mangala' },
 ]
 
 const chartRef = ref(null)

@@ -25,8 +25,9 @@
         </div>
 
         <!-- Settings dropdown -->
-        <div v-if="settingsOpen" class="relative">
-          <div class="settings-panel">
+        <transition name="settings">
+          <div v-if="settingsOpen" class="relative">
+            <div class="settings-panel">
             <p class="settings-label">{{ t('ភាសា', 'Language') }}</p>
             <div class="flex gap-2">
               <button class="lang-pick" :class="lang === 'km' ? 'on' : ''" @click="setLang('km')">ភាសាខ្មែរ</button>
@@ -47,8 +48,9 @@
               </div>
               <button class="font-btn" @click="increaseFontSize" :disabled="fontSizeIndex === SIZES.length - 1" :title="t('អក្សរធំជាង', 'Larger text')">A+</button>
             </div>
+            </div>
           </div>
-        </div>
+        </transition>
 
         <!-- Desktop horizontal nav -->
         <nav class="desktop-nav mt-2 -mb-px">
@@ -76,45 +78,53 @@
     </header>
 
     <!-- Search overlay -->
-    <div v-if="searchOpen" class="search-overlay" @click.self="closeSearch">
-      <div class="search-panel">
-        <div class="flex items-center justify-between gap-3 mb-3">
-          <h3 class="font-display text-lg" style="color: var(--ink)">{{ t('ស្វែងរក', 'Search') }}</h3>
-          <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')">&#10005;</button>
-        </div>
-        <input ref="searchInput" v-model="query" type="text" autocomplete="off"
-          :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
-          :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }"
-          @input="onSearchInput" @keydown="onSearchKeydown" />
-        <p v-if="query && !results.length" class="text-xs mt-3" style="color: var(--ink-faint)">
-          {{ t('រកមិនឃើញ សាកល្បងពាក្យផ្សេងទៀត', 'Nothing found — try another word.') }}
-        </p>
-        <div class="mt-3 max-h-80 overflow-y-auto -mr-2 pr-2 space-y-1">
-          <router-link v-for="(r, i) in results" :key="r.to + r.k" :to="r.to"
-            class="block px-3 py-2 rounded-sm transition hover:opacity-80"
-            :class="i === activeIndex ? 'search-active' : ''"
-            :style="{ background: i === activeIndex ? 'var(--accent-soft)' : 'var(--bg-card-2)' }">
-            <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.k }}</span>
-            <span class="block text-xs" style="color: var(--ink-faint)">{{ r.e }}</span>
-          </router-link>
-          <p v-if="!query" class="text-xs px-3 py-2" style="color: var(--ink-faint)">
-            {{ t('វាយពាក្យមួយចំនួន ដើម្បីរកទំព័រ', 'Type a few letters to find a page.') }}
+    <transition name="search-fade">
+      <div v-if="searchOpen" class="search-overlay" @click.self="closeSearch">
+        <div class="search-panel">
+          <div class="flex items-center justify-between gap-3 mb-3">
+            <h3 class="font-display text-lg" style="color: var(--ink)">{{ t('ស្វែងរក', 'Search') }}</h3>
+            <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')">&#10005;</button>
+          </div>
+          <input ref="searchInput" v-model="query" type="text" autocomplete="off"
+            :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
+            :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }"
+            @input="onSearchInput" @keydown="onSearchKeydown" />
+          <p v-if="query && !results.length" class="text-xs mt-3" style="color: var(--ink-faint)">
+            {{ t('រកមិនឃើញ សាកល្បងពាក្យផ្សេងទៀត', 'Nothing found — try another word.') }}
           </p>
+          <div class="mt-3 max-h-80 overflow-y-auto -mr-2 pr-2 space-y-1">
+            <router-link v-for="(r, i) in results" :key="r.to + r.k" :to="r.to"
+              class="block px-3 py-2 rounded-sm transition hover:opacity-80"
+              :class="i === activeIndex ? 'search-active' : ''"
+              :style="{ background: i === activeIndex ? 'var(--accent-soft)' : 'var(--bg-card-2)' }">
+              <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.k }}</span>
+              <span class="block text-xs" style="color: var(--ink-faint)">{{ r.e }}</span>
+            </router-link>
+            <p v-if="!query" class="text-xs px-3 py-2" style="color: var(--ink-faint)">
+              {{ t('វាយពាក្យមួយចំនួន ដើម្បីរកទំព័រ', 'Type a few letters to find a page.') }}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
 
     <!-- Scroll to top -->
-    <button v-if="showScrollTop"
-      class="scroll-top-btn" @click="scrollToTop"
-      :title="t('ត្រឡប់ទៅកំពូល', 'Back to top')"
-      :aria-label="t('ត្រឡប់ទៅកំពូល', 'Back to top')">
-      &#8593;
-    </button>
+    <transition name="fade">
+      <button v-if="showScrollTop"
+        class="scroll-top-btn" @click="scrollToTop"
+        :title="t('ត្រឡប់ទៅកំពូល', 'Back to top')"
+        :aria-label="t('ត្រឡប់ទៅកំពូល', 'Back to top')">
+        &#8593;
+      </button>
+    </transition>
 
     <!-- Main reading column -->
     <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
 
     <footer class="max-w-4xl mx-auto px-4 pb-10 text-center">

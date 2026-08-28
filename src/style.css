@@ -296,6 +296,61 @@ details[open] > summary .caret { transform: rotate(180deg); }
 }
 .footer-share .share-ico, .footer-share .share-txt, .footer-share .share-sub { text-align: left; }
 
+/* ===== Smooth animations ===== */
+html { scroll-behavior: smooth; }
+
+/* Smooth <details> open/close (used by Chanting, Suttas, Questions, Stories, Abhidhamma, Kamma) */
+details { position: relative; interpolate-size: allow-keywords; }
+details::details-content {
+  block-size: 0;
+  overflow-y: clip;
+  content-visibility: hidden;
+  interpolate-size: allow-keywords;
+  transition: content-visibility 0.4s allow-discrete, block-size 0.4s ease;
+}
+details[open]::details-content {
+  block-size: auto;
+  content-visibility: visible;
+}
+details::details-content > * {
+  opacity: 0;
+  translate: 0 -8px;
+  transition: opacity 0.35s ease, translate 0.35s ease;
+}
+details[open]::details-content > * {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Page / route transition */
+.page-enter-active, .page-leave-active {
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.page-enter-from { opacity: 0; transform: translateY(10px); }
+.page-leave-to { opacity: 0; transform: translateY(-8px); }
+
+/* Search overlay */
+.search-fade-enter-active, .search-fade-leave-active { transition: opacity 0.22s ease; }
+.search-fade-enter-from, .search-fade-leave-to { opacity: 0; }
+.search-fade-enter-active .search-panel, .search-fade-leave-active .search-panel { transition: opacity 0.22s ease, transform 0.22s ease; }
+.search-fade-enter-from .search-panel, .search-fade-leave-to .search-panel { opacity: 0; transform: translateY(-12px) scale(0.98); }
+
+/* Settings panel */
+.settings-enter-active, .settings-leave-active { transition: opacity 0.18s ease, transform 0.18s ease; }
+.settings-enter-from, .settings-leave-to { opacity: 0; transform: translateY(-8px); }
+
+/* Scroll to top button */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.25s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Scroll to top button */
 .scroll-top-btn {
   position: fixed;

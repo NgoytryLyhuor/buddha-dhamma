@@ -18,6 +18,7 @@
           <li v-for="k in kusala" :key="k.en">
             <strong :style="{ color: 'var(--ink)' }">{{ t(k.km, k.en) }}</strong>
             <span class="text-xs" :style="{ color: 'var(--ink-muted)' }"> — {{ k.pl }}</span>
+            <p v-if="k.plain" class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">{{ k.plain }}</p>
           </li>
         </ul>
       </div>
@@ -95,16 +96,16 @@ function khNum(n) {
 }
 
 const kusala = [
-  { km: 'បាណាតិបាតា វេរមណី', en: 'Nothing that breathes', pl: 'not killing' },
-  { km: 'អទិន្នាទានា វេរមណី', en: 'Nothing that is not given', pl: 'not stealing' },
-  { km: 'កាមេសុមិច្ឆាចារា វេរមណី', en: 'Pure in love', pl: 'no sexual misconduct' },
-  { km: 'មុសាវាទា វេរមណី', en: 'True in speech', pl: 'not lying' },
-  { km: 'បិសុណាវាចា វេរមណី', en: 'Words that unite', pl: 'not slandering' },
-  { km: 'ផរុសវាចា វេរមណី', en: 'Gentle words', pl: 'not speaking harshly' },
-  { km: 'សម្ផប្បលាបា វេរមណី', en: 'Timely and useful', pl: 'not idle chatter' },
-  { km: 'អនភិជ្ឈា វេរមណី', en: 'An open hand', pl: 'non-covetousness' },
-  { km: 'អព្យាបាទ វេរមណី', en: 'Goodwill to all', pl: 'non-ill-will' },
-  { km: 'សម្មាទិដ្ឋិ', en: 'Right view', pl: 'seeing the truth' },
+  { km: 'បាណាតិបាតា វេរមណី', en: 'Nothing that breathes', pl: 'not killing', plain: 'មិនសម្លាប់សត្វ — ឈប់បៀតបៀនជីវិតអ្នកដទៃ' },
+  { km: 'អទិន្នាទានា វេរមណី', en: 'Nothing that is not given', pl: 'not stealing', plain: 'មិនលួច — មិនយករបស់ដែលគេមិនបានឲ្យ' },
+  { km: 'កាមេសុមិច្ឆាចារា វេរមណី', en: 'Pure in love', pl: 'no sexual misconduct', plain: 'មិនក្បត់ក្នុងស្នេហា — មិនប្រព្រឹត្តខុសក្នុងកាម' },
+  { km: 'មុសាវាទា វេរមណី', en: 'True in speech', pl: 'not lying', plain: 'មិនភូតកុហក — ចេះនិយាយតែពាក្យពិត' },
+  { km: 'បិសុណាវាចា វេរមណី', en: 'Words that unite', pl: 'not slandering', plain: 'មិនក្រអឺតបង្កាច់ — មិននិយាយញុះញង់ឲ្យបែកបាក់' },
+  { km: 'ផរុសវាចា វេរមណី', en: 'Gentle words', pl: 'not speaking harshly', plain: 'មិននិយាយគ្រហឹម — ចេះនិយាយទន់ភ្លន់' },
+  { km: 'សម្ផប្បលាបា វេរមណី', en: 'Timely and useful', pl: 'not idle chatter', plain: 'មិននិយាយឥតប្រយោជន៍ — និយាយតែពេលសមគួរ' },
+  { km: 'អនភិជ្ឈា វេរមណី', en: 'An open hand', pl: 'non-covetousness', plain: 'មិនលោភលន់ចង់បានរបស់គេ — ចិត្តរំសាយស្រេកឃ្លាន' },
+  { km: 'អព្យាបាទ វេរមណី', en: 'Goodwill to all', pl: 'non-ill-will', plain: 'មិនព្យាបាទ — មានចិត្តមេត្តាចំពោះអ្នកដទៃ' },
+  { km: 'សម្មាទិដ្ឋិ', en: 'Right view', pl: 'seeing the truth', plain: 'គំនិតត្រឹមត្រូវ — ឃើញថា ធ្វើល្អបានល្អ ធ្វើអាក្រក់បានអាក្រក់' },
 ]
 
 const akusala = [

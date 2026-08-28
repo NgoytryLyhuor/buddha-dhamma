@@ -159,6 +159,16 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 }
 .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+.font-btn {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 30px; padding: 0 6px; border-radius: 3px;
+  border: none; background: transparent; color: var(--ink-muted);
+  font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s;
+}
+.font-btn:hover:not(:disabled) { color: var(--accent); background: var(--accent-soft); }
+.font-btn:disabled { opacity: 0.35; cursor: default; }
+.font-btn-now { font-size: 10px; letter-spacing: -0.04em; }
+
 .topnav-inner a { position: relative; white-space: nowrap; }
 .topnav-inner a.active { color: var(--accent) !important; }
 .topnav-inner a.active::after {

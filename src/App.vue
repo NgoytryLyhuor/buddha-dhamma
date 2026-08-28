@@ -13,6 +13,15 @@
           </router-link>
 
           <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1 rounded-full px-1 py-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }"
+              role="group" :aria-label="t('ទំហំអក្សរ', 'Font size')">
+              <button class="font-btn" @click="decreaseFontSize" :disabled="fontSizeIndex === 0"
+                :title="t('អក្សរតូចជាង', 'Smaller text')">A−</button>
+              <button class="font-btn font-btn-now" aria-hidden="true"
+                :style="{ opacity: 0.5 }" :title="t('ទំហំអក្សរ', 'Font size')">Aa</button>
+              <button class="font-btn" @click="increaseFontSize" :disabled="fontSizeIndex === SIZES.length - 1"
+                :title="t('អក្សរធំជាង', 'Larger text')">A+</button>
+            </div>
             <button class="theme-btn" @click="toggleTheme" :title="t('ប្តូរផ្ទៃ', 'Toggle theme')">
               {{ theme === 'dark' ? '☽' : '☼' }}
             </button>
@@ -119,11 +128,13 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
+import { useFontSize } from './composables/useFontSize'
 import { searchIndex } from './data/searchIndex'
 
 const route = useRoute()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, toggleLang } = useLanguage()
+const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize } = useFontSize()
 
 const nav = [
   { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },

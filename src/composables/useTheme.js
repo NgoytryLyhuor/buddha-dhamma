@@ -10,6 +10,8 @@ function applyTheme(t) {
   if (t === 'dark') html.classList.add('dark')
   else html.classList.remove('dark')
   html.style.colorScheme = t
+  const tc = document.querySelector('meta[name="theme-color"]')
+  if (tc) tc.setAttribute('content', t === 'dark' ? '#1a140b' : '#f5efe0')
 }
 
 applyTheme(theme.value)

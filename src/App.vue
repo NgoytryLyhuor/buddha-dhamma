@@ -245,6 +245,37 @@ function closeSearch() {
 }
 watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false })
 
+const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
+const descrMap = {
+  home: ['ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ ជាខ្មែរ និងអង់គ្លេស។', 'The Buddha\'s teachings explained in Khmer and English.'],
+  core: ['អរិយសច្ច ៤ ផ្លូវ ៨ អនិច្ចំ ទុក្ខំ អនត្តា។', 'Four Noble Truths, Eightfold Path, anicca, dukkha, anatta.'],
+  abhidhamma: ['ចិត្ត ចេតសិក រូប និងនិព្វាន តាមអភិធម្ម។', 'Citta, cetasika, rūpa and nibbāna in the Abhidhamma.'],
+  kamma: ['កម្ម វិបាក កុសល អកុសល និងផលនៃកម្ម។', 'Kamma, result, wholesome and unwholesome actions.'],
+  ethics: ['សីល ៥ បារមី ១០ និងការប្រព្រឹត្តល្អ។', 'Five precepts, the ten perfections, and right conduct.'],
+  meditation: ['សមាធិ អានាបានស្សតិ និងសតិបដ្ឋាន ៤។', 'Meditation, mindfulness of breathing, and the four satipaṭṭhāna.'],
+  suttas: ['ព្រះសូត្រ ១០ ដ៏ល្បី ជាមួយភាសាបាលី និងពន្យល់។', 'Ten famous suttas with Pali and explanations.'],
+  life: ['ជីវប្រវត្តិព្រះសម្មាសម្ពុទ្ធ ព្រះសិទ្ធត្ថ គោតម។', 'The life of the Buddha, Siddhattha Gotama.'],
+  gathas: ['គាថាព្រះធម៌ និងធម្មបទ សម្រាប់ត្រិះរិះ។', 'Verses of Dhamma and the Dhammapada for reflection.'],
+  chanting: ['សូត្រ ១០ សម្រាប់សូត្ររាល់ថ្ងៃ ជាមួយភាសាបាលី។', 'Ten daily recitals for chanting with Pali.'],
+  glossary: ['វចនានុក្រមពាក្យធម៌ ជាខ្មែរ និងអង់គ្លេស។', 'Glossary of Dhamma terms in Khmer and English.'],
+  stories: ['រឿងល្បីៗអំពីព្រះពុទ្ធ និងព្រះអរហន្ត។', 'Famous stories about the Buddha and Arahants.'],
+  questions: ['សំណួរ–ចម្លើយ អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', 'Questions and answers about Dhamma and practice.'],
+  notfound: ['រកមិនឃើញទំព័រ', 'Page not found'],
+}
+function syncPageMeta() {
+  const meta = route.meta || {}
+  const title = meta.titleK ? t(meta.titleK, meta.titleE) : siteName
+  document.title = title + ' — ' + t('ព្រះធម៌', 'Buddha Dhamma')
+  const pair = descrMap[route.name] || [siteName, siteName]
+  const desc = lang.value === 'km' ? pair[0] : pair[1]
+  let d = document.querySelector('meta[name="description"]')
+  if (d) d.setAttribute('content', desc)
+  const html = document.documentElement
+  html.setAttribute('lang', lang.value)
+  html.setAttribute('dir', 'ltr')
+}
+watch(() => [route.name, lang.value], syncPageMeta, { immediate: true })
+
 const results = computed(() => {
   const q = query.value.trim().toLowerCase().normalize('NFC')
   if (!q) return []

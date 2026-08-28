@@ -204,10 +204,11 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 
 .theme-btn {
   display: flex; align-items: center; justify-content: center;
-  width: 38px; height: 38px; border-radius: 3px;
+  width: 2.4em; height: 2.4em; border-radius: 3px;
   border: 1px solid var(--border); background: var(--bg-card);
-  color: var(--ink-muted); cursor: pointer; transition: all 0.2s; font-size: 16px;
+  color: var(--ink-muted); cursor: pointer; transition: all 0.2s; font-size: 1rem;
 }
+.theme-btn svg { width: 1.15rem; height: 1.15rem; }
 .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 .font-btn { display: flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 3px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-muted); font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s; }

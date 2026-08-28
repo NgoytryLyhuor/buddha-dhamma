@@ -31,7 +31,7 @@
             <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.mK, qa.mE) }}</p>
           </div>
           <p class="mt-4 pt-3 text-xs" :style="{ color: 'var(--ink-muted)', borderTop: '1px dashed var(--border)' }">
-            {{ t('អានបន្ថែម', 'Read further') }} &#8594; <a class="paali" :style="{ color: 'var(--accent)' }" :href="qa.href">{{ qa.tie }}</a>
+            {{ t('អានបន្ថែម', 'Read further') }} &#8594; <RouterLink class="paali" :style="{ color: 'var(--accent)' }" :to="qa.to">{{ qa.tie }}</RouterLink>
           </p>
         </div>
       </details>
@@ -48,8 +48,6 @@ function khNum(n) {
   return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
 
-const BASE = 'https://buddha-dhamma.vercel.app'
-
 const qas = [
   {
     qK: 'ព្រះពុទ្ធ ជាព្រះ ដែរឬទេ?', qE: 'Is the Buddha a god?',
@@ -57,7 +55,7 @@ const qas = [
     aE: 'No. The Buddha was a human being — born, renounced the world, and awakened through his own effort in real history. He never told anyone to worship him; instead he gave a path to walk oneself.',
     mK: 'ព្រះពុទ្ធ មិនមែនជាព្រះ ដែលសុំឲ្យបាន ទេ — ទ្រង់ជាគ្រូ ដែលបង្ហាញផ្លូវ ឲ្យយើង ដើរដោយខ្លួនឯង។',
     mE: 'The Buddha is not a god you ask things from — he is a teacher who shows a path you walk yourself.',
-    tie: 'ជីវប្រវត្តិព្រះពុទ្ធ · /life', href: BASE + '/life',
+    tie: 'ជីវប្រវត្តិព្រះពុទ្ធ · /life', to: '/life#ev-the-great-renunciation',
   },
   {
     qK: 'បើគ្មានខ្លួន តើអ្នកណា ដែលដើរលើផ្លូវអរិយមគ្គ?', qE: 'If there is no self, then who walks the path?',
@@ -65,7 +63,7 @@ const qas = [
     aE: 'The Buddha did not teach, absolutely, that there is no self — he taught that there is no fixed, controllable, unchanging self as people imagine. A practising person truly exists; wisdom truly arises — they simply arise and pass each moment with no permanent master inside.',
     mK: 'មិនមែន «គ្មានខ្ញុំ» ទេ — គឺ «គ្មានខ្លួន ដែលថេរ គ្រប់គ្រងបាន» ទើបពិត។',
     mE: 'It is not “there is no me” — the truth is “there is no permanent, controllable self.”',
-    tie: 'អនត្តា · /glossary', href: BASE + '/glossary',
+    tie: 'អនត្តា · /glossary', to: '/glossary#term-anatta',
   },
   {
     qK: 'ហេតុអ្វី មនុស្សអាក្រក់ ច្រើនតែ បានសម្បត្តិ?', qE: 'Why do bad people so often prosper?',
@@ -73,7 +71,7 @@ const qas = [
     aE: 'Kamma, like a seed, needs its own season; the result does not always show in this lifetime. A deed can ripen here, in another life, or whenever conditions are ready. Looking only at todays wealth may hide the suffering that ripens later.',
     mK: 'អ្នកដែលធ្វើល្អ មិនតែងបានល្អមួយរំពេច — តែគ្រាប់ល្អ មិនដែលខាត វាត្រូវការពេលតែប៉ុណ្ណោះ។',
     mE: 'The good do not always prosper at once — but a good seed is never lost; it only needs its time.',
-    tie: 'កម្ម និងផល · /kamma', href: BASE + '/kamma',
+    tie: 'កម្ម និងផល · /kamma', to: '/kamma#kusala-akusala',
   },
   {
     qK: 'តើកម្ម ជាវាសនា ដែល មិនអាច ប្រែបាន?', qE: 'Is kamma a fate that cannot change?',
@@ -81,7 +79,7 @@ const qas = [
     aE: 'Not fate. Kamma is the law of cause and effect and it can change: evil done can be calmed by goodness, virtue and urgent practice. Even Angulimāla, who had killed so many, turned his life around to arahantship.',
     mK: 'អនាគត មិនជាប់មុខឲ្យកន្លង — សព្វថ្ងៃនេះ យើងអាចជ្រើសរើស បាន។',
     mE: 'The future is not fixed by the past — this moment you still get to choose.',
-    tie: 'សីល និងបារមី · /ethics', href: BASE + '/ethics',
+    tie: 'សីល និងបារមី · /ethics', to: '/ethics#parami',
   },
   {
     qK: 'ខ្ញុំ ចាប់ផ្តើម សមាធិ ដូចម្តេច?', qE: 'How do I start meditation?',
@@ -89,7 +87,7 @@ const qas = [
     aE: 'Begin very simply: sit quietly, keep the body straight and the breath natural — count from one to ten at the end of each out-breath. When the mind wanders, gently return it to the breath; do not scold yourself. Ten minutes daily beats one long hour now and then.',
     mK: 'សមាធិ មិនមែន បង្ខំចិត្ត ឲ្យស្ងៀម ទេ — គឺរៀនត្រឡប់មករកដង្ហើម វិញ ម្តងហើយម្តងទៀត។',
     mE: 'Meditation is not forcing the mind to be still — it is learning, again and again, to come back to the breath.',
-    tie: 'សមាធិ · /meditation', href: BASE + '/meditation',
+    tie: 'សមាធិ · /meditation', to: '/meditation#patipada',
   },
   {
     qK: 'សត្វចិញ្ចឹម ដែលស្លាប់ទៅ កើតឯណា?', qE: 'Where does a beloved pet go after it dies?',
@@ -97,7 +95,7 @@ const qas = [
     aE: 'We cannot say the exact destiny with certainty. But the teaching holds that mental rebirth follows ones own deeds, for every kind of being. What we can do is fill its life with care — and radiate mettā its way every day.',
     mK: 'រឿងសំខាន់ មិនមែន «ទៅណា» តែ «យើងបានឲ្យក្តីស្រឡាញ់វាប៉ុណ្ណា» ក្នុងពេលវានៅជាមួយយើង។',
     mE: 'What matters is not “where it went” but how much love we gave it while it was with us.',
-    tie: 'សព្វេ សត្តា · /gathas', href: BASE + '/gathas',
+    tie: 'សព្វេ សត្តា · /gathas',     to: '/gathas#gatha-7',
   },
   {
     qK: 'បើ គ្មាន ខ្លួន តើ អ្វី ដែល កើត ជាថ្មី?', qE: 'If there is no self, what is it that is reborn?',
@@ -105,7 +103,7 @@ const qas = [
     aE: 'It is not the same person continuing, yet a continuation truly happens. Like a flame passing from one lamp to another — no single flame is the same, but the light continues. A fresh stream of mind arises from causes, holding no gap with what went before.',
     mK: 'ដូចភ្លើង ឆេះពីចង្កៀងមួយ ទៅមួយ — ឥតមានអណ្តាតភ្លើងណាតែមួយ តែពន្លឺនៅតែបន្ត។',
     mE: 'Like a flame passing from lamp to lamp — no single flame is the same, yet the light carries on.',
-    tie: 'អនត្តា · /glossary', href: BASE + '/glossary',
+    tie: 'អនត្តា · /glossary', to: '/glossary#term-anatta',
   },
   {
     qK: 'ហេតុអ្វី អ្នក តាម ផ្ទះ គប្បី វៀរ ស្រា និង គ្រឿង ញៀន?', qE: 'Why should lay people avoid alcohol and drugs?',
@@ -113,7 +111,7 @@ const qas = [
     aE: 'Because intoxication destroys heedfulness — and heedlessness is the doorway to ruin. A drunk person can do things they would fear when sober, because mindfulness has gone. The fifth precept is not force; it is a shield that keeps your mindfulness alive.',
     mK: 'ស្រា មិនមែន «បាប» ឥតហេតុទេ — វាចាប់ដៃសតិ ឲ្យស្លាប់ ហើយបើកទ្វារឲ្យបាប ផ្សេងៗ ចូលមក។',
     mE: 'Alcohol is not “sin” for its own sake — it kills mindfulness and opens the door to other wrongs.',
-    tie: 'ស្វាក្ខាតោ · /chanting', href: BASE + '/chanting',
+    tie: 'ស្វាក្ខាតោ · /chanting', to: '/chanting#chant-2',
   },
   {
     qK: 'ធ្វើ ទាន បាន ផល ពិត ឬ មេត្តា?', qE: 'Does giving truly bear fruit, or is it just kindness?',
@@ -121,7 +119,7 @@ const qas = [
     aE: 'Both. Many suttas teach that a gift given with pure heart bears its fruit for the giver in this life and beyond, like a seed saved for its harvest. And in everyday life, giving cools the heart and loosens greed right here and now.',
     mK: 'ធ្វើទាន គឺសាបគ្រាប់ល្អ ក្នុងចិត្តខ្លួនឯង — ផល មិនដែលខាត សូម្បី ក្នុងថ្ងៃនេះ ក៏ចាប់ផ្តើមត្រជាក់ចិត្ត។',
     mE: 'Giving plants a good seed in your own heart — the fruit is never lost, and even today it starts cooling the mind.',
-    tie: 'ទាន · /ethics', href: BASE + '/ethics',
+    tie: 'ទាន · /ethics', to: '/ethics#parami',
   },
   {
     qK: 'ព្រះពុទ្ធ ឲ្យ គោរព បូជា ព្រះពុទ្ធរូប ឬទេ?', qE: 'Did the Buddha ask people to worship his statue?',
@@ -129,7 +127,7 @@ const qas = [
     aE: 'He did not command worship of images — he taught honouring through practising the Dhamma. A statue is a sign to remember his qualities, like a flag reminds us of our country. The highest offering is simply to do no evil.',
     mK: 'រូបព្រះ គ្រាន់តែជា គ្រឿងរំឮក — ការបូជាប្រសើរ បំផុត គឺ បដិបត្តិធម៌ មិនធ្វើអាក្រក់។',
     mE: 'A Buddha image is only a reminder — the highest offering is to practise the Dhamma and do no evil.',
-    tie: 'គាថាព្រះធម៌ · /gathas', href: BASE + '/gathas',
+    tie: 'គាថាព្រះធម៌ · /gathas', to: '/gathas#gatha-1',
   },
   {
     qK: 'ហេតុអ្វី ត្រូវទៅវត្ត ហើយថ្វាយស្បៀងដល់ព្រះសង្ឃ?', qE: 'Why go to the pagoda and offer food to the monks?',
@@ -137,7 +135,7 @@ const qas = [
     aE: 'Going to the pagoda to hear the Dhamma plants wisdom. Offering food supports the monks, who have given up their own ease to study and guard the Dhamma. Giving enables others to practise — it helps the world and brings fruit to the giver.',
     mK: 'ទៅវត្ត គឺទៅដើម្បីរៀនធម៌ — ថ្វាយស្បៀង គឺជួយអ្នកបដិបត្តិ ឲ្យបន្តបដិបត្តិបាន។',
     mE: 'Go to the pagoda to learn the Dhamma; offer food to keep the practitioners practice alive.',
-    tie: 'សីល និងបារមី · /ethics', href: BASE + '/ethics',
+    tie: 'សីល និងបារមី · /ethics', to: '/ethics#sila',
   },
   {
     qK: '៤ សប្តាហ៍ បន្ទាប់ពីអ្នកស្លាប់ តើអ្នកស្លាប់ អាចមកយកបុណ្យ បានដែរឬទេ?', qE: 'Can the dead come and receive the merit we dedicate to them?',
@@ -145,7 +143,7 @@ const qas = [
     aE: 'The Dhamma says merit can reach the departed when they are born as petas, beings waiting for help. It does not automatically reach every realm — but merit made in faith does help where it is fitting. What is certain is that it blesses the living too: it reminds us and heals our own hearts.',
     mK: 'តាម ព្រះធម៌ បុណ្យដែលយើងធ្វើ អាចជួយដល់ញាតិ ដែលកើតជាប្រេត — ហើយតែងប្រទានឲ្យចិត្តយើងដែលនៅរស់ ។',
     mE: 'Merit dedicated in faith can reach a departed relative born as a peta — and always blesses the heart of the one who gives.',
-    tie: 'កម្ម និងផល · /kamma', href: BASE + '/kamma',
+    tie: 'កម្ម និងផល · /kamma', to: '/kamma#31-plane',
   },
   {
     qK: 'អ្វីទៅ ជាព្រះវស្សា (ចូលវស្សា)?', qE: 'What is Buddhist Lent (the rainy-season retreat)?',
@@ -153,7 +151,7 @@ const qas = [
     aE: 'Vassa is a three-month rainy-season retreat, from entering-lent to leaving-lent. Monks remain in one place, avoiding night travel, to study and practise more strictly. Lay people often keep the eight precepts on sabbath days during this season.',
     mK: 'វស្សា ជាពេលផ្អាកដើរ ដើម្បីឧស្សាហ៍សិក្សា និងបដិបត្តិ — ជាសព្វថ្ងៃ ដែលយើងបណ្តុះសីល ។',
     mE: 'Vassa is a held pause for diligent study and practice — a season of growing in virtue.',
-    tie: 'របៀបវិញ្ញាណ · /meditation', href: BASE + '/meditation',
+    tie: 'របៀបវិញ្ញាណ · /meditation', to: '/meditation#patipada',
   },
   {
     qK: 'ហេតុអ្វី ខ្ញុំ ខឹង លឿន ម្ល៉េះ? តើ ធ្វើ ដូចម្តេច ឲ្យ ឈប់ ខឹង?', qE: 'Why do I get angry so quickly? How do I stop?',
@@ -161,7 +159,7 @@ const qas = [
     aE: 'Anger mostly grows from clinging to self and from assuming others slight us. To stop: take three long breaths before speaking, then send mettā, remembering that everyone suffers. Anger is like a hot coal you pick up to throw at someone — you burn your own hand first.',
     mK: 'កំហឹង តែង ដុត អ្នក ខឹង មុន អ្នក ដទៃ — សតិ និង មេត្តា ជា ទឹក រំងាប់ ភ្លើង នេះ ។',
     mE: 'Anger always burns the angry one first — mindfulness and mettā are the water that cools that fire.',
-    tie: 'មេត្តា · /gathas', href: BASE + '/gathas',
+    tie: 'មេត្តា · /gathas',     to: '/gathas#gatha-7',
   },
   {
     qK: 'ស្ត្រី អាច ត្រាស់ដឹង បាន ដែរ ឬទេ?', qE: 'Can women attain enlightenment?',
@@ -169,7 +167,7 @@ const qas = [
     aE: 'Yes, fully. The Buddha taught that women can attain arahantship — Queen Mahāpajāpatī Gotamī and many bhikkhunīs, including Kisāgotamī, awakened on their own. Awakening depends on the heart and practice, not on gender.',
     mK: 'ការ ត្រាស់ ដឹង វាស់ ដោយ ចិត្ត ដែល បដិបត្តិ — មិន មែន ដោយ ភេទ ឡើយ ។',
     mE: 'Awakening is measured by a practised heart, never by gender.',
-    tie: 'រឿង កិសាគោតមី · /stories', href: BASE + '/stories',
+    tie: 'រឿង កិសាគោតមី · /stories', to: '/stories#story-1',
   },
   {
     qK: 'ហេតុអ្វី ត្រូវ សូត្រ មន្ត ហើយ ត្រូវ ជ្រក នឹង រតនត្រ័យ?', qE: 'Why chant, and why take refuge in the Triple Gem?',
@@ -177,7 +175,7 @@ const qas = [
     aE: 'Chanting is not magic — it gathers the mind into good and sacred words, calming it. Taking refuge in the Buddha, Dhamma and Saṅgha means trusting that there is a teacher and a path — like a child resting on its parents in order to learn, not to hand over fate.',
     mK: 'សូត្រ គឺ ប្រមូល ចិត្ត ជ្រក រតនត្រ័យ គឺ ទទួល យក ផ្លូវ — មិន មែន សុំ អព្ភូតហេតុ ទេ ។',
     mE: 'Chanting gathers the mind; taking refuge is accepting the path — it is not asking for miracles.',
-    tie: 'ការសូត្រ មន្ត · /chanting', href: BASE + '/chanting',
+    tie: 'ការសូត្រ មន្ត · /chanting', to: '/chanting#chant-1',
   },
   {
     qK: 'ហេតុអ្វី យើង ច្រូច ទឹក ប្រោស ប្រទាន (ចាក់ទឹក ឧទ្ទិស បុណ្យ)?', qE: 'Why do we pour water during the merit-dedication ceremony?',
@@ -185,7 +183,7 @@ const qas = [
     aE: 'Pouring water onto the ground is an ancient custom from the Buddhas time. It reminds us that dedicated merit, like water finding low ground, flows to those in need and can never be taken back. It is a sign of a faith without envy, sharing merit with others.',
     mK: 'ច្រូច ទឹក រំឮក ថា បុណ្យ ហូរ ទៅ រក អ្នក ត្រូវ ការ ដូច ទឹក ទៅ រក ទី ទាប — ជា សទ្ធា ដែល សប្បុរស ។',
     mE: 'Pouring water is a reminder that merit flows to those in need, as water finds low ground — a generous faith.',
-    tie: 'កម្ម និងផល · /kamma', href: BASE + '/kamma',
+    tie: 'កម្ម និងផល · /kamma', to: '/kamma#31-plane',
   },
 ]
 </script>

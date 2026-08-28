@@ -22,7 +22,7 @@
       <p class="chapter-label">LIFE TIMELINE</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ដំណាក់ដំណើរ', 'Journey of the Awakening') }}</h3>
       <div class="mt-6 space-y-0">
-        <div v-for="(e, i) in events" :key="e.en" class="relative pl-8 pb-8" :style="{ borderLeft: i === events.length - 1 ? 'none' : '1px solid var(--border-strong)' }">
+        <div v-for="(e, i) in events" :key="e.en" :id="'ev-' + e.en.toLowerCase().replace(/\s+/g, '-')" class="relative pl-8 pb-8 scroll-mt-24" :style="{ borderLeft: i === events.length - 1 ? 'none' : '1px solid var(--border-strong)' }">
           <span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full"
             :style="{ background: i % 2 === 0 ? 'var(--accent)' : 'var(--gold)', border: '2px solid var(--bg-card)' }"></span>
           <div class="flex flex-wrap items-center gap-2">
@@ -80,7 +80,7 @@
       <p class="chapter-label">LIFE TIMELINE</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ដំណាក់ដំណើរ', 'Journey of the Awakening') }}</h3>
       <div class="mt-6 space-y-0">
-        <div v-for="(e, i) in events" :key="e.en" class="relative pl-8 pb-8" :style="{ borderLeft: i === events.length - 1 ? 'none' : '1px solid var(--border-strong)' }">
+        <div v-for="(e, i) in events" :key="e.en" :id="'ev-' + e.en.toLowerCase().replace(/\s+/g, '-')" class="relative pl-8 pb-8 scroll-mt-24" :style="{ borderLeft: i === events.length - 1 ? 'none' : '1px solid var(--border-strong)' }">
           <span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full"
             :style="{ background: i % 2 === 0 ? 'var(--accent)' : 'var(--gold)', border: '2px solid var(--bg-card)' }"></span>
           <div class="flex flex-wrap items-center gap-2">

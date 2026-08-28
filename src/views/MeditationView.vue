@@ -98,7 +98,7 @@
     </div>
 
     <!-- practical steps -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div id="patipada" class="card-paper p-6 md:p-8 mt-8 scroll-mt-24">
       <p class="chapter-label">PAṬIPADĀ</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('របៀបចាប់ផ្តើម ដោយរាប់ដង្ហើម', 'How to Begin: Counting the Breath') }}</h3>
       <p class="text-sm mt-2" :style="{ color: 'var(--ink-muted)' }">{{ t('វិធីសាមញ្ញបំផុតសម្រាប់អ្នកចាប់ផ្តើម — ធ្វើតាមលំដាប់ ៥ ជំហានខាងក្រោម។', 'The simplest method for a beginner — follow the five steps below.') }}</p>

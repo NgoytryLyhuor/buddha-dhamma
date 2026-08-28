@@ -10,7 +10,7 @@
     </p>
 
     <!-- 5 precepts -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div id="sila" class="card-paper p-6 md:p-8 mt-8 scroll-mt-24">
       <p class="chapter-label">PAÑCASĪLA</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('បញ្ចសីល ៥', 'The Five Precepts') }}</h3>
       <div class="grid md:grid-cols-5 gap-3 mt-5">
@@ -24,7 +24,7 @@
     </div>
 
     <!-- 10 parami -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div id="parami" class="card-paper p-6 md:p-8 mt-8 scroll-mt-24">
       <p class="chapter-label">PARAMĪ — 10</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('បារមី ១០', 'The Ten Perfections') }}</h3>
       <p class="text-sm mt-2" :style="{ color: 'var(--ink-muted)' }">{{ t('គុណធម៌ ១០ ដែលព្រះពោធិសត្វបំពេញ ហើយដែលយើងអាចហ្វឹកហាត់បានក្នុងជីវិតប្រចាំថ្ងៃ។', 'Ten virtues the Bodhisatta perfected — and which we too can cultivate daily.') }}</p>

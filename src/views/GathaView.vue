@@ -24,7 +24,7 @@
     </div>
 
     <div class="mt-4 space-y-4">
-      <article v-for="(g, i) in gathas" :key="g.en" class="card-paper p-6 md:p-8">
+      <article v-for="(g, i) in gathas" :key="g.en" :id="'gatha-' + i" class="card-paper p-6 md:p-8 scroll-mt-24">
         <div class="flex items-start justify-between gap-3 flex-wrap">
           <div class="min-w-0">
             <p class="chapter-label">{{ g.src }}</p>
@@ -59,7 +59,10 @@
 
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
+import { useRoute } from 'vue-router'
 const { t } = useLanguage()
+const route = useRoute()
+const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

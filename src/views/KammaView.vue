@@ -10,7 +10,7 @@
     </p>
 
     <!-- kusala vs akusala -->
-    <div class="grid md:grid-cols-2 gap-6 mt-8">
+    <div id="kusala-akusala" class="grid md:grid-cols-2 gap-6 mt-8 scroll-mt-24">
       <div class="card-paper p-6">
         <p class="chapter-label" style="color: var(--sage)">KUSALA</p>
         <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('កុសលកម្មបថ ១០', '10 Wholesome Courses') }}</h3>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- 31 planes -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div id="31-plane" class="card-paper p-6 md:p-8 mt-8 scroll-mt-24">
       <p class="chapter-label">BHUMMI — 31</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ភូមិ ៣១ នៃសង្សារ', '31 Planes of Existence') }}</h3>
       <p class="text-sm mt-2" :style="{ color: 'var(--ink-muted)' }">{{ t('កម្មនីមួយៗ នាំសត្វទៅកាន់ភូមិដែលសមនឹងផលរបស់ខ្លួន — ទាំងអាក្រក់ ទាំងល្អ។', 'Every kamma leads beings to the realm its fruit deserves — for good or ill.') }}</p>

@@ -26,7 +26,7 @@
     <div v-for="g in grouped" :key="g.letter" class="mt-8">
       <p class="chapter-label">{{ g.letter.toUpperCase() }}</p>
       <div class="mt-3 space-y-3">
-        <article v-for="it in g.items" :key="it.pl" class="card-paper p-5">
+        <article v-for="it in g.items" :key="it.pl" :id="'term-' + it.pl" class="card-paper p-5 scroll-mt-24">
           <div class="flex items-baseline justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg" :style="{ color: 'var(--ink)' }">
               <span class="paali">{{ it.pl }}</span>

@@ -14,7 +14,7 @@
       <p class="chapter-label">{{ t('រឿងជម្រើស ៧ — ចុចដើម្បីបើកមើល', 'SEVEN SELECTED STORIES — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
-      <details v-for="(s, i) in stories" :key="s.en" class="card-paper p-6 md:p-8" :open="i === 0">
+      <details v-for="(s, i) in stories" :key="s.en" :id="'story-' + i" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget('story-', i)">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <div class="min-w-0">
@@ -51,7 +51,10 @@
 
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
+import { useRoute } from 'vue-router'
 const { t } = useLanguage()
+const route = useRoute()
+const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

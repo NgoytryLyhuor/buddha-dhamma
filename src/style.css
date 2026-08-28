@@ -364,6 +364,13 @@ html[data-spacing="relaxed"] .leading-loose > * {
   line-height: 2 !important;
 }
 
+/* Visible focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* Reduce motion: respect the OS accessibility preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -372,6 +379,22 @@ html[data-spacing="relaxed"] .leading-loose > * {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Offline banner */
+.offline-banner {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  color: #b8860b;
+  background: #fff6dd;
+  border-bottom: 1px solid #e8d49a;
+}
+html.dark .offline-banner {
+  color: #e8c76b;
+  background: #2b2413;
+  border-bottom-color: #4a3d1c;
 }
 
 /* Scroll to top button */
@@ -396,6 +419,54 @@ html[data-spacing="relaxed"] .leading-loose > * {
   transition: all 0.25s;
   opacity: 0.9;
 }
+/* Print: show only the reading content, black-on-white, all details open */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+  html, body {
+    background: #ffffff !important;
+  }
+  html.dark body,
+  body {
+    color: #000000 !important;
+  }
+  header,
+  footer,
+  .search-overlay,
+  .scroll-top-btn,
+  .settings-panel {
+    display: none !important;
+  }
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  main,
+  main * {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #888888 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  main a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+  main details {
+    display: block !important;
+  }
+  main details:not([open]) > *:not(summary) {
+    display: none !important;
+  }
+  .dhammascroll,
+  main .theme-btn {
+    display: none !important;
+  }
+}
+
 .scroll-top-btn:hover {
   background: var(--accent);
   color: var(--bg-card);

@@ -13,13 +13,13 @@
           </router-link>
 
           <div class="flex items-center gap-2">
-            <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+            <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')" :aria-label="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             </button>
             <button class="theme-btn px-3 flex gap-1.5 items-center text-xs font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
-              :title="t('ការកំណត់', 'Settings')">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </button>
           </div>
         </div>
@@ -61,6 +61,11 @@
               <button class="lang-pick" :class="spacing === 'relaxed' ? 'on' : ''" @click="setSpacing('relaxed')">{{ t('ធំទូលាយ', 'Relaxed') }}</button>
             </div>
 
+            <button v-if="canInstall" class="setting-row reset-btn mt-4" @click="installApp">
+              <span>&#8681;</span>
+              <span>{{ t('ដំឡើងកម្មវិធីលើទូរស័ព្ទ', 'Install this app') }}</span>
+            </button>
+
             <button class="setting-row reset-btn mt-4" @click="resetSettings">
               <span>&#8634;</span>
               <span>{{ t('កំណត់ឡើងវិញទាំងអស់', 'Reset all settings') }}</span>
@@ -94,13 +99,20 @@
       </div>
     </header>
 
+    <transition name="fade">
+      <div v-if="!online" class="offline-banner" role="status">
+        <span>&#9888;</span>
+        {{ t('គ្មានអ៊ីនធឺណិត — នៅប្រើបាន ព្រោះទំព័របានរក្សាទុក', 'Offline — still works because this page is saved.') }}
+      </div>
+    </transition>
+
     <!-- Search overlay -->
     <transition name="search-fade">
       <div v-if="searchOpen" class="search-overlay" @click.self="closeSearch">
         <div class="search-panel">
           <div class="flex items-center justify-between gap-3 mb-3">
             <h3 class="font-display text-lg" style="color: var(--ink)">{{ t('ស្វែងរក', 'Search') }}</h3>
-            <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')">&#10005;</button>
+            <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')" :aria-label="t('បិទ', 'Close')">&#10005;</button>
           </div>
           <input ref="searchInput" v-model="query" type="text" autocomplete="off"
             :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
@@ -136,12 +148,28 @@
     </transition>
 
     <!-- Main reading column -->
-    <main class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+    <main v-if="!hasError" class="max-w-4xl mx-auto px-4 py-8 md:py-12">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
+    </main>
+
+    <main v-else class="max-w-4xl mx-auto px-4 py-20 text-center">
+      <div class="ornament mb-4 font-display text-3xl" style="color: var(--accent)">&#9784;</div>
+      <h1 class="font-display text-xl" style="color: var(--ink)">{{ t('មានបញ្ហាកើតឡើង', 'Something went wrong') }}</h1>
+      <p class="text-sm mt-3" style="color: var(--ink-muted)">
+        {{ t('សូមសាកល្បងម្តងទៀត ឬត្រឡប់ទៅទំព័រដើម។', 'Please try again or return to the home page.') }}
+      </p>
+      <div class="flex items-center justify-center gap-3 mt-8">
+        <button class="share-btn report" @click="hasError = false" style="border-color: var(--accent); color: var(--accent)">
+          {{ t('សាកល្បងម្តងទៀត', 'Try again') }}
+        </button>
+        <router-link to="/" class="share-btn" @click="hasError = false" style="color: var(--accent)">
+          {{ t('ទំព័រដើម', 'Home') }}
+        </router-link>
+      </div>
     </main>
 
     <footer class="max-w-4xl mx-auto px-4 pb-10 text-center">
@@ -178,7 +206,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
@@ -190,6 +218,13 @@ const route = useRoute()
 const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
+
+const hasError = ref(false)
+onErrorCaptured((err) => {
+  console.error(err)
+  hasError.value = true
+  return false
+})
 const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSpacing } = useFontSize()
 const { font, setFont } = useFont()
 
@@ -228,6 +263,46 @@ function scrollToTop() {
 }
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
 onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+
+const printOpenStates = []
+function beforePrint() {
+  document.querySelectorAll('main details').forEach(d => {
+    printOpenStates.push([d, d.open])
+    d.open = true
+  })
+}
+function afterPrint() {
+  printOpenStates.forEach(([d, was]) => { d.open = was })
+  printOpenStates.length = 0
+}
+onMounted(() => {
+  window.addEventListener('beforeprint', beforePrint)
+  window.addEventListener('afterprint', afterPrint)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('beforeprint', beforePrint)
+  window.removeEventListener('afterprint', afterPrint)
+})
+
+const online = ref(typeof navigator !== 'undefined' ? navigator.onLine !== false : true)
+function updateOnline() { online.value = navigator.onLine !== false }
+const installPrompt = ref(null)
+const canInstall = computed(() => !!installPrompt.value)
+function installApp() {
+  if (!installPrompt.value) return
+  installPrompt.value.prompt()
+  installPrompt.value = null
+}
+onMounted(() => {
+  window.addEventListener('online', updateOnline)
+  window.addEventListener('offline', updateOnline)
+  const onBeforeInstall = (e) => {
+    e.preventDefault()
+    installPrompt.value = e
+  }
+  window.addEventListener('beforeinstallprompt', onBeforeInstall)
+  window.addEventListener('appinstalled', () => { installPrompt.value = null })
+})
 
 const query = ref('')
 const searchOpen = ref(false)

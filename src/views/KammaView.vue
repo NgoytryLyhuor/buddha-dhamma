@@ -29,6 +29,7 @@
           <li v-for="k in akusala" :key="k.en">
             <strong :style="{ color: 'var(--ink)' }">{{ t(k.km, k.en) }}</strong>
             <span class="text-xs" :style="{ color: 'var(--ink-muted)' }"> — {{ k.pl }}</span>
+            <p v-if="k.plain" class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">{{ k.plain }}</p>
           </li>
         </ul>
       </div>
@@ -109,16 +110,16 @@ const kusala = [
 ]
 
 const akusala = [
-  { km: 'បាណាតិបាត', en: 'Killing', pl: 'taking breath' },
-  { km: 'អទិន្នាទាន', en: 'Stealing', pl: 'taking what is not given' },
-  { km: 'កាមេសុមិច្ឆាចារ', en: 'Sexual misconduct', pl: 'wrong in love' },
-  { km: 'មុសាវាទ', en: 'Lying', pl: 'false speech' },
-  { km: 'បិសុណាវាចា', en: 'Slander', pl: 'divisive speech' },
-  { km: 'ផរុសវាចា', en: 'Harsh speech', pl: 'abusive words' },
-  { km: 'សម្ផប្បលាប', en: 'Idle chatter', pl: 'gossip, vain talk' },
-  { km: 'អភិជ្ឈា', en: 'Covetousness', pl: 'greedy longing' },
-  { km: 'ព្យាបាទ', en: 'Ill-will', pl: 'wishing harm' },
-  { km: 'មិច្ឆាទិដ្ឋិ', en: 'Wrong view', pl: 'denying the Dhamma' },
+  { km: 'បាណាតិបាត', en: 'Killing', pl: 'taking breath', plain: 'ការសម្លាប់សត្វ — កាប់ សម្លាប់ បៀតបៀនជីវិត' },
+  { km: 'អទិន្នាទាន', en: 'Stealing', pl: 'taking what is not given', plain: 'ការលួច — យករបស់ដែលគេមិនបានឲ្យ' },
+  { km: 'កាមេសុមិច្ឆាចារ', en: 'Sexual misconduct', pl: 'wrong in love', plain: 'ការប្រព្រឹត្តិខុសក្នុងកាមមិច្ឆាចារ — ក្បត់ស្នេហា ប្រព្រឹត្តផិតក្រៅ' },
+  { km: 'មុសាវាទ', en: 'Lying', pl: 'false speech', plain: 'ការភូតកុហក — និយាយពាក្យមិនពិត' },
+  { km: 'បិសុណាវាចា', en: 'Slander', pl: 'divisive speech', plain: 'ការញុះញង់ — និយាយដើមគេ ឲ្យបែកបាក់' },
+  { km: 'ផរុសវាចា', en: 'Harsh speech', pl: 'abusive words', plain: 'ការជេរប្រទេច — និយាយពាក្យគ្រហឹម អាក្រក់' },
+  { km: 'សម្ផប្បលាប', en: 'Idle chatter', pl: 'gossip, vain talk', plain: 'ការនិយាយឥតប្រយោជន៍ — ពាក្យអសារឥតការ' },
+  { km: 'អភិជ្ឈា', en: 'Covetousness', pl: 'greedy longing', plain: 'ការលោភលន់ — ចង់បានរបស់គេ ឥតឆ្អែត' },
+  { km: 'ព្យាបាទ', en: 'Ill-will', pl: 'wishing harm', plain: 'ការព្យាបាទ — ចិត្តខឹង ចង់ឲ្យអ្នកដទៃខូច' },
+  { km: 'មិច្ឆាទិដ្ឋិ', en: 'Wrong view', pl: 'denying the Dhamma', plain: 'គំនិតយល់ខុស — មិនជឿផលកម្ម មិនជឿធម៌' },
 ]
 
 const roots = [

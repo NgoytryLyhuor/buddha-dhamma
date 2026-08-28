@@ -9,23 +9,32 @@
       {{ t('មនុស្ស ដែលចាប់ផ្តើមរៀនធម៌ តែងមានសំណួរ ច្រើន ក្នុងចិត្ត។ សំណួរខ្លះ សាមញ្ញ ខ្លះ ជ្រៅ ប៉ុន្តែ ព្រះពុទ្ធ បានឆ្លើយ ទុកហើយ គ្រប់សំណួរ។ ទំព័រនេះ ប្រមូលសំណួរដែលគេសួរញឹក មករៀបចម្លើយ ខ្លីៗ ងាយយល់ ភ្ជាប់ជាមួយគាថា ឬ សូត្រ សម្រាប់អានបន្ថែម។', 'People beginning the Dhamma carry many questions in their hearts. Some are simple, some deep — but the Buddha answered them all. This page gathers the questions asked most often, with short clear answers that point back to a verse or sutta for further reading.') }}
     </p>
 
-    <div class="mt-8 space-y-4">
-      <article v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8">
-        <div class="flex items-start justify-between gap-3 flex-wrap">
-          <h3 class="font-display text-lg md:text-xl leading-snug" :style="{ color: 'var(--ink)' }">
-            <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-            {{ t(qa.qK, qa.qE) }}
-          </h3>
+    <div class="mt-8">
+      <p class="chapter-label">{{ t('សំណួរ ១៧ — ចុចដើម្បីបើកមើល', 'SEVENTEEN QUESTIONS — TAP TO OPEN') }}</p>
+    </div>
+    <div class="mt-4 space-y-4">
+      <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
+              {{ t(qa.qK, qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+
+        <div class="mt-5">
+          <p class="leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+          <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អត្ថន័យ', 'THE MEANING') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.mK, qa.mE) }}</p>
+          </div>
+          <p class="mt-4 pt-3 text-xs" :style="{ color: 'var(--ink-muted)', borderTop: '1px dashed var(--border)' }">
+            {{ t('អានបន្ថែម', 'Read further') }} &#8594; <a class="paali" :style="{ color: 'var(--accent)' }" :href="qa.href">{{ qa.tie }}</a>
+          </p>
         </div>
-        <p class="mt-4 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
-        <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
-          <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អត្ថន័យ', 'THE MEANING') }}</p>
-          <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.mK, qa.mE) }}</p>
-        </div>
-        <p class="mt-4 pt-3 text-xs" :style="{ color: 'var(--ink-muted)', borderTop: '1px dashed var(--border)' }">
-          {{ t('អានបន្ថែម', 'Read further') }} &#8594; <a class="paali" :style="{ color: 'var(--accent)' }" :href="qa.href">{{ qa.tie }}</a>
-        </p>
-      </article>
+      </details>
     </div>
   </div>
 </template>

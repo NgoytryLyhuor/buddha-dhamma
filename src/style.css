@@ -52,7 +52,7 @@ html.dark {
 ::-webkit-scrollbar-thumb { background: var(--border-strong); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   font-family: 'Kantumruy Pro', 'Noto Serif Khmer', sans-serif;
@@ -60,7 +60,7 @@ body {
   color: var(--ink-soft);
   transition: background 0.35s, color 0.35s;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-wrap: anywhere;
   background-image: radial-gradient(rgba(168,100,0,0.035) 0.5px, transparent 0.5px);
   background-size: 12px 12px;

@@ -11,7 +11,7 @@
 
     <!-- the stories -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('រឿងជម្រើស ៦ — ចុចដើម្បីបើកមើល', 'SIX SELECTED STORIES — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('រឿងជម្រើស ៧ — ចុចដើម្បីបើកមើល', 'SEVEN SELECTED STORIES — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(s, i) in stories" :key="s.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -139,6 +139,20 @@ const stories = [
     essenceE: 'A persons worth lives in the heart — never in the body, the condition, or the face.',
     lessonK: 'កុំមើលងាយអ្នកដទៃ ដោយរាងកាយ ឋានៈ — ចិត្តល្អ សទ្ធាមាំ ទើបជាអ្វីដែលសំខាន់។',
     lessonE: 'Do not look down on others because of body or status — a good heart and firm faith are what matter.',
+  },
+  {
+    src: 'MŪGAPAKKHA JĀTAKA 538',
+    km: 'តេមិយៈ — ព្រះរាជកុមារធ្វើជាគថ្លង់ មិនចង់ឡើងសោយរាជ្យ', en: 'Temiya, the prince who feigned deafness to avoid the throne',
+    noteK: 'ជាតក សម្រាប់ នេក្ខម្មបារមី (ការលះបង់រាជសម្បត្តិ) — រំឮកថា អំណាច និងកិត្តិយស មិនមែនជាសុខពិត ទេ។', en: 'The Jātaka of the renunciation pāramī — a reminder that power and fame are not true happiness.',
+    paras: [
+      { km: 'ព្រះបាទកាសិរាជ (កាសី) ជាស្តេចក្រុងពារាណសី ទ្រង់បានព្រះរាជបុត្រាមួយ ព្រះនាមតេមិយៈ។ នៅថ្ងៃបរិនាមនាមកម្ម ព្រះរាជបុត្រាតូច ទ្រង់ឃើញអ្នកទើបប្រហារជីវិត ដែលស្តេចបិតា បញ្ជាឲ្យធ្វើទោស។ ដោយរំឮកដល់ជាតិមុន ដែលធ្លាប់ជាស្តេចកាសិរាជ ដ៏ឃោរឃៅ បានធ្លាក់ទៅនរក ទ្រង់ក៏ភ័យស្លន់ស្លោ នឹងរាជ្យ តាំងតែពីក្នុងផ្ទៃពោះ រួចធ្វើជាគថ្លង់ ពិការកាយ មិនព្រមនិយាយ ដើម្បីកុំឲ្យឡើងសោយរាជ្យ។', en: 'King Kāsirāja of Bārāṇasī had a son named Temiya. On the day of his naming ceremony, the young prince saw criminals being punished on his father’s command. Remembering a past life when, as a cruel king, he had fallen into hell, he was filled with dread of the crown. From that moment he feigned deafness, muteness, and a crippled body, unwilling ever to reign.' },
+      { km: 'ព្រះបាទកាសិរាជ ទ្រង់សោកស្តាយ ព្រះរាជបុត្រា គថ្លង់ ក៏ប្រឹងសាកល្បង ប៉ុន្មានដង ក៏មិនបានសម្រេច។ ដល់ព្រះរាជបុត្រា អាយុ ១៦ ឆ្នាំ ស្តេច ទ្រង់ទ័លចិត្ត ក៏បញ្ជាឲ្យសុណន្ទ អ្នកបររថ យកព្រះរាជបុត្រា ទៅកប់ក្នុងព្រៃ ដើម្បីឲ្យផុតពីអាម៉ាស់របស់រាជវង្ស។', en: 'King Kāsirāja grieved over a deaf-and-dumb heir. He tested the boy many times, yet never once broke his silence. When the prince turned sixteen, the king gave up. He ordered his charioteer Sunanda to take the boy deep into the forest and bury him, to spare the dynasty its shame.' },
+      { km: 'សុណន្ទ ជីករណ្តៅ តែដី មិនចេះជ្រៅឡើយ ព្រោះទេវតា ការពារ។ ព្រះតេមិយៈ ទ្រង់យាយរំលំ ក្លាយជាមនុស្សពេញលក្ខណៈ សម្តែងធ្វើឲ្យសុណន្ទ ភ្ញាក់ផ្អើល។ ទ្រង់ត្រឡប់មកក្រុងវិញ ទទួលរាជ្យ ប៉ុន្តែសោយរាជ្យ ដោយធម៌ ប្រាសចាកអំពើឃោរឃៅ — ក្រោយមក ក៏បួស លះបង់សព្វគ្រប់។', en: 'Sunanda dug and dug, but the earth would not open — the gods protected the prince. Then Temiya revealed himself, whole and strong, astonishing the charioteer. He returned to the city and took the throne, but ruled by righteousness, free of cruelty. In time he gave it all up and went forth as an ascetic.' },
+    ],
+    essenceK: 'អំណាច និងកិត្តិយស មិនមែនជាទីពឹងពិត ទេ — អ្នកដែលលះបង់ ដោយធម៌ ទើបបានសេចក្តីស្ងប់។',
+    essenceE: 'Power and honour are no true refuge — only one who lets go by the Dhamma finds peace.',
+    lessonK: 'កុំជាប់ចិត្ត ក្នុងអំណាច ទ្រព្យ ឋានៈ — យើងអាចនៅក្នុងលោក តែមិនជាប់ទាស់ នឹងលោក ដោយបដិបត្តិធម៌។',
+    lessonE: 'Do not cling to power, wealth, or status — you can live in the world yet not be bound by it, by walking the Dhamma.',
   },
 ]
 </script>

@@ -19,5 +19,5 @@ function toggleLang() {
 }
 
 export function useLanguage() {
-  return { lang, t, toggleLang }
+  return { lang, t, setLang, toggleLang }
 }

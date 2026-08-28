@@ -58,7 +58,7 @@
     <!-- 4 satipatthana -->
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">SATIPAṬṬHĀNA</p>
-      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('សតិបដ្ឋាន ៤', 'The Four Foundations of Mindfulness') }}</h3>
+      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('សតិប្បដ្ឋាន ៤', 'The Four Foundations of Mindfulness') }}</h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('វិបស្សនា មានទីតាំងសតិ ៤ កន្លែងដើម្បីអង្គុយមើល — កាយ វេទនា ចិត្ត ធម៌ — ដោយមិនប្រកាន់ថាជារបស់ខ្លួន។', 'Insight practice has four places where mindfulness sits and watches — body, feeling, mind and dhammas — without claiming them as mine.') }}</p>
       <div class="grid md:grid-cols-4 gap-3 mt-5">
         <div v-for="(sf, i) in sati" :key="sf.en" class="p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">

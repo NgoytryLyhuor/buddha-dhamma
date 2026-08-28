@@ -227,7 +227,7 @@ const suttas = [
   },
   {
     ref: 'DN 22', paali: 'MAHĀ·SATIPAṬṬHĀNA',
-    km: 'មហាសតិបដ្ឋានសូត្រ', en: 'The Great Discourse on Mindfulness',
+    km: 'មហាសតិប្បដ្ឋានសូត្រ', en: 'The Great Discourse on Mindfulness',
     bgK: 'ព្រះសូត្រវែង ដែលពន្យល់វិធីបដិបត្តិវិបស្សនា ដោយលម្អិត — ព្រះពុទ្ធទ្រង់ប្រកាសថា នេះជាផ្លូវតែមួយ ដើម្បីសំអាតសត្វ ឈ្នះសេចក្តីសោក និងដល់នូវព្រះនិព្វាន។',
     bgE: 'A detailed manual of insight practice — the Buddha declared it the one direct path for cleansing beings, overcoming sorrow, and realizing Nibbāna.',
     list: [
@@ -237,8 +237,8 @@ const suttas = [
       { km: 'ចិត្តានុបស្សនា៖ សភាពចិត្ត — មានរាគៈ ឬ គ្មាន ស្ងប់ ឬ រាយមាយ — ដឹងច្បាស់។', en: 'Contemplation of mind: states with or without lust, steady or scattered — all clearly known.' },
       { km: 'ធម្មានុបស្សនា៖ នីវរណៈ ៥ ខន្ធ ៥ អាយតនៈ ១២ ពោជ្ឈង្គ ៧ អរិយសច្ច ៤ — ដឹងកើត-រលត់។', en: 'Contemplation of dhammas: five hindrances, five aggregates, twelve sense bases, seven awakening factors, Four Noble Truths — watched as they arise and pass.' },
     ],
-    raw: 'អេកាយនោ អាយស្មន្តោ មគ្គោ សត្តានំ វិសុទ្ធិយា សោកបរិទេវានំ សមតិក្កមាយ ទុក្ខទោមនស្សានំ អត្ថង្គមាយ ញាយស្ស អធិគមាយ និព្វានស្ស សច្ឆិកិរិយាយ យទិទំ ចត្តារោ សតិបដ្ឋានា ។',
-    kmVerse: '«ផ្លូវតែមួយ បន្សុទ្ធសត្វ ឈ្នះសោក វិនាសទុក្ខ សម្រេចនិព្វាន — គឺសតិបដ្ឋាន ៤»', enVerse: '"The one direct path for the purification of beings … for the realization of Nibbāna — the four foundations of mindfulness."',
+    raw: 'អេកាយនោ អាយស្មន្តោ មគ្គោ សត្តានំ វិសុទ្ធិយា សោកបរិទេវានំ សមតិក្កមាយ ទុក្ខទោមនស្សានំ អត្ថង្គមាយ ញាយស្ស អធិគមាយ និព្វានស្ស សច្ឆិកិរិយាយ យទិទំ ចត្តារោ សតិប្បដ្ឋានា ។',
+    kmVerse: '«ផ្លូវតែមួយ បន្សុទ្ធសត្វ ឈ្នះសោក វិនាសទុក្ខ សម្រេចនិព្វាន — គឺសតិប្បដ្ឋាន ៤»', enVerse: '"The one direct path for the purification of beings … for the realization of Nibbāna — the four foundations of mindfulness."',
     applyK: 'ចាប់ផ្តើមពីសតិដង្ហើម ៥-១០ នាទី រាល់ថ្ងៃ — ដូចដែលរៀបរាប់ក្នុងទំព័រសមាធិ។', applyE: 'Begin with mindfulness of the breath for five to ten minutes daily, as taught on the Meditation page.',
     tags: ['Mindfulness', 'Direct Path', 'Insight Manual'],
   },

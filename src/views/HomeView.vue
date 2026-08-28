@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import { useTheme } from '../composables/useTheme'
 import { useLanguage } from '../composables/useLanguage'
@@ -134,11 +134,23 @@ function renderChart() {
     },
     options: {
       responsive: true, maintainAspectRatio: false, cutout: '62%',
-      plugins: { legend: { position: 'right', labels: { color: cc.legend, padding: 10, font: { size: 11 } } } }
+      plugins: {
+        legend: {
+          position: window.innerWidth < 640 ? 'bottom' : 'right',
+          labels: { color: cc.legend, padding: 10, font: { size: 11 } }
+        }
+      }
     }
   })
 }
 
-onMounted(renderChart)
+let resizeRaf = null
+function onResize() {
+  if (resizeRaf) return
+  resizeRaf = requestAnimationFrame(() => { resizeRaf = null; renderChart() })
+}
+
+onMounted(() => { renderChart(); window.addEventListener('resize', onResize) })
+onBeforeUnmount(() => window.removeEventListener('resize', onResize))
 watch([theme, lang], renderChart)
 </script>

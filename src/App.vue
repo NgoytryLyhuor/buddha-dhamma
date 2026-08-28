@@ -4,11 +4,11 @@
     <header class="sticky top-0 z-50" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
       <div class="max-w-6xl mx-auto px-4 pt-3">
         <div class="flex items-center justify-between gap-3">
-          <router-link to="/" class="flex items-center gap-2 group" style="color: var(--ink)">
-            <span class="text-2xl leading-none" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
-            <span>
-              <span class="block font-display text-lg leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
-              <span class="block text-[9px] tracking-[0.3em] uppercase" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
+          <router-link to="/" class="flex items-center gap-2 group min-w-0" style="color: var(--ink)">
+            <span class="text-2xl leading-none shrink-0" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
+            <span class="block min-w-0">
+              <span class="block truncate font-display text-lg leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
+              <span class="hidden sm:block text-[9px] tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
             </span>
           </router-link>
 

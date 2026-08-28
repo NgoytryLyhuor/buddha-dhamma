@@ -52,8 +52,6 @@
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ចេតសិក ៥២ ជាបួនពួក', '52 Mental Factors in Four Groups') }}</h3>
       <div class="grid md:grid-cols-2 gap-6 mt-5">
         <div>
-          <universal>
-          </universal>
           <div v-for="cf in cetasikaGroups.slice(0, 2)" :key="cf.en" class="mb-4">
             <p class="font-bold" :style="{ color: 'var(--accent)' }">{{ t(cf.km, cf.en) }} <span class="paali ml-1">{{ cf.n }}</span></p>
             <div class="flex flex-wrap gap-2 mt-2">

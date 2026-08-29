@@ -1,13 +1,19 @@
-import { ref, shallowRef } from 'vue'
+import { ref } from 'vue'
 
 const ONESIGNAL_CDN = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js'
+const STORAGE_KEY = 'bd_notif_enabled'
 
-let started = false
 let sdks = null
 
 // OneSignal needs a real UUID app id. Guard against the placeholder.
 function isConfigured(appId) {
   return !!appId && appId !== 'REPLACE_WITH_YOUR_ONESIGNAL_APP_ID'
+}
+
+function isSupported() {
+  return typeof window !== 'undefined'
+    && 'serviceWorker' in navigator
+    && 'PushManager' in window
 }
 
 function loadScript() {
@@ -42,27 +48,62 @@ async function initOneSignal(appId) {
 }
 
 function useNotifications(appId) {
-  const enabled = ref(false)
-  const ready = ref(false)
-  const supported = ref(
-    typeof window !== 'undefined'
-      && 'serviceWorker' in navigator
-      && 'PushManager' in window
-  )
-  const permissionDenied = ref(false)
   const configured = isConfigured(appId)
+  const supported = ref(isSupported())
+
+  // Persist desired state so it stays on across refreshes.
+  const stored = (() => {
+    try { return localStorage.getItem(STORAGE_KEY) === '1' } catch { return false }
+  })()
+  const enabled = ref(stored)
+
+  const ready = ref(false)
+  const permissionDenied = ref(false)
+
+  let checking = false
 
   async function refresh() {
     if (!configured || !supported.value) return
+    if (checking) return
+    checking = true
     try {
       const os = await initOneSignal(appId)
-      const perm = await os.Notifications.permission
+      let granted = false
+      try { granted = await os.Notifications.isPushEnabled() } catch { /* older API */ }
+      if (!granted) {
+        const perm = await os.Notifications.permission
+        granted = perm === 'granted'
+        // Objectively check the browser Permission API as a fallback
+        if (!granted && navigator.permissions && navigator.permissions.query) {
+          try {
+            const st = await navigator.permissions.query({ name: 'notifications' })
+            granted = st.state === 'granted'
+          } catch { /* unsupported */ }
+        }
+      }
       ready.value = true
-      enabled.value = perm === 'granted'
-      permissionDenied.value = perm === 'denied'
+      enabled.value = granted
+      permissionDenied.value = !granted && await isDenied()
+      if (granted) {
+        try { localStorage.setItem(STORAGE_KEY, '1') } catch { /* ignore */ }
+      }
     } catch (e) {
       console.warn('OneSignal refresh error:', e)
+    } finally {
+      checking = false
     }
+  }
+
+  async function isDenied() {
+    try {
+      const perm = await sdks ? sdks.Notifications.permission : Promise.resolve('default')
+      if (perm === 'denied') return true
+      if (navigator.permissions && navigator.permissions.query) {
+        const st = await navigator.permissions.query({ name: 'notifications' })
+        return st.state === 'denied'
+      }
+    } catch { /* ignore */ }
+    return false
   }
 
   async function enable() {
@@ -74,6 +115,7 @@ function useNotifications(appId) {
       await refresh()
     } catch (e) {
       permissionDenied.value = true
+      enabled.value = false
       console.warn('OneSignal enable error:', e)
     }
   }
@@ -84,14 +126,20 @@ function useNotifications(appId) {
       const os = await initOneSignal(appId)
       await os.setSubscription(false)
       enabled.value = false
+      permissionDenied.value = false
+      try { localStorage.setItem(STORAGE_KEY, '0') } catch { /* ignore */ }
     } catch (e) {
       console.warn('OneSignal disable error:', e)
     }
   }
 
-  if (!started) {
-    started = true
+  // Run initial check and re-check when the tab regains focus (user may have
+  // re-enabled permission in browser settings).
+  if (isSupported()) {
     refresh()
+    if (typeof window !== 'undefined') {
+      window.addEventListener('focus', () => { if (configured) refresh() })
+    }
   }
 
   return { enabled, ready, supported, configured, permissionDenied, enable, disable, refresh }

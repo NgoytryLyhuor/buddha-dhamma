@@ -78,6 +78,12 @@
                 </span>
               </span>
             </button>
+            <p v-if="notifDenied" class="mt-2 text-[11px] leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
+              {{ t('បើកវានៅក្នុងការកំណត់ការជូនដំណឹងរបស់កម្មវិធីរុករក (រូបសោ/ខែលនៅខាងដើមអាសយដ្ឋាន) ហើយត្រលប់មកវិញ។', 'Enable it in your browser\u2019s notification settings (the lock/shield icon by the address bar), then come back here.') }}
+            </p>
+            <button v-if="notifDenied" class="share-btn report mt-2" @click="retryNotif" style="color: var(--accent)">
+              {{ t('ខ្ញុំបានកែរួច — ពិនិត្យម្តងទៀត', 'I fixed it — check again') }}
+            </button>
             <p class="text-[11px] mt-2 leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
               {{ t('ទទួលសម្ដីព្រះធម៌ប្រចាំថ្ងៃ និងការជូនដំណឹងថ្ងៃបុណ្យ សីល និងការរំឭកថ្ងៃសំខាន់ៗ។ នៅលើ iPhone ត្រូវបន្ថែមទៅអេក្រង់ដើមជាមុនសិន។', 'Daily Dhamma quotes and alerts for festivals, sīl days, and special days. On iPhone, add the app to your Home Screen first.') }}
             </p>
@@ -309,7 +315,11 @@ const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
-const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif } = useNotifications(ONESIGNAL_APP_ID)
+const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif, refresh: refreshNotif } = useNotifications(ONESIGNAL_APP_ID)
+
+function retryNotif() {
+  refreshNotif()
+}
 
 const hasError = ref(false)
 onErrorCaptured((err) => {

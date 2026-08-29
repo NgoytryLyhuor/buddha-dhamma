@@ -75,16 +75,17 @@
           </div>
         </transition>
 
-        <!-- Desktop horizontal nav -->
-        <nav class="desktop-nav mt-2 -mb-px">
-          <div class="topnav-inner flex flex-wrap items-center justify-center gap-x-1 gap-y-0.5 text-[12px] font-bold">
+        <!-- Desktop horizontal nav (compact single row, scrollable if overflow) -->
+        <nav class="desktop-nav mt-2">
+          <div class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
+            style="-webkit-overflow-scrolling: touch; scrollbar-width: none">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
-              class="px-2.5 py-2 flex items-center gap-1.5 transition hover:opacity-80"
+              class="px-2 py-1.5 flex items-center gap-1 transition hover:opacity-80"
               :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
-              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.km, n.en) }}
+              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
             </router-link>
           </div>
-          <div class="dhammascroll mt-px"></div>
+          <div class="dhammascroll mt-1"></div>
         </nav>
 
         <!-- Mobile horizontal pill nav (scrollable, NOT bottom tabs) -->

@@ -322,9 +322,11 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .bm-remove:hover { border-color: var(--red); color: var(--red); }
 
 .topnav-inner a { position: relative; white-space: nowrap; }
+.topnav-inner a:hover { opacity: 0.75; }
+.topnav-inner::-webkit-scrollbar { display: none; }
 .topnav-inner a.active { color: var(--accent) !important; }
 .topnav-inner a.active::after {
-  content: ''; position: absolute; left: 8px; right: 8px; bottom: -2px;
+  content: ''; position: absolute; left: 8px; right: 8px; bottom: -1px;
   height: 2px; background: var(--accent);
 }
 

@@ -10,6 +10,9 @@
       {{ t('ព្រះធម៌របស់ព្រះសម្មាសម្ពុទ្ធ គឺជាការបង្រៀនពីការពិតនៃជីវិត ៖ អ្វីជាទុក្ខ (សេចក្តីលំបាក) ហេតុអ្វីទុក្ខកើតឡើង អ្វីជាការរលត់ទុក្ខ និងផ្លូវប្រតិបត្តិឆ្ពោះទៅកាន់សេចក្តីរំលត់ទុក្ខ។ វេបសាយនេះប្រមូលផ្តុំខ្លឹមសារសំខាន់ៗ ចាប់ពីធម៌វិន័យមូលដ្ឋាន រហូតដល់ព្រះអភិធម្មដ៏ជ្រៅ ពន្យល់ជាភាសាសាមញ្ញ ដែលអ្នកអាចសាកល្បងដោយខ្លួនឯងបាន។', 'The Buddha\'s Teaching is the truth of life: what suffering is, why it arises, how it ends, and the path leading to its end. This site gathers the essence — from basic discipline to the profound Abhidhamma — explained in plain words you can verify yourself.') }}
     </p>
 
+    <!-- Festival countdown -->
+    <FestivalCountdownCard />
+
     <!-- Three Jewels -->
     <div class="grid md:grid-cols-3 gap-4 mt-8">
       <div v-for="j in jewels" :key="j.en" class="card-paper card-paper-hover p-5 text-center">
@@ -77,6 +80,7 @@ import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import { useTheme } from '../composables/useTheme'
 import { useLanguage } from '../composables/useLanguage'
+import FestivalCountdownCard from '../components/FestivalCountdownCard.vue'
 
 Chart.register(...registerables)
 const { theme, getChartColors } = useTheme()

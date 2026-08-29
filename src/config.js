@@ -7,5 +7,5 @@ export const SITE_NAME = {
 
 // OneSignal Web Push. Replace with your real App ID (Settings > Keys & IDs).
 // A UUID, e.g. '11111111-2222-3333-4444-555555555555'
-export const ONESIGNAL_APP_ID = 'REPLACE_WITH_YOUR_ONESIGNAL_APP_ID'
+export const ONESIGNAL_APP_ID = '44fd0d98-cb4f-4293-8f83-b632b69a8953'
 

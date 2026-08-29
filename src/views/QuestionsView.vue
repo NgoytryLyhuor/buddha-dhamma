@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ១៧ — ចុចដើម្បីបើកមើល', 'SEVENTEEN QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២០ — ចុចដើម្បីបើកមើល', 'TWENTY QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -184,6 +184,30 @@ const qas = [
     mK: 'ច្រូច ទឹក រំឮក ថា បុណ្យ ហូរ ទៅ រក អ្នក ត្រូវ ការ ដូច ទឹក ទៅ រក ទី ទាប — ជា សទ្ធា ដែល សប្បុរស ។',
     mE: 'Pouring water is a reminder that merit flows to those in need, as water finds low ground — a generous faith.',
     tie: 'កម្ម និងផល · /kamma', to: '/kamma#31-plane',
+  },
+  {
+    qK: 'តើ និព្វាន ជាអ្វី?', qE: 'What is Nibbāna?',
+    aK: 'និព្វាន ជា សេចក្តី រលត់ នៃ រាគៈ ទោសៈ មោហៈ — ជា សេចក្តី ស្ងប់ ដ៏ ប្រសើរ ដែល ឈប់ កើត ទុក្ខ ដោយ ឥត បន្សល់ ។ មិន មែន ជា កន្លែង ពុំ មែន ជា នគរ ពុំ មែន ជា សេចក្តី វិនាស — តែ ជា សេចក្តី ស្ងប់ ដែល មនុស្ស ទៅ ដល់ បាន ដោយ ការ បដិបត្តិ ។ ព្រះពុទ្ធ សម្តែង ថា មិន អាច ពន្យល់ ដោយ ពាក្យ បាន ច្បាស់ ទេ — ព្រោះ ជា អ្វី ដែល ត្រូវ ដឹង ដោយ ខ្លួន ឯង ។',
+    aE: 'Nibbāna is the ending of greed, hatred and delusion — a supreme peace in which suffering ceases without remainder. It is not a place, not a city, not annihilation, but a peace reachable through practice. The Buddha said it cannot be fully explained in words — it is something to be known for oneself.',
+    mK: 'និព្វាន មិនមែន «ទៅណា» តែជា «រលត់» នៃ កិលេស — ជា ស្ងប់ ដែល ដឹង ដោយ ខ្លួន ឯង ។',
+    mE: 'Nibbāna is not a “where to go” but the ceasing of defilements — a peace known by oneself.',
+    tie: 'អារិយសច្ចៈ · /core#dukkha', to: '/core#dukkha',
+  },
+  {
+    qK: 'អ្នក តាម ផ្ទះ អាច ដល់ និព្វាន បាន ដែរ ឬទេ?', qE: 'Can a lay person attain Nibbāna?',
+    aK: 'អាច បាន ។ មាន ឧបាសក ឧបាសិកា ជា ច្រើន ក្នុង សម័យ ព្រះពុទ្ធ ដូច ជា អ្នក ទំនុកបម្រុង ឬ ព្រះ បាទ ពិម្ពិសារ ដែល បាន ដល់ សោតាបត្តិ ដោយ រក្សា ផ្ទះ បាន ។ បើ អាច កាន់ សីល បាន តឹង រឹង និង បដិបត្តិ បាន ពេញ ពេល — អ្នក តាម ផ្ទះ តិច ទៅ ដល់ អនាគាមិ តែ អរហត្ត តែង ត្រូវ ការ ទៅ បួស (ភិក្ខុ ភិក្ខុនី) ។',
+    aE: 'Yes. Many lay disciples in the Buddha’s time, like King Bimbisāra and devoted donors, attained stream-entry while keeping their homes. With strict virtue and full-time practice, a lay person can go far, to non-returning; full arahantship however is traditionally attained while ordained.',
+    mK: 'អ្នក តាម ផ្ទះ អាច ដល់ ច្រក ចូល ផ្លូវ (សោតាបត្តិ) បាន ក្នុង ជីវិត នេះ — អរហត្ត តែង ត្រូវ បួស ។',
+    mE: 'A lay person can reach stream-entry in this very life — full arahantship is traditionally reached while ordained.',
+    tie: 'សីល និងបារមី · /ethics#sila', to: '/ethics#sila',
+  },
+  {
+    qK: 'ហេតុអ្វី ពុទ្ធសាសនា ហាម សម្លាប់ តែ អនុញ្ញាត ឲ្យ ស៊ី សាច់?', qE: 'Why does Buddhism forbid killing but allow eating meat?',
+    aK: 'សីល ទី ១ ហាម ការ នាំ ជីវិត ណា មួយ ឲ្យ អស់ — ការ សម្លាប់ ដោយ ផ្ទាល់ ជាទង្វើ ធ្ងន់ ។ ប៉ុន្តែ ព្រះពុទ្ធ មិន បាន បង្គាប់ ឲ្យ អ្នក តាម ផ្ទះ បរិភោគ បួស ទេ — ព្រះអង្គ អនុញ្ញាត សាច់ ដែល មិន ឃើញ មិន ឮ មិន ប្រាកដ ថា សម្លាប់ ដោយ ប្រយោជន៍ ខ្លួន (តិកោដិ បរិសុទ្ធ) ។ អ្នក ណា ជ្រើស បួស ក៏ ជា ទង្វើ មេត្តា ដ៏ ល្អ ដែរ ។',
+    aE: 'The first precept forbids taking any life — killing directly is grave. Yet the Buddha did not command lay people to be vegetarian. He allowed meat that is not seen, heard, or suspected to have been killed for oneself — the “threefold purity.” Anyone who chooses vegetarianism also makes a fine act of compassion.',
+    mK: 'សីល វាស់ នៅ ទង្វើ ពិត ប្រាកដ — សាច់ ដែល បរិសុទ្ធ តាម តិកោដិ អាច បរិភោគ បាន; ការ បួស ជា មេត្តា បន្ថែម ។',
+    mE: 'Precepts judge the actual deed — meat pure by the threefold criterion is allowed; vegetarianism is an extra kindness.',
+    tie: 'កម្ម និងផល · /kamma#kusala-akusala', to: '/kamma#kusala-akusala',
   },
 ]
 </script>

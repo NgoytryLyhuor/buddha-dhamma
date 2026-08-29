@@ -25,14 +25,18 @@
 
     <div class="mt-4 space-y-4">
       <article v-for="(g, i) in gathas" :key="g.en" :id="'gatha-' + i" class="card-paper p-6 md:p-8 scroll-mt-24">
-        <div class="flex items-start justify-between gap-3 flex-wrap">
-          <div class="min-w-0">
-            <p class="chapter-label">{{ g.src }}</p>
-            <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(g.km, g.en) }}</h3>
-            <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(g.noteK, g.noteE) }}</p>
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <div class="min-w-0">
+              <p class="chapter-label">{{ g.src }}</p>
+              <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(g.km, g.en) }}</h3>
+              <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(g.noteK, g.noteE) }}</p>
+            </div>
+            <div class="flex items-center gap-2 mt-1 flex-none">
+              <PlayButton :text="g.roman" lang="pi" />
+              <CopyButton :text="verseTexts[i]" />
+              <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
+            </div>
           </div>
-          <span class="sutra-num mt-1" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-        </div>
 
         <div class="verse-box p-4 md:p-5 mt-4">
           <p v-for="l in g.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
@@ -60,9 +64,14 @@
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import CopyButton from '../components/CopyButton.vue'
+import PlayButton from '../components/PlayButton.vue'
 const { t } = useLanguage()
 const route = useRoute()
 const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
+
+const verseTexts = computed(() => gathas.map(g => g.lines.join('\n') + '\n' + g.roman))
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

@@ -40,6 +40,10 @@
         </summary>
 
         <div class="mt-6">
+          <div class="flex items-center justify-end gap-2 mb-2">
+            <PlayButton :text="c.roman" lang="pi" />
+            <CopyButton :text="chantTexts[i]" />
+          </div>
           <div class="verse-box p-4 md:p-5">
             <p v-for="l in c.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
             <p class="mt-3 text-center"><span class="paali">{{ c.roman }}</span></p>
@@ -67,9 +71,14 @@
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import CopyButton from '../components/CopyButton.vue'
+import PlayButton from '../components/PlayButton.vue'
 const { t } = useLanguage()
 const route = useRoute()
 const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
+
+const chantTexts = computed(() => chants.map(c => c.lines.join('\n') + '\n' + c.roman))
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

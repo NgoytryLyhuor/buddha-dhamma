@@ -7,6 +7,7 @@ const SIZES = [
   { label: 'A', mult: 1 },
   { label: 'A', mult: 1.15 },
   { label: 'A', mult: 1.32 },
+  { label: 'A', mult: 1.55 },
 ]
 
 const saved = Number(localStorage.getItem(STORAGE_KEY))

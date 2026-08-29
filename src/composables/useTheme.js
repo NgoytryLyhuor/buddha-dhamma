@@ -3,7 +3,11 @@ import { ref } from 'vue'
 const theme = ref('light')
 
 const savedTheme = localStorage.getItem('bd_dhamma_theme')
-if (savedTheme === 'dark' || savedTheme === 'light') theme.value = savedTheme
+if (savedTheme === 'dark' || savedTheme === 'light') {
+  theme.value = savedTheme
+} else if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  theme.value = 'dark'
+}
 
 function applyTheme(t) {
   const html = document.documentElement
@@ -20,6 +24,17 @@ function toggleTheme() {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
   localStorage.setItem('bd_dhamma_theme', theme.value)
   applyTheme(theme.value)
+}
+
+if (typeof window !== 'undefined' && window.matchMedia) {
+  const mq = window.matchMedia('(prefers-color-scheme: dark)')
+  const onChange = (e) => {
+    if (localStorage.getItem('bd_dhamma_theme') === 'dark' || localStorage.getItem('bd_dhamma_theme') === 'light') return
+    theme.value = e.matches ? 'dark' : 'light'
+    applyTheme(theme.value)
+  }
+  if (mq.addEventListener) mq.addEventListener('change', onChange)
+  else if (mq.addListener) mq.addListener(onChange)
 }
 
 export function getChartColors() {

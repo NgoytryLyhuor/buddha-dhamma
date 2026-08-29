@@ -72,6 +72,47 @@
         </ul>
       </div>
     </div>
+
+    <!-- three periods -->
+    <div class="card-paper p-6 md:p-8 mt-8">
+      <p class="chapter-label">{{ t('កំណត់តាមកាលទាំងបី', 'THE THREE PERIODS') }}</p>
+      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ច្រវាក់ ១២ ចែកជា ៣ កាល', 'The Twelve Links in Three Periods') }}</h3>
+      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ព្រះពុទ្ធទ្រង់រៀបរៀងអង្គ ១២ នេះ ជា ៣ កាល គឺ អតីត បច្ចុប្បន្ន អនាគត — ដើម្បីបង្ហាញថា កម្មដែលធ្វើកន្លង នាំឲ្យកើតផលឥឡូវនេះ ហើយអ្វីដែលធ្វើឥឡូវនេះ នឹងនាំផលទៅមុខទៀត ។', 'The Buddha arranged these twelve links into three periods — past, present, and future — to show that deeds done in the past bring their results now, and what we do now will bear fruit ahead.') }}
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 mt-5">
+        <div class="rounded-sm p-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <p class="font-display text-sm" :style="{ color: 'var(--accent)' }">{{ t('អតីតកាល — ហេតុ', 'PAST — CAUSES') }}</p>
+          <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('អវិជ្ជា និងសង្ខារ — ហេតុកន្លងទៅ', 'Avijjā and saṅkhārā — the causes of the past.') }}</p>
+          <p class="text-xs mt-2" :style="{ color: 'var(--ink-faint)' }">1 · 2</p>
+        </div>
+        <div class="rounded-sm p-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <p class="font-display text-sm" :style="{ color: 'var(--accent)' }">{{ t('បច្ចុប្បន្ន — ផល+ហេតុ', 'PRESENT — RESULT + CAUSE') }}</p>
+          <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('វិញ្ញាណ នាមរូប សឡាយតនៈ ផស្សៈ វេទនា (ផល); តណ្ហា ឧបាទាន ភព (ហេតុ)។', 'Viññāṇa to vedanā (result); taṇhā, upādāna, bhava (cause).') }}</p>
+          <p class="text-xs mt-2" :style="{ color: 'var(--ink-faint)' }">3 · 4 · 5 · 6 · 7 · 8 · 9 · 10</p>
+        </div>
+        <div class="rounded-sm p-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <p class="font-display text-sm" :style="{ color: 'var(--accent)' }">{{ t('អនាគតកាល — ផល', 'FUTURE — RESULT') }}</p>
+          <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('ជាតិ ជរាមរណៈ — ផលនាពេលខាងមុខ។', 'Jāti, jarā-maraṇa — result in the future.') }}</p>
+          <p class="text-xs mt-2" :style="{ color: 'var(--ink-faint)' }">11 · 12</p>
+        </div>
+      </div>
+      <div class="verse-box p-4 mt-5">
+        <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('គោលនៃអនុវត្ត៖ បញ្ឈប់តណ្ហា និងឧបាទាន ក្នុងបច្ចុប្បន្ន នោះនឹងមិនមានកំណើតថ្មីខាងមុខឡើយ។', 'The point of practice: stop craving and clinging now, and there is no new birth ahead.') }}</p>
+      </div>
+    </div>
+
+    <!-- contemplation practice -->
+    <div class="card-paper p-6 md:p-8 mt-8">
+      <p class="chapter-label">{{ t('អនុវត្តវិបស្សនា', 'INSIGHT CONTEMPLATION') }}</p>
+      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('របៀបពិចារណា ក្នុងសមាធិ', 'How to Contemplate in Meditation') }}</h3>
+      <ul class="tick-list mt-4">
+        <li v-for="c in contemplate" :key="c.en">
+          <strong :style="{ color: 'var(--ink)' }">{{ t(c.km, c.en) }}</strong>
+          <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(c.kmBody, c.enBody) }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -97,5 +138,12 @@ const links = [
   { pl: 'BHAVA', km: 'ភព', en: 'Becoming', kmBody: 'សេចក្តីកើត នៃបដិសន្ធិថ្មី តាមកម្លាំងនៃតណ្ហា និងឧបាទាន។', enBody: 'The arising of new existence driven by craving and clinging.' },
   { pl: 'JĀTI', km: 'ជាតិ', en: 'Birth', kmBody: 'ការចាប់កំណើត ក្នុងភពណាមួយ។', enBody: 'Taking rebirth in some realm.' },
   { pl: 'JARĀ-MARAṆA', km: 'ជរាមរណៈ', en: 'Ageing and Death', kmBody: 'សេចក្តីចាស់ ស្លាប់ សោក ខ្សឹកខ្សួល — ជាទីបញ្ចប់នៃច្រវាក់នេះ។', enBody: 'Ageing, death, sorrow and lamentation — the end of this chain.' },
+]
+
+const contemplate = [
+  { km: 'សង្កេតការកើត–រលត់', en: 'Observe arising and ceasing', kmBody: 'ឃ្លាំមើលអារម្មណ៍ គំនិត ដែលកើតហើយរលត់ ក្នុងចិត្ត រាល់ខណៈ — ឃើញថាគ្មានអ្វីទៀង។', enBody: 'Watch feelings and thoughts arise and pass in the mind moment by moment — seeing that nothing lasts.' },
+  { km: 'ឃើញតណ្ហា ជំរុញទៅមុខ', en: 'See craving driving onward', kmBody: 'ពេលមានវេទនាសប្បាយ ឃ្លាំមើលតណ្ហាដែលលោភកើតឡើងតាម។', enBody: 'When a pleasant feeling arises, watch the craving that reaches out after it.' },
+  { km: 'បញ្ឈប់ការប្រកាន់', en: 'Cease the clinging', kmBody: 'មិនប្រកាន់អារម្មណ៍ មិនកាន់រូបរាង ឃើញថាអ្វីៗជាសង្ខារ — ចិត្តក៏រលុង ស្ងប់។', enBody: 'Do not cling to feelings or forms; see them as conditioned — the mind loosens and calms.' },
+  { km: 'ដឹងច្បាស់ផល', en: 'Know the fruit clearly', kmBody: 'កាលមិនប្រកាន់ តណ្ហារលត់ ភពថ្មីមិនកើត — សេចក្តីស្ងប់ ទីរំលត់ទុក្ខ។', enBody: 'When there is no clinging, craving ceases, no new becoming arises — that is peace, the end of suffering.' },
 ]
 </script>

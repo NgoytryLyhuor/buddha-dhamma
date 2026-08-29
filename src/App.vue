@@ -16,6 +16,15 @@
             <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')" :aria-label="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
             </button>
+            <button class="theme-btn" @click="toggleFind" :class="findOpen ? 'on' : ''" :title="t('រកពាក្យក្នុងទំព័រនេះ', 'Find in this page')" :aria-label="t('រកពាក្យក្នុងទំព័រនេះ', 'Find in this page')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <button ref="bookmarkBtnRef" class="theme-btn font-bold" :class="isCurrentBookmarked ? 'on' : ''" @click="bookmarksOpen = !bookmarksOpen"
+              :title="t('ចំណាំទំព័រ', 'Bookmarks')" :aria-label="t('ចំណាំទំព័រ', 'Bookmarks')"
+              :style="bookmarksOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}">
+              <span class="star-ico" aria-hidden="true">&#9734;</span>
+              <span v-if="bookmarkList.length" class="bookmark-count" :style="{ color: 'var(--accent-bright)' }">{{ bookmarkList.length }}</span>
+            </button>
             <button ref="settingsBtnRef" class="theme-btn px-3 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
@@ -78,6 +87,35 @@
           </div>
         </transition>
 
+        <!-- Bookmarks dropdown -->
+        <transition name="settings">
+          <div v-if="bookmarksOpen" ref="bookmarkRef" class="relative">
+            <div class="settings-panel bookmarks-panel">
+              <p class="settings-label">{{ t('ចំណាំទំព័រ', 'Bookmarks') }}</p>
+              <button class="setting-row" @click="toggleCurrentBookmark">
+                <span class="star-ico" :style="{ color: isCurrentBookmarked ? 'var(--accent)' : 'var(--ink-muted)' }">{{ isCurrentBookmarked ? '★' : '☆' }}</span>
+                <span>{{ isCurrentBookmarked ? t('លុបចោលចំណាំទំព័រនេះ', 'Remove this page') : t('ចំណាំទំព័រនេះ', 'Bookmark this page') }}</span>
+              </button>
+              <p v-if="!bookmarkList.length" class="text-xs mt-3" :style="{ color: 'var(--ink-faint)' }">
+                {{ t('មិនទាន់មានចំណាំទេ', 'No bookmarks yet') }}
+              </p>
+              <div v-else class="mt-3 max-h-64 overflow-y-auto -mr-2 pr-1 space-y-1">
+                <div v-for="b in bookmarkList" :key="b.path" class="flex items-center gap-2">
+                  <router-link :to="b.path" class="bookmark-link flex-1 min-w-0" @click="bookmarksOpen = false">
+                    <span class="block truncate text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ b.title }}</span>
+                    <span class="block text-xs" :style="{ color: 'var(--ink-faint)' }">{{ b.path }}</span>
+                  </router-link>
+                  <button class="bm-remove" :title="t('លុប', 'Remove')" :aria-label="t('លុប', 'Remove')" @click="removeBookmark(b.path)">&#10005;</button>
+                </div>
+              </div>
+              <button v-if="bookmarkList.length" class="setting-row reset-btn mt-4" @click="clearAllBookmarks">
+                <span>&#8634;</span>
+                <span>{{ t('លុបចំណាំទាំងអស់', 'Clear all bookmarks') }}</span>
+              </button>
+            </div>
+          </div>
+        </transition>
+
         <!-- Desktop horizontal nav -->
         <nav class="desktop-nav mt-2 -mb-px">
           <div class="topnav-inner flex flex-wrap items-center justify-center gap-1 text-[13px] font-bold">
@@ -102,6 +140,26 @@
         </nav>
       </div>
     </header>
+
+    <!-- Reading progress bar -->
+    <div class="progress-bar" aria-hidden="true">
+      <div class="progress-bar-fill" :style="{ width: progress + '%' }"></div>
+    </div>
+
+    <!-- Find in page -->
+    <transition name="settings">
+      <div v-if="findOpen" class="find-panel">
+        <div class="find-input-wrap">
+          <input ref="findInput" v-model="findQuery" type="text"
+            :placeholder="t('វាយពាក្យរកក្នុងទំព័រនេះ…', 'Find in this page…')"
+            @input="doFind" @keydown.enter.prevent="doFind" @keydown.esc.prevent="closeFind"
+            :style="{ background: 'var(--bg-input)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }" />
+          <button class="find-count" type="button" :title="t('បិទ', 'Close')" @click="closeFind">&#10005;</button>
+        </div>
+        <p v-if="findQuery && !findTotal" class="find-msg">{{ t('រកមិនឃើញ', 'No matches') }}</p>
+        <p v-else-if="findQuery && findTotal" class="find-msg">{{ khNumT(findCurrent) }} / {{ khNumT(findTotal) }}</p>
+      </div>
+    </transition>
 
     <transition name="fade">
       <div v-if="!online" class="offline-banner" role="status">
@@ -170,6 +228,38 @@
           <component :is="Component" />
         </transition>
       </router-view>
+
+      <!-- Related pages -->
+      <nav v-if="relatedList && relatedList.length" class="related-box mt-10">
+        <p class="chapter-label">{{ t('ទំព័រពាក់ព័ន្ធ', 'RELATED PAGES') }}</p>
+        <div class="flex flex-wrap gap-2 mt-3">
+          <router-link v-for="r in relatedList" :key="r.to" :to="r.to" class="related-pill">
+            <span class="related-num" :style="{ color: 'var(--accent-bright)' }">{{ r.num }}</span>
+            {{ t(r.km, r.en) }}
+          </router-link>
+        </div>
+      </nav>
+
+      <!-- Prev / Next page navigation -->
+      <nav v-if="pageNav && pageNav.total > 1" class="pn-nav" aria-label="Page navigation">
+        <router-link v-if="pageNav.prev" :to="pageNav.prev.to" class="pn-link pn-prev">
+          <span class="pn-arrow" aria-hidden="true">&#8592;</span>
+          <span class="pn-txt">
+            <span class="pn-label">{{ t('មុន', 'Previous') }}</span>
+            <span class="pn-name">{{ pageNav.prev.num }} {{ t(pageNav.prev.km, pageNav.prev.en) }}</span>
+          </span>
+        </router-link>
+        <span v-else class="pn-link pn-prev pn-empty" aria-hidden="true"></span>
+
+        <router-link v-if="pageNav.next" :to="pageNav.next.to" class="pn-link pn-next">
+          <span class="pn-txt">
+            <span class="pn-label">{{ t('បន្ទាប់', 'Next') }}</span>
+            <span class="pn-name">{{ pageNav.next.num }} {{ t(pageNav.next.km, pageNav.next.en) }}</span>
+          </span>
+          <span class="pn-arrow" aria-hidden="true">&#8594;</span>
+        </router-link>
+        <span v-else class="pn-link pn-next pn-empty" aria-hidden="true"></span>
+      </nav>
     </main>
 
     <main v-else class="max-w-4xl mx-auto px-4 py-20 text-center">
@@ -206,6 +296,13 @@
               <span class="share-sub km">{{ t('ជួយកែពាក្យឱ្យត្រឹមត្រូវ', 'Help fix a mistake') }}</span>
             </span>
           </a>
+          <button class="share-btn report" @click="openFeedback">
+            <span class="share-ico" aria-hidden="true">&#9993;</span>
+            <span class="share-txt">
+              <span class="share-name">{{ t('ផ្តល់យោបល់', 'Send Feedback') }}</span>
+              <span class="share-sub km">{{ t('ផ្ញើសារទៅអ្នកអភិវឌ្ឍ', 'Send a message to the developer') }}</span>
+            </span>
+          </button>
         </div>
       </div>
       <div class="ornament mt-8">&#9784;</div>
@@ -244,6 +341,24 @@
         </div>
       </div>
     </transition>
+
+    <!-- Feedback modal -->
+    <transition name="fade">
+      <div v-if="feedbackOpen" class="install-backdrop" role="dialog" aria-modal="true" @click.self="closeFeedback" :aria-label="t('ផ្តល់យោបល់', 'Send feedback')">
+        <div class="install-card feedback-card" @click.stop>
+          <button class="install-close" @click="closeFeedback" :aria-label="t('បិទ', 'Close')">&#10005;</button>
+          <div class="install-ico" aria-hidden="true">&#9993;</div>
+          <h3 class="install-title">{{ t('ផ្តល់យោបល់ ដល់អ្នកអភិវឌ្ឍ', 'Send feedback to the developer') }}</h3>
+          <p class="install-text">{{ t('សរសេរសាររបស់អ្នក គឺនឹងបើក Telegram ដើម្បីផ្ញើ ។', 'Write your message; it will open Telegram to send it.') }}</p>
+          <textarea v-model="feedbackMsg" rows="4" class="feedback-area"
+            :placeholder="t('វាយយោបល់ ឬ បញ្ហានៅទីនេះ…', 'Type your feedback or issue here…')"
+            :style="{ background: 'var(--bg-input)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }"></textarea>
+          <button class="install-btn" :disabled="!feedbackMsg.trim()" @click="sendFeedback">
+            {{ t('ផ្ញើតាម Telegram', 'Send via Telegram') }}
+          </button>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -258,6 +373,7 @@ import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
 import { searchIndex } from './data/searchIndex'
+import { useBookmarks } from './composables/useBookmarks'
 
 const route = useRoute()
 const router = useRouter()
@@ -293,6 +409,41 @@ function onSettingsGlobalClick(e) {
   settingsOpen.value = false
 }
 
+const { bookmarks, toggle, remove } = useBookmarks()
+const bookmarksOpen = ref(false)
+const bookmarkRef = ref(null)
+const bookmarkBtnRef = ref(null)
+const isCurrentBookmarked = computed(() => Object.prototype.hasOwnProperty.call(bookmarks.value, route.path))
+
+function currentPageTitle() {
+  const found = nav.find(n => n.to === route.path)
+  if (found) return t(found.km, found.en)
+  if (route.meta && route.meta.titleK && route.meta.titleE) return t(route.meta.titleK, route.meta.titleE)
+  return t('ព្រះធម៌', 'Buddha Dhamma')
+}
+
+function toggleCurrentBookmark() {
+  toggle(route.path, currentPageTitle())
+}
+
+function removeBookmark(path) {
+  remove(path)
+}
+
+function clearAllBookmarks() {
+  const keys = Object.keys(bookmarks.value)
+  keys.forEach(k => remove(k))
+}
+
+const bookmarkList = computed(() => Object.entries(bookmarks.value).map(([path, title]) => ({ path, title })))
+
+function onBookmarkGlobalClick(e) {
+  if (!bookmarksOpen.value) return
+  if (bookmarkRef.value && bookmarkRef.value.contains(e.target)) return
+  if (bookmarkBtnRef.value && bookmarkBtnRef.value.contains(e.target)) return
+  bookmarksOpen.value = false
+}
+
 const nav = [
   { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },
   { to: '/core', km: 'ធម៌មូលដ្ឋាន', kmShort: 'មូលដ្ឋាន', en: 'Core', num: '២' },
@@ -316,10 +467,52 @@ const nav = [
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
 
+const pageNav = computed(() => {
+  const cur = route.name === 'home' ? '/' : route.path
+  const idx = nav.findIndex(n => n.to === cur)
+  if (idx === -1) return { total: 0, prev: null, next: null }
+  return {
+    total: nav.length,
+    prev: idx > 0 ? nav[idx - 1] : null,
+    next: idx < nav.length - 1 ? nav[idx + 1] : null,
+  }
+})
+
+const related = {
+  '/': ['/core', '/gathas', '/questions'],
+  '/core': ['/meditation', '/kamma', '/ariya'],
+  '/abhidhamma': ['/meditation', '/core', '/glossary'],
+  '/kamma': ['/core', '/ethics', '/questions'],
+  '/ethics': ['/daily', '/sangha', '/kamma'],
+  '/meditation': ['/chanting', '/recollections', '/daily'],
+  '/suttas': ['/gathas', '/glossary', '/stories'],
+  '/life': ['/stories', '/core', '/gathas'],
+  '/gathas': ['/chanting', '/suttas', '/stories'],
+  '/chanting': ['/gathas', '/daily', '/meditation'],
+  '/glossary': ['/core', '/abhidhamma', '/suttas'],
+  '/stories': ['/life', '/gathas', '/ariya'],
+  '/questions': ['/core', '/daily', '/ethics'],
+  '/paccaya': ['/core', '/kamma', '/ariya'],
+  '/sangha': ['/daily', '/ethics', '/core'],
+  '/daily': ['/ethics', '/meditation', '/recollections'],
+  '/recollections': ['/meditation', '/daily', '/chanting'],
+  '/ariya': ['/core', '/paccaya', '/meditation', '/stories'],
+}
+
+const relatedList = computed(() => {
+  const cur = route.name === 'home' ? '/' : route.path
+  const paths = (related[cur] || []).slice(0, 4)
+  return paths.map(p => nav.find(n => n.to === p)).filter(Boolean)
+})
+
 const showScrollTop = ref(false)
+const progress = ref(0)
 let saveTimer = null
 const onScroll = () => {
   showScrollTop.value = window.scrollY > 400
+  const doc = document.documentElement
+  const max = doc.scrollHeight - window.innerHeight
+  progress.value = max > 0 ? Math.min(100, Math.round((window.scrollY / max) * 100)) : 0
   if (saveTimer) return
   saveTimer = setTimeout(() => {
     saveScroll(route.path, window.scrollY || 0)
@@ -336,11 +529,13 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
+  document.addEventListener('click', onBookmarkGlobalClick)
 })
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('pagehide', onSaveOnExit)
   document.removeEventListener('click', onSettingsGlobalClick)
+  document.removeEventListener('click', onBookmarkGlobalClick)
 })
 
 const printOpenStates = []
@@ -426,6 +621,121 @@ const searchOpen = ref(false)
 const searchInput = ref(null)
 const activeIndex = ref(0)
 
+const findOpen = ref(false)
+const findQuery = ref('')
+const findInput = ref(null)
+const findTotal = ref(0)
+const findCurrent = ref(0)
+const khDigitsF = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNumT(n) {
+  return String(n).split('').map(d => khDigitsF[Number(d)] || d).join('')
+}
+
+function scrollToEl(el) {
+  if (!el) return
+  const headerH = 140
+  const top = el.getBoundingClientRect().top + window.scrollY - headerH
+  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+}
+
+function clearHighlights() {
+  document.querySelectorAll('.find-hl').forEach(m => {
+    const parent = m.parentNode
+    if (parent) parent.replaceChild(document.createTextNode(m.textContent), m)
+    parent.normalize && parent.normalize()
+  })
+}
+
+function doFind() {
+  clearHighlights()
+  findTotal.value = 0
+  findCurrent.value = 0
+  const q = findQuery.value.trim()
+  if (!q) return
+  const normQ = q.toLowerCase().normalize('NFC')
+  const walker = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT, { acceptNode: n => n.nodeValue && n.parentElement && n.parentElement.closest && !n.parentElement.closest('script,style,.find-hl,header,nav,footer') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT })
+  const nodes = []
+  while (walker.nextNode()) nodes.push(walker.currentNode)
+  const matches = []
+  nodes.forEach(node => {
+    const text = node.nodeValue
+    if (!text) return
+    const lower = text.toLowerCase().normalize('NFC')
+    let idx = lower.indexOf(normQ)
+    while (idx !== -1) {
+      matches.push({ node, start: idx, end: idx + normQ.length })
+      idx = lower.indexOf(normQ, idx + normQ.length)
+    }
+  })
+  findTotal.value = matches.length
+  if (!matches.length) return
+  const frag = document.createDocumentFragment()
+  const firstMatchNode = matches[0].node
+  const wrap = (node, start, end) => {
+    const before = node.nodeValue.slice(0, start)
+    const matchText = node.nodeValue.slice(start, end)
+    const after = node.nodeValue.slice(end)
+    if (before) frag.appendChild(document.createTextNode(before))
+    const mark = document.createElement('mark')
+    mark.className = 'find-hl'
+    mark.textContent = matchText
+    frag.appendChild(mark)
+    if (after) frag.appendChild(document.createTextNode(after))
+  }
+  const remaining = [...matches]
+  const first = remaining.shift()
+  wrap(first.node, first.start, first.end)
+  first.node.parentNode.replaceChild(frag, first.node)
+  remaining.forEach(m => {
+    const f = document.createDocumentFragment()
+    const before = m.node.nodeValue.slice(0, m.start)
+    const matchText = m.node.nodeValue.slice(m.start, m.end)
+    const after = m.node.nodeValue.slice(m.end)
+    if (before) f.appendChild(document.createTextNode(before))
+    const mark = document.createElement('mark')
+    mark.className = 'find-hl'
+    mark.textContent = matchText
+    f.appendChild(mark)
+    if (after) f.appendChild(document.createTextNode(after))
+    m.node.parentNode.replaceChild(f, m.node)
+  })
+  markCurrent(0)
+  scrollToEl(firstMatchEl())
+}
+
+function firstMatchEl() {
+  return document.querySelector('.find-hl')
+}
+function allMatchEls() {
+  return Array.from(document.querySelectorAll('.find-hl'))
+}
+function markCurrent(index) {
+  const els = allMatchEls()
+  els.forEach((el, i) => el.classList.toggle('find-hl-current', i === index))
+  findCurrent.value = index + 1
+}
+
+function toggleFind() {
+  findOpen.value = !findOpen.value
+  if (findOpen.value) {
+    findQuery.value = ''
+    findTotal.value = 0
+    findCurrent.value = 0
+    clearHighlights()
+    nextTick(() => { if (findInput.value) findInput.value.focus() })
+  } else {
+    closeFind()
+  }
+}
+
+function closeFind() {
+  findOpen.value = false
+  findQuery.value = ''
+  findTotal.value = 0
+  findCurrent.value = 0
+  clearHighlights()
+}
+
 function openSearch() {
   query.value = ''
   activeIndex.value = 0
@@ -435,7 +745,7 @@ function openSearch() {
 function closeSearch() {
   searchOpen.value = false
 }
-watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false })
+watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false; if (findOpen.value) closeFind(); bookmarksOpen.value = false })
 
 const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
 const descrMap = {
@@ -508,4 +818,24 @@ function onSearchKeydown(e) {
 const BASE_URL = 'https://buddha-dhamma.vercel.app'
 const shareTelegram = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('ធម៌ល្អៗ សម្រាប់ជីវិត — ' + BASE_URL))
 const reportUrl = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('សូមកែពាក្យខ្មែរ ដែលខ្ញុំឃើញហាក់ខុស នៅលើទំព័រ ' + BASE_URL + ' ៖ '))
+
+const feedbackOpen = ref(false)
+const feedbackMsg = ref('')
+
+function openFeedback() {
+  feedbackMsg.value = ''
+  feedbackOpen.value = true
+}
+function closeFeedback() {
+  feedbackOpen.value = false
+  feedbackMsg.value = ''
+}
+function sendFeedback() {
+  const msg = feedbackMsg.value.trim()
+  if (!msg) return
+  const url = 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL)
+    + '&text=' + encodeURIComponent('យោបល់ / Feedback: ' + msg)
+  window.open(url, '_blank', 'noopener')
+  closeFeedback()
+}
 </script>

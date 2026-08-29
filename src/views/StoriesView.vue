@@ -11,7 +11,7 @@
 
     <!-- the stories -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('រឿងជម្រើស ៧ — ចុចដើម្បីបើកមើល', 'SEVEN SELECTED STORIES — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('រឿងជម្រើស ៩ — ចុចដើម្បីបើកមើល', 'NINE SELECTED STORIES — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(s, i) in stories" :key="s.en" :id="'story-' + i" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget('story-', i)">
@@ -156,6 +156,34 @@ const stories = [
     essenceE: 'Power and honour are no true refuge — only one who lets go by the Dhamma finds peace.',
     lessonK: 'កុំជាប់ចិត្ត ក្នុងអំណាច ទ្រព្យ ឋានៈ — យើងអាចនៅក្នុងលោក តែមិនជាប់ទាស់ នឹងលោក ដោយបដិបត្តិធម៌។',
     lessonE: 'Do not cling to power, wealth, or status — you can live in the world yet not be bound by it, by walking the Dhamma.',
+  },
+  {
+    src: 'DHP-A · នាឡាគិរី',
+    km: 'នាឡាគិរី — ដំរីព្រៃដែលមេត្តារំងាប់បាន', en: 'Nālāgiri, the wild elephant tamed by loving-kindness',
+    noteK: 'រឿងល្បី អំពីព្រះចេស្តានៃមេត្តា — ដែលអាចរំងាប់បាន ទាំងដំរីជ្រុល ទាំងអស្សុទ្ទ។', en: 'A well-loved tale of the power of loving-kindness — able to calm a raging elephant without a single harsh word.',
+    paras: [
+      { km: 'ព្រះទេវទត្ត ច្រណែន នឹងព្រះពុទ្ធ ប្រឹងប្រហារព្រះជន្ម ជាច្រើនដង តែរាល់ដង ពុំបានសម្រេច។ ដងមួយ គាត់លែងដំរីនាឡាគិរី ដែលជាដំរីជ្រុល វង្វេង ទៅរកព្រះពុទ្ធ ដែលទ្រង់យាងបិណ្ឌបាត នៅក្នុងក្រុងរាជគ្រហៈ។', en: 'Devadatta, consumed by jealousy of the Buddha, tried many times to harm him, and always failed. One day he loosed the rampaging bull-elephant Nālāgiri upon the Buddha as he walked for alms through the streets of Rājagaha.' },
+      { km: 'ពេលដំរីរត់សំដៅមក បណ្តាជន ភ័យស្លន់ស្លោ រត់គេចបែកខ្ចាត់ខ្ចាយ។ ព្រះពុទ្ធ ទ្រង់ស្ងប់ស្ងៀម ព្រះអង្គសម្តែងនូវព្រះពន្លឺនៃមេត្តា ដោយព្រះទ័យ សព្វពេល។ កូនភ្លុក ដំរីធំ រត់មកដល់ បែរជាស្ងប់ លុតជង្គង់ ថ្វាយបង្គំ ព្រះពុទ្ធ — ដោយកាយ សន្សើម ត្រជាក់ ដោយសន្តានចិត្ត។', en: 'As the elephant thundered toward him, people scattered in panic. The Buddha stood still and stilled, radiating loving-kindness with a mind of boundless good will. The great tusker came charging on, then quietly knelt and paid homage to the Buddha — cooled by the power of his heart.' },
+      { km: 'ព្រះពុទ្ធ ទ្រង់លើកព្រះហស្ត ពាល់ក្បាលដំរី ឲ្យស្ងប់ ហើយប្រោសប្រទានធម៌ ដល់អស្សុទ្ទ។ ចាប់ពីពេលនោះមក ដំរីនាឡាគិរី ក៏ស្លូតបូត ស្មោះវិញ — បង្រៀនថា មេត្តា ឈ្នះបាន សូម្បីសេចក្តីក្រោធ ដ៏ធំបំផុត។', en: 'The Buddha raised his hand, soothed the elephant, and offered the Dhamma to the crowd as well. From that day Nālāgiri became gentle and tame — a living lesson that loving-kindness can overcome even the greatest anger.' },
+    ],
+    essenceK: 'ពាក្យទន់  ឥតសឹកស៊ា អាចរំងាប់បាន នូវចិត្តប្រាសាទ វង្វេង បំផុត។',
+    essenceE: 'A gentle word, free of anger, can soothe even the most confused and ferocious heart.',
+    lessonK: 'ពេលជួបសេចក្តីក្រោធ ឬ អ្នកដែលប្រឆាំង — កុំប្រឆាំងតប តែឲ្យមេត្តា ស្ងប់ ដើរមុន ទើបបានសេចក្តីសុខ។',
+    lessonE: 'When you meet anger or opposition — do not answer with anger; let a calm loving-kindness lead, and peace will follow.',
+  },
+  {
+    src: 'VIN PĀTIMOKKHA · សារីបុត្ត ជួបអស្សជិ',
+    km: 'សារីបុត្ត និងមោគ្គល្លាន — ការជួបដែលដុះពន្លឺព្រះពុទ្ធសាសនា', en: 'Sāriputta and Moggallāna — the meeting that kindled the Saṅgha',
+    noteK: 'រឿងកំណើតនៃព្រះសង្ឃ ដែលជាអគ្គសាវក ទាំងពីររូប — អំពីបញ្ញា ដែលចេះស្តាប់ និងស្គាល់តម្លៃធម៌។', en: 'The story of the two chief disciples — about wisdom that knows how to listen and recognise the worth of the Dhamma.',
+    paras: [
+      { km: 'អ្នកត្រាច់ចរណ៍ ឈ្មោះ សារីបុត្ត និងមោគ្គល្លាន ជាសិស្សរបស់សន្ជយៈ បានរស់នៅ ជាមួយគ្នា ហើយសន្យាគ្នាថា អ្នកណាបានដល់នូវសេចក្តីស្លាប់ មិនស្លាប់ (អមតៈ) មុនគេ ត្រូវប្រាប់អ្នកទៀត។ ព្រឹកព្រលឹមថ្ងៃមួយ ក្នុងក្រុងរាជគ្រហៈ សារីបុត្ត បានឃើញព្រះអស្សជិ ជាភិក្ខុបញ្ចវគ្គីយ៍ មួយអង្គ ដែលមានមារយាទ ស្រស់បំព្រង ស្ងប់ស្ងៀម — កើតសទ្ធាក្នុងចិត្ត ជាខ្លាំង។', en: 'Two wanderers, Sāriputta and Moggallāna, were disciples of Sañjaya, and they had promised each other that whichever found the deathless first would tell the other. One morning, in the city of Rājagaha, Sāriputta saw the Venerable Assaji, a monk of the first five disciples, whose calm and graceful deportment filled his heart with faith.' },
+      { km: 'សារីបុត្ត ដើរតាម សួរថា ព្រះសាស្តា ជាអ្នកណា ហើយសម្តែងធម៌បែបណា។ ព្រះអស្សជិ ប្រាប់សង្ខេបថា «ព្រះសម្មាសម្ពុទ្ធ ជាសាស្តារបស់ខ្ញុំ ទ្រង់សម្តែងថា វត្តមាន ដែលកើតពីហេតុ ហើយ ដែលព្រះតថាគត សម្តែងហេតុ និងផល របស់វត្តមាន ទាំងនោះ និង ការរលត់ នោះឯង ជារបស់ សមណៈធំបំផុត។» សារីបុត្ត គ្រាន់តែឮ ប៉ុណ្ណោះ ក៏ដល់សោតាបត្តិផល ជាបន្ទាន់។', en: 'Sāriputta approached and asked who the teacher was and what he taught. Assaji replied: “My teacher is the Blessed One, fully awakened. He teaches that what arises dependently, its cause, its ceasing, and the path — all this the Tathāgata has made known.” Hearing no more than this, Sāriputta attained the first stage of awakening on the spot.' },
+      { km: 'សារីបុត្ត ត្រឡប់ទៅ ប្រាប់មោគ្គល្លាន — មោគ្គល្លាន ក៏បានដល់សោតាបត្តិផល ដូចគ្នា។ អ្នកទាំងពីរ នាំគ្នាទៅសួរព្រះពុទ្ធ ទទួលបួស បដិបត្តិ ក្រោយមក ក៏ក្លាយជាអគ្គសាវក ទាំងពីរ នៃព្រះពុទ្ធសាសនា — គឺព្រះសារីបុត្ត អ្នកឈ្លាសបញ្ញា និងព្រះមោគ្គល្លាន អ្នកមានឫទ្ធិ។', en: 'Sāriputta returned and told Moggallāna, who likewise attained the first stage. The two friends went together to see the Buddha, were ordained, and in time became the two chief disciples of the dispensation — Sāriputta, foremost in wisdom, and Moggallāna, foremost in psychic powers.' },
+    ],
+    essenceK: 'រឿងបញ្ញា ដែលចេះស្តាប់ គ្រាន់តែឮពាក្យល្អ បន្តិច ក៏ដឹងថា នេះជាផ្លូវត្រូវ។',
+    essenceE: 'A story of wisdom that knows how to listen — a few well-spoken words were enough to reveal the right path.',
+    lessonK: 'កុំមើលងាយពាក្យខ្លីនៃធម៌ — ពាក្យមួយ ដែលដល់ចិត្ត អាចបើកផ្លូវ ដល់ការត្រាស់ដឹង។',
+    lessonE: 'Do not look down on a short saying of the Dhamma — one word that reaches the heart can open the way to awakening.',
   },
 ]
 </script>

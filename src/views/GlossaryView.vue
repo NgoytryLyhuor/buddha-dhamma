@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('វចនានុក្រមធម៌ ១១ — ពន្យល់ពាក្យគន្លឹះ', 'GLOSSARY 11 — KEY PALI WORDS IN PLAIN KHMER') }}</p>
+    <p class="chapter-label">{{ t('វចនានុក្រមធម៌ ' + totalTerms + ' — ពន្យល់ពាក្យគន្លឹះ', 'GLOSSARY ' + totalTerms + ' — KEY PALI WORDS IN PLAIN KHMER') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('វចនានុក្រមធម៌ខ្លី', 'A Small Glossary of the Dhamma') }}
     </h2>
@@ -196,4 +196,5 @@ const grouped = computed(() => {
 })
 
 const foundCount = computed(() => grouped.value.reduce((n, g) => n + g.items.length, 0))
+const totalTerms = terms.length
 </script>

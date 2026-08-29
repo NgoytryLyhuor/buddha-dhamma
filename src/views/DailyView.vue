@@ -9,6 +9,9 @@
       {{ t('ព្រះធម៌ មិនមែនសម្រាប់ទុកតែក្នុងវត្ត ឬសម្រាប់ត្រិះរិះតែប៉ុណ្ណោះ ។ អ្នកផ្ទះអាចអនុវត្តបាន រាល់ថ្ងៃ ក្នុងជីវិតប្រចាំថ្ងៃ ដោយចាប់ផ្តើមពីការតាំងចិត្ត កាន់សីល ៥ ធ្វើទាន និងពិចារណាខ្លួន នៅពេលព្រឹក ពេលថ្ងៃ និងពេលល្ងាច ។ នេះហើយជាបដិបត្តិ (ការហាត់រៀនតាមធម៌) ប្រចាំថ្ងៃ ។', 'The Dhamma is not meant to stay only in the temple, nor only for quiet thought. Lay people can practise every single day in ordinary life — by making a resolve, keeping the five precepts, giving, and reflecting on oneself in the morning, during the day, and in the evening.') }}
     </p>
 
+    <!-- random dhamma thought -->
+    <DhammaQuoteCard />
+
     <!-- early morning -->
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">{{ t('ពេលព្រឹក', 'MORNING') }}</p>
@@ -155,6 +158,7 @@
 
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
+import DhammaQuoteCard from '../components/DhammaQuoteCard.vue'
 const { t } = useLanguage()
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']

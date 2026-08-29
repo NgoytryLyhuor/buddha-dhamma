@@ -1,11 +1,13 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { inject } from '@vercel/analytics'
+import { injectSpeedInsights } from '@vercel/speed-insights'
 import App from './App.vue'
 import './style.css'
 import { getSavedScroll, saveScroll, SCROLL_THRESHOLD } from './composables/useReadingProgress'
 
 inject()
+injectSpeedInsights()
 
 const routes = [
   { path: '/', name: 'home', component: () => import('./views/HomeView.vue'), meta: { titleK: 'ព្រះធម៌', titleE: 'Buddha Dhamma' } },

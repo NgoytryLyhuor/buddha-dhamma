@@ -27,7 +27,7 @@
     </div>
 
     <p class="text-[11px] mt-4 leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-      {{ t('បុណ្យទាំងនេះ កំណត់តាមថ្ងៃពេញបូណ៌មី នៃបដិទិនចន្ទគតិ — កាលបរិច្ឆេទជាការប៉ាន់ស្មាន។', 'These festivals follow the lunar full moon; the exact date may shift slightly each year.') }}
+      {{ t('កាលបរិច្ឆេទ គណនាតាមបដិទិនចន្ទគតិខ្មែរ ហើយប្រែប្រួលតាមឆ្នាំ។', 'Dates are computed from the Khmer lunisolar calendar and shift each year.') }}
     </p>
   </div>
 </template>

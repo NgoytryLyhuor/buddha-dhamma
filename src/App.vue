@@ -98,10 +98,11 @@
 
         <!-- Desktop horizontal nav (compact single row, scrollable if overflow) -->
         <nav class="desktop-nav mt-2">
-          <div class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
+          <div ref="desktopNavRef" class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
             style="-webkit-overflow-scrolling: touch; scrollbar-width: none">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
               class="px-2 py-1.5 flex items-center gap-1 transition hover:opacity-80"
+              :class="routeMeta === n.to ? 'active' : ''"
               :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
               <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
             </router-link>
@@ -111,7 +112,7 @@
 
         <!-- Mobile horizontal pill nav (scrollable, NOT bottom tabs) -->
         <nav class="mobile-nav mt-2 pb-2">
-          <div class="flex gap-1.5 overflow-x-auto pb-1" style="-webkit-overflow-scrolling: touch">
+          <div ref="mobileNavRef" class="flex gap-1.5 overflow-x-auto pb-1" style="-webkit-overflow-scrolling: touch">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
               class="nav-pill flex items-center gap-1.5 shrink-0"
               :class="routeMeta === n.to ? 'active' : ''">
@@ -298,7 +299,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
@@ -340,6 +341,26 @@ function resetSettings() {
 const settingsOpen = ref(false)
 const settingsRef = ref(null)
 const settingsBtnRef = ref(null)
+
+const desktopNavRef = ref(null)
+const mobileNavRef = ref(null)
+
+function scrollActiveTabIntoView() {
+  for (const el of [desktopNavRef.value, mobileNavRef.value]) {
+    if (!el) return
+    const active = el.querySelector('a.active')
+    if (!active) continue
+    const cRect = el.getBoundingClientRect()
+    const aRect = active.getBoundingClientRect()
+    const currentLeft = el.scrollLeft
+    const desiredLeft = currentLeft + (aRect.left - cRect.left) - (cRect.width / 2) + (aRect.width / 2)
+    el.scrollTo({ left: desiredLeft, behavior: 'smooth' })
+  }
+}
+
+watch(routeMeta, () => {
+  nextTick(scrollActiveTabIntoView)
+})
 
 function onSettingsGlobalClick(e) {
   if (!settingsOpen.value) return
@@ -433,6 +454,7 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
+  nextTick(scrollActiveTabIntoView)
 })
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)

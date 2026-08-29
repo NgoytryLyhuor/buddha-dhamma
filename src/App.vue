@@ -2,18 +2,18 @@
   <div>
     <!-- Top navigation (no sidebar — horizontal scripture header) -->
     <header class="sticky top-0 z-50" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
-      <div class="max-w-6xl mx-auto px-4 pt-3">
+      <div class="max-w-4xl mx-auto px-4 pt-2.5">
         <div class="flex items-center justify-between gap-3">
           <router-link to="/" class="flex items-center gap-2 group min-w-0" style="color: var(--ink)">
-            <span class="text-2xl leading-none shrink-0" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
+            <span class="logo-ico leading-none shrink-0" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
             <span class="block min-w-0">
-              <span class="block truncate font-display text-lg leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
-              <span class="hidden sm:block text-[9px] tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
+              <span class="block truncate font-display logo-title leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
+              <span class="hidden sm:block logo-sub tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
             </span>
           </router-link>
 
           <div class="flex items-center gap-2">
-            <button ref="settingsBtnRef" class="theme-btn px-3 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
+            <button ref="settingsBtnRef" class="theme-btn px-2.5 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
@@ -77,9 +77,9 @@
 
         <!-- Desktop horizontal nav -->
         <nav class="desktop-nav mt-2 -mb-px">
-          <div class="topnav-inner flex flex-wrap items-center justify-center gap-1 text-[13px] font-bold">
+          <div class="topnav-inner flex flex-wrap items-center justify-center gap-x-1 gap-y-0.5 text-[12px] font-bold">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
-              class="px-3 py-2.5 flex items-center gap-1.5 transition hover:opacity-80"
+              class="px-2.5 py-2 flex items-center gap-1.5 transition hover:opacity-80"
               :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
               <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.km, n.en) }}
             </router-link>
@@ -88,8 +88,8 @@
         </nav>
 
         <!-- Mobile horizontal pill nav (scrollable, NOT bottom tabs) -->
-        <nav class="mobile-nav mt-3 pb-2">
-          <div class="flex gap-2 overflow-x-auto pb-1" style="-webkit-overflow-scrolling: touch">
+        <nav class="mobile-nav mt-2 pb-2">
+          <div class="flex gap-1.5 overflow-x-auto pb-1" style="-webkit-overflow-scrolling: touch">
             <router-link v-for="n in nav" :key="n.to" :to="n.to"
               class="nav-pill flex items-center gap-1.5 shrink-0"
               :class="routeMeta === n.to ? 'active' : ''">

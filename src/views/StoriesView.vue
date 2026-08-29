@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះពុទ្ធ ទ្រង់សម្តែងធម៌ ដោយរឿងរ៉ាវពិត ដើម្បីឲ្យមនុស្ស ដែលជួប បានឃើញខ្លួនឯង ក្នុងរឿងទាំងនោះ។ រឿងល្អៗ ជាច្រើន មកពីព្រះត្រៃបិដក ដូចជាអង្គុលីមាលៈ និងកិសាគោតមី ហើយរឿងខ្លះ មកពីអដ្ឋកថា ធម្មបទ ដែលលោកសម្រេច រៀបរៀង បន្តពូជ។', 'The Buddha taught through real stories, so that people who met him could see themselves inside those lives. Many beloved stories come from the Tipiṭaka itself, such as Angulimāla and Kisāgotamī, while others come from the ancient Dhammapada commentary handed down through the tradition.') }}
+      {{ t('ព្រះពុទ្ធ ទ្រង់សម្តែងធម៌ ដោយរឿងរ៉ាវពិត ដើម្បីឲ្យមនុស្ស ដែលជួប បានឃើញខ្លួនឯង ក្នុងរឿងទាំងនោះ។ រឿងល្អៗ ជាច្រើន មកពីព្រះត្រៃបិដក ដូចជាអង្គុលីមាលៈ និងកិសាគោតមី ហើយរឿងខ្លះមកពីអដ្ឋកថា (សេចក្តីពន្យល់បុរាណ) នៃធម្មបទ ដែលលោកបានរៀបរៀងបន្តពូជមក។', 'The Buddha taught through real stories, so that people who met him could see themselves inside those lives. Many beloved stories come from the Tipiṭaka itself, such as Angulimāla and Kisāgotamī, while others come from the ancient Dhammapada commentary handed down through the tradition.') }}
     </p>
 
     <!-- the stories -->
@@ -68,10 +68,10 @@ const stories = [
     noteK: 'រឿងការប្រែចិត្តល្បីល្បាញបំផុត ក្នុងព្រះពុទ្ធសាសនា — បង្រៀនថា ធ្វើខុសប៉ុន្មានក៏ដោយ ក៏អាចផ្លាស់ប្តូរបានដែរ។', en: 'The most famous story of transformation in Buddhism — no matter how much wrong one has done, change is still possible.',
     paras: [
       { km: 'អង្គុលីមាលៈ ជាកូនព្រាហ្មណ៍ ទៅសិក្សាឯក្រុងតក្កសិលា។ គ្រូរបស់គាត់ ច្រណែននឹងប្រាជ្ញាគាត់ ក៏បញ្ឆោតឲ្យគាត់នាំម្រាមដៃមនុស្ស ១០០០ មកជូន ទើបអាចបញ្ចប់ការសិក្សា។ អង្គុលីមាលៈ ក៏ក្លាយជាចោរសម្លាប់មនុស្ស ដ៏គួរខ្លាច នៅក្នុងព្រៃតែម្នាក់ឯង រហូតបានម្រាមដៃ ៩៩៩ ចងកជាមាលៃ។', en: 'Angulimāla, a Brahmin youth, studied in Takkasilā. His jealous teacher tricked him into gathering one thousand human fingers as a final tribute. He became a dreaded bandit haunting the woods alone, with 999 fingers strung on a thread.' },
-      { km: 'ថ្ងៃមួយ ព្រះពុទ្ធ ទ្រង់យាងចូលព្រៃនោះ ដោយមេត្តា។ អង្គុលីមាលៈ រត់ចេញទៅតាម តែព្រះពុទ្ធ ដើរបន្តិចបន្តួច បែរជាមានព្រះហឫទ័យ កើតជាចំពីមុខគាត់ទៅវិញ។ គាត់ស្រែកថា «ឈប់ទៅ សមណៈ!» ព្រះពុទ្ធ ទ្រង់តបថា «យើងឈប់ហើយ អង្គុលីមាលៈ — អ្នកឯងទេ ដែលមិនទាន់ឈប់។» សេចក្តីនោះ ចូលទៅក្នុងចិត្តគាត់ គាត់ក៏សុំបួស។', en: 'One day the Buddha, moved by compassion, walked into that forest. Angulimāla ran after him, yet the Buddha, with a gentle pace, stayed ahead. The bandit shouted, "Stop, ascetic!" The Buddha replied, "I have stopped, Angulimāla — you are the one who has not stopped." Those words pierced his heart, and he asked to be ordained.' },
+      { km: 'ថ្ងៃមួយ ព្រះពុទ្ធ ទ្រង់យាងចូលព្រៃនោះ ដោយមេត្តា។ អង្គុលីមាលៈ រត់ចេញទៅតាម តែព្រះពុទ្ធ ដើរបន្តិចបន្តួច បែរជាមានព្រះហឫទ័យ កើតជាចំពីមុខគាត់ទៅវិញ។ គាត់ស្រែកថា «ឈប់ទៅ អ្នកបួស (សមណៈ)!» ព្រះពុទ្ធ ទ្រង់តបថា «យើងឈប់ហើយ អង្គុលីមាលៈ — អ្នកឯងទេ ដែលមិនទាន់ឈប់។» សេចក្តីនោះ ចូលទៅក្នុងចិត្តគាត់ គាត់ក៏សុំបួស។', en: 'One day the Buddha, moved by compassion, walked into that forest. Angulimāla ran after him, yet the Buddha, with a gentle pace, stayed ahead. The bandit shouted, "Stop, ascetic!" The Buddha replied, "I have stopped, Angulimāla — you are the one who has not stopped." Those words pierced his heart, and he asked to be ordained.' },
       { km: 'គាត់ឧស្សាហ៍វាងវៀត បណ្តុះសីល សមាធិ បញ្ញា រហូតសម្រេចជាព្រះអរហន្ត។ ស្តេចប្រេនកោសល កាលក្រោយ ដឹងថាគាត់ជាអ្នកបរិសុទ្ធ — ក៏ថ្វាយបង្គំទាំងពីរ។ អ្នកដែលវិលមកល្អ តែងជាទីគោរព របស់លោក។', en: 'He strove diligently, and at last attained arahantship. When King Pasenadi later learned who he was, he honoured the new monk in awe. One who turns to good earns the respect of the world.' },
     ],
-    essenceK: 'កិលេស មិនមែនជាវាសនាទេ — មនុស្ស មិនដែលជាប់ជុំ នឹងទង្វើ ណា មួយ ជារៀងរហូតឡើយ។',
+    essenceK: 'កិលេស មិនមែនជាវាសនាទេ — មនុស្ស មិនដែលជាប់ជុំនឹងទង្វើណាមួយជារៀងរហូតឡើយ។',
     essenceE: 'Defilements are not destiny — no one is chained forever to the deeds of the past.',
     lessonK: 'កុំវិនិច្ឆ័យមនុស្ស ដោយប្រវត្តិកន្លងទៅ — ឲ្យឱកាសខ្លួនឯង និងអ្នកដទៃ ប្រែក្លាយឲ្យប្រសើរ។',
     lessonE: 'Do not judge a person by an old record — give yourself and others the room to change for the better.',
@@ -85,7 +85,7 @@ const stories = [
       { km: 'អ្នកដំណើរម្នាក់ ប្រាប់នាង ឲ្យទៅសួរព្រះពុទ្ធ។ ព្រះពុទ្ធ ទ្រង់ព្រះត្រាស់ថា ឲ្យនាងរកគ្រាប់ម្លញ្ច្រោង មួយក្តាប់ ពីផ្ទះណា ដែលមិនធ្លាប់មានមនុស្សស្លាប់ សោះ — នោះ នឹងធ្វើជាថ្នាំ។ នាងដើរសួរគ្រប់ផ្ទះ គ្រប់ផ្ទះ សុទ្ធតែធ្លាប់បាត់បង់មនុស្សជាទីស្រឡាញ់។ ទើបនាងយល់ថា សេចក្តីស្លាប់ ជារឿងគ្រប់គ្នា មិនមែនតែនាងទេ។', en: 'A passing stranger told her to see the Buddha. The Buddha asked her to bring a single mustard seed from a house where no one had ever died. She searched every house — in every one, someone had been lost. At last she understood: death is not her story alone.' },
       { km: 'នាងបញ្ចុះសពកូន ហើយត្រឡប់មកស្តាប់ធម៌ ពីព្រះពុទ្ធ — បានដល់សោតាបត្តិផល។ ក្រោយមក នាងបួសជាភិក្ខុនី បដិបត្តិឧស្សាហ៍ បានដល់អរហត្តផល។ នាងត្រូវបានលោក ចងចាំ ជាគំរូនៃអ្នកកន្លងសោក ដោយបញ្ញា។', en: 'She buried her child, returned to hear the Dhamma, and attained the first stage of awakening. She later ordained, and with steady practice reached arahantship — remembered today as one who crossed grief with insight.' },
     ],
-    essenceK: 'សេចក្តីស្លាប់ ជារឿងគ្រប់គ្នា — ការដឹងសច្ចៈ ពិត ជាថ្នាំរំងាប់សោក។',
+    essenceK: 'សេចក្តីស្លាប់ ជារឿងគ្រប់គ្នា — ការដឹងសច្ចៈពិតជាថ្នាំរំងាប់សោក។',
     essenceE: 'Death is everyones story — knowing the truth is the true medicine that stills grief.',
     lessonK: 'ពេលបាត់បង់ កុំគិតថាខ្លួនម្នាក់ឯង — រំពឹងឲ្យឃើញអនិច្ចា ហើយលើកខ្លួនឡើង បដិបត្តិទៀត។',
     lessonE: 'When you lose someone, do not think you are alone — see impermanence, lift yourself, and practise on.',
@@ -99,7 +99,7 @@ const stories = [
       { km: 'សោកត្រួតត្រាគ្នា ហួសទ្រាំ នាងឆ្កួតស្មារតី ស្លៀកពាក់មិនពេញ ដើរស្រែករាយមាយ ក្នុងក្រុងសាវត្ថី។ បណ្តាជន ច្រានចោលនាង។ ព្រះពុទ្ធ ទ្រង់យាងទៅរកនាង ព្រះត្រាស់ថា «ប្អូនស្រី ចូរដឹងខ្លួនឡើងទៅ»។ នាង ភ្ញាក់ស្មារតី ស្តាប់ធម៌ តាំងចិត្ត ក៏ដល់សោតាបត្តិផល។', en: 'Grief overwhelmed her reason; she wandered half-clothed through Sāvatthī, and people drove her away. The Buddha came to her and said, "Sister, come back to your senses." She recovered, heard the Dhamma, and attained the first stage of awakening.' },
       { km: 'បន្ទាប់មក នាងបួសជាភិក្ខុនី បដិបត្តិឧស្សាហ៍តម្កើង បានដល់អរហត្តផល — ជាភិក្ខុនីដែលចៅដំបូង ដែលលោកសរសើរ ក្នុងការរក្សាវិន័យ។', en: 'She later ordained as a nun and, with diligent practice, attained arahantship — honoured among the earliest bhikkhunīs for the keeping of the discipline.' },
     ],
-    essenceK: 'ទុក្ខធំប៉ុនណា ក៏សតិអាចវិលមកវិញបាន — ការភ្ញាក់ឡើង នោះឯង ជាពន្លឺ។',
+    essenceK: 'ទុក្ខធំប៉ុនណា ក៏សតិអាចវិលមកវិញបាន — ការភ្ញាក់ឡើងនោះឯងជាពន្លឺ។',
     essenceE: 'However great the grief, mindfulness can return — that awakening is the light.',
     lessonK: 'បើបាក់បែកអ្វីធ្ងន់ មិនត្រូវលង់ក្នុងសោកជារៀងរហូត — ឲ្យសតិភ្ញាក់ ហើយចាប់ផ្តើមវិញ។',
     lessonE: 'If something crushes you, do not drown in sorrow forever — let mindfulness wake, and begin again.',

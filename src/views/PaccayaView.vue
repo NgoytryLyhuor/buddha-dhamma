@@ -26,7 +26,7 @@
       <p class="chapter-label">ANULOMA — បដិលោម/អនុលោម</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ខ្សែច្រវាក់ ១២ (កើតទៅមុខ)', 'The Twelve Links (forward — arising)') }}</h3>
       <p class="text-sm mt-2" :style="{ color: 'var(--ink-muted)' }">
-        {{ t('អានពីលើចុះក្រោម៖ អវិជ្ជាជាហេតុ នាំឲ្យកើតសង្ខារ … រហូតដល់ជរាមរណៈ។ អ្នកចាប់ផ្តើមគួរយកចិត្តទុកដាក់លើអង្គលេខ ១៣–១២ ដែលជាតណ្ហា ឧបាទាន ភព ជាកន្លែងគេចូលទៅប្រែប្រួលបាន។', 'Read top to bottom: ignorance conditions formations … up to ageing and death. A beginner should pay special attention to links 8–10 — craving, clinging and becoming — to see where change is possible.') }}
+        {{ t('អានពីលើចុះក្រោម៖ អវិជ្ជាជាហេតុ នាំឲ្យកើតសង្ខារ … រហូតដល់ជរាមរណៈ។ អ្នកចាប់ផ្តើមគួរយកចិត្តទុកដាក់លើអង្គលេខ ៨–១០ (តណ្ហា ឧបាទាន ភព) ជាកន្លែងគេចូលទៅប្រែប្រួលបាន។', 'Read top to bottom: ignorance conditions formations … up to ageing and death. A beginner should pay special attention to links 8–10 — craving, clinging and becoming — to see where change is possible.') }}
       </p>
       <ul class="tick-list mt-4">
         <li v-for="(l, i) in links" :key="l.pl">
@@ -47,7 +47,7 @@
       <p class="chapter-label">PATILOMA — បដិលោម</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ការរលត់ តាមផ្លូវបញ្ច្រាស', 'Cessation in Reverse Order') }}</h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('ពេលអវិជ្ជារលត់ សង្ខាររលត់; ពេលសង្ខាររលត់ វិញ្ញាណរលត់ … រហូតដល់ទុក្ខទាំងមូលរលត់។ នេះជាផ្លូវនៃការអនុវត្តបដិបត្តិ — បញ្ឈប់តណ្ហា និងឧបាទាន ក្នុងបច្ចុប្បន្ន ទើបរលត់ភពអនាគត។', 'When ignorance ceases, formations cease; when formations cease, consciousness ceases … until the whole mass of suffering ceases. This is the path of practice — stop craving and clinging in the present, and the future becoming ceases.') }}
+        {{ t('ពេលអវិជ្ជារលត់ សង្ខាររលត់; ពេលសង្ខាររលត់ វិញ្ញាណរលត់ … រហូតដល់ទុក្ខទាំងមូលរលត់។ នេះជាផ្លូវនៃការអនុវត្តបដិបត្តិ — បញ្ឈប់តណ្ហា (សេចក្តីប្រាថ្នា) និងឧបាទាន ក្នុងបច្ចុប្បន្ន ទើបរលត់ភពអនាគត។', 'When ignorance ceases, formations cease; when formations cease, consciousness ceases … until the whole mass of suffering ceases. This is the path of practice — stop craving and clinging in the present, and the future becoming ceases.') }}
       </p>
       <div class="verse-box p-4 mt-4">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('វិបស្សនា គឺឃើញការកើត–រលត់ នៃធម៌ទាំងនេះ តាមការពិត ក្នុងកាយ និងចិត្ត។', 'Insight is seeing the arising and ceasing of these factors as they truly are, in body and mind.') }}</p>
@@ -88,7 +88,7 @@
         </div>
         <div class="rounded-sm p-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <p class="font-display text-sm" :style="{ color: 'var(--accent)' }">{{ t('បច្ចុប្បន្ន — ផល+ហេតុ', 'PRESENT — RESULT + CAUSE') }}</p>
-          <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('វិញ្ញាណ នាមរូប សឡាយតនៈ ផស្សៈ វេទនា (ផល); តណ្ហា ឧបាទាន ភព (ហេតុ)។', 'Viññāṇa to vedanā (result); taṇhā, upādāna, bhava (cause).') }}</p>
+          <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('វិញ្ញាណ (ការដឹង) នាមរូប (ចិត្ត-កាយ) សឡាយតនៈ (ទ្វារទទួល ៦) ផស្សៈ (ប៉ះអារម្មណ៍) វេទនា (អារម្មណ៍) (ផល); តណ្ហា ឧបាទាន ភព (ហេតុ)។', 'Viññāṇa to vedanā (result); taṇhā, upādāna, bhava (cause).') }}</p>
           <p class="text-xs mt-2" :style="{ color: 'var(--ink-faint)' }">3 · 4 · 5 · 6 · 7 · 8 · 9 · 10</p>
         </div>
         <div class="rounded-sm p-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">

@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('គាថា គឺជាព្រះវាចា ដែលព្រះពុទ្ធ សម្តែងជាកាព្យបាលី មានចំនួនព្យាង្គត្រឹមត្រូវ ងាយនឹងចងចាំ។ ព្រះអង្គ តែងបញ្ចប់សេចក្តីធម៌ ដោយគាថាពិរោះៗ ឲ្យអ្នកស្តាប់ នាំយកទៅរំពឹងនៅផ្ទះ ឲ្យចិត្តស្ងប់។ ទំព័រនេះ ប្រមូលគាថាល្បីៗ ដែលគ្រហស្ថគួរចងចាំ ដោយបកស្រាយពាក្យមួយៗ ជាភាសាខ្មែរ។', 'A gāthā is a verse of the Buddha words in Pali, shaped with fixed syllables so it is easy to memorise. He often closed his teaching with a lovely verse so listeners could carry the Dhamma home and quiet the mind. This page gathers the most loved verses, unpacking each word in Khmer.') }}
+      {{ t('គាថា គឺជាព្រះវាចា ដែលព្រះពុទ្ធ សម្តែងជាកាព្យបាលី មានចំនួនព្យាង្គត្រឹមត្រូវ ងាយនឹងចងចាំ។ ព្រះអង្គ តែងបញ្ចប់សេចក្តីធម៌ ដោយគាថាពិរោះៗ ឲ្យអ្នកស្តាប់ នាំយកទៅរំពឹងនៅផ្ទះ ឲ្យចិត្តស្ងប់។ ទំព័រនេះ ប្រមូលគាថាល្បីៗ ដែលពុទ្ធបរិស័ទអ្នកផ្ទះ (គ្រហស្ថ) គួរចងចាំ ដោយបកស្រាយពាក្យមួយៗ ជាភាសាខ្មែរ។', 'A gāthā is a verse of the Buddha words in Pali, shaped with fixed syllables so it is easy to memorise. He often closed his teaching with a lovely verse so listeners could carry the Dhamma home and quiet the mind. This page gathers the most loved verses, unpacking each word in Khmer.') }}
     </p>
 
     <!-- how to use the verses -->
@@ -89,7 +89,7 @@ const gathas = [
   {
     src: 'DN 16 · MAHĀPARINIBBĀNA',
     km: 'គាថាអនិច្ចា — សេចក្តីមិនទៀង', en: 'The Verse of Impermanence (Anicca)',
-    noteK: 'គាថានេះ ស្តែងឡើង ក្នុងឱកាសព្រះពុទ្ធបរិនិព្វាន នៅព្រៃសាលវ័ន ក្រុងកុសិនារា — រំពឹងឃើញថា អ្វីៗកើតហើយត្រូវរលត់ទៅ។', en: 'Sung as the Buddha passed away beneath the sal trees at Kusinārā — awakening to the truth that all that arises must cease.',
+    noteK: 'គាថានេះ ត្រូវបានព្រះពុទ្ធសម្តែង ក្នុងឱកាសព្រះពុទ្ធបរិនិព្វាន (ចូលនិព្វាន នៅទីបំផុត) នៅព្រៃសាលវ័ន ក្រុងកុសិនារា — រំពឹងឃើញថា អ្វីៗកើតហើយត្រូវរលត់ទៅ។', en: 'Sung as the Buddha passed away beneath the sal trees at Kusinārā — awakening to the truth that all that arises must cease.',
     lines: [
       'អនិច្ចា វត សង្ខារា ឧប្បាទវយធម្មិនោ',
       'ឧប្បាជ្ជិត្វា និរុជ្ឈន្តិ តេសំ វូបសមោ សុខោ',
@@ -97,7 +97,7 @@ const gathas = [
     roman: 'aniccā vata saṅkhārā, uppādavayadhammino · uppajjitvā nirujjhanti, tesaṃ vūpasamo sukho',
     gloss: [
       { w: 'អនិច្ចា', km: 'មិនទៀង', en: 'impermanent' },
-      { w: 'វត', km: 'ក្រែងហើយ (មែនពិត)', en: 'indeed' },
+      { w: 'វត', km: 'ហ្ន៎! (ពិតណាស់)', en: 'indeed' },
       { w: 'សង្ខារា', km: 'សង្ខារទាំងឡាយ — អ្វីៗដែលសន្សំកើត', en: 'conditioned things' },
       { w: 'ឧប្បាទវយធម្មិនោ', km: 'មានធម្មតា គឺកើតហើយរលត់', en: 'arising then passing away' },
       { w: 'ឧប្បាជ្ជិត្វា', km: 'កើតឡើងហើយ', en: 'having arisen' },
@@ -105,7 +105,7 @@ const gathas = [
       { w: 'វូបសមោ', km: 'ការរំងាប់', en: 'the stilling' },
       { w: 'សុខោ', km: 'ទើបជាសេចក្តីសុខ', en: 'is happiness' },
     ],
-    meanK: 'អ្វីៗ ដែលកើតអំពីសេចក្តីសន្សំបង្កើត (ដូចជាកាយ អារម្មណ៍ គំនិត) សុទ្ធតែមិនទៀង មានធម្មតាកើតហើយរលត់។ កើតឡើងហើយ ក៏រលត់ទៅវិញ រាល់ខណៈ។ ការរំងាប់សង្ខារទាំងនោះបាន គឺព្រះនិព្វាន ទើបជាសុខពិតប្រាកដ។',
+    meanK: 'អ្វីៗ ដែលកើតអំពីសេចក្តីផ្សំប្រមូលគ្នា (ដូចជាកាយ អារម្មណ៍ គំនិត) សុទ្ធតែមិនទៀង ព្រោះមានធម្មតាគឺកើតហើយរលត់។ កើតឡើងហើយ ក៏រលត់ទៅវិញ រាល់ខណៈ។ ការរំងាប់សង្ខារទាំងនោះបាន គឺព្រះនិព្វាន ទើបជាសុខពិតប្រាកដ។',
     meanE: 'Everything produced by conditions — the body, feelings, thoughts — is impermanent, by nature arising and ceasing. Having arisen, it passes away each moment. The stilling of those conditions (Nibbāna) alone is true happiness.',
     applyK: 'ពេលជួបការប្រែប្រួល បាត់បង់ — រំឮកគាថានេះ ថាអ្វីក៏រលត់ទៅ កុំប្រកាន់ជ្រុល។',
     applyE: 'When things change or are lost, recall this verse — all is passing, so hold lightly.',
@@ -113,7 +113,7 @@ const gathas = [
   {
     src: 'DHP 1-2',
     km: 'មនោបុព្វង្គមា — ចិត្តឈានមុខ', en: 'Mind Leads All States (Manopubbaṅgamā)',
-    noteK: 'ជាគាថាដំបូងបង្អស់នៃធម្មបទ រៀបរាប់ថា ចិត្តល្អ ចិត្តអាក្រក់ កំណត់ខ្លឹមជីវិតរបស់មនុស្ស។', en: 'The very first verses of the Dhammapada — the mind, good or bad, sets the course of life.',
+    noteK: 'ជាគាថាដំបូងបង្អស់នៃធម្មបទ រៀបរាប់ថា ចិត្តល្អ ចិត្តអាក្រក់ កំណត់ផ្លូវជីវិតរបស់មនុស្ស។', en: 'The very first verses of the Dhammapada — the mind, good or bad, sets the course of life.',
     lines: [
       'មនោបុព្វង្គមា ធម្មា មនោសេដ្ឋា មនោមយា',
       'មនសា ចេ បទុដ្ឋេន ភាសតិ វា ករតិ វា',
@@ -123,7 +123,7 @@ const gathas = [
     gloss: [
       { w: 'មនោ', km: 'ចិត្ត', en: 'mind' },
       { w: 'បុព្វង្គមា', km: 'ឈានមុខ ទៅមុនគេ', en: 'the forerunner' },
-      { w: 'ធម្មា', km: 'ធម៌ទាំងឡាយ — អាការៈចិត្តសមាការ', en: 'all mental states' },
+      { w: 'ធម្មា', km: 'ធម៌ទាំងឡាយ — អ្វីៗដែលកើតក្នុងចិត្ត និងដំណើរប្រព្រឹត្តទាំងឡាយ', en: 'all mental states' },
       { w: 'មនោសេដ្ឋា', km: 'មានចិត្តជាធំបំផុត', en: 'mind is chief' },
       { w: 'មនោមយា', km: 'សម្រេចមកពីចិត្ត', en: 'made of mind' },
       { w: 'បទុដ្ឋេន', km: 'ដោយចិត្តដែលប្រឡាក់', en: 'with a corrupt mind' },
@@ -131,7 +131,7 @@ const gathas = [
       { w: 'ទុក្ខមន្វេតិ', km: 'ទុក្ខក៏ដល់ព្រមជាប់តាម', en: 'suffering follows' },
       { w: 'ចក្កំ វ វហតោ បទំ', km: 'ដូចកង់ ជាប់នឹងជើងគោអូស', en: 'as the wheel follows the ox foot' },
     ],
-    meanK: 'អាការៈចិត្ត និងអ្វីៗដែលសម្រេច សុទ្ធតែមានចិត្តឈានមុខមកមុន មានចិត្តជាធំ សម្រេចមកពីចិត្ត។ បុគ្គលណា និយាយ ឬ ធ្វើ ដោយចិត្តប្រឡាក់ហើយ ទុក្ខក៏ដល់ជាប់តាមខ្លួន ដូចកង់រទេះ ជាប់តាមជើងគោដែលអូស។ (ព្រះពុទ្ធទ្រង់សម្តែងគាថាគូទៀត អំពីចិត្តល្អ ដែលនាំសុខមកដល់ដូចគ្នា។)',
+    meanK: 'អាការៈចិត្ត (អ្វីដែលកើតក្នុងចិត្ត) និងអ្វីៗដែលបង្កើតឡើង សុទ្ធតែចិត្តដើរមុន ចិត្តជាធំ ហើយលទ្ធផលកើតចេញពីចិត្ត។ បុគ្គលណា និយាយ ឬ ធ្វើ ដោយចិត្តប្រឡាក់ហើយ ទុក្ខក៏ដល់ជាប់តាមខ្លួន ដូចកង់រទេះ ជាប់តាមជើងគោដែលអូស។ (ព្រះពុទ្ធទ្រង់សម្តែងគាថាគូទៀត អំពីចិត្តល្អ ដែលនាំសុខមកដល់ដូចគ្នា។)',
     meanE: 'Mind precedes all mental states; mind is their chief; they are all mind-made. If with a corrupt mind one speaks or acts, suffering follows like the wheel follows the ox foot. (Its twin verse tells how a pure mind brings happiness the same way.)',
     applyK: 'ព្រឹកឡើង តាំងចិត្តល្អ មុនធ្វើកិច្ចការ — ព្រោះចិត្តនេះហើយ ដែលបង្កើតវាសនា។',
     applyE: 'Set a wholesome mind first thing in the morning — this is what shapes your day.',
@@ -148,20 +148,20 @@ const gathas = [
     gloss: [
       { w: 'អប្បមាទោ', km: 'សេចក្តីមិនប្រមាទ — សតិដឹងខ្លួនគ្រប់ពេល', en: 'diligence, carefulness' },
       { w: 'អមតំ បទំ', km: 'ផ្លូវទៅរកអមតៈ គឺនិព្វាន', en: 'the path to the deathless' },
-      { w: 'បមាទោ', km: 'ការប្រមាទ — លើសទុកការងារសិន', en: 'heedlessness' },
+      { w: 'បមាទោ', km: 'ការប្រមាទ — ធ្វេសប្រហែស ទុកការងារចោល', en: 'heedlessness' },
       { w: 'មច្ចុនោ បទំ', km: 'ផ្លូវរបស់សេចក្តីស្លាប់', en: 'the path of death' },
       { w: 'អប្បមត្តា ន មីយន្តិ', km: 'អ្នកមិនប្រមាទ ឈ្មោះថាមិនស្លាប់', en: 'the diligent do not perish' },
       { w: 'យេ បមត្តា យថា មតា', km: 'អ្នកប្រមាទ ដូចជាអ្នកស្លាប់ហើយ', en: 'the heedless are as if dead' },
     ],
-    meanK: 'សេចក្តីមិនប្រមាទ ជាផ្លូវនាំទៅរកអមតៈ គឺព្រះនិព្វាន ទីឥតស្លាប់។ ការប្រមាទ ជាផ្លូវរបស់សេចក្តីស្លាប់។ អ្នកប្រុងប្រយ័ត្ន មិនប្រមាទ ឈ្មោះថា មិនស្លាប់។ អ្នកប្រមាទ លើសទុកការងារ ដូចជាមនុស្សស្លាប់បាត់បង់ជីវិតហើយ ព្រោះឥតធ្វើអ្វី ដែលមានប្រយោជន៍។',
+    meanK: 'សេចក្តីមិនប្រមាទ ជាផ្លូវនាំទៅរកអមតៈ គឺព្រះនិព្វាន ទីឥតស្លាប់។ ការប្រមាទ ជាផ្លូវរបស់សេចក្តីស្លាប់។ អ្នកប្រុងប្រយ័ត្ន មិនប្រមាទ ឈ្មោះថា មិនស្លាប់។ អ្នកប្រមាទ ទុកការងារចោល ដូចជាមនុស្សស្លាប់បាត់បង់ជីវិតហើយ ព្រោះឥតធ្វើអ្វី ដែលមានប្រយោជន៍។',
     meanE: 'Carefulness is the path to the deathless; carelessness is the path to death. The diligent do not perish; the heedless are as though already dead.',
-    applyK: 'ធ្វើអ្វីៗ ដោយការប្រុងប្រយ័ត្ន កុំលើសធ្វេសប្រហែស — នេះជាផ្លូវទៅកាន់អមតៈ។',
+    applyK: 'ធ្វើអ្វីៗ ដោយការប្រុងប្រយ័ត្ន កុំធ្វេសប្រហែស — នេះជាផ្លូវទៅកាន់អមតៈ។',
     applyE: 'Do everything with careful attention, never carelessly — this is the road to the deathless.',
   },
   {
     src: 'DHP 5',
     km: 'នហិ វេរេន — ពៀររលត់ដោយក្តីមេត្តា', en: 'Only Kindness Ends Hatred',
-    noteK: 'គាថាសម្រាប់ពេលកំពុងក្តៅក្រហាយ ដល់អ្នកដែលធ្វើអាក្រក់ដាក់ខ្លួន។', en: 'The verse for the moment anger flares toward someone who has wronged you.',
+    noteK: 'សម្រាប់ពេលមានអ្នកធ្វើអាក្រក់ដាក់ខ្លួន ហើយកើតក្តៅក្រហាយក្នុងចិត្ត ចូរសូត្រគាថានេះ។', en: 'The verse for the moment anger flares toward someone who has wronged you.',
     lines: [
       'ន ហិ វេរេន វេរានិ សម្មន្តីធ កុទាចនំ',
       'អវេរេន ច សម្មន្តិ ឯស ធម្មោ សនន្តនោ',
@@ -232,11 +232,11 @@ const gathas = [
     roman: 'ye dhammā hetuppabhavā, tesaṃ hetuṃ tathāgato āha · tesañca yo nirodho, evaṃvādī mahāsamano',
     gloss: [
       { w: 'យេ ធម្មា ហេតុប្បភវា', km: 'ធម៌ទាំងឡាយណា កើតអំពីហេតុ', en: 'whatever states arise from a cause' },
-      { w: 'តេសំ ហេតុំ តថាគតោ អាហ', km: 'ព្រះតថាគត ទ្រង់សម្តែងនូវហេតុរបស់ធម៌ទាំងនោះ', en: 'the Tathāgata declares their cause' },
+      { w: 'តេសំ ហេតុំ តថាគតោ អាហ', km: 'ព្រះតថាគត (ព្រះពុទ្ធ) ទ្រង់សម្តែងនូវហេតុរបស់ធម៌ទាំងនោះ', en: 'the Tathāgata declares their cause' },
       { w: 'តេសញ្ច យោ និរោធោ', km: 'និងការរលត់នូវធម៌ទាំងនោះ', en: 'and their cessation' },
-      { w: 'ឯវំវាទី មហាសមណោ', km: 'ព្រះមហាសមណៈ ទ្រង់ពោលដូច្នេះ', en: 'thus speaks the Great Ascetic' },
+      { w: 'ឯវំវាទី មហាសមណោ', km: 'ព្រះមហាសមណៈ (ព្រះសមណដ៏ធំ គឺព្រះពុទ្ធ) ទ្រង់ពោលដូច្នេះ', en: 'thus speaks the Great Ascetic' },
     ],
-    meanK: 'អ្វីៗដែលកើតមាន សុទ្ធតែកើតអំពីហេតុ។ ព្រះតថាគត ទ្រង់សម្តែងនូវហេតុរបស់អ្វីៗទាំងនោះ ព្រមទាំងការរលត់នូវអ្វីៗទាំងនោះ។ នេះជាចំណុចស្នូលនៃព្រះពុទ្ធសាសនា — អ្វីៗកើតពីហេតុ កាលហេតុរលត់ ផលក៏រលត់។',
+    meanK: 'អ្វីៗដែលកើតមាន សុទ្ធតែកើតអំពីហេតុ។ ព្រះតថាគត (ព្រះពុទ្ធ) ទ្រង់សម្តែងនូវហេតុរបស់អ្វីៗទាំងនោះ ព្រមទាំងការរលត់នូវអ្វីៗទាំងនោះ។ នេះជាចំណុចស្នូលនៃព្រះពុទ្ធសាសនា — អ្វីៗកើតពីហេតុ កាលហេតុរលត់ ផលក៏រលត់។',
     meanE: 'Whatever states arise from a cause, the Tathāgata tells their cause, and the cessation of those states — so declares the Great Ascetic. This is the heart of Buddhism: nothing arises without a cause, and when the cause ceases, so does the effect.',
     applyK: 'ពេលមានទុក្ខ រកហេតុមើលខ្លួនឯង — កែហេតុ ទើបផ្លាស់ប្តូរផល។',
     applyE: 'When you suffer, seek the cause within yourself — change the cause, and the effect will change.',
@@ -255,7 +255,7 @@ const gathas = [
     gloss: [
       { w: 'សព្វេ សត្តា', km: 'សត្វទាំងឡាយ ទាំងអស់', en: 'all beings' },
       { w: 'អវេរា', km: 'ឥតពៀរ ឥតសត្រូវ', en: 'free from enmity' },
-      { w: 'អព្យាបជ្ឈា', km: 'ឥតព្យាបាទ ឥតចង្អៀតចង្អល់ចិត្ត', en: 'free from ill will' },
+      { w: 'អព្យាបជ្ឈា', km: 'ឥតព្យាបាទ (ឥតគំនិតស្អប់ ឥតគំនិតធ្វើអាក្រក់) ឥតចង្អៀតចង្អល់ចិត្ត', en: 'free from ill will' },
       { w: 'អនីឃា', km: 'ឥតក្តៅក្រហាយ ឥតទុក្ខ', en: 'free from distress' },
       { w: 'សុខី អត្តានំ បរិហរន្តុ', km: 'ចូររក្សាខ្លួន ឲ្យបានសុខ', en: 'may they keep themselves at ease' },
     ],

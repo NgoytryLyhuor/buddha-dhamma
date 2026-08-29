@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះសង្ឃ ជាស្តូបបន្តនៃព្រះពុទ្ធសាសនា ។ សម្រាប់អ្នកកាន់ឧបាសក–ឧបាសិកា ការយល់អំពីការរស់នៅរបស់ព្រះសង្ឃ ជួយឲ្យដឹងពីរបៀបគាំទ្របដិបត្តិ និងចូលរួមធ្វើបុណ្យ ដោយត្រូវតាមផ្លូវធម៌ ។', 'The Saṅgha is the living continuation of the Buddha\u2019s teaching. For lay men and women, understanding how monks live helps one know how to support their practice and take part in merit-making in a proper way.') }}
+      {{ t('ព្រះសង្ឃ ជាអ្នកបន្តព្រះពុទ្ធសាសនាឲ្យរស់នៅ ។ សម្រាប់អ្នកកាន់ឧបាសក–ឧបាសិកា ការយល់អំពីការរស់នៅរបស់ព្រះសង្ឃ ជួយឲ្យដឹងពីរបៀបគាំទ្របដិបត្តិ និងចូលរួមធ្វើបុណ្យ ដោយត្រូវតាមផ្លូវធម៌ ។', 'The Saṅgha is the living continuation of the Buddha\u2019s teaching. For lay men and women, understanding how monks live helps one know how to support their practice and take part in merit-making in a proper way.') }}
     </p>
 
     <!-- the four assemblies -->
@@ -84,7 +84,7 @@
         <p class="chapter-label">CATURAPARISUDDHI — បរិសុទ្ធិ ៤</p>
         <h3 class="font-display text-lg mt-2" :style="{ color: 'var(--ink)' }">{{ t('សីល ៤ ប្រការ របស់ភិក្ខុ', 'The Four Kinds of Purity') }}</h3>
         <ul class="tick-list mt-3 text-sm leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-          <li>{{ t('បាតិមោក្ខសំវរសីល — កាន់សីលក្នុងប្រាតិមោក្ខ', 'restraint by the pātimokkha') }}</li>
+          <li>{{ t('បាតិមោក្ខសំវរសីល — កាន់សីលក្នុងប្រាតិមោក្ខ (ច្បាប់វិន័យរបស់ភិក្ខុ)', 'restraint by the pātimokkha') }}</li>
           <li>{{ t('ឥន្ទ្រិយសំវរសីល — សង្កត់ឥន្ទ្រិយ ៦', 'restraint of the six senses') }}</li>
           <li>{{ t('អាជីវបារិសុទ្ធិសីល — ចិញ្ចឹមជីវិតឲ្យបរិសុទ្ធ', 'purity of livelihood') }}</li>
           <li>{{ t('បច្ចយសន្និស្សិតសីល — បរិភោគបច្ច័យដោយពិចារណា', 'reflection on the use of requisites') }}</li>
@@ -100,7 +100,7 @@
       <p class="chapter-label">PIṆḌAPĀTA — បិណ្ឌបាត</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ការបិណ្ឌបាត និងការពិចារណាអាហារ', 'The Alms Round and Reflection on Food') }}</h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('ពេលព្រឹក ព្រះសង្ឃត្រឡប់ទៅភូមិ/ក្រុង ដើម្បីបិណ្ឌបាត ដោយមិនស្រែកហៅ មិនសួរ តែឈរស្ងៀម ទទួលយកតាមសទ្ធារបស់ពុទ្ធបរិស័ទ ។ ភិក្ខុពិចារណាអាហារ ដើម្បីមិនលេងសប្បាយ មិនប្រដាប់កាយ តែដើម្បីទ្រង់ទ្រាយដងខ្លួន ឲ្យបដិបត្តិ និងសម្រេចផ្លូវបាន ។', 'In the morning the monks go into town or village on alms round, without calling out or asking — they stand silently and receive whatever devotees freely offer. The monk reflects on the food: not for pleasure, not for adornment, but only to sustain the body for practice and to attain the path.') }}
+        {{ t('ពេលព្រឹក ព្រះសង្ឃត្រឡប់ទៅភូមិ/ក្រុង ដើម្បីបិណ្ឌបាត ដោយមិនស្រែកហៅ មិនសួរ តែឈរស្ងៀម ទទួលយកតាមសទ្ធារបស់ពុទ្ធបរិស័ទ ។ ភិក្ខុពិចារណាអាហារ ដើម្បីមិនលេងសប្បាយ មិនប្រដាប់កាយ តែដើម្បីទ្រទ្រង់កាយ ឲ្យបដិបត្តិ និងសម្រេចផ្លូវបាន ។', 'In the morning the monks go into town or village on alms round, without calling out or asking — they stand silently and receive whatever devotees freely offer. The monk reflects on the food: not for pleasure, not for adornment, but only to sustain the body for practice and to attain the path.') }}
       </p>
       <div class="verse-box p-4 mt-4">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">
@@ -133,7 +133,7 @@
       </ul>
       <div class="verse-box p-4 mt-5">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">
-          {{ t('ទាននោះ ត្រូវឲ្យដោយចិត្តសទ្ធា ដោយដៃខ្លួនឯង ដោយវត្ថុសមស្រប ដល់ជនសមស្រប — នេះហៅថា ទក្ខិណេយ្យទក្ខិណា បុណ្យដ៏ប្រសើរ ។', 'A gift should be given with faith, with one\u2019s own hand, with suitable material, to a suitable recipient — this is called the best of gifts.') }}
+          {{ t('ទាននោះ ត្រូវឲ្យដោយចិត្តសទ្ធា ដោយដៃខ្លួនឯង ដោយវត្ថុសមស្រប ដល់ជនសមស្រប — នេះហៅថា ទក្ខិណេយ្យទក្ខិណា (ទានដល់អ្នកសមគួរ បានបុណ្យប្រសើរ) ។', 'A gift should be given with faith, with one\u2019s own hand, with suitable material, to a suitable recipient — this is called the best of gifts.') }}
         </p>
       </div>
     </div>
@@ -181,7 +181,7 @@
       </ul>
       <div class="verse-box p-4 mt-5">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">
-          {{ t('សីលបរិសុទ្ធ ធំជាងទាន; ភាវនាចម្រើន ធំជាងសីល; ក្នុងលោក មានតែភាវនា ជាស្នាក់នៅឥតខ្ចោះ សម្រាប់ទៅបន្ត ។', 'Sīla is greater than giving; bhāvanā is greater than sīla. There is nothing like meditation for one\u2019s own welfare here or hereafter.') }}
+          {{ t('សីលបរិសុទ្ធ ធំជាងទាន; ភាវនា (ការហ្វឹកហាត់ចិត្ត) ធំជាងសីល; ក្នុងលោក មានតែភាវនា ជាទីពឹងឥតខ្ចោះសម្រាប់ជួយខ្លួន ក្នុងលោកនេះ និងលោកខាងមុខ ។', 'Sīla is greater than giving; bhāvanā is greater than sīla. There is nothing like meditation for one\u2019s own welfare here or hereafter.') }}
         </p>
       </div>
     </div>
@@ -200,8 +200,8 @@ function khNum(n) {
 const parisa = [
   { pl: 'BHIKKHU', km: 'ភិក្ខុ', en: 'Monks', kmBody: 'ព្រះសង្ឃបរិស័ទ ជាភិក្ខុ ភិក្ខុណី កាន់វិន័យខ្ពង់ខ្ពស់ ។', enBody: 'The order of monks and nuns keeping the higher discipline.' },
   { pl: 'BHIKKHUNĪ', km: 'ភិក្ខុនី', en: 'Nuns', kmBody: 'ភិក្ខុនី ជាស្ត្រីបួស កាន់វិន័យច្រើនជាងភិក្ខុ ។', enBody: 'Ordained women keeping an even larger set of rules.' },
-  { pl: 'UPĀSAKA', km: 'ឧបាសក', en: 'Lay men', kmBody: 'បុរសកាច កាន់សីល ៥ ជាអ្នកគាំទ្រព្រះសង្ឃ ។', enBody: 'Lay men who keep the five precepts and support the Saṅgha.' },
-  { pl: 'UPĀSIKĀ', km: 'ឧបាសិកា', en: 'Lay women', kmBody: 'ស្ត្រីកាច កាន់សីល ៥ ជាអ្នកគាំទ្រព្រះសង្ឃ ។', enBody: 'Lay women who keep the five precepts and support the Saṅgha.' },
+  { pl: 'UPĀSAKA', km: 'ឧបាសក', en: 'Lay men', kmBody: 'បុរសអ្នកផ្ទះ (ឧបាសក) កាន់សីល ៥ ជាអ្នកគាំទ្រព្រះសង្ឃ ។', enBody: 'Lay men who keep the five precepts and support the Saṅgha.' },
+  { pl: 'UPĀSIKĀ', km: 'ឧបាសិកា', en: 'Lay women', kmBody: 'ស្ត្រីអ្នកផ្ទះ (ឧបាសិកា) កាន់សីល ៥ ជាអ្នកគាំទ្រព្រះសង្ឃ ។', enBody: 'Lay women who keep the five precepts and support the Saṅgha.' },
 ]
 
 const daily = [

@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('សិទ្ធត្ថគោត្មៈ កើតក្នុងត្រកូលសក្យ ក្នុងសួនលុម្ពិនី ប្រទេសនេប៉ាល់សព្វថ្ងៃ។ មាតាព្រះនាមមហាមាយា បិតាព្រះនាមសុទ្ធោទនៈ។ ពិតប្រាកដ ៗ — ជាមនុស្ស មិនមែនទេវតា ដូចយើងដែរ ទើបធម៌របស់ព្រះអង្គអាចសម្រេចបាន។', 'Siddhattha Gotama was born into the Sakya clan in the Lumbini grove, in today\'s Nepal, of Queen Mahāmāyā and King Suddhodana. He was truly human — not a god — which is why his path can be walked by us too.') }}
+      {{ t('សិទ្ធត្ថគោត្មៈ កើតក្នុងត្រកូលសក្យ ក្នុងសួនលុម្ពិនី ប្រទេសនេប៉ាល់សព្វថ្ងៃ។ មាតាព្រះនាមមហាមាយា បិតាព្រះនាមសុទ្ធោទនៈ។ សូមចងចាំថា ព្រះអង្គជាមនុស្ស មិនមែនទេវតាទេ ដូចយើងដែរ — ដូច្នេះហើយ ទើបផ្លូវធម៌របស់ព្រះអង្គ យើងក៏អាចដើរបានដែរ។', 'Siddhattha Gotama was born into the Sakya clan in the Lumbini grove, in today\'s Nepal, of Queen Mahāmāyā and King Suddhodana. He was truly human — not a god — which is why his path can be walked by us too.') }}
     </p>
 
     <!-- key facts -->
@@ -36,7 +36,7 @@
 
       <div class="verse-box p-4 mt-2">
         <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">វយធម្មា សង្ខារា អប្បមាទេន សម្បាទេថ ។</p>
-        <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតហើយត្រូវបាត់ទៅ — អ្នកទាំងឡាយ ចូរព្យាយាមកុំប្រហែសធ្វេស»', '"All things pass away — strive on with diligence."') }}</p>
+        <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតឡើងហើយតែងតែបាត់ទៅ — ចូរប្រឹងប្រែង កុំប្រហែស»', '"All things pass away — strive on with diligence."') }}</p>
         <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">{{ t('ព្រះបន្ទូលចុងក្រោយ មុនបរិនិព្វាន', 'Last words before Parinibbāna') }}</p>
       </div>
     </div>
@@ -46,8 +46,8 @@
       <p class="chapter-label">A ROYAL BIRTH</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ព្រះរាជកុមារសិទ្ធត្ថ', 'Prince Siddhattha is Born') }}</h3>
       <div class="mt-4 space-y-3">
-        <p class="text-sm leading-loose" :style="{ color: 'var(--ink-soft)' }">{{ t('រាជនគរ កបិលព័ស្តុ រាជធានីនៃស្តេចសុទ្ធោទនៈ (ខ្មែរជាទូទៅហៅ ព្រះបាទសុទ្ធោទនៈ)។ មហេសីព្រះនាម មហាមាយា (បាលី៖ Mahāmāyā)។ រាត្រីមួយ ព្រះនាងមានសុបិននិមិត្តឃើញដំរីស ចូលមកក្នុងព្រះឧទរ។ កាលដល់ពេលសម្រាល ព្រះនាងធ្វើដំណើរទៅស្រុកកំណើត ប្រទេសទេវទាហៈ; នៅតាមផ្លូវ ក្នុងសួនលុម្ពិនី ក្រោមដើមសាល ព្រះនាងក៏ប្រសូត្រព្រះរាជបុត្រ។', 'The royal capital was Kapilavatthu, seat of King Suddhodana. His chief queen was Mahāmāyā. One night she dreamt of a white elephant entering her womb. When her time came she travelled toward her homeland of Devadaha; on the way, in the Lumbini grove beneath a sal tree, she gave birth.') }}</p>
-        <p class="text-sm leading-loose" :style="{ color: 'var(--ink-soft)' }">{{ t('ព្រះនាម «សិទ្ធត្ថ» មានន័យថា «អ្នកសម្រេចនូវសេចក្តីប្រាថ្នា» ឬ «ទាំងអស់ដែលប្រាថ្នាបានសម្រេច»។ បុរសជំនាញលក្ខណៈ បានបញ្ជាក់ថា កុមារានេះ ទោះនៅផ្ទះ នឹងបានត្រាស់ជាស្តេចចក្រពត្តិ; បើចេញបួស នឹងបានត្រាស់ជាព្រះពុទ្ធ។ ព្រះនាងមហាមាយា សោយទិវង្គត បន្ទាប់ពីប្រសូត បាន ៧ ថ្ងៃ; ព្រះនាងបជាបតិគោតមី (ម្ចាស់បង) ជាអ្នកចិញ្ចឹមតម្កល់ព្រះកុមារ។', '"Siddhattha" means "he whose purpose is accomplished" or "all wishes fulfilled." The brahmin soothsayers declared this child, if he stayed at home, would become a universal monarch; if he went forth, a fully awakened Buddha. Queen Mahāmāyā died seven days after the birth, and her sister Mahāpajāpatī Gotamī raised the prince.') }}</p>
+        <p class="text-sm leading-loose" :style="{ color: 'var(--ink-soft)' }">{{ t('រាជនគរ កបិលព័ស្តុ ជារាជធានីនៃស្តេចសុទ្ធោទនៈ (ខ្មែរជាទូទៅហៅ ព្រះបាទសុទ្ធោទនៈ)។ មហេសី (ស្ត្រីមច្ឆានៃស្តេច) ព្រះនាម មហាមាយា (បាលី៖ Mahāmāyā)។ រាត្រីមួយ ព្រះនាងមានសុបិននិមិត្ត (ការយល់សប្តិជាសញ្ញាប្រផ្នូល) ឃើញដំរីសចូលមកក្នុងព្រះឧទរ (ផ្ទៃ)។ កាលដល់ពេលសម្រាល ព្រះនាងធ្វើដំណើរទៅស្រុកកំណើត ប្រទេសទេវទាហៈ; នៅតាមផ្លូវ ក្នុងសួនលុម្ពិនី ក្រោមដើមសាល ព្រះនាងក៏ប្រសូត្រព្រះរាជបុត្រ។', 'The royal capital was Kapilavatthu, seat of King Suddhodana. His chief queen was Mahāmāyā. One night she dreamt of a white elephant entering her womb. When her time came she travelled toward her homeland of Devadaha; on the way, in the Lumbini grove beneath a sal tree, she gave birth.') }}</p>
+        <p class="text-sm leading-loose" :style="{ color: 'var(--ink-soft)' }">{{ t('ព្រះនាម «សិទ្ធត្ថ» មានន័យថា «អ្នកសម្រេចនូវសេចក្តីប្រាថ្នា» ឬ «ទាំងអស់ដែលប្រាថ្នាបានសម្រេច»។ បុរសជំនាញលក្ខណៈ បានបញ្ជាក់ថា កុមារានេះ បើនៅផ្ទះ នឹងបានត្រាស់ជាស្តេចចក្រពត្តិ (ស្តេចគ្រប់គ្រងផែនដី)។ បើចេញបួស នឹងបានត្រាស់ជាព្រះពុទ្ធ។ ព្រះនាងមហាមាយា សោយទិវង្គត បន្ទាប់ពីប្រសូត បាន ៧ ថ្ងៃ; ព្រះនាងបជាបតិគោតមី (បងស្រី អ្នកមើលថែកូន) ជាអ្នកចិញ្ចឹមតម្កល់ព្រះកុមារ។', '"Siddhattha" means "he whose purpose is accomplished" or "all wishes fulfilled." The brahmin soothsayers declared this child, if he stayed at home, would become a universal monarch; if he went forth, a fully awakened Buddha. Queen Mahāmāyā died seven days after the birth, and her sister Mahāpajāpatī Gotamī raised the prince.') }}</p>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label" style="color: var(--red)">THE FOUR SIGHTS</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ទេវទូតទាំង ៤', 'The Four Heavenly Messengers') }}</h3>
-      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('ព្រះអង្គចូលទៅក្នុងនគរ លើរទេះ បួនដង។ រាល់ដង ព្រះអង្គឃើញទិដ្ឋភាពមួយ ដែលរន្ធត់ចិត្ត ហើយសួរអស្សរោជឆន្នៈ។ ទាំង ៤ នេះ លោកហៅថា ទេវទូត — ដូចជាអ្នកនាំសាររបស់ទេវតា មកដាស់ស្តេចឲ្យភ្ញាក់ពីសុបិនកាម។', 'Four times he drove out into the city. Each time he saw a sight that shook him and questioned his charioteer Channa. These are called the devadūta — the heavenly messengers sent to wake a prince from a dream of pleasure.') }}</p>
+      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('ព្រះអង្គចូលទៅក្នុងនគរ លើរទេះ បួនដង។ រាល់ដង ព្រះអង្គឃើញទិដ្ឋភាពមួយ ដែលរន្ធត់ចិត្ត ហើយសួរអ្នកបរសេះឈ្មោះឆន្នៈ។ ទាំង ៤ នេះ លោកហៅថា ទេវទូត — ដូចជាអ្នកនាំសាររបស់ទេវតា មកដាស់ស្តេចឲ្យភ្ញាក់ពីសុបិនកាម។', 'Four times he drove out into the city. Each time he saw a sight that shook him and questioned his charioteer Channa. These are called the devadūta — the heavenly messengers sent to wake a prince from a dream of pleasure.') }}</p>
       <div class="grid md:grid-cols-4 gap-3 mt-5">
         <div v-for="(s, i) in sights" :key="s.en" class="p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
@@ -97,7 +97,7 @@
 
       <div class="verse-box p-4 mt-2">
         <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">វយធម្មា សង្ខារា អប្បមាទេន សម្បាទេថ ។</p>
-        <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតហើយត្រូវបាត់ទៅ — អ្នកទាំងឡាយ ចូរព្យាយាមកុំប្រហែសធ្វេស»', '"All things pass away — strive on with diligence."') }}</p>
+        <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតឡើងហើយតែងតែបាត់ទៅ — ចូរប្រឹងប្រែង កុំប្រហែស»', '"All things pass away — strive on with diligence."') }}</p>
         <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">{{ t('ព្រះបន្ទូលចុងក្រោយ មុនបរិនិព្វាន', 'Last words before Parinibbāna') }}</p>
       </div>
     </div>
@@ -165,13 +165,13 @@ const events = [
       { km: 'ព្រះនាងមហាមាយា សោយទិវង្គត ៧ ថ្ងៃក្រោយ', en: 'Queen Mahāmāyā passes seven days later' },
     ] },
   { year: '594 BCE', km: 'កាលៈ ៤ ប្រឡាក់ចិត្ត', en: 'The Four Sights', kmBody: 'ឃើញអ្នកចាស់ អ្នកឈឺ សព អ្នកបួស — ដឹងច្បាស់ថាលោកពោរពេញដោយទុក្ខ។', enBody: 'An old man, a sick man, a corpse, a recluse — he sees the world\'s suffering.' },
-  { year: '594 BCE', km: 'មហាបព្វជ្ជា', en: 'The Great Renunciation', kmBody: 'លះបង់រាជ្យបល្ល័ង្ក ចេញទៅតាមផ្ទះអ្នកគ្មានផ្ទះ ដោយសេះកន្ថក និងសំណាក់ឆន្នៈ។', enBody: 'He leaves palace and kingdom on the horse Kanthaka with the servant Channa.',
+  { year: '594 BCE', km: 'មហាបព្វជ្ជា', en: 'The Great Renunciation', kmBody: 'លះបង់រាជ្យបល្ល័ង្ក ចេញទៅតាមផ្ទះអ្នកគ្មានផ្ទះ ដោយសេះកន្ថក និងអ្នកបម្រើឈ្មោះឆន្នៈ។', enBody: 'He leaves palace and kingdom on the horse Kanthaka with the servant Channa.',
     details: [
       { km: 'អាយុ ២៩ វស្សា រាត្រីពេញបូណ៌មី ចេញ ដោយគ្មានអ្នកណាដឹង', en: 'At 29, on the full moon night, he slips away unseen' },
       { km: 'កាត់សក់ ដោះគ្រឿងអលង្ការ ប្រគល់ឲ្យឆន្នៈ វិលទៅវិញ', en: 'He cuts his hair and sends Channa back with his jewellery' },
       { km: 'ដោះដូរសំពត់រាជ យកសំពត់អ្នកប្រមាញ់ — លះភាពជាក្សត្រ', en: 'He exchanges his royal robes for the rough cloth of a hunter' },
     ] },
-  { year: '588 BCE', km: 'ត្រាស់ដឹងនៅក្រោមពោធិព្រឹក្ស', en: 'Enlightenment under the Bodhi Tree', kmBody: 'ក្រោយប្រឹងប្រែងអស់ ៦ វស្សា ក្នុងបូណ៌មីវិសាខ ត្រង់ពោធិព្រឹក្ស ស្ថានពោធិមណ្ឌល ប្រទេសឥណ្ឌា ព្រះអង្គក៏ត្រាស់ដឹង។', enBody: 'After six years of striving, on the Vesak full moon at Bodh Gaya in India, he awakens beneath the Bodhi tree.',
+  { year: '588 BCE', km: 'ត្រាស់ដឹងនៅក្រោមពោធិព្រឹក្ស', en: 'Enlightenment under the Bodhi Tree', kmBody: 'ក្រោយប្រឹងប្រែងអស់ ៦ វស្សា នៅថ្ងៃពេញបូណ៌មីខែវិសាខ (វិសាខបូជា) ក្រោមដើមពោធិ៍ នៅស្ថានពោធិមណ្ឌល ប្រទេសឥណ្ឌា ព្រះអង្គក៏ត្រាស់ដឹង។', enBody: 'After six years of striving, on the Vesak full moon at Bodh Gaya in India, he awakens beneath the Bodhi tree.',
     details: [
       { km: 'ពីមុន សាកល្បងផ្លូវតបៈអត់ធ្មត់ធ្ងន់ធ្ងរ ៦ វស្សា — មិនបានសម្រេច', en: 'First he tries severe asceticism for six years — without success' },
       { km: 'នឹកឃើញសមាធិកាលនៅកុមារ ក្រោមដើមឈើខ្ទុំ', en: 'He recalls the calm of his childhood jhāna under a rose-apple tree' },
@@ -194,7 +194,7 @@ const events = [
   { year: '543 BCE', km: 'បរិនិព្វាននៅកុសិនារា', en: 'Parinibbāna at Kusinārā', kmBody: 'អាយុ ៨០ វស្សា ត្រង់ចន្លោះដើមសាលពីរ ពោលព្រះបន្ទូលចុងក្រោយស្តីពីការប្រុងប្រយ័ត្ន។', enBody: 'At 80, between two sal trees, he breathes his last with a final word on diligence.',
     details: [
       { km: 'ភិក្ខុសុភទ្ទ ជាភិក្ខុសាវ័កចុងក្រោយ', en: 'Subhadda is his last disciple' },
-      { km: 'ព្រះបន្ទូលចុងក្រោយ ស្តីពីអប្បមាទៈ', en: 'His last words urge diligence (appamāda)' },
+      { km: 'ព្រះបន្ទូលចុងក្រោយ ស្តីពីអប្បមាទៈ (សេចក្តីមិនប្រហែសមើលងាយ)', en: 'His last words urge diligence (appamāda)' },
       { km: 'ដង្ហើមចុងក្រោយ ក្នុងចតុត្ថឈាន រួចផុតពីសង្សារ', en: 'He passes in the fourth jhāna, freed from saṃsāra' },
     ] },
 ]

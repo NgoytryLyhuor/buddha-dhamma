@@ -251,6 +251,26 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 .theme-btn svg { width: 1.25rem; height: 1.25rem; flex: none; }
 .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+/* Brand / logo sizing */
+.logo-ico {
+  font-size: 1.5rem;
+}
+.logo-title {
+  font-size: 1.05rem;
+}
+.logo-sub {
+  font-size: 8px;
+  letter-spacing: 0.28em;
+}
+@media (min-width: 640px) {
+  .logo-ico { font-size: 1.6rem; }
+  .logo-title { font-size: 1.15rem; }
+}
+
+/* Header / top nav responsiveness */
+header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+
 .font-btn { display: flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 3px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-muted); font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s; }
 .font-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .font-btn:disabled { opacity: 0.35; cursor: default; }

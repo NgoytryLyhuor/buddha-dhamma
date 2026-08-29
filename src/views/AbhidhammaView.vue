@@ -1,12 +1,12 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សូត្រមាត្រា ០៣ — ព្រះអភិធម្ម', 'GATHA 03 — ABHIDHAMMA') }}</p>
+    <p class="chapter-label">{{ t('មេរៀន ០៣ — ព្រះអភិធម្ម', 'GATHA 03 — ABHIDHAMMA') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('អភិធម្មៈ វិទ្យានៃចិត្តនិងរូប', 'Abhidhamma: The Science of Mind & Matter') }}
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('អភិ ប្រែថា ពិសេស ឬជ្រាលជ្រៅ; ធម្ម គឺធម៌។ អភិធម្ម គឺធម៌ដ៏ជ្រាលជ្រៅផុតពីសុត្តន្តធម៌ទូទៅ — វិភាគពិភពនៃសេចក្តីពិតដាច់ខាត ទៅជា បរមត្ថធម៌ ៤ គឺ ចិត្ត ចេតសិក រូប និព្វាន។', 'Abhi means higher or deeper; Dhamma is the teaching. Abhidhamma is the deeper design of reality — it analyses the world of ultimate truths into four paramattha dhammas: Citta, Cetasika, Rūpa and Nibbāna.') }}
+      {{ t('អភិ ប្រែថា ពិសេស ឬជ្រៅ; ធម្ម គឺធម៌។ អភិធម្ម គឺធម៌ដ៏ជ្រៅផុតពីសុត្តន្តធម៌ទូទៅ — វិភាគពិភពនៃសេចក្តីពិតដាច់ខាត ទៅជា បរមត្ថធម៌ (សច្ចៈដាច់ខាត) ៤ គឺ ចិត្ត ចេតសិក រូប និព្វាន។', 'Abhi means higher or deeper; Dhamma is the teaching. Abhidhamma is the deeper design of reality — it analyses the world of ultimate truths into four paramattha dhammas: Citta, Cetasika, Rūpa and Nibbāna.') }}
     </p>
 
     <!-- 4 ultimate realities -->
@@ -99,7 +99,7 @@
         </div>
         <div>
           <p class="font-bold" :style="{ color: 'var(--accent)' }">{{ t('ឧបាទាយរូប ២៤', '24 Derived Rūpa') }}</p>
-          <p class="text-xs mt-2 mb-3" :style="{ color: 'var(--ink-muted)' }">{{ t('បច្ចវត្ថុ ៥ អារម្មណ៍ ៤ ភេទ ២ ហទយ ១ ជីវិតិន្រ្ទិយ ១ អាហារ ១ អាកាស ១ វិញ្ញត្តិ ២ វិការ ៣ លក្ខណៈ ៤ ។', '5 sense organs, 4 objects, 2 sex, heart-base, life faculty, nutriment, space, 2 intimations, 3 transformations, 4 marks.') }}</p>
+          <p class="text-xs mt-2 mb-3" :style="{ color: 'var(--ink-muted)' }">{{ t('បច្ចវត្ថុ (ទ្វារទទួលអារម្មណ៍) ៥ · អារម្មណ៍ ៤ · ភេទ ២ · ហទយវត្ថុ (គ្រឹះចិត្ត) ១ · ជីវិតិន្រ្ទិយ (ជីវិតក្នុងកាយ) ១ អាហារ ១ អាកាស ១ វិញ្ញត្តិ ២ វិការ ៣ លក្ខណៈ ៤ ។', '5 sense organs, 4 objects, 2 sex, heart-base, life faculty, nutriment, space, 2 intimations, 3 transformations, 4 marks.') }}</p>
           <div class="flex flex-wrap gap-2">
             <span v-for="c in rupaDerived" :key="c.kh" class="text-xs px-2.5 py-1 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">{{ c.kh }} · {{ c.pl }}</span>
           </div>
@@ -174,13 +174,13 @@ const cittaDetail = [
     subs: [
       {
         km: 'លោភមូល', en: 'Greed-rooted', n: '8', factor: 'សោមនស្ស/ឧបេក្ខា × ទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × អសង្ខារិក/សសង្ខារិក = ២×២×២', items: [
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតដោយខ្លួនឯង' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតព្រោះគេញុះញង់' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy, no wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy, no wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតព្រោះគេញុះញង់' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតដោយខ្លួនឯង' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wrong-view, prompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតព្រោះគេញុះញង់' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity, no wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិសម្បយុត្ត (យល់ខុស) អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'joy + wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិសម្បយុត្ត (យល់ខុស) សសង្ខារិក', en: 'joy + wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ យល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'joy, no wrong-view, unprompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy, no wrong-view, prompted', plain: 'ចិត្តលោភ សប្បាយ ឥតការយល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត (យល់ខុស) អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'equanimity + wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត (យល់ខុស) សសង្ខារិក', en: 'equanimity + wrong-view, prompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ យល់ខុស កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'equanimity, no wrong-view, unprompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ ឥតការយល់ខុស កើតដោយខ្លួនឯង' },
           { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity, no wrong-view, prompted', plain: 'ចិត្តលោភ អារម្មណ៍រាបស្មើ ឥតការយល់ខុស កើតព្រោះគេញុះញង់' },
         ]
       },
@@ -192,15 +192,15 @@ const cittaDetail = [
       },
       {
         km: 'មោហមូល', en: 'Delusion-rooted', n: '2', items: [
-          { kh: 'ឧបេក្ខាសហគត វិចិកិច្ឆាសម្បយុត្ត', en: 'equanimity + sceptical doubt', plain: 'ចិត្តសង្ស័យច្របូកច្របល់ អារម្មណ៍រាបស្មើ' },
-          { kh: 'ឧបេក្ខាសហគត ឧទ្ធច្ចសម្បយុត្ត', en: 'equanimity + restlessness', plain: 'ចិត្តរាយមាយមិនស្ងប់ អារម្មណ៍រាបស្មើ' },
+          { kh: 'ឧបេក្ខាសហគត វិចិកិច្ឆា (សង្ស័យស្ទាក់ស្ទើរ) សម្បយុត្ត', en: 'equanimity + sceptical doubt', plain: 'ចិត្តសង្ស័យច្របូកច្របល់ អារម្មណ៍រាបស្មើ' },
+          { kh: 'ឧបេក្ខាសហគត ឧទ្ធច្ច (ចិត្តរាយមាយ) សម្បយុត្ត', en: 'equanimity + restlessness', plain: 'ចិត្តរាយមាយមិនស្ងប់ អារម្មណ៍រាបស្មើ' },
         ]
       },
     ]
   },
   {
     km: 'អហេតុកចិត្ត', en: 'Rootless', n: '18',
-    kmBody: 'មានបីពួកគឺ វិបាកអកុសល ៧ វិបាកកុសល ៨ កិរិយា ៣។', enBody: 'three classes — 7 unwholesome resultants, 8 wholesome resultants, 3 functionals.',
+    kmBody: 'មានបីពួកគឺ វិបាកអកុសល (ផលមកពីអំពើអាក្រក់) ៧ · វិបាកកុសល (ផលមកពីអំពើល្អ) ៨ · កិរិយា (ចិត្តឥតឲ្យផល) ៣។', enBody: 'three classes — 7 unwholesome resultants, 8 wholesome resultants, 3 functionals.',
     subs: [
       {
         km: 'វិបាកអកុសល', en: 'Unwholesome resultants', n: '7', items: [
@@ -236,17 +236,17 @@ const cittaDetail = [
   },
   {
     km: 'កាមសោភណចិត្ត', en: 'Sense-sphere beautiful', n: '24',
-    kmBody: 'ចិត្តល្អក្នុងកាមលោក ៨+៨+៨ — ទាំងបីពួកមានរូបមន្តដូចគ្នា។', enBody: 'beautiful sense-sphere consciousness, 8+8+8 — all three share the same pattern.',
+    kmBody: 'ចិត្តល្អក្នុងលោកនៃកាម (ទ្វារទទួលទាំង ៥) ៨+៨+៨ — ទាំងបីពួកមានរូបមន្ត (រចនាសម្ព័ន្ធ) ដូចគ្នា។', enBody: 'beautiful sense-sphere consciousness, 8+8+8 — all three share the same pattern.',
     subs: [
       {
         km: 'មហាកុសល', en: 'Great wholesome', n: '8', factor: '២ ដួងនៃសោមនស្ស/ឧបេក្ខា × ២ នៃទិដ្ឋិសម្បយុត្ត/វិប្បយុត្ត × ២ នៃអសង្ខារិក/សសង្ខារិក', items: [
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'joy + wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតដោយខ្លួនឯង' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'joy + wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតព្រោះគេញុះញង់' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'joy without wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
-          { kh: 'សោមនស្សសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy without wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតព្រោះគេញុះញង់' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត អសង្ខារិក', en: 'equanimity + wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតដោយខ្លួនឯង' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត សសង្ខារិក', en: 'equanimity + wisdom, prompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតព្រោះគេញុះញង់' },
-          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក', en: 'equanimity without wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិសម្បយុត្ត (យល់ខុស) អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'joy + wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិសម្បយុត្ត (យល់ខុស) សសង្ខារិក', en: 'joy + wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ មានបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'joy without wisdom, unprompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'សោមនស្សសហគត (សប្បាយ) ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'joy without wisdom, prompted', plain: 'ចិត្តល្អ សប្បាយ ឥតបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត (យល់ខុស) អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'equanimity + wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតដោយខ្លួនឯង' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិសម្បយុត្ត (យល់ខុស) សសង្ខារិក', en: 'equanimity + wisdom, prompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ មានបញ្ញា កើតព្រោះគេញុះញង់' },
+          { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត អសង្ខារិក (កើតដោយខ្លួនឯង)', en: 'equanimity without wisdom, unprompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ ឥតបញ្ញា កើតដោយខ្លួនឯង' },
           { kh: 'ឧបេក្ខាសហគត ទិដ្ឋិវិប្បយុត្ត សសង្ខារិក', en: 'equanimity without wisdom, prompted', plain: 'ចិត្តល្អ អារម្មណ៍រាបស្មើ ឥតបញ្ញា កើតព្រោះគេញុះញង់' },
         ]
       },
@@ -286,7 +286,7 @@ const cittaDetail = [
           { kh: 'អាកាសានញ្ចាយតនៈ', en: 'base of infinite space', plain: 'កន្លែងនៃលំហអាកាសឥតកំណត់' },
           { kh: 'វិញ្ញាណញ្ចាយតនៈ', en: 'base of infinite consciousness', plain: 'កន្លែងនៃវិញ្ញាណឥតកំណត់' },
           { kh: 'អាកិញ្ចញ្ញាយតនៈ', en: 'base of nothingness', plain: 'កន្លែងនៃការដឹងថា គ្មានអ្វីសោះ' },
-          { kh: 'នេវសញ្ញានាសញ្ញាយតនៈ', en: 'base of neither-perception-nor-non-perception', plain: 'កន្លែងដែលឥតមានសញ្ញា ក៏ឥតមិនមានសញ្ញា' },
+          { kh: 'នេវសញ្ញានាសញ្ញាយតនៈ (កន្លែងឥតមានសញ្ញា ក៏ឥតមិនមានសញ្ញា)', en: 'base of neither-perception-nor-non-perception', plain: 'កន្លែងដែលឥតមានសញ្ញា ក៏ឥតមិនមានសញ្ញា' },
         ]
       },
       { km: 'វិបាក ៤', en: '4 resultants', n: '4', items: [], note: { km: 'អាយតនៈ ៤ ដូចខាងលើ ជាវិបាក។', en: 'The same 4 spheres as resultants.' } },
@@ -323,7 +323,7 @@ const cetasikaGroups = [
     list: [
       { kh: 'ផស្សៈ', pl: 'phassa · contact' }, { kh: 'វេទនា', pl: 'vedanā · feeling' },
       { kh: 'សញ្ញា', pl: 'saññā · perception' }, { kh: 'ចេតនា', pl: 'cetanā · volition' },
-      { kh: 'ឯកគ្គតា', pl: 'ekaggatā · one-pointedness' }, { kh: 'ជីវិតិន្រ្ទិយ', pl: 'jīvitindriya · life faculty' },
+      { kh: 'ឯកគ្គតា (ចិត្តតម្កល់មួយ)', pl: 'ekaggatā · one-pointedness' }, { kh: 'ជីវិតិន្រ្ទិយ', pl: 'jīvitindriya · life faculty' },
       { kh: 'មនសិការ', pl: 'manasikāra · attention' },
     ]
   },
@@ -373,19 +373,19 @@ const rupaDerived = [
   { kh: 'ជីវ្ហា', pl: 'tongue' }, { kh: 'កាយៈ', pl: 'body' }, { kh: 'រូបអារម្មណ៍', pl: 'visible' },
   { kh: 'សទ្ទៈ', pl: 'sound' }, { kh: 'គន្ធារម្មណ៍', pl: 'smell' }, { kh: 'រសារម្មណ៍', pl: 'taste' },
   { kh: 'ឥត្ថិភាវរូប', pl: 'femaleness' }, { kh: 'បុរិសភាវរូប', pl: 'maleness' },
-  { kh: 'ហទយវត្ថុ', pl: 'heart-base' }, { kh: 'ជីវិតិន្រ្ទិយរូប', pl: 'life faculty' },
-  { kh: 'កពលីការាហារ', pl: 'nutrition' }, { kh: 'អាកាសធាតុ', pl: 'space' },
+  { kh: 'ហទយវត្ថុ (ទីតាំងចិត្ត)', pl: 'heart-base' }, { kh: 'ជីវិតិន្រ្ទិយរូប (កម្លាំងជីវិត)', pl: 'life faculty' },
+  { kh: 'កពលីការាហារ (អាហារ)', pl: 'nutrition' }, { kh: 'អាកាសធាតុ', pl: 'space' },
   { kh: 'កាយវិញ្ញត្តិ', pl: 'bodily intimation' }, { kh: 'វចីវិញ្ញត្តិ', pl: 'verbal intimation' },
-  { kh: 'លហុតា· មុទុតា· កម្មញ្ញតា', pl: 'light, soft, wieldy' },
-  { kh: 'ឧបចយៈ· សន្តតិ· ជរតា· អនិច្ចតា', pl: 'originating, continuity, decay, impermanence' },
+  { kh: 'លហុតា (ស្រាល) · មុទុតា (ទន់) · កម្មញ្ញតា (ប្រើបាន)', pl: 'light, soft, wieldy' },
+  { kh: 'ឧបចយៈ (កើត) · សន្តតិ (បន្ត) · ជរតា (ចាស់) · អនិច្ចតា (មិនទៀង)', pl: 'originating, continuity, decay, impermanence' },
 ]
 
 const links = [
-  { kh: 'អវិជ្ជា', pl: 'Ignorance', note: 'មិនយល់សច្ចៈ', en_note: 'not seeing the truths' },
-  { kh: 'សង្ខារ', pl: 'Formations', note: 'កម្មបណ្តាល', en_note: 'kamma-volitions' },
+  { kh: 'អវិជ្ជា', pl: 'Ignorance', note: 'មិនយល់សច្ចៈ (សេចក្តីពិត ៤)', en_note: 'not seeing the truths' },
+  { kh: 'សង្ខារ', pl: 'Formations', note: 'កម្មបណ្តាល (ធ្វើឲ្យកើតដោយកម្ម)', en_note: 'kamma-volitions' },
   { kh: 'វិញ្ញាណ', pl: 'Consciousness', note: 'បដិសន្ធិ', en_note: 'rebirth linking' },
   { kh: 'នាមរូប', pl: 'Name & Form', note: 'ចិត្តកម្មរូប', en_note: 'mind & matter' },
-  { kh: 'សឡាយតនៈ', pl: 'Six Bases', note: 'អាយតនៈ ៦', en_note: 'six sense doors' },
+  { kh: 'សឡាយតនៈ', pl: 'Six Bases', note: 'អាយតនៈ ៦ (ទ្វារទទួល ៦)', en_note: 'six sense doors' },
   { kh: 'ផស្សៈ', pl: 'Contact', note: 'ប៉ះអារម្មណ៍', en_note: 'sense impression' },
   { kh: 'វេទនា', pl: 'Feeling', note: 'សុខ ទុក្ខ', en_note: 'pleasant, painful' },
   { kh: 'តណ្ហា', pl: 'Craving', note: 'ប្រាថ្នាអារម្មណ៍', en_note: 'thirst for objects' },

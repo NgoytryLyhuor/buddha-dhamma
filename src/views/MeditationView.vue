@@ -28,7 +28,7 @@
       <div class="card-paper p-6">
         <p class="chapter-label" style="color: var(--accent)">VIPASSANĀ</p>
         <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('វិបស្សនាភាវនា', 'Insight Meditation') }}</h3>
-        <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('កាលណាចិត្តស្ងប់ ទើបពិនិត្យកាយ វេទនា ចិត្ត ធម៌ ដែលកើត-រលត់ ដឹងថាអ្វីៗមិនទៀង ជាទុក្ខ គ្មានខ្លួន — អស់សេចក្តីប្រកាន់ ទើបរួចផុត។', 'Once the mind is calm, it investigates body, feeling, mind and dhammas as they arise and pass away, seeing that all things are impermanent, unsatisfactory and not-self — clinging loosens, and freedom is reached.') }}</p>
+        <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('កាលណាចិត្តស្ងប់ ទើបពិនិត្យមើលកាយ អារម្មណ៍ ចិត្ត និងធម៌ ដែលកើតហើយរលត់ ដឹងថាអ្វីៗមិនទៀង ជាទុក្ខ គ្មានខ្លួនពិត — លែងតោងជាប់ ទើបរួចផុត។', 'Once the mind is calm, it investigates body, feeling, mind and dhammas as they arise and pass away, seeing that all things are impermanent, unsatisfactory and not-self — clinging loosens, and freedom is reached.') }}</p>
         <div class="verse-box p-3 my-3">
           <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ប្រៀបដូចពិនិត្យត្រីក្នុងទឹកថ្លា ដែលស្ងប់ — ឃើញច្បាស់ ទើបយល់ការពិត។', 'Like watching the fish in clear, still water — seeing clearly is understanding the truth.') }}</p>
         </div>
@@ -42,7 +42,7 @@
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">JHĀNA — 4</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ឈាន៖ ជម្រៅនៃសេចក្តីស្ងប់', 'Jhāna: Depths of Stillness') }}</h3>
-      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('ឈាន គឺចិត្តតម្កល់នៅលើអារម្មណ៍តែមួយ មិនញាប់ញ័រដោយគំនិតខាងក្រៅ។ មាន ៤ ដំណាក់ ថយគ្រឿងគ្រោតគ្រាតចេញម្តងមួយ ដូចរំលាយលោហៈឲ្យស្អាតថែមឡើងៗ។', 'Jhāna is the mind fixed on one object, unshaken by outside thoughts. It has four stages that drop the coarser factors one by one, like refining metal to ever greater purity.') }}</p>
+      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('ឈាន (សមាធិជ្រៅដ៏ស្ងប់) គឺចិត្តតម្កល់លើអារម្មណ៍តែមួយ មិនញាប់ញ័រដោយគំនិតខាងក្រៅ។ មាន ៤ ដំណាក់ ថយគ្រឿងគ្រោតគ្រាតចេញម្តងមួយ ដូចរំលាយលោហៈឲ្យស្អាតថែមឡើងៗ។', 'Jhāna is the mind fixed on one object, unshaken by outside thoughts. It has four stages that drop the coarser factors one by one, like refining metal to ever greater purity.') }}</p>
       <div class="flex flex-wrap gap-2 mt-4">
         <span v-for="f in jhanaFactors" :key="f.pl" class="paali">{{ f.pl }} · {{ t(f.km, f.en) }}</span>
       </div>
@@ -148,15 +148,15 @@ function khNum(n) {
 }
 
 const samatha = [
-  { km: 'កម្មដ្ឋាន ៤០ — អារម្មណ៍ដែលគួរតម្កល់ចិត្ត មាន ៤០ យ៉ាង សម្រាប់មនុស្សផ្សេងៗគ្នា', en: '40 subjects — the forty meditation objects suited to different temperaments', pl: 'kammaṭṭhāna' },
+  { km: 'កម្មដ្ឋាន (ទីតាំងសម្រាប់តម្កល់ចិត្ត) ៤០ — អារម្មណ៍ដែលគួរតម្កល់ចិត្ត មាន ៤០ យ៉ាង សម្រាប់មនុស្សផ្សេងៗគ្នា', en: '40 subjects — the forty meditation objects suited to different temperaments', pl: 'kammaṭṭhāna' },
   { km: 'អានាបានៈ — ដង្ហើមចូល-ចេញ ជាអារម្មណ៍ដើម ងាយស្រួលបំផុត និងព្រះពុទ្ធទ្រង់ផ្តល់អនុសាសន៍', en: 'Ānāpāna — the in-and-out breath, the easiest object and the one the Buddha himself recommended', pl: 'ānāpāna' },
   { km: 'ឈាន ៤ — សេចក្តីស្ងប់ជ្រៅឡើងៗ ៤ ដំណាក់', en: 'The four jhānas — four deepening levels of stillness', pl: 'jhāna' },
 ]
 
 const vipassana = [
-  { km: 'ត្រៃលក្ខណ៍ — ឃើញអារម្មណ៍នីមួយៗ ជាអនិច្ចំ ទុក្ខំ អនត្តា', en: 'Three marks — seeing each object as impermanent, unsatisfactory, not-self', pl: 'tilakkhaṇa' },
+  { km: 'ត្រៃលក្ខណ៍ (លក្ខណៈបីយ៉ាង) — ឃើញអារម្មណ៍នីមួយៗ ជាអនិច្ចំ (មិនទៀង) ទុក្ខំ (ជាទុក្ខ) អនត្តា (គ្មានខ្លួន)', en: 'Three marks — seeing each object as impermanent, unsatisfactory, not-self', pl: 'tilakkhaṇa' },
   { km: 'កើត-រលត់ — ដឹងថាអ្វីដែលកើត រមែងរលត់ រាល់ខណៈ', en: 'Arising & vanishing — knowing that whatever arises must cease, moment by moment', pl: 'udayabbaya' },
-  { km: 'ខ្ពើមឆ្អេះ — ចិត្តផុតចាកតណ្ហា ដេញតាមអារម្មណ៍តិចឡើងៗ', en: 'Disenchantment — the heart lets go of craving and chases objects less and less', pl: 'nibbidā' },
+  { km: 'នឿយណាយ (ខ្ពើមឆ្អេះ) — ចិត្តផុតពីការតោងតាមតណ្ហា (សេចក្តីប្រាថ្នា) ដេញតាមអារម្មណ៍តិចឡើងៗ', en: 'Disenchantment — the heart lets go of craving and chases objects less and less', pl: 'nibbidā' },
 ]
 
 const jhanaFactors = [
@@ -168,7 +168,7 @@ const jhanaFactors = [
 ]
 
 const jhanas = [
-  { km: 'ឈានទី ១', en: '1st Jhāna', kmBody: 'ចិត្តស្ងប់ ប៉ុន្តែនៅមាន វិតក្កៈ វិចារៈ បីតិ សុខៈ — ដូចទឹកស្ងប់ តែនៅរអាក់បន្តិច។', enBody: 'The mind is still, yet applied & sustained thought, rapture and happiness remain — like water that has settled but still ripples.' },
+  { km: 'ឈានទី ១', en: '1st Jhāna', kmBody: 'ចិត្តស្ងប់ ប៉ុន្តែនៅមាន វិតក្កៈ វិចារៈ (គិត និងរក្សាអារម្មណ៍) បីតិ (រីករាយ) សុខៈ (សុខ) — ដូចទឹកស្ងប់ តែនៅរអាក់បន្តិច។', enBody: 'The mind is still, yet applied & sustained thought, rapture and happiness remain — like water that has settled but still ripples.' },
   { km: 'ឈានទី ២', en: '2nd Jhāna', kmBody: 'រលត់ វិតក្កៈ វិចារៈ — នៅសល់ បីតិ សុខៈ — ដូចទឹកឥតរលក។', enBody: 'Applied and sustained thought drop away; rapture and happiness remain — water with no waves.' },
   { km: 'ឈានទី ៣', en: '3rd Jhāna', kmBody: 'រលត់បីតិ — នៅតែ សុខៈ ដ៏ជ្រៅ — ដូចទឹកដែលស្ងប់ស្រាប់។', enBody: 'Rapture fades; a deep, refined happiness remains — water at perfect rest.' },
   { km: 'ឈានទី ៤', en: '4th Jhāna', kmBody: 'រលត់សុខៈផង — នៅតែ ឧបេក្ខា ឯកគ្គតា ស្ងប់បំផុត — ដូចបឹងឥតរលក ឥតខ្យល់បក់។', enBody: 'Even happiness is let go; equanimity and one-pointedness alone remain — like a windless, rippleless lake.' },
@@ -178,7 +178,7 @@ const sati = [
   { km: 'កាយានុបស្សនា', en: 'Contemplating Body', kmBody: 'ដង្ហើម ឥរិយាបថ (អង្គុយ ឈរ ដើរ ដេក) និងសមាសភាគកាយ — ដូចអ្នកក្រៅសម្លឹងមើល។', enBody: 'breath, postures (sitting, standing, walking, lying down) and body parts — observed as from outside.' },
   { km: 'វេទនានុបស្សនា', en: 'Contemplating Feeling', kmBody: 'សម្គាល់វេទនា សុខ ទុក្ខ ឬ កណ្តាល — ដឹង តែមិនចាប់ថា «របស់អញ»។', enBody: 'noting feelings as pleasant, painful or neutral — known, but not owned as mine.' },
   { km: 'ចិត្តានុបស្សនា', en: 'Contemplating Mind', kmBody: 'មើលសភាពចិត្ត — មានលោភ ឬ គ្មាន; រាយមាយ ឬ ស្ងប់ — ដឹងដោយមិនវិនិច្ឆ័យ។', enBody: 'watching states of mind — greedy or free, scattered or steady — known without judging.' },
-  { km: 'ធម្មានុបស្សនា', en: 'Contemplating Dhammas', kmBody: 'ពិនិត្យនីវរណៈ ៥ ពោជ្ឈង្គ ៧ ខន្ធ ៥ — ឃើញកើត-រលត់ មិនប្រកាន់។', enBody: 'investigating the five hindrances, seven factors, five aggregates — seen as they pass without clinging.' },
+  { km: 'ធម្មានុបស្សនា', en: 'Contemplating Dhammas', kmBody: 'ពិនិត្យនីវរណៈ ៥ (អវយវៈបិទបាំងចិត្ត), ពោជ្ឈង្គ ៧ (ធម៌ជាគ្រឿងត្រាស់ដឹង), ខន្ធ ៥ (ក្រុមរបស់ដែលតាក់តែងរូប-ចិត្ត) — ឃើញកើត-រលត់ មិនប្រកាន់។', enBody: 'investigating the five hindrances, seven factors, five aggregates — seen as they pass without clinging.' },
 ]
 
 const hindrances = [
@@ -193,7 +193,7 @@ const factors = [
   { km: 'សតិ', en: 'Mindfulness', pl: 'sati', kmBody: 'ចាំអារម្មណ៍ កុំភ្លេច', enBody: 'remembering the object' },
   { km: 'ធម្មវិចយៈ', en: 'Investigation', pl: 'dhammavicaya', kmBody: 'ពិនិត្យធម៌ដោយបញ្ញា', enBody: 'examining the dhammas wisely' },
   { km: 'វិរិយៈ', en: 'Energy', pl: 'viriya', kmBody: 'ព្យាយាមឥតបន្ថយ', enBody: 'sustained effort' },
-  { km: 'បីតិ', en: 'Rapture', pl: 'pīti', kmBody: 'រីករាយផូរផង់ បំពេញកាយ', enBody: 'joy that fills and refreshes' },
+  { km: 'បីតិ', en: 'Rapture', pl: 'pīti', kmBody: 'ភាពរីករាយស្រស់ស្រាយ ពេញបំពេញក្នុងចិត្ត និងកាយ', enBody: 'joy that fills and refreshes' },
   { km: 'បស្សទ្ធិ', en: 'Tranquility', pl: 'passaddhi', kmBody: 'កាយ ចិត្ត ស្ងប់ស្រាល', enBody: 'calm ease of body and mind' },
   { km: 'សមាធិ', en: 'Concentration', pl: 'samādhi', kmBody: 'ចិត្តតម្កល់មួយម៉ាត់', enBody: 'one-pointed, unified focus' },
   { km: 'ឧបេក្ខា', en: 'Equanimity', pl: 'upekkhā', kmBody: 'ចិត្តរាបស្មើ មិនញាប់ញ័រ', enBody: 'a balanced, unmoved heart' },
@@ -215,7 +215,7 @@ const mistakes = [
 ]
 
 const benefits = [
-  { km: 'ចិត្តរលះរហ័ស ពេលខឹង ឬ តានតឹង', en: 'The mind settles faster in anger or stress' },
+  { km: 'ចិត្តស្ងប់វិញបានលឿន ពេលខឹង ឬតានតឹង', en: 'The mind settles faster in anger or stress' },
   { km: 'ដឹងខ្លួនច្បាស់ ពីគំនិត ពាក្យសម្តី ទង្វើ', en: 'Clearer awareness of thoughts, words and deeds' },
   { km: 'គេងលក់ស្រួល មុខភ្លឺថ្លា', en: 'Better sleep and a brighter face' },
   { km: 'បញ្ហាធំៗ ឃើញតូចទៅវិញ', en: 'Big problems seem smaller' },

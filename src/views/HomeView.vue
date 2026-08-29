@@ -7,7 +7,7 @@
     <div class="ornament mt-4">&#9784;</div>
 
     <p class="mt-5 text-[15px] md:text-base drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះធម៌របស់ព្រះសម្មាសម្ពុទ្ធ គឺជាការបង្រៀនពីការពិតនៃជីវិត៖ អ្វីជាទុក្ខ ហេតុអ្វីទុក្ខកើតឡើង អ្វីជាការរលត់ទុក្ខ និងផ្លូវប្រតិបត្តិឆ្ពោះទៅកាន់សេចក្តីរំលត់ទុក្ខ។ វេបសាយនេះប្រមូលផ្តុំខ្លឹមសារសំខាន់ៗ ចាប់ពីធម៌វិន័យមូលដ្ឋាន រហូតដល់ព្រះអភិធម្មដ៏ជ្រាលជ្រៅ ពន្យល់ជាភាសាសាមញ្ញ ពិសោធន៍ដោយខ្លួនឯងបាន។', 'The Buddha\'s Teaching is the truth of life: what suffering is, why it arises, how it ends, and the path leading to its end. This site gathers the essence — from basic discipline to the profound Abhidhamma — explained in plain words you can verify yourself.') }}
+      {{ t('ព្រះធម៌របស់ព្រះសម្មាសម្ពុទ្ធ គឺជាការបង្រៀនពីការពិតនៃជីវិត ៖ អ្វីជាទុក្ខ (សេចក្តីលំបាក) ហេតុអ្វីទុក្ខកើតឡើង អ្វីជាការរលត់ទុក្ខ និងផ្លូវប្រតិបត្តិឆ្ពោះទៅកាន់សេចក្តីរំលត់ទុក្ខ។ វេបសាយនេះប្រមូលផ្តុំខ្លឹមសារសំខាន់ៗ ចាប់ពីធម៌វិន័យមូលដ្ឋាន រហូតដល់ព្រះអភិធម្មដ៏ជ្រៅ ពន្យល់ជាភាសាសាមញ្ញ ដែលអ្នកអាចសាកល្បងដោយខ្លួនឯងបាន។', 'The Buddha\'s Teaching is the truth of life: what suffering is, why it arises, how it ends, and the path leading to its end. This site gathers the essence — from basic discipline to the profound Abhidhamma — explained in plain words you can verify yourself.') }}
     </p>
 
     <!-- Three Jewels -->
@@ -23,7 +23,7 @@
     <!-- Tipitaka -->
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">{{ t('ព្រះត្រៃបិដក', 'THE TRIPITAKA') }}</p>
-      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ធម្មឃ្លាំងបី', 'Three Baskets of the Teaching') }}</h3>
+      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ព្រះត្រៃបិដក បីផ្នែក (ធម្មឃ្លាំងបី)', 'Three Baskets of the Teaching') }}</h3>
       <div class="grid md:grid-cols-3 gap-4 mt-5">
         <div v-for="b in baskets" :key="b.en" class="p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <span class="paali">{{ b.paali }}</span>
@@ -84,7 +84,7 @@ const { t, lang } = useLanguage()
 
 const jewels = [
   { icon: '☺', paali: 'BUDDHO', km: 'ព្រះពុទ្ធ', en: 'The Buddha', kmBody: 'ព្រះអង្គជាអ្នកត្រាស់ដឹងសេចក្តីពិត ដោយព្រះបញ្ញារបស់ព្រះអង្គផ្ទាល់។', enBody: 'The Awakened One who realised the truth by his own wisdom.' },
-  { icon: '☸', paali: 'DHAMMO', km: 'ព្រះធម៌', en: 'The Dhamma', kmBody: 'ពាក្យបង្រៀនដែលត្រាស់ទេសនា អ្នកត្រូវពិនិត្យ ពិចារណា ហើយបដិបត្តិតាម។', enBody: 'The teaching set forth — to be examined, considered, and practised.' },
+  { icon: '☸', paali: 'DHAMMO', km: 'ព្រះធម៌', en: 'The Dhamma', kmBody: 'ពាក្យបង្រៀនដែលត្រាស់ទេសនា — អ្នកត្រូវពិនិត្យពិចារណា ហើយបដិបត្តិតាម។', enBody: 'The teaching set forth — to be examined, considered, and practised.' },
   { icon: '♭', paali: 'SAMGHO', km: 'ព្រះសង្ឃ', en: 'The Sangha', kmBody: 'សំណាក់បដិបត្តិដ៏ត្រឹមត្រូវ ជាកុលសម្ពន្ធថ្លៃថ្លារបស់អ្នករកធម៌។', enBody: 'The community of noble practitioners — a precious refuge for the seeker.' },
 ]
 
@@ -95,24 +95,24 @@ const baskets = [
 ]
 
 const stats = [
-  { n: '89', lbl: 'ចិត្ត', lblEn: 'Citta' },
-  { n: '52', lbl: 'ចេតសិក', lblEn: 'Cetasika' },
-  { n: '28', lbl: 'រូប', lblEn: 'Rūpa' },
+  { n: '89', lbl: 'ចិត្ត (គំនិត)', lblEn: 'Citta' },
+  { n: '52', lbl: 'ចេតសិក (គុណចិត្ត)', lblEn: 'Cetasika' },
+  { n: '28', lbl: 'រូប (កាយរូបធាតុ)', lblEn: 'Rūpa' },
   { n: '7', lbl: 'គម្ពីរអភិធម្ម', lblEn: 'Abhidhamma Books' },
 ]
 
 const cittaGroups = [
-  { n: '54', km: 'កាមាវចរចិត្ត', en: 'Sense-sphere', kmBody: 'ចិត្តលោកិយកើតក្នុងលោកនៃអារម្មណ៍ទាំងប្រាំ', enBody: 'worldly consciousness bound to the five senses' },
-  { n: '15', km: 'រូបាវចរចិត្ត', en: 'Fine-material', kmBody: 'ចិត្តក្នុងឈានរូប', enBody: 'consciousness of the five fine-material jhānas' },
-  { n: '12', km: 'អរូបាវចរចិត្ត', en: 'Formless', kmBody: 'ចិត្តក្នុងឈានអរូប', enBody: 'consciousness of the four formless spheres' },
-  { n: '8', km: 'លោកុត្តរចិត្ត', en: 'Supramundane', kmBody: 'ចិត្តនៃមគ្គផល', enBody: 'path and fruition consciousness' },
+  { n: '54', km: 'កាមាវចរចិត្ត (ចិត្តក្នុងលោកអារម្មណ៍ ៥)', en: 'Sense-sphere', kmBody: 'ចិត្តលោកិយកើតក្នុងលោកនៃអារម្មណ៍ទាំងប្រាំ', enBody: 'worldly consciousness bound to the five senses' },
+  { n: '15', km: 'រូបាវចរចិត្ត (ចិត្តក្នុងរូបឈាន)', en: 'Fine-material', kmBody: 'ចិត្តក្នុងឈានរូប', enBody: 'consciousness of the five fine-material jhānas' },
+  { n: '12', km: 'អរូបាវចរចិត្ត (ចិត្តក្នុងអរូបឈាន)', en: 'Formless', kmBody: 'ចិត្តក្នុងឈានអរូប', enBody: 'consciousness of the four formless spheres' },
+  { n: '8', km: 'លោកុត្តរចិត្ត (ចិត្តនៃផ្លូវ-ផល)', en: 'Supramundane', kmBody: 'ចិត្តនៃមគ្គផល', enBody: 'path and fruition consciousness' },
 ]
 
 const explore = [
-  { to: '/core', num: '២', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ មគ្គ ៨ ត្រៃលក្ខណ៍', enBody: '4 Truths, 8 Path, 3 Marks' },
-  { to: '/abhidhamma', num: '៣', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត ចេតសិក រូប និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
-  { to: '/kamma', num: '៤', km: 'កម្មផល', en: 'Kamma & Rebirth', kmBody: 'កុសល អកុសល ភូមិ ៣១', enBody: 'Wholesome, unwholesome, 31 planes' },
-  { to: '/suttas', num: '៧', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ មេត្តា មង្គល', enBody: 'Dhammacakka, Metta, Mangala' },
+  { to: '/core', num: '២', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ (ការពិត ៤) · មគ្គ ៨ (ផ្លូវ ៨) · ត្រៃលក្ខណ៍ (លក្ខណៈ ៣)', enBody: '4 Truths, 8 Path, 3 Marks' },
+  { to: '/abhidhamma', num: '៣', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត · ចេតសិក (គុណចិត្ត) · រូប · និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
+  { to: '/kamma', num: '៤', km: 'កម្មផល', en: 'Kamma & Rebirth', kmBody: 'កុសល (ល្អ) · អកុសល (អាក្រក់) · ភូមិ ៣១', enBody: 'Wholesome, unwholesome, 31 planes' },
+  { to: '/suttas', num: '៧', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ (កងចក្រធម៌) · មេត្តា · មង្គល (ចម្រើន)', enBody: 'Dhammacakka, Metta, Mangala' },
 ]
 
 const chartRef = ref(null)

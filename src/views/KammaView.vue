@@ -13,7 +13,7 @@
     <div id="kusala-akusala" class="grid md:grid-cols-2 gap-6 mt-8 scroll-mt-24">
       <div class="card-paper p-6">
         <p class="chapter-label" style="color: var(--sage)">KUSALA</p>
-        <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('កុសលកម្មបថ ១០', '10 Wholesome Courses') }}</h3>
+        <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('សកម្មភាពល្អ ១០ ប្រភេទ (កុសលកម្មបថ)', '10 Wholesome Courses') }}</h3>
         <ul class="tick-list mt-3">
           <li v-for="k in kusala" :key="k.en">
             <strong :style="{ color: 'var(--ink)' }">{{ t(k.km, k.en) }}</strong>
@@ -24,7 +24,7 @@
       </div>
       <div class="card-paper p-6">
         <p class="chapter-label" style="color: var(--red)">AKUSALA</p>
-        <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('អកុសលកម្មបថ ១០', '10 Unwholesome Courses') }}</h3>
+        <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('អំពើអាក្រក់ ១០ ប្រភេទ (អកុសលកម្មបថ)', '10 Unwholesome Courses') }}</h3>
         <ul class="tick-list mt-3">
           <li v-for="k in akusala" :key="k.en">
             <strong :style="{ color: 'var(--ink)' }">{{ t(k.km, k.en) }}</strong>
@@ -81,7 +81,7 @@
         </details>
       </div>
       <div class="verse-box p-3 mt-5">
-        <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('ឱកាសកើតជាមនុស្សមានតម្លៃណាស់ — បានជួបធម៌ អាចបដិបត្តិ អាចរួចផុតពីវដ្ដ។', 'To be born human and meet the Dhamma is precious — one can practise and escape the round.') }}</p>
+        <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t('ឱកាសកើតជាមនុស្សមានតម្លៃណាស់ — បានជួបធម៌ អាចបដិបត្តិ អាចរួចផុតពីវដ្ដ (ការវិលវល់កើតស្លាប់)។', 'To be born human and meet the Dhamma is precious — one can practise and escape the round.') }}</p>
       </div>
     </div>
   </div>
@@ -97,36 +97,36 @@ function khNum(n) {
 }
 
 const kusala = [
-  { km: 'បាណាតិបាតា វេរមណី', en: 'Nothing that breathes', pl: 'not killing', plain: 'មិនសម្លាប់សត្វ — ឈប់បៀតបៀនជីវិតអ្នកដទៃ' },
-  { km: 'អទិន្នាទានា វេរមណី', en: 'Nothing that is not given', pl: 'not stealing', plain: 'មិនលួច — មិនយករបស់ដែលគេមិនបានឲ្យ' },
-  { km: 'កាមេសុមិច្ឆាចារា វេរមណី', en: 'Pure in love', pl: 'no sexual misconduct', plain: 'មិនក្បត់ក្នុងស្នេហា — មិនប្រព្រឹត្តខុសក្នុងកាម' },
-  { km: 'មុសាវាទា វេរមណី', en: 'True in speech', pl: 'not lying', plain: 'មិនភូតកុហក — ចេះនិយាយតែពាក្យពិត' },
-  { km: 'បិសុណាវាចា វេរមណី', en: 'Words that unite', pl: 'not slandering', plain: 'មិនក្រអឺតបង្កាច់ — មិននិយាយញុះញង់ឲ្យបែកបាក់' },
-  { km: 'ផរុសវាចា វេរមណី', en: 'Gentle words', pl: 'not speaking harshly', plain: 'មិននិយាយគ្រហឹម — ចេះនិយាយទន់ភ្លន់' },
-  { km: 'សម្ផប្បលាបា វេរមណី', en: 'Timely and useful', pl: 'not idle chatter', plain: 'មិននិយាយឥតប្រយោជន៍ — និយាយតែពេលសមគួរ' },
-  { km: 'អនភិជ្ឈា វេរមណី', en: 'An open hand', pl: 'non-covetousness', plain: 'មិនលោភលន់ចង់បានរបស់គេ — ចិត្តរំសាយស្រេកឃ្លាន' },
-  { km: 'អព្យាបាទ វេរមណី', en: 'Goodwill to all', pl: 'non-ill-will', plain: 'មិនព្យាបាទ — មានចិត្តមេត្តាចំពោះអ្នកដទៃ' },
-  { km: 'សម្មាទិដ្ឋិ', en: 'Right view', pl: 'seeing the truth', plain: 'គំនិតត្រឹមត្រូវ — ឃើញថា ធ្វើល្អបានល្អ ធ្វើអាក្រក់បានអាក្រក់' },
+  { km: 'មិនសម្លាប់សត្វ', en: 'Nothing that breathes', pl: 'បាណាតិបាតា វេរមណី · not killing', plain: 'ឈប់បៀតបៀនជីវិតអ្នកដទៃ — ចេះអាណិតមេត្តាសត្វដទៃ' },
+  { km: 'មិនលួច', en: 'Nothing that is not given', pl: 'អទិន្នាទានា វេរមណី · not stealing', plain: 'មិនយករបស់ដែលគេមិនបានឲ្យ — ចេះគោរពទ្រព្យសម្បត្តិអ្នកដទៃ' },
+  { km: 'មិនក្បត់ក្នុងស្នេហា', en: 'Pure in love', pl: 'កាមេសុមិច្ឆាចារា វេរមណី · no sexual misconduct', plain: 'មិនប្រព្រឹត្តខុសក្នុងកាម — រក្សាសេចក្តីស្មោះត្រង់ក្នុងគ្រួសារ' },
+  { km: 'មិនភូតកុហក', en: 'True in speech', pl: 'មុសាវាទា វេរមណី · not lying', plain: 'ចេះនិយាយតែពាក្យពិត — ដោយស្ងប់ ឥតក្លែង' },
+  { km: 'មិនញុះញង់', en: 'Words that unite', pl: 'បិសុណាវាចា វេរមណី · not slandering', plain: 'មិននិយាយដើមគេ ឲ្យបែកបាក់ — ចេះនិយាយភ្ជាប់មេត្រីភាព' },
+  { km: 'មិននិយាយគ្រហឹម', en: 'Gentle words', pl: 'ផរុសវាចា វេរមណី · not speaking harshly', plain: 'ចេះនិយាយទន់ភ្លន់ — ឥតបន្ទោសបង្អាប់អ្នកដទៃ' },
+  { km: 'មិននិយាយឥតប្រយោជន៍', en: 'Timely and useful', pl: 'សម្ផប្បលាបា វេរមណី · not idle chatter', plain: 'និយាយតែពេលសមគួរ — ពាក្យដែលមានប្រយោជន៍' },
+  { km: 'មិនលោភលន់', en: 'An open hand', pl: 'អនភិជ្ឈា វេរមណី · non-covetousness', plain: 'មិនចង់បានរបស់គេ — ចិត្តរំសាយស្រេកឃ្លាន' },
+  { km: 'មិនព្យាបាទ', en: 'Goodwill to all', pl: 'អព្យាបាទ វេរមណី · non-ill-will', plain: 'មានចិត្តមេត្តា ខន្តីចំពោះអ្នកដទៃ' },
+  { km: 'គំនិតត្រឹមត្រូវ', en: 'Right view', pl: 'សម្មាទិដ្ឋិ · seeing the truth', plain: 'ឃើញថា ធ្វើល្អបានល្អ ធ្វើអាក្រក់បានអាក្រក់' },
 ]
 
 const akusala = [
-  { km: 'បាណាតិបាត', en: 'Killing', pl: 'taking breath', plain: 'ការសម្លាប់សត្វ — កាប់ សម្លាប់ បៀតបៀនជីវិត' },
-  { km: 'អទិន្នាទាន', en: 'Stealing', pl: 'taking what is not given', plain: 'ការលួច — យករបស់ដែលគេមិនបានឲ្យ' },
-  { km: 'កាមេសុមិច្ឆាចារ', en: 'Sexual misconduct', pl: 'wrong in love', plain: 'ការប្រព្រឹត្តិខុសក្នុងកាមមិច្ឆាចារ — ក្បត់ស្នេហា ប្រព្រឹត្តផិតក្រៅ' },
-  { km: 'មុសាវាទ', en: 'Lying', pl: 'false speech', plain: 'ការភូតកុហក — និយាយពាក្យមិនពិត' },
-  { km: 'បិសុណាវាចា', en: 'Slander', pl: 'divisive speech', plain: 'ការញុះញង់ — និយាយដើមគេ ឲ្យបែកបាក់' },
-  { km: 'ផរុសវាចា', en: 'Harsh speech', pl: 'abusive words', plain: 'ការជេរប្រទេច — និយាយពាក្យគ្រហឹម អាក្រក់' },
-  { km: 'សម្ផប្បលាប', en: 'Idle chatter', pl: 'gossip, vain talk', plain: 'ការនិយាយឥតប្រយោជន៍ — ពាក្យអសារឥតការ' },
-  { km: 'អភិជ្ឈា', en: 'Covetousness', pl: 'greedy longing', plain: 'ការលោភលន់ — ចង់បានរបស់គេ ឥតឆ្អែត' },
-  { km: 'ព្យាបាទ', en: 'Ill-will', pl: 'wishing harm', plain: 'ការព្យាបាទ — ចិត្តខឹង ចង់ឲ្យអ្នកដទៃខូច' },
-  { km: 'មិច្ឆាទិដ្ឋិ', en: 'Wrong view', pl: 'denying the Dhamma', plain: 'គំនិតយល់ខុស — មិនជឿផលកម្ម មិនជឿធម៌' },
+  { km: 'ការសម្លាប់សត្វ', en: 'Killing', pl: 'បាណាតិបាត · taking breath', plain: 'កាប់ សម្លាប់ បៀតបៀនជីវិតសត្វដទៃ' },
+  { km: 'ការលួច', en: 'Stealing', pl: 'អទិន្នាទាន · taking what is not given', plain: 'យករបស់ដែលគេមិនបានឲ្យ — លួច ប្លន់ បោកបញ្ឆោត' },
+  { km: 'ការប្រព្រឹត្តិខុសក្នុងកាម', en: 'Sexual misconduct', pl: 'កាមេសុមិច្ឆាចារ · wrong in love', plain: 'ក្បត់ស្នេហា ប្រព្រឹត្តផិតក្រៅ' },
+  { km: 'ការភូតកុហក', en: 'Lying', pl: 'មុសាវាទ · false speech', plain: 'និយាយពាក្យមិនពិត — ប្រវ័ញ្ចភូតបំភាន់' },
+  { km: 'ការញុះញង់', en: 'Slander', pl: 'បិសុណាវាចា · divisive speech', plain: 'និយាយដើមគេ ឲ្យបែកបាក់' },
+  { km: 'ការជេរប្រទេច', en: 'Harsh speech', pl: 'ផរុសវាចា · abusive words', plain: 'និយាយពាក្យគ្រហឹម អាក្រក់ បន្ទោសបង្អាប់' },
+  { km: 'ការនិយាយឥតប្រយោជន៍', en: 'Idle chatter', pl: 'សម្ផប្បលាប · gossip, vain talk', plain: 'និយាយពាក្យអសារឥតការ — ឥតអត្ថន័យ' },
+  { km: 'ការលោភលន់', en: 'Covetousness', pl: 'អភិជ្ឈា · greedy longing', plain: 'ចង់បានរបស់គេ ឥតឆ្អែត' },
+  { km: 'ការព្យាបាទ', en: 'Ill-will', pl: 'ព្យាបាទ · wishing harm', plain: 'ចិត្តខឹង ចង់ឲ្យអ្នកដទៃខូច' },
+  { km: 'គំនិតយល់ខុស', en: 'Wrong view', pl: 'មិច្ឆាទិដ្ឋិ · denying the Dhamma', plain: 'មិនជឿផលកម្ម មិនជឿធម៌' },
 ]
 
 const roots = [
   { km: 'លោភៈ', en: 'Greed', pl: 'lobha', color: 'var(--red)', kmBody: 'ចង់បាន តោងតាមអារម្មណ៍', enBody: 'clinging desire' },
   { km: 'ទោសៈ', en: 'Aversion', pl: 'dosa', color: 'var(--red)', kmBody: 'ខឹងឆេវឆាវ ស្អប់', enBody: 'anger and hatred' },
   { km: 'មោហៈ', en: 'Delusion', pl: 'moha', color: 'var(--red)', kmBody: 'វង្វេង មិនយល់ពិត', enBody: 'blind confusion' },
-  { km: 'អលោភៈ', en: 'Non-greed', pl: 'alobha', color: 'var(--sage)', kmBody: 'ចំណាយដាច់ ថ្វាយចែក', enBody: 'generosity, letting go' },
+  { km: 'អលោភៈ', en: 'Non-greed', pl: 'alobha', color: 'var(--sage)', kmBody: 'ចិត្តមិនលោភ ចេះចែករំលែក និងឲ្យដោយស្ម័គ្រចិត្ត', enBody: 'generosity, letting go' },
   { km: 'អទោសៈ', en: 'Non-aversion', pl: 'adosa', color: 'var(--sage)', kmBody: 'មេត្តា អត់ឱន', enBody: 'loving-kindness, patience' },
   { km: 'អមោហៈ', en: 'Non-delusion', pl: 'amoha', color: 'var(--sage)', kmBody: 'បញ្ញាដឹងសេចក្តីពិត', enBody: 'wisdom seeing the truth' },
 ]
@@ -160,7 +160,7 @@ const planes = [
   {
     km: 'រូបាវចរព្រហ្មភូមិ', en: '16 Fine-material Brahma Planes', n: '16', base: 11, color: 'var(--blue)',
     kmBody: 'ភូមិព្រហ្មដែលនៅមានរូប ជាផលរបស់រូបជ្ឈានកុសល', enBody: 'fine-material realms, fruit of the rūpa-jhānas',
-    rootK: 'ឫសគល់៖ កើតដោយរូបជ្ឈានកុសល តាមកម្រិតស្រាល-មធ្យម-ខ្ពស់នៃសមាបត្តិនីមួយៗ។ សុទ្ធាវាស ៥ កើតបានតែចំពោះព្រះអនាគាមីប៉ុណ្ណោះ។', rootE: 'Root: rebirth by the fine-material jhānas at each level of attainment. The 5 Pure Abodes arise only for non-returners.',
+    rootK: 'ឫសគល់៖ កើតដោយរូបជ្ឈានកុសល តាមកម្រិតស្រាល-មធ្យម-ខ្ពស់នៃសមាបត្តិនីមួយៗ។ សុទ្ធាវាស ៥ (ឋានស្អាតសម្រាប់អ្នកបរិសុទ្ធ) កើតបានតែចំពោះព្រះអនាគាមី (អ្នកលែងវិលមកកើតក្នុងលោកកាមនេះ) ប៉ុណ្ណោះ។', rootE: 'Root: rebirth by the fine-material jhānas at each level of attainment. The 5 Pure Abodes arise only for non-returners.',
     list: [
       { km: 'ព្រហ្មបរិសជ្ជៈ', en: 'Assembly of Brahmā', pl: 'brahmaparisajjā', cK: 'ឈានទី ១ កម្រិតស្រាល។', cE: 'first jhāna, weak attainment.' },
       { km: 'ព្រហ្មបុរោហិតៈ', en: 'Ministers of Brahmā', pl: 'brahmapurohitā', cK: 'ឈានទី ១ កម្រិតកណ្តាល។', cE: 'first jhāna, medium attainment.' },

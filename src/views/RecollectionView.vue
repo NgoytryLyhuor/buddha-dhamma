@@ -84,13 +84,13 @@ const anussati = [
   { pl: 'UPASAMĀNUSSATI', km: 'រឭកដល់សេចក្តីស្ងប់', en: 'Recollection of Peace', kmBody: 'រឭកដល់និព្វាន ជាទីរំលត់ ទីស្ងប់។', enBody: 'Recalling Nibbāna, the stilling and the peace.' },
   { pl: 'MARANĀNUSSATI', km: 'រឭកដល់សេចក្តីស្លាប់', en: 'Recollection of Death', kmBody: 'រឭកថា ជីវិតមិនទៀង នឹងស្លាប់ ដើម្បីដាស់ខ្លួនធ្វើល្អ។', enBody: 'Reflecting that life is impermanent and ends in death, to rouse diligence.' },
   { pl: 'KĀYAGATĀSATI', km: 'រឭកក្នុងកាយ', en: 'Mindfulness of the Body', kmBody: 'ពិចារណានូវកាយ ឃើញសភាពពិត មិនស្អាត មិនទៀង។', enBody: 'Contemplating the body to see its real, impermanent nature.' },
-  { pl: 'ĀNĀPĀNĀNUSSATI', km: 'រឭកនឹងខ្យល់ដកដង្ហើម', en: 'Mindfulness of Breathing', kmBody: 'ដកដង្ហើមដឹងខ្លួន ជាធម៌សម្រាប់ធ្វើសមាធិ។', enBody: 'Mindful breathing, a basis for concentration.' },
+  { pl: 'ĀNĀPĀNĀNUSSATI', km: 'រឭកនឹងខ្យល់ដកដង្ហើម', en: 'Mindfulness of Breathing', kmBody: 'ដកដង្ហើមដឹងខ្លួន ជាធម៌សម្រាប់ធ្វើសមាធិ (ការហ្វឹកហាត់ចិត្តឲ្យស្ងប់)។', enBody: 'Mindful breathing, a basis for concentration.' },
 ]
 
 const five = [
-  { km: 'ខ្ញុំមានសភាពចាស់ទៅជាមិនរួច', en: 'I am subject to ageing', kmBody: 'វ័យចំណាស់ មកមិនរួចពីអ្នកណាឡើយ។', enBody: 'ageing cannot be escaped by anyone.' },
-  { km: 'ខ្ញុំមានសភាពឈឺទៅជាមិនរួច', en: 'I am subject to sickness', kmBody: 'ជំងឺ ជាធម្មតារបស់កាយ។', enBody: 'sickness is natural to the body.' },
-  { km: 'ខ្ញុំមានសភាពស្លាប់ទៅជាមិនរួច', en: 'I am subject to death', kmBody: 'ជីវិត បញ្ចប់ដោយសេចក្តីស្លាប់។', enBody: 'life ends in death.' },
+  { km: 'ខ្ញុំមិនអាចរួចពីការចាស់បានឡើយ', en: 'I am subject to ageing', kmBody: 'វ័យចំណាស់ មកមិនរួចពីអ្នកណាឡើយ។', enBody: 'ageing cannot be escaped by anyone.' },
+  { km: 'ខ្ញុំមិនអាចរួចពីការឈឺបានឡើយ', en: 'I am subject to sickness', kmBody: 'ជំងឺ ជាធម្មតារបស់កាយ។', enBody: 'sickness is natural to the body.' },
+  { km: 'ខ្ញុំមិនអាចរួចពីការស្លាប់បានឡើយ', en: 'I am subject to death', kmBody: 'ជីវិត បញ្ចប់ដោយសេចក្តីស្លាប់។', enBody: 'life ends in death.' },
   { km: 'អ្វីៗដែលជាទីស្រឡាញ់ ជាទីគាប់ចិត្ត មានការបែកព្រាត់ជាធម្មតា', en: 'All I love must part', kmBody: 'របស់ស្រឡាញ់ ចេះតែបែកព្រាត់។', enBody: 'what is loved is bound to separate.' },
   { km: 'ខ្ញុំជាកម្មសិទ្ធិរបស់កម្ម', en: 'I am the owner of my deeds', kmBody: 'កម្មល្អ កម្មអាក្រក់ តាមខ្លួនទៅ ។', enBody: 'good and bad deeds follow me.' },
 ]

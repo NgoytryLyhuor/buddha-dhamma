@@ -13,7 +13,7 @@
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">PIṬAKA — NIKĀYA</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ព្រះសុត្តន្តបិដក មាន ៥ និកាយ', 'The Sutta Piṭaka has Five Nikāyas') }}</h3>
-      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('បុរាណវាចារ្យបានចែកព្រះសូត្រទាំងអស់ ជា ៥ កម្រង (និកាយ) តាមប្រវែង និងប្រធាន — នេះជាផែនទី ដើម្បីដឹងថាសូត្រនីមួយៗ មកពីកន្លែងណា។', 'The ancient teachers grouped all the suttas into five collections (nikāyas) by length and theme — use this as a map of where each sutta comes from.') }}</p>
+      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t('លោកអ្នកប្រាជ្ញបុរាណបានចែកព្រះសូត្រទាំងអស់ ជា ៥ កម្រង (និកាយ) តាមប្រវែង និងប្រធាន — នេះជាផែនទី ដើម្បីដឹងថាសូត្រនីមួយៗ មកពីកន្លែងណា។', 'The ancient teachers grouped all the suttas into five collections (nikāyas) by length and theme — use this as a map of where each sutta comes from.') }}</p>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-5">
         <div v-for="n in nikayas" :key="n.en" class="p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <span class="paali">{{ n.pl }}</span>
@@ -109,13 +109,13 @@ const suttas = [
   {
     ref: 'SN 56.11', paali: 'DHAMMA·CAKKAPPAVATTANA',
     km: 'ធម្មចក្កប្បវត្តនសូត្រ', en: 'Setting the Wheel of Dhamma in Motion',
-    bgK: 'ក្រោយត្រាស់ដឹងក្រោមដើមពោធិព្រឹក្ស ព្រះពុទ្ធទ្រង់យាងទៅឥសិបតនមិគទាយវ័ន ក្បែរក្រុងពារាណសី ហើយត្រាស់ព្រះធម្មទេសនាដំបូងនេះ ដល់ពួកបញ្ចវគ្គិយ ៥ អង្គ គឺ កុណ្ឌញ្ញៈ វប្បៈ ភទ្ទិយៈ មហានាមៈ អស្សជិៈ។',
+    bgK: 'ក្រោយត្រាស់ដឹងក្រោមដើមពោធិព្រឹក្ស ព្រះពុទ្ធទ្រង់យាងទៅឥសិបតនមិគទាយវ័ន ក្បែរក្រុងពារាណសី ហើយត្រាស់ព្រះធម្មទេសនាដំបូងនេះ ដល់អ្នកបួសប្រាំនាក់ដំបូង (បញ្ចវគ្គិយ) គឺ កុណ្ឌញ្ញៈ វប្បៈ ភទ្ទិយៈ មហានាមៈ អស្សជិៈ។',
     bgE: 'After his awakening beneath the bodhi tree, the Buddha walked to the Deer Park at Isipatana near Benares and gave this first sermon to the five ascetics — Kondañña, Vappa, Bhaddiya, Mahānāma and Assaji.',
     list: [
       { km: 'អន្តៈ ២ ដែលអ្នកបួសមិនគួរប្រព្រឹត្ត៖ ការជាប់ជំពាក់នឹងកាមសុខ និងការធ្វើទុក្ខដាក់ខ្លួនឯង។', en: 'Two extremes a renunciant should avoid: indulgence in sensual pleasures, and self-mortification.' },
       { km: 'ផ្លូវកណ្តាល — មគ្គ ៨ អង្គ ដែលព្រះតថាគតបានត្រាស់ដឹង ហើយបដិបត្តិ។', en: 'The Middle Way — the eightfold path, realized and practised by the Tathāgata.' },
       { km: 'អរិយសច្ច ៤៖ ទុក្ខ សមុទយ និរោធ មគ្គ។', en: 'The Four Noble Truths: suffering, its origin, its cessation, and the path.' },
-      { km: 'ដំណកនៃញ្ញាណ ៣ ជុំ (ទ្វាទសាការ ១២)៖ ដឹងសច្ចៈ កិច្ចដែលត្រូវធ្វើ និងកិច្ចដែលបានធ្វើហើយ។', en: 'The three rounds of knowledge (twelve modes): knowing each truth, the task it demands, and the task accomplished.' },
+      { km: 'ដំណកនៃញ្ញាណ ៣ ជុំ (១២ បែប)៖ ដឹងសច្ចៈ កិច្ចដែលត្រូវធ្វើ និងកិច្ចដែលបានធ្វើហើយ។', en: 'The three rounds of knowledge (twelve modes): knowing each truth, the task it demands, and the task accomplished.' },
       { km: 'ទេសនាចប់ អញ្ញាកុណ្ឌញ្ញៈ បានសម្រេចសោតាបត្តិផល — ព្រះធម្មចក្រ ក៏បានប្រព្រឹត្តទៅក្នុងលោក។', en: 'At the end, Kondañña attained stream-entry — the wheel of Dhamma had been set rolling.' },
     ],
     raw: 'ទ្វេ ខោ មេ ភិក្ខវេ អន្តា បព្វជិតេន ន សេវិតព្ពា ។ កាមេសុ កាមសុខល្លិកានុយោគោ ហីនោ គម្មោ បុថុជ្ជនិកោ អនរិយោ អនត្ថសំហិតោ; អត្តកិលមថានុយោគោ ទុក្ខោ អនរិយោ អនត្ថសំហិតោ ។',
@@ -152,7 +152,7 @@ const suttas = [
       { km: 'ដូចម្តាយការពារកូនតែមួយ យ៉ាងណា ចូរបណ្តុះចិត្តបរិបូរដល់សត្វទាំងអស់ យ៉ាងនោះ។', en: 'As a mother guards her only child with her life, so let one develop a boundless heart toward all beings.' },
       { km: 'ផ្សាយទៅទិសទាំង ៦ — លើ ក្រោម ជុំវិញ — ដោយឥតសត្រូវ ឥតកំហឹង ឥតព្យាបាទ។', en: 'Radiate to all six directions — above, below, all around — without enmity, anger or ill-will.' },
       { km: 'គួរបួងសួងឲ្យសត្វទាំងឡាយ បានសុខសប្បាយ សុខទាំងកាយ ទាំងចិត្ត។', en: 'Wishing all beings be well — secure, and at ease in body and mind.' },
-      { km: 'អ្នកបណ្តុះមេត្តា រមែងបានអនិសង្ស ១១ ប្រការ — ១) គេងលក់ស្រួល ២) ភ្ញាក់រីករាយ ៣) មិនសុបិន្តអាក្រក់ ៤) មនុស្សរាប់អានស្រឡាញ់ ៥) អមនុស្ស រាប់អាន ៦) ទេវតារក្សា ៧) ភ្លើង ពិស គ្រឿងអាវុធ មិនប៉ះពាល់ ៨) ចិត្តតាំងសមាធិបានឆាប់ ៩) មុខភ្លឺថ្លា ១០) ស្លាប់មិនភ័ន្តស្មារតី ១១) កើតក្នុងព្រហ្មលោក។', en: 'Cultivating mettā brings eleven blessings — 1) sleeping well, 2) waking happily, 3) no bad dreams, 4) loved by humans, 5) loved by non-humans, 6) guarded by devas, 7) fire, poison and weapons cannot harm, 8) quick concentration of mind, 9) a serene bright face, 10) dying unconfused, 11) rebirth in the Brahma realm.' },
+      { km: 'អ្នកបណ្តុះមេត្តា រមែងបានអនិសង្ស (ផលប្រយោជន៍) ១១ ប្រការ — ១) គេងលក់ស្រួល ២) ភ្ញាក់រីករាយ ៣) មិនសុបិន្តអាក្រក់ ៤) មនុស្សរាប់អានស្រឡាញ់ ៥) អមនុស្ស រាប់អាន ៦) ទេវតារក្សា ៧) ភ្លើង ពិស គ្រឿងអាវុធ មិនប៉ះពាល់ ៨) ចិត្តតាំងសមាធិបានឆាប់ ៩) មុខភ្លឺថ្លា ១០) ស្លាប់មិនភ័ន្តស្មារតី ១១) កើតក្នុងព្រហ្មលោក។', en: 'Cultivating mettā brings eleven blessings — 1) sleeping well, 2) waking happily, 3) no bad dreams, 4) loved by humans, 5) loved by non-humans, 6) guarded by devas, 7) fire, poison and weapons cannot harm, 8) quick concentration of mind, 9) a serene bright face, 10) dying unconfused, 11) rebirth in the Brahma realm.' },
     ],
     raw: 'មាតា យថា និយំ បុត្តំ អាយុសា ឯកបុត្តមនុរក្ខេ ឯវម្បិ សព្វភូតេសុ មានសម្ភាវេយ្យ អបរិមាណំ ។',
     pali: 'Mātā yathā niyaṃ puttaṃ, āyusā ekaputtamanurakkhe; evampi sabbabhūtesu, mānasaṃ bhāvaye aparimāṇaṃ.',
@@ -272,10 +272,10 @@ const suttas = [
     bgE: 'A detailed manual of insight practice — the Buddha declared it the one direct path for cleansing beings, overcoming sorrow, and realizing Nibbāna.',
     list: [
       { km: 'អេកាយនោ មគ្គោ (ផ្លូវតែមួយ ផ្លូវត្រង់) — បន្សុទ្ធសត្វ កន្លងសោកសង្រេង វិនាសទុក្ខ-ទោមនស្ស បានញាណ សម្រេចនិព្វាន។', en: 'The one direct path — purifying beings, overcoming sorrow and lamentation, destroying pain and grief, attaining knowledge and Nibbāna.' },
-      { km: 'កាយានុបស្សនា៖ ដង្ហើម ឥរិយាបថ ៤ សម្បជញ្ញៈ សមាសភាគកាយ ៣២ ធាតុ ៤ និងស្មូនសព ៩ យ៉ាង។', en: 'Contemplation of body: the breath, four postures, clear comprehension, thirty-two parts, four elements, nine charnel-ground contemplations.' },
-      { km: 'វេទនានុបស្សនា៖ វេទនា សុខ ទុក្ខ កណ្តាល — ក៏កើត ក៏រលត់ ឃើញច្បាស់។', en: 'Contemplation of feeling: pleasant, painful, neutral feelings — clearly seen as they arise and vanish.' },
-      { km: 'ចិត្តានុបស្សនា៖ សភាពចិត្ត — មានរាគៈ ឬ គ្មាន ស្ងប់ ឬ រាយមាយ — ដឹងច្បាស់។', en: 'Contemplation of mind: states with or without lust, steady or scattered — all clearly known.' },
-      { km: 'ធម្មានុបស្សនា៖ នីវរណៈ ៥ ខន្ធ ៥ អាយតនៈ ១២ ពោជ្ឈង្គ ៧ អរិយសច្ច ៤ — ដឹងកើត-រលត់។', en: 'Contemplation of dhammas: five hindrances, five aggregates, twelve sense bases, seven awakening factors, Four Noble Truths — watched as they arise and pass.' },
+      { km: 'កាយានុបស្សនា (មើលកាយ)៖ ដង្ហើម ឥរិយាបថ ៤ សម្បជញ្ញៈ សមាសភាគកាយ ៣២ ធាតុ ៤ និងស្មូនសព ៩ យ៉ាង។', en: 'Contemplation of body: the breath, four postures, clear comprehension, thirty-two parts, four elements, nine charnel-ground contemplations.' },
+      { km: 'វេទនានុបស្សនា (មើលអារម្មណ៍)៖ វេទនា សុខ ទុក្ខ កណ្តាល — ក៏កើត ក៏រលត់ ឃើញច្បាស់។', en: 'Contemplation of feeling: pleasant, painful, neutral feelings — clearly seen as they arise and vanish.' },
+      { km: 'ចិត្តានុបស្សនា (មើលចិត្ត)៖ សភាពចិត្ត — មានរាគៈ ឬ គ្មាន ស្ងប់ ឬ រាយមាយ — ដឹងច្បាស់។', en: 'Contemplation of mind: states with or without lust, steady or scattered — all clearly known.' },
+      { km: 'ធម្មានុបស្សនា (មើលធម៌)៖ នីវរណៈ ៥ ខន្ធ ៥ អាយតនៈ ១២ ពោជ្ឈង្គ ៧ អរិយសច្ច ៤ — ដឹងកើត-រលត់។', en: 'Contemplation of dhammas: five hindrances, five aggregates, twelve sense bases, seven awakening factors, Four Noble Truths — watched as they arise and pass.' },
     ],
     raw: 'អេកាយនោ អាយស្មន្តោ មគ្គោ សត្តានំ វិសុទ្ធិយា សោកបរិទេវានំ សមតិក្កមាយ ទុក្ខទោមនស្សានំ អត្ថង្គមាយ ញាយស្ស អធិគមាយ និព្វានស្ស សច្ឆិកិរិយាយ យទិទំ ចត្តារោ សតិប្បដ្ឋានា ។',
     pali: 'Ekāyano ayaṃ, bhikkhave, maggo sattānaṃ visuddhiyā, sokaparidevānaṃ samatikkamāya, dukkhadomanassānaṃ atthaṅgamāya, ñāyassa adhigamāya, nibbānassa sacchikiriyāya, yadidaṃ cattāro satipaṭṭhānā.',

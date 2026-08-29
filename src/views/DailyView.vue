@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ព្រះធម៌ មិនមែនសម្រាប់ទុកតែក្នុងវត្ត ឬសម្រាប់ត្រិះរិះតែប៉ុណ្ណោះ ។ អ្នកផ្ទះអាចអនុវត្តបាន រាល់ថ្ងៃ ក្នុងជីវិតប្រចាំថ្ងៃ ដោយចាប់ផ្តើមពីការតាំងចិត្ត កាន់សីល ៥ ធ្វើទាន និងពិចារណាខ្លួន នៅពេលព្រឹក ពេលថ្ងៃ និងពេលល្ងាច ។', 'The Dhamma is not meant to stay only in the temple, nor only for quiet thought. Lay people can practise every single day in ordinary life — by making a resolve, keeping the five precepts, giving, and reflecting on oneself in the morning, during the day, and in the evening.') }}
+      {{ t('ព្រះធម៌ មិនមែនសម្រាប់ទុកតែក្នុងវត្ត ឬសម្រាប់ត្រិះរិះតែប៉ុណ្ណោះ ។ អ្នកផ្ទះអាចអនុវត្តបាន រាល់ថ្ងៃ ក្នុងជីវិតប្រចាំថ្ងៃ ដោយចាប់ផ្តើមពីការតាំងចិត្ត កាន់សីល ៥ ធ្វើទាន និងពិចារណាខ្លួន នៅពេលព្រឹក ពេលថ្ងៃ និងពេលល្ងាច ។ នេះហើយជាបដិបត្តិ (ការហាត់រៀនតាមធម៌) ប្រចាំថ្ងៃ ។', 'The Dhamma is not meant to stay only in the temple, nor only for quiet thought. Lay people can practise every single day in ordinary life — by making a resolve, keeping the five precepts, giving, and reflecting on oneself in the morning, during the day, and in the evening.') }}
     </p>
 
     <!-- early morning -->
@@ -26,13 +26,13 @@
         <li>
           <strong :style="{ color: 'var(--ink)' }">{{ t('ថ្វាយបង្គំព្រះរតនត្រ័យ', 'Honour the Three Jewels') }}</strong>
           <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('រំលឹកដល់ព្រះពុទ្ធ ព្រះធម៌ ព្រះសង្ឃ ដោយគោរពវន្ទា បីដង ដើម្បីឲ្យចិត្តជ្រះថ្លា កើតសទ្ធា ។', 'Recall the Buddha, the Dhamma, and the Saṅgha with a respectful bow three times, so the mind becomes clear and faith arises.') }}
+            {{ t('រំលឹកដល់ព្រះពុទ្ធ ព្រះធម៌ ព្រះសង្ឃ ដោយគោរពក្រាបវន្ទា (ក្រាបថ្វាយបង្គំ) បីដង ដើម្បីឲ្យចិត្តជ្រះថ្លា កើតសទ្ធា (សេចក្តីជឿដ៏បរិសុទ្ធ) ។', 'Recall the Buddha, the Dhamma, and the Saṅgha with a respectful bow three times, so the mind becomes clear and faith arises.') }}
           </p>
         </li>
         <li>
           <strong :style="{ color: 'var(--ink)' }">{{ t('បាច់ទឹក ឬឲ្យទានបាយ', 'Offer water or rice') }}</strong>
           <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('បាច់ទឹកព្រឹក ឬឲ្យទានបាយ ក្នុងបំណងបដិបត្តិត្រឹមត្រូវ និងសង្ឃដល់បុណ្យដល់អ្នកមានគុណ និងអ្នកចែកឋាន ។', 'Offer morning water or rice, dedicating it to right practice and sharing the merit with benefactors and the departed.') }}
+            {{ t('បាច់ទឹកព្រឹក ឬឲ្យទានបាយ ក្នុងបំណងបដិបត្តិត្រឹមត្រូវ និងឧទ្ទិសបុណ្យ (ចែកបុណ្យ) ដល់អ្នកមានគុណ និងអ្នកចែកឋាន ។', 'Offer morning water or rice, dedicating it to right practice and sharing the merit with benefactors and the departed.') }}
           </p>
         </li>
       </ul>
@@ -107,7 +107,7 @@
         <li>
           <strong :style="{ color: 'var(--ink)' }">{{ t('ទទួលស្គាល់កំហុស', 'Acknowledge faults') }}</strong>
           <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('បើមានកំហុស ទទួលស្គាល់ ហើយតាំងចិត្តកែតម្រង់ នៅថ្ងៃស្អែក គឺជាបញ្ញានៃអ្នកបដិបត្តិ ។', 'If there were faults, acknowledge them and resolve to correct them tomorrow — that is the wisdom of one who practises.') }}
+            {{ t('បើមានកំហុស ទទួលស្គាល់ ហើយតាំងចិត្តកែតម្រង់ នៅថ្ងៃស្អែក គឺជាបញ្ញា (ប្រាជ្ញា) របស់អ្នកបដិបត្តិ ។', 'If there were faults, acknowledge them and resolve to correct them tomorrow — that is the wisdom of one who practises.') }}
           </p>
         </li>
         <li>
@@ -124,7 +124,7 @@
       <p class="chapter-label">AṬṬHASĪLA — អដ្ឋសីល</p>
       <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('សីល ៨ នៅថ្ងៃសីល', 'The Eight Precepts on Observance Days') }}</h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('ថ្ងៃសីល (ថ្ងៃសីល ៤ ថ្ងៃ ក្នុងមួយខែ) អ្នកកាន់សីល ៨ បាន ទៅវត្ត ស្តាប់ធម៌ បដិបត្តិឲ្យធ្ងន់ជាងធម្មតា ។ សីល ៨ គឺ សីល ៥ បន្ថែម ៣ ទៀត ។', 'On uposatha (observance) days, four times a month, those who can keep the eight precepts go to the temple, hear the Dhamma, and practise more strictly than usual. The eight precepts are the five, plus three more.') }}
+        {{ t('ថ្ងៃសីល (ហៅថា ថ្ងៃឧបោសថ មាន ៤ ថ្ងៃ ក្នុងមួយខែ) អ្នកណាកាន់សីល ៨ បាន ទៅវត្ត ស្តាប់ធម៌ បដិបត្តិឲ្យធ្ងន់ជាងធម្មតា ។ សីល ៨ គឺ សីល ៥ បន្ថែម ៣ ទៀត ។', 'On uposatha (observance) days, four times a month, those who can keep the eight precepts go to the temple, hear the Dhamma, and practise more strictly than usual. The eight precepts are the five, plus three more.') }}
       </p>
       <ul class="tick-list mt-4">
         <li v-for="(e, i) in athasila" :key="e.en">
@@ -134,7 +134,7 @@
       </ul>
       <div class="verse-box p-4 mt-5">
         <p class="text-sm" :style="{ color: 'var(--ink-soft)' }">
-          {{ t('ការកាន់សីល ៨ ជួយឲ្យចិត្តស្ងប់ កៀកនឹងបដិបត្តិរបស់ព្រះសង្ឃ ក្នុងថ្ងៃសីល ។', 'Keeping the eight precepts calms the mind and brings lay people close to the practice of the monks on observance days.') }}
+          {{ t('ការកាន់សីល ៨ ជួយឲ្យចិត្តស្ងប់ កៀកនឹងបដិបត្តិរបស់ព្រះសង្ឃ នៅថ្ងៃសីល ។', 'Keeping the eight precepts calms the mind and brings lay people close to the practice of the monks on observance days.') }}
         </p>
       </div>
     </div>
@@ -165,7 +165,7 @@ function khNum(n) {
 const sila = [
   { km: 'មិនសម្លាប់សត្វ', en: 'Not to take life', kmBody: 'ការកាន់សីល ១ ធ្វើឲ្យចិត្តមានមេត្តា ករុណា នឹងសត្វលោកទាំងពួង ។', enBody: 'Refraining from killing all creatures cultivates kindness and compassion.' },
   { km: 'មិនលួចទ្រព្យអ្នកដទៃ', en: 'Not to take what is not given', kmBody: 'ការមិនលួច ធ្វើឲ្យជីវិតមានសុវត្ថិភាព និងសេចក្តីទុកចិត្ត ។', enBody: 'Refraining from stealing brings security and trust in life.' },
-  { km: 'មិនប្រព្រឹត្តខុសក្នុងកាម', en: 'Not to commit sexual misconduct', kmBody: 'ការមានសីលក្នុងកាម រក្សាសុខ និងសេចក្តីសុខសាន្តរបស់គ្រួសារ ។', enBody: 'Sexual restraint protects the happiness and harmony of families.' },
+  { km: 'មិនប្រព្រឹត្តខុសក្នុងកាម', en: 'Not to commit sexual misconduct', kmBody: 'ការអាណិតអាសូរគ្នាក្នុងកាម (សីលកាម) រក្សាសុខ និងសេចក្តីសុខសាន្តរបស់គ្រួសារ ។', enBody: 'Sexual restraint protects the happiness and harmony of families.' },
   { km: 'មិននិយាយកុហក', en: 'Not to speak falsely', kmBody: 'ការនិយាយពិត ធ្វើឲ្យគេទុកចិត្ត និងឲ្យចិត្តខ្លួនឯងស្ងប់ ។', enBody: 'Speaking truth brings the trust of others and peace to one\u2019s own mind.' },
   { km: 'មិនផឹកស្រា គ្រឿងញៀន ដែលធ្វើឲ្យវង្វេងស្មារតី', en: 'Not to take intoxicants that cloud the mind', kmBody: 'ការមិនផឹកស្រា ការពារកុំឲ្យសីល ៤ មុន ខូច និងរក្សាសតិ ។', enBody: 'Refraining from intoxicants protects the other precepts and preserves mindfulness.' },
 ]
@@ -178,9 +178,9 @@ const athasila = [
 ]
 
 const festivals = [
-  { km: 'មាឃបូជា (ថ្ងៃពេញបូណ៌មី ខែមាឃ)', en: 'Māgha Pūjā', kmBody: 'រំលឹកថ្ងៃព្រះសង្ឃ ១២៥០ អង្គ មកជួបព្រះពុទ្ធដោយឥតភ្ចាក់ ហើយព្រះអង្គប្រកាសឱវាទបាតិមោក្ខ ថា «កុំធ្វើបាប ចម្រើនកុសល សម្អាតចិត្ត» ។', enBody: 'recalling the day 1,250 arahants gathered before the Buddha, who proclaimed the ovāda-pātimokkha: "Do no evil, do good, purify the mind."' },
-  { km: 'វិសាខបូជា (ខែពិសាខ)', en: 'Vesākha Pūjā', kmBody: 'រំលឹក ៣ ថ្ងៃសំខាន់ ក្នុងមួយថ្ងៃតែមួយ៖ ព្រះពុទ្ធប្រសូត ត្រាស់ដឹង និងបរិនិព្វាន ។', enBody: 'the one day recalling the Buddha\u2019s birth, enlightenment, and final passing.' },
-  { km: 'អាសាឡ្ហបូជា (ខែអាសាឍ)', en: 'Āsāḷha Pūjā', kmBody: 'រំលឹកថ្ងៃព្រះពុទ្ធប្រកាសធម្មចក្កប្បវត្តនសូត្រ ជាលើកដំបូង ដល់បញ្ចវគ្គិយ ។ ហើយជាថ្ងៃចាប់ផ្តើមព្រះវស្សា ។', enBody: 'recalling the first sermon of the Dhamma-cakka to the five ascetics; it also begins the rainy retreat.' },
+  { km: 'មាឃបូជា (ថ្ងៃពេញបូណ៌មី ខែមាឃ)', en: 'Māgha Pūjā', kmBody: 'រំលឹកថ្ងៃព្រះសង្ឃ ១២៥០ អង្គ មកជួបព្រះពុទ្ធដោយឥតភ្ចាក់ (មិនបាច់គេកោះហៅ) ហើយព្រះអង្គប្រកាសឱវាទបាតិមោក្ខ (គោលសំខាន់ប្រចាំសាសនា) ថា «កុំធ្វើបាប ចម្រើនកុសល សម្អាតចិត្ត» ។', enBody: 'recalling the day 1,250 arahants gathered before the Buddha, who proclaimed the ovāda-pātimokkha: "Do no evil, do good, purify the mind."' },
+  { km: 'វិសាខបូជា (ខែពិសាខ)', en: 'Vesākha Pūjā', kmBody: 'រំលឹកព្រឹត្តិការណ៍ធំៗ ៣ យ៉ាង ដែលកើតនៅថ្ងៃតែមួយ៖ ព្រះពុទ្ធប្រសូត ត្រាស់ដឹង និងបរិនិព្វាន ។', enBody: 'the one day recalling the Buddha\u2019s birth, enlightenment, and final passing.' },
+  { km: 'អាសាឡ្ហបូជា (ខែអាសាឍ)', en: 'Āsāḷha Pūjā', kmBody: 'រំលឹកថ្ងៃព្រះពុទ្ធប្រកាសធម្មចក្កប្បវត្តនសូត្រ (ធម៌ទីមួយ បង្វិលកងធម៌) ជាលើកដំបូង ដល់បញ្ចវគ្គិយ (ពួកស្មូម ៥ នាក់) ។ ហើយជាថ្ងៃចាប់ផ្តើមព្រះវស្សា ។', enBody: 'recalling the first sermon of the Dhamma-cakka to the five ascetics; it also begins the rainy retreat.' },
   { km: 'ព្រះវស្សា (បីខែរដូវភ្លៀង)', en: 'Vassa — the Rainy Retreat', kmBody: 'ព្រះសង្ឃស្នាក់នៅក្នុងវត្ត បីខែ ចម្រើនបដិបត្តិ; អ្នកផ្ទះជួយធ្វើទាន ។', enBody: 'monks stay in the temple for three months devoting themselves to practice; lay people supports them.' },
   { km: 'កឋិនទាន (ចុងព្រះវស្សា)', en: 'Kaṭhina — Robe Offering', kmBody: 'អ្នកផ្ទះថ្វាយចីវរកឋិន ដល់ព្រះសង្ឃ បន្ទាប់ពីព្រះវស្សា ជាបុណ្យធំទូលាយ ។', enBody: 'lay people offer the kaṭhina robe to the monks after the retreat — a great and joyful merit.' },
 ]

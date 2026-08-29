@@ -6,7 +6,7 @@
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('សីល គឺជាច្បាប់ហ្វឹកហាត់ឲ្យកាយ វាចា ចិត្ត បរិសុទ្ធ។ ដូចផ្ទះត្រូវការគ្រឹះ ផ្លូវធម៌ត្រូវការសីលជាមុនសិន ទើបសមាធិ បញ្ញា កើតឡើងបាន។', 'Sīla is the training that keeps body, speech and mind pure. As a house needs a foundation, the path needs virtue first — only then can concentration and wisdom grow.') }}
+      {{ t('សីល (សេចក្តីវិន័យនៃកាយវាចា) គឺជាច្បាប់ហ្វឹកហាត់ឲ្យកាយ វាចា ចិត្ត បរិសុទ្ធ។ ដូចផ្ទះត្រូវការគ្រឹះ ផ្លូវធម៌ត្រូវការសីលជាមុនសិន ទើបសមាធិ (ការតម្កល់ចិត្ត) បញ្ញា (ប្រាជ្ញា) កើតឡើងបាន។', 'Sīla is the training that keeps body, speech and mind pure. As a house needs a foundation, the path needs virtue first — only then can concentration and wisdom grow.') }}
     </p>
 
     <!-- 5 precepts -->
@@ -72,12 +72,12 @@ const precepts = [
 const parami = [
   { pl: 'Dāna', km: 'ទាន', en: 'Giving', kmBody: 'ចែករំលែកដោយសេរី', enBody: 'generosity without strings' },
   { pl: 'Sīla', km: 'សីល', en: 'Virtue', kmBody: 'រក្សាកាយវាចាឲ្យស្អាត', enBody: 'purity of conduct' },
-  { pl: 'Nekkhamma', km: 'នេក្ខម្ម', en: 'Renunciation', kmBody: 'លះបង់តណ្ហា', enBody: 'letting go of craving' },
+  { pl: 'Nekkhamma', km: 'នេក្ខម្ម', en: 'Renunciation', kmBody: 'លះបង់តណ្ហា ចេញពីផ្ទះ', enBody: 'letting go of craving' },
   { pl: 'Paññā', km: 'បញ្ញា', en: 'Wisdom', kmBody: 'យល់ពិតយល់ត្រូវ', enBody: 'seeing things as they are' },
   { pl: 'Viriya', km: 'វិរិយៈ', en: 'Energy', kmBody: 'ព្យាយាមឥតឈប់', enBody: 'strenuous effort' },
   { pl: 'Khantī', km: 'ខន្តី', en: 'Patience', kmBody: 'អត់ឱនទ្រាំទ្រ', enBody: 'endurance and forbearance' },
   { pl: 'Sacca', km: 'សច្ចៈ', en: 'Truthfulness', kmBody: 'ស្មោះត្រង់ពាក្យពិត', enBody: 'honesty in word and deed' },
-  { pl: 'Adhiṭṭhāna', km: 'អធិដ្ឋាន', en: 'Determination', kmBody: 'តាំងចិត្តរឹងមាំចំពោះអំពើល្អ', enBody: 'resolute commitment' },
+  { pl: 'Adhiṭṭhāna', km: 'អធិដ្ឋាន', en: 'Determination', kmBody: 'តាំងចិត្តរឹងមាំ ចំពោះអំពើល្អ', enBody: 'resolute commitment' },
   { pl: 'Mettā', km: 'មេត្តា', en: 'Loving-kindness', kmBody: 'រាប់អានសត្វទាំងអស់', enBody: 'well-wishing toward all' },
   { pl: 'Upekkhā', km: 'ឧបេក្ខា', en: 'Equanimity', kmBody: 'ចិត្តរាបស្មើក្នុងសុខទុក្ខ', enBody: 'steadiness amid gain and loss' },
 ]

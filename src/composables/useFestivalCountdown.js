@@ -125,7 +125,7 @@ export function useFestivalCountdown() {
   onBeforeUnmount(stop)
 
   const countdown = computed(() => {
-    const t0 = startOfToday().getTime()
+    const t0 = now.value
     for (const f of allFestivals()) {
       if (f.ts >= t0) {
         const days = Math.round((f.ts - t0) / 86400000)

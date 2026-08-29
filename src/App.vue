@@ -347,7 +347,7 @@ const mobileNavRef = ref(null)
 
 function scrollActiveTabIntoView() {
   for (const el of [desktopNavRef.value, mobileNavRef.value]) {
-    if (!el) return
+    if (!el) continue
     const active = el.querySelector('a.active')
     if (!active) continue
     const cRect = el.getBoundingClientRect()

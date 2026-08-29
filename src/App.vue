@@ -13,6 +13,11 @@
           </router-link>
 
           <div class="flex items-center gap-2">
+            <button class="theme-btn print-btn" @click="printPage"
+              :title="t('បោះពុម្ព / រក្សាទុកជា PDF', 'Print / Save as PDF')"
+              :aria-label="t('បោះពុម្ព / រក្សាទុកជា PDF', 'Print / Save as PDF')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            </button>
             <button ref="settingsBtnRef" class="theme-btn px-2.5 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
@@ -286,6 +291,7 @@ import { useFont } from './composables/useFont'
 import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
+import { BASE_URL } from './config'
 
 const route = useRoute()
 const { theme, toggleTheme } = useTheme()
@@ -423,6 +429,9 @@ function afterPrint() {
   printOpenStates.forEach(([d, was]) => { d.open = was })
   printOpenStates.length = 0
 }
+function printPage() {
+  window.print()
+}
 onMounted(() => {
   window.addEventListener('beforeprint', beforePrint)
   window.addEventListener('afterprint', afterPrint)
@@ -528,7 +537,6 @@ function syncPageMeta() {
 }
 watch(() => [route.name, lang.value], syncPageMeta, { immediate: true })
 
-const BASE_URL = 'https://buddha-dhamma.vercel.app'
 const shareTelegram = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('ធម៌ល្អៗ សម្រាប់ជីវិត — ' + BASE_URL))
 const reportUrl = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('សូមកែពាក្យខ្មែរ ដែលខ្ញុំឃើញហាក់ខុស នៅលើទំព័រ ' + BASE_URL + ' ៖ '))
 

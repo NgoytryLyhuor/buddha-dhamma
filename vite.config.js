@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'prompt',
       injectRegister: false,
-      includeAssets: ['buddha.jpg'],
+      includeAssets: ['buddha.jpg', 'favicon.ico', 'icons/favicon.svg', 'icons/apple-touch-icon.png', 'icons/safari-pinned-tab.svg'],
       manifest: {
         name: 'ព្រះធម៌ Buddha Dhamma',
         short_name: 'Buddha Dhamma',

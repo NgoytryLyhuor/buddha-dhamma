@@ -13,18 +13,6 @@
           </router-link>
 
           <div class="flex items-center gap-2">
-            <button class="theme-btn" @click="openSearch" :title="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')" :aria-label="t('ស្វែងរកក្នុងទំព័រ', 'Search the site')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-            </button>
-            <button class="theme-btn" @click="toggleFind" :class="findOpen ? 'on' : ''" :title="t('រកពាក្យក្នុងទំព័រនេះ', 'Find in this page')" :aria-label="t('រកពាក្យក្នុងទំព័រនេះ', 'Find in this page')">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
-            </button>
-            <button ref="bookmarkBtnRef" class="theme-btn font-bold" :class="isCurrentBookmarked ? 'on' : ''" @click="bookmarksOpen = !bookmarksOpen"
-              :title="t('ចំណាំទំព័រ', 'Bookmarks')" :aria-label="t('ចំណាំទំព័រ', 'Bookmarks')"
-              :style="bookmarksOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}">
-              <span class="star-ico" aria-hidden="true">&#9734;</span>
-              <span v-if="bookmarkList.length" class="bookmark-count" :style="{ color: 'var(--accent-bright)' }">{{ bookmarkList.length }}</span>
-            </button>
             <button ref="settingsBtnRef" class="theme-btn px-3 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
@@ -87,35 +75,6 @@
           </div>
         </transition>
 
-        <!-- Bookmarks dropdown -->
-        <transition name="settings">
-          <div v-if="bookmarksOpen" ref="bookmarkRef" class="relative">
-            <div class="settings-panel bookmarks-panel">
-              <p class="settings-label">{{ t('ចំណាំទំព័រ', 'Bookmarks') }}</p>
-              <button class="setting-row" @click="toggleCurrentBookmark">
-                <span class="star-ico" :style="{ color: isCurrentBookmarked ? 'var(--accent)' : 'var(--ink-muted)' }">{{ isCurrentBookmarked ? '★' : '☆' }}</span>
-                <span>{{ isCurrentBookmarked ? t('លុបចោលចំណាំទំព័រនេះ', 'Remove this page') : t('ចំណាំទំព័រនេះ', 'Bookmark this page') }}</span>
-              </button>
-              <p v-if="!bookmarkList.length" class="text-xs mt-3" :style="{ color: 'var(--ink-faint)' }">
-                {{ t('មិនទាន់មានចំណាំទេ', 'No bookmarks yet') }}
-              </p>
-              <div v-else class="mt-3 max-h-64 overflow-y-auto -mr-2 pr-1 space-y-1">
-                <div v-for="b in bookmarkList" :key="b.path" class="flex items-center gap-2">
-                  <router-link :to="b.path" class="bookmark-link flex-1 min-w-0" @click="bookmarksOpen = false">
-                    <span class="block truncate text-sm font-bold" :style="{ color: 'var(--ink)' }">{{ b.title }}</span>
-                    <span class="block text-xs" :style="{ color: 'var(--ink-faint)' }">{{ b.path }}</span>
-                  </router-link>
-                  <button class="bm-remove" :title="t('លុប', 'Remove')" :aria-label="t('លុប', 'Remove')" @click="removeBookmark(b.path)">&#10005;</button>
-                </div>
-              </div>
-              <button v-if="bookmarkList.length" class="setting-row reset-btn mt-4" @click="clearAllBookmarks">
-                <span>&#8634;</span>
-                <span>{{ t('លុបចំណាំទាំងអស់', 'Clear all bookmarks') }}</span>
-              </button>
-            </div>
-          </div>
-        </transition>
-
         <!-- Desktop horizontal nav -->
         <nav class="desktop-nav mt-2 -mb-px">
           <div class="topnav-inner flex flex-wrap items-center justify-center gap-1 text-[13px] font-bold">
@@ -146,56 +105,10 @@
       <div class="progress-bar-fill" :style="{ width: progress + '%' }"></div>
     </div>
 
-    <!-- Find in page -->
-    <transition name="settings">
-      <div v-if="findOpen" class="find-panel">
-        <div class="find-input-wrap">
-          <input ref="findInput" v-model="findQuery" type="text"
-            :placeholder="t('វាយពាក្យរកក្នុងទំព័រនេះ…', 'Find in this page…')"
-            @input="doFind" @keydown.enter.prevent="doFind" @keydown.esc.prevent="closeFind"
-            :style="{ background: 'var(--bg-input)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }" />
-          <button class="find-count" type="button" :title="t('បិទ', 'Close')" @click="closeFind">&#10005;</button>
-        </div>
-        <p v-if="findQuery && !findTotal" class="find-msg">{{ t('រកមិនឃើញ', 'No matches') }}</p>
-        <p v-else-if="findQuery && findTotal" class="find-msg">{{ khNumT(findCurrent) }} / {{ khNumT(findTotal) }}</p>
-      </div>
-    </transition>
-
     <transition name="fade">
       <div v-if="!online" class="offline-banner" role="status">
         <span>&#9888;</span>
         {{ t('គ្មានអ៊ីនធឺណិត — នៅប្រើបាន ព្រោះទំព័របានរក្សាទុក', 'Offline — still works because this page is saved.') }}
-      </div>
-    </transition>
-
-    <!-- Search overlay -->
-    <transition name="search-fade">
-      <div v-if="searchOpen" class="search-overlay" @click.self="closeSearch">
-        <div class="search-panel">
-          <div class="flex items-center justify-between gap-3 mb-3">
-            <h3 class="font-display text-lg" style="color: var(--ink)">{{ t('ស្វែងរក', 'Search') }}</h3>
-            <button class="theme-btn" @click="closeSearch" :title="t('បិទ', 'Close')" :aria-label="t('បិទ', 'Close')">&#10005;</button>
-          </div>
-          <input ref="searchInput" v-model="query" type="text" autocomplete="off"
-            :placeholder="t('វាយពាក្យជាខ្មែរ ឬ អង់គ្លេស…', 'Type in Khmer or English…')"
-            :style="{ background: 'var(--bg-card-2)', color: 'var(--ink)', border: '1px solid var(--border-strong)' }"
-            @input="onSearchInput" @keydown="onSearchKeydown" />
-          <p v-if="query && !results.length" class="text-xs mt-3" style="color: var(--ink-faint)">
-            {{ t('រកមិនឃើញ សាកល្បងពាក្យផ្សេងទៀត', 'Nothing found — try another word.') }}
-          </p>
-          <div class="mt-3 max-h-80 overflow-y-auto -mr-2 pr-2 space-y-1">
-            <router-link v-for="(r, i) in results" :key="r.to + r.k" :to="r.to"
-              class="block px-3 py-2 rounded-sm transition hover:opacity-80"
-              :class="i === activeIndex ? 'search-active' : ''"
-              :style="{ background: i === activeIndex ? 'var(--accent-soft)' : 'var(--bg-card-2)' }">
-              <span class="block text-sm font-bold" style="color: var(--ink)">{{ r.k }}</span>
-              <span class="block text-xs" style="color: var(--ink-faint)">{{ r.e }}</span>
-            </router-link>
-            <p v-if="!query" class="text-xs px-3 py-2" style="color: var(--ink-faint)">
-              {{ t('វាយពាក្យមួយចំនួន ដើម្បីរកទំព័រ', 'Type a few letters to find a page.') }}
-            </p>
-          </div>
-        </div>
       </div>
     </transition>
 
@@ -363,8 +276,8 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { computed, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
@@ -372,11 +285,8 @@ import { useFont } from './composables/useFont'
 import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
-import { searchIndex } from './data/searchIndex'
-import { useBookmarks } from './composables/useBookmarks'
 
 const route = useRoute()
-const router = useRouter()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
@@ -407,41 +317,6 @@ function onSettingsGlobalClick(e) {
   if (settingsRef.value && settingsRef.value.contains(e.target)) return
   if (settingsBtnRef.value && settingsBtnRef.value.contains(e.target)) return
   settingsOpen.value = false
-}
-
-const { bookmarks, toggle, remove } = useBookmarks()
-const bookmarksOpen = ref(false)
-const bookmarkRef = ref(null)
-const bookmarkBtnRef = ref(null)
-const isCurrentBookmarked = computed(() => Object.prototype.hasOwnProperty.call(bookmarks.value, route.path))
-
-function currentPageTitle() {
-  const found = nav.find(n => n.to === route.path)
-  if (found) return t(found.km, found.en)
-  if (route.meta && route.meta.titleK && route.meta.titleE) return t(route.meta.titleK, route.meta.titleE)
-  return t('ព្រះធម៌', 'Buddha Dhamma')
-}
-
-function toggleCurrentBookmark() {
-  toggle(route.path, currentPageTitle())
-}
-
-function removeBookmark(path) {
-  remove(path)
-}
-
-function clearAllBookmarks() {
-  const keys = Object.keys(bookmarks.value)
-  keys.forEach(k => remove(k))
-}
-
-const bookmarkList = computed(() => Object.entries(bookmarks.value).map(([path, title]) => ({ path, title })))
-
-function onBookmarkGlobalClick(e) {
-  if (!bookmarksOpen.value) return
-  if (bookmarkRef.value && bookmarkRef.value.contains(e.target)) return
-  if (bookmarkBtnRef.value && bookmarkBtnRef.value.contains(e.target)) return
-  bookmarksOpen.value = false
 }
 
 const nav = [
@@ -529,13 +404,11 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
-  document.addEventListener('click', onBookmarkGlobalClick)
 })
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('pagehide', onSaveOnExit)
   document.removeEventListener('click', onSettingsGlobalClick)
-  document.removeEventListener('click', onBookmarkGlobalClick)
 })
 
 const printOpenStates = []
@@ -616,136 +489,7 @@ onBeforeUnmount(() => {
   if (installTimer) clearTimeout(installTimer)
 })
 
-const query = ref('')
-const searchOpen = ref(false)
-const searchInput = ref(null)
-const activeIndex = ref(0)
-
-const findOpen = ref(false)
-const findQuery = ref('')
-const findInput = ref(null)
-const findTotal = ref(0)
-const findCurrent = ref(0)
-const khDigitsF = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
-function khNumT(n) {
-  return String(n).split('').map(d => khDigitsF[Number(d)] || d).join('')
-}
-
-function scrollToEl(el) {
-  if (!el) return
-  const headerH = 140
-  const top = el.getBoundingClientRect().top + window.scrollY - headerH
-  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
-}
-
-function clearHighlights() {
-  document.querySelectorAll('.find-hl').forEach(m => {
-    const parent = m.parentNode
-    if (parent) parent.replaceChild(document.createTextNode(m.textContent), m)
-    parent.normalize && parent.normalize()
-  })
-}
-
-function doFind() {
-  clearHighlights()
-  findTotal.value = 0
-  findCurrent.value = 0
-  const q = findQuery.value.trim()
-  if (!q) return
-  const normQ = q.toLowerCase().normalize('NFC')
-  const walker = document.createTreeWalker(document.querySelector('main'), NodeFilter.SHOW_TEXT, { acceptNode: n => n.nodeValue && n.parentElement && n.parentElement.closest && !n.parentElement.closest('script,style,.find-hl,header,nav,footer') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT })
-  const nodes = []
-  while (walker.nextNode()) nodes.push(walker.currentNode)
-  const matches = []
-  nodes.forEach(node => {
-    const text = node.nodeValue
-    if (!text) return
-    const lower = text.toLowerCase().normalize('NFC')
-    let idx = lower.indexOf(normQ)
-    while (idx !== -1) {
-      matches.push({ node, start: idx, end: idx + normQ.length })
-      idx = lower.indexOf(normQ, idx + normQ.length)
-    }
-  })
-  findTotal.value = matches.length
-  if (!matches.length) return
-  const frag = document.createDocumentFragment()
-  const firstMatchNode = matches[0].node
-  const wrap = (node, start, end) => {
-    const before = node.nodeValue.slice(0, start)
-    const matchText = node.nodeValue.slice(start, end)
-    const after = node.nodeValue.slice(end)
-    if (before) frag.appendChild(document.createTextNode(before))
-    const mark = document.createElement('mark')
-    mark.className = 'find-hl'
-    mark.textContent = matchText
-    frag.appendChild(mark)
-    if (after) frag.appendChild(document.createTextNode(after))
-  }
-  const remaining = [...matches]
-  const first = remaining.shift()
-  wrap(first.node, first.start, first.end)
-  first.node.parentNode.replaceChild(frag, first.node)
-  remaining.forEach(m => {
-    const f = document.createDocumentFragment()
-    const before = m.node.nodeValue.slice(0, m.start)
-    const matchText = m.node.nodeValue.slice(m.start, m.end)
-    const after = m.node.nodeValue.slice(m.end)
-    if (before) f.appendChild(document.createTextNode(before))
-    const mark = document.createElement('mark')
-    mark.className = 'find-hl'
-    mark.textContent = matchText
-    f.appendChild(mark)
-    if (after) f.appendChild(document.createTextNode(after))
-    m.node.parentNode.replaceChild(f, m.node)
-  })
-  markCurrent(0)
-  scrollToEl(firstMatchEl())
-}
-
-function firstMatchEl() {
-  return document.querySelector('.find-hl')
-}
-function allMatchEls() {
-  return Array.from(document.querySelectorAll('.find-hl'))
-}
-function markCurrent(index) {
-  const els = allMatchEls()
-  els.forEach((el, i) => el.classList.toggle('find-hl-current', i === index))
-  findCurrent.value = index + 1
-}
-
-function toggleFind() {
-  findOpen.value = !findOpen.value
-  if (findOpen.value) {
-    findQuery.value = ''
-    findTotal.value = 0
-    findCurrent.value = 0
-    clearHighlights()
-    nextTick(() => { if (findInput.value) findInput.value.focus() })
-  } else {
-    closeFind()
-  }
-}
-
-function closeFind() {
-  findOpen.value = false
-  findQuery.value = ''
-  findTotal.value = 0
-  findCurrent.value = 0
-  clearHighlights()
-}
-
-function openSearch() {
-  query.value = ''
-  activeIndex.value = 0
-  searchOpen.value = true
-  nextTick(() => { if (searchInput.value) searchInput.value.focus() })
-}
-function closeSearch() {
-  searchOpen.value = false
-}
-watch(() => route.path, () => { if (searchOpen.value) searchOpen.value = false; if (settingsOpen.value) settingsOpen.value = false; if (findOpen.value) closeFind(); bookmarksOpen.value = false })
+watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false })
 
 const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
 const descrMap = {
@@ -782,38 +526,6 @@ function syncPageMeta() {
   html.setAttribute('dir', 'ltr')
 }
 watch(() => [route.name, lang.value], syncPageMeta, { immediate: true })
-
-const results = computed(() => {
-  const q = query.value.trim().toLowerCase().normalize('NFC')
-  if (!q) return []
-  return searchIndex.filter(r => (r.k + ' ' + r.e).toLowerCase().normalize('NFC').includes(q)).slice(0, 12)
-})
-
-function onSearchInput() {
-  activeIndex.value = 0
-}
-
-function goToResult(i) {
-  const r = results.value[i]
-  if (!r) return
-  closeSearch()
-  router.push(r.to)
-}
-
-function onSearchKeydown(e) {
-  if (e.key === 'ArrowDown') {
-    e.preventDefault()
-    if (results.value.length) activeIndex.value = (activeIndex.value + 1) % results.value.length
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault()
-    if (results.value.length) activeIndex.value = (activeIndex.value - 1 + results.value.length) % results.value.length
-  } else if (e.key === 'Enter') {
-    e.preventDefault()
-    goToResult(activeIndex.value)
-  } else if (e.key === 'Escape') {
-    closeSearch()
-  }
-}
 
 const BASE_URL = 'https://buddha-dhamma.vercel.app'
 const shareTelegram = computed(() => 'https://t.me/share/url?url=' + encodeURIComponent(BASE_URL) + '&text=' + encodeURIComponent('ធម៌ល្អៗ សម្រាប់ជីវិត — ' + BASE_URL))

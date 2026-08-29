@@ -11,21 +11,30 @@ function dayIndex() {
   return Math.abs(seed) % dhammaQuotes.length
 }
 
+// How many recently-shown quotes to hold back from "Another", so the same one
+// does not come back again and again. Kept comfortably below the pool size.
+const RECENT = Math.min(20, Math.max(1, Math.floor(dhammaQuotes.length / 3)))
+
 export function useRandomQuote() {
-  const last = ref(-1)
   const quote = ref(null)
+  const recent = [] // most-recent indices, newest last
 
   function pick() {
-    let i = Math.floor(Math.random() * dhammaQuotes.length)
-    if (dhammaQuotes.length > 1 && i === last.value) {
-      i = (i + 1) % dhammaQuotes.length
+    const pool = []
+    const relax = recent.length >= dhammaQuotes.length - 1
+    for (let i = 0; i < dhammaQuotes.length; i++) {
+      if (relax || !recent.includes(i)) pool.push(i)
     }
-    last.value = i
-    return dhammaQuotes[i]
+    const i = pool[Math.floor(Math.random() * pool.length)]
+
+    recent.push(i)
+    if (recent.length > RECENT) recent.shift()
+    return i
   }
 
   function next() {
-    quote.value = pick()
+    const i = pick()
+    quote.value = dhammaQuotes[i]
   }
 
   function shareText() {
@@ -36,9 +45,10 @@ export function useRandomQuote() {
 
   onBeforeUnmount(() => { if (clearTimer) clearTimeout(clearTimer) })
 
-  // Start with the day's quote, then let "Another" swap to a random one.
+  // Start with the day's quote; seed the recent list so "Another" never shows
+  // today's quote again right away.
   const today = dayIndex()
-  last.value = today
+  recent.push(today)
   quote.value = dhammaQuotes[today]
 
   return { quote, next, shareText }

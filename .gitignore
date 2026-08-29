@@ -4,3 +4,6 @@ dist
 *.local
 .vercel
 .env*
+
+# OneSignal downloaded service worker zip (unused)
+OneSignalSDK-*-ServiceWorker.zip

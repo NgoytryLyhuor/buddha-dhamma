@@ -300,7 +300,7 @@
 
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
@@ -312,6 +312,12 @@ import { BASE_URL, ONESIGNAL_APP_ID } from './config'
 import { useNotifications } from './composables/useNotifications'
 
 const route = useRoute()
+const router = useRouter()
+
+function onNavigationDone() {
+  nextTick(scrollActiveTabIntoView)
+}
+router.afterEach(onNavigationDone)
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
@@ -357,10 +363,6 @@ function scrollActiveTabIntoView() {
     el.scrollTo({ left: desiredLeft, behavior: 'smooth' })
   }
 }
-
-watch(routeMeta, () => {
-  nextTick(scrollActiveTabIntoView)
-})
 
 function onSettingsGlobalClick(e) {
   if (!settingsOpen.value) return
@@ -456,6 +458,7 @@ onMounted(() => {
   document.addEventListener('click', onSettingsGlobalClick)
   nextTick(scrollActiveTabIntoView)
 })
+
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('pagehide', onSaveOnExit)

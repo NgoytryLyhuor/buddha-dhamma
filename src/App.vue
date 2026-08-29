@@ -67,6 +67,21 @@
               <span>{{ t('ដំឡើងកម្មវិធីលើទូរស័ព្ទ', 'Install this app') }}</span>
             </button>
 
+            <p class="settings-label mt-4">{{ t('ជូនដំណឹង', 'Notifications') }}</p>
+            <button class="setting-row" @click="notifEnabled ? disableNotif() : enableNotif()"
+              :disabled="!notifSupported || !notifConfigured">
+              <span :style="notifEnabled ? { color: 'var(--accent)' } : {}">&#128276;</span>
+              <span class="flex-1 min-w-0">
+                <span class="block">{{ t(notifEnabled ? 'បានបើកជូនដំណឹង' : 'បើកជូនដំណឹងព្រះធម៌', notifEnabled ? 'Notifications on' : 'Turn on Dhamma notifications') }}</span>
+                <span v-if="notifDenied" class="block text-[11px] font-normal" :style="{ color: 'var(--ink-faint)' }">
+                  {{ t('គ្មានសិទ្ធិ — បើកក្នុងការកំណត់នៃអ្នករុករក', 'Permission blocked — enable in browser settings') }}
+                </span>
+              </span>
+            </button>
+            <p class="text-[11px] mt-2 leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
+              {{ t('ទទួលសម្ដីព្រះធម៌ប្រចាំថ្ងៃ និងការជូនដំណឹងថ្ងៃបុណ្យ សីល និងការរំឭកថ្ងៃសំខាន់ៗ។ នៅលើ iPhone ត្រូវបន្ថែមទៅអេក្រង់ដើមជាមុនសិន។', 'Daily Dhamma quotes and alerts for festivals, sīl days, and special days. On iPhone, add the app to your Home Screen first.') }}
+            </p>
+
             <button class="setting-row reset-btn mt-4" @click="resetSettings">
               <span>&#8634;</span>
               <span>{{ t('កំណត់ឡើងវិញទាំងអស់', 'Reset all settings') }}</span>
@@ -286,13 +301,15 @@ import { useFont } from './composables/useFont'
 import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
-import { BASE_URL } from './config'
+import { BASE_URL, ONESIGNAL_APP_ID } from './config'
+import { useNotifications } from './composables/useNotifications'
 
 const route = useRoute()
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
+const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif } = useNotifications(ONESIGNAL_APP_ID)
 
 const hasError = ref(false)
 onErrorCaptured((err) => {

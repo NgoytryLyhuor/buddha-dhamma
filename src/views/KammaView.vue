@@ -59,7 +59,10 @@
               <span class="font-bold" :style="{ color: g.color }">{{ t(g.km, g.en) }}</span>
               <span class="text-xs ml-2" :style="{ color: 'var(--ink-muted)' }">{{ t(g.kmBody, g.enBody) }}</span>
             </span>
-            <span class="paali shrink-0">{{ g.n }}</span>
+            <span class="flex items-center gap-2 shrink-0">
+              <span class="paali">{{ g.n }}</span>
+              <span class="caret" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+            </span>
           </summary>
           <div class="px-4 pb-4">
             <p class="text-xs flex gap-2 items-baseline mb-3" :style="{ color: 'var(--ink-muted)' }">

@@ -344,7 +344,25 @@ details > summary { list-style: none; cursor: pointer; }
 details > summary::-webkit-details-marker { display: none; }
 details > summary h3 { transition: color 0.2s; }
 details:hover > summary h3 { color: var(--accent); }
-details > summary .caret { transition: transform 0.25s; display: inline-block; }
+details > summary .caret {
+  transition: transform 0.25s, background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-size: 0.7rem;
+  flex: none;
+  transform-origin: center;
+}
+details > summary .caret:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  background: var(--accent-soft);
+}
 details[open] > summary .caret { transform: rotate(180deg); }
 
 @media (max-width: 1023px) {

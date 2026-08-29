@@ -33,7 +33,7 @@
             <span class="font-bold">{{ t(g.km, g.en) }}</span>
             <span class="flex items-center gap-2">
               <span class="paali">{{ g.n }}</span>
-              <span :style="{ color: 'var(--accent-bright)' }">&#9662;</span>
+              <span class="caret" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
             </span>
           </summary>
           <div class="px-4 pb-4">

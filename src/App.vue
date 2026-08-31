@@ -385,11 +385,12 @@ const nav = [
   { to: '/glossary', km: 'វចនានុក្រមធម៌', kmShort: 'វចនានុក្រម', en: 'Glossary', num: '១១' },
   { to: '/stories', km: 'រឿងល្បីៗ', kmShort: 'រឿង', en: 'Stories', num: '១២' },
   { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '១៣' },
-  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៤' },
-  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៥' },
-  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៦' },
-  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '១៧' },
-  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '១៨' },
+  { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Q&A', num: '១៤' },
+  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៥' },
+  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៦' },
+  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៧' },
+  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '១៨' },
+  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '១៩' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -419,6 +420,7 @@ const related = {
   '/glossary': ['/core', '/abhidhamma', '/suttas'],
   '/stories': ['/life', '/gathas', '/ariya'],
   '/questions': ['/core', '/daily', '/ethics'],
+  '/rupa-qa': ['/abhidhamma', '/kamma', '/glossary'],
   '/paccaya': ['/core', '/kamma', '/ariya'],
   '/sangha': ['/daily', '/ethics', '/core'],
   '/daily': ['/ethics', '/meditation', '/recollections'],

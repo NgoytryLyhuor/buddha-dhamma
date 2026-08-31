@@ -23,6 +23,7 @@ const routes = [
   { path: '/glossary', name: 'glossary', component: () => import('./views/GlossaryView.vue'), meta: { titleK: 'វចនានុក្រមធម៌', titleE: 'Glossary' } },
   { path: '/stories', name: 'stories', component: () => import('./views/StoriesView.vue'), meta: { titleK: 'រឿងល្បីៗ', titleE: 'Stories' } },
   { path: '/questions', name: 'questions', component: () => import('./views/QuestionsView.vue'), meta: { titleK: 'សំណួរ–ចម្លើយ', titleE: 'Q&A' } },
+  { path: '/rupa-qa', name: 'rupa-qa', component: () => import('./views/RupaQaView.vue'), meta: { titleK: 'សំណួររូបបរមត្ថ', titleE: 'Rūpa Q&A' } },
   { path: '/paccaya', name: 'paccaya', component: () => import('./views/PaccayaView.vue'), meta: { titleK: 'បដិច្ចសមុប្បាទ', titleE: 'Dependent Origination' } },
   { path: '/sangha', name: 'sangha', component: () => import('./views/SanghaView.vue'), meta: { titleK: 'ជីវិតព្រះសង្ឃ', titleE: 'Monastic Life' } },
   { path: '/daily', name: 'daily', component: () => import('./views/DailyView.vue'), meta: { titleK: 'បដិបត្តិប្រចាំថ្ងៃ', titleE: 'Daily Practice' } },

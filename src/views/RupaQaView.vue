@@ -29,6 +29,34 @@
         </div>
       </details>
     </div>
+
+    <h2 class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ឥន្រ្ទិយរូប និង អនិន្រ្ទិយរូប', 'Indriya-rūpa & Anindriya-rūpa') }}
+    </h2>
+    <p class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
+      {{ t('ឥន្រ្ទិយរូប (រូបជាឥន្រ្ទិយៈ) មាន ៨ គឺ បសាទរូប ៥ ភាវរូប ២ ជីវិតរូប ១។ អនិន្រ្ទិយរូប (រូបដែលមិនមែនឥន្រ្ទិយៈ) មាន ២០។ រួមគ្នាជារូប ២៨ ទាំងអស់។', 'Indriya-rūpa (faculty matter) numbers 8: 5 sensitives, 2 sex-rūpas and life-faculty. Anindriya-rūpa (non-faculty matter) numbers 20. Together they make up all 28 rūpas.') }}
+    </p>
+
+    <div class="mt-6 space-y-4">
+      <details v-for="(qa, i) in anindriyaQas" :key="i" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(qas.length + i + 1) }}</span>
+              {{ t(qa.qK, qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -407,6 +435,183 @@ const qas = [
     qE: 'Acting as āyatana, how many āyatanas do oḷārika and sukhuma yield together? Which?',
     aK: 'រួមបានអាយតនៈ ១១ គឺ ឱឡារិករូប ១០ (អាយតនៈខាងក្នុង ៥ + ខាងក្រៅ ៥) និង សុខុមរូប ១ (ធម្មាយតនៈ)។',
     aE: 'Eleven in total: 10 from oḷārika (5 internal + 5 external) and 1 from sukhuma (dhammāyatana).',
+  },
+]
+
+const anindriyaQas = [
+  {
+    qK: 'តើអនិន្រ្ទិយរូប បានដល់រូបប៉ុន្មាន? រូបណាខ្លះ?',
+    qE: 'How many rūpas does anindriya-rūpa (non-faculty matter) comprise? Which?',
+    aK: 'អនិន្រ្ទិយរូប បានដល់រូប ២០ គឺ មហាភូតរូប ៤ វិសយរូប ៤ ហទយរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Anindriya-rūpa comprises 20 rūpas: the 4 great essentials, 4 sense-object rūpas, heart-base (1), nutriment (1), element-space (1), intimations (2), mutable rūpas (3) and characteristic rūpas (4).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូប ជាសភាវរូប ឬអសភាវរូប?',
+    qE: 'Is anindriya-rūpa sabhāva-rūpa (with own nature) or asabhāva-rūpa (without own nature)?',
+    aK: 'អនិន្រ្ទិយរូប ជាសភាវរូបផង និងជាអសភាវរូបផង។',
+    aE: 'It is both sabhāva-rūpa and asabhāva-rūpa.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាសភាវរូប? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are sabhāva-rūpa? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១០ ជាសភាវរូប គឺ មហាភូតរូប ៤ វិសយរូប ៤ ហទយរូប ១ និង អាហាររូប ១។',
+    aE: 'Ten: the 4 great essentials, 4 sense-object rūpas, heart-base and nutriment (10).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាអសភាវរូប? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are asabhāva-rūpa? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១០ ជាអសភាវរូប គឺ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Ten: element-space (1), intimations (2), mutable rūpas (3) and characteristic rūpas (4).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូប ជាមហាភូតរូប ឬឧបាទាយរូប?',
+    qE: 'Is anindriya-rūpa mahābhūta-rūpa (primary) or upādāya-rūpa (derived)?',
+    aK: 'អនិន្រ្ទិយរូប ជាមហាភូតរូបផង និងជាឧបាទាយរូបផង។',
+    aE: 'It is both mahābhūta-rūpa and upādāya-rūpa.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាមហាភូតរូប? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are mahābhūta-rūpa? Which?',
+    aK: 'អនិន្រ្ទិយរូប ៤ ជាមហាភូតរូប គឺ បឋវីរូប ១ អាបោរូប ១ តេជោរូប ១ និង វាយោរូប ១។',
+    aE: 'Four: earth, water, fire and air (the 4 great essentials).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាឧបាទាយរូប? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are upādāya-rūpa? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១៦ ជាឧបាទាយរូប គឺ វិសយរូប ៤ ហទយរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Sixteen: 4 sense-object rūpas, heart-base, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូប បើដើរតួជាអារម្មណ៍ បានអារម្មណ៍ប៉ុន្មាន? អារម្មណ៍អ្វីខ្លះ?',
+    qE: 'Acting as objects, how many ārammaṇas do anindriya-rūpas yield? Which?',
+    aK: 'អនិន្រ្ទិយរូប បើដើរតួជាអារម្មណ៍ បានអារម្មណ៍ ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'Six: the visible object, sound, odour, taste, tangibility and dhammārammaṇa.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជារូបារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are rūpārammaṇa (visible object)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជារូបារម្មណ៍ គឺ វណ្ណរូប ១។',
+    aE: 'One: colour (vaṇṇa-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាសទ្ទារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are saddārammaṇa (sound)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជាសទ្ទារម្មណ៍ គឺ សទ្ទរូប ១។',
+    aE: 'One: sound (sadda-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាគន្ធារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are gandhārammaṇa (odour)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជាគន្ធារម្មណ៍ គឺ គន្ធរូប ១។',
+    aE: 'One: odour (gandha-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជារសារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are rasārammaṇa (taste)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជារសារម្មណ៍ គឺ រសរូប ១។',
+    aE: 'One: taste (rasa-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាផោដ្ឋព្វារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are phoṭṭhabbārammaṇa (tangibility)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ៣ ជាផោដ្ឋព្វារម្មណ៍ គឺ បឋវីរូប ១ តេជោរូប ១ និង វាយោរូប ១។',
+    aE: 'Three: earth, fire and air (the tangible great essentials).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាធម្មារម្មណ៍? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are dhammārammaṇa (mind-object)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១៣ ជាធម្មារម្មណ៍ គឺ អាបោ ១ ហទយរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Thirteen: water (1), heart-base, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូប បើដើរតួជាអាយតនៈ បានអាយតនៈប៉ុន្មាន? អាយតនៈអ្វីខ្លះ?',
+    qE: 'Acting as āyatana, how many āyatanas do anindriya-rūpas yield? Which?',
+    aK: 'អនិន្រ្ទិយរូប បើដើរតួជាអាយតនៈ បានអាយតនៈ ៦ គឺ រូបាយតនៈ សទ្ទាយតនៈ គន្ធាយតនៈ រសាយតនៈ ផោដ្ឋព្វាយតនៈ និង ធម្មាយតនៈ។',
+    aE: 'Six: the visible, sound, odour, taste, tangible and mind-object bases.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូប ជាអាយតនៈខាងក្នុង ឬជាអាយតនៈខាងក្រៅ?',
+    qE: 'Is anindriya-rūpa an internal or an external āyatana?',
+    aK: 'អនិន្រ្ទិយរូប ជាអាយតនៈខាងក្រៅ។',
+    aE: 'Anindriya-rūpa is an external āyatana.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាអាយតនៈខាងក្នុង? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are internal āyatanas? Which?',
+    aK: 'អនិន្រ្ទិយរូប មិនមែនជាអាយតនៈខាងក្នុងទេ។',
+    aE: 'None; anindriya-rūpa is never an internal āyatana.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាអាយតនៈខាងក្រៅ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are external āyatanas? Which?',
+    aK: 'អនិន្រ្ទិយរូប ២០ ជាអាយតនៈខាងក្រៅ គឺ មហាភូតរូប ៤ វិសយរូប ៤ ហទយរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'All 20: the 4 great essentials, 4 sense-object rūpas, heart-base, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជារូបាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the visible base (rūpāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជារូបាយតនៈ គឺ វណ្ណរូប ១។',
+    aE: 'One: colour (vaṇṇa-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាសទ្ទាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the sound base (saddāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជាសទ្ទាយតនៈ គឺ សទ្ទរូប ១។',
+    aE: 'One: sound (sadda-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាគន្ធាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the odour base (gandhāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជាគន្ធាយតនៈ គឺ គន្ធរូប ១។',
+    aE: 'One: odour (gandha-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជារសាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the taste base (rasāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១ ជារសាយតនៈ គឺ រសរូប ១។',
+    aE: 'One: taste (rasa-rūpa).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាផោដ្ឋព្វាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the tangible base (phoṭṭhabbāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ៣ ជាផោដ្ឋព្វាយតនៈ គឺ បឋវីរូប ១ តេជោរូប ១ និង វាយោរូប ១។',
+    aE: 'Three: earth, fire and air (the tangible great essentials).',
+  },
+  {
+    qK: 'តើអនិន្រ្ទិយរូបប៉ុន្មានជាធម្មាយតនៈ? រូបណាខ្លះ?',
+    qE: 'How many anindriya-rūpas are the mind-object base (dhammāyatana)? Which?',
+    aK: 'អនិន្រ្ទិយរូប ១៣ ជាធម្មាយតនៈ គឺ អាបោ ១ ហទយរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Thirteen: water (1), heart-base, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប បានដល់រូបប៉ុន្មាន? រូបណាខ្លះ?',
+    qE: 'Together, how many rūpas do indriya-rūpa and anindriya-rūpa comprise? Which?',
+    aK: 'ឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប បានដល់រូប ២៨ គឺ មហាភូតរូប ៤ បសាទរូប ៥ វិសយរូប ៤ ភាវរូប ២ ហទយរូប ១ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Together they comprise all 28 rūpas: 4 great essentials, 5 sensitives, 4 sense-object rūpas, 2 sex-rūpas, heart-base, life-faculty, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប ចាត់ជាបរមត្ថធម៌មួយណា?',
+    qE: 'To which paramattha-dhamma do indriya-rūpa and anindriya-rūpa belong?',
+    aK: 'ឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប ចាត់ជា រូបបរមត្ថធម៌។',
+    aE: 'They belong to rūpa-paramattha (matter).',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប ជារូបធម៌ ឬអរូបធម៌?',
+    qE: 'Are indriya-rūpa and anindriya-rūpa rūpa-dhamma or arūpa-dhamma?',
+    aK: 'ឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប ចាត់ជារូបធម៌។',
+    aE: 'They are rūpa-dhamma (matter), never arūpa-dhamma.',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប បើដើរតួជាអារម្មណ៍ បានអារម្មណ៍ប៉ុន្មាន? អារម្មណ៍ណាខ្លះ?',
+    qE: 'Acting as objects, how many ārammaṇas do indriya-rūpa and anindriya-rūpa yield together? Which?',
+    aK: 'ឥន្រ្ទិយរូប និងអនិន្រ្ទិយរូប បើដើរតួជាអារម្មណ៍ បានអារម្មណ៍ ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'Six in total: the visible object, sound, odour, taste, tangibility and dhammārammaṇa.',
+  },
+  {
+    qK: 'តើឥន្ទ្រិយរូប និងអនិន្រ្ទិយរូប បើដើរតួជាអាយតនៈ បានអាយតនៈប៉ុន្មាន? អាយតនៈណាខ្លះ?',
+    qE: 'Acting as āyatana, how many āyatanas do indriya-rūpa and anindriya-rūpa yield together? Which?',
+    aK: 'ឥន្ទ្រិយរូប និងអនិន្រ្ទិយរូប បើដើរតួជាអាយតនៈ បានអាយតនៈ ១១ គឺ អាយតនៈខាងក្នុង ៥ (បសាទ ៥) និង អាយតនៈខាងក្រៅ ៥ (វិសយ ៥) ហើយក៏រាប់បញ្ចូលធម្មាយតនៈទៀត។',
+    aE: 'Eleven in total: 5 internal sense-bases (the 5 sensitives), 5 external sense-object bases (colour, sound, odour, taste, tangibility) and the dhammāyatana.',
   },
 ]
 </script>

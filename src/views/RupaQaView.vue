@@ -9,13 +9,42 @@
       {{ t('ក្នុងរូប ២៨ ប្រភេទ ត្រូវបានចែកជា រូបក្រាស (ឱឡារិករូប) ១២ និង រូបម៉ត់ (សុខុមរូប) ១៦។ ទំព័រនេះប្រមូលសំណួរ-ចម្លើយ តាមគម្រោងរៀនរូបបរមត្ថ ភាគ ៣៣ ដើម្បីជួយប្រឡង និងរំឭកឡើងវិញ។', 'Of the 28 kinds of matter, twelve are gross (oḷārika) and sixteen are subtle (sukhuma). This page gathers the question-and-answers of Rūpa Paramattha part 33, for review and examination.') }}
     </p>
 
-    <div class="mt-8 space-y-4">
-      <details v-for="(qa, i) in qas" :key="i" class="card-paper p-6 md:p-8" :open="i === 0">
+    <div class="qa-search card-paper mt-6 p-4 md:p-5">
+      <label class="qa-search-label" :style="{ color: 'var(--accent)' }">{{ t('ស្វែងរកសំណួរ', 'SEARCH QUESTIONS') }}</label>
+      <div class="qa-search-row">
+        <span class="qa-search-ico" :style="{ color: 'var(--ink-faint)' }">&#128269;</span>
+        <input
+          v-model="search"
+          type="text"
+          class="qa-search-input"
+          :placeholder="t('វាយពាក្យជាភាសាខ្មែរ ឬ អង់គ្លេស…', 'Type a word in Khmer or English…')"
+          :style="{ background: 'var(--bg-input)', color: 'var(--ink)', borderColor: 'var(--border-strong)' }"
+        />
+        <button
+          v-if="searching"
+          type="button"
+          class="qa-search-clear"
+          :title="t('ជម្រះ', 'Clear')"
+          :style="{ color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
+          @click="search = ''"
+        >&#10005;</button>
+      </div>
+      <p v-if="searching" class="qa-search-count" :style="{ color: 'var(--ink-muted)' }">
+        {{ t('បានរកឃើញ ' + khNum(totalMatches) + ' សំណួរ', totalMatches + (totalMatches === 1 ? ' match found' : ' matches found')) }}
+      </p>
+    </div>
+
+    <p v-if="searching && totalMatches === 0" class="mt-6 p-5 text-center card-paper" :style="{ color: 'var(--ink-muted)' }">
+      {{ t('រកមិនឃើញសំណួរណាដែលត្រូវនឹងពាក្យនេះទេ។ សូមសាកល្បងពាក្យផ្សេងទៀត។', 'No questions match this word. Please try a different word.') }}
+    </p>
+
+    <div v-if="!searching || filteredQas.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredQas" :key="item.num" class="card-paper p-6 md:p-8" :open="searching ? false : i === 0">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
-              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-              {{ t(qa.qK, qa.qE) }}
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
             </h3>
             <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
           </div>
@@ -24,26 +53,26 @@
         <div class="mt-5">
           <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
             <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
-            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
           </div>
         </div>
       </details>
     </div>
 
-    <h2 class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+    <h2 v-if="!searching || filteredAnindriya.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
       {{ t('ឥន្រ្ទិយរូប និង អនិន្រ្ទិយរូប', 'Indriya-rūpa & Anindriya-rūpa') }}
     </h2>
-    <p class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
+    <p v-if="!searching || filteredAnindriya.length" class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
       {{ t('ឥន្រ្ទិយរូប (រូបជាឥន្រ្ទិយៈ) មាន ៨ គឺ បសាទរូប ៥ ភាវរូប ២ ជីវិតរូប ១។ អនិន្រ្ទិយរូប (រូបដែលមិនមែនឥន្រ្ទិយៈ) មាន ២០។ រួមគ្នាជារូប ២៨ ទាំងអស់។', 'Indriya-rūpa (faculty matter) numbers 8: 5 sensitives, 2 sex-rūpas and life-faculty. Anindriya-rūpa (non-faculty matter) numbers 20. Together they make up all 28 rūpas.') }}
     </p>
 
-    <div class="mt-6 space-y-4">
-      <details v-for="(qa, i) in anindriyaQas" :key="i" class="card-paper p-6 md:p-8">
+    <div v-if="!searching || filteredAnindriya.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredAnindriya" :key="item.num" class="card-paper p-6 md:p-8">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
-              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(qas.length + i + 1) }}</span>
-              {{ t(qa.qK, qa.qE) }}
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
             </h3>
             <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
           </div>
@@ -52,26 +81,26 @@
         <div class="mt-5">
           <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
             <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
-            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
           </div>
         </div>
       </details>
     </div>
 
-    <h2 class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+    <h2 v-if="!searching || filteredVatthu.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
       {{ t('វត្ថុរូប និង អវត្ថុរូប', 'Vatthu-rūpa & Avatthu-rūpa') }}
     </h2>
-    <p class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
+    <p v-if="!searching || filteredVatthu.length" class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
       {{ t('ដោយវត្ថុ រូប ២៨ ចែកជា វត្ថុរូប ៦ និង អវត្ថុរូប ២២។ វត្ថុរូប គឺរូបដែលជាទីអាស្រ័យនៃចិត្តចេតសិកកើតឡើង។', 'By way of physical base, the 28 rūpas divide into 6 vatthu-rūpas (bases) and 22 avatthu-rūpas (non-bases). Vatthu-rūpa is matter that serves as the base for consciousness and mental factors.') }}
     </p>
 
-    <div class="mt-6 space-y-4">
-      <details v-for="(qa, i) in vatthuQas" :key="i" class="card-paper p-6 md:p-8">
+    <div v-if="!searching || filteredVatthu.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredVatthu" :key="item.num" class="card-paper p-6 md:p-8">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
-              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(qas.length + anindriyaQas.length + i + 1) }}</span>
-              {{ t(qa.qK, qa.qE) }}
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
             </h3>
             <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
           </div>
@@ -80,26 +109,26 @@
         <div class="mt-5">
           <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
             <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
-            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
           </div>
         </div>
       </details>
     </div>
 
-    <h2 class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+    <h2 v-if="!searching || filteredAjjhattika.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
       {{ t('អជ្ឈត្តិករូប និង ពាហិររូប', 'Ajjhattika-rūpa & Bāhira-rūpa') }}
     </h2>
-    <p class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
+    <p v-if="!searching || filteredAjjhattika.length" class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
       {{ t('ដោយរូបសំខាន់ រូប ២៨ ចែកជា អជ្ឈត្តិករូប ៥ (បសាទរូប ៥) និង ពាហិររូប ២៣។', 'By important and less-important matter, the 28 rūpas divide into 5 ajjhattika-rūpas (internal, the 5 sensitives) and 23 bāhira-rūpas (external).') }}
     </p>
 
-    <div class="mt-6 space-y-4">
-      <details v-for="(qa, i) in ajjhattikaQas" :key="i" class="card-paper p-6 md:p-8">
+    <div v-if="!searching || filteredAjjhattika.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredAjjhattika" :key="item.num" class="card-paper p-6 md:p-8">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
-              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(qas.length + anindriyaQas.length + vatthuQas.length + i + 1) }}</span>
-              {{ t(qa.qK, qa.qE) }}
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
             </h3>
             <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
           </div>
@@ -108,26 +137,26 @@
         <div class="mt-5">
           <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
             <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
-            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
           </div>
         </div>
       </details>
     </div>
 
-    <h2 class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+    <h2 v-if="!searching || filteredDvara.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
       {{ t('ទ្វាររូប និង អទ្វាររូប', 'Dvāra-rūpa & Advāra-rūpa') }}
     </h2>
-    <p class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
+    <p v-if="!searching || filteredDvara.length" class="mt-3 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">
       {{ t('ដោយទ្វារ រូប ២៨ ចែកជា ទ្វាររូប ៧ (បសាទរូប ៥ + វិញ្ញត្តិរូប ២) និង អទ្វាររូប ២១។', 'By way of door, the 28 rūpas divide into 7 dvāra-rūpas (5 sensitives + 2 intimations) and 21 advāra-rūpas.') }}
     </p>
 
-    <div class="mt-6 space-y-4">
-      <details v-for="(qa, i) in dvaraQas" :key="i" class="card-paper p-6 md:p-8">
+    <div v-if="!searching || filteredDvara.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredDvara" :key="item.num" class="card-paper p-6 md:p-8">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
-              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(qas.length + anindriyaQas.length + vatthuQas.length + ajjhattikaQas.length + i + 1) }}</span>
-              {{ t(qa.qK, qa.qE) }}
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
             </h3>
             <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
           </div>
@@ -136,7 +165,7 @@
         <div class="mt-5">
           <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
             <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
-            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(qa.aK, qa.aE) }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
           </div>
         </div>
       </details>
@@ -145,6 +174,7 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
@@ -152,6 +182,39 @@ const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨',
 function khNum(n) {
   return String(n).split('').map(d => khDigits[Number(d)]).join('')
 }
+
+const search = ref('')
+function normText(s) {
+  return String(s || '').toLowerCase()
+}
+function matchesQuery(qa) {
+  const q = search.value.trim().toLowerCase()
+  if (!q) return true
+  return (
+    normText(qa.qK).includes(q) ||
+    normText(qa.qE).includes(q) ||
+    normText(qa.aK).includes(q) ||
+    normText(qa.aE).includes(q)
+  )
+}
+
+function indexed(arr, offset) {
+  return arr.map((qa, i) => ({ qa, num: offset + i + 1 })).filter(x => matchesQuery(x.qa))
+}
+
+const filteredQas = computed(() => indexed(qas, 0))
+const filteredAnindriya = computed(() => indexed(anindriyaQas, qas.length))
+const filteredVatthu = computed(() => indexed(vatthuQas, qas.length + anindriyaQas.length))
+const filteredAjjhattika = computed(() => indexed(ajjhattikaQas, qas.length + anindriyaQas.length + vatthuQas.length))
+const filteredDvara = computed(() => indexed(dvaraQas, qas.length + anindriyaQas.length + vatthuQas.length + ajjhattikaQas.length))
+const totalMatches = computed(() =>
+  filteredQas.value.length +
+  filteredAnindriya.value.length +
+  filteredVatthu.value.length +
+  filteredAjjhattika.value.length +
+  filteredDvara.value.length
+)
+const searching = computed(() => search.value.trim().length > 0)
 
 const qas = [
   {
@@ -164,7 +227,7 @@ const qas = [
     qK: 'តើឱឡារិករូប មានន័យដូចម្តេច?',
     qE: 'What does oḷārika-rūpa mean?',
     aK: 'ឱឡារិករូប គឺរូបដែលគ្រោតគ្រាត ងាយយល់ ជិតបញ្ញា និងអាចប៉ះទង្គិចគ្នាបាន (សប្បដិឃរូប) គឺបានដល់ បសាទរូប ៥ និង វិសយរូប ៧។',
-    aE: 'Oḷārika-rūpa is coarse matter that is easy to understand, near to wisdom, and impinging (sappatigha) — namely the 5 sensitive rūpas and the 7 sense-object rūpas.',
+    aE: 'Oḷārika-rūpa is coarse matter that is easy to understand, near to wisdom, and impinging (sappaṭigha) — namely the 5 sensitive rūpas and the 7 sense-object rūpas.',
   },
   {
     qK: 'តើឱឡារិករូប បានដល់រូបប៉ុន្មាន? រូបណាខ្លះ?',
@@ -308,7 +371,7 @@ const qas = [
     qK: 'តើមហាភូតរូប ៣ (វៀរអាបោ) បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
     qE: 'When the 3 great essentials (excluding āpo) act as an āyatana, what is it called?',
     aK: 'ហៅថា ផោដ្ឋព្វាយតនៈ (អាយតនៈ គឺដែលត្រូវពាល់/ប៉ះ) ព្រោះបឋវី តេជោ វាយោ ប្រមូលជាផោដ្ឋព្វៈ។',
-    aE: 'Phottabba-āyatana (the tangible base), because earth, fire and air together are the tangible object.',
+    aE: 'Phoṭṭhabbāyatana (the tangible base), because earth, fire and air together are the tangible object.',
   },
   {
     qK: 'តើវិសយរូប ៤ បើដើរតួជាអាយតនៈ បានអាយតនៈប៉ុន្មាន? អាយតនៈណាខ្លះ?',
@@ -338,7 +401,7 @@ const qas = [
     qK: 'តើសុខុមរូប មានន័យដូចម្តេច?',
     qE: 'What does sukhuma-rūpa mean?',
     aK: 'សុខុមរូប គឺរូបម៉ត់ចត់ ឆ្ងាយពីការយល់ងាយ និងមិនប៉ះទង្គិចគ្នា (អប្បដិឃរូប) គឺរូប ១៦ ដែលនៅសេសពីឱឡារិករូប។',
-    aE: 'Sukhuma-rūpa is subtle matter that is far from easy understanding and non-impinging (appatigha) — the 16 rūpas other than the oḷārika ones.',
+    aE: 'Sukhuma-rūpa is subtle matter that is far from easy understanding and non-impinging (appaṭigha) — the 16 rūpas other than the oḷārika ones.',
   },
   {
     qK: 'តើសុខុមរូប បានដល់រូបប៉ុន្មាន? រូបណាខ្លះ?',
@@ -738,33 +801,33 @@ const vatthuQas = [
   },
   {
     qK: 'តើចក្ខុបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the eye-sensitivy serves as a base, what is it called?',
+    qE: 'When the eye-sensitivity serves as a base, what is it called?',
     aK: 'ចក្ខុបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះថា ចក្ខុវត្ថុ។',
-    aE: 'The eye-sensitivy as base is called cakkhu-vatthu (eye-base).',
+    aE: 'The eye-sensitivity as base is called cakkhu-vatthu (eye-base).',
   },
   {
     qK: 'តើសោតបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the ear-sensitivy serves as a base, what is it called?',
+    qE: 'When the ear-sensitivity serves as a base, what is it called?',
     aK: 'សោតបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះថា សោតវត្ថុ។',
-    aE: 'The ear-sensitivy as base is called sota-vatthu (ear-base).',
+    aE: 'The ear-sensitivity as base is called sota-vatthu (ear-base).',
   },
   {
     qK: 'តើឃានបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the nose-sensitivy serves as a base, what is it called?',
+    qE: 'When the nose-sensitivity serves as a base, what is it called?',
     aK: 'ឃានបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះថា ឃានវត្ថុ។',
-    aE: 'The nose-sensitivy as base is called ghāna-vatthu (nose-base).',
+    aE: 'The nose-sensitivity as base is called ghāna-vatthu (nose-base).',
   },
   {
     qK: 'តើជិវ្ហាបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the tongue-sensitivy serves as a base, what is it called?',
+    qE: 'When the tongue-sensitivity serves as a base, what is it called?',
     aK: 'ជិវ្ហាបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះថា ជិវ្ហាវត្ថុ។',
-    aE: 'The tongue-sensitivy as base is called jivhā-vatthu (tongue-base).',
+    aE: 'The tongue-sensitivity as base is called jivhā-vatthu (tongue-base).',
   },
   {
     qK: 'តើកាយបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the body-sensitivy serves as a base, what is it called?',
+    qE: 'When the body-sensitivity serves as a base, what is it called?',
     aK: 'កាយបសាទរូប បើដើរតួជាវត្ថុ មានឈ្មោះថា កាយវត្ថុ។',
-    aE: 'The body-sensitivy as base is called kāya-vatthu (body-base).',
+    aE: 'The body-sensitivity as base is called kāya-vatthu (body-base).',
   },
   {
     qK: 'តើហទយរូប បើដើរតួជាវត្ថុ មានឈ្មោះដូចម្តេច?',
@@ -895,8 +958,8 @@ const vatthuQas = [
   {
     qK: 'តើអវត្ថុរូបប៉ុន្មានជាធម្មារម្មណ៍? រូបណាខ្លះ?',
     qE: 'How many avatthu-rūpas are dhammārammaṇa? Which?',
-    aK: 'អវត្ថុរូប ៩ ជាធម្មារម្មណ៍ គឺ អាបោ ១ ភាវរូប ២ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
-    aE: 'Nine: water (1), 2 sex-rūpas, life-faculty, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+    aK: 'អវត្ថុរូប ១៥ ជាធម្មារម្មណ៍ គឺ អាបោ ១ ភាវរូប ២ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Fifteen: water (1), 2 sex-rūpas, life-faculty, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
   },
   {
     qK: 'តើអវត្ថុរូប ជាអារម្មណ៍ឱ្យចិត្តប្រព្រឹត្តតាមទ្វារបានប៉ុន្មាន? ទ្វារណាខ្លះ?',
@@ -955,8 +1018,8 @@ const vatthuQas = [
   {
     qK: 'តើអវត្ថុរូបប៉ុន្មានជាធម្មាយតនៈ? រូបណាខ្លះ?',
     qE: 'How many avatthu-rūpas are the mind-object base? Which?',
-    aK: 'អវត្ថុរូប ១៦ ជាធម្មាយតនៈ គឺ អាបោ ១ ភាវរូប ២ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
-    aE: 'Sixteen: water (1), 2 sex-rūpas, life-faculty, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+    aK: 'អវត្ថុរូប ១៥ ជាធម្មាយតនៈ គឺ អាបោ ១ ភាវរូប ២ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ និង លក្ខណរូប ៤។',
+    aE: 'Fifteen: water (1), 2 sex-rūpas, life-faculty, nutriment, element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
   },
   {
     qK: 'តើវត្ថុរូប និងអវត្ថុរូប បានដល់រូបប៉ុន្មាន? រូបណាខ្លះ?',
@@ -1374,33 +1437,33 @@ const dvaraQas = [
   },
   {
     qK: 'តើចក្ខុបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the eye-sensitivy serves as a door, what is it called?',
+    qE: 'When the eye-sensitivity serves as a door, what is it called?',
     aK: 'ចក្ខុបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះថា ចក្ខុទ្វារ។',
-    aE: 'The eye-sensitivy as door is called cakkhu-dvāra (eye-door).',
+    aE: 'The eye-sensitivity as door is called cakkhu-dvāra (eye-door).',
   },
   {
     qK: 'តើសោតបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the ear-sensitivy serves as a door, what is it called?',
+    qE: 'When the ear-sensitivity serves as a door, what is it called?',
     aK: 'សោតបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះថា សោតទ្វារ។',
-    aE: 'The ear-sensitivy as door is called sota-dvāra (ear-door).',
+    aE: 'The ear-sensitivity as door is called sota-dvāra (ear-door).',
   },
   {
     qK: 'តើឃានបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the nose-sensitivy serves as a door, what is it called?',
+    qE: 'When the nose-sensitivity serves as a door, what is it called?',
     aK: 'ឃានបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះថា ឃានទ្វារ។',
-    aE: 'The nose-sensitivy as door is called ghāna-dvāra (nose-door).',
+    aE: 'The nose-sensitivity as door is called ghāna-dvāra (nose-door).',
   },
   {
     qK: 'តើជិវ្ហាបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the tongue-sensitivy serves as a door, what is it called?',
+    qE: 'When the tongue-sensitivity serves as a door, what is it called?',
     aK: 'ជិវ្ហាបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះថា ជិវ្ហាទ្វារ។',
-    aE: 'The tongue-sensitivy as door is called jivhā-dvāra (tongue-door).',
+    aE: 'The tongue-sensitivity as door is called jivhā-dvāra (tongue-door).',
   },
   {
     qK: 'តើកាយបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
-    qE: 'When the body-sensitivy serves as a door, what is it called?',
+    qE: 'When the body-sensitivity serves as a door, what is it called?',
     aK: 'កាយបសាទរូប បើដើរតួជាទ្វារ មានឈ្មោះថា កាយទ្វារ។',
-    aE: 'The body-sensitivy as door is called kāya-dvāra (body-door).',
+    aE: 'The body-sensitivity as door is called kāya-dvāra (body-door).',
   },
   {
     qK: 'តើកាយវិញ្ញត្តិរូប បើដើរតួជាទ្វារ មានឈ្មោះដូចម្តេច?',
@@ -1440,31 +1503,31 @@ const dvaraQas = [
   },
   {
     qK: 'តើចក្ខុបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
-    qE: 'When the eye-sensitivy serves as an āyatana, what is it called?',
+    qE: 'When the eye-sensitivity serves as an āyatana, what is it called?',
     aK: 'ចក្ខុបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះថា ចក្ខ្វាយតនៈ។',
     aE: 'It is called cakkhāyatana (eye-base).',
   },
   {
     qK: 'តើសោតបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
-    qE: 'When the ear-sensitivy serves as an āyatana, what is it called?',
+    qE: 'When the ear-sensitivity serves as an āyatana, what is it called?',
     aK: 'សោតបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះថា សោតាយតនៈ។',
     aE: 'It is called sotāyatana (ear-base).',
   },
   {
     qK: 'តើឃានបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
-    qE: 'When the nose-sensitivy serves as an āyatana, what is it called?',
+    qE: 'When the nose-sensitivity serves as an āyatana, what is it called?',
     aK: 'ឃានបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះថា ឃានាយតនៈ។',
     aE: 'It is called ghānāyatana (nose-base).',
   },
   {
     qK: 'តើជិវ្ហាបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
-    qE: 'When the tongue-sensitivy serves as an āyatana, what is it called?',
+    qE: 'When the tongue-sensitivity serves as an āyatana, what is it called?',
     aK: 'ជិវ្ហាបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះថា ជិវ្ហាយតនៈ។',
     aE: 'It is called jivhāyatana (tongue-base).',
   },
   {
     qK: 'តើកាយបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះអ្វី?',
-    qE: 'When the body-sensitivy serves as an āyatana, what is it called?',
+    qE: 'When the body-sensitivity serves as an āyatana, what is it called?',
     aK: 'កាយបសាទរូប បើដើរតួជាអាយតនៈ បានអាយតនៈឈ្មោះថា កាយាយតនៈ។',
     aE: 'It is called kāyāyatana (body-base).',
   },

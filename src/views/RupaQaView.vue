@@ -170,6 +170,190 @@
         </div>
       </details>
     </div>
+
+    <h2 v-if="!searching || filteredPart1.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ១ — ២៩ មករា ២០២៦', 'Rūpa Paramattha Part 1 — 29 Jan 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart1.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart1" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart2.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ២ — ៣០ មករា ២០២៦', 'Rūpa Paramattha Part 2 — 30 Jan 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart2.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart2" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart3.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៣ — ៥ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 3 — 5 Feb 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart3.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart3" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart4.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៤ — ៦ កុម្ភៈ ២០២៥', 'Rūpa Paramattha Part 4 — 6 Feb 2025') }}
+    </h2>
+    <div v-if="!searching || filteredPart4.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart4" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart5.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៥ — ១២ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 5 — 12 Feb 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart5.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart5" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart6.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៦ — ១៣ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 6 — 13 Feb 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart6.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart6" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart7.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៧ — ២០ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 7 — 20 Feb 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart7.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart7" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <h2 v-if="!searching || filteredPart9.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សំណួររូបបរមត្ថ ភាគ៩ — ២៧ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 9 — 27 Feb 2026') }}
+    </h2>
+    <div v-if="!searching || filteredPart9.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart9" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -202,17 +386,35 @@ function indexed(arr, offset) {
   return arr.map((qa, i) => ({ qa, num: offset + i + 1 })).filter(x => matchesQuery(x.qa))
 }
 
+const allBase = () => qas.length + anindriyaQas.length + vatthuQas.length + ajjhattikaQas.length + dvaraQas.length
+
 const filteredQas = computed(() => indexed(qas, 0))
 const filteredAnindriya = computed(() => indexed(anindriyaQas, qas.length))
 const filteredVatthu = computed(() => indexed(vatthuQas, qas.length + anindriyaQas.length))
 const filteredAjjhattika = computed(() => indexed(ajjhattikaQas, qas.length + anindriyaQas.length + vatthuQas.length))
 const filteredDvara = computed(() => indexed(dvaraQas, qas.length + anindriyaQas.length + vatthuQas.length + ajjhattikaQas.length))
+const filteredPart1 = computed(() => indexed(part1Qas, allBase()))
+const filteredPart2 = computed(() => indexed(part2Qas, allBase() + part1Qas.length))
+const filteredPart3 = computed(() => indexed(part3Qas, allBase() + part1Qas.length + part2Qas.length))
+const filteredPart4 = computed(() => indexed(part4Qas, allBase() + part1Qas.length + part2Qas.length + part3Qas.length))
+const filteredPart5 = computed(() => indexed(part5Qas, allBase() + part1Qas.length + part2Qas.length + part3Qas.length + part4Qas.length))
+const filteredPart6 = computed(() => indexed(part6Qas, allBase() + part1Qas.length + part2Qas.length + part3Qas.length + part4Qas.length + part5Qas.length))
+const filteredPart7 = computed(() => indexed(part7Qas, allBase() + part1Qas.length + part2Qas.length + part3Qas.length + part4Qas.length + part5Qas.length + part6Qas.length))
+const filteredPart9 = computed(() => indexed(part9Qas, allBase() + part1Qas.length + part2Qas.length + part3Qas.length + part4Qas.length + part5Qas.length + part6Qas.length + part7Qas.length))
 const totalMatches = computed(() =>
   filteredQas.value.length +
   filteredAnindriya.value.length +
   filteredVatthu.value.length +
   filteredAjjhattika.value.length +
-  filteredDvara.value.length
+  filteredDvara.value.length +
+  filteredPart1.value.length +
+  filteredPart2.value.length +
+  filteredPart3.value.length +
+  filteredPart4.value.length +
+  filteredPart5.value.length +
+  filteredPart6.value.length +
+  filteredPart7.value.length +
+  filteredPart9.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -1740,6 +1942,792 @@ const dvaraQas = [
     qE: 'Acting as āyatana, how many āyatanas do dvāra-rūpa and advāra-rūpa yield together? Which?',
     aK: 'ទ្វាររូប និងអទ្វាររូប បើដើរតួជាអាយតនៈ បានអាយតនៈ ១១ គឺ អាយតនៈខាងក្នុង ៥ (បសាទ ៥) និង អាយតនៈខាងក្រៅ ៥ (វិសយ ៥) ហើយក៏រាប់បញ្ចូលធម្មាយតនៈទៀត។',
     aE: 'Eleven in total: 5 internal sense-bases (the 5 sensitives), 5 external sense-object bases (colour, sound, odour, taste, tangibility) and the dhammāyatana.',
+  },
+]
+
+const part1Qas = [
+  {
+    qK: 'តើបរមត្ថធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does paramattha-dhamma mean?',
+    aK: 'បរមត្ថធម៌ ប្រែថា ធម៌ដ៏ប្រសើរ (បរម = ប្រសើរបំផុត, អត្ថ = អត្ថន័យ ដូចជាសភាវៈពិត, ធម៌ = សភាវៈ)។ គឺជាសភាវធម៌ដែលមានលក្ខណៈពិតប្រាកដដោយខ្លួនឯង (សភាវលក្ខណៈ) ប្រាកដក្នុងចិត្តរបស់អ្នកដែលពិចារណាឃើញ មិនមែនអាស្រ័យនឹងសេចក្តីសំគាល់ ដូចជាសម្មតិបញ្ញត្តិឡើយ។',
+    aE: 'Paramattha-dhamma literally means "supreme reality" (parama = supreme, attha = meaning/true reality, dhamma = reality). It is a reality that has its own intrinsic nature (sabhāva-lakkhana) and is evident to the mind that discerns it, not depending on conceptual designation like paññatti (conventional reality).',
+  },
+  {
+    qK: 'តើបរមត្ថធម៌មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many paramattha-dhammas are there? What are they?',
+    aK: 'មាន ៤ គឺ ចិត្ត ចេតសិក រូប និព្វាន។ ក្នុង ៤ នោះ ចិត្ត ចេតសិក រូប ជាសង្ខតធម៌ និព្វាន ជាអសង្ខតធម៌។',
+    aE: 'There are four: citta (consciousness), cetasika (mental factors), rūpa (matter) and nibbāna. Of these, citta, cetasika and rūpa are conditioned (saṅkhata) realities, while nibbāna is unconditioned (asaṅkhata).',
+  },
+  {
+    qK: 'តើរូបមានន័យដូចម្តេច?',
+    qE: 'What does rūpa mean?',
+    aK: 'រូប ប្រែថា ការបែកធ្លាយ (រូប្បន) ឬសភាវៈដែលបែកធ្លាយ ដោយអាការៈផ្សេងៗ។ ឈ្មោះថារូប ព្រោះវាត្រូវបែកធ្លាយដោយត្រជាក់ ក្តៅ ឃ្លាន ស្រេក មូស រុយ ខ្យល់ ជាដើម។',
+    aE: 'Rūpa means "to break up" (ruppana) — a reality that undergoes dissolution by various means. It is called rūpa because it is broken up by cold, heat, hunger, thirst, flies, mosquitoes, wind, and so on.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជារូបបែកធ្លាយ?',
+    qE: 'Why does rūpa (matter) break up?',
+    aK: 'ព្រោះរូបត្រូវបែកធ្លាយដោយឧបទ្ទវៈ (កត្តាប្រឆាំង) ជាច្រើន គឺ ត្រជាក់ ក្តៅ ឃ្លាន ស្រេក មូស រុយ ពស់ ឬខ្យល់។ រូបដែលត្រូវឧបទ្ទវៈទាំងនោះបៀតបៀន ក៏រលួយ បាក់បែក វិនាសទៅ។',
+    aE: 'Because rūpa is broken up by many afflictions (upaddava) — cold, heat, hunger, thirst, mosquitoes, flies, snakes, or wind. When matter is oppressed by these afflictions it rots, breaks and perishes.',
+  },
+  {
+    qK: 'ក្នុងកាយមនុស្សប្រុសដែលមានអវយវៈគ្រប់គ្រាន់ មានរូបសរុបប៉ុន្មាន?',
+    qE: 'In a complete male body, how many rūpas are present in total?',
+    aK: 'មាន ២៧ រូប ព្រោះរូប ២៨ ដកឥត្ថិភាវរូប (ភាវរូបស្ត្រី) ១ ដែលពុំមានក្នុងកាយបុរស សល់ ២៧។',
+    aE: 'Twenty-seven rūpas, because of the 28 kinds the femininity rūpa (itthibhāva) is absent in a male, leaving 27.',
+  },
+  {
+    qK: 'ក្នុងកាយមនុស្សស្រីដែលមានអវយវៈគ្រប់គ្រាន់ មានរូបសរុបប៉ុន្មាន?',
+    qE: 'In a complete female body, how many rūpas are present in total?',
+    aK: 'មាន ២៧ រូប ព្រោះរូប ២៨ ដកបុរិសភាវរូប (ភាវរូបប្រុស) ១ ដែលពុំមានក្នុងកាយស្ត្រី សល់ ២៧។',
+    aE: 'Twenty-seven rūpas, because of the 28 kinds the masculinity rūpa (purisabhāva) is absent in a female, leaving 27.',
+  },
+  {
+    qK: 'តើបរមត្ថធម៌ប៉ុន្មានដែលមានក្នុងកាយមនុស្សមានជីវិត? អ្វីខ្លះ?',
+    qE: 'How many paramattha-dhammas are found in a living human body? What are they?',
+    aK: 'មាន ៣ បរមត្ថធម៌ គឺ ចិត្ត ចេតសិក រូប។ និព្វាន ពុំមានក្នុងកាយមនុស្សមានជីវិតឡើយ។',
+    aE: 'Three paramattha-dhammas: citta, cetasika and rūpa. Nibbāna is not present in a living human body.',
+  },
+  {
+    qK: 'តើលក្ខណាទិចតុក្កៈមានន័យដូចម្តេច?',
+    qE: 'What does lakkhaṇādi-catukka mean?',
+    aK: 'លក្ខណាទិចតុក្កៈ ប្រែថា ក្រុមសេចក្តី ៤ ដែលមានលក្ខណៈជាដើម គឺ លក្ខណៈ (ភាពពិតរបស់សភាវៈ) រស (កិច្ច ឬមុខងាររបស់សភាវៈ) បច្ចុប្បដ្ឋាន (អាការដែលសភាវៈប្រាកដឡើង) បទដ្ឋាន (ហេតុជិតបំផុតដែលបណ្តាលសភាវៈនោះ)។',
+    aE: 'Lakkhaṇādi-catukka means "the group of four beginning with characteristic": (1) lakkhana (characteristic — the intrinsic mark of a reality), (2) rasa (function or task of that reality), (3) paccupaṭṭhāna (manifestation — how it appears), (4) padaṭṭhāna (proximate cause that gives rise to it).',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់រូប?',
+    qE: 'Describe the lakkhaṇādi-catukka of rūpa (matter).',
+    aK: 'រូបមាន លក្ខណៈ គឺ ការបែកធ្លាយ (រូប្បនលក្ខណៈ)។ រស គឺ ការគ្របសង្កត់ចិត្តក្នុងអារម្មណ៍ (វិក្ខេបរស)។ បច្ចុប្បដ្ឋាន គឺ ការប្រាកដឡើងជាអវៈយវៈ ឬការប្រាកដតាមបញ្ញត្តិ (ជាទីតាំងនៃការកំណត់)។ បទដ្ឋាន គឺ មហាភូតរូប ៤។',
+    aE: 'Rūpa has: characteristic — breaking up (ruppana). Function — to spread over and oppress consciousness through its object (vikkhepa-rasa). Manifestation — appearing as a mass of parts or as conventional designation. Proximate cause — the four great essentials (mahābhūta).',
+  },
+  {
+    qK: 'តើរូបបរមត្ថ មានរូបប៉ុន្មាន?',
+    qE: 'How many kinds of rūpa-paramattha are there?',
+    aK: 'មាន ២៨ រូប។',
+    aE: 'There are 28 kinds of rūpa.',
+  },
+  {
+    qK: 'តើនិប្ផន្នរូប មានន័យដូចម្តេច?',
+    qE: 'What does nipphanna-rūpa mean?',
+    aK: 'និប្ផន្នរូប ប្រែថា រូបដែលកើតឡើង (សម្បូណ៌ដោយការកើតរួមគ្នា ទទួលបានសភាពដោយខ្លួនឯង) ដោយកម្ម ចិត្ត ឧតុ អាហារ ជាសភាវរូប ដែលមានលក្ខណៈពិតដោយខ្លួនឯង។',
+    aE: 'Nipphanna-rūpa means "concretely produced matter" — matter produced by kamma, citta, utu (temperature) and āhāra (nutriment), being sabhāva-rūpa that possesses its own intrinsic nature.',
+  },
+  {
+    qK: 'តើនិប្ផន្នរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many nipphanna-rūpas are there? What are they?',
+    aK: 'មាន ១៨ គឺ មហាភូតរូប ៤ (បឋវី អាបោ តេជោ វាយោ) បសាទរូប ៥ (ចក្ខុ សោត ឃាន ជិវ្ហា កាយ) វិសយរូប ៤ (រូប សទ្ទ គន្ធា រស) ភាវរូប ២ (ឥត្ថិភាវ បុរិសភាវ) ហទយរូប ១ ជីវិតរូប ១ អាហាររូប ១។',
+    aE: 'Eighteen: 4 great essentials (pathavī, āpo, tejo, vāyo), 5 sensitives (cakkhu, sota, ghāna, jivhā, kāya), 4 sense-object rūpas (colour, sound, odour, taste), 2 sex-rūpas (femininity, masculinity), heart-base, life-faculty and nutriment.',
+  },
+  {
+    qK: 'តើអនិប្ផន្នរូប មានន័យដូចម្តេច?',
+    qE: 'What does anipphanna-rūpa mean?',
+    aK: 'អនិប្ផន្នរូប ប្រែថា រូបដែលមិនកើតឡើងដោយខ្លួនឯងជាសភាវៈពិត គឺជាអសភាវរូប កើតឡើងជាអាការៈ ឬលក្ខណៈកំណត់នៃនិប្ផន្នរូបទេ។',
+    aE: 'Anipphanna-rūpa means "non-concretely produced matter" — it is asabhāva-rūpa that does not arise by itself as a separate intrinsic reality but arises as the modes or defining characteristics of nipphanna-rūpa.',
+  },
+  {
+    qK: 'តើអនិប្ផន្នរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many anipphanna-rūpas are there? What are they?',
+    aK: 'មាន ១០ គឺ បរិច្ឆេទរូប ១ (អាកាសធាតុ) វិញ្ញត្តិរូប ២ (កាយវិញ្ញត្តិ វចីវិញ្ញត្តិ) វិការរូប ៣ (លហុតា មុទុតា កម្មញ្ញតា) លក្ខណរូប ៤ (ឧបចយ សន្តតិ ជរតា អនិច្ចតា)។',
+    aE: 'Ten: 1 element-space (pariccheda-rūpa), 2 intimations (kāya-viññatti, vacī-viññatti), 3 mutable rūpas (lahutā, mudutā, kammaññatā) and 4 characteristic rūpas (upacaya, santati, jaratā, aniccatā).',
+  },
+  {
+    qK: 'តើជីវិតរូប ជានិប្ផន្នរូប ឬអនិប្ផន្នរូប?',
+    qE: 'Is jīvita-rūpa nipphanna-rūpa or anipphanna-rūpa?',
+    aK: 'ជីវិតរូប ជានិប្ផន្នរូប (សភាវរូប) ព្រោះវាកើតឡើងដោយខ្លួនវាផ្ទាល់ មានសភាវៈពិតដោយខ្លួនឯង។',
+    aE: 'Jīvita-rūpa (life-faculty) is nipphanna-rūpa (sabhāva-rūpa), because it arises by itself and possesses an intrinsic nature of its own.',
+  },
+]
+
+const part2Qas = [
+  {
+    qK: 'បើចែកជាប្រភេទធំៗ តើរូប ២៨ មានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'When divided into broad categories, how many categories do the 28 rūpas have? What are they?',
+    aK: 'ចែកជា ២ ប្រភេទធំៗ គឺ និប្ផន្នរូប ១៨ និង អនិប្ផន្នរូប ១០។',
+    aE: 'Two broad categories: nipphanna-rūpa (18) and anipphanna-rūpa (10).',
+  },
+  {
+    qK: 'បើចែកជាពួកតូចៗ តើរូប ២៨ មានប៉ុន្មានពួក?',
+    qE: 'When divided into small groups, how many groups do the 28 rūpas have?',
+    aK: 'មាន ១១ ពួក គឺ មហាភូតរូប ៤ បសាទរូប ៥ វិសយរូប ៧ ភាវរូប ២ ហទយរូប ១ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ លក្ខណរូប ៤។',
+    aE: 'Eleven groups: 4 great essentials, 5 sensitives, 7 sense-objects, 2 sex-rūpas, 1 heart-base, 1 life-faculty, 1 nutriment, 1 element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើមហាភូតរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many mahābhūta-rūpas are there? What are they?',
+    aK: 'មាន ៤ គឺ បឋវី អាបោ តេជោ វាយោ (ធាតុ ៤ គឺ ដី ទឹក ភ្លើង ខ្យល់)។',
+    aE: 'Four: pathavī (earth), āpo (water), tejo (fire) and vāyo (air) — the four great essentials.',
+  },
+  {
+    qK: 'តើបសាទរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many pasāda-rūpas are there? What are they?',
+    aK: 'មាន ៥ គឺ ចក្ខុបសាទ សោតបសាទ ឃានបសាទ ជិវ្ហាបសាទ កាយបសាទ។',
+    aE: 'Five: eye, ear, nose, tongue and body sensitivity (cakkhu, sota, ghāna, jivhā, kāya-pasāda).',
+  },
+  {
+    qK: 'តើវិសយរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many visaya-rūpas (sense-objects) are there? What are they?',
+    aK: 'មាន ៧ គឺ រូប (វណ្ណៈ) សទ្ទ គន្ធា រស ផោដ្ឋព្វៈ (បឋវី តេជោ វាយោ)។ ផោដ្ឋព្វៈ បានដល់ ៣ គឺ បឋវី តេជោ វាយោ។',
+    aE: 'Seven: visible object (colour), sound, odour, taste and tangibility — where tangibility comprises earth, fire and air (3 elements).',
+  },
+  {
+    qK: 'តើភាវរូប មានរូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many bhāva-rūpas (sex-rūpas) are there? What are they?',
+    aK: 'មាន ២ គឺ ឥត្ថិភាវរូប (ភាវរូបស្ត្រី) និង បុរិសភាវរូប (ភាវរូបប្រុស)។',
+    aE: 'Two: femininity (itthibhāva) and masculinity (purisabhāva).',
+  },
+  {
+    qK: 'តើហទយរូប បានដល់វត្ថុណាក្នុងចំណោមវត្ថុ ៦?',
+    qE: 'Among the six vatthus, which vatthu does hadaya-rūpa refer to?',
+    aK: 'ហទយរូប បានដល់ ហទយវត្ថុ (វត្ថុទី ៦ ក្នុងចំណោមវត្ថុ ៦) ដែលជាទីតាំងអាស្រ័យនៃចិត្តមនោវិញ្ញាណធាតុ។',
+    aE: 'Hadaya-rūpa refers to the heart-base (hadaya-vatthu), the 6th base, which serves as the physical support for mind-consciousness element (mano-viññāṇa-dhātu).',
+  },
+  {
+    qK: 'តើជីវិតរូប បានដល់ឥន្រ្ទិយមួយណាក្នុងចំណោមឥន្រ្ទិយ ២២?',
+    qE: 'Among the 22 indriyas, which indriya does jīvita-rūpa refer to?',
+    aK: 'ជីវិតរូប បានដល់ ជីវិតិន្រ្ទិយ (ឥន្រ្ទិយទី ២២ ជាចុងក្រោយ) ដែលជាអ្នករក្សាប្រោសឱ្យរូបផងដែរ (ជា រូបជីវិតិន្រ្ទិយ)។',
+    aE: 'Jīvita-rūpa refers to the vital faculty (jīvitindriya), the 22nd indriya, which maintains life and keeps matter alive (rūpa-jīvitindriya).',
+  },
+  {
+    qK: 'តើអាហាររូប បានដល់អាហារឈ្មោះអ្វី?',
+    qE: 'What is the name of the nutriment that āhāra-rūpa refers to?',
+    aK: 'អាហាររូប បានដល់ កពឡីការាហារ (អាហារដែលលេបត្របាក់ គឺភោជនាហារ) ដែលជាអ្នកចិញ្ចឹមបីបាច់កាយរូបនេះ។',
+    aE: 'Āhāra-rūpa refers to kabaliṅkārāhāra (edible/piece-food nutrition), which sustains and nourishes this material body.',
+  },
+  {
+    qK: 'តើបរិច្ឆេទរូប បានដល់អ្វី?',
+    qE: 'What does pariccheda-rūpa refer to?',
+    aK: 'បរិច្ឆេទរូប បានដល់ អាកាសធាតុ (ធាតុទទេ ដែលញែកកំណត់ក្រុមរូបនីមួយៗឱ្យឃ្លាតពីគ្នា)។',
+    aE: 'Pariccheda-rūpa refers to element-space (ākāsa-dhātu), the void that separates and delimits each group of material phenomena.',
+  },
+  {
+    qK: 'តើវិញ្ញត្តិរូប បានដល់រូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many rūpas does viññatti-rūpa refer to? What are they?',
+    aK: 'មាន ២ គឺ កាយវិញ្ញត្តិរូប និង វចីវិញ្ញត្តិរូប (ការបង្ហាញចេញដោយកាយ និង ដោយវាចា)។',
+    aE: 'Two: bodily intimation (kāya-viññatti) and verbal intimation (vacī-viññatti) — expressing one\'s intention through body and speech.',
+  },
+  {
+    qK: 'តើវិការរូប បានដល់រូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many rūpas does vikāra-rūpa refer to? What are they?',
+    aK: 'មាន ៣ គឺ លហុតារូប (ភាពស្រាល) មុទុតារូប (ភាពទន់) កម្មញ្ញតារូប (ភាពគួរកិច្ច គឺអាចប្រតិបត្តិបាន)។',
+    aE: 'Three: lightness (lahutā), softness (mudutā) and wieldiness/adaptability (kammaññatā).',
+  },
+  {
+    qK: 'តើលក្ខណៈរូប បានដល់រូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many rūpas does characteristic-rūpa (lakkhaṇa) refer to? What are they?',
+    aK: 'មាន ៤ គឺ ឧបចយរូប (ការកើតដំបូង) សន្តតិរូប (ការកើតជាបន្ត) ជរតារូប (ការចាស់ ឬសាបរសាយ) អនិច្ចតារូប (ការបាត់បង់ ឬវិនាស)។',
+    aE: 'Four: genesis (upacaya), continuity (santati), decay (jaratā) and impermanence/dissolution (aniccatā).',
+  },
+  {
+    qK: 'តើឧបាទាយរូប មានន័យដូចម្តេច?',
+    qE: 'What does upādāya-rūpa mean?',
+    aK: 'ឧបាទាយរូប ប្រែថា រូបដែលអាស្រ័យនឹងមហាភូតរូប ៤ កើតឡើងក្នុងក្រុមតែមួយជាមួយ ព្រោះមិនអាចកើតដោយឡែកពីមហាភូតបាន។ មាន ២៤ រូប។',
+    aE: 'Upādāya-rūpa means "derived matter" — matter that arises dependent on the four great essentials within the same cluster, incapable of arising apart from them. There are 24 of them.',
+  },
+  {
+    qK: 'ក្នុងបាលី តើរូប ២៨ ចែកជាប៉ុន្មានពួក? អ្វីខ្លះ?',
+    qE: 'In Pāli, into how many groups are the 28 rūpas divided? What are they?',
+    aK: 'ចែកជា ១១ ពួកគឺ មហាភូតរូប ៤ បសាទរូប ៥ វិសយរូប ៧ ភាវរូប ២ ហទយរូប ១ ជីវិតរូប ១ អាហាររូប ១ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ លក្ខណរូប ៤។',
+    aE: 'Into 11 groups: mahābhūta-rūpa 4, pasāda-rūpa 5, visaya-rūpa 7, bhāva-rūpa 2, hadaya-rūpa 1, jīvita-rūpa 1, āhāra-rūpa 1, pariccheda-rūpa 1, viññatti-rūpa 2, vikāra-rūpa 3, lakkhaṇa-rūpa 4.',
+  },
+  {
+    qK: 'តើសភាវរូប បានដល់រូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many rūpas are sabhāva-rūpa? What are they?',
+    aK: 'មាន ១៨ គឺ មហាភូតរូប ៤ បសាទរូប ៥ វិសយរូប ៤ (រូប សទ្ទ គន្ធា រស) ភាវរូប ២ ហទយរូប ១ ជីវិតរូប ១ អាហាររូប ១។',
+    aE: 'Eighteen: 4 great essentials, 5 sensitives, 4 sense-object rūpas (colour, sound, odour, taste), 2 sex-rūpas, heart-base, life-faculty and nutriment.',
+  },
+  {
+    qK: 'តើអសភាវរូប បានដល់រូបប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many rūpas are asabhāva-rūpa? What are they?',
+    aK: 'មាន ១០ គឺ បរិច្ឆេទរូប ១ វិញ្ញត្តិរូប ២ វិការរូប ៣ លក្ខណរូប ៤។',
+    aE: 'Ten: 1 element-space, 2 intimations, 3 mutable rūpas and 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើរូប ១៨ មានឈ្មោះហៅប៉ុន្មានយ៉ាង? អ្វីខ្លះជាភាសាបាលី?',
+    qE: 'How many names are given to the 18 (sabhāva) rūpas? What are they in Pāli?',
+    aK: 'មានឈ្មោះ ៦ យ៉ាងជាភាសាបាលី គឺ សភាវរូប និប្ផន្នរូប សរូបរូប សលក្ខណរូប សម្មសនរូប និង រូបរូប។',
+    aE: 'Six names in Pāli: sabhāva-rūpa, nipphanna-rūpa, sarūpa-rūpa, sa-lakkhaṇa-rūpa, sammasana-rūpa and rūpa-rūpa.',
+  },
+  {
+    qK: 'តើសភាវរូប មានន័យដូចម្តេច?',
+    qE: 'What does sabhāva-rūpa mean?',
+    aK: 'សភាវរូប ប្រែថា រូបដែលមានសភាវៈពិតដោយខ្លួនឯង មានលក្ខណៈពិតដោយឡែកពីគេ ហើយអាចដើរតួជាអារម្មណ៍របស់បញ្ញាវិបស្សនាបាន។',
+    aE: 'Sabhāva-rūpa means "matter having its own intrinsic nature" — it possesses its own distinct characteristic and can serve as an object of insight (vipassanā) wisdom.',
+  },
+  {
+    qK: 'តើសលក្ខណៈរូប មានន័យដូចម្តេច?',
+    qE: 'What does salakkhaṇa-rūpa mean?',
+    aK: 'សលក្ខណរូប ប្រែថា រូបដែលមានលក្ខណៈ ព្រោះវាកើតរួមគ្នាជាមួយនឹងលក្ខណៈកើត-ចាស់-បែក (ឧប្បាទ ឋិតិ ភង្គ) គឺរូប ១៨ ដែលអមដោយលក្ខណរូបទាំង ៤។',
+    aE: 'Salakkhaṇa-rūpa means "matter endowed with characteristics" — it arises together with the characteristics of arising, duration and dissolution (uppāda, ṭhiti, bhaṅga); it refers to the 18 sabhāva-rūpas accompanied by the 4 characteristic rūpas.',
+  },
+  {
+    qK: 'តើនិប្ផន្នរូប មានន័យដូចម្តេច?',
+    qE: 'What does nipphanna-rūpa mean?',
+    aK: 'និប្ផន្នរូប ប្រែថា រូបដែលកើតដោយហេតុផ្សេងៗ (កម្ម ចិត្ត ឧតុ អាហារ) និងមានសភាវៈពិតដោយខ្លួនឯង ជារូបដែលកើតពេញរូបរាងច្បាស់លាស់ ដូចជាមហាភូត បសាទ ជាដើម។',
+    aE: 'Nipphanna-rūpa means "concretely produced matter" — it arises by causes (kamma, citta, utu, āhāra) and possesses its own intrinsic nature, fully formed and distinct, such as the great essentials and the sensitives.',
+  },
+  {
+    qK: 'តើរូបរូប មានន័យដូចម្តេច?',
+    qE: 'What does rūpa-rūpa mean?',
+    aK: 'រូបរូប ប្រែថា រូបដែលជារូបពិតប្រាកដ (មិនមែនជាបញ្ញត្តិ) ព្រោះវាត្រូវបែកធ្លាយដោយហេតុប្រឆាំង និងដោយការច្របាច់សង្កត់ គឺសំដៅដល់រូប ១៨ ដែលជាសភាវរូប មិនមែនសំដៅយកបញ្ញត្តិ។',
+    aE: 'Rūpa-rūpa means "matter proper" (real, not conceptual) — because it is broken up by opposing causes and by squeezing; it denotes the 18 sabhāva-rūpas, not conceptual designations.',
+  },
+  {
+    qK: 'តើសម្មសនរូប មានន័យដូចម្តេច?',
+    qE: 'What does sammasana-rūpa mean?',
+    aK: 'សម្មសនរូប ប្រែថា រូបដែលអាចកំណត់ពិចារណា (សម្មសិត) បាន គឺរូប ១៨ ដែលជាអារម្មណ៍របស់បញ្ញាវិបស្សនា ព្រោះវាអាចកំណត់ឃើញជាអនិច្ចំ ទុក្ខំ អនត្តា បាន។',
+    aE: 'Sammasana-rūpa means "matter fit for comprehension" — the 18 sabhāva-rūpas that can be contemplated by insight wisdom (vipassanā) as impermanent, suffering and non-self.',
+  },
+]
+
+const part3Qas = [
+  {
+    qK: 'តើបរមត្ថ បឋវី មានលក្ខណៈប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many defining aspects does paramattha pathavī (the earth element) have? What are they?',
+    aK: 'បរមត្ថបឋវី មាន ៤ យ៉ាងគឺ លក្ខណៈ គឺ ភាពរឹង (កក្ខឡលក្ខណៈ) រស គឺ ការជើកទ្រទ្រង់របស់ដទៃ (បតិដ្ឋារស) បច្ចុប្បដ្ឋាន គឺ ការទទួល (សម្បដិច្ឆនបច្ចុប្បដ្ឋាន) បទដ្ឋាន គឺ អាបោ តេជោ វាយោ ដែលសល់។',
+    aE: 'Paramattha pathavī has 4 aspects: characteristic — hardness (kakkhaḷa-lakkhaṇa); function — supporting others (patiṭṭhā-rasa); manifestation — receiving (sampaṭicchana-paccupaṭṭhāna); proximate cause — the remaining āpo, tejo and vāyo.',
+  },
+  {
+    qK: 'តើបឋវី ដែលដើរតួជាអារម្មណ៍ បានអារម្មណ៍ណាក្នុងចំណោមអារម្មណ៍ ៦?',
+    qE: 'When pathavī acts as an object, which of the 6 ārammaṇas does it yield?',
+    aK: 'បឋវី ដែលដើរតួជាអារម្មណ៍ បាន ផោដ្ឋព្វារម្មណ៍ (អារម្មណ៍ត្រូវតែប៉ះពាល់ គឺអារម្មណ៍ទី ៥) ព្រោះបឋវីជាធាតុដែលត្រូវប៉ះដោយកាយបសាទ។',
+    aE: 'Pathavī, when acting as object, yields the tangibility base (phoṭṭhabbārammaṇa, the 5th object), because it is tangibly experienced by the body-sensitivity.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់បឋវី?',
+    qE: 'Describe the lakkhaṇādi-catukka of pathavī.',
+    aK: 'បឋវីមាន លក្ខណៈ គឺ ភាពរឹង (កក្ខឡលក្ខណៈ) ដូចជាដីរឹង ឬថ្មរឹង។ រស គឺ ការជើកទ្រទ្រង់ (បតិដ្ឋារស) ដូចជាដីទ្រទ្រង់ឈើ ផ្ទះ សត្វ ជាដើម។ បច្ចុប្បដ្ឋាន គឺ ការទទួល ឬការជើកឱ្យច្បាស់ (សម្បដិច្ឆនបច្ចុប្បដ្ឋាន)។ បទដ្ឋាន គឺ អាបោ តេជោ វាយោ ដែលសល់ ៣ គឺ មហាភូតដែលនៅសល់ជាហេតុផ្តល់កំណើតដល់បឋវី។',
+    aE: 'Pathavī\'s characteristic is hardness (kakkhaḷa), like hard earth or rock. Its function is supporting (patiṭṭhā), as the earth supports trees, houses and beings. Its manifestation is receiving or holding firm (sampaṭicchana). Its proximate cause is the remaining three great essentials (āpo, tejo, vāyo), which along with it arise together.',
+  },
+  {
+    qK: 'តើលក្ខណាទិចតុក្កៈមានន័យដូចម្តេច?',
+    qE: 'What does lakkhaṇādi-catukka mean?',
+    aK: 'លក្ខណាទិចតុក្កៈ ប្រែថា សេចក្តី ៤ យ៉ាងដែលមានលក្ខណៈជាដើម គឺ លក្ខណៈ (ភាពពិត) រស (កិច្ច ឬមុខងារ) បច្ចុប្បដ្ឋាន (អាការប្រាកដ) បទដ្ឋាន (ហេតុជិតបំផុត)។ ជាវិធីរៀបរាប់ពិចារណាសភាវៈនិមួយៗដោយអាការៈ ៤ ។',
+    aE: 'Lakkhaṇādi-catukka means "the group of four beginning with characteristic": characteristic (lakkhana), function (rasa), manifestation (paccupaṭṭhāna) and proximate cause (padaṭṭhāna). It is a method of analysing each reality through these four aspects.',
+  },
+  {
+    qK: 'តើអជ្ឈត្តិកបឋវី មានន័យដូចម្តេច?',
+    qE: 'What does ajjhattika-pathavī (internal earth) mean?',
+    aK: 'អជ្ឈត្តិកបឋវី ប្រែថា បឋវីធាតុដែលមានក្នុងខ្លួនសត្វ គឺអង្គធាតុ ២០ ដែលមានសភាពរឹង ដូចជា សក់ រោម ក្រចក ធ្មេញ ស្បែក ជាដើម។',
+    aE: 'Ajjhattika-pathavī means the earth element within a being\'s own body — the 20 bodily constituents that are hard in nature, such as hair, body-hair, nails, teeth and skin.',
+  },
+  {
+    qK: 'តើសសម្ភារបឋវីក្នុងកាយសត្វ មានប៉ុន្មាន? ចែកជាប៉ុន្មានពួក?',
+    qE: 'How many sambhāra-pathavī (earth-constituents) are in a being\'s body? Into how many groups are they divided?',
+    aK: 'មាន ២០ អង្គ ចែកជា ៤ ពួក (បញ្ចកៈនិមួយៗមាន ៥) គឺ តចបញ្ចកៈ វក្កបញ្ចកៈ បប្ផាសបញ្ចកៈ និង មត្ថលុង្គបញ្ចកៈ។',
+    aE: 'There are 20 constituents, divided into 4 groups (each pañcaka has 5): tacapañcaka, vakkapañcaka, papphāsapañcaka and matthaluṅgapañcaka.',
+  },
+  {
+    qK: 'តើតចបញ្ចកៈ មានន័យដូចម្តេច?',
+    qE: 'What does tacapañcaka mean?',
+    aK: 'តចបញ្ចកៈ ប្រែថា ពួកអង្គធាតុ ៥ ដែលចែកដោយមានតចៈ (ស្បែក) ជាអង្គធំក្នុងពួក គឺ កេសា (សក់) លោមា (រោម) នខា (ក្រចក) ទន្តា (ធ្មេញ) តចោ (ស្បែក)។',
+    aE: 'Tacapañcaka means "the group of five of which skin (taca) is the chief" — namely kesā (hair), lomā (body-hair), nakhā (nails), dantā (teeth) and taco (skin).',
+  },
+  {
+    qK: 'តើតចបញ្ចកៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the tacapañcaka? What are they?',
+    aK: 'មាន ៥ គឺ កេសា លោមា នខា ទន្តា តចោ (សក់ រោម ក្រចក ធ្មេញ ស្បែក)។',
+    aE: 'Five: kesā (hair), lomā (body-hair), nakhā (nails), dantā (teeth) and taco (skin).',
+  },
+  {
+    qK: 'តើវក្កបញ្ចកៈ មានន័យដូចម្តេច?',
+    qE: 'What does vakkapañcaka mean?',
+    aK: 'វក្កបញ្ចកៈ ប្រែថា ពួកអង្គធាតុ ៥ ដែលចែកដោយមានវក្កៈ ជាអង្គធំក្នុងពួក គឺ មំសៈ (សាច់) នហារុ (សរសៃ) អដ្ឋិ (ឆ្អឹង) អដ្ឋិមិញ្ច (ខួរក្នុងឆ្អឹង) វក្កៈ (តម្រងនោម)។',
+    aE: 'Vakkapañcaka means "the group of five of which the kidney (vakka) is the representative" — namely maṁsa (flesh), nahāru (sinews), aṭṭhi (bones), aṭṭhimiñja (bone-marrow) and vakka (kidneys).',
+  },
+  {
+    qK: 'តើវក្កបញ្ចកៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the vakkapañcaka? What are they?',
+    aK: 'មាន ៥ គឺ មំសៈ នហារុ អដ្ឋិ អដ្ឋិមិញ្ច វក្កៈ (សាច់ សរសៃ ឆ្អឹង ខួរក្នុងឆ្អឹង តម្រងនោម)។',
+    aE: 'Five: maṁsa (flesh), nahāru (sinews), aṭṭhi (bones), aṭṭhimiñja (bone-marrow) and vakka (kidneys).',
+  },
+]
+
+const part4Qas = [
+  {
+    qK: 'តើបប្ផាសបញ្ចកៈ មានន័យដូចម្តេច?',
+    qE: 'What does papphāsapañcaka mean?',
+    aK: 'បប្ផាសបញ្ចកៈ ប្រែថា ពួកអង្គធាតុ ៥ ដែលចែកដោយមានបប្ផាសៈ (សួត) ជាអង្គធំក្នុងពួក គឺ ហទយៈ យកនៈ កិលោមកៈ បីហកៈ បប្ផាសៈ។',
+    aE: 'Papphāsapañcaka means "the group of five of which the lungs (papphāsa) is the representative" — namely hadaya (heart), yakana (liver), kilomaka (pleura), pihaka (spleen) and papphāsa (lungs).',
+  },
+  {
+    qK: 'តើបប្ផាសបញ្ចកៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the papphāsapañcaka? What are they?',
+    aK: 'មាន ៥ គឺ ហទយៈ (បេះដូង) យកនៈ (ថ្លើម) កិលោមកៈ (ភ្នាសសួត ឬស្រោមបេះដូង) បីហកៈ (លំពែង) បប្ផាសៈ (សួត)។',
+    aE: 'Five: hadaya (heart), yakana (liver), kilomaka (pleura), pihaka (spleen) and papphāsa (lungs).',
+  },
+  {
+    qK: 'តើមត្ថលុង្គបញ្ចកៈ មានន័យដូចម្តេច?',
+    qE: 'What does matthaluṅgapañcaka mean?',
+    aK: 'មត្ថលុង្គបញ្ចកៈ ប្រែថា ពួកអង្គធាតុ ៥ ដែលចែកដោយមានមត្ថលុង្គៈ (ខួរក្បាល) ជាអង្គធំក្នុងពួក គឺ អន្តៈ អន្តគុណៈ ឧទរិយៈ ករីសៈ មត្ថលុង្គៈ។',
+    aE: 'Matthaluṅgapañcaka means "the group of five of which the brain (matthaluṅga) is the representative" — namely anta (intestines), antaguṇa (mesentery), udariya (stomach content), karīsa (excrement) and matthaluṅga (brain).',
+  },
+  {
+    qK: 'តើមត្ថលុង្គបញ្ចកៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the matthaluṅgapañcaka? What are they?',
+    aK: 'មាន ៥ គឺ អន្តៈ (ពោះវៀន) អន្តគុណៈ (សរសៃស្តើងជាប់ពោះវៀន) ឧទរិយៈ (អាហារក្នុងពោះ) ករីសៈ (លាមក) មត្ថលុង្គៈ (ខួរក្បាល)។',
+    aE: 'Five: anta (intestines), antaguṇa (mesentery), udariya (food in the stomach), karīsa (faeces) and matthaluṅga (brain).',
+  },
+  {
+    qK: 'តើសសម្ភារបឋវី ចែកជាប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Into how many is sambhāra-pathavī divided? What are they?',
+    aK: 'សសម្ភារបឋវី ចែកជា ៤ ពួក (បញ្ចកៈ) គឺ តចបញ្ចកៈ វក្កបញ្ចកៈ បប្ផាសបញ្ចកៈ មត្ថលុង្គបញ្ចកៈ ដែលរួមមាន ២០ អង្គ។',
+    aE: 'Sambhāra-pathavī is divided into 4 groups (pañcakas): tacapañcaka, vakkapañcaka, papphāsapañcaka and matthaluṅgapañcaka — totalling 20 constituents.',
+  },
+  {
+    qK: 'តើសសម្ភារបឋវី នៅក្រៅកាយសត្វ បានដល់សសម្ភារៈអ្វីខ្លះ?',
+    qE: 'What sambhāra (constituents) does sambhāra-pathavī outside a being\'s body refer to?',
+    aK: 'សសម្ភារបឋវី នៅក្រៅកាយសត្វ (ពាហិរបឋវី) បានដល់ ដី ថ្ម ក្រួស ខ្សាច់ ភ្នំ ពំនូក ជាដើម ដែលមានធាតុរឹងស្ថិតនៅក្រៅខ្លួនសត្វ។',
+    aE: 'Sambhāra-pathavī outside a being\'s body (external earth) refers to soil, rock, gravel, sand, mountains and hillocks — things with a hard nature existing outside the body.',
+  },
+  {
+    qK: 'តើកសិណបឋវី ជាអារម្មណ៍របស់កម្មដ្ឋានណា?',
+    qE: 'Which meditation object does kasina-pathavī serve as?',
+    aK: 'កសិណបឋវី ជាអារម្មណ៍របស់ បឋវីកសិណសមាធិកម្មដ្ឋាន (កម្មដ្ឋានសមាធិជាគ្រឿងកំណត់ដី) ដែលអ្នកប្រតិបត្តិកំណត់យកដីជាអារម្មណ៍។',
+    aE: 'Kasina-pathavī serves as the object of the earth-kasiṇa meditation (pathavī-kasiṇa samādhi kammaṭṭhāna), in which the meditator takes the earth as his object focus.',
+  },
+  {
+    qK: 'តើសម្មតិបឋវី ឬបកតិបឋវី បានដល់អ្វីខ្លះ?',
+    qE: 'What does sammuti-pathavī or natural pathavī refer to?',
+    aK: 'សម្មតិបឋវី ឬបកតិបឋវី បានដល់ដីដែលស្ថិតក្នុងលោកតាមការសម្មតិ (តាមការសន្មតហៅ) ដូចជា ដីស្រែ ដីចម្ការ ដីភូមិ ដីផ្ទះ ជាដើម ដែលជាបញ្ញត្តិ មិនមែនជាបរមត្ថឡើយ។',
+    aE: 'Sammuti-pathavī or natural pathavī refers to the earth as conventionally understood, such as paddy-field land, garden land, village land or house land — these are concepts (paññatti), not ultimate realities.',
+  },
+  {
+    qK: 'តើបឋវី ដោយបរមត្ថ និងដោយបញ្ញត្តិ ចែកជាប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'By way of paramattha and paññatti, into how many kinds is pathavī divided? What are they?',
+    aK: 'ចែកជា ២ យ៉ាង គឺ បរមត្ថបឋវី (បឋវីដែលជាបរមត្ថ មានលក្ខណៈរឹង ដូចជាបឋវីធាតុក្នុងកាយ) និង បញ្ញត្តិបឋវី (បឋវីដែលជាបញ្ញត្តិ គឺដីតាមការសម្មតិ ដូចជាដីស្រែ ដីចម្ការ)។',
+    aE: 'It is divided into 2: paramattha-pathavī (the ultimate earth element having the characteristic of hardness, such as the earth element in the body) and paññatti-pathavī (conventional earth, such as paddy-field or garden land, which is a concept).',
+  },
+  {
+    qK: 'តើបរមត្ថបឋវី ឬលក្ខណៈបឋវី សំដៅដល់បរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Do paramattha-pathavī or lakkhaṇa-pathavī refer to paramattha or paññatti?',
+    aK: 'បរមត្ថបឋវី ឬលក្ខណៈបឋវី សំដៅដល់ បរមត្ថ គឺ បឋវីធាតុដែលមានលក្ខណៈរឹងជាសភាវៈពិតដោយខ្លួនឯង ពុំមែនជាបញ្ញត្តិឡើយ។',
+    aE: 'Paramattha-pathavī or lakkhaṇa-pathavī refers to paramattha (ultimate reality) — the earth element possessing hardness as its own intrinsic nature, not a concept (paññatti).',
+  },
+]
+
+const part5Qas = [
+  {
+    qK: 'តើបរមត្ថអាបោ មានលក្ខណៈប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many defining aspects does paramattha āpo (the water element) have? What are they?',
+    aK: 'បរមត្ថអាបោ មាន ៤ យ៉ាងគឺ លក្ខណៈ គឺ ការហូរ ឬហៀរធ្លាក់ (បគ្ឃរណលក្ខណៈ) រស គឺ ការពង្រីក ឬឱ្យស្អិតជាប់ (ព្រូហនរស) បច្ចុប្បដ្ឋាន គឺ ការជាប់ស្អិត ឬការបន្តបន្ទាប់ (សន្ទនបច្ចុប្បដ្ឋាន) បទដ្ឋាន គឺ បឋវី តេជោ វាយោ ដែលសល់។',
+    aE: 'Paramattha āpo has 4 aspects: characteristic — flowing or trickling (paggharaṇa-lakkhaṇa); function — strengthening or cohesion (brūhana-rasa); manifestation — holding together or extending (sandana-paccupaṭṭhāna); proximate cause — the remaining pathavī, tejo and vāyo.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ អាបោ?',
+    qE: 'Describe the lakkhaṇādi-catukka of āpo.',
+    aK: 'អាបោមាន លក្ខណៈ គឺ ការហូរ ឬហៀរធ្លាក់ (បគ្ឃរណលក្ខណៈ) ដូចជាទឹកហូរ ឬញើសបែកហូរចេញ។ រស គឺ ការពង្រីក ឬឱ្យស្អិតជាប់ (ព្រូហនរស) ដូចជាទឹកធ្វើឱ្យគ្រឿងរសាត់យ៉ាងជាប់ស្អិត។ បច្ចុប្បដ្ឋាន គឺ ការជាប់ស្អិត ឬការសន្ទនា (សន្ទនបច្ចុប្បដ្ឋាន) ដូចជាកpplerដែលជាប់ស្អិតគ្នា។ បទដ្ឋាន គឺ បឋវី តេជោ វាយោ ដែលសល់ ជាមហាភូតដែលកើតរួមជាមួយគ្នា។',
+    aE: 'Āpo\'s characteristic is flowing or trickling (paggharaṇa), like water flowing or sweat seeping out. Its function is strengthening or cohesion (brūhana), like water binding scattered materials together. Its manifestation is holding together or cohesion (sandana), like coagulating. Its proximate cause is the remaining pathavī, tejo and vāyo, which arise together with it.',
+  },
+  {
+    qK: 'អាបោ បើដើរតួជាអារម្មណ៍ តើចាត់ជាអារម្មណ៍ណាក្នុងចំណោមអារម្មណ៍ ៦?',
+    qE: 'When āpo acts as an object, which of the 6 ārammaṇas is it classed as?',
+    aK: 'អាបោ បើដើរតួជាអារម្មណ៍ ចាត់ជា ធម្មារម្មណ៍ (អារម្មណ៍ទី ៦ ដែលជាអារម្មណ៍របស់ចិត្តមនោ) ព្រោះអាបោមិនមែនជាវត្ថុនៃវិញ្ញាណ ៥ ទេ គឺ គ្រាន់តែដឹងដោយមនោទ្វារ។',
+    aE: 'When āpo acts as an object, it is classed as dhammārammaṇa (the 6th object, the object of mind-consciousness), because āpo is not an object of the five sense-consciousnesses but is known only through the mind-door.',
+  },
+  {
+    qK: 'តើអាបោ ចាត់ជាខន្ធណាក្នុងចំណោមខន្ធ ៥?',
+    qE: 'Among the 5 khandhas, which khandha is āpo classed as?',
+    aK: 'អាបោ ចាត់ជា រូបក្ខន្ធ (ខន្ធទី ៤) ព្រោះអាបោជារូបធម៌។',
+    aE: 'Āpo is classed as rūpakkhandha (the 4th khandha, the material aggregate), because āpo is matter.',
+  },
+  {
+    qK: 'តើអាបោ ជាអព្យាកតធម៌ ឬ រូបធម៌?',
+    qE: 'Is āpo abyākata-dhamma or rūpa-dhamma?',
+    aK: 'អាបោ ជា ទាំងរូបធម៌ និង អព្យាកតធម៌ ព្រោះអាបោជារូប ហើយរូបទាំងអស់ជាអព្យាកតធម៌ (មិនមែនកុសល មិនមែនអកុសល មិនមែនកិរិយា)។',
+    aE: 'Āpo is both rūpa-dhamma and abyākata-dhamma, because it is matter, and all matter is morally indeterminate (abyākata) — neither wholesome, nor unwholesome, nor functional.',
+  },
+  {
+    qK: 'ដោយបរមត្ថ និងបញ្ញត្តិ តើអាបោ ចែកជាប៉ុន្មានយ៉ាងជាភាសាបាលី? អ្វីខ្លះ?',
+    qE: 'By paramattha and paññatti, into how many kinds is āpo divided in Pāli? What are they?',
+    aK: 'ចែកជា ២ យ៉ាងជាភាសាបាលី គឺ បរមត្ថអាបោ (អាបោដែលជាបរមត្ថ មានលក្ខណៈហូរ) និង បញ្ញត្តិអាបោ (អាបោដែលជាបញ្ញត្តិ ដូចជា សមុទ្ទ ស្ទឹង ទឹក)។',
+    aE: 'It is divided into 2 in Pāli: paramattha-āpo (the ultimate water element having the characteristic of flowing) and paññatti-āpo (conventional water, such as ocean, river or lake).',
+  },
+  {
+    qK: 'តើសសម្ភារអាបោ ចែកជាប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'Into how many types is sambhāra-āpo divided? What are they?',
+    aK: 'សសម្ភារអាបោ ចែកជា ២ ប្រភេទ គឺ អជ្ឈត្តិកអាបោ (អាបោក្នុងកាយ) និង ពាហិរអាបោ (អាបោក្រៅកាយ)។',
+    aE: 'Sambhāra-āpo is divided into 2 types: ajjhattika-āpo (internal water, in the body) and bāhira-āpo (external water, outside the body).',
+  },
+  {
+    qK: 'តើអជ្ឈត្តិកអាបោ មានប៉ុន្មាន? ចែកជាប៉ុន្មានពួក?',
+    qE: 'How many internal āpo parts are there? Into how many groups are they divided?',
+    aK: 'អជ្ឈត្តិកអាបោ មាន ១២ អង្គ ចែកជា ២ ពួក (ឆក្កៈ) គឺ មេទឆក្កៈ និង មុត្តឆក្កៈ ដែលនិមួយៗមាន ៦។',
+    aE: 'There are 12 internal āpo constituents, divided into 2 groups (chakkas): medo-chakka and mutta-chakka, each having 6.',
+  },
+  {
+    qK: 'តើមេទឆក្កៈ មានន័យដូចម្តេច?',
+    qE: 'What does medo-chakka mean?',
+    aK: 'មេទឆក្កៈ ប្រែថា ពួកអង្គធាតុ ៦ ដែលមានមេទៈ (ខ្លាញ់) ជាអង្គចុងក្រោយ គឺ បិត្តៈ សេម្ហៈ ពុព្វោ លោហិតៈ សេទៈ មេទៈ។',
+    aE: 'Medo-chakka means "the group of six whose last member is meda (fat)" — namely pitta (bile), semha (phlegm), pubbo (pus), lohita (blood), sedo (sweat) and medo (fat).',
+  },
+  {
+    qK: 'តើមេទឆក្កៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the medo-chakka? What are they?',
+    aK: 'មាន ៦ គឺ បិត្តៈ (ទឹកប្រមាត់) សេម្ហៈ (ប្រដាប់ ឬទឹករំអិល) ពុព្វោ (ខ្ទុះ) លោហិតៈ (ឈាម) សេទៈ (ញើស) មេទៈ (ខ្លាញ់)។',
+    aE: 'Six: pitta (bile), semha (phlegm), pubbo (pus), lohita (blood), sedo (sweat) and medo (fat).',
+  },
+  {
+    qK: 'តើមុត្តឆក្កៈ មានន័យដូចម្តេច?',
+    qE: 'What does mutta-chakka mean?',
+    aK: 'មុត្តឆក្កៈ ប្រែថា ពួកអង្គធាតុ ៦ ដែលមានមុត្តៈ (ទឹកនោម) ជាអង្គចុងក្រោយ គឺ អស្សុៈ វសា ខេឡៈ សិង្ឃាណិកា លសិកា មុត្តៈ។',
+    aE: 'Mutta-chakka means "the group of six whose last member is mutta (urine)" — namely assu (tears), vasā (sweat/lymph), kheḷo (spittle), siṅghāṇikā (snot), lasikā (synovial fluid) and mutta (urine).',
+  },
+  {
+    qK: 'តើមុត្តឆក្កៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many are in the mutta-chakka? What are they?',
+    aK: 'មាន ៦ គឺ អស្សុៈ (ទឹកភ្នែក) វសា (ស្លស ឬញើសខ្លាញ់) ខេឡៈ (ទឹកមាត់) សិង្ឃាណិកា (ទឹករំអិលច្រមុះ) លសិកា (ទឹករំអិលត្រង់សន្លាក់) មុត្តៈ (ទឹកនោម)។',
+    aE: 'Six: assu (tears), vasā (lymph/sweat-oil), kheḷo (spittle), siṅghāṇikā (nasal mucus), lasikā (synovial fluid) and mutta (urine).',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈហូររបស់ អាបោ នៅពេលដែលអាបោច្រើន បឋវីតិច?',
+    qE: 'Give an example of āpo\'s flowing characteristic when āpo is abundant and pathavī is little.',
+    aK: 'ឧទាហរណ៍ នៅពេលអាបោច្រើន បឋវីតិច អាបោរហូរហៀរធ្លាក់ចេញដូចជា ទឹកហូរច្រាលចេញពីក្អម ឬដូចទឹកក្នុងស្ទឹងដែលហូរលឿន នៅពេលមានទឹកច្រើន ដំណក់ទឹកក៏ហៀរចាក់ធ្លាក់ដោយមិនជាប់ស្អិត។',
+    aE: 'Example: when āpo is abundant and pathavī little, āpo overflows and falls continuously, like water overflowing from a jar, or like a river rushing swiftly when full — the water trickles away rather than holding together.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈហូររបស់អាបោ នៅពេលដែលត្រូវតេជោដុត?',
+    qE: 'Give an example of āpo\'s flowing characteristic when it is burnt by tejo (heat).',
+    aK: 'ឧទាហរណ៍ នៅពេលអាបោត្រូវតេជោដុត អាបោក៏ហូរចេញដូចជា ក្រមួន ឬខ្លាញ់ដែលត្រូវភ្លើងដុត ក្តៅរលាយហូរចេញ ឬញើសដែលបែកចេញពីកាយពេលក្តៅ។',
+    aE: 'Example: when āpo is burnt by tejo it flows out, like wax or fat that melts and runs out when exposed to fire, or like sweat that oozes from the body when hot.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈជាប់ស្អិតរបស់អាបោ នៅពេលអាបោតិច បឋវីច្រើនជាង?',
+    qE: 'Give an example of āpo\'s cohesive characteristic when āpo is little and pathavī is more.',
+    aK: 'ឧទាហរណ៍ នៅពេលអាបោតិច បឋវីច្រើន អាបោធ្វើឱ្យបឋវីជាប់ស្អិតគ្នាដូចជា ដូជាតិ ឬដីឥដ្ឋដែលលាយទឹកបន្តិចបន្តួច ពេលប្រឡាក់ អាចធ្វើជាក្អមជាប់ស្អិតមិនរបូត ឬខ្សាច់សើមដែលជាប់ស្អិតគ្នាបាន។',
+    aE: 'Example: when āpo is little and pathavī more, āpo makes the earth cohere, like a little water mixed into clay that can be shaped into a pot and holds together, or like moist sand that sticks together.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈជាប់ស្អិតរបស់អាបោ នៅពេលតេជោធាតុតិច?',
+    qE: 'Give an example of āpo\'s cohesive characteristic when the tejo element is little.',
+    aK: 'ឧទាហរណ៍ នៅពេលតេជោធាតុតិច (ភ្លើងតិច ត្រជាក់) អាបោក៏ជាប់ស្អិតរឹងដូចជា ទឹកដោះដែលកកស្អិតជាប់គ្នា ឬទឹកកកដែលរឹងជាប់គ្នា ដោយសារភ្លើងតិច (ត្រជាក់)។',
+    aE: 'Example: when the tejo element is little (little heat — cold), āpo becomes cohesive and firm, like milk that coagulates and clings together, or water that freezes and binds, because of the diminished heat.',
+  },
+]
+
+const part6Qas = [
+  {
+    qK: 'តើបរមត្ថតេជោ មានលក្ខណៈប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many defining aspects does paramattha tejo (the heat element) have? What are they?',
+    aK: 'បរមត្ថតេជោ មាន ៤ យ៉ាងគឺ លក្ខណៈ គឺ ភាពក្តៅ ឬត្រជាក់ (ឧណ្ហត្តលក្ខណៈ ឬសីតលក្ខណៈ) រស គឺ ការធ្វើឱ្យទុំ ឬចាស់ (បរិបាចនរស) បច្ចុប្បដ្ឋាន គឺ ការធ្វើឱ្យទន់ (មទ្ទវបច្ចុប្បដ្ឋាន) បទដ្ឋាន គឺ បឋវី អាបោ វាយោ ដែលសល់។',
+    aE: 'Paramattha tejo has 4 aspects: characteristic — heat or cold (uṇhatta/sīta-lakkhana); function — ripening or maturing (paripācana-rasa); manifestation — softening (maddava-paccupaṭṭhāna); proximate cause — the remaining pathavī, āpo and vāyo.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីដែលធ្វើឱ្យបឋវីក្តៅ?',
+    qE: 'What nature makes pathavī hot?',
+    aK: 'តេជោធាតុ (ដោយអាការៈក្តៅ ឧណ្ហត្តៈ) ជាអ្នកធ្វើឱ្យបឋវីក្តៅ។',
+    aE: 'The tejo element (the hot aspect, uṇhatta) is what makes pathavī hot.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីធ្វើឱ្យបឋវីត្រជាក់?',
+    qE: 'What nature makes pathavī cold?',
+    aK: 'តេជោធាតុ (ដោយអាការៈត្រជាក់ សីតៈ) ជាអ្នកធ្វើឱ្យបឋវីត្រជាក់ ព្រោះតេជោធាតុមានទាំងអាការៈក្តៅ និងត្រជាក់។',
+    aE: 'The tejo element (the cold aspect, sīta) makes pathavī cold, because the tejo element has both hot and cold aspects.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីធ្វើឱ្យអាបោក្តៅ?',
+    qE: 'What nature makes āpo hot?',
+    aK: 'តេជោធាតុ (ឧណ្ហត្តៈ ភាពក្តៅ) ជាអ្នកធ្វើឱ្យអាបោក្តៅ។',
+    aE: 'The tejo element (the hot aspect, uṇhatta) makes āpo hot.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីធ្វើឱ្យអាបោត្រជាក់?',
+    qE: 'What nature makes āpo cold?',
+    aK: 'តេជោធាតុ (សីតៈ ភាពត្រជាក់) ជាអ្នកធ្វើឱ្យអាបោត្រជាក់។',
+    aE: 'The tejo element (the cold aspect, sīta) makes āpo cold.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីធ្វើឱ្យវាយោក្តៅ?',
+    qE: 'What nature makes vāyo hot?',
+    aK: 'តេជោធាតុ (ឧណ្ហត្តៈ ភាពក្តៅ) ជាអ្នកធ្វើឱ្យវាយោក្តៅ។',
+    aE: 'The tejo element (the hot aspect, uṇhatta) makes vāyo hot.',
+  },
+  {
+    qK: 'តើធម្មជាតិអ្វីធ្វើឱ្យវាយោត្រជាក់?',
+    qE: 'What nature makes vāyo cold?',
+    aK: 'តេជោធាតុ (សីតៈ ភាពត្រជាក់) ជាអ្នកធ្វើឱ្យវាយោត្រជាក់។',
+    aE: 'The tejo element (the cold aspect, sīta) makes vāyo cold.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់តេជោធាតុ?',
+    qE: 'Describe the lakkhaṇādi-catukka of the tejo element.',
+    aK: 'តេជោធាតុមាន លក្ខណៈ គឺ ភាពក្តៅ ឬត្រជាក់ (ឧណ្ហត្ត/សីតលក្ខណៈ) ដូចជាភ្លើងឬទឹកកក។ រស គឺ ការធ្វើឱ្យទុំ ឬចាស់រលួយ (បរិបាចនរស) ដូចជាផ្លែឈើទុំដោយកម្តៅថ្ងៃ ឬអាហារឆ្អិន។ បច្ចុប្បដ្ឋាន គឺ ការធ្វើឱ្យទន់ (មទ្ទវបច្ចុប្បដ្ឋាន) ដូចជាដំណាប់ទន់ដោយក្តៅ។ បទដ្ឋាន គឺ បឋវី អាបោ វាយោ ដែលសល់។',
+    aE: 'The tejo element has: characteristic — heat or cold (uṇhatta/sīta), like fire or ice. Function — ripening and maturing (paripācana), as fruit ripens by the sun\'s heat or food is cooked. Manifestation — softening (maddava), as what is stiff becomes soft through warmth. Proximate cause — the remaining pathavī, āpo and vāyo.',
+  },
+  {
+    qK: 'ដោយបរមត្ថ និងបញ្ញត្តិ តើតេជោមានប៉ុន្មានយ៉ាងជាភាសាបាលី? អ្វីខ្លះ?',
+    qE: 'By paramattha and paññatti, into how many kinds is tejo divided in Pāli? What are they?',
+    aK: 'មាន ២ យ៉ាងជាភាសាបាលី គឺ បរមត្ថតេជោ (តេជោដែលជាបរមត្ថ មានលក្ខណៈក្តៅ ឬត្រជាក់) និង បញ្ញត្តិតេជោ (តេជោដែលជាបញ្ញត្តិ ដូចជា ភ្លើង អគ្គី)។',
+    aE: 'There are 2 kinds in Pāli: paramattha-tejo (the ultimate heat element having the characteristic of heat or cold) and paññatti-tejo (conventional fire, such as a blaze).',
+  },
+  {
+    qK: 'តើសសម្ភារតេជោ ឬសុតន្តតេជោ ចែកជាប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'Into how many kinds is sambhāra-tejo (or Suttanta tejo) divided? What are they?',
+    aK: 'សសម្ភារតេជោ ឬសុតន្តតេជោ ចែកជា ២ យ៉ាង គឺ អជ្ឈត្តិកតេជោ (តេជោក្នុងកាយ) និង ពាហិរតេជោ (តេជោក្រៅកាយ)។',
+    aE: 'Sambhāra-tejo (or Suttanta tejo) is divided into 2 kinds: ajjhattika-tejo (internal fire, in the body) and bāhira-tejo (external fire, outside the body).',
+  },
+  {
+    qK: 'តើអជ្ឈត្តិកតេជោ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many kinds of internal tejo are there? What are they?',
+    aK: 'អជ្ឈត្តិកតេជោ មាន ៤ គឺ សន្តាបនតេជោ (ធ្វើឱ្យក្តៅក្នុងកាយ) ទហនតេជោ (ធ្វើឱ្យឆាបឆេះ កំដៅដែលធ្វើឱ្យក្តៅខ្លាំងដល់កាយ) បចកតេជោ (ធ្វើឱ្យរំលាយអាហារឆ្អិន) បរិណាមកតេជោ (ធ្វើឱ្យរូបកាយចាស់ ទុំ ឬរលួយ)។',
+    aE: 'Internal tejo has 4: santāpana-tejo (warming the body), dahana-tejo (burning/consuming), pācaka-tejo (digesting and cooking food) and pariṇāmaka-tejo (maturing, ageing or decomposing the body).',
+  },
+  {
+    qK: 'តើពាហិរតេជោ មានអ្វីខ្លះ?',
+    qE: 'What does external tejo include?',
+    aK: 'ពាហិរតេជោ (តេជោក្រៅកាយ) មាន ដូចជា កម្តៅព្រះអាទិត្យ ភ្លើងឆាបឆេះ កម្តៅក្តៅ កម្តៅក្រហាយ ជាដើម ដែលមាននៅក្រៅខ្លួនសត្វ។',
+    aE: 'External tejo (fire outside the body) includes such things as the heat of the sun, burning fire, the heat of summer and searing heat — heat existing outside a being\'s body.',
+  },
+  {
+    qK: 'តើកសិណតេជោ ជាអារម្មណ៍របស់កម្មដ្ឋានណា?',
+    qE: 'Which meditation object does kasina-tejo serve as?',
+    aK: 'កសិណតេជោ ជាអារម្មណ៍របស់ តេជោកសិណសមាធិកម្មដ្ឋាន (កម្មដ្ឋានសមាធិជាគ្រឿងកំណត់ភ្លើង) ដែលអ្នកប្រតិបត្តិកំណត់យកភ្លើងជាអារម្មណ៍។',
+    aE: 'Kasina-tejo serves as the object of the fire-kasiṇa meditation (tejo-kasiṇa samādhi kammaṭṭhāna), in which the meditator takes fire as his object focus.',
+  },
+  {
+    qK: 'តើសម្មតិតេជោ ឬបកតិតេជោ បានដល់អ្វីខ្លះ?',
+    qE: 'What does sammuti-tejo or natural tejo refer to?',
+    aK: 'សម្មតិតេជោ ឬបកតិតេជោ បានដល់ភ្លើងតាមការសម្មតិ (តាមការសន្មតហៅ) ដូចជា ភ្លើង អគ្គី ភ្លើងឆេះផ្ទះ ភ្លើងចង្ក្រាន ជាដើម ដែលជាបញ្ញត្តិ មិនមែនបរមត្ថ។',
+    aE: 'Sammuti-tejo or natural tejo refers to fire as conventionally understood, such as a blaze, a house fire or a stove fire — these are concepts (paññatti), not ultimate realities.',
+  },
+  {
+    qK: 'តើតេជោដើរតួជាអារម្មណ៍ណាមួយក្នុងចំណោមអារម្មណ៍ ៦?',
+    qE: 'Which of the 6 ārammaṇas does tejo act as?',
+    aK: 'តេជោ ដើរតួជាអារម្មណ៍មួយក្នុងចំណោមអារម្មណ៍ ៦ គឺ ផោដ្ឋព្វារម្មណ៍ (អារម្មណ៍ត្រូវប៉ះពាល់) ព្រោះតេជោជាទីតាំងនៃការប៉ះរបស់កាយបសាទ រួមជាមួយបឋវី និងវាយោ។',
+    aE: 'Tejo acts as one of the 6 objects, namely the tangibility base (phoṭṭhabbārammaṇa), because tejo is experienced by the body-sensitivity together with pathavī and vāyo.',
+  },
+  {
+    qK: 'តើតេជោដើរតួជាអារម្មណ៍ ឱ្យចិត្តប្រព្រឹត្តតាមទ្វារណា?',
+    qE: 'Through which door does tejo act as an object for consciousness?',
+    aK: 'តេជោ ដើរតួជាអារម្មណ៍ ឱ្យចិត្តប្រព្រឹត្តតាម កាយទ្វារ (ទ្វារទី ៥ នៃកាយ) ព្រោះតេជោជាផោដ្ឋព្វារម្មណ៍ដែលត្រូវដឹងដោយកាយវិញ្ញាណតាមកាយបសាទ។',
+    aE: 'Tejo acts as an object for consciousness through the body-door (kāya-dvāra, the 5th door), because it is a tangible object known by body-consciousness through the body-sensitivity.',
+  },
+]
+
+const part7Qas = [
+  {
+    qK: 'តើបរមត្ថវាយោ មានលក្ខណៈប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many defining aspects does paramattha vāyo (the air/wind element) have? What are they?',
+    aK: 'បរមត្ថវាយោ មាន ៤ យ៉ាងគឺ លក្ខណៈ គឺ ការជើកទ្រទ្រង់ ឬព្រឺកម្រាប (វិត្ថម្ភនលក្ខណៈ ឬអត្ថម្ភនលក្ខណៈ) រស គឺ ការធ្វើឱ្យចលនា (សមុទីរណរស) បច្ចុប្បដ្ឋាន គឺ ការបញ្ជូន ឬបង្អោនទៅ (អភិនីហារបច្ចុប្បដ្ឋាន) បទដ្ឋាន គឺ បឋវី អាបោ តេជោ ដែលសល់។',
+    aE: 'Paramattha vāyo has 4 aspects: characteristic — supporting or vibrating (vitthambhana/atthambhana-lakkhana); function — moving or propelling (samudīraṇa-rasa); manifestation — urging or conveying forward (abhinīhāra-paccupaṭṭhāna); proximate cause — the remaining pathavī, āpo and tejo.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់វាយោធាតុ?',
+    qE: 'Describe the lakkhaṇādi-catukka of the vāyo element.',
+    aK: 'វាយោធាតុមាន លក្ខណៈ គឺ ការជើកទ្រទ្រង់ ឬព្រឺកម្រាប (វិត្ថម្ភនលក្ខណៈ) ដូចជាខ្យល់ដែលជើកទ្រទ្រង់អ្វីៗឱ្យឈរបាន ឬធ្វើឱ្យព្រឺកម្រាបវិលវល់។ រស គឺ ការធ្វើឱ្យចលនា (សមុទីរណរស) ដូចជាខ្យល់បក់ធ្វើឱ្យដើមឈើត្រសៀលចលនា។ បច្ចុប្បដ្ឋាន គឺ ការបញ្ជូន ឬបង្អោនទៅ (អភិនីហារបច្ចុប្បដ្ឋាន) ដូចជាខ្យល់បក់បង្អោនអ្វីៗទៅមុខ។ បទដ្ឋាន គឺ បឋវី អាបោ តេជោ ដែលសល់ ដែលកើតរួមជាមួយគ្នា។',
+    aE: 'The vāyo element has: characteristic — supporting or vibrating (vitthambhana), like wind that upholds things or sets them trembling in motion. Function — moving (samudīraṇa), as wind sways and moves trees. Manifestation — urging or conveying forward (abhinīhāra), as wind blows and carries things along. Proximate cause — the remaining pathavī, āpo and tejo, which arise together with it.',
+  },
+  {
+    qK: 'វាយោ ដើរតួជាអារម្មណ៍ណាក្នុងចំណោមអារម្មណ៍ ៦?',
+    qE: 'Which of the 6 ārammaṇas does vāyo act as?',
+    aK: 'វាយោ ដើរតួជាអារម្មណ៍មួយក្នុងចំណោមអារម្មណ៍ ៦ គឺ ផោដ្ឋព្វារម្មណ៍ (អារម្មណ៍ទី ៥ ដែលត្រូវប៉ះពាល់) ព្រោះវាយោជាទីតាំងនៃការប៉ះរបស់កាយបសាទ រួមជាមួយបឋវី និងតេជោ។',
+    aE: 'Vāyo acts as one of the 6 objects, namely the tangibility base (phoṭṭhabbārammaṇa, the 5th object), because it is experienced by the body-sensitivity together with pathavī and tejo.',
+  },
+  {
+    qK: 'វាយោ ដើរតួជាអារម្មណ៍ ឱ្យចិត្តប្រព្រឹត្តតាមទ្វារណា?',
+    qE: 'Through which door does vāyo act as an object for consciousness?',
+    aK: 'វាយោ ដើរតួជាអារម្មណ៍ ឱ្យចិត្តប្រព្រឹត្តតាម កាយទ្វារ (ទ្វារទី ៥ នៃកាយ) ព្រោះវាយោជាផោដ្ឋព្វារម្មណ៍ដែលត្រូវដឹងដោយកាយវិញ្ញាណ តាមកាយបសាទ។',
+    aE: 'Vāyo acts as an object for consciousness through the body-door (kāya-dvāra, the 5th door), because it is a tangible object known by body-consciousness through the body-sensitivity.',
+  },
+  {
+    qK: 'ដោយបរមត្ថ និងបញ្ញត្តិ តើវាយោចែកជាប៉ុន្មានយ៉ាងជាភាសាបាលី? អ្វីខ្លះ?',
+    qE: 'By paramattha and paññatti, into how many kinds is vāyo divided in Pāli? What are they?',
+    aK: 'មាន ២ យ៉ាងជាភាសាបាលី គឺ បរមត្ថវាយោ (វាយោដែលជាបរមត្ថ មានលក្ខណៈជើកទ្រទ្រង់ ឬព្រឺកម្រាប) និង បញ្ញត្តិវាយោ (វាយោដែលជាបញ្ញត្តិ ដូចជា ខ្យល់ ខ្យល់ព្យុះ)។',
+    aE: 'There are 2 kinds in Pāli: paramattha-vāyo (the ultimate air element having the characteristic of supporting or vibrating) and paññatti-vāyo (conventional wind, such as a breeze or storm).',
+  },
+  {
+    qK: 'វាយោដោយសភាវៈលក្ខណៈ ចែកជាប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'By its intrinsic nature, into how many kinds is vāyo divided? What are they?',
+    aK: 'វាយោ ដោយសភាវៈលក្ខណៈ (ដោយបរមត្ថលក្ខណៈ) ចែកជា ២ យ៉ាង គឺ អជ្ឈត្តិកវាយោ (ខ្យល់ក្នុងកាយសត្វ ដូចជាខ្យល់ដកដង្ហើម ខ្យល់ក្នុងពោះ) និង ពាហិរវាយោ (ខ្យល់ក្រៅកាយ ដូចជាខ្យល់បក់) ។',
+    aE: 'Vāyo, by its intrinsic nature (paramattha characteristic), is divided into 2 kinds: ajjhattika-vāyo (internal wind in a being, such as the breath or wind in the belly) and bāhira-vāyo (external wind, such as a blowing breeze).',
+  },
+  {
+    qK: 'តើអជ្ឈត្តិកវាយោ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many kinds of internal vāyo are there? What are they?',
+    aK: 'អជ្ឈត្តិកវាយោ មាន ៦ គឺ ឧទ្ធង្គមវាត (ខ្យល់ឡើងលើ គឺខ្យល់បកឡើង) អធរំគមវាត (ខ្យល់ចុះក្រោម) កុច្ឆិដ្ឋវាត (ខ្យល់ក្នុងពោះ) កោដ្ឋាសយវាត (ខ្យល់ក្នុងពោះវៀន) អង្គមង្គានុសារិវាត (ខ្យល់ដែលសាយទៅក្នុងអវយវៈទាំងឡាយ) អស្សាសបស្សាសវាត (ខ្យល់ដកដង្ហើមចូល-ចេញ)។',
+    aE: 'Internal vāyo has 6: uddhaṅgama-vāta (wind that moves upward), adhogaṁgama-vāta (wind that moves downward), kucchisayā-vāta (wind in the belly), koṭṭhāsaya-vāta (wind in the bowels), aṅgamaṅgānusārinī-vāta (wind that courses through the limbs) and assāsapassāsa-vāta (wind of in-and-out breathing).',
+  },
+  {
+    qK: 'តើអជ្ឈត្តិកវាយោ ចែកជាប៉ុន្មានពួក? អ្វីខ្លះ?',
+    qE: 'Into how many groups is internal vāyo divided? What are they?',
+    aK: 'អជ្ឈត្តិកវាយោ ៦ នេះ ចែកជា ២ ពួក គឺ វាយោដែលនៅស្ងៀមក្នុងកាយ ៤ (ឧទ្ធង្គមវាត អធរំគមវាត កុច្ឆិដ្ឋវាត កោដ្ឋាសយវាត) និង វាយោដែលធ្វើចលនា ២ (អង្គមង្គានុសារិវាត អស្សាសបស្សាសវាត)។',
+    aE: 'These 6 internal winds are divided into 2 groups: the 4 winds abiding in the body (uddhaṅgama, adhogaṁgama, kucchisaya and koṭṭhāsaya) and the 2 winds of motion (aṅgamaṅgānusārin and assāsapassāsa).',
+  },
+  {
+    qK: 'តើអស្សាសបស្សាសវាត មានន័យដូចម្តេច?',
+    qE: 'What does assāsapassāsa-vāta mean?',
+    aK: 'អស្សាសបស្សាសវាត ប្រែថា ខ្យល់ដកដង្ហើមចូល-ដកដង្ហើមចេញ គឺ វាយោដែលធ្វើឱ្យមានលំហូរដកដង្ហើមចូល និងចេញរបស់សត្វ។',
+    aE: 'Assāsapassāsa-vāta means the wind of inhalation and exhalation — the vāyo that brings about the in-breathing and out-breathing of a being.',
+  },
+  {
+    qK: 'តើអស្សាស និង បស្សាស មានន័យដូចម្តេច?',
+    qE: 'What do assāsa and passāsa mean?',
+    aK: 'អស្សាស ប្រែថា ដកដង្ហើមចូល (ការទាញខ្យល់ចូលក្នុងកាយ) និង បស្សាស ប្រែថា ដកដង្ហើមចេញ (ការបញ្ចេញខ្យល់ចេញពីកាយ)។',
+    aE: 'Assāsa means inhalation (drawing the breath in), and passāsa means exhalation (breathing the breath out).',
+  },
+  {
+    qK: 'តើអំណាចវាយោ មានន័យដូចម្តេច?',
+    qE: 'What does the power (aṅgamangānusāri) of vāyo mean?',
+    aK: 'អង្គមង្គានុសារិវាត ប្រែថា ខ្យល់ដែលមានអំណាចសាយចូលទៅគ្រប់អវយវៈ និងសន្លាក់ទាំងឡាយ ធ្វើឱ្យអាចលាត កន្ត្រាក់ ឈរ ដើរ អង្គុយ ដេក ងាកបត់ ជាដើម បាន។',
+    aE: 'Aṅgamaṅgānusārinī-vāta means the wind that has the power to course through all the limbs and joints, enabling stretching, bending, standing, walking, sitting, lying down and turning around.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈព្រឺកម្រាបរបស់វាយោ នៅពេលវាយោច្រើន បឋវីតិច?',
+    qE: 'Give an example of vāyo\'s vibrating characteristic when vāyo is abundant and pathavī is little.',
+    aK: 'ឧទាហរណ៍ នៅពេលវាយោច្រើន បឋវីតិច វាយោធ្វើឱ្យព្រឺកម្រាបយ៉ាងខ្លាំងដូចជា ខ្យល់ព្យុះដ៏ខ្លាំងដែលធ្វើឱ្យដើមឈើស្រុតចាក់ឬស ឬធ្វើឱ្យអ្វីៗត្រសៀលវិលវល់ ដោយមិនអាចជាប់ស្ថិតស្ថេរឡើយ។',
+    aE: 'Example: when vāyo is abundant and pathavī little, vāyo vibrates violently, like a fierce storm that uproots trees and sets things whirling about, so that nothing can remain stable.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈព្រឺកម្រាបរបស់វាយោ នៅពេលតេជោកាន់អំណាច?',
+    qE: 'Give an example of vāyo\'s vibrating characteristic when tejo has power.',
+    aK: 'ឧទាហរណ៍ នៅពេលតេជោកាន់អំណាច វាយោព្រឺកម្រាបដូចជា អណ្តាតភ្លើងដែលភ្លឹបភ្លែតត្រសៀលរាំដោយកម្តៅ ឬដូចចំហាយក្តៅដែលវិលកួចញាប់ឡើងលើដោយកម្តៅខ្លាំង។',
+    aE: 'Example: when tejo has power, vāyo vibrates like a flame that flickers and dances from heat, or like hot vapour that swirls and rises rapidly because of great heat.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈអត្ថម្ភនៈរបស់វាយោ នៅពេលអាបោច្រើន បឋវីតិច?',
+    qE: 'Give an example of vāyo\'s supporting (atthambhana) characteristic when āpo is abundant and pathavī is little.',
+    aK: 'ឧទាហរណ៍ នៅពេលអាបោច្រើន បឋវីតិច វាយោជើកទ្រទ្រង់ដូចជា ខ្យល់ឬប្រហោងខ្យល់ដែលជើកទ្រនាវា ឬវត្ថុឱ្យអណ្តែតនៅលើទឹកបាន ដោយមិនលិច។',
+    aE: 'Example: when āpo is abundant and pathavī little, vāyo supports like air or an air-pocket that buoys a ship or object up to float on the water so that it does not sink.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈអត្ថម្ភនៈរបស់វាយោ នៅពេលតេជោកាន់អំណាច?',
+    qE: 'Give an example of vāyo\'s supporting characteristic when tejo has power.',
+    aK: 'ឧទាហរណ៍ នៅពេលតេជោកាន់អំណាច វាយោជើកទ្រទ្រង់ដូចជា ខ្យល់ក្តៅដែលរីកធំឡើងក្នុងវត្ថុមានសភាពទន់ ធ្វើឱ្យវត្ថុនោះប៉ោង ឬរក្សារាងឱ្យរក្សាទ្រទ្រង់បាន ដូចជាស្បែកស្គរដែលប៉ោងឡើងដោយកម្តៅ។',
+    aE: 'Example: when tejo has power, vāyo supports like expanding hot air inside a soft object that makes it swell up and keep its shape, such as a drum-skin that puffs up with heat.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈសមុទីរណៈរបស់វាយោ នៅពេលអាបោច្រើន បឋវីតិច?',
+    qE: 'Give an example of vāyo\'s moving (samudīraṇa) characteristic when āpo is abundant and pathavī is little.',
+    aK: 'ឧទាហរណ៍ នៅពេលអាបោច្រើន បឋវីតិច វាយោធ្វើចលនាដូចជា ខ្យល់ដែលបក់បោកធ្វើឱ្យផ្ទៃទឹករលកបក់បោកឡើង ឬធ្វើឱ្យរលករាលដាលវិលទៅមុខ ព្រោះទឹកដែលមានច្រើន ងាយនឹងចលនាដោយខ្យល់បក់។',
+    aE: 'Example: when āpo is abundant and pathavī little, vāyo moves things like wind that whips up waves on the water\'s surface and drives them forward, because abundant water is easily moved by the wind.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ លក្ខណៈសមុទីរណៈរបស់វាយោ នៅពេលតេជោកាន់អំណាច?',
+    qE: 'Give an example of vāyo\'s moving characteristic when tejo has power.',
+    aK: 'ឧទាហរណ៍ នៅពេលតេជោកាន់អំណាច វាយោធ្វើចលនាដូចជា ខ្យល់ក្តៅដែលបក់ជំរុញផ្សែង ឬអណ្តាតភ្លើង ឱ្យចលនាវិលវល់ទៅមុខ ដូចជាកម្តៅភ្លើងដែលធ្វើឱ្យខ្យល់ក្តៅឡើងហើយបក់ជំរុញអ្វីៗឱ្យចលនា។',
+    aE: 'Example: when tejo has power, vāyo moves things like hot air that drives smoke or flames to swirl and advance, much as fire\'s heat makes the air hot and drives things into motion.',
+  },
+]
+
+const part9Qas = [
+  {
+    qK: 'តើបសាទរូប មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many pasāda rūpas are there? What are they?',
+    aK: 'បសាទរូប មាន ៥ គឺ ចក្ខុបសាទ (បសាទភ្នែក សម្រាប់ឃើញរូប) សោតបសាទ (បសាទត្រចៀក សម្រាប់ឮសំឡេង) ឃានបសាទ (បសាទច្រមុះ សម្រាប់ធុំក្លិន) ជិវ្ហាបសាទ (បសាទអណ្តាត សម្រាប់ភ្លក់រស) កាយបសាទ (បសាទកាយ សម្រាប់ប៉ះពាល់)។',
+    aE: 'There are 5 pasāda rūpas: cakkhu-pasāda (eye-sensitivity, for seeing forms), sota-pasāda (ear-sensitivity, for hearing sounds), ghāna-pasāda (nose-sensitivity, for smelling odours), jivhā-pasāda (tongue-sensitivity, for tasting flavours) and kāya-pasāda (body-sensitivity, for touching).',
+  },
+  {
+    qK: 'តើចក្ខុបសាទរូប អាស្រ័យនៅទីណា?',
+    qE: 'Where does the cakkhu-pasāda rūpa abide?',
+    aK: 'ចក្ខុបសាទរូប អាស្រ័យនៅក្នុងទីដែលរូបារម្មណ៍ (អារម្មណ៍រូបដែលឃើញ) ធ្លាក់ប៉ះ គឺនៅលើស្វែងភ្នែក ក្នុងរង្វង់ភ្នែក ដែលមានមហាភូតទាំង ៤ ទ្រទ្រង់ ដូចជាដំណក់ប្រេងនៅលើសំឡី ឬដូចកញ្ចក់សម្លឹងរូប។',
+    aE: 'Cakkhu-pasāda abides in the place where visible objects (rūpārammaṇa) strike — on the eyeball, within the eye, supported by the four great essentials, like a drop of oil on a piece of cotton or like a mirror for reflecting forms.',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ មានលក្ខណៈដូចម្តេច?',
+    qE: 'What is the characteristic of cakkhu-pasāda?',
+    aK: 'ចក្ខុបសាទ មានលក្ខណៈ គឺ រួចរៀបចំគ្រប់គ្រាន់ដើម្បីទទួលរូបារម្មណ៍ (អារម្មណ៍រូបដែលឃើញ) ដូចជាកញ្ចក់ដែលត្រៀមទទួលពន្លឺ ឬដូចផ្ទៃទឹកដែលរួចរាល់ដើម្បីទទួលរូបឆ្លុះ។',
+    aE: 'Cakkhu-pasāda has the characteristic of being ready and fit to receive the visible object, like a mirror ready to receive light, or like a still water surface ready to receive a reflected image.',
+  },
+  {
+    qK: 'តើអ្វីជាទីពឹងរបស់ចក្ខុបសាទ?',
+    qE: 'What is the support (abode) of cakkhu-pasāda?',
+    aK: 'ទីពឹងរបស់ចក្ខុបសាទ គឺ អាកាសធាតុ (ធាតុដែលជាហោង ឬប្រហោងក្នុងភ្នែក) ព្រោះចក្ខុបសាទត្រូវការទីទំនេរ (ហោង) ដើម្បីស្ថិតនៅ ទើបទទួលរូបារម្មណ៍បាន។',
+    aE: 'The support of cakkhu-pasāda is the space element (ākāsa-dhātu — the hollow or cavity within the eye), because eye-sensitivity needs an empty space to abide in so that it can receive the visible object.',
+  },
+  {
+    qK: 'តើអាកាសធាតុ មានន័យដូចម្តេច?',
+    qE: 'What does ākāsa-dhātu (space element) mean?',
+    aK: 'អាកាសធាតុ (អាកាសៈ) ប្រែថា ធាតុជាទីទំនេរ ឬហោង គឺ សភាវៈដែលបែងចែកកំណត់រូប និងរូបឱ្យដាច់ពីគ្នា ដោយធ្វើជាប្រហោង ឬចន្លោះរវាងរូប ដូចជារន្ធ ឬទីកន្លែងទំនេរក្នុងភ្នែក ត្រចៀក ជាដើម។',
+    aE: 'Ākāsa-dhātu (ākāsa) means the element of empty space or cavity — a reality that delimits matter so that one rūpa is separate from another, acting as the hollow or gap between rūpas, such as the cavities within the eye and ear.',
+  },
+  {
+    qK: 'តើអាកាសធាតុ ជារូបប្រភេទណា?',
+    qE: 'What kind of rūpa is ākāsa-dhātu?',
+    aK: 'អាកាសធាតុ ជា បរិច្ឆេទរូប (រូបដែលជាគ្រឿងកំណត់ ឬបែងចែករូបឱ្យដាច់ពីគ្នា) ដែលជាអនិប្ផន្នរូប (មិនមែនជារូបកើតពីកម្ម ចិត្ត ឧតុ អាហារ) ហើយជាអសភាវរូប (គ្មានលក្ខណៈពិតដោយខ្លួនឯង)។',
+    aE: 'Ākāsa-dhātu is a pariccheda-rūpa (the delimiting rūpa that marks off rūpas from one another). It is an anipphanna-rūpa (not produced by kamma, citta, utu or āhāra) and an asabhāva-rūpa (without its own intrinsic characteristic).',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ ដើរតួជាអាយតនៈអ្វី?',
+    qE: 'As which āyatana does cakkhu-pasāda act?',
+    aK: 'ចក្ខុបសាទ ដើរតួជា ចក្ខាយតនៈ (អាយតនៈទី ១ ក្នុងចំណោមអាយតនៈទាំង ១២)។',
+    aE: 'Cakkhu-pasāda acts as cakkhāyatana (the 1st of the 12 āyatanas).',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ ដើរតួជាឥន្រ្ទិយអ្វី?',
+    qE: 'As which indriya does cakkhu-pasāda act?',
+    aK: 'ចក្ខុបសាទ ដើរតួជា ចក្ខុន្រ្ទិយ (ឥន្រ្ទិយ គឺអំណាចធំក្នុងការឃើញរូប) ដែលជាឥន្រ្ទិយបញ្ច ក្នុងវិស័យនៃការមើលឃើញ។',
+    aE: 'Cakkhu-pasāda acts as cakkhundriya (the eye faculty, dominant in seeing forms), one of the five sense faculties.',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ ដើរតួជាទ្វារអ្វី?',
+    qE: 'As which door does cakkhu-pasāda act?',
+    aK: 'ចក្ខុបសាទ ដើរតួជា ចក្ខុទ្វារ (ទ្វារភ្នែក ដែលជាទ្វារមួយក្នុងចំណោមទ្វារ ៦) ជាទីដែលចិត្តប្រព្រឹត្តទៅដើម្បីដឹងរូបារម្មណ៍។',
+    aE: 'Cakkhu-pasāda acts as cakkhudvāra (the eye-door, one of the 6 doors), through which consciousness moves to know the visible object.',
+  },
+  {
+    qK: 'តើសោតបសាទរូប អាស្រ័យនៅទីណា?',
+    qE: 'Where does the sota-pasāda rūpa abide?',
+    aK: 'សោតបសាទរូប អាស្រ័យនៅក្នុងទីដែលសទ្ធារម្មណ៍ (អារម្មណ៍សំឡេងដែលឮ) ធ្លាក់ប៉ះ គឺនៅក្នុងប្រហោងត្រចៀក ដែលមានមហាភូតទាំង ៤ ទ្រទ្រង់ ដូចជាដុំសំឡីដែលដោតនៅក្នុងរន្ធត្រចៀក។',
+    aE: 'Sota-pasāda abides in the place where the sound object (saddārammaṇa) strikes — within the cavity of the ear, supported by the four great essentials, like a plug of cotton placed in the ear-hole.',
+  },
+  {
+    qK: 'តើសោតបសាទ មានលក្ខណៈដូចម្តេច?',
+    qE: 'What is the characteristic of sota-pasāda?',
+    aK: 'សោតបសាទ មានលក្ខណៈ គឺ រួចរៀបចំគ្រប់គ្រាន់ដើម្បីទទួលសទ្ធារម្មណ៍ (អារម្មណ៍សំឡេង) ដូចជាត្រចៀកដែលរួចរាល់ទទួលសំឡេងពីគ្រប់ទិស ព្រោះសោតបសាទឮសំឡេងបានគ្រប់ទិសទាំងអស់ដែលសំឡេងមកដល់។',
+    aE: 'Sota-pasāda has the characteristic of being ready and fit to receive the sound object, like an ear ready to receive sound from every direction, because ear-sensitivity hears sound coming from all directions.',
+  },
+  {
+    qK: 'តើសោតបសាទ ដើរតួជាអាយតនៈអ្វី?',
+    qE: 'As which āyatana does sota-pasāda act?',
+    aK: 'សោតបសាទ ដើរតួជា សោតាយតនៈ (អាយតនៈទី ២ ក្នុងចំណោមអាយតនៈទាំង ១២)។',
+    aE: 'Sota-pasāda acts as sotāyatana (the 2nd of the 12 āyatanas).',
+  },
+  {
+    qK: 'តើសោតបសាទ ដើរតួជាឥន្រ្ទិយអ្វី?',
+    qE: 'As which indriya does sota-pasāda act?',
+    aK: 'សោតបសាទ ដើរតួជា សោតន្រ្ទិយ (ឥន្រ្ទិយ គឺអំណាចធំក្នុងការឮសំឡេង) ដែលជាឥន្រ្ទិយបញ្ច ក្នុងវិស័យនៃការស្តាប់ឮ។',
+    aE: 'Sota-pasāda acts as sotindriya (the ear faculty, dominant in hearing sounds), one of the five sense faculties.',
+  },
+  {
+    qK: 'តើសោតបសាទ ដើរតួជាទ្វារអ្វី?',
+    qE: 'As which door does sota-pasāda act?',
+    aK: 'សោតបសាទ ដើរតួជា សោតទ្វារ (ទ្វារត្រចៀក ដែលជាទ្វារមួយក្នុងចំណោមទ្វារ ៦) ជាទីដែលចិត្តប្រព្រឹត្តទៅដើម្បីដឹងសទ្ធារម្មណ៍។',
+    aE: 'Sota-pasāda acts as sotadvāra (the ear-door, one of the 6 doors), through which consciousness moves to know the sound object.',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ និងសោតបសាទ ចាត់ជារូបណាខ្លះក្នុងរូប ២៨?',
+    qE: 'Among the 28 rūpas, which kinds of rūpa are cakkhu-pasāda and sota-pasāda classed as?',
+    aK: 'ចក្ខុបសាទ និងសោតបសាទ ជា និប្ផន្នរូប (រូបកើតពីកម្ម ចិត្ត ឧតុ អាហារ) ជាសភាវរូប (មានលក្ខណៈពិតដោយខ្លួនឯង) ជាឥន្រ្ទិយរូប និងជាវត្ថុរូប ដែលជាបសាទរូប។',
+    aE: 'Cakkhu-pasāda and sota-pasāda are nipphanna-rūpa (produced matter), sabhāva-rūpa (with intrinsic characteristic), indriya-rūpa and vatthu-rūpa — they are pasāda rūpas.',
+  },
+  {
+    qK: 'តើចក្ខុ និងសោត ដើរតួជាអារម្មណ៍អ្វី?',
+    qE: 'As what objects do cakkhu and sota act?',
+    aK: 'ចក្ខុ និងសោត (បសាទ) មិនមែនជាអារម្មណ៍ដោយខ្លួនឯងទេ ប៉ុន្តែ ចក្ខុបសាទ ជាទីប្រព្រឹត្តទទួល រូបារម្មណ៍ (អារម្មណ៍រូបដែលឃើញ) និង សោតបសាទ ជាទីប្រព្រឹត្តទទួល សទ្ធារម្មណ៍ (អារម្មណ៍សំឡេងដែលឮ)។',
+    aE: 'Cakkhu and sota (the pasādas) are not themselves objects; rather, cakkhu-pasāda is the basis that receives the visible object (rūpārammaṇa) and sota-pasāda is the basis that receives the sound object (saddārammaṇa).',
+  },
+  {
+    qK: 'តើរូបារម្មណ៍ មានន័យដូចម្តេច?',
+    qE: 'What does rūpārammaṇa (visible object) mean?',
+    aK: 'រូបារម្មណ៍ ប្រែថា អារម្មណ៍ជារូបដែលគប្បីឃើញ គឺ វណ្ណៈ (ពណ៌) និងអាការៈដែលជាទីតាំងនៃការឃើញរបស់ចក្ខុវិញ្ញាណ។',
+    aE: 'Rūpārammaṇa means the visible object — the colour (vaṇṇa) and appearance that is the basis of seeing by eye-consciousness.',
+  },
+  {
+    qK: 'តើសទ្ធារម្មណ៍ មានន័យដូចម្តេច?',
+    qE: 'What does saddārammaṇa (sound object) mean?',
+    aK: 'សទ្ធារម្មណ៍ ប្រែថា អារម្មណ៍ជាសំឡេងដែលគប្បីឮ គឺ សំឡេងដែលជាទីតាំងនៃការឮរបស់សោតវិញ្ញាណ។',
+    aE: 'Saddārammaṇa means the sound object — the sound that is the basis of hearing by ear-consciousness.',
+  },
+  {
+    qK: 'តើចក្ខុវិញ្ញាណ មានវត្ថុ និងអារម្មណ៍ដូចម្តេច?',
+    qE: 'What are the base (vatthu) and object (ārammaṇa) of eye-consciousness?',
+    aK: 'ចក្ខុវិញ្ញាណ មាន ចក្ខុបសាទ ជាទីតាំងប្រព្រឹត្ត និងជាទ្វារ ហើយមាន រូបារម្មណ៍ (វណ្ណៈ) ជាអារម្មណ៍។',
+    aE: 'Eye-consciousness arises dependent on cakkhu-pasāda as its base and door, and takes the visible object (rūpārammaṇa — colour) as its object.',
+  },
+  {
+    qK: 'តើចក្ខុបសាទ ជាបរមត្ថធម៌ ឬបញ្ញត្តិ?',
+    qE: 'Is cakkhu-pasāda a paramattha dhamma or a paññatti?',
+    aK: 'ចក្ខុបសាទ ជា បរមត្ថធម៌ (រូបបរមត្ថ) ព្រោះជាសភាវរូបដែលមានលក្ខណៈពិតដោយខ្លួនឯង ពុំមែនជាបញ្ញត្តិឡើយ។',
+    aE: 'Cakkhu-pasāda is a paramattha dhamma (rūpa-paramattha), because it is a sabhāva-rūpa with its own real characteristic — not a concept (paññatti).',
   },
 ]
 </script>

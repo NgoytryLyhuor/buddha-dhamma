@@ -160,8 +160,8 @@
     <!-- Main reading column -->
     <main v-if="!hasError" class="max-w-4xl mx-auto px-4 py-8 md:py-12">
       <router-view v-slot="{ Component }">
-        <transition name="page" mode="out-in">
-          <component :is="Component" />
+        <transition name="page">
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
 

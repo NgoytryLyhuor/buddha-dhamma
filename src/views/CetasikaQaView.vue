@@ -901,6 +901,126 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 37: មុទុតាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredMuduta.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('មុទុតាចេតសិក', 'Mudutā (Softness / Gentleness)') }}
+    </h2>
+    <div v-if="!searching || filteredMuduta.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredMuduta" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 38: កម្មញ្ញតាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredKammannata.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('កម្មញ្ញតាចេតសិក', 'Kammaññatā (Wieldiness / Adaptability)') }}
+    </h2>
+    <div v-if="!searching || filteredKammannata.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredKammannata" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 39: បាគុញ្ញតាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredPagunnata.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('បាគុញ្ញតាចេតសិក', 'Pāguññatā (Proficiency / Skillfulness)') }}
+    </h2>
+    <div v-if="!searching || filteredPagunnata.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPagunnata" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 40: ឧជុកតាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredUjukata.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ឧជុកតាចេតសិក', 'Ujukatā (Uprightness / Straightness)') }}
+    </h2>
+    <div v-if="!searching || filteredUjukata.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredUjukata" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 41: វិរតិចេតសិក ===== -->
+    <h2 v-if="!searching || filteredVirati.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('វិរតិចេតសិក', 'Virati (Abstinence)') }}
+    </h2>
+    <div v-if="!searching || filteredVirati.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredVirati" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -940,7 +1060,8 @@ const libLen = () =>
   vicaraQas.length + adhimokkhaQas.length + viriyaQas.length + pitiQas.length + chandaQas.length +
   akusalaQas.length + mohaQas.length + ahirikaQas.length + ekaggataLakkhanaQas.length +
   ekaggataKiccaQas.length + jiviLakkhanaQas.length + jiviKiccaQas.length + hiriOttappaQas.length +
-  alobhaQas.length + adosaQas.length + tatramajjhattataQas.length + passaddhiQas.length + lahutaQas.length
+  alobhaQas.length + adosaQas.length + tatramajjhattataQas.length + passaddhiQas.length + lahutaQas.length +
+  mudutaQas.length + kammannataQas.length + pagunnataQas.length + ujukataQas.length + viratiQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -977,7 +1098,12 @@ const filteredAlobha = computed(() => indexed(alobhaQas, libLen() - alobhaQas.le
 const filteredAdosa = computed(() => indexed(adosaQas, libLen() - adosaQas.length - tatramajjhattataQas.length - passaddhiQas.length - lahutaQas.length))
 const filteredTatramajjhattata = computed(() => indexed(tatramajjhattataQas, libLen() - tatramajjhattataQas.length - passaddhiQas.length - lahutaQas.length))
 const filteredPassaddhi = computed(() => indexed(passaddhiQas, libLen() - passaddhiQas.length - lahutaQas.length))
-const filteredLahuta = computed(() => indexed(lahutaQas, libLen() - lahutaQas.length))
+const filteredLahuta = computed(() => indexed(lahutaQas, libLen() - lahutaQas.length - mudutaQas.length - kammannataQas.length - pagunnataQas.length - ujukataQas.length - viratiQas.length))
+const filteredMuduta = computed(() => indexed(mudutaQas, libLen() - mudutaQas.length - kammannataQas.length - pagunnataQas.length - ujukataQas.length - viratiQas.length))
+const filteredKammannata = computed(() => indexed(kammannataQas, libLen() - kammannataQas.length - pagunnataQas.length - ujukataQas.length - viratiQas.length))
+const filteredPagunnata = computed(() => indexed(pagunnataQas, libLen() - pagunnataQas.length - ujukataQas.length - viratiQas.length))
+const filteredUjukata = computed(() => indexed(ujukataQas, libLen() - ujukataQas.length - viratiQas.length))
+const filteredVirati = computed(() => indexed(viratiQas, libLen() - viratiQas.length))
 
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
@@ -1004,7 +1130,9 @@ const totalMatches = computed(() =>
   filteredEkaggataLakkhana.value.length + filteredEkaggataKicca.value.length + filteredJiviLakkhana.value.length +
   filteredJiviKicca.value.length + filteredHiriOttappa.value.length +
   filteredAlobha.value.length + filteredAdosa.value.length + filteredTatramajjhattata.value.length +
-  filteredPassaddhi.value.length + filteredLahuta.value.length
+  filteredPassaddhi.value.length + filteredLahuta.value.length +
+  filteredMuduta.value.length + filteredKammannata.value.length + filteredPagunnata.value.length +
+  filteredUjukata.value.length + filteredVirati.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -4819,14 +4947,14 @@ const lahutaQas = [
   {
     qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់កាយលហុតា?',
     qE: 'Explain the lakkhana-ādi-catukka of kāyalahutā.',
-    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយលហុតា ៖ មានការកំចាត់ភាពធ្ងន់នៃនាមខន្ធ ៣ (វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ) ជាលក្ខណៈ។ មានការកំចាត់ភាពធ្ងន់នៃសហជាតធម៌ ជាកិច្ច។ មានភាពមិនធ្ងន់ ជាអាការប្រាកដ។ មាននាមខន្ធ ៣ ជាហេតុជិត។',
-    aE: 'The lakkhana-ādi-catukka of kāyalahutā: dispelling the heaviness of the three mental aggregates (vedanā, saññā, saṅkhāra) as its characteristic; dispelling the heaviness of the co-arisen dhammas as its function; the state of not being heavy as its manifestation; the three aggregates as its proximate cause.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយលហុតាចេតសិក ៖ មានការស្ងប់ភាពធ្ងន់របស់កាយ ជាលក្ខណៈ។ មានការកំចាត់បង់ភាពធ្ងន់របស់កាយ ជាកិច្ច។ មានការមិនយឺតយូរ ឬរហ័សរហួននៃកាយ ជាអាការប្រាកដ។ មាននាមខន្ធ ៣ គឺវេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ ដែលសម្បយុត្តនឹងខ្លួន ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the kāyalahutā cetasika: the calming of the heaviness of the mental body as its characteristic; dispelling the heaviness of the mental body as its function; being not sluggish, or being agile and swift of the mental body, as its manifestation; the three mental aggregates (vedanā, saññā, saṅkhāra) associated with it as its proximate cause.',
   },
   {
     qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចិត្តលហុតា?',
     qE: 'Explain the lakkhana-ādi-catukka of cittalahutā.',
-    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តលហុតា ៖ មានការកំចាត់ភាពធ្ងន់នៃចិត្ត ជាលក្ខណៈ។ មានការកំចាត់ភាពធ្ងន់របស់សហជាតចិត្ត ជាកិច្ច។ មានភាពមិនធ្ងន់នៃចិត្ត ជាអាការប្រាកដ។ មានចិត្ត ជាហេតុជិត។',
-    aE: 'The lakkhana-ādi-catukka of cittalahutā: dispelling the heaviness of consciousness as its characteristic; dispelling the heaviness of the co-arisen consciousness as its function; the non-heaviness of consciousness as its manifestation; consciousness as its proximate cause.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តលហុតាចេតសិក ៖ មានការស្ងប់ភាពធ្ងន់របស់ចិត្ត ជាលក្ខណៈ។ មានការកំចាត់បង់ភាពធ្ងន់របស់ចិត្ត ជាកិច្ច។ មានការមិនយឺតយូរ ឬរហ័សរហួននៃចិត្ត ជាអាការប្រាកដ។ មានចិត្ត ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the cittalahutā cetasika: the calming of the heaviness of consciousness as its characteristic; dispelling the heaviness of consciousness as its function; being not sluggish, or being agile and swift of consciousness, as its manifestation; consciousness as its proximate cause.',
   },
   {
     qK: 'កាយលហុតា ធ្វើឱ្យចេតសិកដែលកើតព្រមនឹងខ្លួនស្រាល តើត្រូវ ឬខុស?',
@@ -4843,8 +4971,8 @@ const lahutaQas = [
   {
     qK: 'តើនាមខន្ធ ៤ បានដល់បរមត្ថធម៌ប៉ុន្មាន? អ្វីខ្លះ?',
     qE: 'To how many paramattha-dhammas do the four mental aggregates refer? Which are they?',
-    aK: 'នាមខន្ធ ៤ បានដល់បរមត្ថធម៌ ២ គឺ ចិត្ត និងចេតសិក។',
-    aE: 'The four mental aggregates refer to two paramattha-dhammas: citta and cetasika.',
+    aK: 'នាមខន្ធ ៤ បានដល់បរមត្ថធម៌ ២ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ ជាចេតសិកបរមត្ថ ហើយវិញ្ញាណក្ខន្ធ ជាចិត្តបរមត្ថ។',
+    aE: 'The four mental aggregates refer to two paramattha-dhammas: vedanā, saññā, and saṅkhāra are cetasika paramattha, while viññāṇa is citta paramattha.',
   },
   {
     qK: 'តើលហុតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
@@ -4861,8 +4989,8 @@ const lahutaQas = [
   {
     qK: 'តើលហុតាចេតសិក អាចប្រព្រឹត្ត ក្នុងអរូបភូមិ ៤ បានដែរឬទេ?',
     qE: 'Can the lahutā cetasikas operate in the four formless planes?',
-    aK: 'លហុតាចេតសិក មិនអាចប្រព្រឹត្តក្នុងអរូបភូមិ ៤ បានទេ។',
-    aE: 'The lahutā cetasikas cannot operate in the four formless planes.',
+    aK: 'លហុតាចេតសិក អាចប្រព្រឹត្តនៅអរូបភូមិ ៤ បាន។',
+    aE: 'The lahutā cetasikas can operate in the four formless planes.',
   },
   {
     qK: 'តើលហុតាចេតសិក ប្រព្រឹត្តតាមទ្វារណាខ្លះ?',
@@ -4885,8 +5013,8 @@ const lahutaQas = [
   {
     qK: 'ឧទាហរណ៍ ចិត្តុប្បាទ ១ ដែលមាន ចិត្ត ១ អញ្ញសមានាចេតសិក ១៣ សោភណសាធារណចេតសិក ១៩ តើកាយលហុតា ធ្វើឱ្យសភាវធម៌ប៉ុន្មានស្រាល? អ្វីខ្លះ? ហើយចិត្តលហុតា ធ្វើឱ្យអ្វីស្រាល?',
     qE: 'In one cittuppāda with 1 consciousness, 13 aññasamānā, and 19 sobhana-sādhāraṇa cetasikas, how many dhammas does kāyalahutā make light? Which are they? And what does cittalahutā make light?',
-    aK: 'កាយលហុតា ធ្វើឱ្យចេតសិក ៣២ ផ្សេងទៀតស្រាល មាន អញ្ញសមានាចេតសិក ១៣ សោភណសាធារណចេតសិក ១៨ (វៀរកាយលហុតា) បញ្ញា ១។ ចំណែកចិត្តលហុតា ធ្វើឱ្យចិត្ត ១ ស្រាល។',
-    aE: 'Kāyalahutā makes the other 32 cetasikas light: 13 aññasamānā, 18 sobhana-sādhāraṇa (excluding kāyalahutā itself), and 1 paññā. Meanwhile, cittalahutā makes the one consciousness light.',
+    aK: 'កាយលហុតា ធ្វើឱ្យចេតសិកដែលសម្បយុត្តជាមួយខ្លួនឱ្យស្រាល មាន ៣១ ចេតសិក គឺ អញ្ញសមានាចេតសិក ១៣ និងសព្វចិត្តសោភណសាធារណចេតសិក ១៨ (វៀរកាយលហុតា)។ ចំណែកចិត្តលហុតា ធ្វើឱ្យចិត្តដែលកើតព្រមនឹងខ្លួន ឱ្យស្រាល។',
+    aE: 'Kāyalahutā makes the 31 cetasikas associated with it light: 13 aññasamānā and 18 sabbacitta-sobhana-sādhāraṇa (excluding kāyalahutā). Meanwhile, cittalahutā makes the consciousness arising together with it light.',
   },
   {
     qK: 'តើលហុតាចេតសិក បដិបក្ខនឹងចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
@@ -4899,6 +5027,477 @@ const lahutaQas = [
     qE: 'Give examples of the lahutā cetasikas.',
     aK: 'ឧទាហរណ៍លហុតាចេតសិក ៖ ខណៈចិត្តស្រាលរហ័សក្នុងការចងចាំមេរៀន ដោយមិនខ្ជិលច្រអូស។ ខណៈចិត្តស្រាលក្នុងការបំពេញកិច្ចការដោយស្ម័គ្រចិត្ត ដោយមិនធ្ងន់ធ្ងរចិត្ត។',
     aE: 'Examples of the lahutā cetasikas: when the mind is agile and swift in memorising lessons without being sluggish; when the mind is light in performing tasks willingly without heaviness of heart.',
+  },
+]
+
+const mudutaQas = [
+  {
+    qK: 'តើយុគលធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does yugala-dhamma (pair of dhammas) mean?',
+    aK: 'យុគលធម៌ មានន័យថា ធម៌ ១ គូៗ ឬធម៌ជាគូនឹងគ្នា។',
+    aE: 'Yugala-dhamma means dhammas in pairs, or dhammas that are paired with each other.',
+  },
+  {
+    qK: 'តើយុគលធម៌គូទី ៣ បានដល់ចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'What does the third pair of yugala-dhamma refer to?',
+    aK: 'យុគលធម៌គូទី ៣ បានដល់ចេតសិក ២ គឺ កាយមុទុតាចេតសិក និងចិត្តមុទុតាចេតសិក។',
+    aE: 'The third pair of yugala-dhamma refers to two cetasikas: kāyamudutā and cittamudutā.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses do the mudutā cetasikas arise?',
+    aK: 'មុទុតាចេតសិក កើតក្នុងសោភណចិត្ត ៥៩ ដួង ឬ ៩១ ដួង។',
+    aE: 'The mudutā cetasikas arise in 59 (or 91) beautiful consciousnesses.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis do the mudutā cetasikas arise? Which are they?',
+    aK: 'មុទុតាចេតសិក កើតក្នុងចិត្ត ៣ ជាតិ គឺ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'The mudutā cetasikas arise in three jātis: the wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក ប្រព្រឹត្តតាមទ្វារណាខ្លះ?',
+    qE: 'Through which doors do the mudutā cetasikas operate?',
+    aK: 'មុទុតាចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និងទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជិវ្ហាទ្វារ កាយទ្វារ និងមនោទ្វារ។',
+    aE: 'The mudutā cetasikas operate through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក ដឹងអារម្មណ៍ប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the mudutā cetasikas know? Which are they?',
+    aK: 'មុទុតាចេតសិក ដឹងអារម្មណ៍ ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និងធម្មារម្មណ៍។',
+    aE: 'The mudutā cetasikas know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក ដឹងអារម្មណ៍ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Do the mudutā cetasikas know paramattha or paññatti objects?',
+    aK: 'មុទុតាចេតសិក ដឹងអារម្មណ៍ ជាបរមត្ថផង និងបញ្ញត្តិផង។',
+    aE: 'The mudutā cetasikas know both paramattha and paññatti objects.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក ដែលប្រព្រឹត្តក្រៅទ្វារ ធ្វើកិច្ចប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'When the mudutā cetasikas operate outside the doors, how many functions do they perform? Which are they?',
+    aK: 'មុទុតាចេតសិក ដែលប្រព្រឹត្តក្រៅទ្វារ ធ្វើកិច្ច ៣ គឺ បដិសន្ធិកិច្ច ភវង្គកិច្ច និងចុតិកិច្ច។',
+    aE: 'When the mudutā cetasikas operate outside the doors, they perform three functions: rebirth (paṭisandhi), life-continuum (bhavaṅga), and death (cuti).',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក ជាហេតុ ឬនហេតុ?',
+    qE: 'Are the mudutā cetasikas a hetu or a non-hetu?',
+    aK: 'មុទុតាចេតសិក ជានហេតុ។',
+    aE: 'The mudutā cetasikas are a non-hetu.',
+  },
+  {
+    qK: 'តើមុទុតាចេតសិក កើតក្នុងលោកិយចិត្ត ឬលោកុត្តរចិត្ត?',
+    qE: 'Do the mudutā cetasikas arise in worldly or supramundane consciousness?',
+    aK: 'មុទុតាចេតសិក កើតក្នុងលោកិយចិត្ត តាមសមគួរផង និងលោកុត្តរចិត្តផង។',
+    aE: 'The mudutā cetasikas arise in worldly consciousness as appropriate, and also in supramundane consciousness.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់កាយមុទុតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the kāyamudutā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយមុទុតាចេតសិក ៖ មានការស្ងប់ភាពរឹងត្អឹងរបស់កាយ ជាលក្ខណៈ។ មានការកំចាត់បង់ភាពរឹងត្អឹងរបស់កាយ ជាកិច្ច។ មានភាពមិនជំទាស់ ឬមិនចង្អៀតចង្អល់ ជាអាការប្រាកដ។ មានកាយ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the kāyamudutā cetasika: the calming of the hardness (stiffness) of the mental body as its characteristic; dispelling the hardness of the mental body as its function; non-resistance, or lack of narrowness and rigidity, as its manifestation; the mental body as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចិត្តមុទុតា?',
+    qE: 'Explain the lakkhana-ādi-catukka of cittamudutā.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តមុទុតាចេតសិក ៖ មានការស្ងប់ភាពរឹងត្អឹងរបស់ចិត្ត ជាលក្ខណៈ។ មានការកំចាត់បង់ភាពរឹងត្អឹងរបស់ចិត្ត ជាកិច្ច។ មានភាពមិនជំទាស់ ឬមិនចង្អៀតចង្អល់ ជាអាការប្រាកដ។ មានចិត្ត ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the cittamudutā cetasika: the calming of the hardness of consciousness as its characteristic; dispelling the hardness of consciousness as its function; non-resistance, or lack of narrowness and rigidity, as its manifestation; consciousness as its proximate cause.',
+  },
+  {
+    qK: 'បុគ្គល ក ក៏ជាកូនអ្នកមាន តែមិនប្រកាន់ឫក និយាយរកបុគ្គល ខ ដែលជាអ្នកក្រ ដោយសុភាពរាបសារ។ តើខណៈមិនប្រកាន់ថាខ្លួនជាកូនអ្នកមាននេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'Person A is a child of a rich family, yet does not act proud and speaks to the poor person B with humility. Which cetasika is the moment of not being proud of being rich a characteristic of?',
+    aK: 'ខណៈមិនប្រកាន់ថាខ្លួនជាអ្នកមានជាងនេះ ជាលក្ខណៈរបស់ មុទុតាចេតសិក។',
+    aE: 'The moment of not being proud of being richer is a characteristic of the mudutā cetasika.',
+  },
+  {
+    qK: 'នារី គ ជាស្រីស្អាត តែរៀបចំការស្លៀកពាក់មិនលេចលើមិនក្រោម ដោយយល់ថាស្អាតរូបមិនប្រសើរដូចស្អាតចិត្តទេ។ តើខណៈមិនតម្លើងឫកជាស្រីស្អាតនេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'Lady C is beautiful, yet dresses unpretentiously, understanding that beauty of form is not as good as beauty of mind. Which cetasika is the moment of not being proud of beauty a characteristic of?',
+    aK: 'ខណៈមិនតម្កើងឫកជាស្រីស្អាតនេះ ជាលក្ខណៈរបស់ មុទុតាចេតសិក។',
+    aE: 'The moment of not being proud of beauty is a characteristic of the mudutā cetasika.',
+  },
+  {
+    qK: 'ឪពុកទម្លាក់មានៈចុះ និយាយរកកូនដោយសម្តីទន់ភ្លន់ និងដោយការស្រលាញ់ស្មោះស្មើ។ តើការទម្លាក់មានៈនេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'A father sets aside his pride and speaks to his child with gentle words and sincere love. Which cetasika is this setting aside of pride a characteristic of?',
+    aK: 'ខណៈទម្លាក់មានៈនេះ ជាលក្ខណៈរបស់ មុទុតាចេតសិក។',
+    aE: 'This moment of setting aside pride is a characteristic of the mudutā cetasika.',
+  },
+  {
+    qK: 'កាយលហុតាចេតសិក ជាតួរូបកាយរបស់សត្វ តើត្រឹមត្រូវដែរឬទេ?',
+    qE: 'Kāyalahutā cetasika is the physical body of beings — is that correct?',
+    aK: 'កាយលហុតាចេតសិក ជាតួរូបកាយរបស់សត្វ មិនត្រឹមត្រូវទេ។ កាយលហុតាចេតសិក ជាតួនាមធម៌ ជាតួចេតសិក។',
+    aE: 'It is not correct that the kāyalahutā cetasika is the physical body of beings. The kāyalahutā cetasika is a nāma-dhamma, being a cetasika.',
+  },
+  {
+    qK: 'ចិត្តមុទុតាចេតសិក ជាតួចិត្ត តើត្រឹមត្រូវដែរឬទេ?',
+    qE: 'The cittamudutā cetasika is consciousness itself — is that correct?',
+    aK: 'ចិត្តមុទុតាចេតសិក ជាតួចិត្ត មិនត្រឹមត្រូវទេ។ ចិត្តមុទុតាចេតសិក ជាចេតសិក។',
+    aE: 'It is not correct that the cittamudutā cetasika is consciousness. The cittamudutā cetasika is a cetasika.',
+  },
+  {
+    qK: 'តើនាមក្ខន្ធ ៤ ជាបរមត្ថធម៌ ឬបញ្ញត្តិ?',
+    qE: 'Are the four mental aggregates paramattha-dhamma or paññatti?',
+    aK: 'នាមក្ខន្ធ ៤ ជាបរមត្ថធម៌។',
+    aE: 'The four mental aggregates are paramattha-dhammas.',
+  },
+  {
+    qK: 'តើចិត្ត និងចេតសិក ជាធម៌កើតរលត់ដែរឬទេ?',
+    qE: 'Are consciousness and cetasikas dhammas that arise and cease?',
+    aK: 'ចិត្ត និងចេតសិក ជាធម៌កើតរលត់ ជាសង្ខារធម៌ ជាសង្ខតធម៌។',
+    aE: 'Consciousness and cetasikas are dhammas that arise and cease; they are saṅkhāra-dhammas, saṅkhata-dhammas.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ អំពីមុទុតាចេតសិក?',
+    qE: 'Give examples of the mudutā cetasikas.',
+    aK: 'ឧទាហរណ៍អំពីមុទុតាចេតសិក ៖ ទោះយើងជាអ្នករៀនធម៌ ក៏មិនប្រកាន់នឹងអ្នកមិនរៀនធម៌ដែរ នៅតែរាប់អានគ្នាធម្មតា។ ទោះជាយើងកំពុងរស់នៅស្រុកក្រៅ ក៏មិនប្រកាន់នឹងអ្នកនៅក្នុងស្រុក នៅតែស្រលាញ់រាប់អានគ្នាធម្មតា។',
+    aE: 'Examples of the mudutā cetasikas: even though we study the Dhamma, we do not look down upon those who do not study, still treating them as equals; even though we live abroad, we do not look down upon those in our homeland, still loving and associating with them as usual.',
+  },
+]
+
+const kammannataQas = [
+  {
+    qK: 'តើយុគលធម៌គូទី ៤ បានដល់ចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'What does the fourth pair of yugala-dhamma refer to?',
+    aK: 'យុគលធម៌គូទី ៤ បានដល់ចេតសិក ២ គឺ កាយកម្មញ្ញតា និងចិត្តកម្មញ្ញតា។',
+    aE: 'The fourth pair of yugala-dhamma refers to two cetasikas: kāyakammaññatā and cittakammaññatā.',
+  },
+  {
+    qK: 'តើកាយកម្មញ្ញតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the kāyakammaññatā cetasika mean?',
+    aK: 'កាយកម្មញ្ញតាចេតសិក មានន័យថា សេចក្តីគួរដល់ការងារនៃនាមខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ។',
+    aE: 'The kāyakammaññatā cetasika means the wieldiness (aptitude for work) of the three mental aggregates: vedanā, saññā, and saṅkhāra.',
+  },
+  {
+    qK: 'តើចិត្តកម្មញ្ញតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the cittakammaññatā cetasika mean?',
+    aK: 'ចិត្តកម្មញ្ញតាចេតសិក មានន័យថា សេចក្តីគួរដល់ការងារនៃចិត្ត ឬវិញ្ញាណក្ខន្ធ។',
+    aE: 'The cittakammaññatā cetasika means the wieldiness of consciousness, or of the viññāṇa-khandha.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់កាយកម្មញ្ញតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the kāyakammaññatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយកម្មញ្ញតាចេតសិក ៖ មានការរម្ងាប់នូវកាយដែលមិនគួរដល់ការងារ ជាលក្ខណៈ។ មានការកំចាត់បង់នូវភាពមិនគួរដល់ការងារនៃកាយ ជាកិច្ច។ មានការដល់ព្រមក្នុងការធ្វើអារម្មណ៍ឱ្យកាយ ជាអាការប្រាកដ។ មានកាយ ឬនាមខន្ធ ៣ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the kāyakammaññatā cetasika: the calming of the mental body that is not wieldy as its characteristic; dispelling the unwieldiness of the mental body as its function; succeeding in making the mental body work on the object as its manifestation; the mental body, or the three aggregates, as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចិត្តកម្មញ្ញតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the cittakammaññatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តកម្មញ្ញតាចេតសិក ៖ មានការរម្ងាប់នូវចិត្តដែលមិនគួរដល់ការងារ ជាលក្ខណៈ។ មានការកំចាត់បង់នូវភាពមិនគួរដល់ការងារនៃចិត្ត ជាកិច្ច។ មានការដល់ព្រមក្នុងការធ្វើអារម្មណ៍ឱ្យចិត្ត ជាអាការប្រាកដ។ មានចិត្ត ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the cittakammaññatā cetasika: the calming of consciousness that is not wieldy as its characteristic; dispelling the unwieldiness of consciousness as its function; succeeding in making consciousness work on the object as its manifestation; consciousness as its proximate cause.',
+  },
+  {
+    qK: 'តើកម្មញ្ញតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses do the kammaññatā cetasikas arise?',
+    aK: 'កម្មញ្ញតាចេតសិក កើតក្នុងសោភណចិត្ត ៥៩ ដួង ឬ ៩១ ដួង។',
+    aE: 'The kammaññatā cetasikas arise in 59 (or 91) beautiful consciousnesses.',
+  },
+  {
+    qK: 'តើកម្មញ្ញតាចេតសិក ស្ថិតក្នុងក្រុមចេតសិកណា? ពួកចេតសិកណា?',
+    qE: 'In which group and class of cetasikas do the kammaññatā cetasikas belong?',
+    aK: 'កម្មញ្ញតាចេតសិក ស្ថិតក្នុងក្រុមសោភណចេតសិក ២៥ ពួកសព្វចិត្តសោភណសាធារណចេតសិក ១៩។',
+    aE: 'The kammaññatā cetasikas belong to the group of 25 sobhana cetasikas, in the class of 19 sabbacitta-sobhana-sādhāraṇa cetasikas.',
+  },
+  {
+    qK: 'តើកម្មញ្ញតាចេតសិក អាចកើតក្នុងអសោភណចិត្តបានដែរឬទេ? ហេតុអ្វី?',
+    qE: 'Can the kammaññatā cetasikas also arise in non-beautiful consciousness? Why?',
+    aK: 'កម្មញ្ញតាចេតសិក មិនកើតក្នុងអសោភណចិត្តទេ ព្រោះកម្មញ្ញតាចេតសិក ជាសោភណចេតសិក ហើយអសោភណចិត្ត ជាចិត្តដែលមិនមានសោភណចេតសិកប្រកបជាមួយ។',
+    aE: 'The kammaññatā cetasikas do not arise in non-beautiful consciousness, because they are sobhana cetasikas, and non-beautiful consciousness is consciousness not associated with any sobhana cetasika.',
+  },
+  {
+    qK: 'តើនីវរណធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does nīvaraṇa-dhamma mean?',
+    aK: 'នីវរណធម៌ មានន័យថា ធម៌ជាគ្រឿងរារាំងកុសល។',
+    aE: 'Nīvaraṇa-dhamma means the dhammas that hinder the wholesome.',
+  },
+  {
+    qK: 'តើនីវរណធម៌ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many nīvaraṇa-dhammas are there? Which are they?',
+    aK: 'នីវរណធម៌ មាន ៦ គឺ កាមឆន្ទៈ ព្យាបាទៈ ឧទ្ធច្ចកុក្កុច្ចៈ ថីនមិទ្ធៈ វិចិកិច្ឆា និងអវិជ្ជា។',
+    aE: 'There are six nīvaraṇa-dhammas: sensual desire (kāmacchanda), ill will (vyāpāda), restlessness and worry (uddhacca-kukkucca), sloth and torpor (thīna-middha), doubt (vicikicchā), and ignorance (avijjā).',
+  },
+]
+
+const pagunnataQas = [
+  {
+    qK: 'តើយុគលធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does yugala-dhamma mean?',
+    aK: 'យុគលធម៌ មានន័យថា ធម៌ ១ គូៗ ឬធម៌ ២ៗ។',
+    aE: 'Yugala-dhamma means dhammas in pairs, or dhammas two by two.',
+  },
+  {
+    qK: 'តើយុគលធម៌គូទី ៥ មានឈ្មោះអ្វីខ្លះ?',
+    qE: 'What are the names of the fifth pair of yugala-dhamma?',
+    aK: 'យុគលធម៌គូទី ៥ មានឈ្មោះ កាយបាគុញ្ញតា និងចិត្តបាគុញ្ញតា។',
+    aE: 'The fifth pair of yugala-dhamma is named kāyapāguññatā and cittapāguññatā.',
+  },
+  {
+    qK: 'តើកាយបាគុញ្ញតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the kāyapāguññatā cetasika mean?',
+    aK: 'កាយបាគុញ្ញតាចេតសិក មានន័យថា សេចក្តីស្ទាត់ជំនាញ ឬឈ្លាសនៃនាមខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ។',
+    aE: 'The kāyapāguññatā cetasika means the proficiency or skillfulness of the three mental aggregates: vedanā, saññā, and saṅkhāra.',
+  },
+  {
+    qK: 'តើចិត្តបាគុញ្ញតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the cittapāguññatā cetasika mean?',
+    aK: 'ចិត្តបាគុញ្ញតាចេតសិក មានន័យថា សេចក្តីស្ទាត់ជំនាញ ឬឈ្លាសនៃចិត្ត។',
+    aE: 'The cittapāguññatā cetasika means the proficiency or skillfulness of consciousness.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ កាយបាគុញ្ញតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the kāyapāguññatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយបាគុញ្ញតាចេតសិក ៖ មានការស្ងប់នូវអាពាធនៃកាយ ជាលក្ខណៈ។ មានការកំចាត់បង់នូវអាពាធនៃកាយ ជាកិច្ច។ មានការប្រាសចាកទោស ជាអាការប្រាកដ។ មាននាមខន្ធ ៣ គឺវេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the kāyapāguññatā cetasika: the calming of the ailment of the mental body as its characteristic; dispelling the ailment of the mental body as its function; being free from defect as its manifestation; the three aggregates (vedanā, saññā, saṅkhāra) as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចិត្តបាគុញ្ញតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the cittapāguññatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តបាគុញ្ញតាចេតសិក ៖ មានការស្ងប់នូវអាពាធនៃចិត្ត ជាលក្ខណៈ។ មានការកំចាត់បង់នូវអាពាធនៃចិត្ត ជាកិច្ច។ មានការប្រាសចាកទោស ជាអាការប្រាកដ។ មានចិត្ត ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the cittapāguññatā cetasika: the calming of the ailment of consciousness as its characteristic; dispelling the ailment of consciousness as its function; being free from defect as its manifestation; consciousness as its proximate cause.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក បដិបក្ខនឹងអ្វី?',
+    qE: 'Against what are the pāguññatā cetasikas opposite?',
+    aK: 'បាគុញ្ញតាចេតសិក បដិបក្ខនឹង អស្សទ្ធា (ការមិនមានសទ្ធា)។',
+    aE: 'The pāguññatā cetasikas are opposite to assaddhā (lack of faith).',
+  },
+  {
+    qK: 'តើអ្វីជាអាពាធរបស់កាយ និងចិត្ត?',
+    qE: 'What is the ailment of the mental body and of consciousness?',
+    aK: 'អាពាធរបស់កាយ និងចិត្ត គឺការមិនមានសទ្ធា (អស្សទ្ធា)។',
+    aE: 'The ailment of the mental body and of consciousness is lack of faith (assaddhā).',
+  },
+  {
+    qK: 'តើកាយទីនេះសំដៅដល់បរមត្ថធម៌ណា? ខន្ធប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'To which paramattha-dhamma does "kāya" here refer? How many aggregates? Which are they?',
+    aK: 'កាយទីនេះសំដៅដល់ ចេតសិកបរមត្ថ។ បានដល់ខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ។',
+    aE: 'Here "kāya" refers to cetasika paramattha, namely the three aggregates: vedanā, saññā, and saṅkhāra.',
+  },
+  {
+    qK: 'តើចិត្តបាគុញ្ញតា ធ្វើឱ្យបរមត្ថធម៌ណាឈ្លាស?',
+    qE: 'Which paramattha-dhamma does cittapāguññatā make skillful?',
+    aK: 'ចិត្តបាគុញ្ញតាចេតសិក ធ្វើឱ្យចិត្តបរមត្ថឈ្លាស។',
+    aE: 'The cittapāguññatā cetasika makes citta paramattha skillful.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis do the pāguññatā cetasikas arise? Which are they?',
+    aK: 'បាគុញ្ញតាចេតសិក កើតក្នុងចិត្ត ៣ ជាតិ គឺ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'The pāguññatā cetasikas arise in three jātis: the wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក អាចប្រកបជាមួយទោមនស្សវេទនាបានដែរឬទេ? ហេតុអ្វី?',
+    qE: 'Can the pāguññatā cetasikas arise with domanassa-vedanā (unpleasant mental feeling)? Why?',
+    aK: 'បាគុញ្ញតាចេតសិក មិនអាចកើតជាមួយទោមនស្សវេទនាបានទេ ព្រោះបាគុញ្ញតា ជាសោភណចេតសិក កើតតែក្នុងសោភណចិត្ត ដែលមានវេទនា ២ ប្រភេទ គឺសោមនស្សវេទនា និងឧបេក្ខាវេទនា។ ចំណែកទោមនស្សវេទនា កើតតែក្នុងអសោភណចិត្ត ដែលជាទោសមូលចិត្ត ២ ដួង ប៉ុណ្ណោះ។',
+    aE: 'The pāguññatā cetasikas cannot arise with domanassa-vedanā, because they are sobhana cetasikas that arise only in beautiful consciousness, which has two kinds of feeling: somanassa-vedanā and upekkhā-vedanā. Domanassa-vedanā arises only in non-beautiful consciousness, namely the two dosa-mūla cittas.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក កើតក្នុងអកុសលចិត្តដែរឬទេ? ហេតុអ្វី?',
+    qE: 'Do the pāguññatā cetasikas also arise in unwholesome consciousness? Why?',
+    aK: 'បាគុញ្ញតាចេតសិក មិនកើតក្នុងអកុសលចិត្តទេ ព្រោះបាគុញ្ញតាចេតសិក ជាសោភណចេតសិក កើតតែក្នុងសោភណចិត្ត ហើយអកុសលចិត្ត ជាចិត្តដែលមិនមានសោភណចេតសិកកើតរួមជាមួយទេ។',
+    aE: 'The pāguññatā cetasikas do not arise in unwholesome consciousness, because they are sobhana cetasikas that arise only in beautiful consciousness, and unwholesome consciousness is not accompanied by any sobhana cetasika.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក ប្រកបជាមួយវេទនាប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'With how many kinds of feeling are the pāguññatā cetasikas associated? Which are they?',
+    aK: 'បាគុញ្ញតាចេតសិក ប្រកបជាមួយវេទនា ២ ប្រភេទ គឺ សោមនស្សវេទនា និងឧបេក្ខាវេទនា។',
+    aE: 'The pāguññatā cetasikas are associated with two kinds of feeling: somanassa-vedanā and upekkhā-vedanā.',
+  },
+  {
+    qK: 'តើបាគុញ្ញតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានប្រភេទធំៗ? អ្វីខ្លះ?',
+    qE: 'In how many major classes of consciousness do the pāguññatā cetasikas arise? Which are they?',
+    aK: 'បាគុញ្ញតាចេតសិក កើតក្នុងចិត្ត ៤ ប្រភេទ តាមសមគួរ គឺ កាមាវចរចិត្ត តាមសមគួរ រូបាវចរចិត្ត អរូបាវចរចិត្ត និងលោកុត្តរចិត្ត។',
+    aE: 'The pāguññatā cetasikas arise in four major classes as appropriate: kāmāvacara, rūpāvacara, arūpāvacara, and lokuttara consciousness.',
+  },
+]
+
+const ujukataQas = [
+  {
+    qK: 'តើយុគលធម៌គូទី ៦ បានដល់ចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'What does the sixth pair of yugala-dhamma refer to?',
+    aK: 'យុគលធម៌គូទី ៦ បានដល់ចេតសិក ២ គឺ កាយុជុកតាចេតសិក និងចិត្តុជុកតាចេតសិក។',
+    aE: 'The sixth pair of yugala-dhamma refers to two cetasikas: kāyujukatā and cittujukatā.',
+  },
+  {
+    qK: 'តើកាយុជុកតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the kāyujukatā cetasika mean?',
+    aK: 'កាយុជុកតាចេតសិក មានន័យថា ធម្មជាតិស្មោះត្រង់នៃនាមក្ខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ។',
+    aE: 'The kāyujukatā cetasika means the uprightness of the three mental aggregates: vedanā, saññā, and saṅkhāra.',
+  },
+  {
+    qK: 'តើចិត្តុជុកតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the cittujukatā cetasika mean?',
+    aK: 'ចិត្តុជុកតាចេតសិក មានន័យថា ធម្មជាតិស្មោះត្រង់នៃវិញ្ញាណក្ខន្ធ។',
+    aE: 'The cittujukatā cetasika means the uprightness of the viññāṇa-khandha.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់កាយុជុកតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the kāyujukatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់កាយុជុកតាចេតសិក ៖ មានភាពស្មោះត្រង់នៃកាយ គឺនាមក្ខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ ជាលក្ខណៈ។ មានការកំចាត់បង់នូវភាពមិនស្មោះត្រង់នៃកាយ ជាកិច្ច។ មានភាពត្រង់នៃកាយ ជាអាការប្រាកដ។ មានខន្ធ ៣ ជាហេតុជិត គឺវេទនាខន្ធ សញ្ញាខន្ធ និងសង្ខារក្ខន្ធ។',
+    aE: 'The lakkhana-ādi-catukka of the kāyujukatā cetasika: the uprightness of the mental body, namely the three aggregates (vedanā, saññā, saṅkhāra), as its characteristic; dispelling the crookedness of the mental body as its function; the straightness of the mental body as its manifestation; the three aggregates as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចិត្តុជុកតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the cittujukatā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចិត្តុជុកតាចេតសិក ៖ មានភាពស្មោះត្រង់នៃចិត្ត ជាលក្ខណៈ។ មានការកំចាត់បង់នូវភាពមិនស្មោះត្រង់របស់ចិត្ត ជាកិច្ច។ មានភាពត្រង់នៃចិត្ត ជាអាការប្រាកដ។ មានវិញ្ញាណក្ខន្ធ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the cittujukatā cetasika: the uprightness of consciousness as its characteristic; dispelling the crookedness of consciousness as its function; the straightness of consciousness as its manifestation; the viññāṇa-khandha as its proximate cause.',
+  },
+  {
+    qK: 'តើនាមខន្ធប៉ុន្មានជាហេតុជិតរបស់ឧជុកតាចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many mental aggregates are the proximate cause of the ujukatā cetasikas? Which are they?',
+    aK: 'នាមក្ខន្ធ ៤ ជាហេតុជិតរបស់ឧជុកតាចេតសិក គឺ វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ និងវិញ្ញាណក្ខន្ធ។',
+    aE: 'The four mental aggregates are the proximate cause of the ujukatā cetasikas: vedanā, saññā, saṅkhāra, and viññāṇa.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ជាបដិបក្ខនឹងអ្វីខ្លះ?',
+    qE: 'Against what are the ujukatā cetasikas opposite?',
+    aK: 'ឧជុកតាចេតសិក ជាបដិបក្ខនឹង មាយា និងសាថេយ្យ។',
+    aE: 'The ujukatā cetasikas are opposite to māyā (deceit) and sātheyya (fraud, suppressing ones own vices).',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ចាត់ជាខន្ធអ្វី?',
+    qE: 'To which aggregate are the ujukatā cetasikas classed?',
+    aK: 'ឧជុកតាចេតសិក ចាត់ជាសង្ខារក្ខន្ធ។',
+    aE: 'The ujukatā cetasikas are classed as the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ជាហេតុ ឬនហេតុ?',
+    qE: 'Are the ujukatā cetasikas a hetu or a non-hetu?',
+    aK: 'ឧជុកតាចេតសិក ជានហេតុ។',
+    aE: 'The ujukatā cetasikas are a non-hetu.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក កើតក្នុងចិត្តប៉ុន្មានប្រភេទធំៗ? អ្វីខ្លះ?',
+    qE: 'In how many major classes of consciousness do the ujukatā cetasikas arise? Which are they?',
+    aK: 'ឧជុកតាចេតសិក កើតក្នុងចិត្ត ៤ ប្រភេទធំៗ គឺ កាមាវចរសោភណចិត្ត ២៤ ដួង រូបាវចរចិត្ត ១៥ ដួង អរូបាវចរចិត្ត ១២ ដួង និងលោកុត្តរចិត្ត ៨ ដួង ឬ ៤០ ដួង។',
+    aE: 'The ujukatā cetasikas arise in four major classes: 24 kāmāvacara sobhana cittas, 15 rūpāvacara cittas, 12 arūpāvacara cittas, and 8 (or 40) lokuttara cittas.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក កើតក្នុងអឈានចិត្ត ឬឈានចិត្ត?',
+    qE: 'Do the ujukatā cetasikas arise in non-jhāna or jhāna consciousness?',
+    aK: 'ឧជុកតាចេតសិក កើតក្នុងអឈានចិត្ត តាមសមគួរ (កាមាវចរសោភណចិត្ត ២៤ ដួង) និងឈានចិត្ត ៣៥ ដួង ឬ ៦៧ ដួង។',
+    aE: 'The ujukatā cetasikas arise in non-jhāna consciousness as appropriate (the 24 kāmāvacara sobhana cittas), and in 35 (or 67) jhāna consciousnesses.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក កើតក្នុងភូមិសត្វបានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'In how many planes of beings do the ujukatā cetasikas arise? Which are they?',
+    aK: 'ឧជុកតាចេតសិក កើតក្នុងភូមិសត្វ ៣០ គឺ កាមភូមិ ១១ រូបភូមិ ១៥ (វៀរអសញ្ញីសត្តាភូមិ) និងអរូបភូមិ ៤។',
+    aE: 'The ujukatā cetasikas arise in 30 planes of beings: 11 kāma-bhūmi, 15 rūpa-bhūmi (excluding the asaññasatta plane), and 4 arūpa-bhūmi.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ប្រព្រឹត្តក្នុងទ្វារប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Through how many doors do the ujukatā cetasikas operate? Which are they?',
+    aK: 'ឧជុកតាចេតសិក ប្រព្រឹត្តក្នុងទ្វារវិមុត្ត និងទ្វារទាំង ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជិវ្ហាទ្វារ កាយទ្វារ និងមនោទ្វារ។',
+    aE: 'The ujukatā cetasikas operate through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ប្រព្រឹត្តក្រៅទ្វារដែរឬទេ? នៅពេលធ្វើកិច្ចអ្វីខ្លះ?',
+    qE: 'Do the ujukatā cetasikas also operate outside the doors? In which functions?',
+    aK: 'ឧជុកតាចេតសិក ប្រព្រឹត្តក្រៅទ្វារបាន នៅពេលធ្វើកិច្ច ៣ គឺ បដិសន្ធិកិច្ច ភវង្គកិច្ច និងចុតិកិច្ច។',
+    aE: 'The ujukatā cetasikas can operate outside the doors when performing three functions: rebirth (paṭisandhi), life-continuum (bhavaṅga), and death (cuti).',
+  },
+  {
+    qK: 'តើឧជុកតាចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the ujukatā cetasikas know? Which are they?',
+    aK: 'ឧជុកតាចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និងធម្មារម្មណ៍។',
+    aE: 'The ujukatā cetasikas can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+]
+
+const viratiQas = [
+  {
+    qK: 'តើវិរតិចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the virati (abstinence) cetasikas mean?',
+    aK: 'វិរតិចេតសិក មានន័យថា ចេតសិកដែលវៀរចាកអកុសលកម្ម គឺវៀរចាកការនិយាយខុស ការធ្វើខុស និងការចិញ្ចឹមជីវិតខុស។',
+    aE: 'The virati cetasikas mean the cetasikas that abstain from unwholesome deeds, namely abstaining from wrong speech, wrong action, and wrong livelihood.',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many virati cetasikas are there? Which are they?',
+    aK: 'វិរតិចេតសិក មាន ៣ ចេតសិក គឺ សម្មាវាចាចេតសិក សម្មាកម្មន្តចេតសិក និងសម្មាអាជីវចេតសិក។',
+    aE: 'There are three virati cetasikas: sammā-vācā (right speech), sammā-kammanta (right action), and sammā-ājīva (right livelihood).',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក ៣ ក្នុងលោកិយចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បានដែរឬទេ? ហេតុអ្វី?',
+    qE: 'In worldly consciousness, can the three virati cetasikas arise together in a single moment? Why?',
+    aK: 'វិរតិចេតសិក ៣ ក្នុងលោកិយចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ មិនបានទេ ព្រោះក្នុងលោកិយចិត្ត ក្នុងខណៈមួយៗ កើតតែមួយប៉ុណ្ណោះ គឺអាស្រ័យលើទ្វារ និងការវៀរនោះៗ។',
+    aE: 'In worldly consciousness the three virati cetasikas cannot arise together in a single moment, because in each worldly moment only one arises, depending on the respective door and the abstention involved.',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក ៣ ក្នុងលោកុត្តរចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បានដែរឬទេ? ហេតុអ្វី?',
+    qE: 'In supramundane consciousness, can the three virati cetasikas arise together in a single moment? Why?',
+    aK: 'វិរតិចេតសិក ៣ ក្នុងលោកុត្តរចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បាន ព្រោះលោកុត្តរចិត្ត កើតជាមួយនឹងមគ្គអង្គទាំងឡាយ ដែលរួមបញ្ចូលវិរតិចេតសិក ៣ ក្នុងខណៈតែមួយ ដើម្បីផ្តាច់ផ្តិលនូវអកុសលធម៌ទាំងឡាយ។',
+    aE: 'In supramundane consciousness the three virati cetasikas can arise together in a single moment, because supramundane consciousness arises together with the path factors, which include the three virati cetasikas in a single moment, to eradicate the unwholesome dhammas.',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក ៣ សម្រាប់បុគ្គលប៉ុន្មានប្រភេទក្នុងចំណោមបុគ្គល ៥ ប្រភេទ? អ្វីខ្លះ?',
+    qE: 'For how many of the five kinds of persons are the three virati cetasikas meant? Which are they?',
+    aK: 'វិរតិចេតសិក ៣ សម្រាប់បុគ្គល ៣ ប្រភេទ ក្នុងចំណោមបុគ្គល ៥ ប្រភេទ គឺ បុគ្គលអ្នកវៀរដោយបំណង បុគ្គលអ្នកវៀរដោយសីល និងបុគ្គលអ្នកវៀរដោយការផ្តាច់ផ្តិលនូវហេតុទាំងឡាយ។',
+    aE: 'The three virati cetasikas are meant for three of the five kinds of persons: the person who abstains by resolve, the person who abstains by virtue (sīla), and the person who abstains by the eradication of the causes.',
+  },
+  {
+    qK: 'តើសម្មាវាចាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the sammā-vācā cetasika mean?',
+    aK: 'សម្មាវាចាចេតសិក មានន័យថា ការនិយាយត្រឹមត្រូវ គឺវៀរចាកវចីទុច្ចរិត គឺវៀរចាកការនិយាយខុស ៤ យ៉ាង។',
+    aE: 'The sammā-vācā cetasika means right speech, namely abstaining from verbal misconduct, abstaining from the four kinds of wrong speech.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់សម្មាវាចាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the sammā-vācā cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់សម្មាវាចាចេតសិក ៖ មានការវៀរចាកវចីទុច្ចរិត ជាលក្ខណៈ។ មានការវាងវៀរចាកនូវវចីទុច្ចរិត ជាកិច្ច។ មានការមិនព្រមទទួលនូវវចីទុច្ចរិត ជាអាការប្រាកដ។ មានសទ្ធា ហិរិ ឱត្តប្ប ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the sammā-vācā cetasika: abstaining from verbal misconduct as its characteristic; keeping away from verbal misconduct as its function; not accepting verbal misconduct as its manifestation; saddhā, hiri, and ottappa as its proximate cause.',
+  },
+  {
+    qK: 'តើវចីទុច្ចរិត មានន័យដូចម្តេច?',
+    qE: 'What does vacī-duccarita mean?',
+    aK: 'វចីទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់ដោយវាចា គឺការនិយាយខុសផ្លូវសីលធម៌។',
+    aE: 'Vacī-duccarita means misconduct by speech, namely speaking wrongly against morality.',
+  },
+  {
+    qK: 'តើវចីទុច្ចរិត មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many kinds of vacī-duccarita are there? Which are they?',
+    aK: 'វចីទុច្ចរិត មាន ៤ គឺ មុសាវាទៈ (ការនិយាយកុហក) បិសុណាវាចា (ការនិយាយញុះញង់) ផរុសាវាចា (ការនិយាយគន្លង់គេ) និងសម្ផប្បលាបៈ (ការនិយាយឥតប្រយោជន៍)។',
+    aE: 'There are four kinds of vacī-duccarita: musāvāda (false speech), pisuṇāvācā (slanderous speech), pharusāvācā (harsh speech), and samphappalāpa (idle chatter).',
+  },
+  {
+    qK: 'ក្នុងលោកិយចិត្ត តើអារម្មណ៍របស់សម្មាវាចាចេតសិក មានអ្វីខ្លះ?',
+    qE: 'In worldly consciousness, what are the objects of the sammā-vācā cetasika?',
+    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាវាចាចេតសិក គឺសំឡេង ដែលជាសទ្ទារម្មណ៍។',
+    aE: 'In worldly consciousness, the object of the sammā-vācā cetasika is sound, namely the sadda-ārammaṇa.',
+  },
+  {
+    qK: 'ក្នុងលោកុត្តរចិត្ត តើអារម្មណ៍របស់សម្មាវាចាចេតសិក មានអ្វីខ្លះ?',
+    qE: 'In supramundane consciousness, what are the objects of the sammā-vācā cetasika?',
+    aK: 'ក្នុងលោកុត្តរចិត្ត អារម្មណ៍របស់សម្មាវាចាចេតសិក គឺព្រះនិព្វាន។',
+    aE: 'In supramundane consciousness, the object of the sammā-vācā cetasika is Nibbāna.',
+  },
+  {
+    qK: 'តើសម្មាកម្មន្តចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the sammā-kammanta cetasika mean?',
+    aK: 'សម្មាកម្មន្តចេតសិក មានន័យថា ការធ្វើត្រឹមត្រូវ គឺវៀរចាកកាយទុច្ចរិត គឺវៀរចាកការធ្វើខុស ៣ យ៉ាង។',
+    aE: 'The sammā-kammanta cetasika means right action, namely abstaining from bodily misconduct, abstaining from the three kinds of wrong action.',
+  },
+  {
+    qK: 'តើកាយទុច្ចរិត មានន័យដូចម្តេច?',
+    qE: 'What does kāya-duccarita mean?',
+    aK: 'កាយទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់ដោយកាយ គឺការធ្វើខុសផ្លូវសីលធម៌។',
+    aE: 'Kāya-duccarita means misconduct by body, namely doing wrongly against morality.',
+  },
+  {
+    qK: 'តើកាយទុច្ចរិត មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many kinds of kāya-duccarita are there? Which are they?',
+    aK: 'កាយទុច្ចរិត មាន ៣ គឺ បាណាតិបាតៈ (ការសម្លាប់សត្វ) អទិន្នាទានៈ (ការលួចទ្រព្យគេ) និងកាមេសុមិច្ឆាចារៈ (ការប្រព្រឹត្តខុសក្នុងកាម)។',
+    aE: 'There are three kinds of kāya-duccarita: pāṇātipāta (killing beings), adinnādāna (stealing), and kāmesu-micchācāra (sexual misconduct).',
+  },
+  {
+    qK: 'ក្នុងលោកិយចិត្ត តើអារម្មណ៍របស់សម្មាកម្មន្តចេតសិក មានអ្វីខ្លះ?',
+    qE: 'In worldly consciousness, what are the objects of the sammā-kammanta cetasika?',
+    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាកម្មន្តចេតសិក គឺផោដ្ឋព្វារម្មណ៍ ដែលជាអ្វីដែលអាចប៉ះកាយបាន។',
+    aE: 'In worldly consciousness, the object of the sammā-kammanta cetasika is the tangible object (phoṭṭhabbārammaṇa).',
+  },
+  {
+    qK: 'ក្នុងលោកុត្តរចិត្ត តើអារម្មណ៍របស់សម្មាកម្មន្តចេតសិក មានអ្វីខ្លះ?',
+    qE: 'In supramundane consciousness, what are the objects of the sammā-kammanta cetasika?',
+    aK: 'ក្នុងលោកុត្តរចិត្ត អារម្មណ៍របស់សម្មាកម្មន្តចេតសិក គឺព្រះនិព្វាន។',
+    aE: 'In supramundane consciousness, the object of the sammā-kammanta cetasika is Nibbāna.',
   },
 ]
 

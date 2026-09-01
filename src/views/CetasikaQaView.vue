@@ -1141,6 +1141,30 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 47: ចែកចេតសិក (ការចាត់ក្រុម) ===== -->
+    <h2 v-if="!searching || filteredPart2.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ការចែកចេតសិក ៥២', 'Classification of the 52 Cetasikas') }}
+    </h2>
+    <div v-if="!searching || filteredPart2.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPart2" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -1182,7 +1206,7 @@ const libLen = () =>
   ekaggataKiccaQas.length + jiviLakkhanaQas.length + jiviKiccaQas.length + hiriOttappaQas.length +
   alobhaQas.length + adosaQas.length + tatramajjhattataQas.length + passaddhiQas.length + lahutaQas.length +
   mudutaQas.length + kammannataQas.length + pagunnataQas.length + ujukataQas.length + viratiQas.length +
-  samajivaQas.length + karunaQas.length + muditaQas.length + pannaQas.length + paramatthaQas.length
+  samajivaQas.length + karunaQas.length + muditaQas.length + pannaQas.length + paramatthaQas.length + part2Qas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -1230,7 +1254,8 @@ const filteredSamajiva = computed(() => indexed(samajivaQas, libLen() - samajiva
 const filteredKaruna = computed(() => indexed(karunaQas, libLen() - karunaQas.length - muditaQas.length - pannaQas.length - paramatthaQas.length))
 const filteredMudita = computed(() => indexed(muditaQas, libLen() - muditaQas.length - pannaQas.length - paramatthaQas.length))
 const filteredPanna = computed(() => indexed(pannaQas, libLen() - pannaQas.length - paramatthaQas.length))
-const filteredParamattha = computed(() => indexed(paramatthaQas, libLen() - paramatthaQas.length))
+const filteredParamattha = computed(() => indexed(paramatthaQas, libLen() - paramatthaQas.length - part2Qas.length))
+const filteredPart2 = computed(() => indexed(part2Qas, libLen() - part2Qas.length))
 
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
@@ -1261,7 +1286,7 @@ const totalMatches = computed(() =>
   filteredMuduta.value.length + filteredKammannata.value.length + filteredPagunnata.value.length +
   filteredUjukata.value.length + filteredVirati.value.length +
   filteredSamajiva.value.length + filteredKaruna.value.length + filteredMudita.value.length +
-  filteredPanna.value.length + filteredParamattha.value.length
+  filteredPanna.value.length + filteredParamattha.value.length + filteredPart2.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -6062,6 +6087,219 @@ const paramatthaQas = [
     qE: 'Explain the lakkhana-ādi-catukka of cetasika.',
     aK: 'លក្ខណាទិចតុក្កៈរបស់ចេតសិក ៖ ចិត្តនិស្សិតលក្ខណំ មានការអាស្រ័យនឹងចិត្ត ជាលក្ខណៈ។ អវិយោគុប្បាទនរសំ មានការកើតរួមគ្នាជាមួយនឹងចិត្ត ជាកិច្ច។ ឯកាលម្ពណបច្ចុប្បដ្ឋានំ មានអារម្មណ៍តែមួយជាមួយនឹងចិត្ត ជាអាការប្រាកដ។ ចិត្តុប្បាទបទដ្ឋានំ មានការកើតឡើងនៃចិត្ត ជាហេតុជិត។',
     aE: 'The lakkhana-ādi-catukka of cetasika: dependence on the mind as its characteristic (cittanissitalakkhaṇaṃ); arising together with the mind as its function (aviyoguppādanarasaṃ); having a single object with the mind as its manifestation (ekālambanapaccupaṭṭhānaṃ); and the arising of the mind as its proximate cause (cittuppādapadaṭṭhānaṃ).',
+  },
+]
+
+const part2Qas = [
+  {
+    qK: 'តើចេតសិក ៥២ ចែកជាប៉ុន្មានក្រុមធំៗ? អ្វីខ្លះ?',
+    qE: 'Into how many main groups are the 52 cetasikas divided? Which are they?',
+    aK: 'ចេតសិក ៥២ ចែកជា ៣ ក្រុមធំៗ គឺ អញ្ញសមានាចេតសិក ១៣ អកុសលចេតសិក ១៤ និងសោភណចេតសិក ២៥។',
+    aE: 'The 52 cetasikas are divided into three main groups: the 13 aññasamānā cetasikas, the 14 akusala cetasikas, and the 25 sobhana cetasikas.',
+  },
+  {
+    qK: 'តើអញ្ញសមានាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does aññasamānā cetasika mean?',
+    aK: 'អញ្ញសមានាចេតសិក មានន័យថា ចេតសិកស្មើៗនឹងចិត្ត បើចិត្តជាអកុសល ក៏មានជាតិជាអកុសលដូចចិត្តដែរ បើចិត្តជាកុសល ក៏មានជាតិជាកុសលដូចចិត្តដែរ បើចិត្តជាវិបាក ក៏មានជាតិជាវិបាកដូចចិត្តដែរ បើចិត្តជាកិរិយា ក៏មានជាតិជាកិរិយាដូចចិត្តដែរ។',
+    aE: 'Aññasamānā cetasika means the cetasikas that are common (equal) with the mind: if the mind is unwholesome they are likewise unwholesome in nature, if wholesome they are likewise wholesome, if resultant they are likewise resultant, and if functional they are likewise functional.',
+  },
+  {
+    qK: 'តើអញ្ញសមានាចេតសិក មានប៉ុន្មានចេតសិក?',
+    qE: 'How many aññasamānā cetasikas are there?',
+    aK: 'អញ្ញសមានាចេតសិក មាន ១៣ ចេតសិក។',
+    aE: 'There are 13 aññasamānā cetasikas.',
+  },
+  {
+    qK: 'តើអញ្ញសមានាចេតសិក ចែកជាប៉ុន្មានពួក?',
+    qE: 'Into how many groups are the aññasamānā cetasikas divided?',
+    aK: 'អញ្ញសមានាចេតសិក ចែកជា ២ ពួក។',
+    aE: 'The aññasamānā cetasikas are divided into two groups.',
+  },
+  {
+    qK: 'តើសព្វចិត្តសាធារណចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does sabbacitta-sādhāraṇa cetasika mean?',
+    aK: 'សព្វចិត្តសាធារណចេតសិក មានន័យថា ចេតសិកដែលកើតទូទៅគ្រប់ចិត្តទាំង ៨៩ ដួង ឬ ១២១ ដួង។',
+    aE: 'Sabbacitta-sādhāraṇa cetasika means the cetasikas that arise commonly in all 89 or 121 cittas.',
+  },
+  {
+    qK: 'តើសព្វចិត្តសាធារណចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many sabbacitta-sādhāraṇa cetasikas are there? Which are they?',
+    aK: 'សព្វចិត្តសាធារណចេតសិក មាន ៧ ចេតសិក គឺ ផស្សៈ វេទនា សញ្ញា ចេតនា ឯកគ្គតា ជីវិតិន្រ្ទិយ និងមនសិការ។',
+    aE: 'There are seven sabbacitta-sādhāraṇa cetasikas: phassa, vedanā, saññā, cetanā, ekaggatā, jīvitindriya, and manasikāra.',
+  },
+  {
+    qK: 'បន្ទាប់ពីបរិនិព្វាន តើសព្វចិត្តសាធារណចេតសិក កើតមានទៀតដែរឬទេ?',
+    qE: 'After parinibbāna, do the sabbacitta-sādhāraṇa cetasikas arise again?',
+    aK: 'បន្ទាប់ពីបរិនិព្វាន សព្វចិត្តសាធារណចេតសិក មិនកើតចំពោះបុគ្គលនោះទៀតទេ ព្រោះបុគ្គលនេះមិនមានហេតុនាំឱ្យបដិសន្ធិទេ។',
+    aE: 'After parinibbāna the sabbacitta-sādhāraṇa cetasikas do not arise again for that person, because that person has no cause leading to rebirth-linking.',
+  },
+  {
+    qK: 'តើសព្វចិត្តសាធារណចេតសិក សម្រាប់បុគ្គលប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'For how many kinds of persons are the sabbacitta-sādhāraṇa cetasikas meant? Which are they?',
+    aK: 'សព្វចិត្តសាធារណចេតសិក កើតសម្រាប់បុគ្គលគ្រប់ប្រភេទ ឱ្យតែមានចិត្ត បានដល់បុគ្គល ៥ ប្រភេទ គឺ បុថុជ្ជន សោតាបន្នបុគ្គល សកទាគាមីបុគ្គល អនាគាមីបុគ្គល និងព្រះអរហន្ត។',
+    aE: 'The sabbacitta-sādhāraṇa cetasikas arise for persons of all kinds as long as there is consciousness, namely the five kinds of persons: the puthujjana, the sotāpanna, the sakadāgāmī, the anāgāmī, and the arahant.',
+  },
+  {
+    qK: 'តើបកិណ្ណកចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does pakiṇṇaka cetasika mean?',
+    aK: 'បកិណ្ណកចេតសិក មានន័យថា ចេតសិករាត់រាយ ឬខ្ចាត់ខ្ចាយ កើតមិនបានគ្រប់ចិត្តទេ កើតតាមសមគួរ។',
+    aE: 'Pakiṇṇaka cetasika means the scattered or distributed cetasikas that do not arise in all cittas but arise as appropriate.',
+  },
+  {
+    qK: 'តើបកិណ្ណកចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many pakiṇṇaka cetasikas are there? Which are they?',
+    aK: 'បកិណ្ណកចេតសិក មាន ៦ ចេតសិក គឺ វិតក្កៈ វិចារៈ អធិមោក្ខៈ វីរិយៈ បីតិ និងឆន្ទៈ។',
+    aE: 'There are six pakiṇṇaka cetasikas: vitakka, vicāra, adhimokkha, viriya, pīti, and chanda.',
+  },
+  {
+    qK: 'តើបកិណ្ណកចេតសិក អាចកើតគ្រប់ចិត្តដែរឬទេ?',
+    qE: 'Can the pakiṇṇaka cetasikas arise in all cittas?',
+    aK: 'បកិណ្ណកចេតសិក មិនអាចកើតគ្រប់ចិត្តបានទេ កើតតាមសមគួរ។',
+    aE: 'The pakiṇṇaka cetasikas cannot arise in all cittas; they arise as appropriate.',
+  },
+  {
+    qK: 'តើបកិណ្ណកចេតសិក កើតក្នុងសពសត្វដែរឬទេ?',
+    qE: 'Do the pakiṇṇaka cetasikas arise in a corpses?',
+    aK: 'បកិណ្ណកចេតសិក មិនកើតក្នុងសពសត្វទេ ព្រោះវិញ្ញាណបានប្រាសចាកហើយ។',
+    aE: 'The pakiṇṇaka cetasikas do not arise in a corpse, because consciousness has already departed.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does akusala cetasika mean?',
+    aK: 'អកុសលចេតសិក មានន័យថា ចេតសិកមិនល្អ ចេតសិកអាក្រក់ ចេតសិកបាប។',
+    aE: 'Akusala cetasika means the unwholesome, evil, bad mental factors.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក មានប៉ុន្មានចេតសិក?',
+    qE: 'How many akusala cetasikas are there?',
+    aK: 'អកុសលចេតសិក មាន ១៤ ចេតសិក។',
+    aE: 'There are 14 akusala cetasikas.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក ចែកជាប៉ុន្មានពួក?',
+    qE: 'Into how many groups are the akusala cetasikas divided?',
+    aK: 'អកុសលចេតសិក ចែកជា ៥ ពួក។',
+    aE: 'The akusala cetasikas are divided into five groups.',
+  },
+  {
+    qK: 'តើមោចតុក្កចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does moha-catukka cetasika mean?',
+    aK: 'មោចតុក្កចេតសិក មានន័យថា ចេតសិកពួក ៤ ដែលមានមោហៈជាដើម។',
+    aE: 'Moha-catukka cetasika means the group of four cetasikas beginning with delusion (moha).',
+  },
+  {
+    qK: 'តើមោចតុក្កចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many moha-catukka cetasikas are there? Which are they?',
+    aK: 'មោចតុក្កចេតសិក មាន ៤ ចេតសិក គឺ មោហៈ អហិរិកៈ អនោត្តប្បៈ និងឧទ្ធច្ចៈ។',
+    aE: 'There are four moha-catukka cetasikas: moha, ahirika, anottappa, and uddhacca.',
+  },
+  {
+    qK: 'តើលោតិកចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does lobha-tika cetasika mean?',
+    aK: 'លោតិកចេតសិក មានន័យថា ចេតសិកពួក ៣ ដែលមានលោភៈជាដើម។',
+    aE: 'Lobha-tika cetasika means the group of three cetasikas beginning with greed (lobha).',
+  },
+  {
+    qK: 'តើលោតិកចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many lobha-tika cetasikas are there? Which are they?',
+    aK: 'លោតិកចេតសិក មាន ៣ ចេតសិក គឺ លោភៈ ទិដ្ឋិ និងមានៈ។',
+    aE: 'There are three lobha-tika cetasikas: lobha, diṭṭhi, and māna.',
+  },
+  {
+    qK: 'តើទោចតុក្កចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does dosa-catukka cetasika mean?',
+    aK: 'ទោចតុក្កចេតសិក មានន័យថា ចេតសិកពួក ៤ ដែលមានទោសៈ ជាដើម។',
+    aE: 'Dosa-catukka cetasika means the group of four cetasikas beginning with hatred (dosa).',
+  },
+  {
+    qK: 'តើទោចតុក្កចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many dosa-catukka cetasikas are there? Which are they?',
+    aK: 'ទោចតុក្កចេតសិក មាន ៤ ចេតសិក គឺ ទោសៈ ឥស្សា មច្ឆរិយៈ និងកុក្កុច្ចៈ។',
+    aE: 'There are four dosa-catukka cetasikas: dosa, issā, macchariya, and kukkucca.',
+  },
+  {
+    qK: 'តើថីទុកចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does thīna-duka cetasika mean?',
+    aK: 'ថីទុកចេតសិក មានន័យថា ពួកចេតសិក ២ ដែលមានថីនៈ ជាដើម។',
+    aE: 'Thīna-duka cetasika means the group of two cetasikas beginning with sloth (thīna).',
+  },
+  {
+    qK: 'តើថីទុកចេតសិក មានចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many thīna-duka cetasikas are there? Which are they?',
+    aK: 'ថីទុកចេតសិក មានចេតសិក ២ គឺ ថីនៈ និងមិទ្ធៈ។',
+    aE: 'There are two thīna-duka cetasikas: thīna (sloth) and middha (torpor).',
+  },
+  {
+    qK: 'តើឯកវិចិកិច្ឆា មានន័យដូចម្តេច?',
+    qE: 'What does ekavicikicchā mean?',
+    aK: 'ឯកវិចិកិច្ឆា មានន័យថា វិចិកិច្ឆាមួយ។',
+    aE: 'Ekavicikicchā means a single doubt (vicikicchā).',
+  },
+  {
+    qK: 'តើឯកវិចិកិច្ឆា មានចេតសិកប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many cetasikas does ekavicikicchā have? Which are they?',
+    aK: 'ឯកវិចិកិច្ឆា មានចេតសិក ១ គឺ វិចិកិច្ឆាចេតសិក។',
+    aE: 'Ekavicikicchā has one cetasika, namely the vicikicchā cetasika.',
+  },
+  {
+    qK: 'តើសោភណចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does sobhana cetasika mean?',
+    aK: 'សោភណចេតសិក មានន័យថា ចេតសិកល្អ។',
+    aE: 'Sobhana cetasika means the beautiful (good) mental factors.',
+  },
+  {
+    qK: 'តើសោភណចេតសិក មានប៉ុន្មានចេតសិក?',
+    qE: 'How many sobhana cetasikas are there?',
+    aK: 'សោភណចេតសិក មាន ២៥ ចេតសិក។',
+    aE: 'There are 25 sobhana cetasikas.',
+  },
+  {
+    qK: 'តើសោភណចេតសិក ២៥ ចែកជាប៉ុន្មានពួក?',
+    qE: 'Into how many groups are the 25 sobhana cetasikas divided?',
+    aK: 'សោភណចេតសិក ២៥ ចែកជា ៤ ពួក។',
+    aE: 'The 25 sobhana cetasikas are divided into four groups.',
+  },
+  {
+    qK: 'តើសព្វចិត្តសោភណសាធារណចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does sabbacitta-sobhana-sādhāraṇa cetasika mean?',
+    aK: 'សព្វចិត្តសោភណសាធារណចេតសិក មានន័យថា ចេតសិកដែលកើតទូទៅគ្រប់សោភណចិត្តទាំង ៥៩ ដួង ឬ ៩១ ដួង។',
+    aE: 'Sabbacitta-sobhana-sādhāraṇa cetasika means the cetasikas that arise commonly in all 59 or 91 sobhana cittas.',
+  },
+  {
+    qK: 'តើសព្វចិត្តសោភណសាធារណចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many sabbacitta-sobhana-sādhāraṇa cetasikas are there? Which are they?',
+    aK: 'សព្វចិត្តសោភណសាធារណចេតសិក មាន ១៩ ចេតសិក គឺ សទ្ធា សតិ ហិរិ ឱត្តប្បៈ អលោភៈ អទោសៈ តត្រមជ្ឈត្តតា កាយបស្សទ្ធិ ចិត្តបស្សទ្ធិ កាយលហុតា ចិត្តលហុតា កាយមុទុតា ចិត្តមុទុតា កាយកម្មញ្ញតា ចិត្តកម្មញ្ញតា កាយបាគុញ្ញតា ចិត្តបាគុញ្ញតា កាយុជុកតា ចិត្តុជុកាតា។',
+    aE: 'There are 19 sabbacitta-sobhana-sādhāraṇa cetasikas: saddhā, sati, hiri, ottappa, alobha, adosa, tatramajjhattatā, kāya-passaddhi, citta-passaddhi, kāya-lahutā, citta-lahutā, kāya-mudutā, citta-mudutā, kāya-kammaññatā, citta-kammaññatā, kāya-pāguññatā, citta-pāguññatā, kāya-ujukatā, and citta-ujukatā.',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does virati cetasika mean?',
+    aK: 'វិរតិចេតសិក មានន័យថា ចេតសិកតម ឬវៀរ។',
+    aE: 'Virati cetasika means the mental factor of restraint or abstention.',
+  },
+  {
+    qK: 'តើវិរតិចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many virati cetasikas are there? Which are they?',
+    aK: 'វិរតិចេតសិក មាន ៣ ចេតសិក គឺ សម្មាវាចា សម្មាកម្មន្តៈ និងសម្មាអាជីវៈ។',
+    aE: 'There are three virati cetasikas: sammā-vācā, sammā-kammanta, and sammā-ājīva.',
+  },
+  {
+    qK: 'តើអប្បមញ្ញាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does appamaññā cetasika mean?',
+    aK: 'អប្បមញ្ញាចេតសិក មានន័យថា ចេតសិកដែលមិនមានប្រមាណ ឬមិនមានព្រំដែនកំណត់។',
+    aE: 'Appamaññā cetasika means the mental factor that is measureless, or without limit or boundary.',
+  },
+  {
+    qK: 'តើអប្បមញ្ញាចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many appamaññā cetasikas are there? Which are they?',
+    aK: 'អប្បមញ្ញាចេតសិក មាន ២ ចេតសិក គឺ ករុណាចេតសិក និងមុទិតាចេតសិក។',
+    aE: 'There are two appamaññā cetasikas: karuṇā (compassion) and muditā (appreciative joy).',
+  },
+  {
+    qK: 'តើបញ្ញិន្រ្ទិយចេតសិក មានន័យដូចម្តេច? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What does paññindriya cetasika mean? How many are there? Which are they?',
+    aK: 'បញ្ញិន្រ្ទិយ មានន័យថា ភាពជាធំក្នុងការដឹងច្បាស់នូវសភាវធម៌ មាន ១ គឺ បញ្ញិន្រ្ទិយចេតសិក។',
+    aE: 'Paññindriya means the supremacy in clearly knowing the nature of phenomena; there is one, namely the paññindriya cetasika.',
   },
 ]
 

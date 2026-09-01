@@ -24,38 +24,45 @@
     </div>
 
     <div class="mt-4 space-y-4">
-      <article v-for="(g, i) in gathas" :key="g.en" :id="'gatha-' + i" class="card-paper p-6 md:p-8 scroll-mt-24">
+      <details v-for="(g, i) in gathas" :key="g.en" :id="'gatha-' + i" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget('gatha-', i)">
+        <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <div class="min-w-0">
               <p class="chapter-label">{{ g.src }}</p>
               <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t(g.km, g.en) }}</h3>
               <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(g.noteK, g.noteE) }}</p>
             </div>
-            <div class="flex items-center gap-2 mt-1 flex-none">
-              <CopyButton :text="verseTexts[i]" />
+            <div class="flex items-center gap-3 shrink-0 mt-1">
               <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
+              <span class="caret" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+            </div>
+          </div>
+        </summary>
+
+        <div class="mt-6">
+          <div class="flex items-center justify-end gap-2 mb-2">
+            <CopyButton :text="verseTexts[i]" />
+          </div>
+          <div class="verse-box p-4 md:p-5">
+            <p v-for="l in g.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
+            <p class="mt-3 text-center"><span class="paali">{{ g.roman }}</span></p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-2 mt-4">
+            <div v-for="w in g.gloss" :key="w.w" class="flex items-baseline gap-2 px-3 py-2 rounded-sm" :style="{ background: 'var(--bg-card-2)' }">
+              <span class="paali shrink-0">{{ w.w }}</span>
+              <span class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(w.km, w.en) }}</span>
             </div>
           </div>
 
-        <div class="verse-box p-4 md:p-5 mt-4">
-          <p v-for="l in g.lines" :key="l" class="text-center text-lg md:text-xl leading-loose">{{ l }}</p>
-          <p class="mt-3 text-center"><span class="paali">{{ g.roman }}</span></p>
-        </div>
+          <p class="mt-4 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(g.meanK, g.meanE) }}</p>
 
-        <div class="grid md:grid-cols-2 gap-2 mt-4">
-          <div v-for="w in g.gloss" :key="w.w" class="flex items-baseline gap-2 px-3 py-2 rounded-sm" :style="{ background: 'var(--bg-card-2)' }">
-            <span class="paali shrink-0">{{ w.w }}</span>
-            <span class="text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(w.km, w.en) }}</span>
+          <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អនុវត្តក្នុងជីវិត', 'APPLY IT TODAY') }}</p>
+            <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(g.applyK, g.applyE) }}</p>
           </div>
         </div>
-
-        <p class="mt-4 leading-loose text-sm" :style="{ color: 'var(--ink-soft)' }">{{ t(g.meanK, g.meanE) }}</p>
-
-        <div class="mt-4 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
-          <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('អនុវត្តក្នុងជីវិត', 'APPLY IT TODAY') }}</p>
-          <p class="text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">{{ t(g.applyK, g.applyE) }}</p>
-        </div>
-      </article>
+      </details>
     </div>
   </div>
 </template>

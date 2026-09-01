@@ -205,6 +205,102 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 8: ជីវិតិន្រ្ទិយចេតសិក ===== -->
+    <h2 v-if="!searching || filteredJivitindriya.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ជីវិតិន្រ្ទិយចេតសិក', 'Jīvitindriya (Life Faculty)') }}
+    </h2>
+    <div v-if="!searching || filteredJivitindriya.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredJivitindriya" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 9: មនសិការចេតសិក ===== -->
+    <h2 v-if="!searching || filteredManasikara.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('មនសិការចេតសិក', 'Manasikāra (Attention)') }}
+    </h2>
+    <div v-if="!searching || filteredManasikara.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredManasikara" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 10: ចែកសព្វចិត្តសាធារណៈ ដោយខន្ធ និងដោយជាតិ ===== -->
+    <h2 v-if="!searching || filteredSabbaByKhandhaJati.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ចែកសព្វចិត្តសាធារណៈ ដោយខន្ធ និងដោយជាតិ', 'Dividing the Universals by Aggregates and by Jāti') }}
+    </h2>
+    <div v-if="!searching || filteredSabbaByKhandhaJati.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredSabbaByKhandhaJati" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 11: ចែកសព្វចិត្តសាធារណៈ ដោយទ្វារ ===== -->
+    <h2 v-if="!searching || filteredSabbaByDvara.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ចែកសព្វចិត្តសាធារណៈ ដោយទ្វារ', 'Dividing the Universals by Door') }}
+    </h2>
+    <div v-if="!searching || filteredSabbaByDvara.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredSabbaByDvara" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -235,7 +331,10 @@ function matchesQuery(qa) {
 
 const indexed = (arr, offset) => arr.map((qa, i) => ({ qa, num: offset + i + 1 })).filter(x => matchesQuery(x.qa))
 
-const libLen = () => introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length + cetanaQas.length
+const libLen = () =>
+  introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
+  cetanaQas.length + ekaggataQas.length + jivitindriyaQas.length + manasikaraQas.length +
+  sabbaByKhandhaJatiQas.length + sabbaByDvaraQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -243,12 +342,17 @@ const filteredPhassa = computed(() => indexed(phassaQas, introQas.length + fifty
 const filteredVedana = computed(() => indexed(vedanaQas, introQas.length + fiftyTwoQas.length + phassaQas.length))
 const filteredSanna = computed(() => indexed(sannaQas, introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length))
 const filteredCetana = computed(() => indexed(cetanaQas, introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length))
-const filteredEkaggata = computed(() => indexed(ekaggataQas, libLen()))
+const filteredEkaggata = computed(() => indexed(ekaggataQas, introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length + cetanaQas.length))
+const filteredJivitindriya = computed(() => indexed(jivitindriyaQas, libLen() - jivitindriyaQas.length - manasikaraQas.length - sabbaByKhandhaJatiQas.length - sabbaByDvaraQas.length))
+const filteredManasikara = computed(() => indexed(manasikaraQas, libLen() - manasikaraQas.length - sabbaByKhandhaJatiQas.length - sabbaByDvaraQas.length))
+const filteredSabbaByKhandhaJati = computed(() => indexed(sabbaByKhandhaJatiQas, libLen() - sabbaByKhandhaJatiQas.length - sabbaByDvaraQas.length))
+const filteredSabbaByDvara = computed(() => indexed(sabbaByDvaraQas, libLen() - sabbaByDvaraQas.length))
 
 const totalMatches = computed(() =>
   filteredIntro.value.length + filteredFiftyTwo.value.length + filteredPhassa.value.length +
   filteredVedana.value.length + filteredSanna.value.length + filteredCetana.value.length +
-  filteredEkaggata.value.length
+  filteredEkaggata.value.length + filteredJivitindriya.value.length + filteredManasikara.value.length +
+  filteredSabbaByKhandhaJati.value.length + filteredSabbaByDvara.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -1200,6 +1304,402 @@ const ekaggataQas = [
     qE: 'Does ekaggatā arise in worldly or supramundane consciousness?',
     aK: 'ឯកគ្គតាចេតសិក កើតក្នុងលោកិយចិត្តផង និងលោកុត្តរចិត្តផង។',
     aE: 'Ekaggatā arises in both worldly and supramundane consciousness.',
+  },
+]
+
+const jivitindriyaQas = [
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក មានអត្ថដូចម្តេចខ្លះ?',
+    qE: 'What is the meaning (attha) of jīvitindriya cetasika?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក មានន័យថា ធម៌រក្សាសម្បយុត្តធម៌ គឺធ្វើឱ្យសម្បយុត្តធម៌តាំងនៅ និងប្រព្រឹត្តទៅ។',
+    aE: 'The jīvitindriya cetasika means the dhamma that sustains the associated dhammas, keeping them established and operating.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយ អង្គធម៌បានដល់សភាវធម៌ប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many kinds of dhamma does the life-faculty (jīvitindriya) comprise? Which are they?',
+    aK: 'ជីវិតិន្រ្ទិយ អង្គធម៌បានដល់សភាវធម៌ ២ យ៉ាង គឺ ជីវិតិន្រ្ទិយចេតសិក និង ជីវិតរូប។',
+    aE: 'The life-faculty comprises two kinds of dhamma: the jīvitindriya cetasika and the jīvita-rūpa (material life-faculty).',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយ មានន័យដូចម្តេច?',
+    qE: 'What does indriya mean?',
+    aK: 'ឥន្រ្ទិយ មានន័យថា ភាពជាធំ។',
+    aE: 'Indriya means lordship or dominance (to be chief).',
+  },
+  {
+    qK: 'តើក្នុងបរមត្ថធម៌ ៤ មានឥន្រ្ទិយសរុបប៉ុន្មាន?',
+    qE: 'In the four paramattha dhammas, how many indriyas are there in total?',
+    aK: 'ក្នុងបរមត្ថធម៌ ៤ មានឥន្រ្ទិយសរុប ២២ ។',
+    aE: 'In the four paramattha dhammas, there are 22 indriyas in total.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ចាត់ជាខន្ធអ្វី?',
+    qE: 'To which aggregate is the jīvitindriya cetasika classed?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ចាត់ជា សង្ខារក្ខន្ធ។',
+    aE: 'The jīvitindriya cetasika is classed as the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ជារូបធម៌ ឬនាមធម៌?',
+    qE: 'Is the jīvitindriya cetasika a rūpa-dhamma or a nāma-dhamma?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ជា នាមធម៌។',
+    aE: 'The jīvitindriya cetasika is a nāma-dhamma.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក មានលក្ខណៈដូចម្តេច?',
+    qE: 'What is the characteristic of the jīvitindriya cetasika?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក មានការតាមរក្សាសហជាតធម៌ ជាលក្ខណៈ ប្រៀបដូចទឹករក្សាផ្កាឈូក ជាដើម។',
+    aE: 'The jīvitindriya cetasika has the characteristic of maintaining the co-arisen dhammas, like water that keeps the lotus flowers alive.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក មានកិច្ចដូចម្តេច?',
+    qE: 'What is the function of the jīvitindriya cetasika?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក មានការញាំងសម្បយុត្តធម៌ឱ្យប្រព្រឹត្តទៅ ជាកិច្ច។',
+    aE: 'The jīvitindriya cetasika has the function of making the associated dhammas occur.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក មានអាការប្រាកដដូចម្តេច?',
+    qE: 'What is the manifestation of the jīvitindriya cetasika?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក មានការតាំងនៅនៃសហជាតធម៌ ជាអាការប្រាកដ។',
+    aE: 'The jīvitindriya cetasika manifests as the continued existence of the co-arisen dhammas.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក មានហេតុជិតដូចម្តេច?',
+    qE: 'What is the proximate cause of the jīvitindriya cetasika?',
+    aK: 'ជីវិតិន្រ្ទិយ មានខន្ធ ៣ (វេទនាខន្ធ សញ្ញាខន្ធ វិញ្ញាណក្ខន្ធ) ដែលនៅសល់ ជាហេតុជិត។',
+    aE: 'The jīvitindriya has the three remaining aggregates (vedanā, saññā, viññāṇa) as its proximate cause.',
+  },
+  {
+    qK: 'តើរុក្ខជាតិ ដូចជា ព្រៃឈើ មានជីវិតិន្រ្ទិយដែរឬទេ? ហេតុអ្វី?',
+    qE: 'Do plants, such as forests, have a life-faculty (jīvitindriya)? Why?',
+    aK: 'រុក្ខជាតិ ដូចជា ព្រៃឈើ មិនមានជីវិតិន្រ្ទិយទេ ព្រោះរុក្ខជាតិទាំងអស់ មិនមានវិញ្ញាណ ហើយកើតពីឧតុ (អាកាសធាតុ)។',
+    aE: 'Plants, such as forests, do not have a life-faculty, because all plants have no consciousness (viññāṇa) and arise from season/climate (utu).',
+  },
+  {
+    qK: 'តើការកាប់ព្រៃឈើ ដាច់បាណាតិបាតដែរឬទេ?',
+    qE: 'Does cutting down a forest incur pāṇātipāta (killing)?',
+    aK: 'ការកាប់ព្រៃឈើ មិនដាច់បាណាតិបាតទេ ព្រោះព្រៃឈើ មិនមានវិញ្ញាណ ហើយកើតពីឧតុ (អាកាសធាតុ)។',
+    aE: 'Cutting down a forest does not incur pāṇātipāta, because forests have no consciousness and arise from season (utu).',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the jīvitindriya cetasika arise?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្ត ៨៩ ដួង ឬ ១២១ ដួង។',
+    aE: 'The jīvitindriya cetasika arises in 89 (or 121) consciousnesses.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and class does the jīvitindriya cetasika belong?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ស្ថិតក្នុងក្រុមអញ្ញសមានាចេតសិក ពួកសព្វចិត្តសាធារណចេតសិក។',
+    aE: 'The jīvitindriya cetasika belongs to the aññasamānā group, the sabba-citta-sādhāraṇa class.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the jīvitindriya cetasika arise? Which are they?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'The jīvitindriya cetasika arises in all four jātis: the unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Through how many doors does the jīvitindriya cetasika operate? Which are they?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និងទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The jīvitindriya cetasika operates through the door-free consciousness and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the jīvitindriya cetasika know? Which are they?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និងធម្មារម្មណ៍។',
+    aE: 'The jīvitindriya cetasika knows six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតអាស្រ័យវត្ថុប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'On how many bases does the jīvitindriya cetasika arise? Which are they?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតអាស្រ័យវត្ថុ ៦ គឺ ចក្ខុវត្ថុ សោតវត្ថុ ឃានវត្ថុ ជីវ្ហាវត្ថុ កាយវត្ថុ និងហទយវត្ថុ។',
+    aE: 'The jīvitindriya cetasika arises dependent on six bases: eye, ear, nose, tongue, body, and heart-base.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្តប៉ុន្មានប្រភេទ ក្នុងចំណោមចិត្ត ៤ ប្រភេទ?',
+    qE: 'In how many of the four classes of consciousness does the jīvitindriya cetasika arise?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតក្នុងចិត្ត ៤ ប្រភេទ គឺ កាមាវចរចិត្ត រូបាវចរចិត្ត អរូបាវចរចិត្ត និងលោកុត្តរចិត្ត។',
+    aE: 'The jīvitindriya cetasika arises in all four classes: sense-sphere, form-sphere, formless-sphere, and supramundane consciousness.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក ជាហេតុ ឬនហេតុ?',
+    qE: 'Is the jīvitindriya cetasika a hetu or a non-hetu?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក ជា នហេតុ។',
+    aE: 'The jīvitindriya cetasika is a non-hetu.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតក្នុងអសោភណចិត្ត ឬសោភណចិត្ត?',
+    qE: 'Does the jīvitindriya cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតក្នុងអសោភណចិត្តផង និងសោភណចិត្តផង។',
+    aE: 'The jīvitindriya cetasika arises in both non-beautiful and beautiful consciousness.',
+  },
+  {
+    qK: 'តើជីវិតិន្រ្ទិយចេតសិក កើតក្នុងលោកិយចិត្ត ឬលោកុត្តរចិត្ត?',
+    qE: 'Does the jīvitindriya cetasika arise in worldly or supramundane consciousness?',
+    aK: 'ជីវិតិន្រ្ទិយចេតសិក កើតក្នុងលោកិយចិត្តផង និងលោកុត្តរចិត្តផង។',
+    aE: 'The jīvitindriya cetasika arises in both worldly and supramundane consciousness.',
+  },
+  {
+    qK: 'តើខណៈបដិសន្ធិ មានជីវិតិន្រ្ទិយចេតសិកដែរឬទេ? ហេតុអ្វី?',
+    qE: 'At the moment of rebirth-linking (paṭisandhi), is there the jīvitindriya cetasika? Why?',
+    aK: 'ខណៈបដិសន្ធិ គឺមានជីវិតិន្រ្ទិយចេតសិក ព្រោះបដិសន្ធិជាកិច្ចរបស់ចិត្ត ហើយជីវិតិន្រ្ទិយចេតសិក កើតគ្រប់ចិត្តទាំងអស់។',
+    aE: 'At the moment of rebirth-linking, there is the jīvitindriya cetasika, because rebirth-linking is a function of consciousness and the jīvitindriya cetasika arises in all consciousnesses.',
+  },
+  {
+    qK: 'តើខណៈចុតិចិត្តចុងក្រោយ មានជីវិតិន្រ្ទិយចេតសិកដែរឬទេ? ហេតុអ្វី?',
+    qE: 'At the moment of the last death-consciousness (cuti), is there the jīvitindriya cetasika? Why?',
+    aK: 'ខណៈចុតិចិត្តចុងក្រោយ គឺមានជីវិតិន្រ្ទិយចេតសិកប្រកបក្នុងចុតិចិត្តនោះ ព្រោះជីវិតិន្រ្ទិយចេតសិក ជាសព្វចិត្តសាធារណចេតសិក គឺកើតគ្រប់ចិត្តទាំងអស់។',
+    aE: 'At the moment of the last death-consciousness, the jīvitindriya cetasika is present in that cuti-citta, because it is a sabba-citta-sādhāraṇa cetasika that arises in all consciousnesses.',
+  },
+]
+
+const manasikaraQas = [
+  {
+    qK: 'តើមនសិការចេតសិក មានអត្ថដូចម្តេច?',
+    qE: 'What is the meaning (attha) of manasikāra cetasika?',
+    aK: 'មនសិការចេតសិក មានន័យថា ធម្មជាតិនាំសម្បយុត្តធម៌ទៅកាន់អារម្មណ៍។',
+    aE: 'The manasikāra cetasika means the nature that directs the associated dhammas towards the object.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក មានលក្ខណៈដូចម្តេច?',
+    qE: 'What is the characteristic of the manasikāra cetasika?',
+    aK: 'មនសិការចេតសិក មានការធ្វើឱ្យសម្បយុត្តធម៌ត្រាច់ទៅ ជាលក្ខណៈ។',
+    aE: 'The manasikāra cetasika has the characteristic of impelling the associated dhammas to go (towards the object).',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក មានកិច្ចដូចម្តេច?',
+    qE: 'What is the function of the manasikāra cetasika?',
+    aK: 'មនសិការចេតសិក មានការញាំងសម្បយុត្តធម៌ឱ្យប្រកបក្នុងអារម្មណ៍ ជាកិច្ច។',
+    aE: 'The manasikāra cetasika has the function of joining the associated dhammas to the object.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក មានអាការប្រាកដដូចម្តេច?',
+    qE: 'What is the manifestation of the manasikāra cetasika?',
+    aK: 'មនសិការចេតសិក មានការធ្វើឱ្យសម្បយុត្តធម៌តម្រង់មុខឆ្ពោះទៅទល់នឹងអារម្មណ៍ ជាអាការប្រាកដ។',
+    aE: 'The manasikāra cetasika manifests as facing the associated dhammas directly towards the object.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក មានហេតុជិតដូចម្តេច?',
+    qE: 'What is the proximate cause of the manasikāra cetasika?',
+    aK: 'មនសិការចេតសិក មានអារម្មណ៍ ជាហេតុជិត។',
+    aE: 'The manasikāra cetasika has the object as its proximate cause.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក និងចេតនាចេតសិក ខុសគ្នា ឬដូចគ្នា? ចូរពន្យល់?',
+    qE: 'Are the manasikāra and cetanā cetasikas different or the same? Explain.',
+    aK: 'មនសិការចេតសិក និងចេតនាចេតសិក មិនដូចគ្នាទេ សភាវធម៌ខុសគ្នា តួនាទីខុសគ្នា គឺមនសិការ មានតួនាទីដឹកនាំសម្បយុត្តធម៌ ដែលកើតនឹងខ្លួន ឱ្យទៅកាន់អារម្មណ៍ ចំណែកចេតនាចេតសិក មានតួនាទីផ្គងចិត្ត គឺដាស់តឿនសម្បយុត្តធម៌ ដែលកើតនឹងខ្លួន ឱ្យធ្វើកិច្ចរបស់ខ្លួន។',
+    aE: 'The manasikāra and cetanā cetasikas are not the same; their natures differ and their roles differ. Manasikāra has the role of guiding its co-arisen dhammas towards the object, while cetanā has the role of focusing the mind, urging its co-arisen dhammas to do their own tasks.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the manasikāra cetasika arise?',
+    aK: 'មនសិការចេតសិក កើតក្នុងចិត្ត ៨៩ ដួង ឬ ១២១ ដួង។',
+    aE: 'The manasikāra cetasika arises in 89 (or 121) consciousnesses.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាមនសិការចេតសិក កើតក្នុងចិត្តបាន ៨៩ ដួង ឬ ១២១ ដួង?',
+    qE: 'Why does the manasikāra cetasika arise in 89 (or 121) consciousnesses?',
+    aK: 'បានជាមនសិការចេតសិក កើតក្នុងចិត្ត ៨៩ ដួង ឬ ១២១ ដួង ព្រោះមនសិការចេតសិក ស្ថិតក្នុងពួកសព្វចិត្តសាធារណចេតសិក (ចេតសិកដែលកើតទូទៅដល់ចិត្តទាំងអស់)។',
+    aE: 'The manasikāra cetasika arises in 89 (or 121) consciousnesses because it belongs to the sabba-citta-sādhāraṇa class, the cetasikas that arise commonly in all consciousnesses.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the manasikāra cetasika arise? Which are they?',
+    aK: 'មនសិការចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'The manasikāra cetasika arises in all four jātis: the unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក ចាត់ជាខន្ធអ្វី ក្នុងចំណោមខន្ធទាំង ៥?',
+    qE: 'To which of the five aggregates is the manasikāra cetasika classed?',
+    aK: 'មនសិការចេតសិក ចាត់ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The manasikāra cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors does the manasikāra cetasika operate? Which are they?',
+    aK: 'មនសិការចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និងទ្វារ ៦ មាន ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The manasikāra cetasika operates through the door-free consciousness and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the manasikāra cetasika know? Which are they?',
+    aK: 'មនសិការចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និងធម្មារម្មណ៍។',
+    aE: 'The manasikāra cetasika knows six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានប្រភេទ ឬភូមិ?',
+    qE: 'In how many classes or planes of consciousness does the manasikāra cetasika arise?',
+    aK: 'មនសិការចេតសិក កើតក្នុងចិត្តបាន ៤ ប្រភេទ ឬ ៤ ភូមិ គឺ ៖ កាមាវចរចិត្ត ឬកាមាវចរភូមិ ។ រូបាវចរចិត្ត ឬរូបាវចរភូមិ ។ អរូបាវចរចិត្ត ឬអរូបាវចរភូមិ ។ លោកុត្តរចិត្ត ឬលោកុត្តរភូមិ។',
+    aE: 'The manasikāra cetasika arises in four classes or planes: sense-sphere, form-sphere, formless-sphere, and supramundane.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក អាស្រ័យវត្ថុបានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'On how many bases does the manasikāra cetasika depend? Which are they?',
+    aK: 'មនសិការចេតសិក អាស្រ័យវត្ថុ ៦ គឺ ចក្ខុវត្ថុ សោតវត្ថុ ឃានវត្ថុ ជីវ្ហាវត្ថុ កាយវត្ថុ និងហទយវត្ថុ។',
+    aE: 'The manasikāra cetasika depends on six bases: eye, ear, nose, tongue, body, and heart-base.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក ជាហេតុ ឬនហេតុ?',
+    qE: 'Is the manasikāra cetasika a hetu or a non-hetu?',
+    aK: 'មនសិការចេតសិក ជា នហេតុ (មិនមែនហេតុ)។',
+    aE: 'The manasikāra cetasika is a non-hetu (not a root).',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក កើតក្នុងអសោភណចិត្ត ឬសោភណចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the manasikāra cetasika arise in non-beautiful or beautiful consciousness? Why?',
+    aK: 'មនសិការចេតសិក កើតក្នុងអសោភណចិត្តផង និងសោភណចិត្តផង ព្រោះមនសិការចេតសិក ជាសព្វចិត្តសាធារណចេតសិក ដែលកើតគ្រប់ចិត្តទាំងអស់។',
+    aE: 'The manasikāra cetasika arises in both non-beautiful and beautiful consciousness, because it is a sabba-citta-sādhāraṇa cetasika that arises in all consciousnesses.',
+  },
+  {
+    qK: 'តើមនសិការចេតសិក កើតក្នុងលោកិយចិត្ត ឬលោកុត្តរចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the manasikāra cetasika arise in worldly or supramundane consciousness? Why?',
+    aK: 'មនសិការចេតសិក កើតក្នុងលោកិយចិត្តផង និងលោកុត្តរចិត្តផង ព្រោះមនសិការចេតសិក ជាសព្វចិត្តសាធារណចេតសិក ដែលកើតគ្រប់ចិត្តទាំងអស់។',
+    aE: 'The manasikāra cetasika arises in both worldly and supramundane consciousness, because it is a sabba-citta-sādhāraṇa cetasika that arises in all consciousnesses.',
+  },
+]
+
+const sabbaByKhandhaJatiQas = [
+  {
+    qK: 'តើខន្ធសរុបមានប៉ុន្មាន? ខន្ធអ្វីខ្លះ?',
+    qE: 'How many aggregates (khandhas) are there in total? Which are they?',
+    aK: 'ខន្ធសរុបមាន ៥ គឺ វិញ្ញាណក្ខន្ធ វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ និងរូបក្ខន្ធ។',
+    aE: 'There are five aggregates in total: viññāṇa, vedanā, saññā, saṅkhāra, and rūpa.',
+  },
+  {
+    qK: 'តើចិត្ត ៨៩ ដួង ឬ ១២១ ដួង មានប៉ុន្មានខន្ធ? ខន្ធអ្វីខ្លះ?',
+    qE: 'How many aggregates do the 89 (or 121) consciousnesses have? Which are they?',
+    aK: 'ចិត្ត ៨៩ ដួង ឬ ១២១ ដួង មានខន្ធ ១ គឺ វិញ្ញាណក្ខន្ធ។',
+    aE: 'The 89 (or 121) consciousnesses have one aggregate, the viññāṇa-khandha.',
+  },
+  {
+    qK: 'តើចេតសិក ៥២ មានប៉ុន្មានខន្ធ? ខន្ធអ្វីខ្លះ?',
+    qE: 'How many aggregates do the 52 cetasikas have? Which are they?',
+    aK: 'ចេតសិក ៥២ មានខន្ធ ៣ គឺ ៖ វេទនាចេតសិក ជាវេទនាខន្ធ ។ សញ្ញាចេតសិក ជាសញ្ញាខន្ធ ។ ចេតសិកនៅសល់ ៥០ ទៀត ជាសង្ខារក្ខន្ធ។',
+    aE: 'The 52 cetasikas have three aggregates: the vedanā cetasika is the vedanā-khandha, the saññā cetasika is the saññā-khandha, and the remaining 50 cetasikas form the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើរូប ២៨ មានប៉ុន្មានខន្ធ? ខន្ធអ្វីខ្លះ?',
+    qE: 'How many aggregates do the 28 rūpas have? Which are they?',
+    aK: 'រូប ២៨ មាន ១ ខន្ធ គឺ រូបក្ខន្ធ។',
+    aE: 'The 28 rūpas have one aggregate, the rūpa-khandha.',
+  },
+  {
+    qK: 'តើនិព្វាន ចាត់ជាខន្ធអ្វី?',
+    qE: 'To which aggregate is Nibbāna classed?',
+    aK: 'និព្វាន ចាត់ជា ខន្ធវិមុត្ត ឬផុតស្រលះពីខន្ធ។',
+    aE: 'Nibbāna is classed as beyond the aggregates (khandha-vimutta), free from the aggregates.',
+  },
+  {
+    qK: 'បើចែកដោយខន្ធ តើសព្វចិត្តសាធារណចេតសិក ៧ បានខន្ធប៉ុន្មាន? ខន្ធអ្វីខ្លះ?',
+    qE: 'Dividing by aggregate, how many aggregates do the seven sabba-citta-sādhāraṇa cetasikas yield? Which are they?',
+    aK: 'បើចែកដោយខន្ធ សព្វចិត្តសាធារណចេតសិក ៧ បានខន្ធ ៣ គឺ ៖ វេទនាចេតសិក ជាវេទនាខន្ធ ។ សញ្ញាចេតសិក ជាសញ្ញាខន្ធ ។ ផស្សៈ ចេតនា ឯកគ្គតា ជីវិតិន្រ្ទិយ មនសិការ ជាសង្ខារក្ខន្ធ។',
+    aE: 'Dividing by aggregate, the seven sabba-citta-sādhāraṇa cetasikas yield three aggregates: vedanā is the vedanā-khandha, saññā is the saññā-khandha, and phassa, cetanā, ekaggatā, jīvitindriya, and manasikāra form the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើចិត្ត ៨៩ ដួង ឬ ១២១ ដួង មានប៉ុន្មានជាតិ? ជាតិអ្វីខ្លះ?',
+    qE: 'How many jātis do the 89 (or 121) consciousnesses have? Which are they?',
+    aK: 'ចិត្ត ៨៩ ដួង ឬ ១២១ ដួង មាន ៤ ជាតិ គឺ ៖ អកុសលជាតិ ការកើតឡើងនៃធម៌មិនល្អ ។ កុសលជាតិ ការកើតឡើងនៃធម៌ជាកុសល ។ វិបាកជាតិ ការកើតឡើងនៃធម៌ជាវិបាក ។ កិរិយាជាតិ ការកើតឡើងនៃធម៌ជាកិរិយា។',
+    aE: 'The 89 (or 121) consciousnesses have four jātis: unwholesome (akusala), wholesome (kusala), resultant (vipāka), and functional (kiriya).',
+  },
+  {
+    qK: 'បើចែកដោយជាតិ តើសព្វចិត្តសាធារណចេតសិក ៦ (វៀរវេទនា) មានប៉ុន្មានជាតិ? ជាតិអ្វីខ្លះ?',
+    qE: 'Dividing by jāti, how many jātis do the six sabba-citta-sādhāraṇa cetasikas (excluding vedanā) have? Which are they?',
+    aK: 'បើចែកដោយជាតិ សព្វចិត្តសាធារណចេតសិក ៦ (វៀរវេទនា) មាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'Dividing by jāti, the six sabba-citta-sādhāraṇa cetasikas (excluding vedanā) have four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តាមឥន្រ្ទិយភេទន័យ តើសុខ និងទុក្ខ មានជាតិជាអ្វី? ហេតុអ្វី?',
+    qE: 'According to the indriya-classification, what jāti do sukha and dukkha have? Why?',
+    aK: 'តាមឥន្រ្ទិយភេទន័យ សុខ និងទុក្ខ មានជាតិជា វិបាកជាតិ។ ព្រោះតាមឥន្រ្ទិយភេទន័យ សុខវេទនា និងទុក្ខវេទនា កើតតែក្នុងកាយវិញ្ញាណចិត្ត ២ ដួង ដែលមានជាតិជាវិបាកជាតិ។',
+    aE: 'According to the indriya-classification, sukha and dukkha are of the vipāka (resultant) jāti, because sukha-vedanā and dukkha-vedanā arise only in the two body-consciousness (kāya-viññāṇa) cittas, which are of the vipāka jāti.',
+  },
+  {
+    qK: 'តាមឥន្រ្ទិយភេទន័យ តើសោមនស្សវេទនា មានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'According to the indriya-classification, how many jātis does somanassa (pleasant mental feeling) have? Which are they?',
+    aK: 'តាមឥន្រ្ទិយភេទន័យ សោមនស្សវេទនា មាន ៤ ជាតិ គឺ ៖ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'According to the indriya-classification, somanassa-vedanā has four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តាមឥន្រ្ទិយភេទន័យ តើទោមនស្សវេទនា មានជាតិជាអ្វី? ហេតុអ្វី?',
+    qE: 'According to the indriya-classification, what jāti does domanassa (painful mental feeling) have? Why?',
+    aK: 'តាមឥន្រ្ទិយភេទន័យ ទោមនស្សវេទនា មានជាតិជា អកុសលជាតិ ព្រោះទោមនស្សវេទនា កើតតែក្នុងទោសមូលចិត្ត ២ ដួងប៉ុណ្ណោះ ហើយទោសមូលចិត្ត គឺជាចិត្តអាក្រក់ ចិត្តអកុសល ដែលមានអកុសលធម៌ប្រកបជាមួយ ដូច្នេះហើយទើបទោមនស្សវេទនា មានជាតិជា អកុសលជាតិ។',
+    aE: 'According to the indriya-classification, domanassa-vedanā is of the akusala (unwholesome) jāti, because it arises only in the two dosa-mūla cittas; those are evil, unwholesome consciousnesses accompanied by unwholesome dhammas, and therefore domanassa-vedanā is of the unwholesome jāti.',
+  },
+  {
+    qK: 'តាមឥន្រ្ទិយភេទន័យ តើឧបេក្ខាវេទនា មានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'According to the indriya-classification, how many jātis does upekkhā (neutral mental feeling) have? Which are they?',
+    aK: 'តាមឥន្រ្ទិយភេទន័យ ឧបេក្ខាវេទនា មាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'According to the indriya-classification, upekkhā-vedanā has four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាឧបេក្ខាវេទនា មាន ៤ ជាតិ?',
+    qE: 'Why does upekkhā-vedanā have four jātis?',
+    aK: 'បានជាឧបេក្ខាវេទនា មាន ៤ ជាតិ ព្រោះឧបេក្ខាវេទនា ប្រកបក្នុងចិត្ត ៥៥ ដួង ដែលចិត្ត ៥៥ ដួងនេះ មាន ៤ ជាតិ ដូច្នេះហើយទើបឧបេក្ខាវេទនា ក៏មាន ៤ ជាតិ ដូចឧបេក្ខាសហគតចិត្តដែរ។',
+    aE: 'Upekkhā-vedanā has four jātis because it accompanies the 55 cittas (upekkhā-sahagata cittas), and those 55 cittas have four jātis; therefore upekkhā-vedanā follows the same four jātis.',
+  },
+]
+
+const sabbaByDvaraQas = [
+  {
+    qK: 'ដូចម្តេចហៅថា ទ្វារ ក្នុងបរមត្ថធម៌?',
+    qE: 'What is meant by "door" (dvāra) in the paramattha dhammas?',
+    aK: 'ទ្វារ មានន័យថា ច្រកប្រព្រឹត្តទៅនៃវិថីចិត្តទាំងឡាយ ដែលដឹងអារម្មណ៍ទាំងឡាយ។',
+    aE: 'Door (dvāra) means the passageway through which the cognitive processes (vīthi cittas) that know the objects operate.',
+  },
+  {
+    qK: 'តើទ្វារនៃវិថីចិត្ត មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many doors of the cognitive processes are there? Which are they?',
+    aK: 'ទ្វារចិត្តមាន ៦ គឺ ៖ ចក្ខុទ្វារ គឺទ្វារភ្នែក អង្គធម៌បានដល់ ចក្ខុបសាទរូប ។ សោតទ្វារ គឺទ្វារត្រចៀក អង្គធម៌បានដល់ សោតបសាទរូប ។ ឃានទ្វារ គឺទ្វារច្រមុះ អង្គធម៌បានដល់ ឃានបសាទរូប ។ ជីវ្ហាទ្វារ គឺទ្វារអណ្តាត អង្គធម៌បានដល់ ជីវ្ហាបសាទរូប ។ កាយទ្វារ គឺទ្វារកាយ អង្គធម៌បានដល់ កាយបសាទរូប ។ មនោទ្វារ គឺទ្វារចិត្ត អង្គធម៌បានដល់ ភវង្គុប្បច្ឆេទ ១៩ (ភវង្គុប្បច្ឆេទ កើតក្នុង អកុសលវិបាកចិត្តដួងទី ៧ (១ ដួង) អហេតុកកុសលវិបាកចិត្តដួងទី ៨ (១ ដួង) មហាវិបាកចិត្ត ៨ ដួង មហគ្គវិបាកចិត្ត ៩ ដួង)។',
+    aE: 'There are six doors of the cognitive process: the eye-door (eye-sensitivity), ear-door (ear-sensitivity), nose-door (nose-sensitivity), tongue-door (tongue-sensitivity), body-door (body-sensitivity), and mind-door (the 19 bhavaṅgupaccheda).',
+  },
+  {
+    qK: 'តើសព្វចិត្តសាធារណចេតសិក ៦ (វៀរវេទនា) ប្រព្រឹត្តតាមទ្វារបានប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors do the six sabba-citta-sādhāraṇa cetasikas (excluding vedanā) operate? Which are they?',
+    aK: 'សព្វចិត្តសាធារណចេតសិក ៦ (វៀរវេទនា) ប្រព្រឹត្តតាមទ្វារវិមុត្ត និងទ្វារ ៦ មាន ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The six sabba-citta-sādhāraṇa cetasikas (excluding vedanā) operate through the door-free consciousness and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាមិនរាប់វេទនាចូលក្នុងសព្វចិត្តសាធារណចេតសិក ៦ ទៀត ក្នុងការចែកដោយជាតិ និងទ្វារ?',
+    qE: 'Why is vedanā not counted among the six sabba-citta-sādhāraṇa cetasikas in the division by jāti and by door?',
+    aK: 'បានជាមិនរាប់វេទនាចូលក្នុងការចែកសព្វចិត្តសាធារណចេតសិក ៦ ទៀត ដោយជាតិ និងទ្វារ ព្រោះចេតសិក ៦ មិនមានចែកជាអ្វីទៀតទេ ចំណែកវេទនា មានចែកជា ៣ ឬ ៥ ដូច្នេះទុកវេទនា ចែកពេលក្រោយ។',
+    aE: 'Vedanā is not counted among the six in the division by jāti and by door because the six cetasikas have no further divisions, whereas vedanā is divided into three or five; therefore vedanā is left to be divided later.',
+  },
+  {
+    qK: 'តើសុខវេទនា និងទុក្ខវេទនា តាមឥន្រ្ទិយភេទន័យ កើតត្រង់ទ្វារណា?',
+    qE: 'At which door do sukha- and dukkha-vedanā (according to the indriya-classification) arise?',
+    aK: 'សុខវេទនា និងទុក្ខវេទនា តាមឥន្រ្ទិយភេទន័យ កើតត្រង់ កាយទ្វារ។',
+    aE: 'Sukha- and dukkha-vedanā, according to the indriya-classification, arise at the body-door.',
+  },
+  {
+    qK: 'តើទោមនស្សវេទនា ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors does domanassa-vedanā operate? Which are they?',
+    aK: 'ទោមនស្សវេទនា ប្រព្រឹត្តតាមទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ និងមនោទ្វារ។',
+    aE: 'Domanassa-vedanā operates through the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើសោមនស្សវេទនា ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors does somanassa-vedanā operate? Which are they?',
+    aK: 'សោមនស្សវេទនា ប្រព្រឹត្តតាមទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ និងទ្វារវិមុត្ត។',
+    aE: 'Somanassa-vedanā operates through the six doors and the door-free consciousness: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើឧបេក្ខាវេទនា ប្រព្រឹត្តតាមទ្វារណាខ្លះ?',
+    qE: 'Through which doors does upekkhā-vedanā operate?',
+    aK: 'ឧបេក្ខាវេទនា ប្រព្រឹត្តតាមទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ និងទ្វារវិមុត្ត។',
+    aE: 'Upekkhā-vedanā operates through the six doors and the door-free consciousness: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើទ្វារវិមុត្ត មានន័យដូចម្តេច?',
+    qE: 'What does "door-free" (dvāra-vimutta) mean?',
+    aK: 'ទ្វារវិមុត្ត មានន័យថា ផុតស្រលះចាកទ្វារ ៦ ឬ មិនប្រព្រឹត្តតាមទ្វារ ៦។',
+    aE: 'Door-free (dvāra-vimutta) means free from the six doors, or not operating through the six doors.',
+  },
+  {
+    qK: 'តើកិច្ចប៉ុន្មានប្រភេទ ដែលធ្វើនៅទ្វារវិមុត្ត? កិច្ចណាខ្លះ?',
+    qE: 'How many kinds of function are performed at the door-free consciousness? Which are they?',
+    aK: 'កិច្ចនៃចិត្ត ៣ ប្រភេទ ដែលធ្វើនៅទ្វារវិមុត្ត គឺ បដិសន្ធិកិច្ច ភវង្គកិច្ច និងចុតិកិច្ច។',
+    aE: 'Three functions of consciousness are performed at the door-free consciousness: rebirth-linking (paṭisandhi), life-continuum (bhavaṅga), and death (cuti).',
   },
 ]
 </script>

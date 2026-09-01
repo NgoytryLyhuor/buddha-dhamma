@@ -589,6 +589,78 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 24: អកុសលចេតសិក ១៤ ===== -->
+    <h2 v-if="!searching || filteredAkusala.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('អកុសលចេតសិក ១៤', 'The 14 Unwholesome Cetasikas') }}
+    </h2>
+    <div v-if="!searching || filteredAkusala.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredAkusala" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 25: មោហចេតសិក ===== -->
+    <h2 v-if="!searching || filteredMoha.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('មោហចេតសិក', 'Moha (Delusion)') }}
+    </h2>
+    <div v-if="!searching || filteredMoha.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredMoha" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 26: អហិរិកៈចេតសិក ===== -->
+    <h2 v-if="!searching || filteredAhirika.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('អហិរិកៈចេតសិក', 'Ahirika (Shamelessness)') }}
+    </h2>
+    <div v-if="!searching || filteredAhirika.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredAhirika" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -625,7 +697,8 @@ const libLen = () =>
   sabbaByKhandhaJatiQas.length + sabbaByDvaraQas.length + sabbaByArammanaQas.length +
   sabbaByBhumiQas.length + sabbaByVatthuQas.length + sabbaByHetuQas.length +
   sabbaBySobhanaQas.length + sabbaByLokaQas.length + vitakkaQas.length +
-  vicaraQas.length + adhimokkhaQas.length + viriyaQas.length + pitiQas.length + chandaQas.length
+  vicaraQas.length + adhimokkhaQas.length + viriyaQas.length + pitiQas.length + chandaQas.length +
+  akusalaQas.length + mohaQas.length + ahirikaQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -649,7 +722,10 @@ const filteredVicara = computed(() => indexed(vicaraQas, libLen() - vicaraQas.le
 const filteredAdhimokkha = computed(() => indexed(adhimokkhaQas, libLen() - adhimokkhaQas.length - viriyaQas.length - pitiQas.length - chandaQas.length))
 const filteredViriya = computed(() => indexed(viriyaQas, libLen() - viriyaQas.length - pitiQas.length - chandaQas.length))
 const filteredPiti = computed(() => indexed(pitiQas, libLen() - pitiQas.length - chandaQas.length))
-const filteredChanda = computed(() => indexed(chandaQas, libLen() - chandaQas.length))
+const filteredChanda = computed(() => indexed(chandaQas, libLen() - chandaQas.length - akusalaQas.length - mohaQas.length - ahirikaQas.length))
+const filteredAkusala = computed(() => indexed(akusalaQas, libLen() - akusalaQas.length - mohaQas.length - ahirikaQas.length))
+const filteredMoha = computed(() => indexed(mohaQas, libLen() - mohaQas.length - ahirikaQas.length))
+const filteredAhirika = computed(() => indexed(ahirikaQas, libLen() - ahirikaQas.length))
 
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
@@ -671,7 +747,8 @@ const totalMatches = computed(() =>
   filteredSabbaByArammana.value.length + filteredSabbaByBhumi.value.length + filteredSabbaByVatthu.value.length +
   filteredSabbaByHetu.value.length + filteredSabbaBySobhana.value.length + filteredSabbaByLoka.value.length +
   filteredVitakka.value.length + filteredVicara.value.length + filteredAdhimokkha.value.length +
-  filteredViriya.value.length + filteredPiti.value.length + filteredChanda.value.length
+  filteredViriya.value.length + filteredPiti.value.length + filteredChanda.value.length +
+  filteredAkusala.value.length + filteredMoha.value.length + filteredAhirika.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -3333,6 +3410,393 @@ const chandaQas = [
     qE: 'The moment of satisfaction in studying the Dhamma — which cetasika is this a characteristic of?',
     aK: 'ខណៈពេញចិត្តក្នុងការសិក្សាព្រះធម៌ ជាលក្ខណៈរបស់ ឆន្ទៈចេតសិក។',
     aE: 'The moment of satisfaction in studying the Dhamma is a characteristic of the chanda cetasika.',
+  },
+]
+
+const akusalaQas = [
+  {
+    qK: 'តើអកុសលចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What do the unwholesome cetasikas mean?',
+    aK: 'អកុសលចេតសិក មានន័យថា ចេតសិកមិនល្អ ចេតសិកជាបាប ចេតសិកសៅហ្មង។',
+    aE: 'The unwholesome cetasikas mean the unwholesome (bad) mental factors, the blameworthy, defiled mental factors.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many unwholesome cetasikas are there? Which are they?',
+    aK: 'អកុសលចេតសិក មាន ១៤ ចេតសិក គឺ មោហៈ អហិរិកៈ អនោត្តប្បៈ ឧទ្ធច្ចៈ លោភៈ ទិដ្ឋិ មានៈ ទោសៈ ឥស្សា មច្ឆរិយៈ កុក្កុច្ចៈ ថីនៈ មិទ្ធៈ និង វិចិកិច្ឆា។',
+    aE: 'There are 14 unwholesome cetasikas: moha, ahirika, anottappa, uddhacca, lobha, diṭṭhi, māna, dosa, issā, macchariya, kukkucca, thīna, middha, and vicikicchā.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក ១៤ កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses do the 14 unwholesome cetasikas arise?',
+    aK: 'អកុសលចេតសិក ១៤ កើតក្នុងអកុសលចិត្ត ១២ ដួងប៉ុណ្ណោះ។',
+    aE: 'The 14 unwholesome cetasikas arise only in the 12 unwholesome consciousnesses.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក ១៤ ចាត់ជាខន្ធមួយណា ក្នុងចំណោមខន្ធទាំង ៥?',
+    qE: 'To which of the five aggregates are the 14 unwholesome cetasikas classed?',
+    aK: 'អកុសលចេតសិក ១៤ ចាត់ចូលជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The 14 unwholesome cetasikas are classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក កើតក្នុងចិត្ត ជាជាតិអ្វី?',
+    qE: 'In which jāti do the unwholesome cetasikas arise?',
+    aK: 'អកុសលចេតសិក កើតក្នុងចិត្ត ជាអកុសលជាតិ។',
+    aE: 'The unwholesome cetasikas arise in the unwholesome jāti.',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក ១៤ ចែកជាប៉ុន្មានពួក? អ្វីខ្លះ?',
+    qE: 'Into how many groups are the 14 unwholesome cetasikas divided? Which are they?',
+    aK: 'អកុសលចេតសិក ១៤ ចែកជា ៥ ពួក គឺ មោចតុក្កៈ លោតិកៈ ទោចតុក្កៈ ថីទុកៈ និង ឯកវិចិកិច្ឆា។',
+    aE: 'The 14 unwholesome cetasikas divide into five groups: moha-catukka, lobha-tika, dosa-catukka, thīna-duka, and the single vicikicchā.',
+  },
+  {
+    qK: 'តើមោចតុក្កៈ មានន័យដូចម្តេច? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What does moha-catukka mean? How many cetasikas does it have? Which are they?',
+    aK: 'មោចតុក្កៈ មានន័យថា ពួកបួនមានមោហៈជាដើម។ មាន ៤ ចេតសិក គឺ មោហៈ អហិរិកៈ អនោត្តប្បៈ និង ឧទ្ធច្ចៈ។',
+    aE: 'Moha-catukka means the group of four beginning with moha. It has four cetasikas: moha, ahirika, anottappa, and uddhacca.',
+  },
+  {
+    qK: 'តើលោតិកៈ មានន័យដូចម្តេច? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What does lobha-tika mean? How many cetasikas does it have? Which are they?',
+    aK: 'លោតិកៈ មានន័យថា ពួកបីមានលោភៈជាដើម។ មាន ៣ ចេតសិក គឺ លោភៈ ទិដ្ឋិ និង មានៈ។',
+    aE: 'Lobha-tika means the group of three beginning with lobha. It has three cetasikas: lobha, diṭṭhi, and māna.',
+  },
+  {
+    qK: 'តើទោចតុក្កៈ មានន័យដូចម្តេច? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What does dosa-catukka mean? How many cetasikas does it have? Which are they?',
+    aK: 'ទោចតុក្កៈ មានន័យថា ពួកបួនមានទោសៈជាដើម។ មាន ៤ ចេតសិក គឺ ទោសៈ ឥស្សា មច្ឆរិយៈ និង កុក្កុច្ចៈ។',
+    aE: 'Dosa-catukka means the group of four beginning with dosa. It has four cetasikas: dosa, issā, macchariya, and kukkucca.',
+  },
+  {
+    qK: 'តើថីទុកៈ មានន័យដូចម្តេច? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What does thīna-duka mean? How many cetasikas does it have? Which are they?',
+    aK: 'ថីទុកៈ មានន័យថា ពួកពីរមានថីនៈជាដើម។ មាន ២ ចេតសិក គឺ ថីនៈ និង មិទ្ធៈ។',
+    aE: 'Thīna-duka means the group of two beginning with thīna. It has two cetasikas: thīna and middha.',
+  },
+  {
+    qK: 'តើឯកវិចិកិច្ឆា មានន័យដូចម្តេច?',
+    qE: 'What does eka-vicikicchā mean?',
+    aK: 'ឯកវិចិកិច្ឆា មានន័យថា វិចិកិច្ឆា ១។',
+    aE: 'Eka-vicikicchā means the single (one) vicikicchā.',
+  },
+  {
+    qK: 'តើសត្វតិរច្ឆាន និង ទេវតា ដែលជាបុថុជ្ជន មានអកុសលចេតសិកទាំង ១៤ ដែរឬទេ?',
+    qE: 'Do animals and deities who are puthujjana also have all 14 unwholesome cetasikas?',
+    aK: 'សត្វតិរច្ឆាន និង ទេវតា ដែលជាបុថុជ្ជន ក៏មានអកុសលចេតសិកទាំង ១៤ នេះដែរ (តាមសមគួរ)។',
+    aE: 'Animals and deities who are puthujjana also have these 14 unwholesome cetasikas (as appropriate).',
+  },
+  {
+    qK: 'តើអកុសលចេតសិក ១៤ មានចេតសិកជាតួហេតុប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Among the 14 unwholesome cetasikas, how many are the hetu cetasikas? Which are they?',
+    aK: 'អកុសលចេតសិក ១៤ មានចេតសិកជាតួហេតុ ៣ គឺ លោភចេតសិក ជាលោភហេតុ ទោសចេតសិក ជាទោសហេតុ មោហចេតសិក ជាមោហហេតុ។',
+    aE: 'Among the 14 unwholesome cetasikas, three are the hetu cetasikas: lobha as the lobha-root, dosa as the dosa-root, and moha as the moha-root.',
+  },
+  {
+    qK: 'តើបុថុជ្ជន មានអកុសលចេតសិកទាំង ១៤ នេះទេ?',
+    qE: 'Do puthujjana have all these 14 unwholesome cetasikas?',
+    aK: 'បុថុជ្ជន មានអកុសលចេតសិកទាំង ១៤ នេះ នៅកាមភូមិ ១១ ។ បុថុជ្ជននៅរូបភូមិ និង អរូបភូមិ មិនមែនទោចតុក្កៈចេតសិកទេ។',
+    aE: 'Puthujjana have all these 14 unwholesome cetasikas in the 11 sense-sphere planes; but puthujjana in the form and formless planes do not have the dosa-catukka cetasikas.',
+  },
+  {
+    qK: 'ដូចម្តេចហៅថា សព្វាកុសលសាធារណចេតសិក? មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'What are the sabba-akusala-sādhāraṇa cetasikas? How many are there? Which are they?',
+    aK: 'សព្វាកុសលសាធារណចេតសិក ជាចេតសិកកើតទូទៅគ្រប់អកុសលចិត្ត ១២ ដួង។ មាន ៤ ចេតសិក គឺ មោហៈ អហិរិកៈ អនោត្តប្បៈ និង ឧទ្ធច្ចៈ។',
+    aE: 'The sabba-akusala-sādhāraṇa cetasikas arise commonly in all 12 unwholesome consciousnesses. There are four: moha, ahirika, anottappa, and uddhacca.',
+  },
+  {
+    qK: 'តើមោចតុក្កៈ មានចេតសិកប៉ុន្មានជាហេតុ? ប៉ុន្មានជានហេតុ?',
+    qE: 'Among the moha-catukka, how many cetasikas are hetus and how many are na-hetus?',
+    aK: 'មោចតុក្កៈ មានចេតសិក ១ ជាហេតុ គឺ មោហចេតសិក ជាមោហហេតុ និង ចេតសិក ៣ ជានហេតុ គឺ អហិរិកៈ អនោត្តប្បៈ ឧទ្ធច្ចៈ។',
+    aE: 'Among the moha-catukka, one cetasika is a hetu (moha as the moha-root) and three are na-hetus (ahirika, anottappa, uddhacca).',
+  },
+  {
+    qK: 'តើលោតិកៈ មានចេតសិកប៉ុន្មានជាហេតុ? ចេតសិកប៉ុន្មានជានហេតុ?',
+    qE: 'Among the lobha-tika, how many cetasikas are hetus and how many are na-hetus?',
+    aK: 'លោតិកៈ មានចេតសិក ១ ជាហេតុ គឺ លោភចេតសិក ជាលោភហេតុ។ ចេតសិក ២ ជានហេតុ គឺ ទិដ្ឋិ និង មានៈ។',
+    aE: 'Among the lobha-tika, one cetasika is a hetu (lobha as the lobha-root) and two are na-hetus (diṭṭhi and māna).',
+  },
+  {
+    qK: 'តើទោចតុក្កៈ មានចេតសិកប៉ុន្មានជាហេតុ? ចេតសិកប៉ុន្មានជានហេតុ?',
+    qE: 'Among the dosa-catukka, how many cetasikas are hetus and how many are na-hetus?',
+    aK: 'ទោចតុក្កៈ មានចេតសិក ១ ជាហេតុ គឺ ទោសចេតសិក ជាទោសហេតុ និង ចេតសិក ៣ ជានហេតុ គឺ ឥស្សា មច្ឆរិយៈ និង កុក្កុច្ចៈ។',
+    aE: 'Among the dosa-catukka, one cetasika is a hetu (dosa as the dosa-root) and three are na-hetus (issā, macchariya, kukkucca).',
+  },
+  {
+    qK: 'តើថីទុកៈ ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is the thīna-duka a hetu or a na-hetu?',
+    aK: 'ថីទុកៈ ជា នហេតុ។',
+    aE: 'The thīna-duka is a na-hetu.',
+  },
+  {
+    qK: 'តើវិចិកិច្ឆា ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is vicikicchā a hetu or a na-hetu?',
+    aK: 'វិចិកិច្ឆា ជា នហេតុ។',
+    aE: 'Vicikicchā is a na-hetu.',
+  },
+]
+
+const mohaQas = [
+  {
+    qK: 'តើមោហចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the moha cetasika mean?',
+    aK: 'មោហចេតសិក មានន័យថា វង្វេងក្នុងអារម្មណ៍ ឬ ធ្វើឱ្យសម្បយុត្តធម៌វង្វេង ឬ ការមិនដឹងសភាវធម៌តាមសេចក្តីពិត។',
+    aE: 'The moha cetasika means delusion in the object, causing its concomitants to be deluded, or not knowing the true nature (of realities).',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈ របស់មោហចេតសិក?',
+    qE: 'Explain the fourfold characteristic of the moha cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈ របស់មោហចេតសិក គឺ ៖ មានការមិនដឹងសភាវធម៌តាមសេចក្តីពិត ជាលក្ខណៈ។ មានការបិទបាំងសភាវៈនៃអារម្មណ៍ ជាកិច្ច។ មានភាពងងឹត (ល្ងង់) ជាអាការប្រាកដ។ មានអយោនិសោមនសិការ ជាហេតុជិត។',
+    aE: 'The fourfold characteristic of moha: not knowing the true nature of realities as characteristic; concealing the true nature of the object as function; darkness (delusion) as manifestation; unwise attention as proximate cause.',
+  },
+  {
+    qK: 'តើការមិនដឹង របស់មោហៈ ក្នុងធម៌ មានប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'In how many ways does moha not know the dhammas? Which are they?',
+    aK: 'ការមិនដឹង របស់មោហៈ ក្នុងធម៌ មាន ៨ យ៉ាង គឺ មិនដឹងក្នុងទុក្ខសច្ចៈ មិនដឹងក្នុងទុក្ខសមុទយសច្ចៈ មិនដឹងក្នុងទុក្ខនិរោធសច្ចៈ មិនដឹងក្នុងមគ្គសច្ចៈ មិនដឹងក្នុងខន្ធ ធាតុ អាយតនៈ ដែលជាអតីត មិនដឹងដែលជាអនាគត មិនដឹងដែលជាអតីត និង អនាគត និង មិនដឹងក្នុងបដិច្ចសមុប្បាទ គឺធម៌ទាំងឡាយដែលកើតឡើងអាស្រ័យគ្នាថា «ធម៌នេះជាបច្ច័យ»។',
+    aE: 'Moha does not know the dhammas in eight ways: not knowing the truth of suffering, not knowing the truth of its origin, not knowing the truth of its cessation, not knowing the truth of the path, not knowing the past khandhas, dhātus, and āyatanas, not knowing the future ones, not knowing the past and future ones, and not knowing conditioned arising (paṭiccasamuppāda) — the dhammas that arise in dependence on one another as "this is the condition".',
+  },
+  {
+    qK: 'តើមោហចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the moha cetasika belong?',
+    aK: 'មោហចេតសិក ស្ថិតក្នុងក្រុមអកុសលចេតសិក ពួកមោចតុក្កៈចេតសិក។',
+    aE: 'The moha cetasika belongs to the unwholesome group, the moha-catukka division.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង? ដួងណាខ្លះ?',
+    qE: 'In how many consciousnesses does the moha cetasika arise? Which are they?',
+    aK: 'មោហចេតសិក កើតក្នុងចិត្ត ១២ ដួង គឺ លោភមូលចិត្ត ៨ ដួង ទោសមូលចិត្ត ២ ដួង មោហមូលចិត្ត ២ ដួង។',
+    aE: 'The moha cetasika arises in 12 consciousnesses: eight lobha-mūla, two dosa-mūla, and two moha-mūla.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? ជាតិណាខ្លះ?',
+    qE: 'In how many jātis does the moha cetasika arise? Which are they?',
+    aK: 'មោហចេតសិក កើតក្នុងចិត្ត ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The moha cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ចាត់ជាខន្ធអ្វី?',
+    qE: 'To which aggregate is the moha cetasika classed?',
+    aK: 'មោហចេតសិក ចាត់ជា សង្ខារក្ខន្ធ។',
+    aE: 'The moha cetasika is classed as the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors does the moha cetasika operate? Which doors are they?',
+    aK: 'មោហចេតសិក ប្រព្រឹត្តតាមទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ និង មនោទ្វារ។',
+    aE: 'The moha cetasika operates through the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ដឹងអារម្មណ៍ប៉ុន្មាន? អារម្មណ៍អ្វីខ្លះ?',
+    qE: 'How many objects can the moha cetasika know? Which are they?',
+    aK: 'មោហចេតសិក ដឹងអារម្មណ៍ ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The moha cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងភូមិចិត្តប៉ុន្មានភូមិ? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of consciousness does the moha cetasika arise? Which are they?',
+    aK: 'មោហចេតសិក កើតក្នុងភូមិចិត្ត ១ ភូមិ គឺ កាមាវចរភូមិ។',
+    aE: 'The moha cetasika arises in one plane of consciousness, the sense-sphere.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងភូមិសត្វប៉ុន្មានភូមិ? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of beings does the moha cetasika arise? Which are they?',
+    aK: 'មោហចេតសិក កើតក្នុងភូមិសត្វ ៣០ ភូមិ (វៀរអសញ្ញីសត្តាភូមិ) គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ អរូបភូមិ ៤។',
+    aE: 'The moha cetasika arises in thirty planes of beings (excluding the asaññasatta plane): four woeful, one human, six celestial, fifteen form-sphere, and four formless.',
+  },
+  {
+    qK: 'តើមោហចេតសិក អាស្រ័យវត្ថុណា ក្នុងបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon which base does the moha cetasika depend in the five-aggregate plane, and which in the four-aggregate plane?',
+    aK: 'មោហចេតសិក អាស្រ័យហទយវត្ថុ នៅបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The moha cetasika depends upon the heart-base in the five-aggregate plane, and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is the moha cetasika a hetu or a na-hetu?',
+    aK: 'មោហចេតសិក ជា ហេតុ។',
+    aE: 'The moha cetasika is a hetu.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the moha cetasika arise in non-beautiful or beautiful consciousness? Why?',
+    aK: 'មោហចេតសិក កើតក្នុងអសោភណចិត្ត។ មោហចេតសិក មិនកើតក្នុងសោភណចិត្តទេ ព្រោះសោភណចិត្ត ជាចិត្តដែលមានសោភណចេតសិកប្រកបជាមួយ ចំណែកមោហចេតសិក មិនមែនជាសោភណចេតសិកទេ ជាអកុសលចេតសិក។',
+    aE: 'The moha cetasika arises in non-beautiful consciousness; it does not arise in beautiful consciousness because beautiful consciousness is accompanied by beautiful cetasikas, whereas moha is not a beautiful cetasika but an unwholesome one.',
+  },
+  {
+    qK: 'តើមោហចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the moha cetasika arise in worldly or supramundane consciousness? Why?',
+    aK: 'មោហចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរ។ មោហចេតសិក មិនកើតក្នុងលោកុត្តរចិត្តទេ ព្រោះលោកុត្តរចិត្ត ជាចិត្តដែលដឹងព្រះនិព្វានជាអារម្មណ៍ ចំណែកមោហចេតសិក ដឹងអារម្មណ៍ ៦ ដែលជាអារម្មណ៍ក្នុងលោក។',
+    aE: 'The moha cetasika arises in worldly consciousness as appropriate; it does not arise in supramundane consciousness because supramundane consciousness knows Nibbāna as object, whereas moha knows the six worldly objects.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ជារូបធម៌ ឬ នាមធម៌? ហេតុអ្វី?',
+    qE: 'Is the moha cetasika a rūpa-dhamma or a nāma-dhamma? Why?',
+    aK: 'មោហចេតសិក ជា នាមធម៌។ មោហចេតសិក មិនមែនជារូបធម៌ទេ ព្រោះរូបធម៌ ជាធម្មជាតិមិនដឹងអារម្មណ៍ ហើយមិនសម្បយុត្តជាមួយចិត្តទេ ចំណែកមោហចេតសិក ជាធម្មជាតិដឹងអារម្មណ៍ ហើយសម្បយុត្តជាមួយចិត្ត។',
+    aE: 'The moha cetasika is a nāma-dhamma. It is not a rūpa-dhamma because matter does not know an object and is not conjoined with consciousness, whereas moha knows an object and is conjoined with consciousness.',
+  },
+  {
+    qK: 'តើមោហចេតសិក ស្ថិតក្នុងបរមត្ថធម៌ណា ក្នុងចំណោមបរមត្ថធម៌ ៤?',
+    qE: 'Among the four paramattha-dhammas, in which does the moha cetasika belong?',
+    aK: 'មោហចេតសិក ស្ថិតក្នុង ចេតសិកបរមត្ថ ក្នុងចំណោមបរមត្ថធម៌ ៤។',
+    aE: 'The moha cetasika belongs to the cetasika paramattha, among the four paramattha-dhammas.',
+  },
+  {
+    qK: 'ខណៈដឹងថាកូននេះគួរស្រលាញ់ណាស់ ដោយមិនដឹងថាគ្រាន់តែជាពណ៌ដែលប្រាកដតាមទ្វារភ្នែកប៉ុណ្ណោះ។ តើការមិនដឹងតាមសភាវធម៌ ឬវង្វេងក្នុងអារម្មណ៍នេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'When one thinks "this child is so lovable", not knowing it is merely a colour appearing at the eye-door — which cetasika is this delusion a characteristic of?',
+    aK: 'ខណៈដឹងថាកូននេះស្អាតណាស់ ដោយមិនដឹងថាគ្រាន់តែជាពណ៌ដែលប្រាកដតាមទ្វារភ្នែកប៉ុណ្ណោះ។ ការមិនដឹងនូវសភាវធម៌ ឬការវង្វេងក្នុងអារម្មណ៍នេះ ជាលក្ខណៈរបស់ មោហចេតសិក។',
+    aE: 'When one thinks "this child is so beautiful", not knowing it is merely a colour appearing at the eye-door, this not knowing the true nature or delusion in the object is a characteristic of the moha cetasika.',
+  },
+  {
+    qK: 'ខណៈដឹងថាសត្វលោកកើតឡើងដោយសារព្រះជាអ្នកបង្កើតឡើង ដោយមិនដឹងថាសត្វលោកកើតឡើងព្រោះមោហៈជាហេតុ។ តើការវង្វេងមិនដឹងសភាវធម៌ ឬដឹងមិនត្រូវតាមសេចក្តីពិតនេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'When one thinks beings arise through a Creator God, not knowing beings arise because of moha as cause — which cetasika is this wrong knowing a characteristic of?',
+    aK: 'ខណៈដឹងថាសត្វលោកកើតឡើងដោយសារព្រះជាអ្នកបង្កើតឡើង ដោយមិនដឹងថាសត្វលោកកើតឡើងព្រោះមានមោហៈជាហេតុ។ ការដឹងមិនត្រូវតាមសេចក្តីពិត ឬមិនដឹងសភាវធម៌តាមសេចក្តីពិតនេះ ជាលក្ខណៈរបស់ មោហចេតសិក។',
+    aE: 'When one thinks beings arise through a Creator God, not knowing beings arise because of moha as cause, this wrong knowing or not knowing the true nature is a characteristic of the moha cetasika.',
+  },
+  {
+    qK: 'ខណៈដឹងថាទុក្ខតាមផ្លូវកាយទាំងឡាយ គឺអ្នកដទៃជាអ្នកឱ្យ ដោយមិនដឹងថា ទុក្ខតាមផ្លូវកាយកើតពីអកុសលកម្ម។ តើការដឹងមិនត្រូវតាមសេចក្តីពិតនេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'When one thinks bodily pains are given by others, not knowing they arise from unwholesome kamma — which cetasika is this wrong knowing a characteristic of?',
+    aK: 'ខណៈដឹងថាទុក្ខតាមផ្លូវកាយទាំងឡាយ គឺអ្នកដទៃជាអ្នកឱ្យ ដោយមិនដឹងថា ទុក្ខតាមផ្លូវកាយ គឺកើតពីអកុសលកម្ម។ ការដឹងមិនត្រូវតាមសេចក្តីពិត ឬមិនដឹងសភាវធម៌នេះ ជាលក្ខណៈរបស់ មោហចេតសិក។',
+    aE: 'When one thinks bodily pains are given by others, not knowing they arise from unwholesome kamma, this wrong knowing or not knowing the true nature is a characteristic of the moha cetasika.',
+  },
+]
+
+const ahirikaQas = [
+  {
+    qK: 'តើអហិរិកចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the ahirika cetasika mean?',
+    aK: 'អហិរិកចេតសិក មានន័យថា មិនខ្មាសបាប ឬ មិនរង្គៀសចំពោះបាប។',
+    aE: 'The ahirika cetasika means shamelessness before evil, or not being disgusted with evil.',
+  },
+  {
+    qK: 'តើទុច្ចរិត មានន័យដូចម្តេច?',
+    qE: 'What does duccarita mean?',
+    aK: 'ទុច្ចរិត មានន័យថា ដំណើរប្រព្រឹត្តបាប ឬ ដំណើរប្រព្រឹត្តអាក្រក់។',
+    aE: 'Duccarita means the conduct of evil, or bad conduct.',
+  },
+  {
+    qK: 'តើទុច្ចរិត មានប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many kinds of duccarita are there? Which are they?',
+    aK: 'ទុច្ចរិត មាន ៣ យ៉ាង គឺ កាយទុច្ចរិត ដំណើរប្រព្រឹត្តបាបតាមផ្លូវកាយ វចីទុច្ចរិត ដំណើរប្រព្រឹត្តបាបតាមផ្លូវវាចា មនោទុច្ចរិត ដំណើរប្រព្រឹត្តបាបតាមផ្លូវចិត្ត។',
+    aE: 'There are three kinds of duccarita: kāya-duccarita (bad bodily conduct), vacī-duccarita (bad verbal conduct), and mano-duccarita (bad mental conduct).',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈ របស់អហិរិកចេតសិក?',
+    qE: 'Explain the fourfold characteristic of the ahirika cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈ របស់អហិរិកចេតសិក មានដូចជា ៖ មានការមិនខ្ពើម ឬមិនខ្មាសនូវទុច្ចរិត មានកាយទុច្ចរិតជាដើម ជាលក្ខណៈ។ មានការធ្វើបាប ជាកិច្ច។ មានការមិនថយចាកបាប ជាអាការប្រាកដ។ មានការមិនគោរពខ្លួន គឺមិនខ្មាសដល់ចិត្តខ្លួនឯង ជាហេតុជិត។',
+    aE: 'The fourfold characteristic of ahirika: not being ashamed of duccarita, beginning with bodily misconduct, as characteristic; doing evil as function; not retreating from evil as manifestation; not respecting oneself, i.e., not being ashamed before one own mind, as proximate cause.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក បដិបក្ខនឹងចេតសិកណា?',
+    qE: 'Which cetasika is the opposite of the ahirika cetasika?',
+    aK: 'អហិរិកចេតសិក បដិបក្ខនឹង ហិរិចេតសិក។',
+    aE: 'The ahirika cetasika is opposed to the hiri (shame) cetasika.',
+  },
+  {
+    qK: 'សត្វត្មាត មិនខ្ពើមសាកសព ប្រៀបបីដូចអហិរិកចេតសិក មិនខ្ពើមទុច្ចរិតទាំងឡាយ។ តើសត្វត្មាតប្រៀបបាននឹងអ្វី? ហើយសាកសពប្រៀបបាននឹងអ្វី?',
+    qE: 'A vulture not disgusted with a corpse is like ahirika not disgusted with evil deeds. What does the vulture represent, and what does the corpse represent?',
+    aK: 'សត្វត្មាត ប្រៀបបាននឹង អហិរិកចេតសិក។ សាកសព ប្រៀបបាននឹង ទុច្ចរិតទាំង ៣ មានកាយទុច្ចរិតជាដើម។',
+    aE: 'The vulture represents the ahirika cetasika; the corpse represents the three kinds of duccarita, beginning with bodily misconduct.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the ahirika cetasika belong?',
+    aK: 'អហិរិកចេតសិក ស្ថិតក្នុងក្រុមអកុសលចេតសិក ពួកមោចតុក្កៈចេតសិក។',
+    aE: 'The ahirika cetasika belongs to the unwholesome group, the moha-catukka division.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង? ដួងណាខ្លះ?',
+    qE: 'In how many consciousnesses does the ahirika cetasika arise? Which are they?',
+    aK: 'អហិរិកចេតសិក កើតក្នុងចិត្ត ១២ ដួង គឺ លោភមូលចិត្ត ៨ ដួង ទោសមូលចិត្ត ២ ដួង មោហមូលចិត្ត ២ ដួង។',
+    aE: 'The ahirika cetasika arises in 12 consciousnesses: eight lobha-mūla, two dosa-mūla, and two moha-mūla.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ចាត់ជាខន្ធអ្វី?',
+    qE: 'To which aggregate is the ahirika cetasika classed?',
+    aK: 'អហិរិកចេតសិក ចាត់ជា សង្ខារក្ខន្ធ។',
+    aE: 'The ahirika cetasika is classed as the saṅkhāra-khandha.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក មានជាតិជាអ្វី?',
+    qE: 'What is the jāti of the ahirika cetasika?',
+    aK: 'អហិរិកចេតសិក មានជាតិ ជាអកុសលជាតិ។',
+    aE: 'The ahirika cetasika has the unwholesome jāti.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the ahirika cetasika know? Which are they?',
+    aK: 'អហិរិកចេតសិក ដឹងអារម្មណ៍ ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The ahirika cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារណាខ្លះ?',
+    qE: 'Through how many doors does the ahirika cetasika operate? Which doors are they?',
+    aK: 'អហិរិកចេតសិក ប្រព្រឹត្តតាមទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ និង មនោទ្វារ។',
+    aE: 'The ahirika cetasika operates through the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក កើតក្នុងភូមិចិត្តបានប៉ុន្មាន? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of consciousness does the ahirika cetasika arise? Which are they?',
+    aK: 'អហិរិកចេតសិក កើតក្នុងភូមិចិត្ត ១ គឺ កាមាវចរភូមិ។',
+    aE: 'The ahirika cetasika arises in one plane of consciousness, the sense-sphere.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក កើតក្នុងភូមិសត្វប៉ុន្មាន? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of beings does the ahirika cetasika arise? Which are they?',
+    aK: 'អហិរិកចេតសិក កើតក្នុងភូមិសត្វ ៣០ (វៀរអសញ្ញីសត្តាភូមិ) គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ អរូបភូមិ ៤។',
+    aE: 'The ahirika cetasika arises in thirty planes of beings (excluding the asaññasatta plane): four woeful, one human, six celestial, fifteen form-sphere, and four formless.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក អាស្រ័យវត្ថុណា នៅបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon which base does the ahirika cetasika depend in the five-aggregate plane, and which in the four-aggregate plane?',
+    aK: 'អហិរិកចេតសិក អាស្រ័យហទយវត្ថុ នៅបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The ahirika cetasika depends upon the heart-base in the five-aggregate plane, and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is the ahirika cetasika a hetu or a na-hetu?',
+    aK: 'អហិរិកចេតសិក ជា នហេតុ។',
+    aE: 'The ahirika cetasika is a na-hetu.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the ahirika cetasika arise in non-beautiful or beautiful consciousness? Why?',
+    aK: 'អហិរិកចេតសិក កើតក្នុងអសោភណចិត្ត។ អហិរិកចេតសិក មិនកើតក្នុងសោភណចិត្តទេ ព្រោះសោភណចិត្ត គឺជាចិត្តដែលមានសោភណចេតសិកប្រកបជាមួយ ចំណែកអហិរិកចេតសិក មិនមែនជាសោភណចេតសិកទេ ជាអកុសលចេតសិក។',
+    aE: 'The ahirika cetasika arises in non-beautiful consciousness; it does not arise in beautiful consciousness because beautiful consciousness is accompanied by beautiful cetasikas, whereas ahirika is not a beautiful cetasika but an unwholesome one.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the ahirika cetasika arise in worldly or supramundane consciousness? Why?',
+    aK: 'អហិរិកចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរ។ អហិរិកចេតសិក មិនកើតក្នុងលោកុត្តរចិត្តទេ ព្រោះលោកុត្តរចិត្ត ជាចិត្តដឹងអារម្មណ៍ផុតលោក គឺដឹងព្រះនិព្វាន ចំណែកអហិរិកចេតសិក ដឹងអារម្មណ៍ ៦ ដែលជាអារម្មណ៍ក្នុងលោក។',
+    aE: 'The ahirika cetasika arises in worldly consciousness as appropriate; it does not arise in supramundane consciousness because supramundane consciousness knows the object beyond the world, namely Nibbāna, whereas ahirika knows the six worldly objects.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ជារូបធម៌ ឬ នាមធម៌? ហេតុអ្វី?',
+    qE: 'Is the ahirika cetasika a rūpa-dhamma or a nāma-dhamma? Why?',
+    aK: 'អហិរិកចេតសិក ជា នាមធម៌ ព្រោះបង្អោនទៅរកអារម្មណ៍ ហើយសម្បយុត្តជាមួយចិត្ត។ អហិរិកចេតសិក មិនមែនជារូបធម៌ ព្រោះរូបធម៌ជាធម្មជាតិមិនដឹង ជាអារម្មណ៍របស់ចិត្ត និងចេតសិក ហើយរូបធម៌ មិនសម្បយុត្តជាមួយចិត្តទេ។',
+    aE: 'The ahirika cetasika is a nāma-dhamma because it bends toward the object and is conjoined with consciousness. It is not a rūpa-dhamma because matter does not know, is the object of consciousness and cetasikas, and is not conjoined with consciousness.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក ចាត់ជាបរមត្ថធម៌មួយណា ក្នុងចំណោមបរមត្ថធម៌ទាំង ៤?',
+    qE: 'Among the four paramattha-dhammas, as which is the ahirika cetasika classed?',
+    aK: 'អហិរិកចេតសិក ចាត់ជា ចេតសិកបរមត្ថ ក្នុងចំណោមបរមត្ថធម៌ទាំង ៤។',
+    aE: 'The ahirika cetasika is classed as a cetasika paramattha, among the four paramattha-dhammas.',
+  },
+  {
+    qK: 'តើអហិរិកចេតសិក មិនខ្មាសបាបខ្លួនឯង ឬ មិនខ្មាសបាបគេ?',
+    qE: 'Does the ahirika cetasika mean not being ashamed of one own evil, or not being ashamed of the evil of others?',
+    aK: 'អហិរិកចេតសិក គឺ មិនខ្មាសបាបខ្លួនឯង។',
+    aE: 'Ahirika means not being ashamed of one own evil (having no shame before oneself).',
+  },
+  {
+    qK: 'ខណៈមានចេតនាសម្លាប់សត្វ ហើយក៏មិនខ្មាសនូវអំពើទុច្ចរិតនេះ។ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'When there is the intention to kill an animal and no shame for this evil deed — which cetasika is this a characteristic of?',
+    aK: 'ខណៈមានចេតនាសម្លាប់សត្វ ហើយក៏មិនខ្មាសនូវអំពើទុច្ចរិតនេះ ជាលក្ខណៈរបស់ អហិរិកចេតសិក។',
+    aE: 'When there is the intention to kill an animal and no shame for this evil deed, it is a characteristic of the ahirika cetasika.',
+  },
+  {
+    qK: 'ខណៈមានចេតនាលួចទ្រព្យគេ ហើយក៏មិនខ្មាសចំពោះអំពើទុច្ចរិតនេះ។ តើនេះជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'When there is the intention to steal another wealth and no shame for this evil deed — which cetasika is this a characteristic of?',
+    aK: 'ខណៈមានចេតនាលួចទ្រព្យគេ ហើយក៏មិនខ្មាសចំពោះអំពើទុច្ចរិតនេះ នេះជាលក្ខណៈរបស់ អហិរិកចេតសិក។',
+    aE: 'When there is the intention to steal another wealth and no shame for this evil deed, it is a characteristic of the ahirika cetasika.',
   },
 ]
 

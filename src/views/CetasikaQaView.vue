@@ -1021,6 +1021,126 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 42: សម្មាអាជីវៈ និងវិរតិប្រភេទ ===== -->
+    <h2 v-if="!searching || filteredSamajiva.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('សម្មាអាជីវៈ និងវិរតិប្រភេទ', 'Sammā-ājīva & Kinds of Virati') }}
+    </h2>
+    <div v-if="!searching || filteredSamajiva.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredSamajiva" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 43: ករុណាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredKaruna.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ករុណាចេតសិក', 'Karuṇā Cetasika') }}
+    </h2>
+    <div v-if="!searching || filteredKaruna.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredKaruna" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 44: មុទិតា និងព្រហ្មវិហារ ===== -->
+    <h2 v-if="!searching || filteredMudita.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('មុទិតា និងព្រហ្មវិហារ', 'Muditā & Brahmavihāra') }}
+    </h2>
+    <div v-if="!searching || filteredMudita.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredMudita" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 45: បញ្ញាចេតសិក ===== -->
+    <h2 v-if="!searching || filteredPanna.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('បញ្ញាចេតសិក', 'Paññā Cetasika') }}
+    </h2>
+    <div v-if="!searching || filteredPanna.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPanna" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 46: បរមត្ថ និងចេតសិកទូទៅ ===== -->
+    <h2 v-if="!searching || filteredParamattha.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('បរមត្ថ និងចេតសិកទូទៅ', 'Paramattha & Cetasika Overview') }}
+    </h2>
+    <div v-if="!searching || filteredParamattha.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredParamattha" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -1061,7 +1181,8 @@ const libLen = () =>
   akusalaQas.length + mohaQas.length + ahirikaQas.length + ekaggataLakkhanaQas.length +
   ekaggataKiccaQas.length + jiviLakkhanaQas.length + jiviKiccaQas.length + hiriOttappaQas.length +
   alobhaQas.length + adosaQas.length + tatramajjhattataQas.length + passaddhiQas.length + lahutaQas.length +
-  mudutaQas.length + kammannataQas.length + pagunnataQas.length + ujukataQas.length + viratiQas.length
+  mudutaQas.length + kammannataQas.length + pagunnataQas.length + ujukataQas.length + viratiQas.length +
+  samajivaQas.length + karunaQas.length + muditaQas.length + pannaQas.length + paramatthaQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -1105,6 +1226,12 @@ const filteredPagunnata = computed(() => indexed(pagunnataQas, libLen() - pagunn
 const filteredUjukata = computed(() => indexed(ujukataQas, libLen() - ujukataQas.length - viratiQas.length))
 const filteredVirati = computed(() => indexed(viratiQas, libLen() - viratiQas.length))
 
+const filteredSamajiva = computed(() => indexed(samajivaQas, libLen() - samajivaQas.length - karunaQas.length - muditaQas.length - pannaQas.length - paramatthaQas.length))
+const filteredKaruna = computed(() => indexed(karunaQas, libLen() - karunaQas.length - muditaQas.length - pannaQas.length - paramatthaQas.length))
+const filteredMudita = computed(() => indexed(muditaQas, libLen() - muditaQas.length - pannaQas.length - paramatthaQas.length))
+const filteredPanna = computed(() => indexed(pannaQas, libLen() - pannaQas.length - paramatthaQas.length))
+const filteredParamattha = computed(() => indexed(paramatthaQas, libLen() - paramatthaQas.length))
+
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
   cetanaQas.length + ekaggataQas.length + jivitindriyaQas.length + manasikaraQas.length +
@@ -1132,7 +1259,9 @@ const totalMatches = computed(() =>
   filteredAlobha.value.length + filteredAdosa.value.length + filteredTatramajjhattata.value.length +
   filteredPassaddhi.value.length + filteredLahuta.value.length +
   filteredMuduta.value.length + filteredKammannata.value.length + filteredPagunnata.value.length +
-  filteredUjukata.value.length + filteredVirati.value.length
+  filteredUjukata.value.length + filteredVirati.value.length +
+  filteredSamajiva.value.length + filteredKaruna.value.length + filteredMudita.value.length +
+  filteredPanna.value.length + filteredParamattha.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -5405,99 +5534,534 @@ const ujukataQas = [
 const viratiQas = [
   {
     qK: 'តើវិរតិចេតសិក មានន័យដូចម្តេច?',
-    qE: 'What does the virati (abstinence) cetasikas mean?',
-    aK: 'វិរតិចេតសិក មានន័យថា ចេតសិកដែលវៀរចាកអកុសលកម្ម គឺវៀរចាកការនិយាយខុស ការធ្វើខុស និងការចិញ្ចឹមជីវិតខុស។',
-    aE: 'The virati cetasikas mean the cetasikas that abstain from unwholesome deeds, namely abstaining from wrong speech, wrong action, and wrong livelihood.',
+    qE: 'What does the virati (abstinence) cetasika mean?',
+    aK: 'វិរតិចេតសិក មានន័យថា ចេតសិកផ្នែកតម ឬវៀរ។',
+    aE: 'The virati cetasika means the mental factor of restraint or abstention.',
   },
   {
     qK: 'តើវិរតិចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
     qE: 'How many virati cetasikas are there? Which are they?',
-    aK: 'វិរតិចេតសិក មាន ៣ ចេតសិក គឺ សម្មាវាចាចេតសិក សម្មាកម្មន្តចេតសិក និងសម្មាអាជីវចេតសិក។',
+    aK: 'វិរតិចេតសិក មាន ៣ ចេតសិក គឺ សម្មាវាចា សម្មាកម្មន្តៈ និងសម្មាអាជីវៈ។',
     aE: 'There are three virati cetasikas: sammā-vācā (right speech), sammā-kammanta (right action), and sammā-ājīva (right livelihood).',
   },
   {
     qK: 'តើវិរតិចេតសិក ៣ ក្នុងលោកិយចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បានដែរឬទេ? ហេតុអ្វី?',
     qE: 'In worldly consciousness, can the three virati cetasikas arise together in a single moment? Why?',
-    aK: 'វិរតិចេតសិក ៣ ក្នុងលោកិយចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ មិនបានទេ ព្រោះក្នុងលោកិយចិត្ត ក្នុងខណៈមួយៗ កើតតែមួយប៉ុណ្ណោះ គឺអាស្រ័យលើទ្វារ និងការវៀរនោះៗ។',
-    aE: 'In worldly consciousness the three virati cetasikas cannot arise together in a single moment, because in each worldly moment only one arises, depending on the respective door and the abstention involved.',
+    aK: 'វិរតិចេតសិក ដែលកើតក្នុងលោកិយចិត្ត មិនកើតព្រមគ្នាក្នុងខណៈតែមួយទេ ព្រោះមានអារម្មណ៍ផ្សេងគ្នា។',
+    aE: 'The virati cetasikas that arise in worldly consciousness do not arise together in a single moment, because their objects are different.',
   },
   {
     qK: 'តើវិរតិចេតសិក ៣ ក្នុងលោកុត្តរចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បានដែរឬទេ? ហេតុអ្វី?',
     qE: 'In supramundane consciousness, can the three virati cetasikas arise together in a single moment? Why?',
-    aK: 'វិរតិចេតសិក ៣ ក្នុងលោកុត្តរចិត្ត កើតរួមគ្នាក្នុងខណៈតែមួយ បាន ព្រោះលោកុត្តរចិត្ត កើតជាមួយនឹងមគ្គអង្គទាំងឡាយ ដែលរួមបញ្ចូលវិរតិចេតសិក ៣ ក្នុងខណៈតែមួយ ដើម្បីផ្តាច់ផ្តិលនូវអកុសលធម៌ទាំងឡាយ។',
-    aE: 'In supramundane consciousness the three virati cetasikas can arise together in a single moment, because supramundane consciousness arises together with the path factors, which include the three virati cetasikas in a single moment, to eradicate the unwholesome dhammas.',
+    aK: 'វិរតិចេតសិក ៣ ដែលកើតក្នុងលោកុត្តរចិត្ត អាចកើតរួមគ្នា ក្នុងខណៈតែមួយបាន ព្រោះវិរតិ ៣ ក្នុងលោកុត្តរចិត្ត ដើរតួជាអរិយមគ្គ ដឹងអារម្មណ៍តែមួយ គឺព្រះនិព្វាន។',
+    aE: 'The three virati cetasikas that arise in supramundane consciousness can arise together in a single moment, because the three viratis in supramundane consciousness act as the noble path, knowing a single object which is Nibbāna.',
   },
   {
     qK: 'តើវិរតិចេតសិក ៣ សម្រាប់បុគ្គលប៉ុន្មានប្រភេទក្នុងចំណោមបុគ្គល ៥ ប្រភេទ? អ្វីខ្លះ?',
     qE: 'For how many of the five kinds of persons are the three virati cetasikas meant? Which are they?',
-    aK: 'វិរតិចេតសិក ៣ សម្រាប់បុគ្គល ៣ ប្រភេទ ក្នុងចំណោមបុគ្គល ៥ ប្រភេទ គឺ បុគ្គលអ្នកវៀរដោយបំណង បុគ្គលអ្នកវៀរដោយសីល និងបុគ្គលអ្នកវៀរដោយការផ្តាច់ផ្តិលនូវហេតុទាំងឡាយ។',
-    aE: 'The three virati cetasikas are meant for three of the five kinds of persons: the person who abstains by resolve, the person who abstains by virtue (sīla), and the person who abstains by the eradication of the causes.',
+    aK: 'វិរតិចេតសិក ៣ សម្រាប់បុគ្គល ៤ ប្រភេទ ក្នុងចំណោមបុគ្គល ៥ ប្រភេទ គឺ បុថុជ្ជន សោតាបន្នបុគ្គល សកទាគាមីបុគ្គល និងអនាគាមីបុគ្គល។',
+    aE: 'The three virati cetasikas are meant for four of the five kinds of persons: the puthujjana, the sotāpanna, the sakadāgāmī, and the anāgāmī.',
   },
   {
     qK: 'តើសម្មាវាចាចេតសិក មានន័យដូចម្តេច?',
     qE: 'What does the sammā-vācā cetasika mean?',
-    aK: 'សម្មាវាចាចេតសិក មានន័យថា ការនិយាយត្រឹមត្រូវ គឺវៀរចាកវចីទុច្ចរិត គឺវៀរចាកការនិយាយខុស ៤ យ៉ាង។',
-    aE: 'The sammā-vācā cetasika means right speech, namely abstaining from verbal misconduct, abstaining from the four kinds of wrong speech.',
+    aK: 'សម្មាវាចាចេតសិក មានន័យថា ធម្មជាតិវៀរចាកនូវវចីទុច្ចរិត។',
+    aE: 'The sammā-vācā cetasika means the nature that abstains from verbal misconduct (vacī-duccarita).',
   },
   {
     qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់សម្មាវាចាចេតសិក?',
     qE: 'Explain the lakkhana-ādi-catukka of the sammā-vācā cetasika.',
-    aK: 'លក្ខណាទិចតុក្កៈរបស់សម្មាវាចាចេតសិក ៖ មានការវៀរចាកវចីទុច្ចរិត ជាលក្ខណៈ។ មានការវាងវៀរចាកនូវវចីទុច្ចរិត ជាកិច្ច។ មានការមិនព្រមទទួលនូវវចីទុច្ចរិត ជាអាការប្រាកដ។ មានសទ្ធា ហិរិ ឱត្តប្ប ជាហេតុជិត។',
-    aE: 'The lakkhana-ādi-catukka of the sammā-vācā cetasika: abstaining from verbal misconduct as its characteristic; keeping away from verbal misconduct as its function; not accepting verbal misconduct as its manifestation; saddhā, hiri, and ottappa as its proximate cause.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់សម្មាវាចាចេតសិក ៖ មានការមិនកន្លងវត្ថុដែលជាទីតាំងនៃវចីទុច្ចរិត ជាលក្ខណៈ។ មានការថយចាកវត្ថុ ដែលជាទីតាំងនៃវចីទុច្ចរិត ជាកិច្ច។ មានការមិនធ្វើនូវវចីទុច្ចរិត ជាអាការប្រាកដ។ មានគុណ គឺសទ្ធា ហិរិ ឱត្តប្បៈ សេចក្តីប្រាថ្នាតិច ជាដើម ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the sammā-vācā cetasika: non-transgression of the objects that are the bases of verbal misconduct as its characteristic; shrinking away from the objects that are the bases of verbal misconduct as its function; not performing verbal misconduct as its manifestation; and the qualities such as saddhā, hiri, ottappa, and fewness of wishes as its proximate cause.',
   },
   {
     qK: 'តើវចីទុច្ចរិត មានន័យដូចម្តេច?',
     qE: 'What does vacī-duccarita mean?',
-    aK: 'វចីទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់ដោយវាចា គឺការនិយាយខុសផ្លូវសីលធម៌។',
-    aE: 'Vacī-duccarita means misconduct by speech, namely speaking wrongly against morality.',
+    aK: 'វចីទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់ដែលចេញតាមវាចាដ៏ច្រើន។',
+    aE: 'Vacī-duccarita means numerous evil deeds that proceed through speech.',
   },
   {
     qK: 'តើវចីទុច្ចរិត មានប៉ុន្មាន? អ្វីខ្លះ?',
     qE: 'How many kinds of vacī-duccarita are there? Which are they?',
-    aK: 'វចីទុច្ចរិត មាន ៤ គឺ មុសាវាទៈ (ការនិយាយកុហក) បិសុណាវាចា (ការនិយាយញុះញង់) ផរុសាវាចា (ការនិយាយគន្លង់គេ) និងសម្ផប្បលាបៈ (ការនិយាយឥតប្រយោជន៍)។',
-    aE: 'There are four kinds of vacī-duccarita: musāvāda (false speech), pisuṇāvācā (slanderous speech), pharusāvācā (harsh speech), and samphappalāpa (idle chatter).',
+    aK: 'វចីទុច្ចរិត មាន ៤ គឺ មុសាវាទ ការនិយាយពាក្យកុហក បិសុណាវាទ ការនិយាយញុះញង់បំបែកបំបាក់ ផរុសវាទ ការនិយាយពាក្យគ្រោតគ្រាត ឬជេរប្រទេច និងសម្ផប្បលាប ការនិយាយសំដីរោយរាយឥតប្រយោជន៍។',
+    aE: 'There are four kinds of vacī-duccarita: musāvāda (false speech), pisuṇāvāda (slanderous, divisive speech), pharusavāda (harsh speech or abuse), and samphappalāpa (idle, pointless chatter).',
   },
   {
     qK: 'ក្នុងលោកិយចិត្ត តើអារម្មណ៍របស់សម្មាវាចាចេតសិក មានអ្វីខ្លះ?',
     qE: 'In worldly consciousness, what are the objects of the sammā-vācā cetasika?',
-    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាវាចាចេតសិក គឺសំឡេង ដែលជាសទ្ទារម្មណ៍។',
-    aE: 'In worldly consciousness, the object of the sammā-vācā cetasika is sound, namely the sadda-ārammaṇa.',
+    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាវាចាចេតសិក មាន ៤ គឺ ចេតនាក្នុងវចីទុច្ចរិត ៤ គឺ ចេតនានិយាយកុហក ចេតនានិយាយញុះញង់ ចេតនាជេរប្រទេច ចេតនានិយាយរោយរាយ។',
+    aE: 'In worldly consciousness, the objects of the sammā-vācā cetasika are four, namely the intention in the four verbal misdeeds: the intention to lie, the intention to slander, the intention to abuse, and the intention to chatter idly.',
   },
   {
     qK: 'ក្នុងលោកុត្តរចិត្ត តើអារម្មណ៍របស់សម្មាវាចាចេតសិក មានអ្វីខ្លះ?',
     qE: 'In supramundane consciousness, what are the objects of the sammā-vācā cetasika?',
-    aK: 'ក្នុងលោកុត្តរចិត្ត អារម្មណ៍របស់សម្មាវាចាចេតសិក គឺព្រះនិព្វាន។',
-    aE: 'In supramundane consciousness, the object of the sammā-vācā cetasika is Nibbāna.',
+    aK: 'ក្នុងលោកុត្តរចិត្ត ព្រះនិព្វាន ជាអារម្មណ៍របស់សម្មាវាចា។',
+    aE: 'In supramundane consciousness, Nibbāna is the object of sammā-vācā.',
   },
   {
     qK: 'តើសម្មាកម្មន្តចេតសិក មានន័យដូចម្តេច?',
     qE: 'What does the sammā-kammanta cetasika mean?',
-    aK: 'សម្មាកម្មន្តចេតសិក មានន័យថា ការធ្វើត្រឹមត្រូវ គឺវៀរចាកកាយទុច្ចរិត គឺវៀរចាកការធ្វើខុស ៣ យ៉ាង។',
-    aE: 'The sammā-kammanta cetasika means right action, namely abstaining from bodily misconduct, abstaining from the three kinds of wrong action.',
+    aK: 'សម្មាកម្មន្តចេតសិក មានន័យថា ធម្មជាតិវៀរចាកនូវកាយទុច្ចរិត។',
+    aE: 'The sammā-kammanta cetasika means the nature that abstains from bodily misconduct (kāya-duccarita).',
   },
   {
     qK: 'តើកាយទុច្ចរិត មានន័យដូចម្តេច?',
     qE: 'What does kāya-duccarita mean?',
-    aK: 'កាយទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់ដោយកាយ គឺការធ្វើខុសផ្លូវសីលធម៌។',
-    aE: 'Kāya-duccarita means misconduct by body, namely doing wrongly against morality.',
+    aK: 'កាយទុច្ចរិត មានន័យថា ការប្រព្រឹត្តអាក្រក់តាមផ្លូវកាយដ៏ច្រើន។',
+    aE: 'Kāya-duccarita means numerous evil deeds committed through the body.',
   },
   {
     qK: 'តើកាយទុច្ចរិត មានប៉ុន្មាន? អ្វីខ្លះ?',
     qE: 'How many kinds of kāya-duccarita are there? Which are they?',
-    aK: 'កាយទុច្ចរិត មាន ៣ គឺ បាណាតិបាតៈ (ការសម្លាប់សត្វ) អទិន្នាទានៈ (ការលួចទ្រព្យគេ) និងកាមេសុមិច្ឆាចារៈ (ការប្រព្រឹត្តខុសក្នុងកាម)។',
-    aE: 'There are three kinds of kāya-duccarita: pāṇātipāta (killing beings), adinnādāna (stealing), and kāmesu-micchācāra (sexual misconduct).',
+    aK: 'កាយទុច្ចរិត មាន ៣ គឺ បាណាតិបាត ការសម្លាប់សត្វ អទិន្នាទាន ការលួចទ្រព្យគេ និងកាមេសុមិច្ឆាចារ ការប្រព្រឹត្តខុសក្នុងកាម។',
+    aE: 'There are three kinds of kāya-duccarita: pāṇātipāta (killing beings), adinnādāna (stealing others property), and kāmesu-micchācāra (sexual misconduct).',
   },
   {
     qK: 'ក្នុងលោកិយចិត្ត តើអារម្មណ៍របស់សម្មាកម្មន្តចេតសិក មានអ្វីខ្លះ?',
     qE: 'In worldly consciousness, what are the objects of the sammā-kammanta cetasika?',
-    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាកម្មន្តចេតសិក គឺផោដ្ឋព្វារម្មណ៍ ដែលជាអ្វីដែលអាចប៉ះកាយបាន។',
-    aE: 'In worldly consciousness, the object of the sammā-kammanta cetasika is the tangible object (phoṭṭhabbārammaṇa).',
+    aK: 'ក្នុងលោកិយចិត្ត អារម្មណ៍របស់សម្មាកម្មន្តៈចេតសិក គឺចេតនាក្នុងកាយទុច្ចរិត ៣ គឺ ចេតនាសម្លាប់សត្វ ចេតនាលួចទ្រព្យគេ ចេតនាប្រព្រឹត្តខុសក្នុងកាម។',
+    aE: 'In worldly consciousness, the objects of the sammā-kammanta cetasika are the intention in the three bodily misdeeds: the intention to kill beings, the intention to steal, and the intention to commit sexual misconduct.',
   },
   {
     qK: 'ក្នុងលោកុត្តរចិត្ត តើអារម្មណ៍របស់សម្មាកម្មន្តចេតសិក មានអ្វីខ្លះ?',
     qE: 'In supramundane consciousness, what are the objects of the sammā-kammanta cetasika?',
-    aK: 'ក្នុងលោកុត្តរចិត្ត អារម្មណ៍របស់សម្មាកម្មន្តចេតសិក គឺព្រះនិព្វាន។',
-    aE: 'In supramundane consciousness, the object of the sammā-kammanta cetasika is Nibbāna.',
+    aK: 'ក្នុងលោកុត្តរចិត្ត ព្រះនិព្វាន ជាអារម្មណ៍របស់សម្មាកម្មន្តចេតសិក។',
+    aE: 'In supramundane consciousness, Nibbāna is the object of the sammā-kammanta cetasika.',
+  },
+]
+
+const samajivaQas = [
+  {
+    qK: 'តើសម្មាអាជីវចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the sammā-ājīva cetasika mean?',
+    aK: 'សម្មាអាជីវចេតសិក មានន័យថា អាជីវៈប្រពៃ គឺការវៀរចាកនូវមិច្ឆាជីវៈ។',
+    aE: 'The sammā-ājīva cetasika means right livelihood, namely abstaining from wrong livelihood (micchā-ājīva).',
+  },
+  {
+    qK: 'តើសម្មាអាជីវៈ មានប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many kinds does sammā-ājīva have? Which are they?',
+    aK: 'សម្មាអាជីវៈ មាន ៧ យ៉ាង គឺការវៀរចាកកាយទុច្ចរិត ៣ និងវចីទុច្ចរិត ៤។',
+    aE: 'Sammā-ājīva has seven kinds, namely abstaining from the three bodily misdeeds and the four verbal misdeeds.',
+  },
+  {
+    qK: 'តើមិច្ឆាជីវៈ មានន័យដូចម្តេច?',
+    qE: 'What does micchā-ājīva mean?',
+    aK: 'មិច្ឆាជីវៈ មានន័យថា ការប្រកបមុខរបរខុស ឬការចិញ្ចឹមជីវិតខុស។',
+    aE: 'Micchā-ājīva means wrong livelihood, or wrong way of earning a living.',
+  },
+  {
+    qK: 'តើមិច្ឆាជីវៈ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many kinds of micchā-ājīva are there? Which are they?',
+    aK: 'មិច្ឆាជីវៈ មាន ៥ គឺ ការជួញគ្រឿងសស្ត្រាវុធសម្រាប់ប្រហារ ជួញមនុស្ស (សត្វ) ជួញសាច់សត្វ ការជួញទឹកស្រវឹង និងការជួញថ្នាំពិស។',
+    aE: 'There are five kinds of micchā-ājīva: trading in weapons for killing, trading in human beings (animals), trading in meat, trading in intoxicating drinks, and trading in poison.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្ករបស់សម្មាអាជីវចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the sammā-ājīva cetasika.',
+    aK: 'លក្ខណាទិចតុក្ករបស់សម្មាអាជីវចេតសិក ៖ មានការមិនកន្លងវត្ថុ ដែលជាទីតាំងនៃកាយទុច្ចរិត ៣ និងវចីទុច្ចរិត ៤ ជាលក្ខណៈ។ មានការថយចាកវត្ថុ ជាទីតាំងនៃកាយទុច្ចរិត ៣ និងវចីទុច្ចរិត ៤ ជាកិច្ច។ មានការមិនធ្វើទុច្ចរិតនោះ ជាអាការប្រាកដ។ មានគុណ គឺសទ្ធា ហិរិ ឱត្តប្បៈ ជាដើម ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the sammā-ājīva cetasika: non-transgression of the objects that are the bases of the three bodily and four verbal misdeeds as its characteristic; shrinking away from the objects that are the bases of those bodily and verbal misdeeds as its function; not performing those misdeeds as its manifestation; and the qualities such as saddhā, hiri, and ottappa as its proximate cause.',
+  },
+  {
+    qK: 'តើសម្មាអាជីវចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង? អ្វីខ្លះ?',
+    qE: 'In how many cittas does the sammā-ājīva cetasika arise? Which are they?',
+    aK: 'សម្មាអាជីវៈចេតសិក កើតក្នុងចិត្ត ១៦ ដួង ឬ ៤៨ ដួង គឺ មហាកុសលចិត្ត ៨ ដួង និងលោកុត្តរចិត្ត ៨ ដួង ឬ ៤០ ដួង។',
+    aE: 'The sammā-ājīva cetasika arises in 16 or 48 cittas, namely the 8 great wholesome cittas and the 8 or 40 supramundane cittas.',
+  },
+  {
+    qK: 'តើសម្មាអាជីវចេតសិក ស្ថិតក្នុងពួកណា? ក្រុមណា?',
+    qE: 'In which group and class does the sammā-ājīva cetasika belong?',
+    aK: 'សម្មាអាជីវចេតសិក ស្ថិតក្នុងពួក វិរតិចេតសិក និងក្រុម សោភណចេតសិក។',
+    aE: 'The sammā-ājīva cetasika belongs to the group of virati cetasikas and to the class of sobhana cetasikas.',
+  },
+  {
+    qK: 'តើសម្មាអាជីវចេតសិក កើតក្នុងចិត្តប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many citta-jāti does the sammā-ājīva cetasika arise? Which are they?',
+    aK: 'សម្មាអាជីវចេតសិក កើតក្នុងចិត្ត ២ ជាតិ គឺកុសលជាតិ និងវិបាកជាតិ។',
+    aE: 'The sammā-ājīva cetasika arises in two citta-jāti, namely wholesome (kusala) and result (vipāka).',
+  },
+  {
+    qK: 'តើសម្មាអាជីវៈចេតសិក កើតរួមជាមួយវេទនាប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'With how many kinds of vedanā does the sammā-ājīva cetasika arise? Which are they?',
+    aK: 'សម្មាអាជីវចេតសិក កើតរួមជាមួយវេទនា ២ ប្រភេទ គឺ សោមនស្សវេទនា និងឧបេក្ខាវេទនា។',
+    aE: 'The sammā-ājīva cetasika arises together with two kinds of vedanā, namely pleasant mental feeling (somanassa) and equanimous feeling (upekkhā).',
+  },
+  {
+    qK: 'តើសម្មាអាជីវចេតសិក ជាចេតសិករបស់បុគ្គលប៉ុន្មានប្រភេទក្នុងជីវិតរស់នៅប្រចាំថ្ងៃ? អ្វីខ្លះ?',
+    qE: 'Of how many kinds of persons in daily life is the sammā-ājīva cetasika the cetasika? Which are they?',
+    aK: 'សម្មាអាជីវចេតសិក ជាចេតសិកបុគ្គល ៤ ប្រភេទក្នុងជីវិតរស់នៅប្រចាំថ្ងៃ គឺ បុថុជ្ជន សោតាបន្នបុគ្គល សកទាគាមីបុគ្គល និងអនាគាមីបុគ្គល។',
+    aE: 'The sammā-ājīva cetasika is the cetasika of four kinds of persons in daily life, namely the puthujjana, the sotāpanna, the sakadāgāmī, and the anāgāmī.',
+  },
+  {
+    qK: 'ប៉ងនឹងបន្លំភ្នែកជញ្ជីងគេ តែដោយពិចារណាថារកស៊ីមិនមែនតែមួយថ្ងៃ ហើយភ្ញៀវមកទិញក៏សុទ្ធតែជាអ្នកស្រុករួមគ្នា ក៏វៀរចាកមិនបន្លំ។ តើខណៈនេះចេតសិកណាដើរតួជាអ្នកវៀរចាក?',
+    qE: 'He intends to tamper with the scales but, considering this is not a one-day livelihood and the customers are fellow villagers, he refrains. In this moment which cetasika acts as the restrainer?',
+    aK: 'សម្មាអាជីវចេតសិក ប្រាកដឡើងខណៈវៀរចាកនូវការបន្លំនេះ។',
+    aE: 'The sammā-ājīva cetasika manifests at the moment of abstaining from this deception.',
+  },
+  {
+    qK: 'តើវិរតិ មានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'How many kinds of virati are there? Which are they?',
+    aK: 'វិរតិ មាន ៣ ប្រភេទ គឺ សម្បត្តវិរតិ សមាទានវិរតិ និងសមុច្ឆេទវិរតិ។',
+    aE: 'There are three kinds of virati: sampatta-virati, samādāna-virati, and samuccheda-virati.',
+  },
+  {
+    qK: 'ចូរអធិប្បាយសម្បត្តវិរតិ?',
+    qE: 'Explain sampatta-virati.',
+    aK: 'សម្បត្តវិរតិ បានដល់ការវៀរចាកបាប ដែលជាអធ្យាស្រ័យរបស់ខ្លួន ដែលមានវិរមិតព្វវត្ថុ (វត្ថុត្រូវវៀរ) ប្រាកដចំពោះមុខហើយ ក៏មិនប្រព្រឹត្តកន្លង។',
+    aE: 'Sampatta-virati refers to abstaining from evil in accordance with ones own disposition, whereby even though the object to be abstained from is present before one, one does not transgress it.',
+  },
+  {
+    qK: 'ចូរអធិប្បាយសមាទានវិរតិ?',
+    qE: 'Explain samādāna-virati.',
+    aK: 'សមាទានវិរតិ បានដល់ការវៀរចាកបាប ដោយសមាទាន (ការកាន់យក ឬរៀនយកដោយល្អ) នូវសិក្ខាបទដែលបានបញ្ញត្តទុក ដូចជានិច្ចសីល និងឧបោសថសីល ជាដើម។',
+    aE: 'Samādāna-virati refers to abstaining from evil by undertaking (samādāna), that is, properly taking up the training precepts that have been laid down, such as constant virtue (nicca-sīla) and uposatha virtue.',
+  },
+  {
+    qK: 'ចូរអធិប្បាយសមុច្ឆេទវិរតិ?',
+    qE: 'Explain samuccheda-virati.',
+    aK: 'សមុច្ឆេទវិរតិ បានដល់ការវៀរចាកបាប ដែលកាត់ផ្តាច់ជាសមុច្ឆេទ ដោយអរិយមគ្គ។',
+    aE: 'Samuccheda-virati refers to abstaining from evil that is cut off completely (samuccheda) by the noble path (ariya-magga).',
+  },
+]
+
+const karunaQas = [
+  {
+    qK: 'តើអប្បមញ្ញាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the appamaññā cetasika mean?',
+    aK: 'អប្បមញ្ញាចេតសិក មានន័យថា ចេតសិកដែលមិនមានប្រមាណ ឬមិនមានព្រំដែនកំណត់។',
+    aE: 'The appamaññā cetasika means the mental factor that is measureless, or without limit or boundary.',
+  },
+  {
+    qK: 'តើអប្បមញ្ញាចេតសិក មានប៉ុន្មានចេតសិក? អ្វីខ្លះ?',
+    qE: 'How many appamaññā cetasikas are there? Which are they?',
+    aK: 'អប្បមញ្ញាចេតសិក មាន ២ ចេតសិក គឺ ករុណាចេតសិក និងមុទិតាចេតសិក។',
+    aE: 'There are two appamaññā cetasikas, namely karuṇā (compassion) and muditā (appreciative joy).',
+  },
+  {
+    qK: 'តើករុណាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the karuṇā cetasika mean?',
+    aK: 'ករុណាចេតសិក មានន័យថា សេចក្តីអាណិតអាសូរដល់សត្វមានទុក្ខ។',
+    aE: 'The karuṇā cetasika means compassion (sympathy) for beings who are suffering.',
+  },
+  {
+    qK: 'តើអ្វីជាអារម្មណ៍របស់ករុណាចេតសិក?',
+    qE: 'What is the object of the karuṇā cetasika?',
+    aK: 'ទុក្ខិតសត្តប្បញ្ញត្តិ (សេចក្តីទុក្ខរបស់សត្វ) ជាអារម្មណ៍របស់ករុណាចេតសិក។',
+    aE: 'The dukkhita-sattapaññatti (the suffering of beings) is the object of the karuṇā cetasika.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្ករបស់ករុណាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the karuṇā cetasika.',
+    aK: 'លក្ខណាទិចតុក្ករបស់ករុណាចេតសិក ៖ មានសេចក្តីប្រាថ្នាជួយបំបាត់ទុក្ខអ្នកដទៃ ឬអាណិតអាសូរអ្នកដទៃ ជាលក្ខណៈ។ មានការអត់ធន់មិនបានចំពោះសេចក្តីទុក្ខអ្នកដទៃ ជាកិច្ច។ មានការមិនបៀតបៀន ជាអាការប្រាកដ។ មានការឃើញសត្វដែលត្រូវទុក្ខគ្របសង្កត់ហើយមិនមានទីពឹង ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the karuṇā cetasika: wishing to relieve others suffering, or compassion for others, as its characteristic; being unable to endure the suffering of others as its function; non-harming as its manifestation; and seeing beings overwhelmed by suffering without any refuge as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់សម្បត្តិរបស់ករុណាចេតសិក?',
+    qE: 'Explain the sampatti (success) of the karuṇā cetasika.',
+    aK: 'សម្បត្តិរបស់ករុណាចេតសិក ៖ មានការចូលទៅរម្ងាប់សេចក្តីបៀតបៀន និងមានសេចក្តីបៀតបៀនសត្វ ជាសត្រូវឆ្ងាយ។',
+    aE: 'The sampatti of the karuṇā cetasika: it approaches calming the harm done to beings, and harming beings is its far enemy.',
+  },
+  {
+    qK: 'ចូររៀបរាប់វិបត្តិរបស់ករុណាចេតសិក?',
+    qE: 'Explain the vipatti (failure) of the karuṇā cetasika.',
+    aK: 'វិបត្តិរបស់ករុណាចេតសិក ៖ មានការកើតឡើងនៃសេចក្តីសោក (ងាយនឹងឱ្យសោកកើតឡើង) និងមានទោមនស្សវេទនា ឬការខូចចិត្ត ដែលអាស្រ័យនឹងកាមគុណ ជាសត្រូវជិត។',
+    aE: 'The vipatti of the karuṇā cetasika: sorrow arises easily, and grief (domanassa vedanā) dependent on sense pleasures is its near enemy.',
+  },
+  {
+    qK: 'តើករុណាចេតសិក ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Is the karuṇā cetasika paramattha or paññatti?',
+    aK: 'ករុណាចេតសិក ជាបរមត្ថធម៌។',
+    aE: 'The karuṇā cetasika is a paramattha dhamma.',
+  },
+  {
+    qK: 'តើអារម្មណ៍របស់ករុណា ជាបញ្ញត្តិ ឬបរមត្ថ?',
+    qE: 'Is the object of karuṇā paññatti or paramattha?',
+    aK: 'អារម្មណ៍របស់ករុណាចេតសិក ជាបញ្ញត្តិ។',
+    aE: 'The object of the karuṇā cetasika is a paññatti (concept).',
+  },
+  {
+    qK: 'តើករុណាចេតសិក ប្រព្រឹត្តតាមទ្វារណាខ្លះក្នុងចំណោមទ្វារ ៦?',
+    qE: 'Through which of the six doors does the karuṇā cetasika operate?',
+    aK: 'ករុណាចេតសិក ប្រព្រឹត្តតាម មនោទ្វារ ក្នុងចំណោមទ្វារ ៦។',
+    aE: 'The karuṇā cetasika operates through the mind door (mano-dvāra) among the six doors.',
+  },
+  {
+    qK: 'តើករុណាចេតសិក អាចប្រព្រឹត្តក្រៅទ្វារដែរឬទេ?',
+    qE: 'Can the karuṇā cetasika operate outside the doors?',
+    aK: 'ករុណាចេតសិក អាចប្រព្រឹត្តក្រៅទ្វារបាន កាលណាធ្វើបដិសន្ធិកិច្ច ភវង្គកិច្ច ចុតិកិច្ច នៅរូបព្រហ្ម។',
+    aE: 'The karuṇā cetasika can operate outside the doors when it performs rebirth-linking (paṭisandhi), life-continuum (bhavaṅga), and death (cuti) functions in the rūpa-brahmā realm.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាករុណាមិនប្រព្រឹត្តតាមបញ្ចទ្វារ?',
+    qE: 'Why does karuṇā not operate through the five doors?',
+    aK: 'ករុណាចេតសិក មិនប្រព្រឹត្តតាមបញ្ចទ្វារទេ ព្រោះ ចិត្តចេតសិកដែលប្រព្រឹត្តតាមបញ្ចទ្វារ ដឹងរូបបរមត្ថជាអារម្មណ៍ (បញ្ចារម្មណ៍) ជាបរមត្ថ ឯករុណាចេតសិក ដឹងបញ្ញត្តិជាអារម្មណ៍។',
+    aE: 'The karuṇā cetasika does not operate through the five doors because the mind and mental factors that operate through the five doors know the five sense objects of ultimate reality (paramattha), whereas the karuṇā cetasika knows a concept (paññatti) as its object.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាករុណាចេតសិក មិនកើតក្នុងលោកុត្តរចិត្ត?',
+    qE: 'Why does the karuṇā cetasika not arise in supramundane consciousness?',
+    aK: 'ករុណាចេតសិក មិនកើតក្នុងលោកុត្តរចិត្តព្រោះ ករុណាចេតសិក ដឹងបញ្ញត្តិ ជាអារម្មណ៍ ឯលោកុត្តរចិត្ត ដឹងព្រះនិព្វាន ដែលជាបរមត្ថ ជាអារម្មណ៍។',
+    aE: 'The karuṇā cetasika does not arise in supramundane consciousness because it knows a concept as its object, whereas supramundane consciousness knows Nibbāna, which is ultimate reality, as its object.',
+  },
+  {
+    qK: 'តើករុណាចេតសិក កើតក្នុងអសោភណចិត្ត ឬសោភណចិត្ត? ហេតុអ្វី?',
+    qE: 'Does the karuṇā cetasika arise in asobhana or sobhana citta? Why?',
+    aK: 'ករុណាចេតសិក មិនកើតក្នុងអសោភណចិត្តទេ កើតក្នុងសោភណចិត្ត ព្រោះ ករុណាចេតសិក ជាសោភណចេតសិក ឯអសោភណចិត្ត ជាចិត្តដែលមិនមាន សោភណចេតសិកប្រកបជាមួយ។',
+    aE: 'The karuṇā cetasika does not arise in asobhana citta but arises in sobhana citta, because it is a sobhana cetasika, whereas asobhana citta is consciousness not accompanied by any sobhana cetasika.',
+  },
+  {
+    qK: 'តើករុណាចេតសិក ជាអឈានចិត្ត ឬឈានចិត្ត?',
+    qE: 'Is the karuṇā cetasika a non-jhāna citta or a jhāna citta?',
+    aK: 'ករុណាចេតសិក ជាអឈានចិត្តតាមសមគួរផង និងជាឈានចិត្តតាមសមគួរផង។',
+    aE: 'The karuṇā cetasika is a non-jhāna citta as appropriate, and is also a jhāna citta as appropriate.',
+  },
+  {
+    qK: 'តើករុណាចេតសិក ដឹងអារម្មណ៍ណាខ្លះក្នុងចំណោមអារម្មណ៍ ៦?',
+    qE: 'Which of the six objects does the karuṇā cetasika know?',
+    aK: 'ករុណាចេតសិក ដឹងធម្មារម្មណ៍ ក្នុងចំណោមអារម្មណ៍ ៦។',
+    aE: 'The karuṇā cetasika knows the dhamma-object (dhammārammaṇa) among the six objects.',
+  },
+  {
+    qK: 'តើធម្មារម្មណ៍ អង្គធម៌បានដល់អ្វីខ្លះ?',
+    qE: 'What dhammas does the dhammārammaṇa consist of?',
+    aK: 'ធម្មារម្មណ៍ អង្គធម៌បានដល់ ចិត្ត ចេតសិក រូប ២១ (វៀរវិសយរូប ៧ ដែលជាបញ្ចារម្មណ៍) និព្វាន និងបញ្ញត្តិ។',
+    aE: 'The dhammārammaṇa consists of citta, cetasikas, the 21 rūpas (excluding the 7 sense-object rūpas that form the five sense objects), Nibbāna, and concepts (paññatti).',
+  },
+  {
+    qK: 'ចូររៀបរាប់ទុក្ខតាមផ្លូវកាយរបស់សត្វ ឱ្យបាន ៥?',
+    qE: 'Recount five bodily sufferings of beings.',
+    aK: 'ទុក្ខតាមផ្លូវកាយមាន ឈឺពោះ ឈឺបត់ជើងតូចធំ ឈឺក្បាល ឈឺចង្កេះ គ្រុនក្តៅ។',
+    aE: 'Bodily sufferings include stomach ache, pain in urinating and defecating, headache, backache, and fever.',
+  },
+  {
+    qK: 'ចូររៀបរាប់ទុក្ខតាមផ្លូវចិត្តរបស់សត្វ ឱ្យបាន ៥?',
+    qE: 'Recount five mental sufferings of beings.',
+    aK: 'ទុក្ខតាមផ្លូវចិត្តមាន ពិបាកចិត្តរកស៊ីមិនបាន ពិបាកចិត្តមិនមានលុយបង់ធនាគារ ព្រួយចិត្តនឹងមិនមានអាហារញ៉ាំ ខូចចិត្តសង្សារមានថ្មី ពិបាកចិត្តព្រោះរៀនមិនចេះ។',
+    aE: 'Mental sufferings include distress at not making a living, distress at having no money to pay the bank, worry about having no food to eat, heartbreak when a partner has a new one, and distress at not learning well.',
+  },
+]
+
+const muditaQas = [
+  {
+    qK: 'តើមុទិតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the muditā cetasika mean?',
+    aK: 'មុទិតាចេតសិក មានន័យថា ធម្មជាតិត្រេកអរ ឬសរសើរចំពោះសេចក្តីសុខ ឬសម្បត្តិរបស់អ្នកដទៃ។',
+    aE: 'The muditā cetasika means the nature that rejoices in, or praises, the happiness or fortune of others.',
+  },
+  {
+    qK: 'តើមុទិតាចេតសិក មានអារម្មណ៍ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Is the object of the muditā cetasika paramattha or paññatti?',
+    aK: 'មុទិតាចេតសិក ជាបរមត្ថធម៌ ដែលដឹងអារម្មណ៍ជាបញ្ញត្តិ គឺសុខិតសត្តប្បញ្ញត្តិ (សេចក្តីសុខ ឬសម្បត្តិរបស់សត្វដទៃ)។',
+    aE: 'The muditā cetasika is a paramattha dhamma that knows a concept as its object, namely the sukhita-sattapaññatti (the happiness or fortune of other beings).',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្ករបស់មុទិតាចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of the muditā cetasika.',
+    aK: 'លក្ខណាទិចតុក្ករបស់មុទិតាចេតសិក ៖ មានការត្រេកអររីករាយ ឬសរសើរចំពោះសម្បត្តិរបស់អ្នកដទៃ ជាលក្ខណៈ។ មានការមិនច្រណែន ជាកិច្ច។ មានការកំចាត់បងនូវអរតិ (សេចក្តីមិនត្រេកអរ) ជាអាការប្រាកដ។ មានការឃើញសេចក្តីសុខ ឬសម្បត្តិរបស់អ្នកដទៃ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of the muditā cetasika: rejoicing in or praising the fortune of others as its characteristic; non-envy as its function; dispelling discontent (arati) as its manifestation; and seeing the happiness or fortune of others as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់សម្បត្តិរបស់មុទិតាចេតសិក?',
+    qE: 'Explain the sampatti (success) of the muditā cetasika.',
+    aK: 'សម្បត្តិរបស់មុទិតាចេតសិក ៖ មានការចូលទៅរម្ងាប់នូវអរតិ (ភាពមិនត្រេកអរ) និងមានការមិនត្រេកអរចំពោះសុខឬសម្បត្តិអ្នកដទៃ ជាសត្រូវឆ្ងាយ។',
+    aE: 'The sampatti of the muditā cetasika: it approaches calming discontent (arati), and being displeased at the happiness or fortune of others is its far enemy.',
+  },
+  {
+    qK: 'ចូររៀបរាប់វិបត្តិរបស់មុទិតាចេតសិក?',
+    qE: 'Explain the vipatti (failure) of the muditā cetasika.',
+    aK: 'វិបត្តិរបស់មុទិតាចេតសិក ៖ មានការសប្បាយ សើចក្អាកក្អាយ ភ្លើតភ្លើន និងមានសោមនស្សដែលអាស្រ័យនឹងកាមគុណ ជាសត្រូវជិត។',
+    aE: 'The vipatti of the muditā cetasika: excessive laughter, mirth, and frivolity, and the zest (somanassa) dependent on sense pleasures as its near enemy.',
+  },
+  {
+    qK: 'តើព្រហ្មវិហារធម៌ មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many brahmavihāra dhammas are there? Which are they?',
+    aK: 'ព្រហ្មវិហារធម៌ មាន ៤ គឺ មេត្តា ករុណា មុទិតា និងឧបេក្ខា។',
+    aE: 'There are four brahmavihāra dhammas: mettā (loving-kindness), karuṇā (compassion), muditā (appreciative joy), and upekkhā (equanimity).',
+  },
+  {
+    qK: 'តើអ្វីខ្លះជាអង្គធម៌របស់ព្រហ្មវិហារធម៌?',
+    qE: 'What are the constituent dhammas of the brahmavihāra dhammas?',
+    aK: 'អង្គធម៌របស់ព្រហ្មវិហារធម៌ ៖ មេត្តា អង្គធម៌បានដល់ អទោសចេតសិក ករុណា អង្គធម៌បានដល់ ករុណាចេតសិក មុទិតា អង្គធម៌បានដល់ មុទិតាចេតសិក ឧបេក្ខា អង្គធម៌បានដល់ តត្រមជ្ឈត្តតាចេតសិក។',
+    aE: 'The constituent dhammas of the brahmavihāra: mettā consists of the adosa cetasika, karuṇā consists of the karuṇā cetasika, muditā consists of the muditā cetasika, and upekkhā consists of the tatramajjhattatā cetasika.',
+  },
+  {
+    qK: 'តើព្រហ្មវិហារធម៌ មានអារម្មណ៍ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Is the object of the brahmavihāra dhammas paramattha or paññatti?',
+    aK: 'ព្រហ្មវិហារធម៌ មានអារម្មណ៍ជាបញ្ញត្តិ។',
+    aE: 'The object of the brahmavihāra dhammas is a concept (paññatti).',
+  },
+]
+
+const pannaQas = [
+  {
+    qK: 'តើបញ្ញាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the paññā cetasika mean?',
+    aK: 'បញ្ញាចេតសិក មានន័យថា ការយល់ដឹងច្បាស់នូវធម៌ទាំងឡាយ ដូចជាអរិយសច្ចៈជាដើម។',
+    aE: 'The paññā cetasika means the clear understanding of the dhammas, such as the noble truths, etc.',
+  },
+  {
+    qK: 'តើឥន្រ្ទិយ មានន័យដូចម្តេច?',
+    qE: 'What does indriya mean?',
+    aK: 'ឥន្រ្ទិយ មានន័យថា ភាពជាធំ។',
+    aE: 'Indriya means the state of supremacy (the controlling faculty).',
+  },
+  {
+    qK: 'តើបញ្ញិន្រ្ទិយ មានន័យដូចម្តេច?',
+    qE: 'What does paññindriya mean?',
+    aK: 'បញ្ញិន្រ្ទិយ មានន័យថា ភាពជាធំក្នុងការដឹងច្បាស់នូវសភាវធម៌។',
+    aE: 'Paññindriya means the supremacy in clearly knowing the nature of phenomena.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្ករបស់បញ្ញាដែលមានសមាធិជាហេតុជិត?',
+    qE: 'Explain the lakkhana-ādi-catukka of paññā with samādhi as its proximate cause.',
+    aK: 'លក្ខណាទិចតុក្ករបស់បញ្ញាដែលមានសមាធិជាហេតុជិត ៖ មានការចាក់ធ្លុះសភាវធម៌ ជាលក្ខណៈ។ មានការកំចាត់បង់នូវភាពងងឹតគឺមោហៈ ដែលបិទបាំងសភាវធម៌ ជាកិច្ច។ មានការមិនវង្វេង ជាអាការប្រាកដ (ដូចមគ្គុទ្ទេសក៍ដ៏ចំណាន)។ មានសមាធិ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of paññā with samādhi as its proximate cause: penetrating the nature of phenomena as its characteristic; dispelling the darkness of delusion (moha) that obscures the nature of phenomena as its function; non-confusion as its manifestation (like a skilled guide); and samādhi as its proximate cause.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្ករបស់បញ្ញាដែលមានយោនិសោមនសិការជាហេតុជិត?',
+    qE: 'Explain the lakkhana-ādi-catukka of paññā with yoniso manasikāra as its proximate cause.',
+    aK: 'លក្ខណាទិចតុក្ករបស់បញ្ញាដែលមានយោនិសោមនសិការជាហេតុជិត ៖ មានការចាក់ធ្លុះ (ដឹងច្បាស់) នូវសភាវធម៌ តាមសេចក្តីពិត ជាលក្ខណៈ។ មានការឆ្លុះបញ្ចាំងនូវអារម្មណ៍ឱ្យភ្លឺច្បាស់ ជាកិច្ច ដូចប្រទីបជាគ្រឿងបំភ្លឺ។ មានការមិនវង្វេង ជាអាការប្រាកដ។ មានយោនិសោមនសិការ ជាហេតុជិត ឬមានតិហេតុកបដិសន្ធិ ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of paññā with yoniso manasikāra as its proximate cause: penetrating (clearly knowing) the nature of phenomena in accordance with truth as its characteristic; reflecting the object so that it is illuminated clearly, like a lamp that lights things up, as its function; non-confusion as its manifestation; and yoniso manasikāra as its proximate cause, or tīhetuka rebirth-linking as its proximate cause.',
+  },
+  {
+    qK: 'តើបញ្ញាចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many cittas does the paññā cetasika arise?',
+    aK: 'បញ្ញាចេតសិក កើតក្នុងតិហេតុកសោភណចិត្ត ៤៧ ដួង ឬ ៧៩ ដួង។',
+    aE: 'The paññā cetasika arises in the 47 or 79 tīhetuka sobhana cittas.',
+  },
+  {
+    qK: 'តើបញ្ញាចេតសិក ដឹងអារម្មណ៍ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Does the paññā cetasika know paramattha or paññatti objects?',
+    aK: 'បញ្ញាចេតសិក ដឹងអារម្មណ៍ ជាបរមត្ថផង និងជាបញ្ញត្តិផង។',
+    aE: 'The paññā cetasika knows both paramattha objects and paññatti objects.',
+  },
+  {
+    qK: 'តើបញ្ញាចេតសិក អាចប្រព្រឹត្តក្រៅទ្វារបានដែរឬទេ?',
+    qE: 'Can the paññā cetasika operate outside the doors?',
+    aK: 'បញ្ញាចេតសិក អាចប្រព្រឹត្តក្រៅទ្វារបាន កាលណាធ្វើកិច្ច ៣ គឺ បដិសន្ធិកិច្ច ភវង្គកិច្ច និងចុតិកិច្ច។',
+    aE: 'The paññā cetasika can operate outside the doors when performing three functions: rebirth-linking (paṭisandhi), life-continuum (bhavaṅga), and death (cuti).',
+  },
+]
+
+const paramatthaQas = [
+  {
+    qK: 'តើព្រះអភិធម្ម មានន័យដូចម្តេច?',
+    qE: 'What does Abhidhamma mean?',
+    aK: 'ព្រះអភិធម្ម មានន័យថា ធម៌មានសេចក្តីល្អិតសុខុមដ៏ល្អក្រៃលែង ដែលបរិយាយពីបរមត្ថធម៌ ៤។',
+    aE: 'Abhidhamma means the exceedingly profound and subtle Dhamma that expounds the four paramattha dhammas.',
+  },
+  {
+    qK: 'តើបរមត្ថធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does paramattha dhamma mean?',
+    aK: 'បរមត្ថធម៌ មានន័យថា ធម៌ដែលមានអត្ថដ៏ល្អប្រសើរ ខ្ពង់ខ្ពស់ មិនវិបរិត។',
+    aE: 'Paramattha dhamma means the dhamma that has an excellent, lofty, and unperverted meaning.',
+  },
+  {
+    qK: 'តើបរមត្ថធម៌ មានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'How many kinds of paramattha dhamma are there? Which are they?',
+    aK: 'បរមត្ថធម៌ មាន ៤ ប្រភេទ គឺ ចិត្តបរមត្ថ ចេតសិកបរមត្ថ រូបបរមត្ថ និងនិព្វានបរមត្ថ។',
+    aE: 'There are four kinds of paramattha dhamma: citta, cetasika, rūpa, and Nibbāna.',
+  },
+  {
+    qK: 'តើចិត្តបរមត្ថ មានចិត្តប៉ុន្មានដួងដោយសង្ខេប? ប៉ុន្មានដួងដោយពិស្តារ?',
+    qE: 'In brief how many cittas, and in detail how many, does citta paramattha have?',
+    aK: 'ចិត្តបរមត្ថ មានចិត្ត ៨៩ ដួងដោយសង្ខេប ឬ ១២១ ដួងដោយពិស្តារ។',
+    aE: 'Citta paramattha has 89 cittas in brief, or 121 cittas in detail.',
+  },
+  {
+    qK: 'តើចិត្តបរមត្ថ មានសភាវធម៌ប៉ុន្មាន?',
+    qE: 'How many sabhāva-dhammas does citta paramattha have?',
+    aK: 'ចិត្តបរមត្ថ មានសភាវធម៌ ១។',
+    aE: 'Citta paramattha has one sabhāva-dhamma (citta).',
+  },
+  {
+    qK: 'តើចេតសិកបរមត្ថ មានចេតសិកប៉ុន្មាន?',
+    qE: 'How many cetasikas does cetasika paramattha have?',
+    aK: 'ចេតសិកបរមត្ថ មានចេតសិក ៥២។',
+    aE: 'Cetasika paramattha has 52 cetasikas.',
+  },
+  {
+    qK: 'តើចេតសិកបរមត្ថ មានសភាវធម៌ប៉ុន្មាន?',
+    qE: 'How many sabhāva-dhammas does cetasika paramattha have?',
+    aK: 'ចេតសិកបរមត្ថ មានសភាវធម៌ ៥២។',
+    aE: 'Cetasika paramattha has 52 sabhāva-dhammas.',
+  },
+  {
+    qK: 'តើរូបបរមត្ថ មានរូបប៉ុន្មាន?',
+    qE: 'How many rūpas does rūpa paramattha have?',
+    aK: 'រូបបរមត្ថ មានរូប ២៨។',
+    aE: 'Rūpa paramattha has 28 rūpas.',
+  },
+  {
+    qK: 'តើរូបបរមត្ថ មានសភាវធម៌ប៉ុន្មាន?',
+    qE: 'How many sabhāva-dhammas does rūpa paramattha have?',
+    aK: 'រូបបរមត្ថ មានសភាវធម៌ ១៨។',
+    aE: 'Rūpa paramattha has 18 sabhāva-dhammas.',
+  },
+  {
+    qK: 'តើព្រះនិព្វាន មានប៉ុន្មាន? បានដល់សភាវធម៌ប៉ុន្មាន?',
+    qE: 'How many Nibbānas are there? How many sabhāva-dhammas does it have?',
+    aK: 'ព្រះនិព្វាន មាន ១ បានដល់សភាវធម៌ ១។',
+    aE: 'There is one Nibbāna, possessing one sabhāva-dhamma.',
+  },
+  {
+    qK: 'តើបរមត្ថធម៌ ៤ បានដល់សភាវធម៌សរុបប៉ុន្មាន?',
+    qE: 'How many sabhāva-dhammas do the four paramattha dhammas total?',
+    aK: 'បរមត្ថធម៌ ៤ បានដល់សភាវធម៌ ៧២។',
+    aE: 'The four paramattha dhammas total 72 sabhāva-dhammas.',
+  },
+  {
+    qK: 'តើចេតសិក មាននិយមន័យដូចម្តេចខ្លះ?',
+    qE: 'What is the definition of cetasika?',
+    aK: 'ចេតសិក មានន័យថា ជាធម៌ដែលប្រកបជាមួយនឹងចិត្ត ឬអាស្រ័យនឹងចិត្ត។',
+    aE: 'Cetasika means the dhamma that arises together with the mind, or that depends on the mind.',
+  },
+  {
+    qK: 'តើចេតសិក មានអាការសម្គាល់ប៉ុន្មានយ៉ាងជាភាសាបាលី? អ្វីខ្លះ?',
+    qE: 'How many distinguishing characteristics does cetasika have in Pāli? Which are they?',
+    aK: 'ចេតសិក មានអាការសម្គាល់ ៤ យ៉ាង ជាភាសាបាលី គឺ ឯកុប្បាទៈ ឯកនិរោធៈ ឯកាលម្ពណៈ និងឯកវត្ថុកៈ។',
+    aE: 'Cetasika has four distinguishing characteristics in Pāli: ekuppāda, ekānirodha, ekālambana, and ekavatthuka.',
+  },
+  {
+    qK: 'ចូរពន្យល់ឯកុប្បាទៈ?',
+    qE: 'Explain ekuppāda.',
+    aK: 'ឯកុប្បាទៈ មានន័យថា ចេតសិកតែងកើតព្រមគ្នាជាមួយចិត្ត។',
+    aE: 'Ekuppāda means that the cetasikas always arise together with the mind.',
+  },
+  {
+    qK: 'ចូរពន្យល់ឯកនិរោធៈ?',
+    qE: 'Explain ekānirodha.',
+    aK: 'ឯកនិរោធៈ មានន័យថា ចេតសិកតែងរលត់ព្រមគ្នាជាមួយនឹងចិត្ត។',
+    aE: 'Ekānirodha means that the cetasikas always cease together with the mind.',
+  },
+  {
+    qK: 'ចូរពន្យល់ឯកាលម្ពណៈ?',
+    qE: 'Explain ekālambana.',
+    aK: 'ឯកាលម្ពណៈ មានន័យថា ចេតសិកមានអារម្មណ៍តែមួយជាមួយនឹងចិត្ត គឺថាបើចិត្តដឹងអារម្មណ៍ណា ចេតសិកដែលកើតរួមនឹងចិត្តនោះ ក៏ដឹងអារម្មណ៍តែមួយដូចចិត្តដែរ។',
+    aE: 'Ekālambana means that the cetasikas have a single object together with the mind, that is, whatever object the mind knows, the cetasikas arising together with it also know that same object like the mind.',
+  },
+  {
+    qK: 'ចូរពន្យល់ឯកវត្ថុកៈ?',
+    qE: 'Explain ekavatthuka.',
+    aK: 'ឯកវត្ថុកៈ មានន័យថា ចេតសិកអាស្រ័យវត្ថុតែមួយដូចចិត្តដែរ គឺថា បើចិត្តអាស្រ័យវត្ថុណា ចេតសិកដែលកើតព្រមនឹងចិត្តនោះ ក៏អាស្រ័យវត្ថុតែមួយដូចចិត្តដែរ។',
+    aE: 'Ekavatthuka means that the cetasikas depend on the same physical basis as the mind, that is, whatever basis the mind depends on, the cetasikas arising together with it also depend on that same basis like the mind.',
+  },
+  {
+    qK: 'តើអារម្មណ៍មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects (ārammaṇa) are there? Which are they?',
+    aK: 'អារម្មណ៍ មាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និងធម្មារម្មណ៍។',
+    aE: 'There are six objects (ārammaṇa): visible object, sound, smell, taste, tangible object, and mental object (dhammārammaṇa).',
+  },
+  {
+    qK: 'តើវត្ថុមានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many bases (vatthu) are there? Which are they?',
+    aK: 'វត្ថុមាន ៦ គឺ ចក្ខុវត្ថុ សោតវត្ថុ ឃានវត្ថុ ជិវ្ហាវត្ថុ កាយវត្ថុ និងហទយវត្ថុ។',
+    aE: 'There are six bases (vatthu): eye-base, ear-base, nose-base, tongue-base, body-base, and heart-base.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈរបស់ចេតសិក?',
+    qE: 'Explain the lakkhana-ādi-catukka of cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ចេតសិក ៖ ចិត្តនិស្សិតលក្ខណំ មានការអាស្រ័យនឹងចិត្ត ជាលក្ខណៈ។ អវិយោគុប្បាទនរសំ មានការកើតរួមគ្នាជាមួយនឹងចិត្ត ជាកិច្ច។ ឯកាលម្ពណបច្ចុប្បដ្ឋានំ មានអារម្មណ៍តែមួយជាមួយនឹងចិត្ត ជាអាការប្រាកដ។ ចិត្តុប្បាទបទដ្ឋានំ មានការកើតឡើងនៃចិត្ត ជាហេតុជិត។',
+    aE: 'The lakkhana-ādi-catukka of cetasika: dependence on the mind as its characteristic (cittanissitalakkhaṇaṃ); arising together with the mind as its function (aviyoguppādanarasaṃ); having a single object with the mind as its manifestation (ekālambanapaccupaṭṭhānaṃ); and the arising of the mind as its proximate cause (cittuppādapadaṭṭhānaṃ).',
   },
 ]
 

@@ -469,6 +469,126 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 19: វិចារចេតសិក ===== -->
+    <h2 v-if="!searching || filteredVicara.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('វិចារចេតសិក', 'Vicāra (Sustained Thought)') }}
+    </h2>
+    <div v-if="!searching || filteredVicara.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredVicara" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 20: អធិមោក្ខចេតសិក ===== -->
+    <h2 v-if="!searching || filteredAdhimokkha.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('អធិមោក្ខចេតសិក', 'Adhimokkha (Decision)') }}
+    </h2>
+    <div v-if="!searching || filteredAdhimokkha.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredAdhimokkha" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 21: វីរិយចេតសិក ===== -->
+    <h2 v-if="!searching || filteredViriya.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('វីរិយចេតសិក', 'Viriya (Energy)') }}
+    </h2>
+    <div v-if="!searching || filteredViriya.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredViriya" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 22: បីតិចេតសិក ===== -->
+    <h2 v-if="!searching || filteredPiti.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('បីតិចេតសិក', 'Pīti (Joy)') }}
+    </h2>
+    <div v-if="!searching || filteredPiti.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredPiti" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 23: ឆន្ទៈចេតសិក ===== -->
+    <h2 v-if="!searching || filteredChanda.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ឆន្ទៈចេតសិក', 'Chanda (Intention/Will)') }}
+    </h2>
+    <div v-if="!searching || filteredChanda.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredChanda" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -504,7 +624,8 @@ const libLen = () =>
   cetanaQas.length + ekaggataQas.length + jivitindriyaQas.length + manasikaraQas.length +
   sabbaByKhandhaJatiQas.length + sabbaByDvaraQas.length + sabbaByArammanaQas.length +
   sabbaByBhumiQas.length + sabbaByVatthuQas.length + sabbaByHetuQas.length +
-  sabbaBySobhanaQas.length + sabbaByLokaQas.length + vitakkaQas.length
+  sabbaBySobhanaQas.length + sabbaByLokaQas.length + vitakkaQas.length +
+  vicaraQas.length + adhimokkhaQas.length + viriyaQas.length + pitiQas.length + chandaQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -523,7 +644,12 @@ const filteredSabbaByVatthu = computed(() => indexed(sabbaByVatthuQas, sabbaByVa
 const filteredSabbaByHetu = computed(() => indexed(sabbaByHetuQas, sabbaByHetuOffset()))
 const filteredSabbaBySobhana = computed(() => indexed(sabbaBySobhanaQas, sabbaBySobhanaOffset()))
 const filteredSabbaByLoka = computed(() => indexed(sabbaByLokaQas, sabbaByLokaOffset()))
-const filteredVitakka = computed(() => indexed(vitakkaQas, libLen() - vitakkaQas.length))
+const filteredVitakka = computed(() => indexed(vitakkaQas, libLen() - vitakkaQas.length - vicaraQas.length - adhimokkhaQas.length - viriyaQas.length - pitiQas.length - chandaQas.length))
+const filteredVicara = computed(() => indexed(vicaraQas, libLen() - vicaraQas.length - adhimokkhaQas.length - viriyaQas.length - pitiQas.length - chandaQas.length))
+const filteredAdhimokkha = computed(() => indexed(adhimokkhaQas, libLen() - adhimokkhaQas.length - viriyaQas.length - pitiQas.length - chandaQas.length))
+const filteredViriya = computed(() => indexed(viriyaQas, libLen() - viriyaQas.length - pitiQas.length - chandaQas.length))
+const filteredPiti = computed(() => indexed(pitiQas, libLen() - pitiQas.length - chandaQas.length))
+const filteredChanda = computed(() => indexed(chandaQas, libLen() - chandaQas.length))
 
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
@@ -544,7 +670,8 @@ const totalMatches = computed(() =>
   filteredSabbaByKhandhaJati.value.length + filteredSabbaByDvara.value.length +
   filteredSabbaByArammana.value.length + filteredSabbaByBhumi.value.length + filteredSabbaByVatthu.value.length +
   filteredSabbaByHetu.value.length + filteredSabbaBySobhana.value.length + filteredSabbaByLoka.value.length +
-  filteredVitakka.value.length
+  filteredVitakka.value.length + filteredVicara.value.length + filteredAdhimokkha.value.length +
+  filteredViriya.value.length + filteredPiti.value.length + filteredChanda.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -2519,6 +2646,693 @@ const vitakkaQas = [
     qE: 'How many kinds of right thought (sammā-vitakka) are there? Which are they?',
     aK: 'ការត្រិះរិះត្រូវ មាន ៣ គឺ ៖ នេក្ខម្មវិតក្កៈ ការត្រិះរិះចេញចាកកាម ។ អព្យាបាទវិតក្កៈ ការត្រិះរិះមិនព្យាបាទ ។ អវិហឹសាវិតក្កៈ ការត្រិះរិះមិនបៀតបៀន។',
     aE: 'There are three kinds of right thought: nekkhamma-vitakka (thought of renunciation), abyāpāda-vitakka (thought of non-ill-will), and avihiṃsā-vitakka (thought of non-harming).',
+  },
+]
+
+const vicaraQas = [
+  {
+    qK: 'តើវិចារចេតសិក ស្ថិតនៅក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the vicāra cetasika belong?',
+    aK: 'វិចារចេតសិក ស្ថិតនៅក្នុងក្រុម អញ្ញសមានាចេតសិក ពួកបកិណ្ណកចេតសិក។',
+    aE: 'The vicāra cetasika belongs to the aññasamānā cetasikas group, the pakiṇṇaka division.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the vicāra cetasika mean?',
+    aK: 'វិចារចេតសិក មានន័យថា ជាធម្មជាតិត្រាច់ទៅក្នុងអារម្មណ៍ ឬពិចារណាក្នុងអារម្មណ៍។',
+    aE: 'The vicāra cetasika means the nature that moves within the object or examines the object.',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈ របស់វិចារចេតសិក?',
+    qE: 'Explain the fourfold characteristic of the vicāra cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈ របស់វិចារចេតសិក ៖ មានការពិចារណាក្នុងអារម្មណ៍ ជាលក្ខណៈ។ មានការប្រកបសហជាតធម៌ទុកក្នុងអារម្មណ៍ ជាកិច្ច។ មានការចងចិត្តទុកក្នុងអារម្មណ៍ ជាអាការប្រាកដ។ មានអារម្មណ៍ ជាហេតុជិត។',
+    aE: 'The fourfold characteristic of vicāra: its characteristic is examining the object; its function is keeping the co-nascent states in the object; its manifestation is binding the mind in the object; its proximate cause is the object.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក ប្រព្រឹត្តតាមទ្វារណាខ្លះ?',
+    qE: 'Through which doors does the vicāra cetasika operate?',
+    aK: 'វិចារចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និង ទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ និង មនោទ្វារ។',
+    aE: 'The vicāra cetasika operates through the door-free (vimutti) and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានដួង ក្នុងចំណោមចិត្ត ១២១ ដួង?',
+    qE: 'In how many of the 121 consciousnesses does the vicāra cetasika arise?',
+    aK: 'វិចារចេតសិក កើតបានក្នុងចិត្ត ៦៦ ដួង ក្នុងចំណោមចិត្ត ១២១ ដួង។',
+    aE: 'The vicāra cetasika arises in 66 of the 121 consciousnesses.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតបានក្នុងចិត្តប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'In how many classes of consciousness does the vicāra cetasika arise? Which are they?',
+    aK: 'វិចារចេតសិក កើតបានក្នុងចិត្ត ៣ ប្រភេទ តាមសមគួរ គឺ កាមាវចរចិត្ត រូបាវចរចិត្ត និងលោកុត្តរចិត្ត។',
+    aE: 'The vicāra cetasika arises in three classes as appropriate: sense-sphere, form-sphere, and supramundane consciousness.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the vicāra cetasika know? Which are they?',
+    aK: 'វិចារចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The vicāra cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក អាស្រ័យវត្ថុប៉ុន្មាន ក្នុងចំណោមវត្ថុទាំង ៦ ក្នុងបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon how many of the six bases does the vicāra cetasika depend in the five-aggregate plane? And which base in the four-aggregate plane?',
+    aK: 'វិចារចេតសិក អាស្រ័យហទយវត្ថុ ក្នុងចំណោមវត្ថុទាំង ៦ នៅបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The vicāra cetasika depends upon the heart-base, among the six bases, in the five-aggregate plane; and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើបញ្ចវោការភូមិ មានន័យដូចម្តេច?',
+    qE: 'What does pañcavokāra-bhūmi mean?',
+    aK: 'បញ្ចវោការភូមិ មានន័យថា ភូមិដែលមានខន្ធ ៥ គឺ រូបក្ខន្ធ វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ និង វិញ្ញាណក្ខន្ធ។',
+    aE: 'Pañcavokāra-bhūmi means the plane that has five aggregates: rūpa, vedanā, saññā, saṅkhāra, and viññāṇa.',
+  },
+  {
+    qK: 'តើបញ្ចវោការភូមិ មានប៉ុន្មានភូមិសត្វ? ភូមិណាខ្លះ?',
+    qE: 'How many planes of beings are in the five-aggregate plane? Which are they?',
+    aK: 'បញ្ចវោការភូមិ មាន ២៦ ភូមិ គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ (វៀរអសញ្ញីសត្តា និង អរូបភូមិ ៤)។',
+    aE: 'The five-aggregate plane has 26 planes: four woeful, one human, six celestial, and fifteen form-sphere (excluding the asaññasatta and the four formless).',
+  },
+  {
+    qK: 'តើចតុវោការភូមិ មានន័យដូចម្តេច?',
+    qE: 'What does catuvokāra-bhūmi mean?',
+    aK: 'ចតុវោការភូមិ មានន័យថា ភូមិដែលមាននាមខន្ធ ៤ គឺ វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ និង វិញ្ញាណក្ខន្ធ។',
+    aE: 'Catuvokāra-bhūmi means the plane that has four mental aggregates: vedanā, saññā, saṅkhāra, and viññāṇa.',
+  },
+  {
+    qK: 'តើចតុវោការភូមិ មានប៉ុន្មានភូមិសត្វ? ភូមិណាខ្លះ?',
+    qE: 'How many planes of beings are in the four-aggregate plane? Which are they?',
+    aK: 'ចតុវោការភូមិ មាន ៤ ភូមិសត្វ គឺ អរូបភូមិ ៤។',
+    aE: 'The four-aggregate plane has four planes of beings: the four formless planes.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតក្នុងភូមិសត្វប៉ុន្មានភូមិ? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of beings does the vicāra cetasika arise? Which are they?',
+    aK: 'វិចារចេតសិក កើតក្នុងភូមិសត្វ ៣០ ភូមិ គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ អរូបភូមិ ៤ (វៀរអសញ្ញីសត្តាភូមិ)។',
+    aE: 'The vicāra cetasika arises in thirty planes of beings (excluding the asaññasatta plane): four woeful, one human, six celestial, fifteen form-sphere, and four formless.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is the vicāra cetasika a hetu or a na-hetu?',
+    aK: 'វិចារចេតសិក ជា នហេតុ។',
+    aE: 'The vicāra cetasika is a na-hetu.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត?',
+    qE: 'Does the vicāra cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'វិចារចេតសិក កើតក្នុងអសោភណចិត្តតាមសមគួរផង និង សោភណចិត្តតាមសមគួរផង។',
+    aE: 'The vicāra cetasika arises in non-beautiful consciousness as appropriate and in beautiful consciousness as appropriate.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក ចាត់ជាខន្ធអ្វី ក្នុងចំណោមខន្ធទាំង ៥?',
+    qE: 'To which of the five aggregates is the vicāra cetasika classed?',
+    aK: 'វិចារចេតសិក ចាត់ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The vicāra cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the vicāra cetasika arise? Which are they?',
+    aK: 'វិចារចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The vicāra cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'ហេតុអ្វីបានជាវិចារចេតសិក មិនកើតក្នុងអរូបាវចរចិត្ត?',
+    qE: 'Why does the vicāra cetasika not arise in the formless-sphere consciousness?',
+    aK: 'បានជាវិចារចេតសិក មិនកើតក្នុងអរូបាវចរចិត្ត ព្រោះវិចារចេតសិកជាតួអង្គឈាន កើតតែក្នុងបឋមជ្ឈានចិត្ត ១១ ដួង និង ទុតិយជ្ឈានចិត្ត ១១ ដួង តែប៉ុណ្ណោះ។ ចំណែកអរូបាវចរចិត្ត ជាបញ្ចមជ្ឈានចិត្ត ដែលមានអង្គឈាន ២ គឺ ឧបេក្ខា និង ឯកគ្គតា មិនមានវិចារចេតសិកជាអង្គឈានទេ។',
+    aE: 'The vicāra cetasika does not arise in the formless-sphere consciousness because, as a factor of jhāna, it arises only in the eleven first-jhāna and eleven second-jhāna consciousnesses, whereas the formless-sphere is fifth-jhāna consciousness having only two jhāna factors — upekkhā and ekaggatā — without vicāra.',
+  },
+  {
+    qK: 'តើវិចារចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត?',
+    qE: 'Does the vicāra cetasika arise in worldly or supramundane consciousness?',
+    aK: 'វិចារចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរផង និង លោកុត្តរចិត្តតាមសមគួរផង។',
+    aE: 'The vicāra cetasika arises in worldly consciousness as appropriate and in supramundane consciousness as appropriate.',
+  },
+  {
+    qK: 'តើលក្ខណាទិចតុក្កៈ មានន័យដូចម្តេច? មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'What does lakkhaṇādi-catukka mean? How many are there? Which are they?',
+    aK: 'លក្ខណាទិចតុក្កៈ មានន័យថា ពួកធម៌ ៤ ដែលមានលក្ខណៈជាដើម។ មាន ៤ គឺ លក្ខណៈ កិច្ច អាការប្រាកដ និង ហេតុជិត។',
+    aE: 'Lakkhaṇādi-catukka means the fourfold group beginning with characteristic. There are four: characteristic, function, manifestation, and proximate cause.',
+  },
+  {
+    qK: 'តើសហជាតិធម៌ មានន័យដូចម្តេច?',
+    qE: 'What does sahajāta-dhamma mean?',
+    aK: 'សហជាតិធម៌ មានន័យថា ធម៌ដែលកើតដំណាលគ្នា សហការគ្នា បានដល់ចេតសិក និង ចេតសិក ចិត្ត និង រូប។',
+    aE: 'Sahajāta-dhamma means dhammas that arise simultaneously and cooperate: cetasika with cetasika, and consciousness with matter.',
+  },
+]
+
+const adhimokkhaQas = [
+  {
+    qK: 'តើអធិមោក្ខចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the adhimokkha cetasika mean?',
+    aK: 'អធិមោក្ខចេតសិក មានន័យថា បង្អោនចិត្តទៅ ឬ ជឿយ៉ាងស៊ប់។',
+    aE: 'The adhimokkha cetasika means bending the mind toward (the object) or believing firmly.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក ស្ថិតនៅក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the adhimokkha cetasika belong?',
+    aK: 'អធិមោក្ខចេតសិក ស្ថិតនៅក្នុងក្រុម អញ្ញសមានាចេតសិក ពួកបកិណ្ណកចេតសិក។',
+    aE: 'The adhimokkha cetasika belongs to the aññasamānā cetasikas, the pakiṇṇaka division.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក ចាត់ជាខន្ធអ្វី ក្នុងចំណោមខន្ធទាំង ៥?',
+    qE: 'To which of the five aggregates is the adhimokkha cetasika classed?',
+    aK: 'អធិមោក្ខចេតសិក ចាត់ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The adhimokkha cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the adhimokkha cetasika arise? Which are they?',
+    aK: 'អធិមោក្ខចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The adhimokkha cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Through how many doors does the adhimokkha cetasika operate? Which are they?',
+    aK: 'អធិមោក្ខចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និង ទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ និង មនោទ្វារ។',
+    aE: 'The adhimokkha cetasika operates through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the adhimokkha cetasika know? Which are they?',
+    aK: 'អធិមោក្ខចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The adhimokkha cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'In how many classes of consciousness does the adhimokkha cetasika arise? Which are they?',
+    aK: 'អធិមោក្ខចេតសិក កើតក្នុងចិត្តបាន ៤ ប្រភេទ គឺ កាមាវចរចិត្តតាមសមគួរ រូបាវចរចិត្ត អរូបាវចរចិត្ត និង លោកុត្តរចិត្ត។',
+    aE: 'The adhimokkha cetasika arises in four classes: sense-sphere as appropriate, form-sphere, formless-sphere, and supramundane.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក អាស្រ័យវត្ថុប៉ុន្មាន ក្នុងចំណោមវត្ថុទាំង ៦ នៅបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon how many of the six bases does the adhimokkha cetasika depend in the five-aggregate plane? And which base in the four-aggregate plane?',
+    aK: 'អធិមោក្ខចេតសិក អាស្រ័យបាន ហទយវត្ថុ តែម្យ៉ាងប៉ុណ្ណោះ នៅបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The adhimokkha cetasika depends only upon the heart-base in the five-aggregate plane, and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក ជាហេតុ ឬ ជានហេតុ?',
+    qE: 'Is the adhimokkha cetasika a hetu or a na-hetu?',
+    aK: 'អធិមោក្ខចេតសិក ជា នហេតុ។',
+    aE: 'The adhimokkha cetasika is a na-hetu.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត?',
+    qE: 'Does the adhimokkha cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'អធិមោក្ខចេតសិក អាចកើតបានទាំងក្នុង អសោភណចិត្តតាមសមគួរផង និង សោភណចិត្តតាមសមគួរផង។',
+    aE: 'The adhimokkha cetasika can arise in both non-beautiful consciousness as appropriate and beautiful consciousness as appropriate.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត?',
+    qE: 'Does the adhimokkha cetasika arise in worldly or supramundane consciousness?',
+    aK: 'អធិមោក្ខចេតសិក អាចកើតបានទាំងក្នុង លោកិយចិត្តតាមសមគួរផង និង លោកុត្តរចិត្តផង។',
+    aE: 'The adhimokkha cetasika can arise in both worldly consciousness as appropriate and supramundane consciousness.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the adhimokkha cetasika arise?',
+    aK: 'អធិមោក្ខចេតសិក កើតក្នុងចិត្តបាន ៧៨ ដួង ឬ ១១០ ដួង។',
+    aE: 'The adhimokkha cetasika arises in 78 (or 110) consciousnesses.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក មិនកើតក្នុងចិត្តប៉ុន្មានដួង? ដួងណាខ្លះ?',
+    qE: 'In how many consciousnesses does the adhimokkha cetasika not arise? Which are they?',
+    aK: 'អធិមោក្ខចេតសិក មិនកើតក្នុងចិត្ត ១១ ដួង គឺ មោហមូលចិត្តដួងទី ១ ឬ វិចិកិច្ឆាសម្បយុត្តចិត្ត ១ និង ទ្វិបញ្ចវិញ្ញាណ ១០ ដួង គឺ ចក្ខុវិញ្ញាណ ២ សោតវិញ្ញាណ ២ ឃានវិញ្ញាណ ២ ជីវ្ហាវិញ្ញាណ ២ កាយវិញ្ញាណ ២។',
+    aE: 'The adhimokkha cetasika does not arise in 11 consciousnesses: the first moha-mūla (vicikicchā-sampayutta) citta and the ten double sense consciousnesses (two eye, two ear, two nose, two tongue, and two body consciousness).',
+  },
+  {
+    qK: 'ចូររៀបរាប់លក្ខណាទិចតុក្កៈ របស់អធិមោក្ខចេតសិក?',
+    qE: 'Explain the fourfold characteristic of the adhimokkha cetasika.',
+    aK: 'លក្ខណាទិចតុក្កៈ របស់អធិមោក្ខចេតសិក គឺ ៖ មានការដាក់ចិត្តស៊ប់ ឬ សម្រេច (សន្និដ្ឋាន) ជាលក្ខណៈ។ មានការមិនសង្ស័យ ឬ មិនឃ្លេងឃ្លោង ជាកិច្ច។ មានការចុះចិត្តស៊ប់ ឬ កាត់សេចក្តី ជាអាការប្រាកដ។ មានធម៌ដែលគប្បីសម្រេច ឬ សន្និដ្ឋាន ជាហេតុជិត។',
+    aE: 'The fourfold characteristic of adhimokkha: placing the mind firmly (deciding) as characteristic; non-doubt or non-hesitation as function; firm resolve or conclusion as manifestation; the dhammas suitable for decision as proximate cause.',
+  },
+  {
+    qK: 'តើអធិមោក្ខចេតសិក បដិបក្ខនឹងចេតសិកណា?',
+    qE: 'Which cetasika is the opposite of the adhimokkha cetasika?',
+    aK: 'អធិមោក្ខចេតសិក បដិបក្ខនឹង វិចិកិច្ឆាចេតសិក។',
+    aE: 'The adhimokkha cetasika is opposed to the vicikicchā (doubt) cetasika.',
+  },
+  {
+    qK: 'ខណៈបង្អោនចិត្តជឿស៊ប់ក្នុងរឿងមង្គលភ្ញាក់ផ្អើល តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of firmly believing in exciting superstitious events — which cetasika is this a characteristic of?',
+    aK: 'ខណៈបង្អោនចិត្តជឿស៊ប់ក្នុងរឿងមង្គលភ្ញាក់ផ្អើល ជាលក្ខណៈរបស់ អធិមោក្ខចេតសិក។',
+    aE: 'The moment of firmly believing in exciting superstitious events is a characteristic of the adhimokkha cetasika.',
+  },
+  {
+    qK: 'ខណៈបង្អោនចិត្តជឿស៊ប់ក្នុងគុណព្រះរតនត្រៃ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of firmly believing in the virtues of the Triple Gem — which cetasika is this a characteristic of?',
+    aK: 'ខណៈបង្អោនចិត្តជឿស៊ប់ ក្នុងគុណព្រះរតនត្រៃ ជាលក្ខណៈរបស់ អធិមោក្ខចេតសិក។',
+    aE: 'The moment of firmly believing in the virtues of the Triple Gem is a characteristic of the adhimokkha cetasika.',
+  },
+  {
+    qK: 'តើខណៈឃើញរូបជាទីប្រាថ្នា មានការបង្អោនចិត្តជឿស៊ប់ក្នុងខណៈនេះទេ? ហេតុអ្វី?',
+    qE: 'When seeing a desirable visible object, is there firm belief in that moment? Why?',
+    aK: 'ខណៈឃើញរូបជាទីប្រាថ្នា មិនមានការបង្អោនចិត្តជឿស៊ប់ទេ ព្រោះខណៈចិត្តឃើញរូប មានតែសព្វចិត្តសាធារណចេតសិក ៧ ប្រកបជាមួយប៉ុណ្ណោះ។',
+    aE: 'When seeing a desirable visible object, there is no firm belief, because the eye-consciousness is accompanied only by the seven universal mental factors.',
+  },
+  {
+    qK: 'តើខណៈឮសំឡេងគេជេរ មានការបង្អោនចិត្តជឿស៊ប់ដែរឬទេ? ហេតុអ្វី?',
+    qE: 'When hearing someone scolding, is there firm belief as well? Why?',
+    aK: 'ខណៈឮសំឡេងគេជេរ មិនមានការបង្អោនចិត្តជឿស៊ប់ទេ ព្រោះចិត្តឮសំឡេង មានតែសព្វចិត្តសាធារណចេតសិក ៧ ប្រកបជាមួយប៉ុណ្ណោះ។',
+    aE: 'When hearing someone scolding, there is no firm belief, because the ear-consciousness is accompanied only by the seven universal mental factors.',
+  },
+  {
+    qK: 'ខណៈឮសំឡេងធម៌ពីរោះៗ តើមានការបង្អោនចិត្តជឿស៊ប់ដែរឬទេ? ហេតុអ្វី?',
+    qE: 'When hearing the pleasant sound of Dhamma, is there firm belief? Why?',
+    aK: 'ខណៈឮសំឡេងធម៌ពីរោះៗ មិនមានការបង្អោនចិត្តជឿស៊ប់ទេ ព្រោះចិត្តឮសំឡេង មានតែសព្វចិត្តសាធារណចេតសិក ៧ ប្រកបជាមួយប៉ុណ្ណោះ។',
+    aE: 'When hearing the pleasant sound of Dhamma, there is no firm belief, because the ear-consciousness is accompanied only by the seven universal mental factors.',
+  },
+]
+
+const viriyaQas = [
+  {
+    qK: 'តើវីរិយចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the viriya cetasika mean?',
+    aK: 'វីរិយចេតសិក មានន័យថា ធម្មជាតិ ឧស្សាហ៍ ព្យាយាម អង់អាច។',
+    aE: 'The viriya cetasika means the nature of effort, exertion, and courage.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ចាត់ចូលក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division is the viriya cetasika classed?',
+    aK: 'វីរិយចេតសិក ចាត់ចូលក្រុម អញ្ញសមានាចេតសិក ពួកបកិណ្ណកចេតសិក។',
+    aE: 'The viriya cetasika is classed in the aññasamānā group, the pakiṇṇaka division.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the viriya cetasika arise? Which are they?',
+    aK: 'វីរិយចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The viriya cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ប្រព្រឹត្តតាមទ្វារបានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Through how many doors does the viriya cetasika operate? Which are they?',
+    aK: 'វីរិយចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និង ទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The viriya cetasika operates through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ដឹងអារម្មណ៍ប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the viriya cetasika know? Which are they?',
+    aK: 'វីរិយចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The viriya cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'In how many classes of consciousness does the viriya cetasika arise? Which are they?',
+    aK: 'វីរិយចេតសិក កើតក្នុងចិត្តបាន ៤ ប្រភេទ គឺ កាមាវចរចិត្តតាមសមគួរ រូបាវចរចិត្ត អរូបាវចរចិត្ត និង លោកុត្តរចិត្ត។',
+    aE: 'The viriya cetasika arises in four classes: sense-sphere as appropriate, form-sphere, formless-sphere, and supramundane.',
+  },
+  {
+    qK: 'តើសំវេគវត្ថុ មានន័យដូចម្តេច? មានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'What does saṃvega-vatthu mean? How many are there? Which are they?',
+    aK: 'សំវេគវត្ថុ មានន័យថា ទីតាំងនៃសេចក្តីសង្វេគ មាន ៨ គឺ ការពិចារណាដល់ជាតិទុក្ខ ១ ជរាទុក្ខ ១ ព្យាធិទុក្ខ ១ មរណទុក្ខ ១ អបាយិកទុក្ខ ១ អតីតវដ្ដមូលកទុក្ខ ១ អនាគតវដ្ដមូលកទុក្ខ ១ និង ទុក្ខក្នុងការស្វែងរកអាហារក្នុងបច្ចុប្បន្ន ១។',
+    aE: 'Saṃvega-vatthu means the grounds of urgency; there are eight: reflection on the suffering of birth, aging, illness, death, the woeful destinies, the suffering rooted in the past round, the suffering rooted in the future round, and the suffering of seeking food in the present.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក អាស្រ័យវត្ថុណាខ្លះ ក្នុងចំណោមវត្ថុ ៦ នៅបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon which of the six bases does the viriya cetasika depend in the five-aggregate plane? And which in the four-aggregate plane?',
+    aK: 'វីរិយចេតសិក អាស្រ័យហទយវត្ថុ នៅក្នុងភូមិដែលមានខន្ធ ៥ (បញ្ចវោការភូមិ)។ មិនអាស្រ័យហទយវត្ថុ ក្នុងភូមិដែលមានខន្ធ ៤ (ចតុវោការភូមិ)។',
+    aE: 'The viriya cetasika depends upon the heart-base in the five-aggregate plane, and does not depend upon the heart-base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានដួង? មិនកើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the viriya cetasika arise, and in how many not?',
+    aK: 'វីរិយចេតសិក កើតក្នុងចិត្តបាន ៧៣ ដួង ឬ ១០៥ ដួង។ មិនកើតក្នុងចិត្ត ១៦ ដួង។',
+    aE: 'The viriya cetasika arises in 73 (or 105) consciousnesses and does not arise in 16.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត?',
+    qE: 'Does the viriya cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'វីរិយចេតសិក កើតក្នុងអសោភណតាមសមគួរផង និង សោភណចិត្តផង។',
+    aE: 'The viriya cetasika arises in non-beautiful consciousness as appropriate and in beautiful consciousness.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក មានកិច្ចដូចម្តេច?',
+    qE: 'What is the function of the viriya cetasika?',
+    aK: 'វីរិយចេតសិក មានការឧបត្ថម្ភដល់សហជាតធម៌ ជាកិច្ច។',
+    aE: 'The viriya cetasika has the function of supporting the co-nascent dhammas.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក មានអ្វីជាហេតុជិត?',
+    qE: 'What is the proximate cause of the viriya cetasika?',
+    aK: 'វីរិយចេតសិក មាន សំវេគវត្ថុ ជាហេតុជិត។',
+    aE: 'The viriya cetasika has saṃvega-vatthu (the grounds of urgency) as its proximate cause.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ជានហេតុ ឬ តួហេតុ?',
+    qE: 'Is the viriya cetasika a na-hetu or a hetu?',
+    aK: 'វីរិយចេតសិក ជា នហេតុ (មិនមែនជាតួហេតុ)។',
+    aE: 'The viriya cetasika is a na-hetu (not a hetu).',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ជាខន្ធអ្វី ក្នុងចំណោមខន្ធ ៥?',
+    qE: 'To which of the five aggregates is the viriya cetasika classed?',
+    aK: 'វីរិយចេតសិក ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធ ៥។',
+    aE: 'The viriya cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក មានលក្ខណៈដូចម្តេច?',
+    qE: 'What is the characteristic of the viriya cetasika?',
+    aK: 'វីរិយចេតសិក មានការឧស្សាហ៍ ជាលក្ខណៈ។',
+    aE: 'The viriya cetasika has effort (ussāha) as its characteristic.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក មានអ្វីជាអាការប្រាកដ?',
+    qE: 'What is the manifestation of the viriya cetasika?',
+    aK: 'វីរិយចេតសិក មិនមានការរាថយ ជាអាការប្រាកដ។',
+    aE: 'The viriya cetasika has non-withdrawal (steadfastness) as its manifestation.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងភូមិសត្វប៉ុន្មានភូមិ? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of beings does the viriya cetasika arise? Which are they?',
+    aK: 'វីរិយចេតសិក កើតក្នុងភូមិសត្វ ៣០ ភូមិ គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ អរូបភូមិ ៤ (វៀរអសញ្ញីសត្តាភូមិ)។',
+    aE: 'The viriya cetasika arises in thirty planes of beings (excluding the asaññasatta plane): four woeful, one human, six celestial, fifteen form-sphere, and four formless.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត?',
+    qE: 'Does the viriya cetasika arise in worldly or supramundane consciousness?',
+    aK: 'វីរិយចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរផង និង លោកុត្តរចិត្តផង។',
+    aE: 'The viriya cetasika arises in worldly consciousness as appropriate and in supramundane consciousness.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ជានាមធម៌ ឬ រូបធម៌?',
+    qE: 'Is the viriya cetasika a nāma-dhamma or a rūpa-dhamma?',
+    aK: 'វីរិយចេតសិក ជា នាមធម៌។',
+    aE: 'The viriya cetasika is a nāma-dhamma.',
+  },
+  {
+    qK: 'តើវីរិយចេតសិក ចាត់ជាបរមត្ថធម៌ណា ក្នុងចំណោមបរមត្ថធម៌ ៤?',
+    qE: 'As which paramattha-dhamma, among the four, is the viriya cetasika classed?',
+    aK: 'វីរិយចេតសិក ចាត់ជា ចេតសិកបរមត្ថ ក្នុងចំណោមបរមត្ថធម៌ ៤។',
+    aE: 'The viriya cetasika is classed as a cetasika paramattha, among the four paramattha-dhammas.',
+  },
+  {
+    qK: 'ខណៈព្យាយាមលួចទ្រព្យគេ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of striving to steal another wealth — which cetasika is this a characteristic of?',
+    aK: 'ខណៈព្យាយាមលួចទ្រព្យគេ ជាលក្ខណៈរបស់ វីរិយចេតសិក នៅក្នុងអកុសលចិត្ត។',
+    aE: 'The moment of striving to steal another wealth is a characteristic of the viriya cetasika, in the unwholesome consciousness.',
+  },
+  {
+    qK: 'ខណៈព្យាយាមសរសេរអក្សរឱ្យត្រូវ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of striving to write letters correctly — which cetasika is this a characteristic of?',
+    aK: 'ខណៈព្យាយាមសរសេរអក្សរឱ្យត្រូវ ជាលក្ខណៈរបស់ វីរិយចេតសិក។',
+    aE: 'The moment of striving to write letters correctly is a characteristic of the viriya cetasika.',
+  },
+  {
+    qK: 'ខណៈព្យាយាមរៀបចំផ្ទះឱ្យមានសណ្តាប់ធ្នាប់ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of striving to tidy up the house — which cetasika is this a characteristic of?',
+    aK: 'ខណៈព្យាយាមរៀបចំផ្ទះឱ្យមានសណ្តាប់ធ្នាប់ ជាលក្ខណៈរបស់ វីរិយចេតសិក។',
+    aE: 'The moment of striving to tidy up the house is a characteristic of the viriya cetasika.',
+  },
+  {
+    qK: 'ខណៈព្យាយាមស្តាប់ធម៌ ដើម្បីបានយល់ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of striving to listen to the Dhamma in order to understand — which cetasika is this a characteristic of?',
+    aK: 'ខណៈព្យាយាមស្តាប់ធម៌ ដើម្បីបានយល់ ជាលក្ខណៈរបស់ វីរិយចេតសិក។',
+    aE: 'The moment of striving to listen to the Dhamma in order to understand is a characteristic of the viriya cetasika.',
+  },
+]
+
+const pitiQas = [
+  {
+    qK: 'តើបីតិចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the pīti cetasika mean?',
+    aK: 'បីតិចេតសិក មានន័យថា ធម្មជាតិត្រេកអររីករាយ ស្រស់ស្រាយ។',
+    aE: 'The pīti cetasika means the nature that is delighted, joyful, and refreshed.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ប្រកបជាមួយទោមនស្សវេទនាដែរឬទេ? ហេតុអ្វី?',
+    qE: 'Is the pīti cetasika accompanied by domanassa-vedanā? Why?',
+    aK: 'បីតិចេតសិក មិនប្រកបជាមួយទោមនស្សវេទនាទេ ព្រោះមានលក្ខណៈខុសគ្នា ៖ បីតិ មានការញាំងសម្បយុត្តធម៌ឱ្យរីករាយ ចំណែកទោមនស្សវេទនា មានការសោយអារម្មណ៍មិនជាទីប្រាថ្នា គឺមិនសុខផ្លូវចិត្ត។',
+    aE: 'The pīti cetasika is not accompanied by domanassa-vedanā because their characteristics differ: pīti makes its concomitant dhammas glad, whereas domanassa-vedanā experiences an undesirable object — mental displeasure.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ស្ថិតនៅក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the pīti cetasika belong?',
+    aK: 'បីតិចេតសិក ស្ថិតនៅក្នុងក្រុម អញ្ញសមានាចេតសិក ពួកបកិណ្ណកចេតសិក។',
+    aE: 'The pīti cetasika belongs to the aññasamānā group, the pakiṇṇaka division.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក មានលក្ខណាទិចតុក្កៈដូចម្តេចខ្លះ?',
+    qE: 'What is the fourfold characteristic of the pīti cetasika?',
+    aK: 'បីតិចេតសិក មានលក្ខណាទិចតុក្កៈ ដូចជា ៖ មានការស្រស់ស្រាយ សប្បាយពេញចិត្ត ជាលក្ខណៈ។ មានការធ្វើឱ្យកាយ និង ចិត្តឆ្អែត ជាកិច្ច។ មានការត្រេកអររីករាយ ជាអាការប្រាកដ។ មាននាមខន្ធ ៣ (វេទនាខន្ធ សញ្ញាខន្ធ និង វិញ្ញាណក្ខន្ធ) ដែលនៅសល់ ជាហេតុជិត។',
+    aE: 'The fourfold characteristic of pīti: gladdening and delighting as characteristic; making body and mind full (satiated) as function; delighting (ravishing) as manifestation; the remaining three mental aggregates as proximate cause.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក មានប៉ុន្មានយ៉ាង? អ្វីខ្លះ?',
+    qE: 'How many kinds is the pīti cetasika? Which are they?',
+    aK: 'បីតិចេតសិក មាន ៥ យ៉ាង គឺ ខុទ្ទកាបីតិ (ត្រេកអរតិចៗ ត្រឹមព្រឺរោម ព្រឺស្បែក កើតម្តងម្កាល) ខណិកាបីតិ (ត្រេកអរមួយខណៈៗ ដូចផ្លេកបន្ទោរ) អោក្កន្តិកាបីតិ (ត្រេកអរមួយស្របក់ ដូចទឹករលកបោកខ្ទប់ច្រាំង) ឧប្បេក្កាបីតិ (ត្រេកអរខ្លាំង អាចញាំងកាយឱ្យអណ្តែតឡើង) និង ផរណាបីតិ (ត្រេកអរធ្វើឱ្យផ្សព្វផ្សាយជ្រួតជ្រាបទូទៅក្នុងកាយ ដូចសំឡីជប់ទឹក)។',
+    aE: 'The pīti cetasika has five kinds: khuddakā pīti (slight joy raising the hairs), khaṇikā pīti (momentary joy, like a flash of lightning), okkantikā pīti (showering joy, like waves breaking on the shore), ubbegā pīti (elevating joy, lifting the body upward), and pharaṇā pīti (diffusing joy, pervading the whole body like a filled cotton sponge).',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ចាត់ជាខន្ធអ្វី ក្នុងចំណោមខន្ធទាំង ៥?',
+    qE: 'To which of the five aggregates is the pīti cetasika classed?',
+    aK: 'បីតិចេតសិក ចាត់ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The pīti cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis does the pīti cetasika arise? Which are they?',
+    aK: 'បីតិចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The pīti cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានដួង? ក្នុងចំណោមចិត្ត ១២១ ដួង?',
+    qE: 'In how many of the 121 consciousnesses does the pīti cetasika arise?',
+    aK: 'បីតិចេតសិក កើតក្នុងចិត្តបាន ៥១ ដួង ក្នុងចំណោមចិត្ត ១២១ ដួង។',
+    aE: 'The pīti cetasika arises in 51 of the 121 consciousnesses.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក អាចប្រព្រឹត្តបានទ្វារប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'Through how many doors can the pīti cetasika operate? Which are they?',
+    aK: 'បីតិចេតសិក អាចប្រព្រឹត្តបានទ្វារវិមុត្ត និង ទ្វារទាំង ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The pīti cetasika can operate through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the pīti cetasika know? Which are they?',
+    aK: 'បីតិចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The pīti cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានប្រភេទ? អ្វីខ្លះ?',
+    qE: 'In how many classes of consciousness does the pīti cetasika arise? Which are they?',
+    aK: 'បីតិចេតសិក កើតក្នុងចិត្តបាន ៣ ប្រភេទ តាមសមគួរ គឺ កាមាវចរចិត្ត រូបាវចរចិត្ត និង លោកុត្តរចិត្ត (វៀរអរូបាវចរចិត្ត)។',
+    aE: 'The pīti cetasika arises in three classes as appropriate: sense-sphere, form-sphere, and supramundane (excluding formless-sphere).',
+  },
+  {
+    qK: 'ហេតុអ្វីបានបីតិចេតសិក មិនកើតក្នុងអរូបាវចរចិត្ត?',
+    qE: 'Why does the pīti cetasika not arise in the formless-sphere consciousness?',
+    aK: 'បានជាបីតិចេតសិក មិនកើតក្នុងអរូបាវចរចិត្ត ព្រោះអរូបាវចរចិត្ត ជាបញ្ចមជ្ឈានចិត្ត ប្រកបជាមួយឧបេក្ខាវេទនា ហើយបីតិ មិនអាចកើតរួមគ្នាជាមួយឧបេក្ខាវេទនាបានទេ។',
+    aE: 'The pīti cetasika does not arise in the formless-sphere consciousness because it is fifth-jhāna consciousness accompanied by upekkhā-vedanā, and pīti cannot arise together with upekkhā-vedanā.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក អាស្រ័យវត្ថុណា ក្នុងចំណោមវត្ថុទាំង ៦? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon which of the six bases does the pīti cetasika depend? And which in the four-aggregate plane?',
+    aK: 'បីតិចេតសិក អាស្រ័យហទយវត្ថុ ក្នុងចំណោមវត្ថុទាំង ៦ ក្នុងភូមិដែលមានខន្ធ ៥ (បញ្ចវោការភូមិ)។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The pīti cetasika depends upon the heart-base, among the six bases, in the five-aggregate plane; and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ជា ហេតុ ឬ នហេតុ?',
+    qE: 'Is the pīti cetasika a hetu or a na-hetu?',
+    aK: 'បីតិចេតសិក ជា នហេតុ។',
+    aE: 'The pīti cetasika is a na-hetu.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត?',
+    qE: 'Does the pīti cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'បីតិចេតសិក កើតក្នុងអសោភណចិត្តតាមសមគួរផង និង សោភណចិត្តតាមសមគួរផង។',
+    aE: 'The pīti cetasika arises in non-beautiful consciousness as appropriate and in beautiful consciousness as appropriate.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត?',
+    qE: 'Does the pīti cetasika arise in worldly or supramundane consciousness?',
+    aK: 'បីតិចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរផង និង លោកុត្តរចិត្តតាមសមគួរផង។',
+    aE: 'The pīti cetasika arises in worldly consciousness as appropriate and in supramundane consciousness as appropriate.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក កើតក្នុងភូមិសត្វប៉ុន្មានភូមិ? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of beings does the pīti cetasika arise? Which are they?',
+    aK: 'បីតិចេតសិក កើតក្នុងភូមិសត្វ ៣០ ភូមិ គឺ អបាយភូមិ ៤ មនុស្ស ១ ទេវតា ៦ រូបភូមិ ១៥ (វៀរអសញ្ញីសត្តាភូមិ) និង អរូបភូមិ ៤។',
+    aE: 'The pīti cetasika arises in thirty planes of beings: four woeful, one human, six celestial, fifteen form-sphere (excluding the asaññasatta plane), and four formless.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ជានាមធម៌ ឬ រូបធម៌?',
+    qE: 'Is the pīti cetasika a nāma-dhamma or a rūpa-dhamma?',
+    aK: 'បីតិចេតសិក ជា នាមធម៌។',
+    aE: 'The pīti cetasika is a nāma-dhamma.',
+  },
+  {
+    qK: 'តើបីតិចេតសិក ចាត់ជាបរមត្ថធម៌ណា ក្នុងចំណោមបរមត្ថធម៌ ៤?',
+    qE: 'As which paramattha-dhamma, among the four, is the pīti cetasika classed?',
+    aK: 'បីតិចេតសិក ចាត់ជា ចេតសិកបរមត្ថ ក្នុងចំណោមបរមត្ថធម៌ ៤។',
+    aE: 'The pīti cetasika is classed as a cetasika paramattha, among the four paramattha-dhammas.',
+  },
+  {
+    qK: 'ខណៈត្រេកអរក្នុងការរៀនពូកែ តើការត្រេកអរនេះ ជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of delight in learning well — which cetasika is this delight a characteristic of?',
+    aK: 'ខណៈត្រេកអរក្នុងការរៀនពូកែ ជាលក្ខណៈរបស់ បីតិចេតសិក។',
+    aE: 'The moment of delight in learning well is a characteristic of the pīti cetasika.',
+  },
+  {
+    qK: 'ខណៈត្រេកអរក្នុងការឱ្យទានដល់ព្រះសង្ឃ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of delight in giving alms to the Saṅgha — which cetasika is this a characteristic of?',
+    aK: 'ខណៈត្រេកអរក្នុងការឱ្យទានដល់ព្រះសង្ឃ ជាលក្ខណៈរបស់ បីតិចេតសិក។',
+    aE: 'The moment of delight in giving alms to the Saṅgha is a characteristic of the pīti cetasika.',
+  },
+  {
+    qK: 'ខណៈត្រេកអរក្នុងការជាសះស្បើយពីជំងឺ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of delight in recovering from illness — which cetasika is this a characteristic of?',
+    aK: 'ខណៈត្រេកអរក្នុងការជាសះស្បើយពីជំងឺ ជាលក្ខណៈរបស់ បីតិចេតសិក។',
+    aE: 'The moment of delight in recovering from illness is a characteristic of the pīti cetasika.',
+  },
+  {
+    qK: 'ខណៈត្រេកអរព្រោះជិតបានចូលរួមក្នុងពិធីឆ្លងបទុមចេតិយ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of delight at soon attending the Paduma-cetiya consecration — which cetasika is this a characteristic of?',
+    aK: 'ខណៈត្រេកអរព្រោះជិតបានចូលរួមក្នុងពិធីបុណ្យឆ្លងបទុមចេតិយ ជាលក្ខណៈរបស់ បីតិចេតសិក។',
+    aE: 'The moment of delight at soon attending the Paduma-cetiya consecration festival is a characteristic of the pīti cetasika.',
+  },
+]
+
+const chandaQas = [
+  {
+    qK: 'តើឆន្ទៈចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the chanda cetasika mean?',
+    aK: 'ឆន្ទៈចេតសិក មានន័យថា សេចក្តីពេញចិត្ត ឬ ការប្រាថ្នាដើម្បីធ្វើ។',
+    aE: 'The chanda cetasika means satisfaction or the desire to act.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the chanda cetasika arise?',
+    aK: 'ឆន្ទៈចេតសិក កើតក្នុងចិត្តបាន ៦៩ ដួង ឬ ១០១ ដួង។',
+    aE: 'The chanda cetasika arises in 69 (or 101) consciousnesses.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក មិនកើតក្នុងចិត្តប៉ុន្មានដួង? ដួងណាខ្លះ?',
+    qE: 'In how many consciousnesses does the chanda cetasika not arise? Which are they?',
+    aK: 'ឆន្ទៈចេតសិក មិនកើតក្នុងចិត្ត ២០ ដួង គឺ មោហមូលចិត្ត ២ ដួង និង អហេតុកចិត្ត ១៨ ដួង។',
+    aE: 'The chanda cetasika does not arise in 20 consciousnesses: the two moha-mūla and the eighteen ahetuka consciousnesses.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ចាត់ជាខន្ធអ្វី ក្នុងចំណោមខន្ធ ៥?',
+    qE: 'To which of the five aggregates is the chanda cetasika classed?',
+    aK: 'ឆន្ទៈចេតសិក ចាត់ជា សង្ខារក្ខន្ធ ក្នុងចំណោមខន្ធទាំង ៥។',
+    aE: 'The chanda cetasika is classed as the saṅkhāra-khandha, among the five aggregates.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? ជាតិអ្វីខ្លះ?',
+    qE: 'In how many jātis does the chanda cetasika arise? Which are they?',
+    aK: 'ឆន្ទៈចេតសិក កើតក្នុងចិត្តបាន ៤ ជាតិ គឺ អកុសលជាតិ កុសលជាតិ វិបាកជាតិ និង កិរិយាជាតិ។',
+    aE: 'The chanda cetasika arises in four jātis: unwholesome, wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ប្រព្រឹត្តតាមទ្វារប៉ុន្មាន? ទ្វារអ្វីខ្លះ?',
+    qE: 'Through how many doors does the chanda cetasika operate? Which doors are they?',
+    aK: 'ឆន្ទៈចេតសិក ប្រព្រឹត្តតាមទ្វារវិមុត្ត និង ទ្វារ ៦ គឺ ចក្ខុទ្វារ សោតទ្វារ ឃានទ្វារ ជីវ្ហាទ្វារ កាយទ្វារ មនោទ្វារ។',
+    aE: 'The chanda cetasika operates through the door-free and the six doors: eye, ear, nose, tongue, body, and mind.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ដឹងអារម្មណ៍បានប៉ុន្មាន? អ្វីខ្លះ?',
+    qE: 'How many objects can the chanda cetasika know? Which are they?',
+    aK: 'ឆន្ទៈចេតសិក ដឹងអារម្មណ៍បាន ៦ គឺ រូបារម្មណ៍ សទ្ទារម្មណ៍ គន្ធារម្មណ៍ រសារម្មណ៍ ផោដ្ឋព្វារម្មណ៍ និង ធម្មារម្មណ៍។',
+    aE: 'The chanda cetasika can know six objects: visible, sound, odour, taste, tangible, and mental object.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក អាស្រ័យវត្ថុណា ក្នុងចំណោមវត្ថុទាំង ៦ ក្នុងបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណា នៅចតុវោការភូមិ?',
+    qE: 'Upon which of the six bases does the chanda cetasika depend in the five-aggregate plane? And which in the four-aggregate plane?',
+    aK: 'ឆន្ទៈចេតសិក អាស្រ័យហទយវត្ថុ នៅក្នុងបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The chanda cetasika depends upon the heart-base in the five-aggregate plane, and does not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានភូមិចិត្ត? ភូមិណាខ្លះ?',
+    qE: 'In how many planes of consciousness does the chanda cetasika arise? Which are they?',
+    aK: 'ឆន្ទៈចេតសិក កើតក្នុងចិត្តបាន ៤ ភូមិចិត្ត គឺ កាមាវចរភូមិតាមសមគួរ រូបាវចរភូមិ អរូបាវចរភូមិ និង លោកុត្តរភូមិ។',
+    aE: 'The chanda cetasika arises in four planes of consciousness: sense-sphere as appropriate, form-sphere, formless-sphere, and supramundane.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក កើតក្នុងអសោភណចិត្ត ឬ សោភណចិត្ត?',
+    qE: 'Does the chanda cetasika arise in non-beautiful or beautiful consciousness?',
+    aK: 'ឆន្ទៈចេតសិក កើតក្នុងអសោភណចិត្តតាមសមគួរផង និង សោភណចិត្តផង។',
+    aE: 'The chanda cetasika arises in non-beautiful consciousness as appropriate and in beautiful consciousness.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ជាហេតុ ឬ នហេតុ?',
+    qE: 'Is the chanda cetasika a hetu or a na-hetu?',
+    aK: 'ឆន្ទៈចេតសិក ជា នហេតុ (មិនមែនហេតុ)។',
+    aE: 'The chanda cetasika is a na-hetu (not a hetu).',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក កើតក្នុងលោកិយចិត្ត ឬ លោកុត្តរចិត្ត?',
+    qE: 'Does the chanda cetasika arise in worldly or supramundane consciousness?',
+    aK: 'ឆន្ទៈចេតសិក កើតក្នុងលោកិយចិត្តតាមសមគួរផង និង លោកុត្តរចិត្តផង។',
+    aE: 'The chanda cetasika arises in worldly consciousness as appropriate and in supramundane consciousness.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក មានលក្ខណៈដូចម្តេចខ្លះ?',
+    qE: 'What is the characteristic of the chanda cetasika?',
+    aK: 'ឆន្ទៈចេតសិក មានការប្រាថ្នាដើម្បីធ្វើ ជាលក្ខណៈ។',
+    aE: 'The chanda cetasika has the desire to act as its characteristic.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក មានកិច្ចដូចម្តេចខ្លះ?',
+    qE: 'What is the function of the chanda cetasika?',
+    aK: 'ឆន្ទៈចេតសិក មានការស្វែងរកអារម្មណ៍ ជាកិច្ច។',
+    aE: 'The chanda cetasika has the function of searching for the object.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក មានអាការប្រាកដដូចម្តេចខ្លះ?',
+    qE: 'What is the manifestation of the chanda cetasika?',
+    aK: 'ឆន្ទៈចេតសិក មានសេចក្តីប្រាថ្នា ត្រូវការអារម្មណ៍ ជាអាការប្រាកដ។',
+    aE: 'The chanda cetasika has the desire and need for the object as its manifestation.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក មានហេតុជិតដូចម្តេចខ្លះ?',
+    qE: 'What is the proximate cause of the chanda cetasika?',
+    aK: 'ឆន្ទៈចេតសិក មាន អារម្មណ៍ ជាហេតុជិត។',
+    aE: 'The chanda cetasika has the object as its proximate cause.',
+  },
+  {
+    qK: 'តើការពេញចិត្តក្នុងរូប សំឡេង ក្លិន រស ផោដ្ឋព្វៈ ចាត់ជាឆន្ទៈចេតសិកដែរឬទេ?',
+    qE: 'Is satisfaction in visible form, sound, odour, taste, and tangible objects classed as the chanda cetasika?',
+    aK: 'ការពេញចិត្តក្នុងរូប សំឡេង ក្លិន រស ផោដ្ឋព្វៈ ចាត់ជា ឆន្ទៈចេតសិក។',
+    aE: 'Satisfaction in visible form, sound, odour, taste, and tangible objects is classed as the chanda cetasika.',
+  },
+  {
+    qK: 'តើការជាប់ជំពាក់នឹងអារម្មណ៍ ជាឆន្ទៈចេតសិកដែរឬទេ?',
+    qE: 'Is attachment to the object the chanda cetasika as well?',
+    aK: 'ការជាប់ជំពាក់នឹងអារម្មណ៍ មិនមែនជាឆន្ទៈចេតសិកទេ គឺជា លោភចេតសិក។',
+    aE: 'Attachment to the object is not the chanda cetasika, but the lobha (greed) cetasika.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and division does the chanda cetasika belong?',
+    aK: 'ឆន្ទៈចេតសិក ស្ថិតក្នុងក្រុម អញ្ញសមានាចេតសិក ពួកបកិណ្ណកចេតសិក។',
+    aE: 'The chanda cetasika belongs to the aññasamānā group, the pakiṇṇaka division.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ជានាមធម៌ ឬ រូបធម៌?',
+    qE: 'Is the chanda cetasika a nāma-dhamma or a rūpa-dhamma?',
+    aK: 'ឆន្ទៈចេតសិក ជា នាមធម៌។',
+    aE: 'The chanda cetasika is a nāma-dhamma.',
+  },
+  {
+    qK: 'តើឆន្ទៈចេតសិក ចាត់ជាបរមត្ថធម៌ណា ក្នុងចំណោមបរមត្ថធម៌ ៤?',
+    qE: 'As which paramattha-dhamma, among the four, is the chanda cetasika classed?',
+    aK: 'ឆន្ទៈចេតសិក ចាត់ជា ចេតសិកបរមត្ថ ក្នុងចំណោមបរមត្ថធម៌ ៤។',
+    aE: 'The chanda cetasika is classed as a cetasika paramattha, among the four paramattha-dhammas.',
+  },
+  {
+    qK: 'ខណៈពេញចិត្តក្នុងរូបស្អាត តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of satisfaction in a beautiful visible form — which cetasika is this a characteristic of?',
+    aK: 'ខណៈពេញចិត្តក្នុងរូបស្អាត ជាលក្ខណៈរបស់ ឆន្ទៈចេតសិក។',
+    aE: 'The moment of satisfaction in a beautiful visible form is a characteristic of the chanda cetasika.',
+  },
+  {
+    qK: 'ខណៈពេញចិត្តក្នុងការសម្លាប់សត្វ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of satisfaction in killing an animal — which cetasika is this a characteristic of?',
+    aK: 'ខណៈពេញចិត្តក្នុងការសម្លាប់សត្វ ជាលក្ខណៈរបស់ ឆន្ទៈចេតសិក។',
+    aE: 'The moment of satisfaction in killing an animal is a characteristic of the chanda cetasika.',
+  },
+  {
+    qK: 'ខណៈពេញចិត្តក្នុងការសិក្សាព្រះធម៌ តើជាលក្ខណៈរបស់ចេតសិកណា?',
+    qE: 'The moment of satisfaction in studying the Dhamma — which cetasika is this a characteristic of?',
+    aK: 'ខណៈពេញចិត្តក្នុងការសិក្សាព្រះធម៌ ជាលក្ខណៈរបស់ ឆន្ទៈចេតសិក។',
+    aE: 'The moment of satisfaction in studying the Dhamma is a characteristic of the chanda cetasika.',
   },
 ]
 

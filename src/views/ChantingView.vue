@@ -41,7 +41,6 @@
 
         <div class="mt-6">
           <div class="flex items-center justify-end gap-2 mb-2">
-            <PlayButton :text="c.roman" lang="pi" />
             <CopyButton :text="chantTexts[i]" />
           </div>
           <div class="verse-box p-4 md:p-5">
@@ -73,7 +72,6 @@ import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import CopyButton from '../components/CopyButton.vue'
-import PlayButton from '../components/PlayButton.vue'
 const { t } = useLanguage()
 const route = useRoute()
 const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx

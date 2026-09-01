@@ -32,7 +32,6 @@
               <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(g.noteK, g.noteE) }}</p>
             </div>
             <div class="flex items-center gap-2 mt-1 flex-none">
-              <PlayButton :text="g.roman" lang="pi" />
               <CopyButton :text="verseTexts[i]" />
               <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
             </div>
@@ -66,7 +65,6 @@ import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import CopyButton from '../components/CopyButton.vue'
-import PlayButton from '../components/PlayButton.vue'
 const { t } = useLanguage()
 const route = useRoute()
 const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx

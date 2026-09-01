@@ -152,6 +152,7 @@
         <span class="update-toast-txt">
           <span class="update-toast-title">{{ t('បានធ្វើបច្ចុប្បន្នភាព ថ្មី', 'A new version is ready') }}</span>
           <span class="update-toast-sub">{{ t('ចុចដើម្បីធ្វើបច្ចុប្បន្នភាព', 'Tap to update now') }}</span>
+          <span v-if="latestNote" class="update-toast-note">{{ t('អ្វីថ្មីៗ៖ ', 'What\'s new: ') }}{{ t(latestNote.km, latestNote.en) }}</span>
         </span>
         <button class="update-toast-btn" @click="reload">{{ t('ធ្វើបច្ចុប្បន្នភាព', 'Refresh') }}</button>
       </div>
@@ -320,7 +321,7 @@ function onNavigationDone() {
 router.afterEach(onNavigationDone)
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
-const { needRefresh, reload } = usePwaUpdate()
+const { needRefresh, reload, latestNote } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
 const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif, refresh: refreshNotif } = useNotifications(ONESIGNAL_APP_ID)
 

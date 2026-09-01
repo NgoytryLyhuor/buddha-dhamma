@@ -310,7 +310,7 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .font-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .font-btn:disabled { opacity: 0.35; cursor: default; }
 
-.settings-panel { position: absolute; right: 0; top: 10px; width: min(300px, calc(100vw - 2rem)); z-index: 60; padding: 18px 18px 16px; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-card); box-shadow: var(--shadow); }
+.settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: min(300px, calc(100vw - 2rem)); z-index: 60; padding: 18px 18px 16px; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-card); box-shadow: var(--shadow); max-height: calc(100vh - 120px); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 @media (max-width: 640px) { .settings-panel { right: 0; left: auto; } }
 .settings-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
 .lang-pick { flex: 1; padding: 9px 8px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-muted); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }

@@ -547,7 +547,7 @@ onBeforeUnmount(() => {
   if (installTimer) clearTimeout(installTimer)
 })
 
-watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false })
+watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false; if (hasError.value) hasError.value = false })
 
 const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
 const descrMap = {

@@ -661,6 +661,126 @@
         </div>
       </details>
     </div>
+
+    <!-- ===== Section 27: ឯកគ្គតា លក្ខណាទិចតុក្កៈ ===== -->
+    <h2 v-if="!searching || filteredEkaggataLakkhana.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ឯកគ្គតា លក្ខណាទិចតុក្កៈ', 'Ekaggatā Lakkhana-ādi-catukka') }}
+    </h2>
+    <div v-if="!searching || filteredEkaggataLakkhana.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredEkaggataLakkhana" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 28: ឯកគ្គតា តួនាទីឧទាហរណ៍ ===== -->
+    <h2 v-if="!searching || filteredEkaggataKicca.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ឯកគ្គតា តួនាទីឧទាហរណ៍', 'Ekaggatā Kicca (Function) Examples') }}
+    </h2>
+    <div v-if="!searching || filteredEkaggataKicca.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredEkaggataKicca" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 29: ជីវិតិន្រ្ទិយ លក្ខណាទិចតុក្កៈ ===== -->
+    <h2 v-if="!searching || filteredJiviLakkhana.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ជីវិតិន្រ្ទិយ លក្ខណាទិចតុក្កៈ', 'Jīvitindriya Lakkhana-ādi-catukka') }}
+    </h2>
+    <div v-if="!searching || filteredJiviLakkhana.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredJiviLakkhana" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 30: ជីវិតិន្រ្ទិយ តួនាទីឧទាហរណ៍ ===== -->
+    <h2 v-if="!searching || filteredJiviKicca.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ជីវិតិន្រ្ទិយ តួនាទីឧទាហរណ៍', 'Jīvitindriya Kicca (Function) Examples') }}
+    </h2>
+    <div v-if="!searching || filteredJiviKicca.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredJiviKicca" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- ===== Section 31: ហិរិ និង ឱត្តប្ប ===== -->
+    <h2 v-if="!searching || filteredHiriOttappa.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+      {{ t('ហិរិ និង ឱត្តប្ប', 'Hiri and Ottappa') }}
+    </h2>
+    <div v-if="!searching || filteredHiriOttappa.length" class="mt-6 space-y-4">
+      <details v-for="(item, i) in filteredHiriOttappa" :key="item.num" class="card-paper p-6 md:p-8">
+        <summary class="select-none">
+          <div class="flex items-start justify-between gap-3 flex-wrap">
+            <h3 class="font-display text-lg md:text-xl leading-snug min-w-0" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num mr-2 align-middle" :style="{ color: 'var(--accent-bright)' }">{{ khNum(item.num) }}</span>
+              {{ t(item.qa.qK, item.qa.qE) }}
+            </h3>
+            <span class="caret shrink-0 mt-1" :style="{ color: 'var(--accent-bright)' }">&#9660;</span>
+          </div>
+        </summary>
+        <div class="mt-5">
+          <div class="mt-2 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+            <p class="text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--accent)' }">{{ t('ចម្លើយ', 'THE ANSWER') }}</p>
+            <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ t(item.qa.aK, item.qa.aE) }}</p>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 </template>
 
@@ -698,7 +818,8 @@ const libLen = () =>
   sabbaByBhumiQas.length + sabbaByVatthuQas.length + sabbaByHetuQas.length +
   sabbaBySobhanaQas.length + sabbaByLokaQas.length + vitakkaQas.length +
   vicaraQas.length + adhimokkhaQas.length + viriyaQas.length + pitiQas.length + chandaQas.length +
-  akusalaQas.length + mohaQas.length + ahirikaQas.length
+  akusalaQas.length + mohaQas.length + ahirikaQas.length + ekaggataLakkhanaQas.length +
+  ekaggataKiccaQas.length + jiviLakkhanaQas.length + jiviKiccaQas.length + hiriOttappaQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
 const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
@@ -725,7 +846,12 @@ const filteredPiti = computed(() => indexed(pitiQas, libLen() - pitiQas.length -
 const filteredChanda = computed(() => indexed(chandaQas, libLen() - chandaQas.length - akusalaQas.length - mohaQas.length - ahirikaQas.length))
 const filteredAkusala = computed(() => indexed(akusalaQas, libLen() - akusalaQas.length - mohaQas.length - ahirikaQas.length))
 const filteredMoha = computed(() => indexed(mohaQas, libLen() - mohaQas.length - ahirikaQas.length))
-const filteredAhirika = computed(() => indexed(ahirikaQas, libLen() - ahirikaQas.length))
+const filteredAhirika = computed(() => indexed(ahirikaQas, libLen() - ahirikaQas.length - ekaggataLakkhanaQas.length - ekaggataKiccaQas.length - jiviLakkhanaQas.length - jiviKiccaQas.length - hiriOttappaQas.length))
+const filteredEkaggataLakkhana = computed(() => indexed(ekaggataLakkhanaQas, libLen() - ekaggataLakkhanaQas.length - ekaggataKiccaQas.length - jiviLakkhanaQas.length - jiviKiccaQas.length - hiriOttappaQas.length))
+const filteredEkaggataKicca = computed(() => indexed(ekaggataKiccaQas, libLen() - ekaggataKiccaQas.length - jiviLakkhanaQas.length - jiviKiccaQas.length - hiriOttappaQas.length))
+const filteredJiviLakkhana = computed(() => indexed(jiviLakkhanaQas, libLen() - jiviLakkhanaQas.length - jiviKiccaQas.length - hiriOttappaQas.length))
+const filteredJiviKicca = computed(() => indexed(jiviKiccaQas, libLen() - jiviKiccaQas.length - hiriOttappaQas.length))
+const filteredHiriOttappa = computed(() => indexed(hiriOttappaQas, libLen() - hiriOttappaQas.length))
 
 const baseOffset = () =>
   introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length +
@@ -748,7 +874,9 @@ const totalMatches = computed(() =>
   filteredSabbaByHetu.value.length + filteredSabbaBySobhana.value.length + filteredSabbaByLoka.value.length +
   filteredVitakka.value.length + filteredVicara.value.length + filteredAdhimokkha.value.length +
   filteredViriya.value.length + filteredPiti.value.length + filteredChanda.value.length +
-  filteredAkusala.value.length + filteredMoha.value.length + filteredAhirika.value.length
+  filteredAkusala.value.length + filteredMoha.value.length + filteredAhirika.value.length +
+  filteredEkaggataLakkhana.value.length + filteredEkaggataKicca.value.length + filteredJiviLakkhana.value.length +
+  filteredJiviKicca.value.length + filteredHiriOttappa.value.length
 )
 const searching = computed(() => search.value.trim().length > 0)
 
@@ -3797,6 +3925,261 @@ const ahirikaQas = [
     qE: 'When there is the intention to steal another wealth and no shame for this evil deed — which cetasika is this a characteristic of?',
     aK: 'ខណៈមានចេតនាលួចទ្រព្យគេ ហើយក៏មិនខ្មាសចំពោះអំពើទុច្ចរិតនេះ នេះជាលក្ខណៈរបស់ អហិរិកចេតសិក។',
     aE: 'When there is the intention to steal another wealth and no shame for this evil deed, it is a characteristic of the ahirika cetasika.',
+  },
+]
+
+const ekaggataLakkhanaQas = [
+  {
+    qK: 'តើលក្ខណាទិចតុក្កៈរបស់ឯកគ្គតាចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the lakkhana-ādi-catukka of the ekaggatā cetasika mean?',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ឯកគ្គតាចេតសិក មានន័យថា ពួកធម៌ ៤ យ៉ាង ដែលមានលក្ខណៈជាដើម សម្រាប់សម្គាល់ឯកគ្គតាចេតសិក។',
+    aE: 'The lakkhana-ādi-catukka of the ekaggatā cetasika means the group of four dhammas, beginning with the characteristic, by which the ekaggatā cetasika is distinguished.',
+  },
+  {
+    qK: 'តើអវិក្ខេបលក្ខណា មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does avikkhepa-lakkhaṇa (the characteristic of non-scattering) mean? Explain.',
+    aK: 'អវិក្ខេបលក្ខណា មានន័យថា មានការមិនរវើរវាយ ជាលក្ខណៈ។ ពន្យល់៖ គ្រឿងសម្គាល់ឯកគ្គតាចេតសិក គឺមិនរវើរវាយក្នុងអារម្មណ៍ ឬ មានការផ្ចង់ក្នុងអារម្មណ៍។ ឧទាហរណ៍ ការទន្ទេញមេរៀនក្តី ការដាក់ចិត្តសិក្សាឱ្យចេះចាំមេរៀនក្តី តែងមានធម្មជាតិមួយនាំចិត្តឱ្យផ្ចង់ក្នុងការសិក្សា គឺឯកគ្គតាចេតសិក។ ហើយក្នុងការផ្ចង់នេះ ទោះចិត្តដឹងអារម្មណ៍តែមួយ ឬ ច្រើនក្តី ក៏ឯកគ្គតា នៅតែមានតួនាទីធ្វើឱ្យចិត្តមិនរវើរវាយដែរ។',
+    aE: 'Avikkhepa-lakkhaṇa means having non-scattering (undistractedness) as its characteristic. Explanation: the distinguishing mark of the ekaggatā cetasika is not being distracted in the object, or having composure (one-pointedness) in the object. For example, memorising a lesson or concentrating one mind to learn and remember a lesson always has a nature that leads the mind to focus on the study — that is the ekaggatā cetasika. And in this focusing, whether the mind knows one object or many, ekaggatā still has the role of keeping the mind from scattering.',
+  },
+  {
+    qK: 'តើសហជាតានំ សម្បិណ្ឌនរសា មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does sahajātānaṃ sampinādana-rasā (the function of gathering the co-arisen) mean? Explain.',
+    aK: 'សហជាតានំ សម្បិណ្ឌនរសា មានន័យថា មានការប្រមូលសហជាតធម៌មក ជាកិច្ច។ ពន្យល់៖ ឯកគ្គតាចេតសិក ជាធម្មជាតិស្ងប់ ដូច្នេះពេលកើតក្នុងសម្បយុត្តធម៌ តែងមានតួនាទីប្រមូលចិត្ត និងចេតសិកដែលធ្វើការជាមួយខ្លួនមក ដើម្បីឱ្យមានការផ្ចង់ដូចខ្លួនដែរ។',
+    aE: 'Sahajātānaṃ sampinādana-rasā means having the gathering together of the co-arisen (sahajāta) dhammas as its function. Explanation: the ekaggatā cetasika is a peaceful nature, so when it arises among the associated dhammas it always has the role of gathering the consciousness and cetasikas that work with it, so that they too become composed, just as itself.',
+  },
+  {
+    qK: 'ឧបសមបច្ចុប្បដ្ឋានា មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does upasama-paccupaṭṭhānā (the manifestation of peace) mean? Explain.',
+    aK: 'ឧបសមបច្ចុប្បដ្ឋានា មានន័យថា មានការចូលទៅស្ងប់ ជាអាការៈប្រាកដ។ ពន្យល់៖ យើងអាចស្គាល់ឯកគ្គតាកាន់តែច្បាស់ ពេលដែលចិត្ត និងចេតសិកទាំងអស់ដែលធ្វើការជាមួយឯកគ្គតា មានការស្ងប់ ឬមិនរវើរវាយ។ ដូច្នេះមានន័យថា ខណៈណាដែលចិត្ត និងចេតសិកស្ងប់ ជាពេលដែលឯកគ្គតាចេតសិកកំពុងប្រាកដឡើង។',
+    aE: 'Upasama-paccupaṭṭhānā means having the entering into peace (calm) as manifestation. Explanation: we can know ekaggatā more clearly when all the consciousnesses and cetasikas that work together with ekaggatā are calm or not scattered. So it means: whenever the consciousness and cetasikas are calm, that is the time the ekaggatā cetasika is manifesting.',
+  },
+  {
+    qK: 'តើសុខបទដ្ឋានា មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does sukha-padaṭṭhānā (the proximate cause of pleasant feeling) mean? Explain.',
+    aK: 'សុខបទដ្ឋានា មានន័យថា មានសុខវេទនា ជាហេតុជិត។ ពន្យល់៖ ឯកគ្គតាដែលកើតគ្រប់ខណៈចិត្ត ហើយមានអារម្មណ៍តែមួយ បានច្រើន ឬយូរៗ នោះ គឺទាល់តែកាយស្រួល (ឥរិយាបថធំតូច ដេក ដើរ ឈរ អង្គុយ រៀបរយល្អ) និងរួមផ្សំចិត្តក៏មិនកញ្ច្រោលផងនោះ ទើបទាំងសុខកាយ និងសុខចិត្តនេះ អាចឱ្យឯកគ្គតាកើតបានល្អ និងមានកម្លាំងខ្លាំង អាចដឹងអារម្មណ៍តែមួយបានយូរៗ ដែលយើងនិយមហៅថា សមាធិ ឬសមថ។',
+    aE: 'Sukha-padaṭṭhānā means having pleasant feeling (sukha-vedanā) as its proximate cause. Explanation: for ekaggatā, which arises in every moment of consciousness, to know one object for a long time, the body must be at ease (the postures — lying, walking, standing, sitting — arranged well) and the mind also unagitated; only then do both bodily ease and mental ease allow ekaggatā to arise well and with strong power, able to know one object for a long time — which we commonly call samādhi or samatha.',
+  },
+]
+
+const ekaggataKiccaQas = [
+  {
+    qK: 'ខណៈផ្ចង់ចិត្តដើម្បីសរសេរអក្សរឱ្យស្អាត តើការផ្ចង់ចិត្តនេះ ជាតួនាទីចេតសិកណា?',
+    qE: 'When focusing the mind to write letters neatly — which cetasika is this focus the function of?',
+    aK: 'ខណៈផ្ចង់ចិត្តដើម្បីសរសេរអក្សរឱ្យស្អាត ការផ្ចង់ចិត្តនេះ ជាតួនាទីរបស់ ឯកគ្គតាចេតសិក។',
+    aE: 'When focusing the mind to write letters neatly, this focus is the function of the ekaggatā cetasika.',
+  },
+  {
+    qK: 'ខណៈផ្ចង់ចិត្តដើម្បីហាន់ស្លឹកគ្រៃឱ្យល្អិតៗល្អ តើការផ្ចង់ចិត្តនេះ ជាតួនាទីចេតសិកណា?',
+    qE: 'When focusing the mind to chop lemongrass finely — which cetasika is this focus the function of?',
+    aK: 'ខណៈផ្ចង់ចិត្តដើម្បីហាន់ស្លឹកគ្រៃឱ្យល្អិតៗល្អ ការផ្ចង់ចិត្តនេះ ជាតួនាទីរបស់ ឯកគ្គតាចេតសិក។',
+    aE: 'When focusing the mind to chop lemongrass finely, this focus is the function of the ekaggatā cetasika.',
+  },
+  {
+    qK: 'ខណៈផ្ចង់ចិត្តដើម្បីដោតអំបោះចូលគូថម្ជុល តើខណៈផ្ចង់ចិត្តនេះ ជាតួនាទីចេតសិកណា?',
+    qE: 'When focusing the mind to thread a needle — which cetasika is this focus the function of?',
+    aK: 'ខណៈផ្ចង់ចិត្តដើម្បីដោតអំបោះចូលគូថម្ជុល ខណៈផ្ចង់ចិត្តនេះ ជាតួនាទីរបស់ ឯកគ្គតាចេតសិក។',
+    aE: 'When focusing the mind to thread a needle, this focus is the function of the ekaggatā cetasika.',
+  },
+  {
+    qK: 'ខណៈផ្ចង់ចិត្តក្នុងការដើរថ្នមៗ ខ្លាចភ្ញាក់ក្មេងៗពេលយប់ តើការផ្ចង់ចិត្តនេះ ជាតួនាទីចេតសិកណា?',
+    qE: 'When focusing the mind to walk gently at night, afraid of waking the children — which cetasika is this focus the function of?',
+    aK: 'ខណៈផ្ចង់ចិត្តក្នុងការដើរថ្នមៗ ខ្លាចភ្ញាក់ក្មេងៗពេលយប់ ការផ្ចង់ចិត្តនេះ ជាតួនាទីរបស់ ឯកគ្គតាចេតសិក។',
+    aE: 'When focusing the mind to walk gently at night, afraid of waking the children, this focus is the function of the ekaggatā cetasika.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍អំពីឯកគ្គតាចេតសិក ឱ្យបាន ៥?',
+    qE: 'Give five examples of the ekaggatā cetasika.',
+    aK: 'ឧទាហរណ៍ ឯកគ្គតាចេតសិក ដែលកើតក្នុងជីវិតប្រចាំថ្ងៃ ៖ ១) ផ្ចង់ចិត្តក្នុងការរាប់លុយមួយសន្លឹកៗ ២) ផ្ចង់ចិត្តក្នុងការស្តាប់ធម៌ ៣) ផ្ចង់ចិត្តក្នុងការស្តាប់ខ្យល់ដង្ហើមចេញវែង ៤) ផ្ចង់ចិត្តក្នុងការពិចារណាពីសត្វលោកមានទុក្ខ ៥) ផ្ចង់ចិត្តក្នុងការស្លៀកសម្លៀកបំពាក់។',
+    aE: 'Examples of the ekaggatā cetasika arising in daily life: (1) focusing the mind in counting money note by note; (2) focusing the mind in listening to the Dhamma; (3) focusing the mind in listening to the long out-breath; (4) focusing the mind in contemplating that beings are subject to suffering; (5) focusing the mind in wearing clothes.',
+  },
+]
+
+const jiviLakkhanaQas = [
+  {
+    qK: 'តើលក្ខណាទិចតុក្កៈរបស់ជីវិតន្រ្ទិយចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the lakkhana-ādi-catukka of the jīvitindriya cetasika mean?',
+    aK: 'លក្ខណាទិចតុក្កៈរបស់ជីវិតិន្រ្ទិយចេតសិក មានន័យថា ពួកធម៌ ៤ យ៉ាង ដែលមានលក្ខណៈជាដើម សម្រាប់សម្គាល់ជីវិតិន្រ្ទិយចេតសិក។',
+    aE: 'The lakkhana-ādi-catukka of the jīvitindriya cetasika means the group of four dhammas, beginning with the characteristic, by which the jīvitindriya cetasika is distinguished.',
+  },
+  {
+    qK: 'តើសហជាតានំ អនុបាលនលក្ខណំ មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does sahajātānaṃ anupālana-lakkhaṇaṃ (the characteristic of maintaining the co-arisen) mean? Explain.',
+    aK: 'សហជាតានំ អនុបាលនលក្ខណំ មានន័យថា មានការតាមរក្សាសហជាតធម៌ ជាលក្ខណៈ (ប្រៀបដូចទឹក រក្សាផ្កាឈូកជាដើម)។ ពន្យល់៖ ធម៌សម្គាល់ជីវិតិន្រ្ទិយចេតសិក គឺតាមថែរក្សាធម៌ដែលធ្វើការជាមួយខ្លួន មានចិត្ត និងចេតសិក ជាដើម ប្រៀបដូចឪពុកម្តាយ តាមថែរក្សាកូនៗដូច្នោះដែរ។',
+    aE: 'Sahajātānaṃ anupālana-lakkhaṇaṃ means having the maintaining of the co-arisen dhammas as its characteristic (like water keeping the lotus flowers alive). Explanation: the distinguishing mark of the jīvitindriya cetasika is looking after the dhammas that work with it, such as the consciousness and cetasikas, just as parents look after their children.',
+  },
+  {
+    qK: 'តើតេសំ បវត្តនរសំ មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does tesaṃ pavattana-rasaṃ (the function of keeping them occurring) mean? Explain.',
+    aK: 'តេសំ បវត្តនរសំ មានន័យថា មានការញាំងសម្បយុត្តធម៌ឱ្យប្រព្រឹត្តទៅ ជាកិច្ច។ ពន្យល់៖ ជីវិតិន្រ្ទិយចេតសិក មានតួនាទីធ្វើឱ្យធម៌ដែលកើតជាមួយខ្លួន ឱ្យរស់រាន និងប្រព្រឹត្តទៅបាន ប្រៀបដូចម្តាយបំបៅកូនដើម្បីឱ្យកូនបានរស់រានដូច្នោះដែរ។',
+    aE: 'Tesaṃ pavattana-rasaṃ means having the making of the associated dhammas occur as its function. Explanation: the jīvitindriya cetasika has the role of making the dhammas that arise with it stay alive and occur, just as a mother nurses her child so that the child survives.',
+  },
+  {
+    qK: 'តើតេសញ្ញេវ ឋបនបច្ចុប្បដ្ឋានំ មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does tesaññeva ṭhapana-paccupaṭṭhānaṃ (the manifestation of their being established) mean? Explain.',
+    aK: 'តេសញ្ញេវ ឋបនបច្ចុប្បដ្ឋានំ មានន័យថា មានការតាំងនៅនៃសហជាតធម៌ ជាអាការប្រាកដ។ ពន្យល់៖ ការតាំងនៅបាននៃធម៌ដែលកើតរួមគ្នា មានចិត្ត ចេតសិក គឺបញ្ជាក់ពីការប្រាកដឡើងនៃជីវិតិន្រ្ទិយចេតសិក។ ឧទាហរណ៍ ដើមឈើមានផ្លែផ្កាដែលអាចតាំងនៅបាន គឺបញ្ជាក់ថាមានទឹកស្រោចស្រព។',
+    aE: 'Tesaññeva ṭhapana-paccupaṭṭhānaṃ means having the establishment of the co-arisen dhammas as its manifestation. Explanation: the fact that the dhammas which arise together, such as consciousness and cetasikas, are able to remain established, confirms the manifestation of the jīvitindriya cetasika. For example, a tree that has fruits and flowers able to remain is evidence that there is water being irrigated.',
+  },
+  {
+    qK: 'តើសេសខន្ធត្តយបទដ្ឋានំ មានន័យដូចម្តេច? ចូរពន្យល់?',
+    qE: 'What does sesa-khandhattaya-padaṭṭhānaṃ (the proximate cause of the remaining three aggregates) mean? Explain.',
+    aK: 'សេសខន្ធត្តយបទដ្ឋានំ មានន័យថា មានខន្ធ ៣ ដែលនៅសល់ ជាហេតុជិត។ ពន្យល់៖ ការកកើតឡើងនៃសម្បយុត្តធម៌មួយខណៈៗ ត្រូវមានខន្ធ ៤ គឺ វេទនាខន្ធ សញ្ញាខន្ធ សង្ខារក្ខន្ធ និងវិញ្ញាណក្ខន្ធ ដូច្នេះហេតុជិតនៃសង្ខារក្ខន្ធ គឺជីវិតិន្រ្ទិយចេតសិក ព្រោះមានចន្ទល់ជិត គឺខន្ធ ៣ គឺ វេទនាខន្ធ សញ្ញាខន្ធ និងវិញ្ញាណក្ខន្ធ។',
+    aE: 'Sesa-khandhattaya-padaṭṭhānaṃ means having the three remaining aggregates as its proximate cause. Explanation: the arising of the associated dhammas in a moment requires four aggregates — vedanā, saññā, saṅkhāra, and viññāṇa — so the proximate cause of the saṅkhāra-khandha is the jīvitindriya cetasika, because it has the three aggregates — vedanā, saññā, and viññāṇa — as its nearest support.',
+  },
+]
+
+const jiviKiccaQas = [
+  {
+    qK: 'ខណៈចិត្តខឹងកើតឡើង តើចេតសិកណាដែលមានតួនាទីញាំងឱ្យសម្បយុត្តរស់រាន និងប្រព្រឹត្តទៅបាន?',
+    qE: 'At the moment anger arises — which cetasika has the role of making the associated dhammas survive and occur?',
+    aK: 'ខណៈចិត្តខឹងកើតឡើង ចេតសិកដែលមានតួនាទីញាំងឱ្យសម្បយុត្តរស់រាន និងប្រព្រឹត្តទៅបាន គឺ ជីវិតិន្រ្ទិយចេតសិក។',
+    aE: 'At the moment anger arises, the cetasika that has the role of making the associated dhammas survive and occur is the jīvitindriya cetasika.',
+  },
+  {
+    qK: 'ខណៈចិត្តកំពុងរៀនមេរៀនដោយយកចិត្តទុកដាក់ តើចេតសិកណាមានតួនាទីធ្វើឱ្យសម្បយុត្តធម៌រស់រាន?',
+    qE: 'While the mind is studying a lesson attentively — which cetasika has the role of making the associated dhammas survive?',
+    aK: 'ខណៈចិត្តកំពុងរៀនមេរៀនដោយយកចិត្តទុកដាក់ ចេតសិកដែលមានតួនាទីធ្វើឱ្យសម្បយុត្តធម៌រស់រាន គឺ ជីវិតិន្រ្ទិយចេតសិក។',
+    aE: 'While the mind is studying a lesson attentively, the cetasika that has the role of making the associated dhammas survive is the jīvitindriya cetasika.',
+  },
+  {
+    qK: 'ខណៈចិត្តស្តាប់ចម្រៀងយ៉ាងពីរោះ តើចេតសិកណាមានតួនាទីឱ្យចិត្ត និងចេតសិកប្រព្រឹត្តទៅបាន?',
+    qE: 'While the mind listens to pleasant music — which cetasika has the role of making the consciousness and cetasikas occur?',
+    aK: 'ខណៈចិត្តស្តាប់ចម្រៀងយ៉ាងពីរោះ ចេតសិកដែលមានតួនាទីឱ្យចិត្ត និងចេតសិកប្រព្រឹត្តទៅបាន គឺ ជីវិតិន្រ្ទិយចេតសិក។',
+    aE: 'While the mind listens to pleasant music, the cetasika that has the role of making the consciousness and cetasikas occur is the jīvitindriya cetasika.',
+  },
+  {
+    qK: 'ខណៈចិត្តសុខស្រួលពេលបន្ទោរបង់រួច តើចេតសិកណាមានតួនាទីឱ្យសម្បយុត្តធម៌ប្រព្រឹត្តទៅ?',
+    qE: 'At the moment of comfort after relieving oneself — which cetasika has the role of making the associated dhammas occur?',
+    aK: 'ខណៈចិត្តសុខស្រួលពេលបន្ទោរបង់រួច ចេតសិកដែលមានតួនាទីឱ្យសម្បយុត្តធម៌ប្រព្រឹត្តទៅ គឺ ជីវិតិន្រ្ទិយចេតសិក។',
+    aE: 'At the moment of comfort after relieving oneself, the cetasika that has the role of making the associated dhammas occur is the jīvitindriya cetasika.',
+  },
+  {
+    qK: 'ចូររកឧទាហរណ៍ អំពីជីវិតិន្រ្ទិយចេតសិក ឱ្យបាន ៥?',
+    qE: 'Give five examples of the jīvitindriya cetasika.',
+    aK: 'ឧទាហរណ៍ អំពីជីវិតិន្រ្ទិយចេតសិក ៖ ១) ខណៈចិត្តខឹងកើតឡើង ជីវិតិន្រ្ទិយធ្វើឱ្យសម្បយុត្តរស់រាន ២) ខណៈចិត្តរៀនមេរៀន ធ្វើឱ្យសម្បយុត្តធម៌រស់រាន ៣) ខណៈស្តាប់ចម្រៀង ធ្វើឱ្យចិត្ត និងចេតសិកប្រព្រឹត្តទៅ ៤) ខណៈសុខស្រួលក្រោយបន្ទោរបង់ ៥) រាល់ខណៈនៃចិត្ត ជីវិតិន្រ្ទិយតែងធ្វើឱ្យចិត្ត និងចេតសិក រស់រាន និងប្រព្រឹត្តទៅបាន។',
+    aE: 'Examples of the jīvitindriya cetasika: (1) at the moment anger arises, it keeps the associated dhammas alive; (2) while studying a lesson, it keeps the associated dhammas alive; (3) while listening to music, it makes the consciousness and cetasikas occur; (4) at the moment of comfort after relieving oneself; (5) in every moment of consciousness, jīvitindriya always makes the consciousness and cetasikas survive and occur.',
+  },
+]
+
+const hiriOttappaQas = [
+  {
+    qK: 'តើហិរិចេតសិក មានន័យដូចម្តេចខ្លះ?',
+    qE: 'What does the hiri (shame) cetasika mean?',
+    aK: 'ហិរិចេតសិក មានន័យថា ជាធម៌ដែលខ្មាស ឬស្អប់ខ្ពើមនូវបាបរបស់ខ្លួនឯង មានកាយទុច្ចរិតជាដើម។',
+    aE: 'The hiri cetasika means the dhamma that is ashamed of, or disgusted with, one own evil — beginning with bodily misconduct (kāya-duccarita).',
+  },
+  {
+    qK: 'តើហិរិចេតសិក បដិបក្ខនឹងចេតសិកណា?',
+    qE: 'Which cetasika is the opposite (paṭipakkha) of the hiri cetasika?',
+    aK: 'ហិរិចេតសិក បដិបក្ខនឹង អហិរិកចេតសិក (មិនខ្មាស ឬមិនស្អប់ខ្ពើមបាប)។',
+    aE: 'The hiri cetasika is the opposite of the ahirika cetasika (shamelessness toward evil).',
+  },
+  {
+    qK: 'តើហិរិចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and class does the hiri cetasika belong?',
+    aK: 'ហិរិចេតសិក ស្ថិតក្នុងក្រុមសោភណចេតសិក ពួកសព្វចិត្តសោភណសាធារណចេតសិក។',
+    aE: 'The hiri cetasika belongs to the sobhana (beautiful) group, in the sabbacitta-sobhana-sādhāraṇa class.',
+  },
+  {
+    qK: 'តើហិរិចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the hiri cetasika arise?',
+    aK: 'ហិរិចេតសិក កើតក្នុងសោភណចិត្ត ៥៩ ដួង ឬ ៩១ ដួង។',
+    aE: 'The hiri cetasika arises in 59 (or 91) beautiful consciousnesses.',
+  },
+  {
+    qK: 'តើហិរិចេតសិក មានលក្ខណាទិចតុក្កៈដូចម្តេចខ្លះ?',
+    qE: 'What is the lakkhana-ādi-catukka of the hiri cetasika?',
+    aK: 'ហិរិចេតសិក មានលក្ខណាទិចតុក្កៈ ដូចតទៅ ៖ មានការរង្គៀស ឬខ្មាស ឬខ្ពើមបាប មានកាយទុច្ចរិត ជាដើម ជាលក្ខណៈ។ មានការមិនធ្វើបាប ជាកិច្ច។ មានការថយចាកបាប ជាអាការប្រាកដ។ មានការគោរពខ្លួនឯង ជាហេតុជិត។',
+    aE: 'The hiri cetasika has the following lakkhana-ādi-catukka: being disgusted, ashamed, or loathing evil (such as bodily misconduct) as its characteristic; not doing evil as its function; retreating from evil as its manifestation; respecting oneself as its proximate cause.',
+  },
+  {
+    qK: 'តើឧត្តប្បចេតសិក មានន័យដូចម្តេច?',
+    qE: 'What does the ottappa (moral dread) cetasika mean?',
+    aK: 'ឧត្តប្បចេតសិក មានន័យថា ខ្លាច ឬតក់ស្លុតនូវបាប ឬផលរបស់បាប មានផលរបស់កាយទុច្ចរិតជាដើម។',
+    aE: 'The ottappa cetasika means being afraid of, or frightened by, evil or the result of evil — beginning with the result of bodily misconduct.',
+  },
+  {
+    qK: 'តើឧត្តប្បចេតសិក បដិបក្ខនឹងចេតសិកណា?',
+    qE: 'Which cetasika is the opposite (paṭipakkha) of the ottappa cetasika?',
+    aK: 'ឧត្តប្បចេតសិក បដិបក្ខនឹង អនោត្តប្បចេតសិក (មិនខ្លាច ឬមិនតក់ស្លុតចំពោះបាប ឬផលរបស់បាប)។',
+    aE: 'The ottappa cetasika is the opposite of the anottappa cetasika (fearlessness or non-dread toward evil or its result).',
+  },
+  {
+    qK: 'តើឧត្តប្បចេតសិក ស្ថិតក្នុងក្រុមណា? ពួកណា?',
+    qE: 'In which group and class does the ottappa cetasika belong?',
+    aK: 'ឧត្តប្បចេតសិក ស្ថិតក្នុងក្រុមសោភណចេតសិក ពួកសព្វចិត្តសោភណសាធារណចេតសិក។',
+    aE: 'The ottappa cetasika belongs to the sobhana (beautiful) group, in the sabbacitta-sobhana-sādhāraṇa class.',
+  },
+  {
+    qK: 'តើឧត្តប្បចេតសិក កើតក្នុងចិត្តប៉ុន្មានដួង?',
+    qE: 'In how many consciousnesses does the ottappa cetasika arise?',
+    aK: 'ឧត្តប្បចេតសិក កើតក្នុងសោភណចិត្ត ៥៩ ដួង ឬ ៩១ ដួង។',
+    aE: 'The ottappa cetasika arises in 59 (or 91) beautiful consciousnesses.',
+  },
+  {
+    qK: 'តើឧត្តប្បចេតសិក មានលក្ខណាទិចតុក្កៈដូចម្តេចខ្លះ?',
+    qE: 'What is the lakkhana-ādi-catukka of the ottappa cetasika?',
+    aK: 'ឧត្តប្បចេតសិក មានលក្ខណាទិចតុក្កៈ ដូចតទៅ ៖ មានការខ្លាច ឬតក់ស្លុតចំពោះបាប ជាលក្ខណៈ។ មានការមិនធ្វើបាប ជាកិច្ច។ មានការថយចាកបាប ជាអាការប្រាកដ។ មានការគោរពអ្នកដទៃ ជាហេតុជិត។',
+    aE: 'The ottappa cetasika has the following lakkhana-ādi-catukka: being afraid of or frightened by evil as its characteristic; not doing evil as its function; retreating from evil as its manifestation; respecting others as its proximate cause.',
+  },
+  {
+    qK: 'ដែកប្រឡាក់លាមក គួរឱ្យខ្ពើម តើដែកប្រឡាក់លាមក ប្រៀបបាននឹងអ្វី? ហើយការខ្ពើមនេះ ប្រៀបបាននឹងអ្វី?',
+    qE: 'A piece of iron smeared with excrement is disgusting — what does the excrement-smeared iron represent, and what does the disgust represent?',
+    aK: 'ដែកប្រឡាក់លាមក ប្រៀបបាននឹងអំពើបាបទាំងឡាយ មានកាយទុច្ចរិតជាដើម។ គួរឱ្យខ្ពើម ប្រៀបបាននឹងហិរិចេតសិក ដែលមានលក្ខណៈខ្ពើមនូវអំពើបាប។',
+    aE: 'The excrement-smeared iron represents the various evil deeds, such as bodily misconduct. The disgust represents the hiri cetasika, which has the characteristic of loathing evil deeds.',
+  },
+  {
+    qK: 'ដុំដែកក្តៅ គួរឱ្យខ្លាច តើដុំដែកក្តៅ ប្រៀបបាននឹងអ្វី? គួរឱ្យខ្លាចនេះ ប្រៀបបាននឹងអ្វី?',
+    qE: 'A hot lump of iron is frightening — what does the hot iron represent, and what does the fear represent?',
+    aK: 'ដុំដែកក្តៅ ប្រៀបបាននឹងអំពើបាប ឬផលរបស់បាប។ គួរឱ្យខ្លាច ប្រៀបបាននឹងឧត្តប្បចេតសិក ដែលមានលក្ខណៈខ្លាចនូវបាប។',
+    aE: 'The hot lump of iron represents evil deeds or the results of evil. The frightening quality represents the ottappa cetasika, which has the characteristic of fearing evil.',
+  },
+  {
+    qK: 'តើលោកបាលធម៌ បានដល់ធម៌ណាខ្លះ?',
+    qE: 'What are the lokapāla (guardians of the world) dhammas?',
+    aK: 'លោកបាលធម៌ បានដល់ហិរិចេតសិក និងឧត្តប្បចេតសិក។',
+    aE: 'The lokapāla (guardians of the world) dhammas are the hiri cetasika and the ottappa cetasika.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បចេតសិក កើតក្នុងចិត្តបានប៉ុន្មានជាតិ? អ្វីខ្លះ?',
+    qE: 'In how many jātis do the hiri and ottappa cetasikas arise? Which are they?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក កើតក្នុងចិត្តបាន ៣ ជាតិ គឺ កុសលជាតិ វិបាកជាតិ និងកិរិយាជាតិ។',
+    aE: 'The hiri and ottappa cetasikas arise in three jātis: the wholesome, resultant, and functional.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ កើតក្នុងអសោភណចិត្ត ឬសោភណចិត្ត?',
+    qE: 'Do hiri and ottappa arise in non-beautiful or beautiful consciousness?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក កើតក្នុងសោភណចិត្ត។',
+    aE: 'The hiri and ottappa cetasikas arise in beautiful (sobhana) consciousness.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ ដឹងអារម្មណ៍ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Do hiri and ottappa know paramattha or paññatti objects?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក ដឹងអារម្មណ៍ ជាបរមត្ថផង និងបញ្ញត្តិផង។',
+    aE: 'The hiri and ottappa cetasikas know objects that are both paramattha and paññatti.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ ដឹងព្រះនិព្វានដែរឬទេ?',
+    qE: 'Do hiri and ottappa know Nibbāna?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក ដឹងព្រះនិព្វាន។',
+    aE: 'The hiri and ottappa cetasikas do know Nibbāna.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ ជាហេតុ ឬនហេតុ?',
+    qE: 'Are hiri and ottappa hetus or non-hetus?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក ជា នហេតុ។',
+    aE: 'The hiri and ottappa cetasikas are non-hetus.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ អាស្រ័យវត្ថុណានៅបញ្ចវោការភូមិ? អាស្រ័យវត្ថុណានៅចតុវោការភូមិ?',
+    qE: 'Upon which base do hiri and ottappa depend in the five-aggregate plane, and which in the four-aggregate plane?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក អាស្រ័យហទយវត្ថុ នៅបញ្ចវោការភូមិ។ មិនអាស្រ័យវត្ថុ នៅចតុវោការភូមិ។',
+    aE: 'The hiri and ottappa cetasikas depend upon the heart-base (hadaya-vatthu) in the five-aggregate plane, and do not depend upon any base in the four-aggregate plane.',
+  },
+  {
+    qK: 'តើហិរិ និងឧត្តប្បៈ ជាបរមត្ថ ឬបញ្ញត្តិ?',
+    qE: 'Are hiri and ottappa paramattha or paññatti?',
+    aK: 'ហិរិ និងឧត្តប្បចេតសិក ជាបរមត្ថធម៌ ជាចេតសិកបរមត្ថ។',
+    aE: 'The hiri and ottappa cetasikas are paramattha dhammas, being cetasika paramattha.',
   },
 ]
 

@@ -235,20 +235,15 @@ function matchesQuery(qa) {
 
 const indexed = (arr, offset) => arr.map((qa, i) => ({ qa, num: offset + i + 1 })).filter(x => matchesQuery(x.qa))
 
-const lenIntro = introQas.length
-const lenFiftyTwo = fiftyTwoQas.length
-const lenPhassa = phassaQas.length
-const lenVedana = vedanaQas.length
-const lenSanna = sannaQas.length
-const lenCetana = cetanaQas.length
+const libLen = () => introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length + cetanaQas.length
 
 const filteredIntro = computed(() => indexed(introQas, 0))
-const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, lenIntro))
-const filteredPhassa = computed(() => indexed(phassaQas, lenIntro + lenFiftyTwo))
-const filteredVedana = computed(() => indexed(vedanaQas, lenIntro + lenFiftyTwo + lenPhassa))
-const filteredSanna = computed(() => indexed(sannaQas, lenIntro + lenFiftyTwo + lenPhassa + lenVedana))
-const filteredCetana = computed(() => indexed(cetanaQas, lenIntro + lenFiftyTwo + lenPhassa + lenVedana + lenSanna))
-const filteredEkaggata = computed(() => indexed(ekaggataQas, lenIntro + lenFiftyTwo + lenPhassa + lenVedana + lenSanna + lenCetana))
+const filteredFiftyTwo = computed(() => indexed(fiftyTwoQas, introQas.length))
+const filteredPhassa = computed(() => indexed(phassaQas, introQas.length + fiftyTwoQas.length))
+const filteredVedana = computed(() => indexed(vedanaQas, introQas.length + fiftyTwoQas.length + phassaQas.length))
+const filteredSanna = computed(() => indexed(sannaQas, introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length))
+const filteredCetana = computed(() => indexed(cetanaQas, introQas.length + fiftyTwoQas.length + phassaQas.length + vedanaQas.length + sannaQas.length))
+const filteredEkaggata = computed(() => indexed(ekaggataQas, libLen()))
 
 const totalMatches = computed(() =>
   filteredIntro.value.length + filteredFiftyTwo.value.length + filteredPhassa.value.length +

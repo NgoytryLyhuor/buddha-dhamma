@@ -356,10 +356,10 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 }
 .bm-remove:hover { border-color: var(--red); color: var(--red); }
 
-/* Facebook-style bottom navigation */
+/* Facebook-style bottom navigation (mobile/tablet only) */
 .bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0;
-  display: flex; align-items: stretch;
+  display: none; align-items: stretch;
   background: var(--bg-nav);
   border-top: 1px solid var(--border);
   z-index: 55;
@@ -382,9 +382,26 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   max-width: 100%; letter-spacing: 0.01em;
 }
-/* Keep page content clear of the bottom bar */
-main { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)) !important; }
-footer { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)) !important; }
+@media (max-width: 1023px) {
+  .bottom-nav { display: flex; }
+  /* Keep page content clear of the bottom bar */
+  main { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)) !important; }
+  footer { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)) !important; }
+}
+
+/* Desktop top navigation */
+.desktop-nav { display: block; }
+.topnav-inner a { position: relative; white-space: nowrap; }
+.topnav-inner a:hover { opacity: 0.75; }
+.topnav-inner::-webkit-scrollbar { display: none; }
+.topnav-inner a.active { color: var(--accent) !important; }
+.topnav-inner a.active::after {
+  content: ''; position: absolute; left: 8px; right: 8px; bottom: -1px;
+  height: 2px; background: var(--accent);
+}
+@media (max-width: 1023px) {
+  .desktop-nav { display: none !important; }
+}
 
 /* Slide-up "All Pages" sheet */
 .menu-backdrop {
@@ -810,7 +827,7 @@ html.dark .offline-banner {
 .scroll-top-btn {
   position: fixed;
   right: 18px;
-  bottom: calc(76px + env(safe-area-inset-bottom));
+  bottom: 18px;
   z-index: 55;
   width: 46px;
   height: 46px;
@@ -827,6 +844,9 @@ html.dark .offline-banner {
   justify-content: center;
   transition: all 0.25s;
   opacity: 0.9;
+}
+@media (max-width: 1023px) {
+  .scroll-top-btn { bottom: calc(76px + env(safe-area-inset-bottom)); }
 }
 
 /* Prev / Next page navigation */

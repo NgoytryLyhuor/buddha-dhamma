@@ -96,6 +96,20 @@
           </div>
         </transition>
 
+        <!-- Desktop horizontal nav (laptop/desktop only; mobile uses the bottom bar) -->
+        <nav class="desktop-nav mt-2">
+          <div ref="desktopNavRef" class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
+            style="-webkit-overflow-scrolling: touch; scrollbar-width: none">
+            <router-link v-for="n in nav" :key="n.to" :to="n.to"
+              class="px-2 py-1.5 flex items-center gap-1 transition hover:opacity-80"
+              :class="routeMeta === n.to ? 'active' : ''"
+              :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
+              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
+            </router-link>
+          </div>
+          <div class="dhammascroll mt-1"></div>
+        </nav>
+
         </div>
     </header>
 
@@ -311,8 +325,8 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
@@ -324,6 +338,12 @@ import { BASE_URL, ONESIGNAL_APP_ID } from './config'
 import { useNotifications } from './composables/useNotifications'
 
 const route = useRoute()
+const router = useRouter()
+
+function onNavigationDone() {
+  nextTick(scrollActiveTabIntoView)
+}
+router.afterEach(onNavigationDone)
 
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
@@ -354,6 +374,20 @@ function resetSettings() {
 const settingsOpen = ref(false)
 const settingsRef = ref(null)
 const settingsBtnRef = ref(null)
+
+const desktopNavRef = ref(null)
+
+function scrollActiveTabIntoView() {
+  const el = desktopNavRef.value
+  if (!el) return
+  const active = el.querySelector('a.active')
+  if (!active) return
+  const cRect = el.getBoundingClientRect()
+  const aRect = active.getBoundingClientRect()
+  const currentLeft = el.scrollLeft
+  const desiredLeft = currentLeft + (aRect.left - cRect.left) - (cRect.width / 2) + (aRect.width / 2)
+  el.scrollTo({ left: desiredLeft, behavior: 'smooth' })
+}
 
 function onSettingsGlobalClick(e) {
   if (!settingsOpen.value) return

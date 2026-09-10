@@ -38,6 +38,7 @@ const routes = [
   { path: '/questions', name: 'questions', component: lazyView(() => import('./views/QuestionsView.vue')), meta: { titleK: 'សំណួរ–ចម្លើយ', titleE: 'Q&A' } },
   { path: '/rupa-qa', name: 'rupa-qa', component: lazyView(() => import('./views/RupaQaView.vue')), meta: { titleK: 'សំណួររូបបរមត្ថ', titleE: 'Rūpa Q&A' } },
   { path: '/cetasika-qa', name: 'cetasika-qa', component: lazyView(() => import('./views/CetasikaQaView.vue')), meta: { titleK: 'សំណួរចេតសិកបរមត្ថ', titleE: 'Cetasika Q&A' } },
+  { path: '/lobha-mula-citta', name: 'lobha-mula-citta', component: lazyView(() => import('./views/LobhaMulaCittaView.vue')), meta: { titleK: 'លោភមូលចិត្ត ៨ ដួង', titleE: 'Lobha Mūla Citta Q&A' } },
   { path: '/paccaya', name: 'paccaya', component: lazyView(() => import('./views/PaccayaView.vue')), meta: { titleK: 'បដិច្ចសមុប្បាទ', titleE: 'Dependent Origination' } },
   { path: '/sangha', name: 'sangha', component: lazyView(() => import('./views/SanghaView.vue')), meta: { titleK: 'ជីវិតព្រះសង្ឃ', titleE: 'Monastic Life' } },
   { path: '/daily', name: 'daily', component: lazyView(() => import('./views/DailyView.vue')), meta: { titleK: 'បដិបត្តិប្រចាំថ្ងៃ', titleE: 'Daily Practice' } },

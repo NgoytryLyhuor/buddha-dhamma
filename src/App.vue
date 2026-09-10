@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Top navigation (no sidebar — horizontal scripture header) -->
+    <!-- Header (logo + settings only; navigation lives in bottom bar) -->
     <header class="sticky top-0 z-50" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
       <div class="max-w-4xl mx-auto px-4 pt-2.5">
         <div class="flex items-center justify-between gap-3">
@@ -96,31 +96,7 @@
           </div>
         </transition>
 
-        <!-- Desktop horizontal nav (compact single row, scrollable if overflow) -->
-        <nav class="desktop-nav mt-2">
-          <div ref="desktopNavRef" class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
-            style="-webkit-overflow-scrolling: touch; scrollbar-width: none">
-            <router-link v-for="n in nav" :key="n.to" :to="n.to"
-              class="px-2 py-1.5 flex items-center gap-1 transition hover:opacity-80"
-              :class="routeMeta === n.to ? 'active' : ''"
-              :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
-              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
-            </router-link>
-          </div>
-          <div class="dhammascroll mt-1"></div>
-        </nav>
-
-        <!-- Mobile horizontal pill nav (scrollable, NOT bottom tabs) -->
-        <nav class="mobile-nav mt-2 pb-2">
-          <div ref="mobileNavRef" class="flex gap-1.5 overflow-x-auto pb-1" style="-webkit-overflow-scrolling: touch">
-            <router-link v-for="n in nav" :key="n.to" :to="n.to"
-              class="nav-pill flex items-center gap-1.5 shrink-0"
-              :class="routeMeta === n.to ? 'active' : ''">
-              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
-            </router-link>
-          </div>
-        </nav>
-      </div>
+        </div>
     </header>
 
     <!-- Reading progress bar -->
@@ -252,6 +228,42 @@
       </p>
     </footer>
 
+    <!-- Facebook-style bottom navigation -->
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <template v-for="tab in bottomTabs" :key="tab.id">
+        <router-link v-if="tab.to" :to="tab.to" class="bottom-tab"
+          :class="activeTab === tab.id ? 'active' : ''"
+          :aria-label="t(tab.km, tab.en)">
+          <span class="bottom-tab-ico" aria-hidden="true" v-html="tab.icon"></span>
+          <span class="bottom-tab-label">{{ t(tab.km, tab.en) }}</span>
+        </router-link>
+        <button v-else class="bottom-tab" :class="menuOpen ? 'active' : ''" @click="openMenu"
+          :aria-label="t(tab.km, tab.en)">
+          <span class="bottom-tab-ico" aria-hidden="true" v-html="tab.icon"></span>
+          <span class="bottom-tab-label">{{ t(tab.km, tab.en) }}</span>
+        </button>
+      </template>
+    </nav>
+
+    <!-- All pages sheet (slide-up menu, opens from the More tab) -->
+    <transition name="sheet">
+      <div v-if="menuOpen" class="menu-backdrop" @click.self="closeMenu">
+        <div class="menu-sheet" role="dialog" aria-modal="true" :aria-label="t('ម៉ឺនុយទំព័រទាំងអស់', 'All pages')">
+          <div class="menu-sheet-head">
+            <span class="menu-sheet-title">{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
+            <button class="menu-sheet-close" @click="closeMenu" :aria-label="t('បិទ', 'Close')">&#10005;</button>
+          </div>
+          <div class="menu-sheet-list">
+            <router-link v-for="n in nav" :key="n.to" :to="n.to" class="menu-sheet-item"
+              :class="routeMeta === n.to ? 'active' : ''" @click="closeMenu">
+              <span class="menu-sheet-num" :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>
+              <span class="menu-sheet-name">{{ t(n.kmShort, n.en) }}</span>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </transition>
+
     <!-- Install / download prompt -->
     <transition name="fade">
       <div v-if="showInstallPrompt" class="install-backdrop" role="dialog" aria-modal="true" :aria-label="t('ដំឡើងកម្មវិធី', 'Install the app')">
@@ -299,8 +311,8 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { computed, onBeforeUnmount, onErrorCaptured, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useTheme } from './composables/useTheme'
 import { useLanguage } from './composables/useLanguage'
 import { useFontSize } from './composables/useFontSize'
@@ -312,12 +324,7 @@ import { BASE_URL, ONESIGNAL_APP_ID } from './config'
 import { useNotifications } from './composables/useNotifications'
 
 const route = useRoute()
-const router = useRouter()
 
-function onNavigationDone() {
-  nextTick(scrollActiveTabIntoView)
-}
-router.afterEach(onNavigationDone)
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload } = usePwaUpdate()
@@ -348,22 +355,6 @@ const settingsOpen = ref(false)
 const settingsRef = ref(null)
 const settingsBtnRef = ref(null)
 
-const desktopNavRef = ref(null)
-const mobileNavRef = ref(null)
-
-function scrollActiveTabIntoView() {
-  for (const el of [desktopNavRef.value, mobileNavRef.value]) {
-    if (!el) continue
-    const active = el.querySelector('a.active')
-    if (!active) continue
-    const cRect = el.getBoundingClientRect()
-    const aRect = active.getBoundingClientRect()
-    const currentLeft = el.scrollLeft
-    const desiredLeft = currentLeft + (aRect.left - cRect.left) - (cRect.width / 2) + (aRect.width / 2)
-    el.scrollTo({ left: desiredLeft, behavior: 'smooth' })
-  }
-}
-
 function onSettingsGlobalClick(e) {
   if (!settingsOpen.value) return
   if (settingsRef.value && settingsRef.value.contains(e.target)) return
@@ -387,14 +378,40 @@ const nav = [
   { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '១៣' },
   { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Q&A', num: '១៤' },
   { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ', kmShort: 'ចេតសិក', en: 'Cetasika Q&A', num: '១៥' },
-  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៦' },
-  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៧' },
-  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៨' },
-  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '១៩' },
-  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '២០' },
+  { to: '/lobha-mula-citta', km: 'ចិត្តបរមត្ថ', kmShort: 'ចិត្តបរមត្ថ', en: 'Citta Paramattha', num: '១៦' },
+  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៧' },
+  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៨' },
+  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៩' },
+  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '២០' },
+  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '២១' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
+
+const bottomTabs = [
+  { id: 'home', to: '/', km: 'ដើម', en: 'Home', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>' },
+  { id: 'dhamma', to: '/core', km: 'ធម៌', en: 'Dhamma', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 4.8 8 4.5 5 4.8c-.8.1-1.2.9-1 1.8v11c-.2.9.2 1.7 1 1.8 3 .3 5.5 0 7-1.8m0-12.1c1.5-1.7 4-2 7-1.7.8.1 1.2.9 1 1.8v11c.2.9-.2 1.7-1 1.8-3 .3-5.5 0-7-1.8m0-12.1v12"/></svg>' },
+  { id: 'practice', to: '/meditation', km: 'បដិបត្តិ', en: 'Practice', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.5 0-4 1.6-4 3.8 0 1.2.5 2.1 1.2 2.8C6.5 10.3 5 12.4 5 15c0 3 3 5.5 7 5.5s7-2.5 7-5.5c0-2.6-1.5-4.7-4.2-5.4.7-.7 1.2-1.6 1.2-2.8C16 4.6 14.5 3 12 3z"/></svg>' },
+  { id: 'learn', to: '/glossary', km: 'សិក្សា', en: 'Learn', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' },
+  { id: 'more', km: 'បន្ថែម', en: 'More', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>' },
+]
+
+const tabRoutes = {
+  home: ['/'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha'],
+  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta'],
+}
+
+const activeTab = computed(() => {
+  const cur = route.name === 'home' ? '/' : route.path
+  for (const id in tabRoutes) if (tabRoutes[id].includes(cur)) return id
+  return 'more'
+})
+
+const menuOpen = ref(false)
+function openMenu() { menuOpen.value = !menuOpen.value }
+function closeMenu() { menuOpen.value = false }
 
 const pageNav = computed(() => {
   const cur = route.name === 'home' ? '/' : route.path
@@ -423,6 +440,7 @@ const related = {
   '/questions': ['/core', '/daily', '/ethics'],
   '/rupa-qa': ['/abhidhamma', '/kamma', '/glossary'],
   '/cetasika-qa': ['/abhidhamma', '/rupa-qa', '/glossary'],
+  '/lobha-mula-citta': ['/abhidhamma', '/cetasika-qa', '/glossary'],
   '/paccaya': ['/core', '/kamma', '/ariya'],
   '/sangha': ['/daily', '/ethics', '/core'],
   '/daily': ['/ethics', '/meditation', '/recollections'],
@@ -460,7 +478,6 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
-  nextTick(scrollActiveTabIntoView)
 })
 
 onBeforeUnmount(() => {
@@ -547,7 +564,7 @@ onBeforeUnmount(() => {
   if (installTimer) clearTimeout(installTimer)
 })
 
-watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false; if (hasError.value) hasError.value = false })
+watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false; if (menuOpen.value) menuOpen.value = false; if (hasError.value) hasError.value = false })
 
 const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
 const descrMap = {
@@ -566,6 +583,7 @@ const descrMap = {
   questions: ['សំណួរ–ចម្លើយ អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', 'Questions and answers about Dhamma and practice.'],
   'rupa-qa': ['សំណួរ–ចម្លើយ រូបបរមត្ថ ២៨ និងភាគរូបផ្សេងៗ។', 'Rūpa Paramattha Q&A — the 28 rūpas and related parts.'],
   'cetasika-qa': ['សំណួរ–ចម្លើយ ចេតសិកបរមត្ថ ៥២ ផស្ស វេទនា សញ្ញា ចេតនា ឯកគ្គតា។', 'Cetasika Paramattha Q&A — the 52 cetasikas, phassa, vedanā, saññā, cetanā, ekaggatā.'],
+  'lobha-mula-citta': ['រំលឹកមេរៀនលោភមូលចិត្ត ៨ ដួង បរមត្ថអភិធម្ម ភាគ ១–៦។', 'Lobha Mūla Citta review — the 8 greed-rooted consciousnesses in Abhidhamma, parts 1–6.'],
   paccaya: ['បដិច្ចសមុប្បាទ ច្រវាក់ ១២ នៃហេតុនិងផល។', 'Dependent origination — the twelve links of cause and effect.'],
   sangha: ['ជីវិតព្រះសង្ឃ វិន័យ និងរបៀបធ្វើបុណ្យទាន។', 'Monastic life, the Vinaya, and how to make offerings.'],
   daily: ['បដិបត្តិប្រចាំថ្ងៃ សីល ៥ និងពិធីបុណ្យរាល់ឆ្នាំ។', 'A simple daily practice, the five precepts, and observances.'],

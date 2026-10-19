@@ -418,6 +418,11 @@ const nav = [
   { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៩' },
   { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '២០' },
   { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '២១' },
+  { to: '/calendar', km: 'បដិទិនពុទ្ធសាសនា', kmShort: 'បដិទិន', en: 'Calendar', num: '២២' },
+  { to: '/realms', km: 'ស្ថានទាំង ៣១ ភព', kmShort: '៣១ ភព', en: '31 Realms', num: '២៣' },
+  { to: '/bodhipakkhiya', km: 'ពោធិបក្ខិយធម៌ ៣៧', kmShort: 'ពោធិបក្ខិយ', en: '37 Awakening', num: '២៤' },
+  { to: '/timer', km: 'នាឡិកាសមាធិ', kmShort: 'នាឡិកាសមាធិ', en: 'Timer', num: '២៥' },
+  { to: '/quiz', km: 'ល្បងប្រាជ្ញាធម៌', kmShort: 'ល្បងប្រាជ្ញា', en: 'Quiz', num: '២៦' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -432,9 +437,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha'],
-  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer'],
+  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz'],
 }
 
 const activeTab = computed(() => {
@@ -480,6 +485,11 @@ const related = {
   '/daily': ['/ethics', '/meditation', '/recollections'],
   '/recollections': ['/meditation', '/daily', '/chanting'],
   '/ariya': ['/core', '/paccaya', '/meditation', '/stories'],
+  '/calendar': ['/daily', '/chanting', '/ethics'],
+  '/realms': ['/kamma', '/core', '/abhidhamma'],
+  '/bodhipakkhiya': ['/core', '/meditation', '/ariya'],
+  '/timer': ['/meditation', '/chanting', '/daily'],
+  '/quiz': ['/core', '/abhidhamma', '/questions'],
 }
 
 const relatedList = computed(() => {

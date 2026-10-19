@@ -44,6 +44,11 @@ const routes = [
   { path: '/daily', name: 'daily', component: lazyView(() => import('./views/DailyView.vue')), meta: { titleK: 'បដិបត្តិប្រចាំថ្ងៃ', titleE: 'Daily Practice' } },
   { path: '/recollections', name: 'recollections', component: lazyView(() => import('./views/RecollectionView.vue')), meta: { titleK: 'អនុស្សតិ', titleE: 'Recollections' } },
   { path: '/ariya', name: 'ariya', component: lazyView(() => import('./views/AriyaView.vue')), meta: { titleK: 'អរិយបុគ្គល', titleE: 'Noble Persons' } },
+  { path: '/calendar', name: 'calendar', component: lazyView(() => import('./views/CalendarView.vue')), meta: { titleK: 'បដិទិនពុទ្ធសាសនា', titleE: 'Buddhist Calendar' } },
+  { path: '/realms', name: 'realms', component: lazyView(() => import('./views/RealmsView.vue')), meta: { titleK: 'ស្ថានទាំង ៣១ ភព', titleE: '31 Realms' } },
+  { path: '/bodhipakkhiya', name: 'bodhipakkhiya', component: lazyView(() => import('./views/BodhipakkhiyaView.vue')), meta: { titleK: 'ពោធិបក្ខិយធម៌ ៣៧', titleE: '37 Factors of Awakening' } },
+  { path: '/timer', name: 'timer', component: lazyView(() => import('./views/MeditationTimerView.vue')), meta: { titleK: 'នាឡិកាសមាធិ', titleE: 'Meditation Timer' } },
+  { path: '/quiz', name: 'quiz', component: lazyView(() => import('./views/QuizView.vue')), meta: { titleK: 'ល្បងប្រាជ្ញាធម៌', titleE: 'Dhamma Quiz' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

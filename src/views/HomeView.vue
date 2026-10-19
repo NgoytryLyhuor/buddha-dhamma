@@ -117,10 +117,14 @@ const cittaGroups = [
 ]
 
 const explore = [
-  { to: '/core', num: '២', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ (ការពិត ៤) · មគ្គ ៨ (ផ្លូវ ៨) · ត្រៃលក្ខណ៍ (លក្ខណៈ ៣)', enBody: '4 Truths, 8 Path, 3 Marks' },
-  { to: '/abhidhamma', num: '៣', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត · ចេតសិក (គុណចិត្ត) · រូប · និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
-  { to: '/kamma', num: '៤', km: 'កម្មផល', en: 'Kamma & Rebirth', kmBody: 'កុសល (ល្អ) · អកុសល (អាក្រក់) · ភូមិ ៣១', enBody: 'Wholesome, unwholesome, 31 planes' },
-  { to: '/suttas', num: '៧', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ (កងចក្រធម៌) · មេត្តា · មង្គល (ចម្រើន)', enBody: 'Dhammacakka, Metta, Mangala' },
+  { to: '/core', num: '២', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', kmBody: 'សច្ចៈ ៤ · មគ្គ ៨ · ត្រៃលក្ខណ៍', enBody: '4 Truths, 8 Path, 3 Marks' },
+  { to: '/abhidhamma', num: '៣', km: 'អភិធម្ម', en: 'Abhidhamma', kmBody: 'ចិត្ត · ចេតសិក · រូប · និព្វាន', enBody: 'Citta, Cetasika, Rūpa, Nibbāna' },
+  { to: '/calendar', num: '២២', km: 'បដិទិន & ថ្ងៃសីល', en: 'Lunar Calendar', kmBody: 'ថ្ងៃសីល ៨/១៥ កើត-រោច · បុណ្យសាសនា', enBody: 'Uposatha Sīl days & annual festivals' },
+  { to: '/realms', num: '២៣', km: 'ស្ថានទាំង ៣១ ភព', en: '31 Realms', kmBody: 'អបាយភូមិ ៤ · សួគ៌ ៦ · ព្រហ្ម ២០', enBody: '4 Woeful, 6 Heavens, 20 Brahma planes' },
+  { to: '/bodhipakkhiya', num: '២៤', km: 'ពោធិបក្ខិយធម៌ ៣៧', en: '37 Factors', kmBody: 'សតិបដ្ឋាន ៤ · ពោជ្ឈង្គ ៧ · មគ្គ ៨', enBody: 'Satipatthana, Bojjhanga, Magga' },
+  { to: '/timer', num: '២៥', km: 'នាឡិកាសមាធិ', en: 'Meditation Timer', kmBody: 'ចលនាដង្ហើមអានាបាន · សំឡេងជួងវត្ត', enBody: 'Breathing pacing guide & temple bowl' },
+  { to: '/quiz', num: '២៦', km: 'ល្បងប្រាជ្ញាធម៌', en: 'Dhamma Quiz', kmBody: 'សំណួរស្ទង់ចំណេះដឹងធម៌ · រៀនសូត្រ', enBody: 'Interactive knowledge test & feedback' },
+  { to: '/suttas', num: '៧', km: 'ព្រះសូត្រ', en: 'Suttas', kmBody: 'ធម្មចក្រ · មេត្តាសូត្រ · មង្គលសូត្រ', enBody: 'Dhammacakka, Metta, Mangala' },
 ]
 
 const chartRef = ref(null)

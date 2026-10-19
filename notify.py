@@ -4,9 +4,9 @@ import requests
 import os
 from datetime import datetime
 
-ONESIGNAL_APP_ID = '44fd0d98-cb4f-4293-8f83-b632b69a8953'
-ONESIGNAL_API_KEY = 'd7e5bff8-3259-4ea7-9fe3-5e14c1d56547'
-WEBSITE_URL = 'https://buddha-dhamma.vercel.app/'
+ONESIGNAL_APP_ID = os.environ.get('ONESIGNAL_APP_ID', '44fd0d98-cb4f-4293-8f83-b632b69a8953')
+ONESIGNAL_API_KEY = os.environ.get('ONESIGNAL_API_KEY', '')
+WEBSITE_URL = os.environ.get('WEBSITE_URL', 'https://buddha-dhamma.vercel.app/')
 
 def load_quotes():
     script_dir = os.path.dirname(os.path.abspath(__file__))

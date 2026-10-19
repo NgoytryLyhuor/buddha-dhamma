@@ -60,6 +60,12 @@
       </div>
     </div>
 
+    <!-- Lunar Calendar & Sīl day card -->
+    <SilDayCard />
+
+    <!-- Next festival countdown -->
+    <FestivalCountdownCard />
+
     <!-- Explore cards -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
       <router-link v-for="c in explore" :key="c.to" :to="c.to"
@@ -77,6 +83,8 @@ import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import { useTheme } from '../composables/useTheme'
 import { useLanguage } from '../composables/useLanguage'
+import FestivalCountdownCard from '../components/FestivalCountdownCard.vue'
+import SilDayCard from '../components/SilDayCard.vue'
 
 Chart.register(...registerables)
 const { theme, getChartColors } = useTheme()

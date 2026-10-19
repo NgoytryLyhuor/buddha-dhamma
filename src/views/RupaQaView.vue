@@ -241,7 +241,7 @@
     </div>
 
     <h2 v-if="!searching || filteredPart4.length" class="mt-12 font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
-      {{ t('សំណួររូបបរមត្ថ ភាគ៤ — ៦ កុម្ភៈ ២០២៥', 'Rūpa Paramattha Part 4 — 6 Feb 2025') }}
+      {{ t('សំណួររូបបរមត្ថ ភាគ៤ — ៦ កុម្ភៈ ២០២៦', 'Rūpa Paramattha Part 4 — 6 Feb 2026') }}
     </h2>
     <div v-if="!searching || filteredPart4.length" class="mt-6 space-y-4">
       <details v-for="(item, i) in filteredPart4" :key="item.num" class="card-paper p-6 md:p-8">

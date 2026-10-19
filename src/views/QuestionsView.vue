@@ -151,7 +151,7 @@ const qas = [
     aE: 'Vassa is a three-month rainy-season retreat, from entering-lent to leaving-lent. Monks remain in one place, avoiding night travel, to study and practise more strictly. Lay people often keep the eight precepts on sabbath days during this season.',
     mK: 'វស្សា ជាពេលផ្អាកដើរ ដើម្បីឧស្សាហ៍សិក្សា និងបដិបត្តិ — ជាសព្វថ្ងៃ ដែលយើងបណ្តុះសីល ។',
     mE: 'Vassa is a held pause for diligent study and practice — a season of growing in virtue.',
-    tie: 'របៀបវិញ្ញាណ · /meditation', to: '/meditation#patipada',
+    tie: 'ជីវិតព្រះសង្ឃ · /sangha', to: '/sangha',
   },
   {
     qK: 'ហេតុអ្វី ខ្ញុំខឹងលឿនម្ល៉េះ? តើធ្វើដូចម្តេច ឲ្យឈប់ខឹង?', qE: 'Why do I get angry so quickly? How do I stop?',

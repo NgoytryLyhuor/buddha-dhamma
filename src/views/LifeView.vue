@@ -17,29 +17,6 @@
       </div>
     </div>
 
-    <!-- timeline -->
-    <div class="card-paper p-6 md:p-8 mt-8">
-      <p class="chapter-label">LIFE TIMELINE</p>
-      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ដំណាក់ដំណើរ', 'Journey of the Awakening') }}</h3>
-      <div class="mt-6 space-y-0">
-        <div v-for="(e, i) in events" :key="e.en" :id="'ev-' + e.en.toLowerCase().replace(/\s+/g, '-')" class="relative pl-8 pb-8 scroll-mt-24" :style="{ borderLeft: i === events.length - 1 ? 'none' : '1px solid var(--border-strong)' }">
-          <span class="absolute -left-[7px] top-1 w-3.5 h-3.5 rounded-full"
-            :style="{ background: i % 2 === 0 ? 'var(--accent)' : 'var(--gold)', border: '2px solid var(--bg-card)' }"></span>
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="paali">{{ e.year }}</span>
-            <span class="sutra-num" :style="{ color: 'var(--accent-bright)' }">{{ khNum(i + 1) }}</span>
-          </div>
-          <h4 class="font-display text-lg mt-1" :style="{ color: 'var(--ink)' }">{{ t(e.km, e.en) }}</h4>
-          <p class="text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">{{ t(e.kmBody, e.enBody) }}</p>
-        </div>
-      </div>
-
-      <div class="verse-box p-4 mt-2">
-        <p class="text-sm italic" :style="{ color: 'var(--ink-muted)' }">វយធម្មា សង្ខារា អប្បមាទេន សម្បាទេថ ។</p>
-        <p class="text-sm mt-1 font-bold" :style="{ color: 'var(--ink-soft)' }">{{ t('«អ្វីៗកើតឡើងហើយតែងតែបាត់ទៅ — ចូរប្រឹងប្រែង កុំប្រហែស»', '"All things pass away — strive on with diligence."') }}</p>
-        <p class="text-[10px] tracking-widest uppercase mt-1" :style="{ color: 'var(--ink-faint)' }">{{ t('ព្រះបន្ទូលចុងក្រោយ មុនបរិនិព្វាន', 'Last words before Parinibbāna') }}</p>
-      </div>
-    </div>
 
     <!-- birth & royal prince -->
     <div class="card-paper p-6 md:p-8 mt-8">

@@ -1,12 +1,12 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សូត្របន្ទូល ១០ — ពាក្យសូត្រប្រចាំកាល', 'CHANTING 10 — DAILY RECITALS') }}</p>
+    <p class="chapter-label">{{ t('សូត្របន្ទូល ១២ — ពាក្យសូត្រប្រចាំកាល និងថ្ងៃឧបោសថ', 'CHANTING 12 — DAILY & UPOSATHA RECITALS') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សូត្របន្ទូលប្រចាំកាល', 'Recitation and Chanting') }}
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('ការសូត្រធម៌ ជាប្រពៃណីរបស់ពុទ្ធបរិស័ទ តាំងពីសម័យព្រះពុទ្ធកាល មកដល់សព្វថ្ងៃ។ ការសូត្រ ដោយយល់ន័យ ញ៉ាំងចិត្តឲ្យស្ងប់ ញ៉ាំងសតិឲ្យរឹងមាំ ហើយបណ្តុះសទ្ធា ក្នុងព្រះរតនត្រ័យ។ ទំព័រនេះ រៀបរៀងបន្ទូលដែលប្រើញឹកញាប់បំផុត គឺបន្ទូលខ្លីៗ ដែលគ្រហស្ថគប្បីចាំសូត្របាន — អក្សរខ្មែរសម្រាប់សូត្រ ជាមួយន័យពន្យល់រាល់ពាក្យ។', 'Chanting is a tradition of Buddhist lay devotees from the time of the Buddha to this day. To chant with understanding calms the mind, strengthens mindfulness and deepens faith in the Triple Gem. This page gathers the most frequent short recitals — written in Khmer script to chant aloud, with every word explained.') }}
+      {{ t('ការសូត្រធម៌ ជាប្រពៃណីរបស់ពុទ្ធបរិស័ទ តាំងពីសម័យព្រះពុទ្ធកាល មកដល់សព្វថ្ងៃ។ ការសូត្រ ដោយយល់ន័យ ញ៉ាំងចិត្តឲ្យស្ងប់ ញ៉ាំងសតិឲ្យរឹងមាំ ហើយបណ្តុះសទ្ធា ក្នុងព្រះរតនត្រ័យ។ ទំព័រនេះ រៀបរៀងបន្ទូលដែលប្រើញឹកញាប់បំផុត គឺបន្ទូលខ្លីៗ ដែលគ្រហស្ថគប្បីចាំសូត្របាន ទាំងការសូត្រប្រចាំថ្ងៃ និងការសមាទានឧបោសថសីលក្នុងថ្ងៃសីល — អក្សរខ្មែរសម្រាប់សូត្រ ជាមួយន័យពន្យល់រាល់ពាក្យ។', 'Chanting is a tradition of Buddhist lay devotees from the time of the Buddha to this day. To chant with understanding calms the mind, strengthens mindfulness and deepens faith in the Triple Gem. This page gathers the most essential recitals for daily life and Uposatha observance — written in Khmer script to chant aloud, with every word explained.') }}
     </p>
 
     <!-- how to chant -->
@@ -20,7 +20,7 @@
 
     <!-- the chants -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('បន្ទូលជម្រើស ១០ — សូត្ររាល់ថ្ងៃ', 'TEN DAILY RECITALS — CHANT WITH THE HEART') }}</p>
+      <p class="chapter-label">{{ t('បន្ទូលជម្រើស ១២ — សូត្ររាល់ថ្ងៃ និងថ្ងៃសីល', 'TWELVE ESSENTIAL RECITALS — CHANT WITH THE HEART') }}</p>
     </div>
 
     <div class="mt-4 space-y-4">
@@ -159,6 +159,33 @@ const chants = [
     meanE: 'I undertake the training rules to abstain from killing, stealing, sexual misconduct, lying, and intoxicants that cause heedlessness. These five are the foundation of human happiness — one who keeps them sleeps and wakes in peace.',
     applyK: 'សូត្រសីល ៥ ពេលព្រឹករាល់ថ្ងៃ មុនចេញទៅធ្វើការ — ជាការរំឮកសន្យានឹងខ្លួនឯង។',
     applyE: 'Recite the precepts each morning before starting your day — a reminder of the vows you carry.',
+  },
+  {
+    src: 'AṬṬHAṄGIKA UPOSATHA SĪLA — អដ្ឋង្គិកឧបោសថសីល',
+    km: 'អដ្ឋសីល — ឧបោសថសីល (សីល ៨ ក្នុងថ្ងៃសីល)', en: 'The Eight Uposatha Precepts (Aṭṭhasīla)',
+    noteK: 'សីល ៨ ដែលពុទ្ធបរិស័ទ (ឧបាសក ឧបាសិកា) សមាទានរក្សា ក្នុងថ្ងៃឧបោសថ (ថ្ងៃសីល ៨ កើត ១៥ កើត ៨ រោច ១៤ ឬ ១៥ រោច) ដើម្បីហ្វឹកហាត់ចិត្តឲ្យបានស្ងប់ និងខិតជិតព្រះនិព្វាន។', en: 'The eight precepts observed on Uposatha (observance) days to purify the mind, cultivate restraint, and draw closer to monastic peace.',
+    lines: [
+      '១. បាណាតិបាតា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '២. អទិន្នាទានា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៣. អព្រហ្មចរិយា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៤. មុសាវាទា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៥. សុរាមេរយមជ្ជបមាទដ្ឋានា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៦. វិកាលភោជនា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៧. នច្ចគីតវាទិតវិសូកទស្សនា មាលាគន្ធវិលេបនធារណមណ្ឌនវិភូសនដ្ឋានា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+      '៨. ឧច្ចាសយនមហាសយនា វេរមណីសិក្ខាបទំ សមាទិយាមិ',
+    ],
+    roman: '1. Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi · 2. Adinnādānā veramaṇī sikkhāpadaṃ samādiyāmi · 3. Abrahmacariyā veramaṇī sikkhāpadaṃ samādiyāmi · 4. Musāvādā veramaṇī sikkhāpadaṃ samādiyāmi · 5. Surāmerayamajjapamādaṭṭhānā veramaṇī sikkhāpadaṃ samādiyāmi · 6. Vikālabhojanā veramaṇī sikkhāpadaṃ samādiyāmi · 7. Naccagītavāditavisūkadassanā mālāgandhavilepanadhāraṇamaṇḍanavibhūsanaṭṭhānā veramaṇī sikkhāpadaṃ samādiyāmi · 8. Uccāsayanamahāsayanā veramaṇī sikkhāpadaṃ samādiyāmi',
+    gloss: [
+      { w: 'អព្រហ្មចរិយា', km: 'វៀរចាកការរួមភេទ ការប្រព្រឹត្តមិនមែនជាព្រហ្មចារី (តមបរិសុទ្ធ)', en: 'abstain from unchastity (celibacy)' },
+      { w: 'វិកាលភោជនា', km: 'វៀរចាកការបរិភោគអាហារក្នុងពេលខុស (ក្រោយថ្ងៃត្រង់)', en: 'abstain from eating at the improper time (after noon)' },
+      { w: 'នច្ចគីតវាទិតវិសូកទស្សនា', km: 'វៀរចាកការរាំ ច្រៀង ប្រគំភ្លេង និងមើលល្បែងរបាំ', en: 'abstain from dancing, singing, music, and theatrical shows' },
+      { w: 'មាលាគន្ធវិលេបន...', km: 'វៀរចាកការទ្រទ្រង់ផ្កាកម្រង គ្រឿងក្រអូប លាបស្រឡាប តុបតែងរាងកាយ', en: 'abstain from wearing garlands, perfumes, cosmetics, and adornments' },
+      { w: 'ឧច្ចាសយនមហាសយនា', km: 'វៀរចាកការដេកលើទីដេកទីអង្គុយដ៏ខ្ពស់ហួសប្រមាណ និងដ៏ប្រសើរលើសលប់ (ពូកគ្រែប្រណីត)', en: 'abstain from high and luxurious beds and seats' },
+    ],
+    meanK: 'អដ្ឋសីល ឬ ឧបោសថសីល គឺការរក្សាសិក្ខាបទ ៨៖ ១) វៀរចាកការសម្លាប់សត្វ ២) វៀរចាកការលួច ៣) វៀរចាកការសេពមេថុន (ព្រហ្មចារីបរិសុទ្ធ មិនមែនត្រឹមតែវៀរកាមេសុមិច្ឆាចារនោះទេ) ៤) វៀរចាកការភូតកុហក ៥) វៀរចាកគ្រឿងស្រវឹង ៦) វៀរចាកការបរិភោគអាហារក្រោយថ្ងៃត្រង់រហូតដល់អរុណរះ ៧) វៀរចាកការរាំ ច្រៀង ស្តាប់ភ្លេង ទស្សនាល្បែងរបាំ និងការតុបតែងលម្អកាយដោយផ្កាកម្រង គ្រឿងក្រអូប ៨) វៀរចាកការដេកលើគ្រែពូកខ្ពស់ទន់ប្រណីត។ ឧបោសថសីលជួយឲ្យចិត្តស្ងប់ចាកកាមគុណ រស់នៅសាមញ្ញ និងបណ្តុះសមាធិ។',
+    meanE: 'The Eight Uposatha Precepts: 1) abstain from killing, 2) abstain from stealing, 3) abstain from incelibacy (full chastity, higher than the 3rd lay precept), 4) abstain from false speech, 5) abstain from intoxicants, 6) abstain from eating after solar noon until dawn, 7) abstain from dancing, singing, music, entertainment, garlands, perfumes, and cosmetic adornment, 8) abstain from high and luxurious beds. Practising Uposatha curbs sensory indulgence, encourages simplicity, and aids meditation.',
+    applyK: 'ក្នុងថ្ងៃសីល (៨ កើត, ១៥ កើត, ៨ រោច, ១៤/១៥ រោច) ទៅវត្ត ឬសមាទាននៅផ្ទះ រក្សាពេញមួយយប់មួយថ្ងៃ។ ក្រោយថ្ងៃត្រង់ អាចឆុងតែ ឬផឹកទឹកផ្លែឈើដែលគ្មានកាក (អដ្ឋបាន)។',
+    applyE: 'On Uposatha days (8th and 15th/14th of the lunar fortnights), observe these precepts at the monastery or home for 24 hours. After noon, only clear fruit juices/allowable tonics (aṭṭhaphāna) are taken.',
   },
   {
     src: 'BUDDHĀNUSSATI — ពុទ្ធគុណ',
@@ -379,6 +406,34 @@ const chants = [
     meanE: 'A deva came and asked the Buddha at Jeta\'s Grove: "What brings a person to ruin?" The Buddha gave twelve causes of downfall: 1) hating the Dhamma, 2) consorting with the wicked, 3) loving sleep, idleness and anger, 4) not supporting aged parents, 5) deceiving brahmins and recluses by lies, 6) having wealth but enjoying it alone, 7) proud of birth, wealth and clan, despising relatives, 8) addicted to women, drink and gambling, 9) not content with one\'s own spouse, 10) past one\'s youth marrying a younger wife and losing sleep through jealousy, 11) placing the drunken and wasteful in authority, 12) little wealth but great ambition. One who avoids all these causes of ruin is undefeated in every direction and lives in peace.',
     applyK: 'រាល់ល្ងាច ពិនិត្យខ្លួន នូវហេតុវិនាស ១២ — ឃើញប៉ះកន្លែងណា កែថ្ងៃស្អែកភ្លាម។',
     applyE: 'Each evening review the twelve causes of ruin — where you slip, correct it the very next day.',
+  },
+  {
+    src: 'PATTIDĀNA GĀTHĀ — បដិទានគាថា',
+    km: 'បដិទានគាថា — គាថាឧទ្ទិសកុសល និងផ្សាយផលបុណ្យ', en: 'Dedication of Merit (Pattidāna Gāthā)',
+    noteK: 'បន្ទូលសូត្របញ្ចប់កិច្ចធ្វើបុណ្យ ឬសូត្រធម៌ — ដើម្បីឧទ្ទិសចែករំលែកផលបុណ្យកុសល ដល់មាតាបិតា គ្រូឧបជ្ឈាយ៍ ញាតិកាទាំង ៧ សន្តាន និងសព្វសត្វក្នុងត្រៃលោក។', en: 'The closing recital of any merit-making or chanting session — sharing the fruits of good deeds with parents, teachers, departed relatives, and all living beings.',
+    lines: [
+      'យំ កិញ្ចិ កុសលកម្មំ កត្តព្វំ កិរិយំ មម',
+      'កាយេន វាចាមនសា តិទសេ សុគតំ កតំ',
+      'យេ សត្តា សញ្ញិនោ អត្ថិ យេ ច សត្តា អសញ្ញិនោ',
+      'កតំ បុញ្ញផលំ មយ្ហំ សព្វេ ភាគី ភវន្តុ តេ',
+      'យេ តំ កតំ ន ជានន្តិ ទេវា គន្ត្វា និវេទយុំ',
+      'មយា ទិន្នាន បុញ្ញានំ អនុមោទនហេតុនា',
+      'សព្វេ សត្តា សទា ហោន្តុ អវេរា សុខជីវិនោ',
+      'ខេមប្បទញ្ច បប្បោន្តុ តេសាសា សិជ្ឈតំ សុភា',
+    ],
+    roman: 'Yaṃ kiñci kusalaṃ kammaṃ kattabbaṃ kiriyaṃ mama · kāyena vācāmanasā tidase sugataṃ kataṃ · ye sattā saññino atthi ye ca sattā asaññino · kataṃ puññaphalaṃ mayhaṃ sabbe bhāgī bhavantu te · ye taṃ kataṃ na jānanti devā gantvā nivedayuṃ · mayā dinnāna puññānaṃ anumodanahetunā · sabbe sattā sadā hontu averā sukhajīvino · khemappadañca pappontu tesāsā sijjhetaṃ subhā',
+    gloss: [
+      { w: 'យំ កិញ្ចិ កុសលកម្មំ', km: 'កុសលកម្មណាមួយ ដែលខ្ញុំគប្បីធ្វើ', en: 'whatever wholesome deed to be done' },
+      { w: 'កាយេន វាចាមនសា', km: 'ដោយកាយ វាចា និងចិត្ត', en: 'by body, speech, and mind' },
+      { w: 'សព្វេ ភាគី ភវន្តុ តេ', km: 'សូមសត្វទាំងពួងនោះ ជាអ្នកមានចំណែកទទួលផលបុណ្យ', en: 'may all beings partake of my merit' },
+      { w: 'អនុមោទនហេតុនា', km: 'ដោយហេតុនៃការអនុមោទនាទទួលត្រេកអរ', en: 'by rejoicing in this sharing' },
+      { w: 'អវេរា សុខជីវិនោ', km: 'ជាអ្នកមិនមានពៀរ រស់នៅជាសុខគ្រប់កាល', en: 'free from enmity, living happily' },
+      { w: 'ខេមប្បទញ្ច បប្បោន្តុ', km: 'សូមឲ្យដល់នូវទីក្សេម គឺព្រះនិព្វាន', en: 'may they reach the state of peace (Nibbāna)' },
+    ],
+    meanK: 'អំពើល្អកុសលណាមួយ ដែលខ្ញុំបានធ្វើហើយដោយកាយ វាចា ឬចិត្ត ដែលជាកុសលនាំទៅកាន់សុគតិភព សូមសត្វទាំងឡាយណាដែលមានសញ្ញាក្តី ឥតសញ្ញាក្តី ចូរបានចំណែកនៃផលបុណ្យរបស់ខ្ញុំនេះ។ ប្រសិនបើសត្វទាំងឡាយណា មិនបានដឹងនូវបុណ្យនេះទេ សូមទេវតាទាំងឡាយ ទៅប្រាប់សត្វទាំងនោះឲ្យបានដឹង។ ដោយអានុភាពនៃការអនុមោទនានូវបុណ្យនេះ សូមសព្វសត្វទាំងអស់ រួចចាកពៀរវេរា រស់នៅដោយសេចក្តីសុខសាន្តជានិច្ច ហើយសូមឲ្យបានសម្រេចនូវទីក្សេម គឺព្រះនិព្វាន និងសម្រេចរាល់សេចក្តីប្រាថ្នាដ៏ល្អប្រពៃ។',
+    meanE: 'Whatever wholesome kamma I have performed by body, speech, or mind leading to happy realms — may all beings, conscious or unconscious, partake of the fruit of this merit. If any beings know not of this deed, may the devas announce it to them. Through rejoicing in these merits shared by me, may all beings ever live free from animosity, dwell in happiness, attain the sanctuary of Nibbāna, and may all their noble aspirations be fulfilled.',
+    applyK: 'រាល់ពេលធ្វើបុណ្យ ដាក់បាត្រ ឬសូត្រធម៌ចប់ — គប្បីសូត្របន្ទូលនេះ ឬសូត្រ «ឥទំ មេ ញាតីនំ ហោតុ សុខិតា ហោន្តុ ញាតយោ» ដើម្បីផ្សាយកុសលដល់អ្នកដទៃ។',
+    applyE: 'Whenever you finish offering alms, doing good, or chanting — recite this dedication or "Idaṃ me ñātīnaṃ hotu" to share goodness with the universe.',
   },
 ]
 </script>

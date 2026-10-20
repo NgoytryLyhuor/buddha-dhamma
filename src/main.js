@@ -49,6 +49,9 @@ const routes = [
   { path: '/bodhipakkhiya', name: 'bodhipakkhiya', component: lazyView(() => import('./views/BodhipakkhiyaView.vue')), meta: { titleK: 'ពោធិបក្ខិយធម៌ ៣៧', titleE: '37 Factors of Awakening' } },
   { path: '/timer', name: 'timer', component: lazyView(() => import('./views/MeditationTimerView.vue')), meta: { titleK: 'នាឡិកាសមាធិ', titleE: 'Meditation Timer' } },
   { path: '/quiz', name: 'quiz', component: lazyView(() => import('./views/QuizView.vue')), meta: { titleK: 'ល្បងប្រាជ្ញាធម៌', titleE: 'Dhamma Quiz' } },
+  { path: '/death-and-rebirth', name: 'death-and-rebirth', component: lazyView(() => import('./views/DeathAndRebirthView.vue')), meta: { titleK: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', titleE: 'Death & Rebirth Process' } },
+  { path: '/anapanasati', name: 'anapanasati', component: lazyView(() => import('./views/AnapanasatiView.vue')), meta: { titleK: 'អានាបានសតិ ១៦ ដំណាក់កាល', titleE: '16 Steps of Anapanasati' } },
+  { path: '/citta-matrix', name: 'citta-matrix', component: lazyView(() => import('./views/CittaMatrixView.vue')), meta: { titleK: 'ផែនទីចិត្ត ៨៩/១២១ និងចេតសិក ៥២', titleE: 'Citta & Cetasika Matrix' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

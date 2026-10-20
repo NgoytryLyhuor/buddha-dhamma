@@ -423,6 +423,9 @@ const nav = [
   { to: '/bodhipakkhiya', km: 'ពោធិបក្ខិយធម៌ ៣៧', kmShort: 'ពោធិបក្ខិយ', en: '37 Awakening', num: '២៤' },
   { to: '/timer', km: 'នាឡិកាសមាធិ', kmShort: 'នាឡិកាសមាធិ', en: 'Timer', num: '២៥' },
   { to: '/quiz', km: 'ល្បងប្រាជ្ញាធម៌', kmShort: 'ល្បងប្រាជ្ញា', en: 'Quiz', num: '២៦' },
+  { to: '/death-and-rebirth', km: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', kmShort: 'ស្លាប់-បដិសន្ធិ', en: 'Death & Rebirth', num: '២៧' },
+  { to: '/anapanasati', km: 'អានាបានសតិ ១៦ ដំណាក់កាល', kmShort: 'អានាបានសតិ', en: 'Anapanasati', num: '២៨' },
+  { to: '/citta-matrix', km: 'ផែនទីចិត្ត និងចេតសិក', kmShort: 'ផែនទីចិត្ត', en: 'Citta Matrix', num: '២៩' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -437,9 +440,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer'],
-  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati'],
+  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix'],
 }
 
 const activeTab = computed(() => {

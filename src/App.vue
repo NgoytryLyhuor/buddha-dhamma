@@ -2,7 +2,7 @@
   <div>
     <!-- Header (logo + settings only; navigation lives in bottom bar) -->
     <header class="sticky top-0 z-50" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
-      <div class="max-w-4xl mx-auto px-4 pt-2.5">
+      <div class="max-w-6xl mx-auto px-4 pt-2.5">
         <div class="flex items-center justify-between gap-3">
           <router-link to="/" class="flex items-center gap-2 group min-w-0" style="color: var(--ink)">
             <span class="logo-ico leading-none shrink-0" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
@@ -96,18 +96,104 @@
           </div>
         </transition>
 
-        <!-- Desktop horizontal nav (laptop/desktop only; mobile uses the bottom bar) -->
-        <nav class="desktop-nav mt-2">
-          <div ref="desktopNavRef" class="topnav-inner flex items-center gap-0.5 overflow-x-auto text-[11.5px] font-bold whitespace-nowrap"
-            style="-webkit-overflow-scrolling: touch; scrollbar-width: none">
-            <router-link v-for="n in nav" :key="n.to" :to="n.to"
-              class="px-2 py-1.5 flex items-center gap-1 transition hover:opacity-80"
-              :class="routeMeta === n.to ? 'active' : ''"
-              :style="routeMeta === n.to ? { color: 'var(--accent)' } : { color: 'var(--ink-soft)' }">
-              <span :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>{{ t(n.kmShort, n.en) }}
+        <!-- Categorized Desktop Navigation (Desktop/laptop only; mobile uses the bottom bar) -->
+        <nav class="desktop-nav mt-2" ref="desktopNavContainerRef">
+          <div class="desktop-nav-bar flex items-center justify-between gap-1 p-1 rounded-2xl"
+            :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            
+            <!-- Home Link -->
+            <router-link to="/" class="desktop-nav-item px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 text-xs transition"
+              :class="routeMeta === '/' ? 'active' : ''">
+              <span>🏠</span>
+              <span>{{ t('ទំព័រដើម', 'Home') }}</span>
             </router-link>
+
+            <!-- Category Dropdown Tabs -->
+            <div class="flex items-center gap-1 relative">
+              <div v-for="cat in desktopCategories" :key="cat.id" class="desktop-cat-wrapper relative"
+                @mouseenter="openCatMenu(cat.id)"
+                @mouseleave="scheduleCloseCatMenu">
+                
+                <button
+                  type="button"
+                  class="desktop-nav-item px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 text-xs transition cursor-pointer"
+                  :class="[
+                    activeDesktopCat === cat.id ? 'open-cat' : '',
+                    isCatCurrentRoute(cat) ? 'active' : ''
+                  ]"
+                  @click.stop="toggleCatMenu(cat.id)">
+                  <span>{{ cat.icon }}</span>
+                  <span>{{ t(cat.kmShort, cat.en) }}</span>
+                  <span class="text-[10px] px-1.5 py-0.2 rounded-full font-mono opacity-80"
+                    :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
+                    {{ cat.items.length }}
+                  </span>
+                  <svg class="w-3 h-3 transition-transform duration-200 opacity-60"
+                    :class="activeDesktopCat === cat.id ? 'rotate-180' : ''"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+
+                <!-- Floating Dropdown Mega Menu -->
+                <transition name="dropdown-pop">
+                  <div v-if="activeDesktopCat === cat.id"
+                    class="desktop-dropdown absolute top-full left-0 z-50 mt-1.5 p-3.5 rounded-2xl shadow-2xl backdrop-blur-md"
+                    :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', minWidth: cat.items.length > 7 ? '540px' : '360px' }"
+                    @mouseenter="cancelCloseCatMenu"
+                    @mouseleave="scheduleCloseCatMenu">
+                    
+                    <div class="dropdown-header flex items-center justify-between pb-2 mb-2.5 border-b"
+                      :style="{ borderColor: 'var(--border)' }">
+                      <span class="font-bold text-xs flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
+                        <span>{{ cat.icon }}</span>
+                        <span>{{ t(cat.km, cat.en) }}</span>
+                      </span>
+                      <span class="text-[11px] font-medium" :style="{ color: 'var(--ink-muted)' }">
+                        {{ cat.items.length }} {{ t('ប្រធានបទ', 'topics') }}
+                      </span>
+                    </div>
+
+                    <div class="dropdown-grid grid gap-1.5" :class="cat.items.length > 7 ? 'grid-cols-2' : 'grid-cols-1'">
+                      <router-link
+                        v-for="item in cat.items"
+                        :key="item.to"
+                        :to="item.to"
+                        class="dropdown-item p-2 rounded-xl flex items-start gap-2.5 transition text-left"
+                        :class="routeMeta === item.to ? 'active-item' : ''"
+                        @click="closeAllDesktopMenus">
+                        <span class="dropdown-num px-1.5 py-0.5 rounded-md font-bold text-[11px] shrink-0 font-mono"
+                          :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+                          #{{ item.num }}
+                        </span>
+                        <div class="min-w-0 flex-1">
+                          <span class="block font-bold text-xs truncate" :style="{ color: 'var(--ink)' }">
+                            {{ t(item.km, item.en) }}
+                          </span>
+                          <span v-if="item.descKm" class="block text-[10.5px] truncate mt-0.5 opacity-75" :style="{ color: 'var(--ink-muted)' }">
+                            {{ t(item.descKm, item.en) }}
+                          </span>
+                        </div>
+                      </router-link>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+            </div>
+
+            <!-- Quick Search Button on Desktop -->
+            <button
+              type="button"
+              class="desktop-search-pill px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 text-xs transition cursor-pointer hover:opacity-90"
+              :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }"
+              @click="openDesktopSearch"
+              :title="t('ស្វែងរកក្នុងចំណោម ៤១ ម៉ឺនុយ (Ctrl+K)', 'Search 41 topics (Ctrl+K)')">
+              <span>🔍</span>
+              <span>{{ t('ស្វែងរក (៤១)', 'Search (41)') }}</span>
+              <kbd class="hidden xl:inline text-[10px] px-1.5 py-0.5 rounded bg-black/10 dark:bg-white/10 font-mono">⌘K</kbd>
+            </button>
           </div>
-          <div class="dhammascroll mt-1"></div>
+          <div class="dhammascroll mt-1.5"></div>
         </nav>
 
         </div>
@@ -242,6 +328,99 @@
       </p>
     </footer>
 
+    <!-- Desktop Search Palette Modal (Ctrl+K) -->
+    <teleport to="body">
+      <transition name="fade">
+        <div v-if="desktopSearchOpen" class="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-20 px-4"
+          @click.self="closeDesktopSearch">
+          <div class="w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+            
+            <!-- Search Header -->
+            <div class="p-3.5 border-b flex items-center gap-3" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+              <span class="text-lg">🔍</span>
+              <input
+                ref="desktopSearchInputRef"
+                v-model="desktopSearchQuery"
+                type="text"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤១ ម៉ឺនុយ (ឧ. សមាធិ, កម្ម, ៣៦, អានាបានសតិ)...', 'Type to search 41 topics (e.g., meditation, kamma, 36)...')"
+                class="w-full bg-transparent border-none text-sm focus:outline-none"
+                :style="{ color: 'var(--ink)' }"
+                @keydown.esc="closeDesktopSearch"
+              />
+              <button
+                type="button"
+                class="text-xs px-2 py-1 rounded font-mono hover:bg-black/10 dark:hover:bg-white/10"
+                :style="{ color: 'var(--ink-muted)' }"
+                @click="closeDesktopSearch">
+                ESC
+              </button>
+            </div>
+
+            <!-- Quick Categories filter in Search Modal -->
+            <div class="px-3.5 py-2 border-b flex items-center gap-1.5 overflow-x-auto text-xs scrollbar-none" :style="{ borderColor: 'var(--border)' }">
+              <button
+                type="button"
+                class="px-2.5 py-1 rounded-lg font-medium transition cursor-pointer shrink-0"
+                :style="selectedSearchCat === 'all' ? { background: 'var(--accent)', color: '#fff' } : { color: 'var(--ink-muted)' }"
+                @click="selectedSearchCat = 'all'">
+                {{ t('ទាំងអស់ (៤១)', 'All (41)') }}
+              </button>
+              <button
+                v-for="cat in desktopCategories"
+                :key="cat.id"
+                type="button"
+                class="px-2.5 py-1 rounded-lg font-medium transition flex items-center gap-1 cursor-pointer shrink-0"
+                :style="selectedSearchCat === cat.id ? { background: 'var(--accent)', color: '#fff' } : { color: 'var(--ink-muted)' }"
+                @click="selectedSearchCat = cat.id">
+                <span>{{ cat.icon }}</span>
+                <span>{{ t(cat.kmShort, cat.en) }}</span>
+              </button>
+            </div>
+
+            <!-- Results List -->
+            <div class="max-h-[55vh] overflow-y-auto p-2 space-y-1">
+              <router-link
+                v-for="item in filteredDesktopSearchItems"
+                :key="item.to"
+                :to="item.to"
+                class="p-2.5 rounded-xl flex items-center justify-between gap-3 transition hover:scale-[1.005]"
+                :class="routeMeta === item.to ? 'active-item' : ''"
+                :style="{ background: routeMeta === item.to ? 'var(--accent-soft)' : 'transparent' }"
+                @click="closeDesktopSearch">
+                <div class="flex items-center gap-3 min-w-0">
+                  <span class="px-2 py-1 rounded-lg text-xs font-bold font-mono shrink-0"
+                    :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+                    #{{ item.num }}
+                  </span>
+                  <div class="min-w-0">
+                    <span class="block font-bold text-xs sm:text-sm truncate" :style="{ color: 'var(--ink)' }">
+                      {{ t(item.km, item.en) }}
+                    </span>
+                    <span class="block text-[11px] truncate opacity-75" :style="{ color: 'var(--ink-muted)' }">
+                      {{ t(item.catKm, item.catEn) }}
+                    </span>
+                  </div>
+                </div>
+                <span class="text-xs shrink-0 font-medium opacity-70" :style="{ color: 'var(--accent)' }">
+                  {{ t('ចូលអាន →', 'Read →') }}
+                </span>
+              </router-link>
+
+              <div v-if="filteredDesktopSearchItems.length === 0" class="p-8 text-center text-xs" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('រកមិនឃើញប្រធានបទដែលត្រូវនឹងពាក្យស្វែងរកឡើយ', 'No matching topics found') }}
+              </div>
+            </div>
+
+            <!-- Footer Tip -->
+            <div class="p-2.5 text-center text-[11px] border-t" :style="{ borderColor: 'var(--border)', color: 'var(--ink-faint)', background: 'var(--bg-card-2)' }">
+              {{ t('ចុចលើប្រធានបទណាមួយដើម្បីចូលអានភ្លាមៗ ឬចុច ESC ដើម្បីបិទ', 'Click any topic to navigate or press ESC to close') }}
+            </div>
+          </div>
+        </div>
+      </transition>
+    </teleport>
+
     <!-- Facebook-style bottom navigation -->
     <nav class="bottom-nav" aria-label="Main navigation">
       <template v-for="tab in bottomTabs" :key="tab.id">
@@ -374,6 +553,191 @@ function resetSettings() {
 const settingsOpen = ref(false)
 const settingsRef = ref(null)
 const settingsBtnRef = ref(null)
+
+const desktopNavContainerRef = ref(null)
+const activeDesktopCat = ref(null)
+const desktopSearchOpen = ref(false)
+const desktopSearchQuery = ref('')
+const selectedSearchCat = ref('all')
+const desktopSearchInputRef = ref(null)
+let closeCatTimer = null
+
+const desktopCategories = [
+  {
+    id: 'dhamma',
+    km: 'ព្រះធម៌ & ចក្រវាឡ',
+    kmShort: 'ព្រះធម៌',
+    en: 'Dhamma & Cosmos',
+    icon: '☸️',
+    items: [
+      { to: '/core', km: 'ធម៌មូលដ្ឋាន', en: 'Core Teachings', num: '២', descKm: 'អរិយសច្ច ៤, ខន្ធ ៥' },
+      { to: '/abhidhamma', km: 'អភិធម្ម', en: 'Abhidhamma', num: '៣', descKm: 'បរមត្ថធម៌ ៤ (ចិត្ត ចេតសិក រូប និព្វាន)' },
+      { to: '/kamma', km: 'កម្ម និងផល', en: 'Kamma & Result', num: '៤', descKm: 'ច្បាប់នៃកម្ម កម្មបថ ១០ វិបាកកម្ម' },
+      { to: '/suttas', km: 'ព្រះសូត្រសំខាន់ៗ', en: 'Key Suttas', num: '៧', descKm: 'ធម្មចក្កប្បវត្តនសូត្រ មង្គលសូត្រ...' },
+      { to: '/gathas', km: 'គាថាព្រះធម៌', en: 'Dhamma Gāthā', num: '៩', descKm: 'គាថាភាសិតជ្រាលជ្រៅ និងពុទ្ធឱវាទ' },
+      { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', en: 'Dependent Origination', num: '១៧', descKm: 'អង្គ ១២ នៃខ្សែចង្វាក់បដិច្ចសមុប្បាទ' },
+      { to: '/realms', km: 'ស្ថានទាំង ៣១ ភព', en: '31 Realms', num: '២៣', descKm: 'អបាយ ៤, កាម ៧, រូប ១៦, អរូប ៤' },
+      { to: '/bodhipakkhiya', km: 'ពោធិបក្ខិយធម៌ ៣៧', en: '37 Awakening Factors', num: '២៤', descKm: 'ធម៌ជាចំណែកនៃការពោធិត្រាស់ដឹង' },
+      { to: '/magga', km: 'មគ្គ ៨ ជាក់ស្តែង', en: 'Noble Eightfold Path', num: '៣៤', descKm: 'ផ្លូវកណ្តាលក្នុងការរស់នៅ និងប្រតិបត្តិ' },
+      { to: '/prophecy', km: 'ពុទ្ធព្យាករណ៍ ៥០០០ វស្សា', en: '5000-Year Prophecy', num: '៣៨', descKm: 'អន្តរធាន ៥ & ព្រះសិរិអារ្យមេត្រីយ៍' },
+      { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', en: 'Cosmology & Origins', num: '៤០', descKm: 'វដ្តកប្ប ព្រះអាទិត្យ ៧ & កំណើតសង្គម' },
+    ]
+  },
+  {
+    id: 'practice',
+    km: 'ការបដិបត្តិ & សមាធិ',
+    kmShort: 'ការបដិបត្តិ',
+    en: 'Practice & Meditation',
+    icon: '🧘',
+    items: [
+      { to: '/meditation', km: 'សមាធិ (សមថ & វិបស្សនា)', en: 'Meditation Practice', num: '៦', descKm: 'របៀបអង្គុយសមាធិ និងអានិសង្ស' },
+      { to: '/chanting', km: 'សូត្រ ១០ (Chanting)', en: 'Daily Chanting', num: '១០', descKm: 'ធម៌សូត្រប្រចាំថ្ងៃ ព្រឹក-ល្ងាច' },
+      { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', en: 'Daily Practice', num: '១៩', descKm: 'ទម្លាប់សាងកុសលប្រចាំថ្ងៃរបស់ពុទ្ធបរិស័ទ' },
+      { to: '/recollections', km: 'អនុស្សតិ ១០', en: 'Recollections', num: '២០', descKm: 'ពុទ្ធានុស្សតិ ធម្មា សង្ឃា ចាគានុស្សតិ...' },
+      { to: '/calendar', km: 'បដិទិនពុទ្ធសាសនា', en: 'Buddhist Calendar', num: '២២', descKm: 'ថ្ងៃសីល ថ្ងៃពេញបូណ៌មី និងបុណ្យទាន' },
+      { to: '/timer', km: 'នាឡិកាសមាធិ', en: 'Meditation Timer', num: '២៥', descKm: 'នាឡិកាកំណត់ពេលសមាធិ និងសម្លេងជួង' },
+      { to: '/anapanasati', km: 'អានាបានសតិ ១៦ ដំណាក់កាល', en: '16 Anapanasati Steps', num: '២៨', descKm: 'វិធីដកដង្ហើមភាវនាតាមពុទ្ធវចនៈ' },
+      { to: '/vipassana-nana', km: 'វិបស្សនាញាណ ១៦ ដំណាក់កាល', en: '16 Vipassanā Stages', num: '៣០', descKm: 'ដំណើរផ្លូវចិត្តឈានទៅរកការត្រាស់ដឹង' },
+      { to: '/metta', km: 'មេត្តាភាវនា ១០ ទិស', en: 'Metta Bhavana', num: '៣២', descKm: 'ការផ្សាយមេត្តាចិត្តដល់សត្វលោកឥតព្រំដែន' },
+      { to: '/dhutanga', km: 'ធុតង្គ ១៣ ប្រការ', en: '13 Ascetic Practices', num: '៣៧', descKm: 'វត្តប្រតិបត្តិដុសខាត់កម្ចាត់កិលេស' },
+      { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', en: 'Merit Dedication', num: '៤១', descKm: 'បដិទាន & បរទត្តូបជីវីប្រេត ក្នុងបុណ្យភ្ជុំ' },
+    ]
+  },
+  {
+    id: 'citta',
+    km: 'ចិត្ត & បរមត្ថធម៌',
+    kmShort: 'ចិត្ត & បរមត្ថ',
+    en: 'Mind & Psychology',
+    icon: '🧠',
+    items: [
+      { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ ២៨', en: 'Rūpa Paramattha Q&A', num: '១៤', descKm: 'មហាភូតរូប ៤ និងឧបាទាយរូប ២៤' },
+      { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ ៥២', en: 'Cetasika Q&A', num: '១៥', descKm: 'អញ្ញសមានចេតសិក អកុសល សោភណៈ' },
+      { to: '/lobha-mula-citta', km: 'ចិត្តបរមត្ថ (លោភមូលចិត្ត ៨)', en: 'Citta Paramattha', num: '១៦', descKm: 'ដួងចិត្ត ៨៩/១២១ និងលោភមូលចិត្ត' },
+      { to: '/death-and-rebirth', km: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', en: 'Death & Rebirth', num: '២៧', descKm: 'ចុតិចិត្ត បដិសន្ធិចិត្ត និងនិមិត្ត ៣ យ៉ាង' },
+      { to: '/citta-matrix', km: 'ផែនទីចិត្ត និងចេតសិក', en: 'Citta Matrix', num: '២៩', descKm: 'តារាងបន្សំចិត្ត ៨៩ និងចេតសិក ៥២' },
+      { to: '/dhamma-aid', km: 'ឱសថធម៌សង្គ្រោះអារម្មណ៍', en: 'Dhamma First-Aid', num: '៣១', descKm: 'ព្យាបាលទុក្ខព្រួយ ថប់បារម្ភ និងកំហឹង' },
+      { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', en: 'Citta Vīthi Simulator', num: '៣៣', descKm: 'ចក្ខុទ្វារវិថី សោតទ្វារវិថី មនោទ្វារវិថី' },
+    ]
+  },
+  {
+    id: 'life',
+    km: 'ជីវិត សីល & សង្គម',
+    kmShort: 'ជីវិត & សង្គម',
+    en: 'Life & Society',
+    icon: '👑',
+    items: [
+      { to: '/ethics', km: 'សីល និងបារមី', en: 'Ethics & Perfections', num: '៥', descKm: 'សីល ៥, សីល ៨, និងបារមី ១០ ទស្ស' },
+      { to: '/life', km: 'ជីវប្រវត្តិព្រះពុទ្ធ', en: 'Life of the Buddha', num: '៨', descKm: 'ប្រសូតិ ត្រាស់ដឹង សម្តែងធម៌ បរិនិព្វាន' },
+      { to: '/stories', km: 'រឿងល្បីៗក្នុងពុទ្ធសាសនា', en: 'Dhamma Stories', num: '១២', descKm: 'រឿងអដ្ឋកថា អង្គុលីមាល បដាចារា...' },
+      { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', en: 'Monastic Life', num: '១៨', descKm: 'វិន័យភិក្ខុ ២២៧ សិក្ខាបទ ជីវិតបព្វជិត' },
+      { to: '/ariya', km: 'អរិយបុគ្គល ៤ គូ (៨ ពួក)', en: 'Noble Persons', num: '២១', descKm: 'សោតាបន្ន សកទាគាមី អនាគាមី អរហន្ត' },
+      { to: '/holy-sites', km: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', en: 'Sacred Holy Sites', num: '៣៥', descKm: 'លុម្ពិនី ពុទ្ធគយា សារនាថ កុសិនារា' },
+      { to: '/disciples', km: 'ព្រះអរហន្តសាវ័ក & ឯតទគ្គៈ', en: 'Great Disciples', num: '៣៦', descKm: 'អសីតិមហាថេរ ៨០ អង្គ និងបរិស័ទឆ្នើម' },
+      { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', en: 'Buddhist Leadership', num: '៣៩', descKm: 'អបរិហានិយធម៌ ៧ & អភិបាលកិច្ចរដ្ឋ' },
+    ]
+  },
+  {
+    id: 'study',
+    km: 'សិក្សា & ល្បងប្រាជ្ញា',
+    kmShort: 'សិក្សា & សំណួរ',
+    en: 'Study & Interactive',
+    icon: '📚',
+    items: [
+      { to: '/glossary', km: 'វចនានុក្រមធម៌', en: 'Dhamma Glossary', num: '១១', descKm: 'ពាក្យគន្លឹះបាលី និងពន្យល់ន័យក្បោះក្បាយ' },
+      { to: '/questions', km: 'សំណួរ–ចម្លើយព្រះធម៌', en: 'Dhamma Q&A', num: '១៣', descKm: 'សំណួរចម្ងល់ជីវិត និងចម្លើយតាមព្រះធម៌' },
+      { to: '/quiz', km: 'ល្បងប្រាជ្ញាធម៌ (Quiz)', en: 'Dhamma Quiz', num: '២៦', descKm: 'តេស្តចំណេះដឹងព្រះធម៌ និងប្រកួតប្រជែង' },
+    ]
+  }
+]
+
+function openCatMenu(id) {
+  if (closeCatTimer) clearTimeout(closeCatTimer)
+  activeDesktopCat.value = id
+}
+
+function scheduleCloseCatMenu() {
+  if (closeCatTimer) clearTimeout(closeCatTimer)
+  closeCatTimer = setTimeout(() => {
+    activeDesktopCat.value = null
+  }, 160)
+}
+
+function cancelCloseCatMenu() {
+  if (closeCatTimer) clearTimeout(closeCatTimer)
+}
+
+function toggleCatMenu(id) {
+  activeDesktopCat.value = activeDesktopCat.value === id ? null : id
+}
+
+function closeAllDesktopMenus() {
+  activeDesktopCat.value = null
+}
+
+function isCatCurrentRoute(cat) {
+  return cat.items.some(item => item.to === routeMeta.value)
+}
+
+function openDesktopSearch() {
+  desktopSearchOpen.value = true
+  activeDesktopCat.value = null
+  nextTick(() => {
+    desktopSearchInputRef.value?.focus()
+  })
+}
+
+function closeDesktopSearch() {
+  desktopSearchOpen.value = false
+  desktopSearchQuery.value = ''
+}
+
+const allSearchableItems = computed(() => {
+  const result = []
+  // Add Home
+  result.push({ to: '/', km: 'ទំព័រដើម', en: 'Home', num: '១', catKm: 'ទំព័រដើម', catEn: 'Home', catId: 'home' })
+  desktopCategories.forEach(cat => {
+    cat.items.forEach(item => {
+      result.push({
+        ...item,
+        catKm: cat.km,
+        catEn: cat.en,
+        catId: cat.id
+      })
+    })
+  })
+  return result
+})
+
+const filteredDesktopSearchItems = computed(() => {
+  let list = allSearchableItems.value
+  if (selectedSearchCat.value !== 'all') {
+    list = list.filter(item => item.catId === selectedSearchCat.value)
+  }
+  const q = desktopSearchQuery.value.trim().toLowerCase()
+  if (!q) return list
+  return list.filter(item => {
+    return item.km.toLowerCase().includes(q) ||
+      item.en.toLowerCase().includes(q) ||
+      item.num.toLowerCase().includes(q) ||
+      (item.descKm && item.descKm.toLowerCase().includes(q))
+  })
+})
+
+function onDesktopGlobalClick(e) {
+  if (desktopNavContainerRef.value && !desktopNavContainerRef.value.contains(e.target)) {
+    activeDesktopCat.value = null
+  }
+}
+
+function onDesktopKeydown(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault()
+    openDesktopSearch()
+  } else if (e.key === 'Escape') {
+    if (desktopSearchOpen.value) closeDesktopSearch()
+    if (activeDesktopCat.value) activeDesktopCat.value = null
+  }
+}
 
 const desktopNavRef = ref(null)
 
@@ -543,12 +907,16 @@ onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
+  document.addEventListener('click', onDesktopGlobalClick)
+  window.addEventListener('keydown', onDesktopKeydown)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('pagehide', onSaveOnExit)
   document.removeEventListener('click', onSettingsGlobalClick)
+  document.removeEventListener('click', onDesktopGlobalClick)
+  window.removeEventListener('keydown', onDesktopKeydown)
 })
 
 const printOpenStates = []

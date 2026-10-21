@@ -389,71 +389,37 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   footer { padding-bottom: calc(7.5rem + env(safe-area-inset-bottom)) !important; }
 }
 
-/* Desktop top navigation */
-.desktop-nav { display: block; }
-.desktop-nav-item {
-  color: var(--ink-soft);
-  border: 1px solid transparent;
-  user-select: none;
-}
-.desktop-nav-item:hover,
-.desktop-nav-item.open-cat {
-  color: var(--ink);
-  background: var(--bg-card);
-  border-color: var(--border);
-}
-.desktop-nav-item.active {
-  color: var(--accent) !important;
-  background: var(--accent-soft);
-  border-color: var(--accent);
-}
-.dropdown-item {
-  border: 1px solid transparent;
-}
-.dropdown-item:hover {
-  background: var(--bg-card-2);
-  border-color: var(--border);
-}
-.dropdown-item.active-item {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-}
-.dropdown-pop-enter-active,
-.dropdown-pop-leave-active {
-  transition: opacity 0.16s ease, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.dropdown-pop-enter-from,
-.dropdown-pop-leave-to {
-  opacity: 0;
-  transform: translateY(6px);
-}
-.topnav-inner a { position: relative; white-space: nowrap; }
-.topnav-inner a:hover { opacity: 0.75; }
-.topnav-inner::-webkit-scrollbar { display: none; }
-.topnav-inner a.active { color: var(--accent) !important; }
-.topnav-inner a.active::after {
-  content: ''; position: absolute; left: 8px; right: 8px; bottom: -1px;
-  height: 2px; background: var(--accent);
-}
-@media (max-width: 1023px) {
-  .desktop-nav { display: none !important; }
-}
-
-/* Slide-up "All Pages" sheet */
+/* All Pages sheet (mobile & desktop) */
 .menu-backdrop {
   position: fixed; inset: 0; z-index: 65;
   background: rgba(20, 16, 10, 0.55);
+  backdrop-filter: blur(4px);
   display: flex; align-items: flex-end; justify-content: center;
 }
 .menu-sheet {
   width: 100%; max-width: 480px;
-  max-height: min(72vh, 580px);
+  max-height: min(78vh, 620px);
   background: var(--bg-card);
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
   box-shadow: 0 -8px 40px var(--halo);
   display: flex; flex-direction: column;
   overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .menu-backdrop {
+    align-items: center;
+  }
+  .menu-sheet {
+    max-width: 700px;
+    max-height: 82vh;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
+  }
+  .menu-sheet-list {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
 }
 .menu-sheet-head {
   display: flex; align-items: center; justify-content: space-between;

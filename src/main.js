@@ -58,6 +58,12 @@ const routes = [
   { path: '/citta-vithi', name: 'citta-vithi', component: lazyView(() => import('./views/CittaVithiView.vue')), meta: { titleK: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', titleE: 'Citta Vithi Simulator' } },
   { path: '/magga', name: 'magga', component: lazyView(() => import('./views/MaggaView.vue')), meta: { titleK: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', titleE: 'Noble Eightfold Path' } },
   { path: '/holy-sites', name: 'holy-sites', component: lazyView(() => import('./views/HolySitesView.vue')), meta: { titleK: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', titleE: 'The 4 Sacred Holy Sites' } },
+  { path: '/disciples', name: 'disciples', component: lazyView(() => import('./views/DisciplesView.vue')), meta: { titleK: 'ព្រះអរហន្តសាវ័ក & ឯតទគ្គៈ', titleE: 'Great Disciples & Etadagga' } },
+  { path: '/dhutanga', name: 'dhutanga', component: lazyView(() => import('./views/DhutangaView.vue')), meta: { titleK: 'ធុតង្គ ១៣ ប្រការ', titleE: '13 Dhutanga Practices' } },
+  { path: '/prophecy', name: 'prophecy', component: lazyView(() => import('./views/ProphecyView.vue')), meta: { titleK: 'ពុទ្ធព្យាករណ៍ ៥០០០ វស្សា & ព្រះមេត្រី', titleE: '5,000-Year Prophecy & Metteyya' } },
+  { path: '/rajadhamma', name: 'rajadhamma', component: lazyView(() => import('./views/RajadhammaView.vue')), meta: { titleK: 'ទសពិធរាជធម៌ ១០ & អបរិហានិយធម៌ ៧', titleE: 'Buddhist Leadership & Governance' } },
+  { path: '/cosmology', name: 'cosmology', component: lazyView(() => import('./views/CosmologyView.vue')), meta: { titleK: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', titleE: 'Cosmology, Kalpas & Origin of Society' } },
+  { path: '/merit-transfer', name: 'merit-transfer', component: lazyView(() => import('./views/MeritTransferView.vue')), meta: { titleK: 'យន្តការឧទ្ទិសកុសល & បរទត្តូបជីវីប្រេត', titleE: 'Merit Transference & Pattidāna' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

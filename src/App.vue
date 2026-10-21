@@ -432,6 +432,12 @@ const nav = [
   { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', kmShort: 'វិថីចិត្ត', en: 'Citta Vīthi', num: '៣៣' },
   { to: '/magga', km: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', kmShort: 'មគ្គ ៨', en: 'Noble Path', num: '៣៤' },
   { to: '/holy-sites', km: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', kmShort: 'សង្វេជនីយដ្ឋាន', en: 'Holy Sites', num: '៣៥' },
+  { to: '/disciples', km: 'ព្រះអរហន្តសាវ័ក & ឯតទគ្គៈ', kmShort: 'អរហន្តសាវ័ក', en: 'Great Disciples', num: '៣៦' },
+  { to: '/dhutanga', km: 'ធុតង្គ ១៣ ប្រការ', kmShort: 'ធុតង្គ ១៣', en: '13 Dhutanga', num: '៣៧' },
+  { to: '/prophecy', km: 'ពុទ្ធព្យាករណ៍ & ព្រះមេត្រី', kmShort: 'ពុទ្ធព្យាករណ៍', en: 'Prophecy & Metteyya', num: '៣៨' },
+  { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', kmShort: 'ទសពិធរាជធម៌', en: 'Leadership & Rajadhamma', num: '៣៩' },
+  { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', kmShort: 'ចក្រវាឡ', en: 'Cosmology & Origins', num: '៤០' },
+  { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication', num: '៤១' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -446,9 +452,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta'],
-  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer'],
+  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
 }
 
 const activeTab = computed(() => {
@@ -499,6 +505,12 @@ const related = {
   '/bodhipakkhiya': ['/core', '/meditation', '/ariya'],
   '/timer': ['/meditation', '/chanting', '/daily'],
   '/quiz': ['/core', '/abhidhamma', '/questions'],
+  '/disciples': ['/ariya', '/life', '/stories', '/sangha'],
+  '/dhutanga': ['/sangha', '/meditation', '/ethics', '/daily'],
+  '/prophecy': ['/life', '/suttas', '/cosmology', '/kamma'],
+  '/rajadhamma': ['/ethics', '/core', '/suttas', '/daily'],
+  '/cosmology': ['/realms', '/prophecy', '/kamma', '/suttas'],
+  '/merit-transfer': ['/kamma', '/realms', '/daily', '/ethics'],
 }
 
 const relatedList = computed(() => {

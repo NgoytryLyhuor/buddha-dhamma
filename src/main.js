@@ -52,6 +52,12 @@ const routes = [
   { path: '/death-and-rebirth', name: 'death-and-rebirth', component: lazyView(() => import('./views/DeathAndRebirthView.vue')), meta: { titleK: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', titleE: 'Death & Rebirth Process' } },
   { path: '/anapanasati', name: 'anapanasati', component: lazyView(() => import('./views/AnapanasatiView.vue')), meta: { titleK: 'អានាបានសតិ ១៦ ដំណាក់កាល', titleE: '16 Steps of Anapanasati' } },
   { path: '/citta-matrix', name: 'citta-matrix', component: lazyView(() => import('./views/CittaMatrixView.vue')), meta: { titleK: 'ផែនទីចិត្ត ៨៩/១២១ និងចេតសិក ៥២', titleE: 'Citta & Cetasika Matrix' } },
+  { path: '/vipassana-nana', name: 'vipassana-nana', component: lazyView(() => import('./views/VipassanaNanaView.vue')), meta: { titleK: 'វិបស្សនាញាណ ១៦ ដំណាក់កាល', titleE: '16 Stages of Vipassana' } },
+  { path: '/dhamma-aid', name: 'dhamma-aid', component: lazyView(() => import('./views/DhammaAidView.vue')), meta: { titleK: 'ឱសថធម៌សង្គ្រោះអារម្មណ៍', titleE: 'Dhamma Emotional First-Aid' } },
+  { path: '/metta', name: 'metta', component: lazyView(() => import('./views/MettaView.vue')), meta: { titleK: 'មេត្តាភាវនា ១០ ទិស', titleE: 'Metta Bhavana 10 Directions' } },
+  { path: '/citta-vithi', name: 'citta-vithi', component: lazyView(() => import('./views/CittaVithiView.vue')), meta: { titleK: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', titleE: 'Citta Vithi Simulator' } },
+  { path: '/magga', name: 'magga', component: lazyView(() => import('./views/MaggaView.vue')), meta: { titleK: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', titleE: 'Noble Eightfold Path' } },
+  { path: '/holy-sites', name: 'holy-sites', component: lazyView(() => import('./views/HolySitesView.vue')), meta: { titleK: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', titleE: 'The 4 Sacred Holy Sites' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

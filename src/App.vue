@@ -426,6 +426,12 @@ const nav = [
   { to: '/death-and-rebirth', km: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', kmShort: 'ស្លាប់-បដិសន្ធិ', en: 'Death & Rebirth', num: '២៧' },
   { to: '/anapanasati', km: 'អានាបានសតិ ១៦ ដំណាក់កាល', kmShort: 'អានាបានសតិ', en: 'Anapanasati', num: '២៨' },
   { to: '/citta-matrix', km: 'ផែនទីចិត្ត និងចេតសិក', kmShort: 'ផែនទីចិត្ត', en: 'Citta Matrix', num: '២៩' },
+  { to: '/vipassana-nana', km: 'វិបស្សនាញាណ ១៦ ដំណាក់កាល', kmShort: 'វិបស្សនាញាណ', en: '16 Vipassanā', num: '៣០' },
+  { to: '/dhamma-aid', km: 'ឱសថធម៌សង្គ្រោះអារម្មណ៍', kmShort: 'សង្គ្រោះអារម្មណ៍', en: 'Dhamma Aid', num: '៣១' },
+  { to: '/metta', km: 'មេត្តាភាវនា ១០ ទិស', kmShort: 'មេត្តា ១០ ទិស', en: 'Mettā 10 Directions', num: '៣២' },
+  { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', kmShort: 'វិថីចិត្ត', en: 'Citta Vīthi', num: '៣៣' },
+  { to: '/magga', km: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', kmShort: 'មគ្គ ៨', en: 'Noble Path', num: '៣៤' },
+  { to: '/holy-sites', km: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', kmShort: 'សង្វេជនីយដ្ឋាន', en: 'Holy Sites', num: '៣៥' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -440,9 +446,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati'],
-  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta'],
+  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites'],
 }
 
 const activeTab = computed(() => {

@@ -1,13 +1,13 @@
 <template>
   <div class="fade-up">
     <p class="chapter-label">{{ t('អភិធម្ម & ជីវិត — ដំណើរនៃការស្លាប់ និងការបដិសន្ធិ', 'ABHIDHAMMA & LIFE — THE PROCESS OF DEATH & REBIRTH') }}</p>
-    <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+    <h2 class="mt-3 font-display text-2xl sm:text-3xl md:text-4xl leading-snug" :style="{ color: 'var(--ink)' }">
       {{ t('ដំណើរនៃការស្លាប់ និងការបដិសន្ធិ (មរណាសន្នវិថី)', 'The Death-Proximate Mind & Rebirth Process (Maraṇāsanna Vīthi)') }}
     </h2>
     <div class="ornament mt-4">&#9784;</div>
 
-    <div class="verse-box p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
-      <p class="font-serif italic text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
+    <div class="verse-box p-4 sm:p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
+      <p class="font-serif italic text-sm sm:text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
         {{ t('«យថា មុទ្ទិកាយ ឆាយា, យថា វា បដិឃោសកោ; ន ច ឥធ ឧដ្ឋិតោ គន្ត្វា, ឥធ សម្បដិបជ្ជតិ»', '«Just as an impression is made by a seal upon wax, or as an echo reverberates, rebirth occurs without any soul migrating.»') }}
       </p>
       <p class="text-xs md:text-sm mt-2 text-center" :style="{ color: 'var(--ink-muted)' }">
@@ -20,19 +20,19 @@
     </p>
 
     <!-- 1. The 4 Causes of Death (Maraṇuppatti 4) -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
       <div class="flex items-center gap-2">
         <span class="text-xl">🕯️</span>
         <p class="chapter-label m-0">{{ t('ហេតុនៃការស្លាប់ ៤ យ៉ាង', 'THE 4 CAUSES OF DEATH') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('តើមនុស្ស និងសត្វស្លាប់ដោយសារអ្វីខ្លះ? (Maraṇuppatti 4)', 'The 4 Modes of Dying (Maraṇuppatti)') }}
       </h3>
       <p class="text-xs md:text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ព្រះអដ្ឋកថាចារ្យបានប្រៀបធៀបជីវិតសត្វលោកទៅនឹង «អណ្តាតភ្លើងនៃចង្កៀងប្រេង» ដែលអាចរលត់ទៅដោយសារហេតុ ៤ ប្រការ៖', 'Ancient masters compared human life to the flame of an oil lamp, which can be extinguished by four causes:') }}
       </p>
 
-      <div class="grid sm:grid-cols-2 gap-4 mt-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-5">
         <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <div class="flex items-center gap-2">
             <span class="text-xl">⏳</span>
@@ -76,12 +76,12 @@
     </div>
 
     <!-- 2. The Death-Proximate Thought Process (Maraṇāsanna Vīthi) -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
       <div class="flex items-center gap-2">
         <span class="text-xl">🧠</span>
         <p class="chapter-label m-0">{{ t('វិថីចិត្តជិតស្លាប់ (MARAṆĀSANNA VĪTHI)', 'DEATH-PROXIMATE THOUGHT PROCESS') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('តើចិត្តដំណើរការយ៉ាងណា នៅខណៈពេលចុងក្រោយនៃជីវិត?', 'How Does Consciousness Transition at the Moment of Death?') }}
       </h3>
       <p class="text-xs md:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
@@ -89,7 +89,7 @@
       </p>
 
       <!-- Visual Step-by-Step Vīthi Pipeline -->
-      <div class="space-y-3 mt-5">
+      <div class="space-y-3 mt-4 sm:mt-5">
         <div class="p-3.5 rounded-lg flex items-start gap-3" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <span class="sutra-num font-bold text-sm shrink-0">១</span>
           <div>
@@ -147,19 +147,19 @@
     </div>
 
     <!-- 3. The 3 Signs at Death (Kamma, Kamma Nimitta, Gati Nimitta) -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
       <div class="flex items-center gap-2">
         <span class="text-xl">🔮</span>
         <p class="chapter-label m-0">{{ t('និមិត្ត ៣ ប្រការ', 'THE 3 TERMINAL SIGNS') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('និមិត្ត ៣ យ៉ាងដែលលេចឡើងក្នុងចិត្តជិតស្លាប់', 'The 3 Signs Manifesting at the Death-Door') }}
       </h3>
       <p class="text-xs md:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('នៅខណៈពេលជិតស្លាប់ ចិត្តនឹងចាប់យកអារម្មណ៍មួយក្នុងចំណោម ៣ យ៉ាងនេះជាអារម្មណ៍ចុងក្រោយ៖', 'At the death threshold, the mind involuntarily grasps one of these three objects as its final terminal impression:') }}
       </p>
 
-      <div class="grid md:grid-cols-3 gap-4 mt-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mt-4 sm:mt-5">
         <!-- 1. Kamma -->
         <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <div class="flex items-center gap-2">
@@ -206,19 +206,19 @@
     </div>
 
     <!-- 4. Practical Bedside Guide for the Dying (អាសន្នកុសល) -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
       <div class="flex items-center gap-2">
         <span class="text-xl">🤝</span>
         <p class="chapter-label m-0">{{ t('មគ្គុទ្ទេសក៍ជាក់ស្តែង', 'PRACTICAL BEDSIDE GUIDE') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('៧ វិធីជួយដាស់តឿនស្មារតីមនុស្សជិតស្លាប់ (Compassionate Bedside Assistance)', '7 Steps to Support a Dying Loved One with Dhamma') }}
       </h3>
       <p class="text-xs md:text-sm mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('កាតព្វកិច្ចដ៏ឧត្តមបំផុតរបស់កូនចៅ និងញាតិមិត្ត គឺជួយឱ្យអ្នកជំងឺជិតស្លាប់មានចិត្តបរិសុទ្ធ មិនភ័យខ្លាច៖', 'The highest debt of gratitude children and friends can repay is steering a dying relative’s mind toward tranquility and virtue:') }}
       </p>
 
-      <div class="grid sm:grid-cols-2 gap-3.5 mt-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 mt-4">
         <div class="p-3.5 rounded-lg flex items-start gap-2.5" :style="{ background: 'var(--bg-card-2)' }">
           <span class="text-base">🤫</span>
           <div class="text-xs leading-relaxed">
@@ -270,12 +270,12 @@
     </div>
 
     <!-- 5. How to Prepare Ourselves Everyday -->
-    <div class="card-paper p-6 md:p-8 mt-8" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
       <div class="flex items-center gap-2">
         <span class="text-xl">☸️</span>
         <p class="chapter-label m-0">{{ t('ការត្រៀមខ្លួនរាល់ថ្ងៃ', 'DAILY PREPARATION') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('អភិណ្ហបច្ចវេក្ខណៈ — ពិចារណាលើសេចក្តីស្លាប់ជាប្រចាំ', 'Abhiṇhapaccavekkhaṇa — The 5 Daily Recollections') }}
       </h3>
       <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">

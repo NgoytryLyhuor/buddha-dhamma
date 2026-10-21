@@ -1,13 +1,13 @@
 <template>
   <div class="fade-up">
     <p class="chapter-label">{{ t('កម្មដ្ឋាន & វិបស្សនា — អានាបានសតិ ១៦ ដំណាក់កាល', 'MEDITATION & INSIGHT — 16 STEPS OF MINDFUL BREATHING') }}</p>
-    <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+    <h2 class="mt-3 font-display text-2xl sm:text-3xl md:text-4xl leading-snug" :style="{ color: 'var(--ink)' }">
       {{ t('អានាបានសតិ ១៦ ដំណាក់កាល (MN 118)', 'The Sixteen Steps of Ānāpānasati (Mindfulness of Breathing)') }}
     </h2>
     <div class="ornament mt-4">&#9784;</div>
 
-    <div class="verse-box p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
-      <p class="font-serif italic text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
+    <div class="verse-box p-4 sm:p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
+      <p class="font-serif italic text-sm sm:text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
         {{ t('«អានាបានសតិ, ភិក្ខវេ, ភាវិតា ពហុលីកតា ចត្តារោ សតិបដ្ឋានេ បរិបូរេតិ...»', '«Mindfulness of breathing, bhikkhus, when developed and cultivated, fulfills the four foundations of mindfulness...»') }}
       </p>
       <p class="text-xs md:text-sm mt-2 text-center" :style="{ color: 'var(--ink-muted)' }">
@@ -20,10 +20,10 @@
     </p>
 
     <!-- 1. Interactive Guided Breath Pacer Console -->
-    <div class="card-paper p-6 md:p-8 mt-8 max-w-xl mx-auto text-center border-2"
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8 max-w-xl mx-auto text-center border-2"
       :style="{ borderColor: isPacing ? 'var(--accent-bright)' : 'var(--border)' }">
       
-      <div class="flex items-center justify-between gap-2 text-xs mb-4 flex-wrap">
+      <div class="flex items-center justify-between gap-2 text-xs mb-3 sm:mb-4 flex-wrap">
         <span class="chapter-label m-0 font-bold">{{ t('ឧបករណ៍ហាត់ដកដង្ហើមតាមចង្វាក់', 'BREATH PACER') }}</span>
         <button class="font-btn px-2.5 py-1 text-xs flex items-center gap-1.5" @click="soundEnabled = !soundEnabled">
           <span>{{ soundEnabled ? '🔔' : '🔕' }}</span>
@@ -32,12 +32,12 @@
       </div>
 
       <!-- Animated Breathing Visual Circle -->
-      <div class="my-6 flex flex-col items-center justify-center">
+      <div class="my-4 sm:my-6 flex flex-col items-center justify-center">
         <div
-          class="w-48 h-48 sm:w-56 sm:h-56 rounded-full flex flex-col items-center justify-center transition-all duration-1000 select-none shadow-inner"
+          class="w-44 h-44 sm:w-56 sm:h-56 rounded-full flex flex-col items-center justify-center transition-all duration-1000 select-none shadow-inner"
           :style="breathingCircleStyle"
         >
-          <span class="text-base sm:text-lg font-display font-bold tracking-wide" :style="{ color: 'var(--ink)' }">
+          <span class="text-sm sm:text-base md:text-lg font-display font-bold tracking-wide" :style="{ color: 'var(--ink)' }">
             {{ t(breathPhaseKm, breathPhaseEn) }}
           </span>
           <span class="text-2xl sm:text-3xl font-light mt-1 font-mono" :style="{ color: 'var(--accent)' }">
@@ -50,17 +50,17 @@
       </div>
 
       <!-- Controls -->
-      <div class="flex items-center justify-center gap-3 mt-4">
+      <div class="flex items-center justify-center gap-2.5 sm:gap-3 mt-3 sm:mt-4 flex-wrap">
         <button
           type="button"
-          class="install-btn px-6 py-2.5 text-sm font-bold shadow-md"
+          class="install-btn px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm font-bold shadow-md"
           @click="togglePacer"
         >
           {{ isPacing ? t('ផ្អាក', 'Pause') : t('ចាប់ផ្តើមចលនាដង្ហើម', 'Start Breath Pacer') }}
         </button>
         <button
           type="button"
-          class="font-btn px-4 py-2.5 text-xs font-semibold"
+          class="font-btn px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-semibold"
           @click="resetPacer"
         >
           {{ t('កំណត់ឡើងវិញ', 'Reset') }}
@@ -68,15 +68,15 @@
       </div>
 
       <!-- Rhythm Presets -->
-      <div class="mt-6 pt-4 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
+      <div class="mt-5 sm:mt-6 pt-3 sm:pt-4 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
         <p class="text-[10px] font-bold tracking-wider uppercase mb-2" :style="{ color: 'var(--ink-muted)' }">
           {{ t('ជ្រើសរើសចង្វាក់ដង្ហើម (Rhythm Preset)', 'Select Breathing Rhythm') }}
         </p>
-        <div class="flex items-center justify-center gap-2 flex-wrap">
+        <div class="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
           <button
             v-for="preset in presets"
             :key="preset.id"
-            class="lang-pick px-3 py-1 text-xs"
+            class="lang-pick px-2.5 sm:px-3 py-1 text-xs"
             :class="selectedPresetId === preset.id ? 'on' : ''"
             @click="selectPreset(preset)"
           >
@@ -87,10 +87,10 @@
     </div>
 
     <!-- 2. The 4 Tetrads and 16 Stages Explorer -->
-    <div class="mt-10 space-y-8">
+    <div class="mt-8 sm:mt-10 space-y-6 sm:space-y-8">
       <div class="flex items-center justify-between gap-3">
         <div>
-          <h3 class="font-display text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
+          <h3 class="font-display text-xl sm:text-2xl md:text-3xl" :style="{ color: 'var(--ink)' }">
             {{ t('ចតុក្កៈទាំង ៤ និង ១៦ ដំណាក់កាល', 'The 4 Tetrads & 16 Progressive Stages') }}
           </h3>
           <p class="text-xs mt-1" :style="{ color: 'var(--ink-muted)' }">
@@ -100,26 +100,26 @@
       </div>
 
       <!-- Loop through 4 Tetrads -->
-      <div v-for="tetrad in tetrads" :key="tetrad.id" class="card-paper p-5 md:p-6 space-y-4">
+      <div v-for="tetrad in tetrads" :key="tetrad.id" class="card-paper p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
         <div class="flex items-center justify-between gap-2 border-b pb-3 flex-wrap" :style="{ borderColor: 'var(--border)' }">
           <div class="flex items-center gap-2.5">
-            <span class="text-2xl">{{ tetrad.icon }}</span>
+            <span class="text-xl sm:text-2xl">{{ tetrad.icon }}</span>
             <div>
               <span class="text-[10px] font-bold tracking-wider uppercase" :style="{ color: 'var(--accent)' }">
                 {{ t(tetrad.pali, tetrad.paliEn) }}
               </span>
-              <h4 class="font-display text-lg md:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+              <h4 class="font-display text-base sm:text-lg md:text-xl font-bold" :style="{ color: 'var(--ink)' }">
                 {{ t(tetrad.km, tetrad.en) }}
               </h4>
             </div>
           </div>
-          <span class="text-xs font-mono px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }">
+          <span class="text-[11px] sm:text-xs font-mono px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }">
             {{ t(tetrad.satipatthanaKm, tetrad.satipatthanaEn) }}
           </span>
         </div>
 
         <!-- 4 Steps in this Tetrad -->
-        <div class="grid sm:grid-cols-2 gap-3 pt-1">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1">
           <div
             v-for="step in tetrad.steps"
             :key="step.num"
@@ -155,34 +155,34 @@
     </div>
 
     <!-- 3. The Grand Chain: Anapanasati -> Satipatthana -> Bojjhanga -> Nibbana -->
-    <div class="card-paper p-6 md:p-8 mt-8" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
       <div class="flex items-center gap-2">
         <span class="text-xl">🏆</span>
         <p class="chapter-label m-0">{{ t('ខ្សែចង្វាក់នៃការត្រាស់ដឹង', 'THE CULMINATION OF THE PRACTICE') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('តើអានាបានសតិនាំទៅដល់ការរួចផុតទុក្ខយ៉ាងដូចម្តេច?', 'How Ānāpānasati Leads to Ultimate Liberation') }}
       </h3>
-      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+      <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ព្រះពុទ្ធទ្រង់សម្តែងយ៉ាងច្បាស់លាស់ថា មិនចាំបាច់រៀនកម្មដ្ឋានរាប់រយប្រភេទទេ ត្រឹមតែអានាបានសតិមួយ គឺគ្រប់គ្រាន់ក្នុងការសម្រេចព្រះនិព្វាន ដោយឆ្លងកាត់ ៤ ដំណាក់កាលធំៗ៖', 'The Buddha made it indisputable that one need not master hundreds of different methods: mindfulness of breathing alone is completely sufficient to attain full Nibbāna through these four master fulfillments:') }}
       </p>
 
-      <div class="grid sm:grid-cols-4 gap-3 mt-4">
-        <div class="p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-4">
+        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
           <p class="text-xs font-bold" :style="{ color: 'var(--accent)' }">១. អានាបានសតិ</p>
-          <p class="text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">ដង្ហើម ១៦ ដំណាក់កាល</p>
+          <p class="text-[10px] sm:text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">ដង្ហើម ១៦ ដំណាក់កាល</p>
         </div>
-        <div class="p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
           <p class="text-xs font-bold" :style="{ color: 'var(--accent)' }">២. សតិបដ្ឋាន ៤</p>
-          <p class="text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">កាយ វេទនា ចិត្ត ធម៌</p>
+          <p class="text-[10px] sm:text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">កាយ វេទនា ចិត្ត ធម៌</p>
         </div>
-        <div class="p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
           <p class="text-xs font-bold" :style="{ color: 'var(--accent)' }">៣. ពោជ្ឈង្គ ៧</p>
-          <p class="text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">អង្គនៃការត្រាស់ដឹង</p>
+          <p class="text-[10px] sm:text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">អង្គនៃការត្រាស់ដឹង</p>
         </div>
-        <div class="p-3.5 rounded-lg text-center" :style="{ background: 'var(--accent-bright)', color: '#ffffff' }">
+        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--accent-bright)', color: '#ffffff' }">
           <p class="text-xs font-bold">៤. វិជ្ជា និងវិមុត្តិ</p>
-          <p class="text-[11px] mt-1 opacity-90">ព្រះនិព្វានបរមសុខ</p>
+          <p class="text-[10px] sm:text-[11px] mt-1 opacity-90">ព្រះនិព្វានបរមសុខ</p>
         </div>
       </div>
     </div>
@@ -192,14 +192,14 @@
       <transition name="modal-pop">
         <div
           v-if="activeModalStep"
-          class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5"
+          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
           style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
           @click.self="closeModal"
           role="dialog"
           aria-modal="true"
         >
           <div
-            class="card-paper relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border-2"
+            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
             :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
             @click.stop
           >

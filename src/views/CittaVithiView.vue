@@ -1,10 +1,10 @@
 <script setup>
-import { ref, onBeforeUnmount } from 'vue'
+import { ref, onBeforeUnmount, watch } from 'vue'
 
-const activeVithiType = ref('pancadvara') // 'pancadvara' | 'manodvara'
+const activeVithiType = ref('pancadvara')
 const currentStepIndex = ref(0)
 const isAutoPlaying = ref(false)
-const autoPlaySpeed = ref(1500) // ms
+const autoPlaySpeed = ref(1500)
 let autoPlayTimer = null
 
 // 17 Thought-Moments in Pancadvara Vithi (Atimahantarammaṇa)
@@ -230,52 +230,50 @@ onBeforeUnmount(() => {
 })
 
 const currentStep = ref(pancadvaraSteps[0])
-// keep in sync with currentStepIndex
-import { watch } from 'vue'
 watch(currentStepIndex, (newIdx) => {
   currentStep.value = pancadvaraSteps[newIdx]
 })
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto px-4 py-8 space-y-10">
+  <div class="w-full space-y-6 sm:space-y-8">
     <!-- Header -->
-    <header class="text-center space-y-4">
+    <header class="text-center space-y-3">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20">
         <span>⚡</span>
         <span>វិថីសង្គហៈ • Cognitive Series Simulator</span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-indigo-800 via-purple-700 to-amber-800 dark:from-indigo-200 dark:via-purple-200 dark:to-amber-300 bg-clip-text text-transparent">
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-indigo-800 via-purple-700 to-amber-800 dark:from-indigo-200 dark:via-purple-200 dark:to-amber-300 bg-clip-text text-transparent leading-snug">
         ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦
       </h1>
 
-      <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
         ស្វែងយល់ពីរបៀបដែលខួរក្បាល និងចិត្តធ្វើការក្នុងល្បឿនពព្រិចភ្នែក (១៧ ខណៈចិត្ត) នៅពេលភ្នែកឃើញរូប ឬត្រចៀកឮសំឡេង និងកន្លែងដែលកម្មត្រូវបានបង្កើតឡើង។
       </p>
 
       <!-- Theory Callout -->
-      <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 max-w-2xl mx-auto leading-relaxed">
+      <div class="p-3.5 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 max-w-xl mx-auto leading-relaxed text-left sm:text-center">
         <strong>⚖️ ច្បាប់អាយុកាលរូបនិងចិត្ត៖</strong> ចិត្តកើតរលត់លឿនជាងរូប ១៧ ដង! ក្នុងខណៈដែលរូបធម៌មួយកើតឡើងហើយរលត់ទៅ ចិត្តត្រូវកើតរលត់រហូតដល់ ១៧ ដង (ខណៈចិត្តទាំង ១៧ នេះឯង)។
       </div>
     </header>
 
     <!-- SIMULATOR CONTROLS & TIMELINE -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-stone-100 dark:border-stone-800 pb-4">
+    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-5">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-4">
         <div>
-          <span class="text-xs text-stone-400 font-mono">STEP {{ currentStepIndex + 1 }} OF 17</span>
-          <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+          <span class="text-[10px] sm:text-xs text-stone-400 font-mono">ខណៈទី {{ currentStepIndex + 1 }} នៃ ១៧</span>
+          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5 flex-wrap">
             <span>ខណៈទី {{ currentStep.moment }}៖</span>
             <span class="text-indigo-600 dark:text-indigo-400">{{ currentStep.km }}</span>
           </h2>
         </div>
 
         <!-- Controls -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-between sm:justify-end">
           <button
             @click="prevStep"
-            class="px-3.5 py-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition"
+            class="px-3 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition shrink-0"
           >
             ← មុន
           </button>
@@ -283,7 +281,7 @@ watch(currentStepIndex, (newIdx) => {
           <button
             @click="toggleAutoPlay"
             :class="[
-              'px-4 py-2 rounded-xl text-xs font-semibold text-white transition flex items-center gap-1.5',
+              'px-3 sm:px-4 py-1.5 rounded-xl text-xs font-semibold text-white transition flex items-center justify-center gap-1 shrink-0',
               isAutoPlaying ? 'bg-rose-600 hover:bg-rose-500' : 'bg-indigo-600 hover:bg-indigo-500'
             ]"
           >
@@ -292,14 +290,14 @@ watch(currentStepIndex, (newIdx) => {
 
           <button
             @click="nextStep"
-            class="px-3.5 py-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition"
+            class="px-3 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition shrink-0"
           >
             បន្ទាប់ →
           </button>
 
           <button
             @click="resetSimulation"
-            class="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 text-xs transition"
+            class="p-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 text-xs transition"
             title="ត្រឡប់ទៅដើម"
           >
             ↺
@@ -307,56 +305,56 @@ watch(currentStepIndex, (newIdx) => {
         </div>
       </div>
 
-      <!-- 17 Moments Horizontal Ribbon -->
-      <div class="overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none">
-        <div class="flex items-center gap-1.5 min-w-[700px]">
+      <!-- 17 Moments Horizontal Ribbon with touch scrolling -->
+      <div class="overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none touch-pan-x">
+        <div class="flex items-center gap-1.5 min-w-[620px]">
           <button
             v-for="(s, idx) in pancadvaraSteps"
             :key="s.moment"
             @click="currentStepIndex = idx; stopAutoPlay()"
             :class="[
-              'flex-1 py-2 px-1 rounded-xl text-center transition-all duration-150 border',
+              'flex-1 py-1.5 px-1 rounded-xl text-center transition-all duration-150 border',
               currentStepIndex === idx
-                ? 'bg-indigo-600 text-white font-bold shadow-md scale-105 border-transparent'
+                ? 'bg-indigo-600 text-white font-bold shadow-sm scale-105 border-transparent'
                 : idx >= 8 && idx <= 14
                   ? 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/30'
                   : 'bg-stone-50 dark:bg-stone-800/60 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700'
             ]"
           >
             <span class="block text-[10px] font-mono leading-none">{{ s.moment }}</span>
-            <span class="block text-[11px] truncate mt-0.5">{{ s.code }}</span>
+            <span class="block text-[10px] truncate mt-0.5">{{ s.code }}</span>
           </button>
         </div>
       </div>
 
       <!-- ACTIVE MOMENT DETAILED INSPECTOR CARD -->
-      <div class="p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/80 dark:border-stone-700/80 space-y-5 animate-in fade-in duration-200">
-        <div class="flex flex-wrap items-center justify-between gap-3">
+      <div class="p-4 sm:p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/80 dark:border-stone-700/80 space-y-4 animate-in fade-in duration-200">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div class="space-y-0.5">
-            <span class="text-xs font-mono text-stone-400 uppercase">PĀLI TERM</span>
-            <h3 class="text-xl font-bold font-serif text-stone-900 dark:text-stone-100">
+            <span class="text-[10px] font-mono text-stone-400 uppercase">PĀLI TERM</span>
+            <h3 class="text-base sm:text-xl font-bold font-serif text-stone-900 dark:text-stone-100">
               {{ currentStep.pali }}
             </h3>
           </div>
 
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-medium px-2.5 py-1 rounded-lg bg-stone-200 dark:bg-stone-700 text-stone-800 dark:text-stone-200">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-lg bg-stone-200 dark:bg-stone-700 text-stone-800 dark:text-stone-200">
               ជាតិ៖ {{ currentStep.jāti }}
             </span>
-            <span class="text-xs font-medium px-2.5 py-1 rounded-lg bg-indigo-500/15 text-indigo-700 dark:text-indigo-300">
+            <span class="text-[11px] font-medium px-2 py-0.5 rounded-lg bg-indigo-500/15 text-indigo-700 dark:text-indigo-300">
               កិច្ច៖ {{ currentStep.functionKm }}
             </span>
           </div>
         </div>
 
-        <div class="space-y-2">
-          <span class="text-xs font-bold text-stone-500 block uppercase tracking-wider">📖 សកម្មភាពក្នុងខណៈនេះ៖</span>
-          <p class="text-sm sm:text-base text-stone-800 dark:text-stone-200 leading-relaxed">
+        <div class="space-y-1.5">
+          <span class="text-[11px] font-bold text-stone-500 block uppercase tracking-wider">📖 សកម្មភាពក្នុងខណៈនេះ៖</span>
+          <p class="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-relaxed">
             {{ currentStep.desc }}
           </p>
         </div>
 
-        <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm text-amber-900 dark:text-amber-200 space-y-1">
+        <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 space-y-1">
           <strong class="font-bold flex items-center gap-1.5">
             <span>💡</span>
             <span>ការពិចារណាខាងផ្លូវធម៌ (Dhamma Insight):</span>
@@ -367,26 +365,26 @@ watch(currentStepIndex, (newIdx) => {
     </div>
 
     <!-- The 3 Crucial Zones Breakdown -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2">
-        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 block">តំបន់ទី ១ (ខណៈ ១ ដល់ ៧)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-base">ការទទួលផលវិបាកចាស់</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
+      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
+        <span class="text-[11px] font-bold text-blue-600 dark:text-blue-400 block">តំបន់ទី ១ (ខណៈ ១ ដល់ ៧)</span>
+        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ការទទួលផលវិបាកចាស់</h3>
         <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
           ភ្នែកឃើញរូប ត្រចៀកឮសំឡេង គឺសុទ្ធតែជា **វិបាក** ដែលបណ្តាលមកពីកម្មចាស់ពីអតីតជាតិ។ យើងមិនអាចហាមឃាត់ភ្នែកមិនឱ្យឃើញ ឬត្រចៀកមិនឱ្យឮបានឡើយ។
         </p>
       </div>
 
-      <div class="p-5 rounded-2xl bg-white dark:bg-stone-900 border-2 border-amber-500/50 space-y-2">
-        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 block">តំបន់ទី ២ (ខណៈទី ៨: វុដ្ឋបនៈ)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-base">ផ្លូវបំបែកកំណត់ជោគវាសនា!</h3>
+      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border-2 border-amber-500/50 space-y-1.5">
+        <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block">តំបន់ទី ២ (ខណៈទី ៨: វុដ្ឋបនៈ)</span>
+        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ផ្លូវបំបែកកំណត់ជោគវាសនា!</h3>
         <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
           ខណៈនេះជាការសម្រេចចិត្ត! បើយើងមាន **សតិ និងយោនិសោមនសិការ** ដឹងទាន់ នោះចិត្តនឹងមិនខឹង មិនលោភឡើយ។ បើគ្មានសតិទេ ចិត្តនឹងធ្លាក់ទៅក្នុងអកុសលភ្លាម។
         </p>
       </div>
 
-      <div class="p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2">
-        <span class="text-xs font-bold text-rose-600 dark:text-rose-400 block">តំបន់ទី ៣ (ខណៈ ៩ ដល់ ១៥: ជវនៈ)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-base">ការបង្កើតកម្មថ្មី (Kamma)</h3>
+      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
+        <span class="text-[11px] font-bold text-rose-600 dark:text-rose-400 block">តំបន់ទី ៣ (ខណៈ ៩ ដល់ ១៥: ជវនៈ)</span>
+        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ការបង្កើតកម្មថ្មី (Kamma)</h3>
         <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
           ជវនៈទាំង ៧ ខណៈនេះហើយជាកន្លែងដែលមនុស្សសាងបុណ្យ ឬសាងបាប! ជវនៈទី ១ ឱ្យផលក្នុងជាតិនេះ ចំណែកជវនៈទី ៧ ឱ្យផលក្នុងជាតិបន្ទាប់ភ្លាមៗ។
         </p>

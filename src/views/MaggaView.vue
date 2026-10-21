@@ -4,7 +4,6 @@ import { ref, computed, onMounted } from 'vue'
 const activeGroup = ref('all') // 'all', 'panna', 'sila', 'samadhi'
 const selectedFactor = ref(null)
 
-// Daily practice checklist state with localStorage persistence
 const completedTasks = ref({})
 
 onMounted(() => {
@@ -228,28 +227,28 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+  <div class="w-full space-y-6 sm:space-y-8">
     <!-- Header -->
-    <header class="text-center space-y-4">
+    <header class="text-center space-y-3">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
         <span>☸️</span>
         <span>អរិយអដ្ឋង្គិកមគ្គ • The Noble Eightfold Path</span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent">
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
         មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិតសម័យថ្មី
       </h1>
 
-      <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
         បំប្លែងមាគ៌ាដ៏ឧត្តមទាំង ៨ របស់ព្រះសម្មាសម្ពុទ្ធ ឱ្យក្លាយជា **ផែនការសកម្មភាព និងទម្លាប់រស់នៅប្រចាំថ្ងៃ** ក្នុងសង្គមសម័យទំនើប ជាមួយតារាងតាមដានការបដិបត្តិ។
       </p>
 
       <!-- 3 Trainings Legend Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-3">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2">
         <button
           @click="activeGroup = 'all'"
           :class="[
-            'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
+            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
             activeGroup === 'all'
               ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent shadow-xs'
               : 'bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700'
@@ -261,60 +260,60 @@ function closeModal() {
         <button
           @click="activeGroup = 'panna'"
           :class="[
-            'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
+            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
             activeGroup === 'panna'
               ? 'bg-amber-600 text-white border-transparent shadow-xs'
               : 'bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-900/40'
           ]"
         >
-          ១. បញ្ញាសិក្ខា (អង្គ ១-២)
+          ១. បញ្ញាសិក្ខា
         </button>
 
         <button
           @click="activeGroup = 'sila'"
           :class="[
-            'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
+            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
             activeGroup === 'sila'
               ? 'bg-emerald-600 text-white border-transparent shadow-xs'
               : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/40'
           ]"
         >
-          ២. សីលសិក្ខា (អង្គ ៣-៥)
+          ២. សីលសិក្ខា
         </button>
 
         <button
           @click="activeGroup = 'samadhi'"
           :class="[
-            'px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
+            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
             activeGroup === 'samadhi'
               ? 'bg-indigo-600 text-white border-transparent shadow-xs'
               : 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-800 dark:text-indigo-300 border-indigo-200 dark:border-indigo-900/40'
           ]"
         >
-          ៣. សមាធិសិក្ខា (អង្គ ៦-៨)
+          ៣. សមាធិសិក្ខា
         </button>
       </div>
     </header>
 
     <!-- DAILY PROGRESS TRACKER CARD -->
-    <div class="bg-gradient-to-r from-amber-500/10 via-rose-500/5 to-amber-500/10 border border-amber-500/20 rounded-3xl p-6 sm:p-7 shadow-sm space-y-4">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="bg-gradient-to-r from-amber-500/10 via-rose-500/5 to-amber-500/10 border border-amber-500/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm space-y-3 sm:space-y-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <div>
-          <h2 class="text-lg font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+          <h2 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
             <span>📋</span>
             <span>ការតាមដានការបដិបត្តិមគ្គ ៨ ថ្ងៃនេះ (Daily Checklist)</span>
           </h2>
-          <p class="text-xs text-stone-500 mt-0.5">ធីកប្រអប់នីមួយៗពេលអ្នកបានអនុវត្តរួចរាល់ក្នុងថ្ងៃនេះ</p>
+          <p class="text-[11px] sm:text-xs text-stone-500 mt-0.5">ធីកប្រអប់នីមួយៗពេលអ្នកបានអនុវត្តរួចរាល់ក្នុងថ្ងៃនេះ</p>
         </div>
 
-        <div class="flex items-center gap-3">
-          <span class="text-sm font-bold text-amber-700 dark:text-amber-400 font-mono">
+        <div class="flex items-center gap-2.5 self-end sm:self-auto">
+          <span class="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400 font-mono">
             {{ completedCount }} / {{ totalTasks }} ({{ progressPercent }}%)
           </span>
           <button
             v-if="completedCount > 0"
             @click="resetChecklist"
-            class="text-xs text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 underline"
+            class="text-[11px] sm:text-xs text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 underline"
           >
             កំណត់ឡើងវិញ
           </button>
@@ -322,7 +321,7 @@ function closeModal() {
       </div>
 
       <!-- Progress bar -->
-      <div class="w-full h-3 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden">
+      <div class="w-full h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden">
         <div
           class="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-300 rounded-full"
           :style="{ width: progressPercent + '%' }"
@@ -331,33 +330,33 @@ function closeModal() {
     </div>
 
     <!-- 8 FACTORS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
       <div
         v-for="factor in filteredFactors"
         :key="factor.id"
-        class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-6 shadow-sm space-y-5 flex flex-col justify-between"
+        class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between"
       >
-        <div class="space-y-4">
+        <div class="space-y-3">
           <!-- Header of card -->
-          <div class="flex items-start justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-xs">
+          <div class="flex items-start justify-between gap-2">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-md bg-amber-500/15 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-[11px]">
                   {{ factor.step }}
                 </span>
-                <span :class="['text-[11px] font-semibold px-2 py-0.5 rounded-full border', factor.groupColor]">
+                <span :class="['text-[10px] font-semibold px-2 py-0.5 rounded-full border', factor.groupColor]">
                   {{ factor.groupKm }}
                 </span>
               </div>
-              <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100">
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100">
                 {{ factor.km }}
               </h3>
-              <p class="text-xs font-mono text-stone-400 italic">{{ factor.pali }}</p>
+              <p class="text-[11px] font-mono text-stone-400 italic">{{ factor.pali }}</p>
             </div>
 
             <button
               @click="openFactorModal(factor)"
-              class="px-2.5 py-1 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-xs hover:bg-stone-200 transition font-medium"
+              class="px-2 py-1 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-[11px] hover:bg-stone-200 transition font-medium shrink-0"
             >
               ពុទ្ធវចនៈ 📖
             </button>
@@ -368,9 +367,9 @@ function closeModal() {
           </p>
 
           <!-- Modern Life Tips -->
-          <div class="space-y-2 pt-2 border-t border-stone-100 dark:border-stone-800">
-            <span class="text-xs font-bold text-stone-500 block uppercase tracking-wider">🌟 អនុវត្តក្នុងជីវិតសម័យថ្មី៖</span>
-            <ul class="space-y-1.5">
+          <div class="space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
+            <span class="text-[11px] font-bold text-stone-500 block uppercase tracking-wider">🌟 អនុវត្តក្នុងជីវិតសម័យថ្មី៖</span>
+            <ul class="space-y-1">
               <li
                 v-for="(tip, idx) in factor.modernApplication"
                 :key="idx"
@@ -384,13 +383,13 @@ function closeModal() {
         </div>
 
         <!-- Daily Checklist for this factor -->
-        <div class="p-4 rounded-2xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800 space-y-2.5">
-          <span class="text-xs font-bold text-stone-500 block">កិច្ចបដិបត្តិប្រចាំថ្ងៃ៖</span>
+        <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800 space-y-2">
+          <span class="text-[11px] font-bold text-stone-500 block">កិច្ចបដិបត្តិប្រចាំថ្ងៃ៖</span>
           <div
             v-for="task in factor.dailyChecklist"
             :key="task.id"
             @click="toggleTask(task.id)"
-            class="flex items-start gap-2.5 cursor-pointer select-none group"
+            class="flex items-start gap-2 cursor-pointer select-none group"
           >
             <div
               :class="[
@@ -417,35 +416,35 @@ function closeModal() {
       </div>
     </div>
 
-    <!-- POP-UP MODAL: SUTTA DEFINITION INSPECTOR -->
+    <!-- POP-UP MODAL: SUTTA DEFINITION INSPECTOR (Bottom-sheet on mobile) -->
     <Teleport to="body">
       <div
         v-if="selectedFactor"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-stone-950/70 backdrop-blur-sm"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm"
         @click.self="closeModal"
       >
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6">
-          <div class="flex items-start justify-between gap-4 border-b border-stone-100 dark:border-stone-800 pb-4">
-            <div class="space-y-1">
-              <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl p-4 sm:p-7 space-y-5 animate-in fade-in duration-200">
+          <div class="flex items-start justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-3">
+            <div class="space-y-0.5">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400">
                 អង្គទី {{ selectedFactor.step }} នៃអរិយមគ្គ
               </span>
-              <h3 class="text-2xl font-bold text-stone-900 dark:text-stone-100">
+              <h3 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
                 {{ selectedFactor.km }}
               </h3>
               <p class="text-xs font-mono italic text-stone-400">{{ selectedFactor.pali }}</p>
             </div>
             <button
               @click="closeModal"
-              class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 flex items-center justify-center transition"
+              class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 flex items-center justify-center transition shrink-0"
             >
               ✕
             </button>
           </div>
 
-          <div class="space-y-4 text-sm">
-            <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-2">
-              <span class="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider block">📜 ពុទ្ធវចនៈពីព្រះត្រៃបិដក៖</span>
+          <div class="space-y-3.5 text-xs sm:text-sm">
+            <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-1.5">
+              <span class="text-[10px] sm:text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider block">📜 ពុទ្ធវចនៈពីព្រះត្រៃបិដក៖</span>
               <p class="text-stone-800 dark:text-stone-200 italic font-serif leading-relaxed">
                 {{ selectedFactor.canonicalDefinition }}
               </p>
@@ -453,13 +452,13 @@ function closeModal() {
 
             <div class="space-y-2">
               <h4 class="font-bold text-stone-900 dark:text-stone-100">ការអនុវត្តលម្អិតក្នុងសម័យបច្ចុប្បន្ន៖</h4>
-              <ul class="space-y-2">
+              <ul class="space-y-1.5">
                 <li
                   v-for="(tip, idx) in selectedFactor.modernApplication"
                   :key="idx"
-                  class="flex items-start gap-2 text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed"
+                  class="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
                 >
-                  <span class="text-amber-600 mt-1">✦</span>
+                  <span class="text-amber-600 mt-0.5">✦</span>
                   <span>{{ tip }}</span>
                 </li>
               </ul>
@@ -469,7 +468,7 @@ function closeModal() {
           <div class="pt-2 flex justify-end">
             <button
               @click="closeModal"
-              class="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-sm font-medium transition"
+              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs sm:text-sm font-medium transition"
             >
               យល់ហើយ (Close)
             </button>

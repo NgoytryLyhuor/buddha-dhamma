@@ -1,13 +1,13 @@
 <template>
   <div class="fade-up">
     <p class="chapter-label">{{ t('ធម៌គន្លឹះ — បដិច្ចសមុប្បាទ (ចក្រវាឡវិទ្យា & ហេតុផលនៃទុក្ខ)', 'KEY TEACHING — PAṬICCASAMUPPĀDA (DEPENDENT ORIGINATION)') }}</p>
-    <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+    <h2 class="mt-3 font-display text-2xl sm:text-3xl md:text-4xl leading-snug" :style="{ color: 'var(--ink)' }">
       {{ t('បដិច្ចសមុប្បាទ — ខ្សែច្រវាក់នៃហេតុ និងផល ១២ អង្គ', 'Paṭiccasamuppāda — The Twelve Links of Dependent Origination') }}
     </h2>
     <div class="ornament mt-4">&#9784;</div>
     
-    <div class="verse-box p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
-      <p class="font-serif italic text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
+    <div class="verse-box p-4 sm:p-5 mt-6 border-l-4" :style="{ borderColor: 'var(--accent)' }">
+      <p class="font-serif italic text-sm sm:text-base md:text-lg leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
         {{ t('«យោ បដិច្ចសមុប្បាទំ បស្សតិ, សោ ធម្មំ បស្សតិ; យោ ធម្មំ បស្សតិ, សោ មំ បស្សតិ»', '«Yo paṭiccasamuppādaṃ passati, so dhammaṃ passati; yo dhammaṃ passati, so maṃ passati»') }}
       </p>
       <p class="text-xs md:text-sm mt-2 text-center" :style="{ color: 'var(--ink-muted)' }">
@@ -20,36 +20,36 @@
     </p>
 
     <!-- Mode Selector: Anuloma vs Patiloma -->
-    <div class="card-paper p-5 md:p-6 mt-8">
+    <div class="card-paper p-4 sm:p-5 md:p-6 mt-6 sm:mt-8">
       <div class="flex items-center justify-between gap-4 flex-wrap">
         <div>
           <p class="text-[10px] font-bold tracking-wider uppercase" :style="{ color: 'var(--ink-muted)' }">
             {{ t('ទិសដៅនៃការពិចារណា (DIRECTION OF CONTEMPLATION)', 'DIRECTION OF CONTEMPLATION') }}
           </p>
-          <div class="flex items-center gap-2 mt-2">
+          <div class="flex items-center gap-2 mt-2 flex-wrap">
             <button
               type="button"
-              class="lang-pick px-3.5 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
+              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
               :class="viewMode === 'anuloma' ? 'on' : ''"
               @click="viewMode = 'anuloma'"
             >
               <span>🌱</span>
-              <span>{{ t('អនុលោម (កើតទុក្ខ)', 'Anuloma (Origin of Suffering)') }}</span>
+              <span>{{ t('អនុលោម (កើតទុក្ខ)', 'Anuloma (Origin)') }}</span>
             </button>
             <button
               type="button"
-              class="lang-pick px-3.5 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
+              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
               :class="viewMode === 'patiloma' ? 'on' : ''"
               @click="viewMode = 'patiloma'"
             >
               <span>🕊️</span>
-              <span>{{ t('បដិលោម (រលត់ទុក្ខ / និព្វាន)', 'Paṭiloma (Cessation / Nibbāna)') }}</span>
+              <span>{{ t('បដិលោម (រលត់ទុក្ខ)', 'Paṭiloma (Cessation)') }}</span>
             </button>
           </div>
         </div>
 
         <div class="text-xs" :style="{ color: 'var(--ink-muted)' }">
-          💡 {{ t('ចុចលើអង្គណាមួយ ដើម្បីបើកមើលការពន្យល់ពិស្ដារ (Pop-up)', 'Tap any of the 12 links to inspect in-depth') }}
+          💡 {{ t('ចុចលើអង្គណាមួយ ដើម្បីបើកមើលការពន្យល់ពិស្ដារ (Pop-up)', 'Tap any link to inspect') }}
         </div>
       </div>
 
@@ -125,20 +125,20 @@
     </div>
 
     <!-- The 4 Groups & 20 Modes (សង្ខេប ៤ & អាការ ២០) -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
       <div class="flex items-center gap-2">
         <span class="text-xl">📊</span>
         <p class="chapter-label m-0">{{ t('គម្ពីរអភិធម្មពិស្ដារ', 'ABHIDHAMMA SYNTHESIS') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('សង្ខេប ៤, សន្ធិ ៣, វដ្ត ៣ និង អាការ ២០', 'The 4 Groups, 3 Connections, 3 Cycles & 20 Modes') }}
       </h3>
       <p class="text-xs md:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('គម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ បានបែងចែកអង្គ ១២ នេះទៅតាមរចនាសម្ព័ន្ធវិទ្យាសាស្ត្រចិត្តយ៉ាងល្អិតល្អន់បំផុត ដែលធ្វើឱ្យឃើញដំណើរនៃកម្ម និងផលឆ្លងភពជាតិបានយ៉ាងជាក់ស្តែង៖', 'The Abhidhamma and Visuddhimagga structure the 12 links into an exact matrix illustrating how kamma and results operate across past, present, and future lifetimes.') }}
       </p>
 
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mt-5">
-        <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4 sm:mt-5">
+        <div class="p-3.5 sm:p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <p class="font-display font-bold text-sm" :style="{ color: 'var(--accent)' }">{{ t('១. អតីតហេតុ ៥', '1. Five Past Causes') }}</p>
           <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
             {{ t('អវិជ្ជា, សង្ខារ, តណ្ហា, ឧបាទាន, ភព (កម្មភពកន្លងទៅ)', 'Avijjā, Saṅkhāra, Taṇhā, Upādāna, Kammabhava') }}
@@ -148,7 +148,7 @@
           </span>
         </div>
 
-        <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <div class="p-3.5 sm:p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <p class="font-display font-bold text-sm" :style="{ color: 'var(--accent)' }">{{ t('២. បច្ចុប្បន្នផល ៥', '2. Five Present Results') }}</p>
           <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
             {{ t('វិញ្ញាណ, នាមរូប, សឡាយតនៈ, ផស្សៈ, វេទនា', 'Viññāṇa, Nāmarūpa, Saḷāyatana, Phassa, Vedanā') }}
@@ -158,7 +158,7 @@
           </span>
         </div>
 
-        <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <div class="p-3.5 sm:p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <p class="font-display font-bold text-sm" :style="{ color: 'var(--accent)' }">{{ t('៣. បច្ចុប្បន្នហេតុ ៥', '3. Five Present Causes') }}</p>
           <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
             {{ t('តណ្ហា, ឧបាទាន, ភព (កម្មភព), អវិជ្ជា, សង្ខារ', 'Taṇhā, Upādāna, Kammabhava, Avijjā, Saṅkhāra') }}
@@ -168,7 +168,7 @@
           </span>
         </div>
 
-        <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <div class="p-3.5 sm:p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <p class="font-display font-bold text-sm" :style="{ color: 'var(--accent)' }">{{ t('៤. អនាគតផល ៥', '4. Five Future Results') }}</p>
           <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
             {{ t('វិញ្ញាណ, នាមរូប, សឡាយតនៈ, ផស្សៈ, វេទនា (ជាតិ & ជរាមរណៈ)', 'Viññāṇa to Vedanā (Jāti & Jarāmaraṇa)') }}
@@ -180,7 +180,7 @@
       </div>
 
       <!-- The 3 Vaṭṭas (Cycles) -->
-      <div class="mt-6 pt-5 grid sm:grid-cols-3 gap-3 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
+      <div class="mt-6 pt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
         <div class="p-3.5 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px solid var(--accent)' }">
           <strong class="text-xs" :style="{ color: 'var(--accent-bright)' }">🔥 {{ t('កិលេសវដ្ត (Kilesa Cycle)', 'Kilesa-vaṭṭa') }}</strong>
           <p class="text-xs mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
@@ -203,18 +203,18 @@
     </div>
 
     <!-- Practical Insight: Cutting the Chain at Vedanā -> Taṇhā -->
-    <div class="card-paper p-6 md:p-8 mt-6" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
       <div class="flex items-center gap-2">
         <span class="text-xl">✂️</span>
         <p class="chapter-label m-0">{{ t('ចំណុចកាត់ផ្តាច់ខ្សែច្រវាក់ក្នុងវិបស្សនា', 'THE VIPASSANĀ CUTTING POINT') }}</p>
       </div>
-      <h3 class="font-display text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-2" :style="{ color: 'var(--ink)' }">
         {{ t('តើគេកាត់ផ្តាច់បដិច្ចសមុប្បាទនៅត្រង់ណា?', 'Where Can We Break the Chain of Samsāra?') }}
       </h3>
-      <p class="text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+      <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('យើងមិនអាចកាត់ផ្តាច់វិញ្ញាណ នាមរូប ឬផស្សៈបានទេ ព្រោះដរាបណានៅរស់ ភ្នែកនៅតែឃើញរូប ត្រចៀកនៅតែឮសំឡេង ហើយវេទនា (សុខ ទុក្ខ ឧបេក្ខា) នៅតែកើតមាន។ ប៉ុន្តែ **«ចំណុចគន្លឹះតែមួយគត់ដែលព្រះយោគាវចរអាចកាត់ផ្តាច់បាន គឺនៅចន្លោះ វេទនា និង តណ្ហា!»**', 'We cannot block consciousness or sense contact: as long as we are alive, eyes see forms, ears hear sounds, and feelings (pleasant, painful, neutral) inevitably arise. BUT **the sole point where the chain can be broken is right between FEELING (Vedanā) and CRAVING (Taṇhā)!**') }}
       </p>
-      <div class="p-4 rounded-sm mt-3" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+      <div class="p-3.5 sm:p-4 rounded-sm mt-3" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
         <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink)' }">
           {{ t('👉 ពេលមានអារម្មណ៍សុខកើតឡើង ប្រើ «សតិ» ដឹងទាន់ ហើយមិនកើត «តណ្ហា» ចង់បានជាប់ជំពាក់។<br>👉 ពេលមានអារម្មណ៍ទុក្ខកើតឡើង ប្រើ «សតិ» ដឹងទាន់ ហើយមិនកើត «ទោសៈ/វិភវតណ្ហា» រុញច្រានខឹងក្រោធ។<br>នៅពេលដែល **«វេទនា មិនបង្កឱ្យកើតតណ្ហា»** នោះខ្សែច្រវាក់នឹងដាច់ត្រង់នេះ ឧបាទានមិនកើត ភពថ្មីមិនកើត ជាតិថ្មីមិនកើត ទុក្ខទាំងពួងក៏រលត់សូន្យ!', '👉 When pleasant feeling arises, observe with Sati without generating craving (Taṇhā).<br>👉 When painful feeling arises, observe with Sati without generating aversion or aversion-craving (Vibhava-taṇhā).<br>When **feeling does not trigger craving**, the chain shatters right there: clinging ceases, becoming ceases, future birth ceases, and suffering is extinguished forever!') }}
         </p>
@@ -226,14 +226,14 @@
       <transition name="modal-pop">
         <div
           v-if="activeModalLink"
-          class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5"
+          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
           style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
           @click.self="closeModal"
           role="dialog"
           aria-modal="true"
         >
           <div
-            class="card-paper relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border-2"
+            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
             :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
             @click.stop
           >

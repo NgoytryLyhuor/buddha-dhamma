@@ -166,7 +166,7 @@ function playMettaBell() {
     const osc = ctx.createOscillator()
     const gain = ctx.createGain()
     osc.type = 'sine'
-    osc.frequency.setValueAtTime(528, ctx.currentTime) // Heart frequency
+    osc.frequency.setValueAtTime(528, ctx.currentTime)
     gain.gain.setValueAtTime(0.4, ctx.currentTime)
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 3.5)
     osc.connect(gain)
@@ -180,122 +180,122 @@ function playMettaBell() {
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto px-4 py-8 space-y-10">
+  <div class="w-full space-y-6 sm:space-y-8">
     <!-- Header -->
-    <header class="text-center space-y-4">
+    <header class="text-center space-y-3">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-rose-500/10 text-rose-800 dark:text-rose-300 border border-rose-500/20">
         <span>🕊️</span>
         <span>ករណីយមេត្តសូត្រ • Universal Loving-Kindness</span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-rose-800 via-pink-700 to-amber-800 dark:from-rose-200 dark:via-pink-200 dark:to-amber-300 bg-clip-text text-transparent">
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-rose-800 via-pink-700 to-amber-800 dark:from-rose-200 dark:via-pink-200 dark:to-amber-300 bg-clip-text text-transparent leading-snug">
         មេត្តាភាវនា ១០ ទិស និងអានិសង្ស ១១ ប្រការ
       </h1>
 
-      <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
         ការផ្សាយរស្មីមេត្តាធំធេងគ្របដណ្តប់សព្វសត្វក្នុងលោកធាតុគ្មានព្រំដែន គ្មានពៀរវេរា ដើម្បីបណ្តុះបេះដូងត្រជាក់ និងសម្រេចអានិសង្សដ៏អស្ចារ្យ។
       </p>
 
       <!-- View Switcher Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-3">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2">
         <button
           @click="activeTab = 'compass'"
           :class="[
-            'px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition',
+            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
             activeTab === 'compass'
-              ? 'bg-rose-600 text-white shadow-rose-600/30 shadow-sm'
+              ? 'bg-rose-600 text-white shadow-sm'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
           ]"
         >
-          🧭 រ៉ាដាផ្សាយមេត្តា ១០ ទិស
+          🧭 រ៉ាដា ១០ ទិស
         </button>
 
         <button
           @click="activeTab = 'sequence'"
           :class="[
-            'px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition',
+            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
             activeTab === 'sequence'
-              ? 'bg-rose-600 text-white shadow-rose-600/30 shadow-sm'
+              ? 'bg-rose-600 text-white shadow-sm'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
           ]"
         >
-          🪜 ៥ ដំណាក់កាលបំបែករបងចិត្ត
+          🪜 ៥ ដំណាក់កាល
         </button>
 
         <button
           @click="activeTab = 'benefits'"
           :class="[
-            'px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition',
+            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
             activeTab === 'benefits'
-              ? 'bg-rose-600 text-white shadow-rose-600/30 shadow-sm'
+              ? 'bg-rose-600 text-white shadow-sm'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
           ]"
         >
-          ✨ អានិសង្ស ១១ ប្រការនៃមេត្តា
+          ✨ អានិសង្ស ១១
         </button>
       </div>
     </header>
 
     <!-- TAB 1: 10 DIRECTIONS RADAR COMPASS -->
-    <section v-if="activeTab === 'compass'" class="space-y-8">
-      <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
-        <div class="text-center space-y-1">
-          <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100">
+    <section v-if="activeTab === 'compass'" class="space-y-6">
+      <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-5">
+        <div class="text-center space-y-0.5">
+          <h2 class="text-base sm:text-xl font-bold text-stone-900 dark:text-stone-100">
             រ៉ាដាផ្សាយមេត្តាទៅកាន់ទិសទាំង ១០
           </h2>
-          <p class="text-xs text-stone-500">ចុចជ្រើសរើសទិស ដើម្បីបញ្ជូនរលកមេត្តាចិត្ត និងសូត្រគាថា</p>
+          <p class="text-[11px] sm:text-xs text-stone-500">ចុចជ្រើសរើសទិស ដើម្បីបញ្ជូនរលកមេត្តាចិត្ត និងសូត្រគាថា</p>
         </div>
 
-        <!-- Direction Buttons Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+        <!-- Direction Buttons Grid (2 cols mobile, 5 cols desktop) -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
           <button
             v-for="(d, idx) in directions"
             :key="idx"
             @click="selectedDirection = idx; triggerRadiate()"
             :class="[
-              'p-3 rounded-2xl border text-center transition-all duration-200 flex flex-col items-center gap-1',
+              'p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-center transition-all duration-150 flex flex-col items-center justify-center gap-0.5',
               selectedDirection === idx
-                ? 'bg-rose-500/10 border-rose-500 text-rose-700 dark:text-rose-300 ring-2 ring-rose-500/50 shadow-sm scale-105'
+                ? 'bg-rose-500/10 border-rose-500 text-rose-700 dark:text-rose-300 ring-2 ring-rose-500/50 shadow-xs scale-102 font-bold'
                 : 'bg-stone-50 dark:bg-stone-800/50 border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100'
             ]"
           >
             <span class="text-xs font-bold">{{ d.short }}</span>
-            <span class="text-[11px] truncate max-w-full text-stone-500">{{ d.nameKm.split(' ')[0] }}</span>
+            <span class="text-[10px] sm:text-[11px] truncate max-w-full text-stone-500">{{ d.nameKm.split(' ')[0] }}</span>
           </button>
         </div>
 
         <!-- Radiate Animation Visualizer Card -->
-        <div class="relative overflow-hidden p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-rose-500/10 via-pink-500/5 to-transparent border border-rose-500/20 text-center space-y-4">
+        <div class="relative overflow-hidden p-4 sm:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-rose-500/10 via-pink-500/5 to-transparent border border-rose-500/20 text-center space-y-3 sm:space-y-4">
           <!-- Pulsing Rings -->
           <div
             v-if="isPulsing"
             class="absolute inset-0 flex items-center justify-center pointer-events-none"
           >
-            <div class="w-64 h-64 rounded-full bg-rose-500/20 animate-ping"></div>
+            <div class="w-40 h-40 sm:w-60 sm:h-60 rounded-full bg-rose-500/20 animate-ping"></div>
           </div>
 
-          <div class="space-y-1 relative z-10">
-            <span class="text-4xl animate-bounce">💖</span>
-            <h3 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+          <div class="space-y-0.5 relative z-10">
+            <span class="text-3xl animate-bounce inline-block">💖</span>
+            <h3 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
               {{ directions[selectedDirection].nameKm }}
             </h3>
-            <p class="text-xs font-mono text-rose-600 dark:text-rose-400 italic">
+            <p class="text-[11px] sm:text-xs font-mono text-rose-600 dark:text-rose-400 italic">
               {{ directions[selectedDirection].namePali }}
             </p>
           </div>
 
           <!-- Pali Gatha -->
-          <div class="p-4 rounded-2xl bg-white/80 dark:bg-stone-800/80 backdrop-blur-sm border border-stone-200/60 dark:border-stone-700/60 max-w-xl mx-auto space-y-2">
-            <p class="text-sm font-serif italic text-stone-800 dark:text-stone-200 font-semibold leading-relaxed">
+          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/80 dark:bg-stone-800/80 backdrop-blur-sm border border-stone-200/60 dark:border-stone-700/60 max-w-xl mx-auto space-y-1.5 text-left sm:text-center">
+            <p class="text-xs sm:text-sm font-serif italic text-stone-800 dark:text-stone-200 font-semibold leading-relaxed">
               « {{ directions[selectedDirection].gatha }} »
             </p>
-            <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+            <p class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
               {{ directions[selectedDirection].kmTranslation }}
             </p>
           </div>
 
           <!-- Addressed Beings -->
-          <div class="text-xs text-stone-500 flex items-center justify-center gap-1.5">
+          <div class="text-[11px] sm:text-xs text-stone-500 flex items-center justify-center gap-1 flex-wrap">
             <span>គ្របដណ្តប់លើ៖</span>
             <strong class="text-stone-800 dark:text-stone-200 font-medium">{{ directions[selectedDirection].beings }}</strong>
           </div>
@@ -303,7 +303,7 @@ function playMettaBell() {
           <!-- Trigger Button -->
           <button
             @click="triggerRadiate"
-            class="px-6 py-2.5 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs sm:text-sm shadow-md shadow-rose-600/30 transition transform active:scale-95 inline-flex items-center gap-2"
+            class="w-full sm:w-auto px-6 py-2.5 rounded-xl sm:rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs sm:text-sm shadow-sm transition active:scale-95 inline-flex items-center justify-center gap-1.5"
           >
             <span>🕊️</span>
             <span>ផ្សាយមេត្តាឥឡូវនេះ (Radiate Metta)</span>
@@ -312,66 +312,66 @@ function playMettaBell() {
       </div>
     </section>
 
-    <!-- TAB 2: 5 SEQUENCE STEPS (SIMASAMBHEDA) -->
-    <section v-if="activeTab === 'sequence'" class="space-y-6">
-      <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4 text-xs sm:text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
+    <!-- TAB 2: 5 SEQUENCE STEPS -->
+    <section v-if="activeTab === 'sequence'" class="space-y-4">
+      <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3.5 sm:p-4 text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
         <strong>💡 គោលការណ៍បំបែករបងចិត្ត (Sīmasambheda)៖</strong> ការចម្រើនមេត្តាត្រូវតែធ្វើតាមលំដាប់លំដោយ មិនអាចរំលងបានឡើយ។ ការផ្សាយដល់សត្រូវគឺជាដំណាក់កាលខ្ពស់បំផុត ដែលអាចរំលាយគំនុំ និងរារាំងមិនឱ្យចិត្តបង្កើតអកុសល។
       </div>
 
-      <div class="grid grid-cols-1 gap-4">
+      <div class="grid grid-cols-1 gap-3 sm:gap-4">
         <div
           v-for="st in sequenceSteps"
           :key="st.step"
-          class="p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-3"
+          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2.5"
         >
-          <div class="flex items-center justify-between">
-            <h3 class="text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-              <span class="w-6 h-6 rounded-md bg-rose-500/15 text-rose-700 dark:text-rose-400 flex items-center justify-center text-xs font-bold">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+              <span class="w-5 h-5 rounded-md bg-rose-500/15 text-rose-700 dark:text-rose-400 flex items-center justify-center text-xs font-bold">
                 {{ st.step }}
               </span>
               <span>{{ st.titleKm }}</span>
             </h3>
-            <span class="text-xs font-mono text-stone-400 italic">{{ st.pali }}</span>
+            <span class="text-[11px] font-mono text-stone-400 italic">{{ st.pali }}</span>
           </div>
 
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
             {{ st.desc }}
           </p>
 
-          <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 text-xs text-rose-800 dark:text-rose-300 italic font-serif">
+          <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 text-xs text-rose-800 dark:text-rose-300 italic font-serif leading-relaxed">
             {{ st.phrase }}
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 3: 11 BLESSINGS (METTANISAMSA) -->
-    <section v-if="activeTab === 'benefits'" class="space-y-6">
-      <div class="text-center space-y-1">
-        <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100">
+    <!-- TAB 3: 11 BLESSINGS -->
+    <section v-if="activeTab === 'benefits'" class="space-y-4">
+      <div class="text-center space-y-0.5">
+        <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
           អានិសង្ស ១១ ប្រការនៃការចម្រើនមេត្តា
         </h2>
         <p class="text-xs text-stone-500">ស្រង់ចេញពី គម្ពីរអង្គុត្តរនិកាយ ឯកាទសកនិបាត (AN 11.16)</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <div
           v-for="b in blessings"
           :key="b.no"
-          class="p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2 hover:border-rose-500/40 transition"
+          class="p-4 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5 hover:border-rose-500/40 transition"
         >
           <div class="flex items-center justify-between">
-            <span class="w-7 h-7 rounded-lg bg-rose-500/10 text-rose-700 dark:text-rose-400 flex items-center justify-center font-bold text-xs">
+            <span class="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-700 dark:text-rose-400 flex items-center justify-center font-bold text-xs">
               {{ b.no }}
             </span>
-            <span class="text-[11px] font-mono text-stone-400 italic">{{ b.pali }}</span>
+            <span class="text-[10px] font-mono text-stone-400 italic">{{ b.pali }}</span>
           </div>
 
-          <h3 class="text-sm font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="text-xs sm:text-sm font-bold text-stone-900 dark:text-stone-100">
             {{ b.km }}
           </h3>
 
-          <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+          <p class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
             {{ b.desc }}
           </p>
         </div>

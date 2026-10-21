@@ -378,14 +378,14 @@
       <transition name="modal-pop">
         <div
           v-if="activeModalRealm"
-          class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5"
+          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
           style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
           @click.self="closeModal"
           role="dialog"
           aria-modal="true"
         >
           <div
-            class="card-paper relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border-2"
+            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
             :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
             @click.stop
           >

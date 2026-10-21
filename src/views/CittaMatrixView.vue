@@ -1106,59 +1106,59 @@ function getJatiBadgeColor(jati) {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-4 py-8 space-y-10">
+  <div class="w-full space-y-6 sm:space-y-8">
     <!-- Header -->
-    <header class="text-center space-y-4">
+    <header class="text-center space-y-3 sm:space-y-4">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
         <span>☸</span>
         <span>អភិធម្មបិដក • Abhidhamma Matrix</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent">
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
         ផែនទីចិត្ត ៨៩/១២១ និងចេតសិក ៥២
       </h1>
-      <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
         ស្វែងយល់អំពីរចនាសម្ព័ន្ធនៃចិត្ត (Consciousness) ទាំង ៨៩ ឬ ១២១ ដួង និងចេតសិក (Mental Factors) ទាំង ៥២ តាមក្បួនអភិធម្ម ដើម្បីដឹងទាន់នូវរាល់ខណៈចិត្តដែលកើតឡើងក្នុងខ្លួនយើង។
       </p>
 
       <!-- View Switcher Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-4">
+      <div class="flex items-center gap-2 pt-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
         <button
           @click="activeTab = 'citta'"
           :class="[
-            'px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 flex items-center gap-2 shadow-sm',
+            'px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-sm shrink-0',
             activeTab === 'citta'
-              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-105'
+              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-[1.02]'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
           ]"
         >
           <span>🧠</span>
-          <span>ចិត្ត ៨៩/១២១ (Citta Explorer)</span>
+          <span>ចិត្ត ៨៩/១២១ (Citta)</span>
         </button>
 
         <button
           @click="activeTab = 'cetasika'"
           :class="[
-            'px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 flex items-center gap-2 shadow-sm',
+            'px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-sm shrink-0',
             activeTab === 'cetasika'
-              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-105'
+              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-[1.02]'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
           ]"
         >
           <span>🌿</span>
-          <span>ចេតសិក ៥២ (Cetasika Explorer)</span>
+          <span>ចេតសិក ៥២ (Cetasika)</span>
         </button>
 
         <button
           @click="activeTab = 'matrix'"
           :class="[
-            'px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 flex items-center gap-2 shadow-sm',
+            'px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 sm:gap-2 shadow-sm shrink-0',
             activeTab === 'matrix'
-              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-105'
+              ? 'bg-amber-600 text-white shadow-amber-600/30 scale-[1.02]'
               : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700'
           ]"
         >
           <span>📊</span>
-          <span>ការប្រកបគ្នានៃចិត្តនិងចេតសិក (Sampayoga)</span>
+          <span>ការប្រកបគ្នា (Sampayoga)</span>
         </button>
       </div>
     </header>
@@ -1184,16 +1184,16 @@ function getJatiBadgeColor(jati) {
         </div>
 
         <!-- 89 vs 121 toggle for Citta -->
-        <div v-if="activeTab === 'citta'" class="flex items-center gap-2 text-xs font-medium self-end sm:self-auto bg-stone-100 dark:bg-stone-800 p-1.5 rounded-xl border border-stone-200 dark:border-stone-700">
+        <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 sm:gap-2 text-xs font-medium w-full sm:w-auto justify-center sm:justify-start bg-stone-100 dark:bg-stone-800 p-1 sm:p-1.5 rounded-xl border border-stone-200 dark:border-stone-700">
           <button
             @click="isExpanded121 = false"
-            :class="['px-3 py-1 rounded-lg transition', !isExpanded121 ? 'bg-amber-600 text-white shadow-xs' : 'text-stone-600 dark:text-stone-300']"
+            :class="['px-2.5 sm:px-3 py-1 rounded-lg transition text-xs', !isExpanded121 ? 'bg-amber-600 text-white shadow-xs' : 'text-stone-600 dark:text-stone-300']"
           >
             ៨៩ ដួង (សង្ខេប)
           </button>
           <button
             @click="isExpanded121 = true"
-            :class="['px-3 py-1 rounded-lg transition', isExpanded121 ? 'bg-amber-600 text-white shadow-xs' : 'text-stone-600 dark:text-stone-300']"
+            :class="['px-2.5 sm:px-3 py-1 rounded-lg transition text-xs', isExpanded121 ? 'bg-amber-600 text-white shadow-xs' : 'text-stone-600 dark:text-stone-300']"
           >
             ១២១ ដួង (ពិស្តារតាមឈាន)
           </button>
@@ -1201,100 +1201,100 @@ function getJatiBadgeColor(jati) {
       </div>
 
       <!-- Citta Sub-Filters -->
-      <div v-if="activeTab === 'citta'" class="flex flex-wrap gap-2 pt-2 border-t border-stone-100 dark:border-stone-800/60 text-xs">
-        <span class="text-stone-400 self-center mr-1">ប្រភេទភូមិ:</span>
+      <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 overflow-x-auto pb-1 pt-2 border-t border-stone-100 dark:border-stone-800/60 text-xs scrollbar-none touch-pan-x sm:flex-wrap">
+        <span class="text-stone-400 shrink-0 mr-1">ប្រភេទភូមិ:</span>
         <button
           @click="selectedCittaFilter = 'all'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'all' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent font-medium' : 'bg-transparent text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'all' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent font-medium' : 'bg-transparent text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
         >
           ទាំងអស់
         </button>
         <button
           @click="selectedCittaFilter = 'akusala'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'akusala' ? 'bg-red-600 text-white border-transparent font-medium' : 'text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'akusala' ? 'bg-red-600 text-white border-transparent font-medium' : 'text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/40']"
         >
           អកុសល ១២
         </button>
         <button
           @click="selectedCittaFilter = 'ahetuka'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'ahetuka' ? 'bg-stone-700 text-white border-transparent font-medium' : 'text-stone-700 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'ahetuka' ? 'bg-stone-700 text-white border-transparent font-medium' : 'text-stone-700 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
         >
           អហេតុក ១៨
         </button>
         <button
           @click="selectedCittaFilter = 'kamavacara-sobhana'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'kamavacara-sobhana' ? 'bg-emerald-600 text-white border-transparent font-medium' : 'text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'kamavacara-sobhana' ? 'bg-emerald-600 text-white border-transparent font-medium' : 'text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40']"
         >
           កាមាវចរសោភណៈ ២៤
         </button>
         <button
           @click="selectedCittaFilter = 'rupavacara'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'rupavacara' ? 'bg-cyan-600 text-white border-transparent font-medium' : 'text-cyan-700 dark:text-cyan-400 border-cyan-200 dark:border-cyan-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'rupavacara' ? 'bg-cyan-600 text-white border-transparent font-medium' : 'text-cyan-700 dark:text-cyan-400 border-cyan-200 dark:border-cyan-900/40']"
         >
           រូបាវចរ ១៥
         </button>
         <button
           @click="selectedCittaFilter = 'arupavacara'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'arupavacara' ? 'bg-purple-600 text-white border-transparent font-medium' : 'text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'arupavacara' ? 'bg-purple-600 text-white border-transparent font-medium' : 'text-purple-700 dark:text-purple-400 border-purple-200 dark:border-purple-900/40']"
         >
           អរូបាវចរ ១២
         </button>
         <button
           @click="selectedCittaFilter = 'lokuttara'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCittaFilter === 'lokuttara' ? 'bg-amber-600 text-white border-transparent font-medium' : 'text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCittaFilter === 'lokuttara' ? 'bg-amber-600 text-white border-transparent font-medium' : 'text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/40']"
         >
           លោកុត្តរ ៨ / ៤០
         </button>
       </div>
 
       <!-- Cetasika Sub-Filters -->
-      <div v-if="activeTab === 'cetasika'" class="flex flex-wrap gap-2 pt-2 border-t border-stone-100 dark:border-stone-800/60 text-xs">
-        <span class="text-stone-400 self-center mr-1">ក្រុមចេតសិក:</span>
+      <div v-if="activeTab === 'cetasika'" class="flex items-center gap-1.5 overflow-x-auto pb-1 pt-2 border-t border-stone-100 dark:border-stone-800/60 text-xs scrollbar-none touch-pan-x sm:flex-wrap">
+        <span class="text-stone-400 shrink-0 mr-1">ក្រុមចេតសិក:</span>
         <button
           @click="selectedCetasikaGroup = 'all'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'all' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent font-medium' : 'bg-transparent text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'all' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent font-medium' : 'bg-transparent text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700']"
         >
           ទាំងអស់ ៥២
         </button>
         <button
           @click="selectedCetasikaGroup = 'sabbacitta'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'sabbacitta' ? 'bg-blue-600 text-white border-transparent font-medium' : 'text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'sabbacitta' ? 'bg-blue-600 text-white border-transparent font-medium' : 'text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-900/40']"
         >
           សព្វចិត្តសាធារណៈ ៧
         </button>
         <button
           @click="selectedCetasikaGroup = 'pakinna'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'pakinna' ? 'bg-indigo-600 text-white border-transparent font-medium' : 'text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'pakinna' ? 'bg-indigo-600 text-white border-transparent font-medium' : 'text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-900/40']"
         >
           បកិណ្ណកៈ ៦
         </button>
         <button
           @click="selectedCetasikaGroup = 'akusala'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'akusala' ? 'bg-red-600 text-white border-transparent font-medium' : 'text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'akusala' ? 'bg-red-600 text-white border-transparent font-medium' : 'text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/40']"
         >
           អកុសលចេតសិក ១៤
         </button>
         <button
           @click="selectedCetasikaGroup = 'sobhana-sadharana'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'sobhana-sadharana' ? 'bg-emerald-600 text-white border-transparent font-medium' : 'text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'sobhana-sadharana' ? 'bg-emerald-600 text-white border-transparent font-medium' : 'text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/40']"
         >
           សោភណសាធារណៈ ១៩
         </button>
         <button
           @click="selectedCetasikaGroup = 'virati'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'virati' ? 'bg-teal-600 text-white border-transparent font-medium' : 'text-teal-700 dark:text-teal-400 border-teal-200 dark:border-teal-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'virati' ? 'bg-teal-600 text-white border-transparent font-medium' : 'text-teal-700 dark:text-teal-400 border-teal-200 dark:border-teal-900/40']"
         >
           វិរតី ៣
         </button>
         <button
           @click="selectedCetasikaGroup = 'appamanna'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'appamanna' ? 'bg-amber-600 text-white border-transparent font-medium' : 'text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'appamanna' ? 'bg-amber-600 text-white border-transparent font-medium' : 'text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-900/40']"
         >
           អប្បមញ្ញា ២
         </button>
         <button
           @click="selectedCetasikaGroup = 'panna'"
-          :class="['px-2.5 py-1 rounded-lg transition border', selectedCetasikaGroup === 'panna' ? 'bg-rose-600 text-white border-transparent font-medium' : 'text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-900/40']"
+          :class="['px-2.5 py-1 rounded-lg transition border shrink-0', selectedCetasikaGroup === 'panna' ? 'bg-rose-600 text-white border-transparent font-medium' : 'text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-900/40']"
         >
           បញ្ញិន្ទ្រិយ ១
         </button>
@@ -1302,21 +1302,21 @@ function getJatiBadgeColor(jati) {
     </div>
 
     <!-- TAB 1: CITTA EXPLORER -->
-    <section v-if="activeTab === 'citta'" class="space-y-6">
+    <section v-if="activeTab === 'citta'" class="space-y-4 sm:space-y-6">
       <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+        <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
           <span>🧠</span>
-          <span>តារាងពិនិត្យចិត្ត (បង្ហាញ {{ filteredCittas.length }} ដួង)</span>
+          <span>តារាងពិនិត្យចិត្ត ({{ filteredCittas.length }} ដួង)</span>
         </h2>
-        <span class="text-xs text-stone-500">ចុចលើផ្ទាំងនីមួយៗដើម្បីមើលព័ត៌មានលម្អិត</span>
+        <span class="text-[11px] sm:text-xs text-stone-500">ចុចលើផ្ទាំងដើម្បីមើលលម្អិត</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         <div
           v-for="citta in filteredCittas"
           :key="citta.id"
           @click="openInspector(citta, 'citta')"
-          class="group bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-4"
+          class="group bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3 sm:space-y-4"
         >
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -1351,21 +1351,21 @@ function getJatiBadgeColor(jati) {
     </section>
 
     <!-- TAB 2: CETASIKA EXPLORER -->
-    <section v-if="activeTab === 'cetasika'" class="space-y-6">
+    <section v-if="activeTab === 'cetasika'" class="space-y-4 sm:space-y-6">
       <div class="flex items-center justify-between">
-        <h2 class="text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+        <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
           <span>🌿</span>
-          <span>តារាងចេតសិក (បង្ហាញ {{ filteredCetasikas.length }} ពួក)</span>
+          <span>តារាងចេតសិក ({{ filteredCetasikas.length }} ពួក)</span>
         </h2>
-        <span class="text-xs text-stone-500">ចុចលើចេតសិកដើម្បីមើលលក្ខណាទិចតុក្កៈ ៤</span>
+        <span class="text-[11px] sm:text-xs text-stone-500">ចុចលើចេតសិកដើម្បីមើលលក្ខណៈ</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         <div
           v-for="cet in filteredCetasikas"
           :key="cet.id"
           @click="openInspector(cet, 'cetasika')"
-          class="group bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-4"
+          class="group bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3 sm:space-y-4"
         >
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -1377,7 +1377,7 @@ function getJatiBadgeColor(jati) {
               </span>
             </div>
 
-            <h3 class="text-base font-bold text-stone-900 dark:text-stone-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+            <h3 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
               {{ cet.km }}
             </h3>
 
@@ -1387,7 +1387,7 @@ function getJatiBadgeColor(jati) {
           </div>
 
           <div class="pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
-            <span class="truncate max-w-[200px] text-[11px]">{{ cet.associatedCitta }}</span>
+            <span class="truncate max-w-[180px] sm:max-w-[200px] text-[11px]">{{ cet.associatedCitta }}</span>
             <span class="text-emerald-600 dark:text-emerald-400 font-medium group-hover:translate-x-1 transition-transform">
               លម្អិត →
             </span>
@@ -1397,26 +1397,26 @@ function getJatiBadgeColor(jati) {
     </section>
 
     <!-- TAB 3: SAMPAYOGA MATRIX SUMMARY -->
-    <section v-if="activeTab === 'matrix'" class="space-y-8">
+    <section v-if="activeTab === 'matrix'" class="space-y-6 sm:space-y-8">
       <!-- Intro Card -->
-      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-stone-900 dark:to-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-2xl p-6 space-y-3">
-        <h2 class="text-xl font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2">
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-stone-900 dark:to-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-2xl p-4 sm:p-6 space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2">
           <span>📊</span>
           <span>គោលការណ៍ប្រកបគ្នានៃចិត្ត និងចេតសិក (Sampayoga & Saṅgaha Naya)</span>
         </h2>
-        <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+        <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
           ចិត្ត និងចេតសិកត្រូវតែកើតឡើងព្រមគ្នា <strong>(ឯកុប្បាទោ)</strong>, រលត់ទៅវិញព្រមគ្នា <strong>(ឯកនិរោធោ)</strong>, មានអារម្មណ៍តែមួយ <strong>(ឯការម្មណោ)</strong>, និងអាស្រ័យវត្ថុតែមួយ <strong>(ឯកវត្ថុកោ)</strong>។ មិនដែលមានចិត្តកើតឡើងដោយគ្មានចេតសិក ឬចេតសិកកើតឡើងដោយគ្មានចិត្តឡើយ។
         </p>
       </div>
 
       <!-- Key Rules Breakdown -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         <!-- Rule 1: Seven Universals -->
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 space-y-4">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">7</span>
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-base sm:text-lg">7</span>
             <div>
-              <h3 class="font-bold text-stone-900 dark:text-stone-100">សព្វចិត្តសាធារណៈ ៧</h3>
+              <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">សព្វចិត្តសាធារណៈ ៧</h3>
               <p class="text-xs text-stone-500">មាននៅក្នុងចិត្តគ្រប់ដួងទាំងអស់ (៨៩ ឬ ១២១)</p>
             </div>
           </div>
@@ -1426,11 +1426,11 @@ function getJatiBadgeColor(jati) {
         </div>
 
         <!-- Rule 2: Unwholesome Core -->
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 space-y-4">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-lg">4</span>
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center font-bold text-base sm:text-lg">4</span>
             <div>
-              <h3 class="font-bold text-stone-900 dark:text-stone-100">មោហចតុក្កៈ ៤ (ស្នូលនៃបាប)</h3>
+              <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">មោហចតុក្កៈ ៤ (ស្នូលនៃបាប)</h3>
               <p class="text-xs text-stone-500">មាននៅក្នុងអកុសលចិត្តទាំង ១២ ដួងជានិច្ច</p>
             </div>
           </div>
@@ -1440,11 +1440,11 @@ function getJatiBadgeColor(jati) {
         </div>
 
         <!-- Rule 3: Beautiful Core -->
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 space-y-4">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-lg">19</span>
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-base sm:text-lg">19</span>
             <div>
-              <h3 class="font-bold text-stone-900 dark:text-stone-100">សោភណសាធារណៈ ១៩</h3>
+              <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">សោភណសាធារណៈ ១៩</h3>
               <p class="text-xs text-stone-500">មានក្នុងចិត្តល្អបរិសុទ្ធគ្រប់ដួង (៥៩ ឬ ៩១)</p>
             </div>
           </div>
@@ -1454,11 +1454,11 @@ function getJatiBadgeColor(jati) {
         </div>
 
         <!-- Rule 4: Wisdom Distinction -->
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 space-y-4">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-4 sm:p-6 space-y-3 sm:space-y-4">
           <div class="flex items-center gap-3">
-            <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-lg">1</span>
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-base sm:text-lg">1</span>
             <div>
-              <h3 class="font-bold text-stone-900 dark:text-stone-100">បញ្ញិន្ទ្រិយ (វត្តមាននៃប្រាជ្ញា)</h3>
+              <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">បញ្ញិន្ទ្រិយ (វត្តមាននៃប្រាជ្ញា)</h3>
               <p class="text-xs text-stone-500">កើតក្នុងញាណសម្បយុត្តចិត្ត ៤៧ ឬ ៧៩ ដួង</p>
             </div>
           </div>
@@ -1473,11 +1473,11 @@ function getJatiBadgeColor(jati) {
     <Teleport to="body">
       <div
         v-if="selectedItem"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-stone-950/70 backdrop-blur-sm transition-opacity"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm transition-opacity"
         @click.self="closeModal"
       >
         <div
-          class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6 animate-in fade-in zoom-in-95 duration-200"
+          class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[88vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl p-4 sm:p-7 space-y-5 sm:space-y-6 animate-in slide-in-from-bottom sm:zoom-in-95 duration-200"
         >
           <!-- Modal Header -->
           <div class="flex items-start justify-between gap-4 border-b border-stone-100 dark:border-stone-800 pb-4">
@@ -1511,30 +1511,30 @@ function getJatiBadgeColor(jati) {
               </p>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">ជាតិ (Jāti)</span>
-                <span class="font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.jatiKm }}</span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">ជាតិ (Jāti)</span>
+                <span class="text-xs sm:text-sm font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.jatiKm }}</span>
               </div>
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">ភូមិ (Plane)</span>
-                <span class="font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.planeKm }}</span>
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">ភូមិ (Plane)</span>
+                <span class="text-xs sm:text-sm font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.planeKm }}</span>
               </div>
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">វេទនា (Feeling)</span>
-                <span class="font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.feelingKm }}</span>
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">វេទនា (Feeling)</span>
+                <span class="text-xs sm:text-sm font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.feelingKm }}</span>
               </div>
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">ហេតុ (Roots)</span>
-                <span class="font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.hetuKm }}</span>
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">ហេតុ (Roots)</span>
+                <span class="text-xs sm:text-sm font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.hetuKm }}</span>
               </div>
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">ចេតសិកប្រកប</span>
-                <span class="font-semibold text-amber-600 dark:text-amber-400">{{ selectedItem.cetasikaCount }} រូប</span>
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">ចេតសិកប្រកប</span>
+                <span class="text-xs sm:text-sm font-semibold text-amber-600 dark:text-amber-400">{{ selectedItem.cetasikaCount }} រូប</span>
               </div>
-              <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
-                <span class="text-xs text-stone-400 block">កិច្ចនៃចិត្ត (Function)</span>
-                <span class="font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.functionKm }}</span>
+              <div class="p-2.5 sm:p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800">
+                <span class="text-[11px] sm:text-xs text-stone-400 block">កិច្ចនៃចិត្ត (Function)</span>
+                <span class="text-xs sm:text-sm font-semibold text-stone-800 dark:text-stone-200">{{ selectedItem.functionKm }}</span>
               </div>
             </div>
 
@@ -1543,7 +1543,7 @@ function getJatiBadgeColor(jati) {
                 <span>💡</span>
                 <span>ការប្រាកដឡើងក្នុងជីវិតជាក់ស្តែង (Practical Experience):</span>
               </h4>
-              <p class="text-stone-600 dark:text-stone-300 leading-relaxed bg-amber-500/5 p-4 rounded-2xl border border-amber-500/15">
+              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed bg-amber-500/5 p-3.5 sm:p-4 rounded-2xl border border-amber-500/15">
                 {{ selectedItem.practicalNote }}
               </p>
             </div>
@@ -1553,7 +1553,7 @@ function getJatiBadgeColor(jati) {
                 <span>🛡️</span>
                 <span>វិធីដោះស្រាយ / ការបណ្តុះចម្រើន (Remedy / Cultivation):</span>
               </h4>
-              <p class="text-stone-600 dark:text-stone-300 leading-relaxed bg-emerald-500/5 p-4 rounded-2xl border border-emerald-500/15">
+              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed bg-emerald-500/5 p-3.5 sm:p-4 rounded-2xl border border-emerald-500/15">
                 {{ selectedItem.cure }}
               </p>
             </div>
@@ -1562,25 +1562,25 @@ function getJatiBadgeColor(jati) {
           <!-- CETASIKA MODAL BODY -->
           <div v-if="modalType === 'cetasika'" class="space-y-5 text-sm">
             <div class="space-y-3">
-              <h4 class="font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2 text-base">
+              <h4 class="font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2 text-sm sm:text-base">
                 <span>📜</span>
                 <span>លក្ខណាទិចតុក្កៈ ៤ (The 4 Characteristics):</span>
               </h4>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
                   <span class="text-xs font-bold text-amber-700 dark:text-amber-400">១. លក្ខណៈ (Characteristic)</span>
                   <p class="text-xs text-stone-700 dark:text-stone-300 leading-relaxed">{{ selectedItem.lakkhana }}</p>
                 </div>
-                <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
                   <span class="text-xs font-bold text-emerald-700 dark:text-emerald-400">២. រស (Function / Duty)</span>
                   <p class="text-xs text-stone-700 dark:text-stone-300 leading-relaxed">{{ selectedItem.rasa }}</p>
                 </div>
-                <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
                   <span class="text-xs font-bold text-cyan-700 dark:text-cyan-400">៣. បច្ចុបដ្ឋាន (Manifestation)</span>
                   <p class="text-xs text-stone-700 dark:text-stone-300 leading-relaxed">{{ selectedItem.paccupatthana }}</p>
                 </div>
-                <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
+                <div class="p-3 sm:p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-700/60 space-y-1">
                   <span class="text-xs font-bold text-purple-700 dark:text-purple-400">៤. បទដ្ឋាន (Proximate Cause)</span>
                   <p class="text-xs text-stone-700 dark:text-stone-300 leading-relaxed">{{ selectedItem.padatthana }}</p>
                 </div>
@@ -1592,7 +1592,7 @@ function getJatiBadgeColor(jati) {
                 <span>🔗</span>
                 <span>ការប្រកបក្នុងចិត្ត (Associated Cittas):</span>
               </h4>
-              <p class="text-stone-700 dark:text-stone-300 font-semibold bg-stone-100 dark:bg-stone-800 px-4 py-2.5 rounded-xl">
+              <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 font-semibold bg-stone-100 dark:bg-stone-800 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl">
                 {{ selectedItem.associatedCitta }}
               </p>
             </div>
@@ -1602,7 +1602,7 @@ function getJatiBadgeColor(jati) {
                 <span>🧘</span>
                 <span>ការអនុវត្តក្នុងការបដិបត្តិ និងជីវិតប្រចាំថ្ងៃ:</span>
               </h4>
-              <p class="text-stone-600 dark:text-stone-300 leading-relaxed bg-amber-500/5 p-4 rounded-2xl border border-amber-500/15">
+              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed bg-amber-500/5 p-3.5 sm:p-4 rounded-2xl border border-amber-500/15">
                 {{ selectedItem.practicalApplication }}
               </p>
             </div>
@@ -1612,7 +1612,7 @@ function getJatiBadgeColor(jati) {
           <div class="pt-2 flex justify-end">
             <button
               @click="closeModal"
-              class="px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-sm font-medium transition"
+              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs sm:text-sm font-medium transition text-center"
             >
               បិទផ្ទាំង (Close)
             </button>

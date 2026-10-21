@@ -180,200 +180,186 @@ function playMettaBell() {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-rose-500/10 text-rose-800 dark:text-rose-300 border border-rose-500/20">
-        <span>🕊️</span>
-        <span>ករណីយមេត្តសូត្រ • Universal Loving-Kindness</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-rose-800 via-pink-700 to-amber-800 dark:from-rose-200 dark:via-pink-200 dark:to-amber-300 bg-clip-text text-transparent leading-snug">
-        មេត្តាភាវនា ១០ ទិស និងអានិសង្ស ១១ ប្រការ
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        ការផ្សាយរស្មីមេត្តាធំធេងគ្របដណ្តប់សព្វសត្វក្នុងលោកធាតុគ្មានព្រំដែន គ្មានពៀរវេរា ដើម្បីបណ្តុះបេះដូងត្រជាក់ និងសម្រេចអានិសង្សដ៏អស្ចារ្យ។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('ករណីយមេត្តសូត្រ • Universal Loving-Kindness', 'Mettā Sutta • Universal Loving-Kindness') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('មេត្តាភាវនា ១០ ទិស និងអានិសង្ស ១១ ប្រការ', '10 Directions Mettā & 11 Blessings') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ការផ្សាយរស្មីមេត្តាធំធេងគ្របដណ្តប់សព្វសត្វក្នុងលោកធាតុគ្មានព្រំដែន គ្មានពៀរវេរា ដើម្បីបណ្តុះបេះដូងត្រជាក់ និងសម្រេចអានិសង្សដ៏អស្ចារ្យ។', 'Radiating boundless loving-kindness to all beings in every direction without boundary or ill-will, cooling the heart and cultivating the 11 supreme blessings.') }}
       </p>
 
       <!-- View Switcher Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2">
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
         <button
           @click="activeTab = 'compass'"
-          :class="[
-            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
-            activeTab === 'compass'
-              ? 'bg-rose-600 text-white shadow-sm'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeTab === 'compass' ? 'on' : ''"
         >
-          🧭 រ៉ាដា ១០ ទិស
+          🧭 {{ t('រ៉ាដា ១០ ទិស', '10 Directions Compass') }}
         </button>
-
         <button
           @click="activeTab = 'sequence'"
-          :class="[
-            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
-            activeTab === 'sequence'
-              ? 'bg-rose-600 text-white shadow-sm'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeTab === 'sequence' ? 'on' : ''"
         >
-          🪜 ៥ ដំណាក់កាល
+          🪜 {{ t('៥ ដំណាក់កាល', '5 Stages of Mettā') }}
         </button>
-
         <button
           @click="activeTab = 'benefits'"
-          :class="[
-            'px-3 sm:px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition',
-            activeTab === 'benefits'
-              ? 'bg-rose-600 text-white shadow-sm'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-200'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeTab === 'benefits' ? 'on' : ''"
         >
-          ✨ អានិសង្ស ១១
+          ✨ {{ t('អានិសង្ស ១១', '11 Blessings') }}
         </button>
       </div>
     </header>
 
     <!-- TAB 1: 10 DIRECTIONS RADAR COMPASS -->
-    <section v-if="activeTab === 'compass'" class="space-y-6">
-      <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-5">
-        <div class="text-center space-y-0.5">
-          <h2 class="text-base sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            រ៉ាដាផ្សាយមេត្តាទៅកាន់ទិសទាំង ១០
-          </h2>
-          <p class="text-[11px] sm:text-xs text-stone-500">ចុចជ្រើសរើសទិស ដើម្បីបញ្ជូនរលកមេត្តាចិត្ត និងសូត្រគាថា</p>
+    <section v-if="activeTab === 'compass'" class="mt-6 space-y-6">
+      <div class="card-paper p-5 sm:p-7 space-y-5">
+        <div class="text-center space-y-1">
+          <h3 class="font-display text-base sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+            {{ t('រ៉ាដាផ្សាយមេត្តាទៅកាន់ទិសទាំង ១០', 'Radiating Mettā to the 10 Directions') }}
+          </h3>
+          <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ចុចជ្រើសរើសទិស ដើម្បីបញ្ជូនរលកមេត្តាចិត្ត និងសូត្រគាថា', 'Click a direction to radiate goodwill and chant the protective gāthā') }}
+          </p>
         </div>
 
-        <!-- Direction Buttons Grid (2 cols mobile, 5 cols desktop) -->
+        <!-- Direction Buttons Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
           <button
-            v-for="(d, idx) in directions"
-            :key="idx"
-            @click="selectedDirection = idx; triggerRadiate()"
-            :class="[
-              'p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border text-center transition-all duration-150 flex flex-col items-center justify-center gap-0.5',
-              selectedDirection === idx
-                ? 'bg-rose-500/10 border-rose-500 text-rose-700 dark:text-rose-300 ring-2 ring-rose-500/50 shadow-xs scale-102 font-bold'
-                : 'bg-stone-50 dark:bg-stone-800/50 border-stone-200 dark:border-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100'
-            ]"
+            v-for="d in directions"
+            :key="d.id"
+            @click="selectedDirection = d.id; triggerRadiate()"
+            class="card-paper card-paper-hover p-3 text-center transition"
+            :style="selectedDirection === d.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
           >
-            <span class="text-xs font-bold">{{ d.short }}</span>
-            <span class="text-[10px] sm:text-[11px] truncate max-w-full text-stone-500">{{ d.nameKm.split(' ')[0] }}</span>
+            <span class="text-xl block">{{ d.icon }}</span>
+            <strong class="text-xs block mt-1" :style="{ color: selectedDirection === d.id ? 'var(--accent)' : 'var(--ink)' }">
+              {{ d.nameKm }}
+            </strong>
+            <span class="paali text-[10px]" :style="{ color: 'var(--ink-muted)' }">{{ d.pali }}</span>
           </button>
         </div>
 
-        <!-- Radiate Animation Visualizer Card -->
-        <div class="relative overflow-hidden p-4 sm:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-rose-500/10 via-pink-500/5 to-transparent border border-rose-500/20 text-center space-y-3 sm:space-y-4">
-          <!-- Pulsing Rings -->
+        <!-- Active Direction Radiator Box -->
+        <div class="card-paper p-5 sm:p-7 text-center relative overflow-hidden" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <div
             v-if="isPulsing"
-            class="absolute inset-0 flex items-center justify-center pointer-events-none"
-          >
-            <div class="w-40 h-40 sm:w-60 sm:h-60 rounded-full bg-rose-500/20 animate-ping"></div>
-          </div>
+            class="absolute inset-0 bg-rose-500/10 animate-ping rounded-2xl pointer-events-none"
+          ></div>
 
-          <div class="space-y-0.5 relative z-10">
-            <span class="text-3xl animate-bounce inline-block">💖</span>
-            <h3 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
-              {{ directions[selectedDirection].nameKm }}
-            </h3>
-            <p class="text-[11px] sm:text-xs font-mono text-rose-600 dark:text-rose-400 italic">
-              {{ directions[selectedDirection].namePali }}
-            </p>
-          </div>
+          <div class="relative z-10 space-y-4 max-w-xl mx-auto">
+            <span class="text-4xl block">{{ currentDirectionData.icon }}</span>
 
-          <!-- Pali Gatha -->
-          <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/80 dark:bg-stone-800/80 backdrop-blur-sm border border-stone-200/60 dark:border-stone-700/60 max-w-xl mx-auto space-y-1.5 text-left sm:text-center">
-            <p class="text-xs sm:text-sm font-serif italic text-stone-800 dark:text-stone-200 font-semibold leading-relaxed">
-              « {{ directions[selectedDirection].gatha }} »
-            </p>
-            <p class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-              {{ directions[selectedDirection].kmTranslation }}
-            </p>
-          </div>
+            <div>
+              <span class="paali text-xs uppercase" :style="{ color: 'var(--accent)' }">{{ currentDirectionData.pali }}</span>
+              <h3 class="font-display text-xl sm:text-2xl font-bold mt-0.5" :style="{ color: 'var(--ink)' }">
+                {{ currentDirectionData.nameKm }}
+              </h3>
+              <p class="text-xs mt-1" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('សត្វលោកដែលរស់នៅ៖ ', 'Inhabiting Beings: ') }}<strong>{{ currentDirectionData.beings }}</strong>
+              </p>
+            </div>
 
-          <!-- Addressed Beings -->
-          <div class="text-[11px] sm:text-xs text-stone-500 flex items-center justify-center gap-1 flex-wrap">
-            <span>គ្របដណ្តប់លើ៖</span>
-            <strong class="text-stone-800 dark:text-stone-200 font-medium">{{ directions[selectedDirection].beings }}</strong>
-          </div>
+            <!-- Pali Gāthā -->
+            <div class="verse-box p-4 rounded-xl space-y-2">
+              <p class="paali font-serif italic text-sm sm:text-base font-bold leading-relaxed" :style="{ color: 'var(--accent-bright)' }">
+                « {{ currentDirectionData.gathaPali }} »
+              </p>
+              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink)' }">
+                {{ currentDirectionData.gathaKm }}
+              </p>
+            </div>
 
-          <!-- Trigger Button -->
-          <button
-            @click="triggerRadiate"
-            class="w-full sm:w-auto px-6 py-2.5 rounded-xl sm:rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs sm:text-sm shadow-sm transition active:scale-95 inline-flex items-center justify-center gap-1.5"
-          >
-            <span>🕊️</span>
-            <span>ផ្សាយមេត្តាឥឡូវនេះ (Radiate Metta)</span>
-          </button>
+            <!-- Action Button -->
+            <button
+              @click="triggerRadiate"
+              class="lang-pick px-6 py-2.5 text-xs sm:text-sm font-semibold on shadow-md inline-flex items-center gap-2"
+            >
+              <span>🔔</span>
+              <span>{{ isPulsing ? t('កំពុងផ្សាយរលកមេត្តា...', 'Radiating Metta Pulse...') : t('បញ្ជូនរលកមេត្តា & វាយជួង', 'Send Metta Pulse & Bell') }}</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 2: 5 SEQUENCE STEPS -->
-    <section v-if="activeTab === 'sequence'" class="space-y-4">
-      <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3.5 sm:p-4 text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
-        <strong>💡 គោលការណ៍បំបែករបងចិត្ត (Sīmasambheda)៖</strong> ការចម្រើនមេត្តាត្រូវតែធ្វើតាមលំដាប់លំដោយ មិនអាចរំលងបានឡើយ។ ការផ្សាយដល់សត្រូវគឺជាដំណាក់កាលខ្ពស់បំផុត ដែលអាចរំលាយគំនុំ និងរារាំងមិនឱ្យចិត្តបង្កើតអកុសល។
+    <!-- TAB 2: 5 STAGES OF METTĀ MEDITATION -->
+    <section v-if="activeTab === 'sequence'" class="mt-6 space-y-4">
+      <div class="card-paper p-4 sm:p-5">
+        <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+          💡 <strong>{{ t('ក្បួនបដិបត្តិត្រឹមត្រូវ៖', 'Proper Order of Practice:') }}</strong>
+          {{ t('ព្រះពុទ្ធទ្រង់សម្តែងឱ្យចាប់ផ្តើមផ្សាយមេត្តាចំពោះខ្លួនឯងមុនគេបង្អស់ ព្រោះមនុស្សដែលមិនទាន់ស្រឡាញ់ខ្លួនឯង មិនអាចស្រឡាញ់អ្នកដទៃដោយបរិសុទ្ធឡើយ។ បន្ទាប់មកទើបបន្តទៅកាន់មនុស្សជាទីស្រឡាញ់ មនុស្សកណ្តាលៗ និងចុងក្រោយគឺសត្រូវ។', 'The Visuddhimagga instructs us to radiate loving-kindness to oneself first, then to beloved friends, neutral persons, and lastly to enemies without discrimination.') }}
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-3 sm:gap-4">
+      <div class="space-y-3">
         <div
-          v-for="st in sequenceSteps"
+          v-for="st in sequenceStages"
           :key="st.step"
-          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2.5"
+          class="card-paper p-4 sm:p-5 flex flex-col sm:flex-row items-start gap-4"
         >
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <h3 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
-              <span class="w-5 h-5 rounded-md bg-rose-500/15 text-rose-700 dark:text-rose-400 flex items-center justify-center text-xs font-bold">
-                {{ st.step }}
-              </span>
-              <span>{{ st.titleKm }}</span>
-            </h3>
-            <span class="text-[11px] font-mono text-stone-400 italic">{{ st.pali }}</span>
-          </div>
+          <span class="sutra-num font-bold text-lg px-3 py-1 rounded-xl shrink-0" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--accent-bright)' }">
+            {{ st.step }}
+          </span>
 
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-            {{ st.desc }}
-          </p>
+          <div class="space-y-1.5 flex-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ st.titleKm }}
+              </h3>
+              <span class="paali text-xs" :style="{ color: 'var(--ink-muted)' }">({{ st.target }})</span>
+            </div>
 
-          <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-100 dark:border-stone-800 text-xs text-rose-800 dark:text-rose-300 italic font-serif leading-relaxed">
-            {{ st.phrase }}
+            <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              {{ st.desc }}
+            </p>
+
+            <div class="p-3 rounded-xl text-xs space-y-1 mt-2" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <strong class="block" :style="{ color: 'var(--accent-bright)' }">
+                💬 {{ t('ពាក្យភាវនាក្នុងចិត្ត៖', 'Inner Chanting Formula:') }}
+              </strong>
+              <p class="paali italic" :style="{ color: 'var(--ink)' }">{{ st.formulaPali }}</p>
+              <p :style="{ color: 'var(--ink-soft)' }">{{ st.formulaKm }}</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 3: 11 BLESSINGS -->
-    <section v-if="activeTab === 'benefits'" class="space-y-4">
-      <div class="text-center space-y-0.5">
-        <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-          អានិសង្ស ១១ ប្រការនៃការចម្រើនមេត្តា
-        </h2>
-        <p class="text-xs text-stone-500">ស្រង់ចេញពី គម្ពីរអង្គុត្តរនិកាយ ឯកាទសកនិបាត (AN 11.16)</p>
+    <!-- TAB 3: 11 BENEFITS OF METTĀ -->
+    <section v-if="activeTab === 'benefits'" class="mt-6 space-y-4">
+      <div class="verse-box p-4 rounded-xl text-center">
+        <p class="text-xs sm:text-sm font-semibold" :style="{ color: 'var(--ink)' }">
+          {{ t('«ម្នាលភិក្ខុទាំងឡាយ កាលបើមេត្តាចេតោវិមុត្តិ ដែលបុគ្គលបានសន្សំ បានចម្រើន បានធ្វើឱ្យច្រើនហើយ រមែងសង្ឃឹមទុកនូវអានិសង្ស ១១ ប្រការនេះឯង...»', '«When the mind deliverance through loving-kindness is cultivated, frequently practiced, and well established, 11 blessings can be expected...»') }}
+        </p>
+        <span class="text-[11px] block mt-1" :style="{ color: 'var(--ink-muted)' }">— មេត្តសូត្រ អង្គុត្តរនិកាយ ឯកាទសកនិបាត</span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         <div
-          v-for="b in blessings"
+          v-for="b in benefits"
           :key="b.no"
-          class="p-4 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5 hover:border-rose-500/40 transition"
+          class="card-paper card-paper-hover p-4 flex items-start gap-3"
         >
-          <div class="flex items-center justify-between">
-            <span class="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-700 dark:text-rose-400 flex items-center justify-center font-bold text-xs">
-              {{ b.no }}
-            </span>
-            <span class="text-[10px] font-mono text-stone-400 italic">{{ b.pali }}</span>
+          <span class="sutra-num font-bold text-sm px-2.5 py-1 rounded-lg shrink-0" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--accent-bright)' }">
+            {{ b.no }}
+          </span>
+          <div class="space-y-1">
+            <h4 class="font-display font-bold text-sm" :style="{ color: 'var(--ink)' }">
+              {{ b.km }}
+            </h4>
+            <p class="paali text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ b.pali }}</p>
+            <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              {{ b.desc }}
+            </p>
           </div>
-
-          <h3 class="text-xs sm:text-sm font-bold text-stone-900 dark:text-stone-100">
-            {{ b.km }}
-          </h3>
-
-          <p class="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-            {{ b.desc }}
-          </p>
         </div>
       </div>
     </section>

@@ -1,5 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { inject, ref, computed } from 'vue'
+
+const currentLocale = inject('locale', ref('km'))
+function t(km, en) {
+  return currentLocale.value === 'en' ? (en || km) : km
+}
 
 const activeFilter = ref('all') // 'all' or by visuddhi
 const searchQuery = ref('')
@@ -367,76 +372,68 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>🪜</span>
-        <span>វិសុទ្ធិមគ្គ • Visuddhimagga Pathway</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
-        វិបស្សនាញាណ ១៦ ដំណាក់កាល
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        ផែនទីបង្ហាញផ្លូវនៃការវិវត្តនៃបញ្ញា (The 16 Stages of Insight / Soḷasa Ñāṇa) ចាប់តាំងពីការចាប់ផ្តើមញែកដឹងនាមនិងរូប រហូតដល់ការកម្ចាត់កិលេស និងសម្រេចព្រះនិព្វាន។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('វិសុទ្ធិមគ្គ • Visuddhimagga Pathway', 'Visuddhimagga Pathway') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('វិបស្សនាញាណ ១៦ ដំណាក់កាល', 'The 16 Stages of Insight (Soḷasa Ñāṇa)') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ផែនទីបង្ហាញផ្លូវនៃការវិវត្តនៃបញ្ញា (The 16 Stages of Insight / Soḷasa Ñāṇa) ចាប់តាំងពីការចាប់ផ្តើមញែកដឹងនាមនិងរូប រហូតដល់ការកម្ចាត់កិលេស និងសម្រេចព្រះនិព្វាន។', 'The classic map of spiritual insight from the initial discernment of mentality and materiality to the eradication of defilements and realization of Nibbāna.') }}
       </p>
 
-      <!-- Upakkilesa Warning Button -->
-      <div class="pt-1">
+      <div class="mt-5 flex justify-center">
         <button
           @click="showUpakkilesaModal = true"
-          class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/30 hover:bg-rose-500/20 transition shadow-xs"
+          class="lang-pick px-4 py-2 text-xs font-semibold"
         >
-          <span>⚠️</span>
-          <span>អន្ទាក់វិបស្សនូបក្កិលេស ១០ យ៉ាង</span>
+          ⚠️ {{ t('អន្ទាក់វិបស្សនូបក្កិលេស ១០ យ៉ាង', '10 Vipassanūpakkilesa Traps') }}
         </button>
       </div>
     </header>
 
     <!-- Filter & Search Bar -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 shadow-sm space-y-3">
+    <div class="card-paper p-4 sm:p-5 mt-6">
       <div class="relative w-full">
-        <span class="absolute inset-y-0 left-3 flex items-center text-stone-400 text-xs">🔍</span>
+        <span class="absolute inset-y-0 left-3 flex items-center text-xs" :style="{ color: 'var(--ink-muted)' }">🔍</span>
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="ស្វែងរកតាមឈ្មោះញាណបាលី ខ្មែរ ឬអត្ថន័យ..."
-          class="w-full pl-8 pr-4 py-2 rounded-xl bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+          :placeholder="t('ស្វែងរកតាមឈ្មោះញាណបាលី ខ្មែរ ឬអត្ថន័យ...', 'Search by Pali, Khmer or meaning...')"
+          class="w-full pl-8 pr-8 py-2 rounded-xl text-xs sm:text-sm focus:outline-none transition"
+          :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink)' }"
         />
         <button
           v-if="searchQuery"
           @click="searchQuery = ''"
-          class="absolute inset-y-0 right-3 flex items-center text-stone-400 hover:text-stone-600 text-xs"
+          class="absolute inset-y-0 right-3 flex items-center text-xs"
+          :style="{ color: 'var(--ink-muted)' }"
         >
           ✕
         </button>
       </div>
 
-      <!-- Visuddhi Tabs with smooth horizontal touch scroll on mobile -->
-      <div class="-mx-2 px-2 overflow-x-auto flex-nowrap scrollbar-none touch-pan-x flex items-center gap-1.5 pt-1 text-xs">
+      <!-- Visuddhi Tabs -->
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
         <button
           v-for="v in visuddhiList"
           :key="v.id"
           @click="activeFilter = v.id"
-          :class="[
-            'px-3 py-1.5 rounded-xl font-medium transition border shrink-0',
-            activeFilter === v.id
-              ? 'bg-amber-600 text-white border-transparent shadow-xs'
-              : 'bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700 hover:bg-stone-100'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeFilter === v.id ? 'on' : ''"
         >
-          {{ v.km }}
+          {{ t(v.km, v.en) }}
         </button>
       </div>
     </div>
 
-    <!-- Stepper / Ladder Grid of the 16 Ñāṇas -->
-    <div class="space-y-3">
-      <div class="flex items-center justify-between text-[11px] sm:text-xs text-stone-500">
-        <span>បង្ហាញ {{ filteredNanas.length }} នៃ ១៦ ញាណ</span>
-        <span>ចុចលើផ្ទាំងនីមួយៗដើម្បីពិនិត្យលម្អិត</span>
+    <!-- Stepper / Grid of the 16 Ñāṇas -->
+    <div class="mt-6 space-y-3">
+      <div class="flex items-center justify-between text-xs" :style="{ color: 'var(--ink-muted)' }">
+        <span>{{ t('បង្ហាញ ' + filteredNanas.length + ' នៃ ១៦ ញាណ', 'Showing ' + filteredNanas.length + ' of 16 Ñāṇas') }}</span>
+        <span>{{ t('ចុចលើផ្ទាំងនីមួយៗដើម្បីពិនិត្យលម្អិត', 'Click any card for full details') }}</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
@@ -444,135 +441,147 @@ function closeModal() {
           v-for="nana in filteredNanas"
           :key="nana.step"
           @click="openNanaModal(nana)"
-          class="group bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-500/60 dark:hover:border-amber-500/60 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-3"
+          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between"
         >
-          <div class="space-y-1.5">
+          <div class="space-y-2">
             <div class="flex items-center justify-between">
-              <span class="w-7 h-7 rounded-lg bg-amber-500/10 text-amber-700 dark:text-amber-400 flex items-center justify-center font-bold text-xs">
-                {{ nana.step }}
+              <span class="sutra-num font-bold text-sm" :style="{ color: 'var(--accent-bright)' }">
+                #{{ nana.step }}
               </span>
-              <span class="text-[10px] sm:text-[11px] font-medium px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300">
+              <span class="text-[11px] px-2 py-0.5 rounded font-medium" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-muted)' }">
                 {{ nana.visuddhiKm.split(' ')[0] }}
               </span>
             </div>
 
-            <h3 class="text-base font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+            <h3 class="font-display text-base sm:text-lg font-bold" :style="{ color: 'var(--ink)' }">
               {{ nana.km }}
             </h3>
 
-            <p class="text-[11px] font-mono text-stone-500 dark:text-stone-400 italic">
+            <p class="paali text-xs" :style="{ color: 'var(--accent)' }">
               {{ nana.pali }}
             </p>
 
-            <p class="text-xs text-stone-600 dark:text-stone-300 line-clamp-2 leading-relaxed">
+            <p class="text-xs leading-relaxed line-clamp-2" :style="{ color: 'var(--ink-soft)' }">
               {{ nana.summary }}
             </p>
           </div>
 
-          <div class="pt-2.5 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs text-stone-400">
-            <span class="text-amber-700 dark:text-amber-400 font-medium text-[11px] truncate max-w-[180px]">{{ nana.levelKm }}</span>
-            <span class="text-amber-600 dark:text-amber-400 font-semibold group-hover:translate-x-1 transition-transform shrink-0">
-              លម្អិត →
+          <div class="pt-3 mt-3 flex items-center justify-between text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+            <span class="text-[11px] truncate max-w-[200px]" :style="{ color: 'var(--ink-muted)' }">{{ nana.levelKm }}</span>
+            <span class="font-semibold" :style="{ color: 'var(--accent-bright)' }">
+              {{ t('លម្អិត →', 'Details →') }}
             </span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- POP-UP MODAL: ÑĀṆA INSPECTOR (Bottom-sheet on mobile) -->
+    <!-- POP-UP MODAL: ÑĀṆA INSPECTOR -->
     <Teleport to="body">
       <div
         v-if="selectedNana"
-        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
         @click.self="closeModal"
       >
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl p-4 sm:p-7 space-y-4 sm:space-y-5 animate-in fade-in duration-200">
-          <div class="flex items-start justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-3">
-            <div class="space-y-0.5">
+        <div
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+        >
+          <!-- Modal Header -->
+          <div class="p-4 sm:p-5 flex items-center justify-between border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+            <div>
               <div class="flex items-center gap-2">
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400">
-                  ញាណទី {{ selectedNana.step }}
+                <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                  {{ t('ញាណទី ' + selectedNana.step, 'Stage ' + selectedNana.step) }}
                 </span>
-                <span class="text-xs text-stone-500">{{ selectedNana.visuddhiKm }}</span>
+                <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">
+                  {{ selectedNana.visuddhiKm }}
+                </span>
               </div>
-              <h3 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+              <h3 class="font-display text-lg sm:text-xl font-bold mt-0.5" :style="{ color: 'var(--ink)' }">
                 {{ selectedNana.km }}
               </h3>
-              <p class="text-xs font-mono italic text-stone-500">{{ selectedNana.pali }}</p>
+              <p class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ selectedNana.pali }}</p>
             </div>
             <button
               @click="closeModal"
-              class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 flex items-center justify-center transition shrink-0"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
             >
               ✕
             </button>
           </div>
 
-          <div class="space-y-3.5 text-xs sm:text-sm">
+          <!-- Modal Body -->
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
             <!-- Summary -->
-            <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-500/5 border border-amber-500/15 text-stone-800 dark:text-stone-200 leading-relaxed">
-              <strong class="text-amber-800 dark:text-amber-300 block mb-1">📖 ខ្លឹមសារសង្ខេប៖</strong>
-              {{ selectedNana.summary }}
+            <div class="verse-box p-4 rounded-xl leading-relaxed">
+              <strong class="block mb-1 font-bold" :style="{ color: 'var(--accent-bright)' }">
+                📖 {{ t('ខ្លឹមសារសង្ខេប៖', 'Summary:') }}
+              </strong>
+              <p :style="{ color: 'var(--ink)' }">{{ selectedNana.summary }}</p>
             </div>
 
-            <!-- Key Characteristics -->
-            <div class="space-y-1.5">
-              <h4 class="font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+            <!-- Characteristics -->
+            <div class="space-y-2">
+              <h4 class="font-display font-bold text-sm flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
                 <span>🔍</span>
-                <span>លក្ខណៈសំគាល់នៃបញ្ញាក្នុងដំណាក់កាលនេះ៖</span>
+                <span>{{ t('លក្ខណៈសំគាល់នៃបញ្ញាក្នុងដំណាក់កាលនេះ៖', 'Key Characteristics of Insight:') }}</span>
               </h4>
-              <ul class="space-y-1 pl-1">
+              <ul class="space-y-1.5 pl-1">
                 <li
                   v-for="(c, idx) in selectedNana.characteristics"
                   :key="idx"
-                  class="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
+                  class="flex items-start gap-2 text-xs leading-relaxed"
+                  :style="{ color: 'var(--ink-soft)' }"
                 >
-                  <span class="text-amber-600 mt-0.5">✓</span>
+                  <span class="sutra-num font-bold mt-0.5" :style="{ color: 'var(--accent-bright)' }">✓</span>
                   <span>{{ c }}</span>
                 </li>
               </ul>
             </div>
 
-            <!-- Practitioner Experience -->
+            <!-- Experience -->
             <div class="space-y-1.5">
-              <h4 class="font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+              <h4 class="font-display font-bold text-sm flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
                 <span>🧘</span>
-                <span>ការប្រាកដឡើងក្នុងចិត្តពេលអង្គុយសមាធិ៖</span>
+                <span>{{ t('ការប្រាកដឡើងក្នុងចិត្តពេលអង្គុយសមាធិ៖', 'Meditative Experience:') }}</span>
               </h4>
-              <p class="text-xs text-stone-600 dark:text-stone-300 bg-stone-50 dark:bg-stone-800/40 p-3 rounded-xl border border-stone-100 dark:border-stone-800 leading-relaxed">
+              <p class="text-xs p-3.5 rounded-xl leading-relaxed" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">
                 {{ selectedNana.experience }}
               </p>
             </div>
 
             <!-- Danger / Trap -->
             <div class="space-y-1.5">
-              <h4 class="font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
+              <h4 class="font-display font-bold text-sm flex items-center gap-1.5" :style="{ color: 'var(--accent-bright)' }">
                 <span>⚠️</span>
-                <span>គ្រោះថ្នាក់ ឬការភាន់ច្រឡំដែលអាចកើតមាន៖</span>
+                <span>{{ t('គ្រោះថ្នាក់ ឬការភាន់ច្រឡំដែលអាចកើតមាន៖', 'Dangers or Pitfalls:') }}</span>
               </h4>
-              <p class="text-xs text-rose-900 dark:text-rose-200 bg-rose-500/10 p-3 rounded-xl border border-rose-500/20 leading-relaxed">
+              <p class="text-xs p-3.5 rounded-xl leading-relaxed" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">
                 {{ selectedNana.danger }}
               </p>
             </div>
 
             <!-- Advice -->
             <div class="space-y-1.5">
-              <h4 class="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+              <h4 class="font-display font-bold text-sm flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
                 <span>💡</span>
-                <span>ការណែនាំពីព្រះគ្រូវិបស្សនា (Advice):</span>
+                <span>{{ t('ការណែនាំពីព្រះគ្រូវិបស្សនា (Advice):', 'Meditation Master Advice:') }}</span>
               </h4>
-              <p class="text-xs text-emerald-900 dark:text-emerald-200 bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20 leading-relaxed">
+              <p class="text-xs p-3.5 rounded-xl leading-relaxed" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">
                 {{ selectedNana.advice }}
               </p>
             </div>
           </div>
 
-          <div class="pt-2 flex justify-end">
+          <!-- Modal Footer -->
+          <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="closeModal"
-              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs sm:text-sm font-medium transition"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
             >
-              យល់ហើយ (Close)
+              {{ t('យល់ហើយ (បិទ)', 'Understood (Close)') }}
             </button>
           </div>
         </div>
@@ -583,55 +592,68 @@ function closeModal() {
     <Teleport to="body">
       <div
         v-if="showUpakkilesaModal"
-        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
         @click.self="showUpakkilesaModal = false"
       >
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl p-4 sm:p-7 space-y-4">
-          <div class="flex items-start justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-3">
+        <div
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+        >
+          <!-- Modal Header -->
+          <div class="p-4 sm:p-5 flex items-center justify-between border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <div>
-              <h3 class="text-base sm:text-xl font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
+              <h3 class="font-display text-base sm:text-xl font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
                 <span>⚠️</span>
-                <span>វិបស្សនូបក្កិលេស ១០ យ៉ាង</span>
+                <span>{{ t('វិបស្សនូបក្កិលេស ១០ យ៉ាង', '10 Vipassanūpakkilesa Corruptions') }}</span>
               </h3>
-              <p class="text-[11px] sm:text-xs text-stone-500 mt-0.5">កើតឡើងក្នុងដំណាក់កាល ឧទយព្វយញាណ (ញាណទី ៤ ខ្ចី)</p>
+              <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('កើតឡើងក្នុងដំណាក់កាល ឧទយព្វយញាណ (ញាណទី ៤ ខ្ចី)', 'Occurring in tender Udayabbaya-ñāṇa (Stage 4)') }}
+              </p>
             </div>
             <button
               @click="showUpakkilesaModal = false"
-              class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 flex items-center justify-center transition shrink-0"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
             >
               ✕
             </button>
           </div>
 
-          <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
-            <strong>ចំណាំសំខាន់៖</strong> វិបស្សនូបក្កិលេស មិនមែនជាបាបធម៌ឡើយ! សុទ្ធតែជាសភាវៈល្អ តែវាជា «គ្រឿងសៅហ្មងនៃវិបស្សនា» ព្រោះអ្នកបដិបត្តិតែងតែយល់ច្រឡំថាពន្លឺ និងសុខនោះជាព្រះនិព្វាន។
-          </div>
+          <!-- Modal Body -->
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-3 text-xs sm:text-sm">
+            <div class="verse-box p-3.5 rounded-xl leading-relaxed text-xs">
+              <strong>{{ t('ចំណាំសំខាន់៖', 'Important Note:') }}</strong>
+              {{ t('វិបស្សនូបក្កិលេស មិនមែនជាបាបធម៌ឡើយ! សុទ្ធតែជាសភាវៈល្អ តែវាជា «គ្រឿងសៅហ្មងនៃវិបស្សនា» ព្រោះអ្នកបដិបត្តិតែងតែយល់ច្រឡំថាពន្លឺ និងសុខនោះជាព្រះនិព្វាន។', 'Vipassanūpakkilesa are not unwholesome states, but corruptions of insight because the meditator mistakes brilliant light and bliss for Nibbāna.') }}
+            </div>
 
-          <div class="space-y-2">
-            <div
-              v-for="u in upakkilesas"
-              :key="u.no"
-              class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800 flex items-start gap-2.5 text-xs"
-            >
-              <span class="w-5 h-5 rounded-md bg-rose-500/15 text-rose-700 dark:text-rose-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-                {{ u.no }}
-              </span>
-              <div class="space-y-0.5">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <strong class="text-stone-900 dark:text-stone-100 font-bold">{{ u.km }}</strong>
-                  <span class="text-stone-400 font-mono italic text-[11px]">({{ u.pali }})</span>
+            <div class="space-y-2">
+              <div
+                v-for="u in upakkilesas"
+                :key="u.no"
+                class="p-3 rounded-xl flex items-start gap-2.5 text-xs leading-relaxed"
+                :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }"
+              >
+                <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
+                  {{ u.no }}.
+                </span>
+                <div class="space-y-0.5">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <strong class="font-bold" :style="{ color: 'var(--ink)' }">{{ u.km }}</strong>
+                    <span class="paali text-[11px]" :style="{ color: 'var(--ink-muted)' }">({{ u.pali }})</span>
+                  </div>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ u.desc }}</p>
                 </div>
-                <p class="text-stone-600 dark:text-stone-300 leading-relaxed">{{ u.desc }}</p>
               </div>
             </div>
           </div>
 
-          <div class="pt-2 flex justify-end">
+          <!-- Modal Footer -->
+          <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="showUpakkilesaModal = false"
-              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs sm:text-sm font-medium transition"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
             >
-              បិទផ្ទាំង (Close)
+              {{ t('បិទផ្ទាំង', 'Close') }}
             </button>
           </div>
         </div>

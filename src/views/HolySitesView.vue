@@ -1,5 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { inject, ref, computed } from 'vue'
+
+const currentLocale = inject('locale', ref('km'))
+function t(km, en) {
+  return currentLocale.value === 'en' ? (en || km) : km
+}
 
 const activeSiteId = ref('lumbini')
 
@@ -110,80 +115,75 @@ function setSite(s) {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>🏛️</span>
-        <span>សង្វេជនីយដ្ឋាន ៤ កន្លែង • Sacred Pilgrimage Sites</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
-        ទីសក្ការៈបូជាសំខាន់ទាំង ៤ និងព្រះសារីរិកធាតុ
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        ទីកន្លែងពិសិដ្ឋទាំង ៤ ក្នុងព្រះពុទ្ធសាសនា ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់បានផ្តាំផ្ញើក្នុង **មហាបរិនិព្វានសូត្រ** ថា ពុទ្ធសាសនិកដែលមានសទ្ធាគួរទៅទស្សនា និងរឭកឃើញដោយស្មារតីសង្វេគ។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('សង្វេជនីយដ្ឋាន ៤ កន្លែង • Sacred Pilgrimage Sites', 'Sacred Pilgrimage Sites') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('ទីសក្ការៈបូជាសំខាន់ទាំង ៤ និងព្រះសារីរិកធាតុ', 'The 4 Sacred Sites & Holy Relics') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ទីកន្លែងពិសិដ្ឋទាំង ៤ ក្នុងព្រះពុទ្ធសាសនា ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់បានផ្តាំផ្ញើក្នុង មហាបរិនិព្វានសូត្រ ថា ពុទ្ធសាសនិកដែលមានសទ្ធាគួរទៅទស្សនា និងរឭកឃើញដោយស្មារតីសង្វេគ។', 'The 4 holy locations sanctified by the Buddha in the Mahāparinibbāna Sutta that inspire deep spiritual urgency (Saṁvega) and faithful devotion.') }}
       </p>
 
-      <!-- Site Selector Tabs (2 cols mobile, 4 cols desktop) -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+      <!-- Site Selector Tabs -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6">
         <button
           v-for="s in sites"
           :key="s.id"
           @click="setSite(s)"
-          :class="[
-            'p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border text-center transition-all duration-150 flex flex-col items-center justify-center gap-0.5',
-            activeSiteId === s.id
-              ? 'bg-amber-600 text-white shadow-sm border-transparent scale-102 font-bold'
-              : 'bg-stone-50 dark:bg-stone-800/60 border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:bg-stone-100'
-          ]"
+          class="card-paper card-paper-hover p-3 text-center transition flex flex-col items-center justify-center gap-0.5"
+          :style="activeSiteId === s.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
         >
-          <span class="text-xs font-bold">{{ s.tag }}</span>
-          <span class="text-[10px] sm:text-[11px] opacity-80 truncate max-w-full">{{ s.nameKm.split(' ')[1] }}</span>
+          <strong class="text-xs line-clamp-1" :style="{ color: activeSiteId === s.id ? 'var(--accent)' : 'var(--ink)' }">
+            {{ s.nameKm.split(' ')[1] || s.nameKm }}
+          </strong>
+          <span class="paali text-[10px]" :style="{ color: 'var(--ink-muted)' }">{{ s.tag }}</span>
         </button>
       </div>
     </header>
 
-    <!-- ACTIVE SITE DETAILED CARD -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-6 animate-in fade-in duration-200">
+    <!-- ACTIVE SITE MAIN DETAIL CARD -->
+    <div class="card-paper p-5 sm:p-7 mt-6 space-y-6">
       <!-- Title & Location -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-4">
-        <div class="space-y-0.5">
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-amber-500/15 text-amber-800 dark:text-amber-300">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4" :style="{ borderBottom: '1px solid var(--border)' }">
+        <div class="space-y-1">
+          <div class="flex items-center gap-2">
+            <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
               {{ currentSite.tag }}
             </span>
-            <span class="text-xs font-mono text-stone-400 italic">({{ currentSite.titlePali }})</span>
+            <span class="paali text-xs" :style="{ color: 'var(--ink-muted)' }">({{ currentSite.titlePali }})</span>
           </div>
-          <h2 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-xl sm:text-2xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ currentSite.nameKm }}
-          </h2>
-          <p class="text-xs text-stone-500 flex items-center gap-1 flex-wrap">
-            <span>📍 ទីតាំងបច្ចុប្បន្ន៖</span>
-            <strong class="text-stone-700 dark:text-stone-300">{{ currentSite.location }}</strong>
+          </h3>
+          <p class="text-xs flex items-center gap-1 flex-wrap" :style="{ color: 'var(--ink-muted)' }">
+            <span>📍 {{ t('ទីតាំងបច្ចុប្បន្ន៖', 'Present Location:') }}</span>
+            <strong :style="{ color: 'var(--ink)' }">{{ currentSite.location }}</strong>
           </p>
         </div>
 
-        <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800 text-xs text-stone-600 dark:text-stone-300 leading-relaxed sm:max-w-xs">
+        <div class="p-3 rounded-xl text-xs leading-relaxed sm:max-w-xs" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }">
           {{ currentSite.significance }}
         </div>
       </div>
 
       <!-- Key Historical Events -->
       <div class="space-y-2.5">
-        <h3 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+        <h4 class="font-display font-bold text-sm sm:text-base flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
           <span>⚡</span>
-          <span>ព្រឹត្តិការណ៍ជាប្រវត្តិសាស្ត្រសំខាន់ៗដែលបានកើតឡើង៖</span>
-        </h3>
+          <span>{{ t('ព្រឹត្តិការណ៍ជាប្រវត្តិសាស្ត្រសំខាន់ៗដែលបានកើតឡើង៖', 'Key Historical Events:') }}</span>
+        </h4>
         <div class="grid grid-cols-1 gap-2">
           <div
             v-for="(evt, idx) in currentSite.keyMoments"
             :key="idx"
-            class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800 flex items-start gap-2.5 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
+            class="flex items-start gap-2.5 p-3 rounded-xl text-xs leading-relaxed"
+            :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }"
           >
-            <span class="w-4 h-4 rounded-full bg-amber-500/15 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-              {{ idx + 1 }}
+            <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
+              {{ idx + 1 }}.
             </span>
             <span>{{ evt }}</span>
           </div>
@@ -192,38 +192,38 @@ function setSite(s) {
 
       <!-- Archaeology & Relics -->
       <div class="space-y-2.5">
-        <h3 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+        <h4 class="font-display font-bold text-sm sm:text-base flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
           <span>🏺</span>
-          <span>បុរាណវត្ថុ និងទីសក្ការៈសំខាន់ៗដែលនៅសល់ដល់សព្វថ្ងៃ៖</span>
-        </h3>
-        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+          <span>{{ t('បុរាណវត្ថុ និងទីសក្ការៈសំខាន់ៗដែលនៅសល់ដល់សព្វថ្ងៃ៖', 'Archaeological Relics & Sacred Monuments:') }}</span>
+        </h4>
+        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <li
             v-for="(arch, idx) in currentSite.archaeology"
             :key="idx"
-            class="p-3.5 rounded-xl bg-amber-500/5 border border-amber-500/15 text-xs text-stone-700 dark:text-stone-300 leading-relaxed space-y-1"
+            class="card-paper p-3.5 text-xs leading-relaxed space-y-1"
           >
-            <span class="text-amber-700 dark:text-amber-400 font-bold block text-[11px]">✦ ភស្តុតាងទី {{ idx + 1 }}</span>
-            <span>{{ arch }}</span>
+            <span class="font-bold block text-[11px]" :style="{ color: 'var(--accent)' }">✦ {{ t('ភស្តុតាងទី ', 'Evidence ') }}{{ idx + 1 }}</span>
+            <span :style="{ color: 'var(--ink-soft)' }">{{ arch }}</span>
           </li>
         </ul>
       </div>
 
       <!-- Reflection & Aspiration -->
-      <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 dark:from-stone-800/60 dark:to-stone-800/40 border border-amber-200/60 dark:border-amber-900/40 space-y-2.5">
-        <div class="flex items-center gap-1.5 text-xs font-bold text-amber-800 dark:text-amber-400">
+      <div class="verse-box p-5 rounded-2xl space-y-3">
+        <div class="flex items-center gap-1.5 text-xs font-bold" :style="{ color: 'var(--accent)' }">
           <span>🧘</span>
-          <span>ការពិចារណាខាងផ្លូវស្មារតី (Saṁvega Reflection):</span>
+          <span>{{ t('ការពិចារណាខាងផ្លូវស្មារតី (Saṁvega Reflection):', 'Spiritual Reflection (Saṁvega):') }}</span>
         </div>
-        <p class="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-relaxed">
+        <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink)' }">
           {{ currentSite.reflection }}
         </p>
 
         <!-- Pilgrimage Gāthā -->
-        <div class="pt-2 border-t border-amber-200/40 dark:border-stone-700/60 space-y-1">
-          <p class="text-xs font-serif italic text-amber-900 dark:text-amber-300 font-semibold leading-relaxed">
+        <div class="pt-2 space-y-1" :style="{ borderTop: '1px solid var(--border)' }">
+          <p class="paali font-serif italic text-xs sm:text-sm font-semibold leading-relaxed" :style="{ color: 'var(--accent-bright)' }">
             « {{ currentSite.gatha }} »
           </p>
-          <p class="text-[11px] text-stone-600 dark:text-stone-400 leading-relaxed">
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ currentSite.gathaKm }}
           </p>
         </div>
@@ -231,51 +231,53 @@ function setSite(s) {
     </div>
 
     <!-- THE DIVISION OF THE BUDDHA'S RELICS -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 space-y-4">
-      <div class="space-y-0.5">
-        <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+    <div class="card-paper p-5 sm:p-7 mt-6 space-y-4">
+      <div>
+        <h3 class="font-display text-base sm:text-lg font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
           <span>✨</span>
-          <span>ការបែងចែកព្រះបរមសារីរិកធាតុ (Drona's Relic Distribution)</span>
+          <span>{{ t('ការបែងចែកព្រះបរមសារីរិកធាតុ (Drona’s Relic Distribution)', 'Distribution of the Buddha’s Relics') }}</span>
         </h3>
-        <p class="text-[11px] sm:text-xs text-stone-500">បន្ទាប់ពីថ្វាយព្រះភ្លើងព្រះបរមសពនាទីក្រុងកុសិនារា</p>
+        <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('បន្ទាប់ពីថ្វាយព្រះភ្លើងព្រះបរមសពនាទីក្រុងកុសិនារា', 'After the cremation of the Buddha’s body in Kushinagar') }}
+        </p>
       </div>
 
-      <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-        ស្តេចនៃនគរទាំង ៨ ក្នុងជម្ពូទ្វីប បានលើកទ័ពមកដើម្បីដណ្តើមយកព្រះបរមសារីរិកធាតុ។ គ្រានោះ <strong>ទ្រោណព្រាហ្មណ៍</strong> បានឈានជើងមកសម្របសម្រួល និងបែងចែកព្រះសារីរិកធាតុជា ៨ ចំណែកស្មើៗគ្នា ដោយសន្តិវិធី៖
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ស្តេចនៃនគរទាំង ៨ ក្នុងជម្ពូទ្វីប បានលើកទ័ពមកដើម្បីដណ្តើមយកព្រះបរមសារីរិកធាតុ។ គ្រានោះ ទ្រោណព្រាហ្មណ៍ បានឈានជើងមកសម្របសម្រួល និងបែងចែកព្រះសារីរិកធាតុជា ៨ ចំណែកស្មើៗគ្នា ដោយសន្តិវិធី៖', 'Kings from 8 kingdoms arrived with armies to claim the relics. The wise brahmin Droṇa intervened peacefully to divide the holy relics into 8 equal portions:') }}
       </p>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">១. ព្រះបាទអជាតសត្តុ</strong>
-          <span class="text-stone-500 text-[10px]">នគរមគធៈ (រាជគ្រឹះ)</span>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">១. ព្រះបាទអជាតសត្តុ</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរមគធៈ (រាជគ្រឹះ)</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">២. ពួកលិច្ឆវី</strong>
-          <span class="text-stone-500 text-[10px]">នគរវេសាលី</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">២. ពួកលិច្ឆវី</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរវេសាលី</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៣. ពួកសក្យៈ</strong>
-          <span class="text-stone-500 text-[10px]">នគរកបិលវត្ថុ</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៣. ពួកសក្យៈ</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរកបិលវត្ថុ</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៤. ពួកថូលី</strong>
-          <span class="text-stone-500 text-[10px]">នគរអល្លកប្បៈ</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៤. ពួកថូលី</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរអល្លកប្បៈ</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៥. ពួកកោឡិយៈ</strong>
-          <span class="text-stone-500 text-[10px]">នគររាមគ្រាម</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៥. ពួកកោឡិយៈ</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគររាមគ្រាម</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៦. ពួកព្រាហ្មណ៍</strong>
-          <span class="text-stone-500 text-[10px]">វេដ្ឋទីបកនគរ</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៦. ពួកព្រាហ្មណ៍</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">វេដ្ឋទីបកនគរ</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៧. ពួកមល្លៈ</strong>
-          <span class="text-stone-500 text-[10px]">នគរបាវ៉ា</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៧. ពួកមល្លៈ</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរបាវ៉ា</span>
         </div>
-        <div class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-100 dark:border-stone-800">
-          <strong class="text-stone-900 dark:text-stone-100 block text-[11px]">៨. ពួកមល្លៈ</strong>
-          <span class="text-stone-500 text-[10px]">នគរកុសិនារា</span>
+        <div class="p-3 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <strong class="block text-xs" :style="{ color: 'var(--ink)' }">៨. ពួកមល្លៈ</strong>
+          <span class="text-[11px]" :style="{ color: 'var(--ink-muted)' }">នគរកុសិនារា</span>
         </div>
       </div>
     </div>

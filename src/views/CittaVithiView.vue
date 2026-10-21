@@ -1,5 +1,10 @@
 <script setup>
-import { ref, onBeforeUnmount, watch } from 'vue'
+import { inject, ref, onBeforeUnmount, watch } from 'vue'
+
+const currentLocale = inject('locale', ref('km'))
+function t(km, en) {
+  return currentLocale.value === 'en' ? (en || km) : km
+}
 
 const activeVithiType = ref('pancadvara')
 const currentStepIndex = ref(0)
@@ -236,157 +241,164 @@ watch(currentStepIndex, (newIdx) => {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20">
-        <span>⚡</span>
-        <span>វិថីសង្គហៈ • Cognitive Series Simulator</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-indigo-800 via-purple-700 to-amber-800 dark:from-indigo-200 dark:via-purple-200 dark:to-amber-300 bg-clip-text text-transparent leading-snug">
-        ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        ស្វែងយល់ពីរបៀបដែលខួរក្បាល និងចិត្តធ្វើការក្នុងល្បឿនពព្រិចភ្នែក (១៧ ខណៈចិត្ត) នៅពេលភ្នែកឃើញរូប ឬត្រចៀកឮសំឡេង និងកន្លែងដែលកម្មត្រូវបានបង្កើតឡើង។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('វិថីសង្គហៈ • Cognitive Series Simulator', 'Abhidhammattha Saṅgaha • Thought-Process') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', 'The 17-Moment Cognitive Process (Citta Vīthi)') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ស្វែងយល់ពីរបៀបដែលខួរក្បាល និងចិត្តធ្វើការក្នុងល្បឿនពព្រិចភ្នែក (១៧ ខណៈចិត្ត) នៅពេលភ្នែកឃើញរូប ឬត្រចៀកឮសំឡេង និងកន្លែងដែលកម្មត្រូវបានបង្កើតឡើង។', 'Discover how the mind processes sensory experience in 17 lightning thought-moments, and discover precisely where Kamma is actively generated.') }}
       </p>
 
-      <!-- Theory Callout -->
-      <div class="p-3.5 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 max-w-xl mx-auto leading-relaxed text-left sm:text-center">
-        <strong>⚖️ ច្បាប់អាយុកាលរូបនិងចិត្ត៖</strong> ចិត្តកើតរលត់លឿនជាងរូប ១៧ ដង! ក្នុងខណៈដែលរូបធម៌មួយកើតឡើងហើយរលត់ទៅ ចិត្តត្រូវកើតរលត់រហូតដល់ ១៧ ដង (ខណៈចិត្តទាំង ១៧ នេះឯង)។
+      <div class="verse-box p-3.5 sm:p-4 mt-5 text-xs sm:text-sm text-center leading-relaxed">
+        <strong>⚖️ {{ t('ច្បាប់អាយុកាលរូបនិងចិត្ត៖', 'Law of Lifespan:') }}</strong>
+        {{ t('ចិត្តកើតរលត់លឿនជាងរូប ១៧ ដង! ក្នុងខណៈដែលរូបធម៌មួយកើតឡើងហើយរលត់ទៅ ចិត្តត្រូវកើតរលត់រហូតដល់ ១៧ ដង (ខណៈចិត្តទាំង ១៧ នេះឯង)។', 'A material phenomenon lasts for the duration of 17 thought-moments. Within the span of a single physical vibration, 17 mental moments arise and dissolve.') }}
       </div>
     </header>
 
     <!-- SIMULATOR CONTROLS & TIMELINE -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-5">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-4">
+    <div class="card-paper p-5 sm:p-7 mt-6 space-y-5">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4" :style="{ borderBottom: '1px solid var(--border)' }">
         <div>
-          <span class="text-[10px] sm:text-xs text-stone-400 font-mono">ខណៈទី {{ currentStepIndex + 1 }} នៃ ១៧</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5 flex-wrap">
-            <span>ខណៈទី {{ currentStep.moment }}៖</span>
-            <span class="text-indigo-600 dark:text-indigo-400">{{ currentStep.km }}</span>
-          </h2>
+          <span class="paali text-xs uppercase" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ខណៈទី ' + (currentStepIndex + 1) + ' នៃ ១៧', 'Moment ' + (currentStepIndex + 1) + ' of 17') }}
+          </span>
+          <h3 class="font-display text-lg sm:text-xl font-bold mt-0.5" :style="{ color: 'var(--ink)' }">
+            {{ t('ខណៈទី ' + currentStep.moment + '៖ ', 'Moment ' + currentStep.moment + ': ') }}
+            <span :style="{ color: 'var(--accent)' }">{{ currentStep.km }}</span>
+          </h3>
         </div>
 
         <!-- Controls -->
         <div class="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-between sm:justify-end">
           <button
             @click="prevStep"
-            class="px-3 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition shrink-0"
+            class="lang-pick px-3 py-1.5 text-xs font-semibold"
           >
-            ← មុន
+            ← {{ t('មុន', 'Prev') }}
           </button>
 
           <button
             @click="toggleAutoPlay"
-            :class="[
-              'px-3 sm:px-4 py-1.5 rounded-xl text-xs font-semibold text-white transition flex items-center justify-center gap-1 shrink-0',
-              isAutoPlaying ? 'bg-rose-600 hover:bg-rose-500' : 'bg-indigo-600 hover:bg-indigo-500'
-            ]"
+            class="lang-pick px-4 py-1.5 text-xs font-semibold on"
           >
-            <span>{{ isAutoPlaying ? '⏸️ ផ្អាក' : '▶️ លេងស្វ័យប្រវត្ត' }}</span>
+            {{ isAutoPlaying ? t('⏸️ ផ្អាក', '⏸️ Pause') : t('▶️ លេងស្វ័យប្រវត្ត', '▶️ Auto-Play') }}
           </button>
 
           <button
             @click="nextStep"
-            class="px-3 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-semibold hover:bg-stone-200 transition shrink-0"
+            class="lang-pick px-3 py-1.5 text-xs font-semibold"
           >
-            បន្ទាប់ →
+            {{ t('បន្ទាប់', 'Next') }} →
           </button>
 
           <button
             @click="resetSimulation"
-            class="p-1.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 text-xs transition"
-            title="ត្រឡប់ទៅដើម"
+            class="lang-pick px-2.5 py-1.5 text-xs font-semibold"
+            title="Reset"
           >
             ↺
           </button>
         </div>
       </div>
 
-      <!-- 17 Moments Horizontal Ribbon with touch scrolling -->
+      <!-- 17 Moments Ribbon with smooth touch scrolling -->
       <div class="overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none touch-pan-x">
-        <div class="flex items-center gap-1.5 min-w-[620px]">
+        <div class="flex items-center gap-1.5 min-w-[640px]">
           <button
             v-for="(s, idx) in pancadvaraSteps"
             :key="s.moment"
             @click="currentStepIndex = idx; stopAutoPlay()"
-            :class="[
-              'flex-1 py-1.5 px-1 rounded-xl text-center transition-all duration-150 border',
-              currentStepIndex === idx
-                ? 'bg-indigo-600 text-white font-bold shadow-sm scale-105 border-transparent'
-                : idx >= 8 && idx <= 14
-                  ? 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border-amber-500/30'
-                  : 'bg-stone-50 dark:bg-stone-800/60 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700'
-            ]"
+            class="flex-1 py-2 px-1 rounded-xl text-center transition border"
+            :style="currentStepIndex === idx 
+              ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+              : (idx >= 8 && idx <= 14)
+                ? { background: 'var(--bg-card-2)', borderColor: 'var(--accent-bright)', color: 'var(--ink)' }
+                : { background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink-muted)' }"
           >
-            <span class="block text-[10px] font-mono leading-none">{{ s.moment }}</span>
-            <span class="block text-[10px] truncate mt-0.5">{{ s.code }}</span>
+            <span class="block text-[10px] font-mono font-bold leading-none">{{ s.moment }}</span>
+            <span class="block text-[10px] truncate mt-0.5 font-medium">{{ s.code }}</span>
           </button>
         </div>
       </div>
 
       <!-- ACTIVE MOMENT DETAILED INSPECTOR CARD -->
-      <div class="p-4 sm:p-6 rounded-2xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/80 dark:border-stone-700/80 space-y-4 animate-in fade-in duration-200">
+      <div class="card-paper p-5 sm:p-6 space-y-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div class="space-y-0.5">
-            <span class="text-[10px] font-mono text-stone-400 uppercase">PĀLI TERM</span>
-            <h3 class="text-base sm:text-xl font-bold font-serif text-stone-900 dark:text-stone-100">
+          <div>
+            <span class="text-[10px] uppercase font-mono tracking-wider" :style="{ color: 'var(--ink-muted)' }">PĀḶI CANONICAL TERM</span>
+            <h4 class="font-serif italic text-lg sm:text-xl font-bold" :style="{ color: 'var(--accent-bright)' }">
               {{ currentStep.pali }}
-            </h3>
+            </h4>
           </div>
 
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-[11px] font-medium px-2 py-0.5 rounded-lg bg-stone-200 dark:bg-stone-700 text-stone-800 dark:text-stone-200">
-              ជាតិ៖ {{ currentStep.jāti }}
+            <span class="text-xs px-2.5 py-1 rounded-lg font-medium" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--ink)' }">
+              {{ t('ជាតិ៖ ', 'Jāti: ') }}{{ currentStep.jāti }}
             </span>
-            <span class="text-[11px] font-medium px-2 py-0.5 rounded-lg bg-indigo-500/15 text-indigo-700 dark:text-indigo-300">
-              កិច្ច៖ {{ currentStep.functionKm }}
+            <span class="text-xs px-2.5 py-1 rounded-lg font-medium" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--accent)' }">
+              {{ t('កិច្ច៖ ', 'Function: ') }}{{ currentStep.functionKm }}
             </span>
           </div>
         </div>
 
-        <div class="space-y-1.5">
-          <span class="text-[11px] font-bold text-stone-500 block uppercase tracking-wider">📖 សកម្មភាពក្នុងខណៈនេះ៖</span>
-          <p class="text-xs sm:text-sm text-stone-800 dark:text-stone-200 leading-relaxed">
+        <div class="space-y-1">
+          <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--ink-muted)' }">
+            📖 {{ t('សកម្មភាពក្នុងខណៈនេះ៖', 'Activity in this moment:') }}
+          </span>
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink)' }">
             {{ currentStep.desc }}
           </p>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 space-y-1">
-          <strong class="font-bold flex items-center gap-1.5">
+        <div class="verse-box p-3.5 rounded-xl text-xs space-y-1">
+          <strong class="font-bold flex items-center gap-1.5" :style="{ color: 'var(--accent-bright)' }">
             <span>💡</span>
-            <span>ការពិចារណាខាងផ្លូវធម៌ (Dhamma Insight):</span>
+            <span>{{ t('ការពិចារណាខាងផ្លូវធម៌ (Dhamma Insight):', 'Dhamma Insight:') }}</span>
           </strong>
-          <p class="leading-relaxed">{{ currentStep.insight }}</p>
+          <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ currentStep.insight }}</p>
         </div>
       </div>
     </div>
 
     <!-- The 3 Crucial Zones Breakdown -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
-      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
-        <span class="text-[11px] font-bold text-blue-600 dark:text-blue-400 block">តំបន់ទី ១ (ខណៈ ១ ដល់ ៧)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ការទទួលផលវិបាកចាស់</h3>
-        <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-          ភ្នែកឃើញរូប ត្រចៀកឮសំឡេង គឺសុទ្ធតែជា **វិបាក** ដែលបណ្តាលមកពីកម្មចាស់ពីអតីតជាតិ។ យើងមិនអាចហាមឃាត់ភ្នែកមិនឱ្យឃើញ ឬត្រចៀកមិនឱ្យឮបានឡើយ។
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-6">
+      <div class="card-paper p-4 sm:p-5 space-y-1.5">
+        <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">
+          {{ t('តំបន់ទី ១ (ខណៈ ១ ដល់ ៧)', 'Zone 1: Moments 1 to 7') }}
+        </span>
+        <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+          {{ t('ការទទួលផលវិបាកចាស់', 'Passive Karmic Ripening') }}
+        </h4>
+        <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+          {{ t('ភ្នែកឃើញរូប ត្រចៀកឮសំឡេង គឺសុទ្ធតែជា វិបាក ដែលបណ្តាលមកពីកម្មចាស់ពីអតីតជាតិ។ យើងមិនអាចហាមឃាត់ភ្នែកមិនឱ្យឃើញ ឬត្រចៀកមិនឱ្យឮបានឡើយ។', 'Visual and auditory contacts are karmic results (Vipāka) from previous deeds. They are passive reception.') }}
         </p>
       </div>
 
-      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border-2 border-amber-500/50 space-y-1.5">
-        <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block">តំបន់ទី ២ (ខណៈទី ៨: វុដ្ឋបនៈ)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ផ្លូវបំបែកកំណត់ជោគវាសនា!</h3>
-        <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-          ខណៈនេះជាការសម្រេចចិត្ត! បើយើងមាន **សតិ និងយោនិសោមនសិការ** ដឹងទាន់ នោះចិត្តនឹងមិនខឹង មិនលោភឡើយ។ បើគ្មានសតិទេ ចិត្តនឹងធ្លាក់ទៅក្នុងអកុសលភ្លាម។
+      <div class="card-paper p-4 sm:p-5 space-y-1.5" :style="{ borderColor: 'var(--accent)' }">
+        <span class="text-xs font-bold block" :style="{ color: 'var(--accent-bright)' }">
+          {{ t('តំបន់ទី ២ (ខណៈទី ៨: វុដ្ឋបនៈ)', 'Zone 2: Moment 8 (Voṭṭhabbana)') }}
+        </span>
+        <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+          {{ t('ផ្លូវបំបែកកំណត់ជោគវាសនា!', 'The Critical Crossroads') }}
+        </h4>
+        <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+          {{ t('ខណៈនេះជាការសម្រេចចិត្ត! បើយើងមាន សតិ និងយោនិសោមនសិការ ដឹងទាន់ នោះចិត្តនឹងមិនខឹង មិនលោភឡើយ។ បើគ្មានសតិទេ ចិត្តនឹងធ្លាក់ទៅក្នុងអកុសលភ្លាម។', 'Decision turning point. With Yoniso Manasikāra and mindfulness, subsequent moments become wholesome; otherwise, greed and anger arise.') }}
         </p>
       </div>
 
-      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-1.5">
-        <span class="text-[11px] font-bold text-rose-600 dark:text-rose-400 block">តំបន់ទី ៣ (ខណៈ ៩ ដល់ ១៥: ជវនៈ)</span>
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base">ការបង្កើតកម្មថ្មី (Kamma)</h3>
-        <p class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-          ជវនៈទាំង ៧ ខណៈនេះហើយជាកន្លែងដែលមនុស្សសាងបុណ្យ ឬសាងបាប! ជវនៈទី ១ ឱ្យផលក្នុងជាតិនេះ ចំណែកជវនៈទី ៧ ឱ្យផលក្នុងជាតិបន្ទាប់ភ្លាមៗ។
+      <div class="card-paper p-4 sm:p-5 space-y-1.5">
+        <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">
+          {{ t('តំបន់ទី ៣ (ខណៈ ៩ ដល់ ១៥: ជវនៈ)', 'Zone 3: Moments 9 to 15 (Javana)') }}
+        </span>
+        <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+          {{ t('ការបង្កើតកម្មថ្មី (Kamma)', 'Active Kamma Creation') }}
+        </h4>
+        <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+          {{ t('ជវនៈទាំង ៧ ខណៈនេះហើយជាកន្លែងដែលមនុស្សសាងបុណ្យ ឬសាងបាប! ជវនៈទី ១ ឱ្យផលក្នុងជាតិនេះ ចំណែកជវនៈទី ៧ ឱ្យផលក្នុងជាតិបន្ទាប់ភ្លាមៗ។', 'The 7 Javana flash moments where active volition builds moral or immoral Kamma. The first gives immediate results; the 7th ripens in the subsequent life.') }}
         </p>
       </div>
     </div>

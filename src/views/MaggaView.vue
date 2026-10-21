@@ -1,5 +1,10 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { inject, ref, computed, onMounted } from 'vue'
+
+const currentLocale = inject('locale', ref('km'))
+function t(km, en) {
+  return currentLocale.value === 'en' ? (en || km) : km
+}
 
 const activeGroup = ref('all') // 'all', 'panna', 'sila', 'samadhi'
 const selectedFactor = ref(null)
@@ -227,155 +232,138 @@ function closeModal() {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>☸️</span>
-        <span>អរិយអដ្ឋង្គិកមគ្គ • The Noble Eightfold Path</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
-        មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិតសម័យថ្មី
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        បំប្លែងមាគ៌ាដ៏ឧត្តមទាំង ៨ របស់ព្រះសម្មាសម្ពុទ្ធ ឱ្យក្លាយជា **ផែនការសកម្មភាព និងទម្លាប់រស់នៅប្រចាំថ្ងៃ** ក្នុងសង្គមសម័យទំនើប ជាមួយតារាងតាមដានការបដិបត្តិ។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('អរិយអដ្ឋង្គិកមគ្គ • The Noble Eightfold Path', 'The Noble Eightfold Path') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិតសម័យថ្មី', 'The Practical Eightfold Path') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('បំប្លែងមាគ៌ាដ៏ឧត្តមទាំង ៨ របស់ព្រះសម្មាសម្ពុទ្ធ ឱ្យក្លាយជា ផែនការសកម្មភាព និងទម្លាប់រស់នៅប្រចាំថ្ងៃ ក្នុងសង្គមសម័យទំនើប ជាមួយតារាងតាមដានការបដិបត្តិ។', 'Translating the noble path into daily mindful actions and modern ethical life habits with our daily practice tracker.') }}
       </p>
 
       <!-- 3 Trainings Legend Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6">
         <button
           @click="activeGroup = 'all'"
-          :class="[
-            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
-            activeGroup === 'all'
-              ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 border-transparent shadow-xs'
-              : 'bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeGroup === 'all' ? 'on' : ''"
         >
-          អង្គមគ្គទាំង ៨
+          {{ t('អង្គមគ្គទាំង ៨', 'All 8 Factors') }}
         </button>
-
         <button
           @click="activeGroup = 'panna'"
-          :class="[
-            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
-            activeGroup === 'panna'
-              ? 'bg-amber-600 text-white border-transparent shadow-xs'
-              : 'bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-900/40'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeGroup === 'panna' ? 'on' : ''"
         >
-          ១. បញ្ញាសិក្ខា
+          {{ t('១. បញ្ញាសិក្ខា', '1. Wisdom (Paññā)') }}
         </button>
-
         <button
           @click="activeGroup = 'sila'"
-          :class="[
-            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
-            activeGroup === 'sila'
-              ? 'bg-emerald-600 text-white border-transparent shadow-xs'
-              : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/40'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeGroup === 'sila' ? 'on' : ''"
         >
-          ២. សីលសិក្ខា
+          {{ t('២. សីលសិក្ខា', '2. Morality (Sīla)') }}
         </button>
-
         <button
           @click="activeGroup = 'samadhi'"
-          :class="[
-            'px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition border',
-            activeGroup === 'samadhi'
-              ? 'bg-indigo-600 text-white border-transparent shadow-xs'
-              : 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-800 dark:text-indigo-300 border-indigo-200 dark:border-indigo-900/40'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeGroup === 'samadhi' ? 'on' : ''"
         >
-          ៣. សមាធិសិក្ខា
+          {{ t('៣. សមាធិសិក្ខា', '3. Concentration (Samādhi)') }}
         </button>
       </div>
     </header>
 
     <!-- DAILY PROGRESS TRACKER CARD -->
-    <div class="bg-gradient-to-r from-amber-500/10 via-rose-500/5 to-amber-500/10 border border-amber-500/20 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm space-y-3 sm:space-y-4">
+    <div class="card-paper p-5 sm:p-6 mt-6 space-y-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <div>
-          <h2 class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 flex items-center gap-1.5">
+          <h3 class="font-display text-sm sm:text-base font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
             <span>📋</span>
-            <span>ការតាមដានការបដិបត្តិមគ្គ ៨ ថ្ងៃនេះ (Daily Checklist)</span>
-          </h2>
-          <p class="text-[11px] sm:text-xs text-stone-500 mt-0.5">ធីកប្រអប់នីមួយៗពេលអ្នកបានអនុវត្តរួចរាល់ក្នុងថ្ងៃនេះ</p>
+            <span>{{ t('ការតាមដានការបដិបត្តិមគ្គ ៨ ថ្ងៃនេះ (Daily Checklist)', 'Daily 8-Fold Path Checklist') }}</span>
+          </h3>
+          <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ធីកប្រអប់នីមួយៗពេលអ្នកបានអនុវត្តរួចរាល់ក្នុងថ្ងៃនេះ', 'Check each item as you practice today') }}
+          </p>
         </div>
 
         <div class="flex items-center gap-2.5 self-end sm:self-auto">
-          <span class="text-xs sm:text-sm font-bold text-amber-700 dark:text-amber-400 font-mono">
+          <span class="text-xs sm:text-sm font-bold font-mono" :style="{ color: 'var(--accent-bright)' }">
             {{ completedCount }} / {{ totalTasks }} ({{ progressPercent }}%)
           </span>
           <button
             v-if="completedCount > 0"
             @click="resetChecklist"
-            class="text-[11px] sm:text-xs text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 underline"
+            class="text-xs underline hover:opacity-80 transition"
+            :style="{ color: 'var(--ink-muted)' }"
           >
-            កំណត់ឡើងវិញ
+            {{ t('កំណត់ឡើងវិញ', 'Reset') }}
           </button>
         </div>
       </div>
 
       <!-- Progress bar -->
-      <div class="w-full h-2.5 rounded-full bg-stone-200 dark:bg-stone-800 overflow-hidden">
+      <div class="w-full h-2 rounded-full overflow-hidden" :style="{ background: 'var(--border)' }">
         <div
-          class="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-300 rounded-full"
-          :style="{ width: progressPercent + '%' }"
+          class="h-full transition-all duration-300 rounded-full"
+          :style="{ width: progressPercent + '%', background: 'var(--accent-bright)' }"
         ></div>
       </div>
     </div>
 
     <!-- 8 FACTORS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mt-6">
       <div
         v-for="factor in filteredFactors"
         :key="factor.id"
-        class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm space-y-4 flex flex-col justify-between"
+        class="card-paper card-paper-hover p-4 sm:p-6 space-y-4 flex flex-col justify-between"
       >
         <div class="space-y-3">
           <!-- Header of card -->
           <div class="flex items-start justify-between gap-2">
-            <div class="space-y-0.5">
+            <div class="space-y-1">
               <div class="flex items-center gap-1.5">
-                <span class="w-5 h-5 rounded-md bg-amber-500/15 text-amber-800 dark:text-amber-300 flex items-center justify-center font-bold text-[11px]">
-                  {{ factor.step }}
+                <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                  #{{ factor.step }}
                 </span>
-                <span :class="['text-[10px] font-semibold px-2 py-0.5 rounded-full border', factor.groupColor]">
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-muted)' }">
                   {{ factor.groupKm }}
                 </span>
               </div>
-              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100">
+              <h3 class="font-display text-base sm:text-lg font-bold" :style="{ color: 'var(--ink)' }">
                 {{ factor.km }}
               </h3>
-              <p class="text-[11px] font-mono text-stone-400 italic">{{ factor.pali }}</p>
+              <p class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ factor.pali }}</p>
             </div>
 
             <button
               @click="openFactorModal(factor)"
-              class="px-2 py-1 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-[11px] hover:bg-stone-200 transition font-medium shrink-0"
+              class="lang-pick px-2.5 py-1 text-[11px] font-medium shrink-0"
             >
-              ពុទ្ធវចនៈ 📖
+              {{ t('ពុទ្ធវចនៈ 📖', 'Sutta 📖') }}
             </button>
           </div>
 
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ factor.summary }}
           </p>
 
           <!-- Modern Life Tips -->
-          <div class="space-y-1.5 pt-2 border-t border-stone-100 dark:border-stone-800">
-            <span class="text-[11px] font-bold text-stone-500 block uppercase tracking-wider">🌟 អនុវត្តក្នុងជីវិតសម័យថ្មី៖</span>
+          <div class="space-y-1.5 pt-2" :style="{ borderTop: '1px solid var(--border)' }">
+            <span class="text-[11px] font-bold block uppercase tracking-wider" :style="{ color: 'var(--ink-muted)' }">
+              🌟 {{ t('អនុវត្តក្នុងជីវិតសម័យថ្មី៖', 'Application in modern life:') }}
+            </span>
             <ul class="space-y-1">
               <li
                 v-for="(tip, idx) in factor.modernApplication"
                 :key="idx"
-                class="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
+                class="flex items-start gap-2 text-xs leading-relaxed"
+                :style="{ color: 'var(--ink-soft)' }"
               >
-                <span class="text-amber-600 mt-0.5">✦</span>
+                <span class="sutra-num mt-0.5 font-bold" :style="{ color: 'var(--accent-bright)' }">✦</span>
                 <span>{{ tip }}</span>
               </li>
             </ul>
@@ -383,8 +371,10 @@ function closeModal() {
         </div>
 
         <!-- Daily Checklist for this factor -->
-        <div class="p-3.5 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-100 dark:border-stone-800 space-y-2">
-          <span class="text-[11px] font-bold text-stone-500 block">កិច្ចបដិបត្តិប្រចាំថ្ងៃ៖</span>
+        <div class="p-3.5 rounded-xl space-y-2 mt-3" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <span class="text-xs font-bold block" :style="{ color: 'var(--ink)' }">
+            {{ t('កិច្ចបដិបត្តិប្រចាំថ្ងៃ៖', 'Daily practice checklist:') }}
+          </span>
           <div
             v-for="task in factor.dailyChecklist"
             :key="task.id"
@@ -392,22 +382,18 @@ function closeModal() {
             class="flex items-start gap-2 cursor-pointer select-none group"
           >
             <div
-              :class="[
-                'w-4 h-4 rounded border mt-0.5 flex items-center justify-center transition shrink-0',
-                completedTasks[task.id]
-                  ? 'bg-amber-600 border-amber-600 text-white'
-                  : 'border-stone-300 dark:border-stone-600 group-hover:border-amber-500'
-              ]"
+              class="w-4 h-4 rounded border mt-0.5 flex items-center justify-center transition shrink-0"
+              :style="completedTasks[task.id] 
+                ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+                : { borderColor: 'var(--border)' }"
             >
               <span v-if="completedTasks[task.id]" class="text-[10px] leading-none">✓</span>
             </div>
             <span
-              :class="[
-                'text-xs transition leading-relaxed',
-                completedTasks[task.id]
-                  ? 'line-through text-stone-400 dark:text-stone-500'
-                  : 'text-stone-700 dark:text-stone-300'
-              ]"
+              class="text-xs transition leading-relaxed"
+              :style="completedTasks[task.id]
+                ? { textDecoration: 'line-through', color: 'var(--ink-muted)' }
+                : { color: 'var(--ink-soft)' }"
             >
               {{ task.text }}
             </span>
@@ -416,61 +402,73 @@ function closeModal() {
       </div>
     </div>
 
-    <!-- POP-UP MODAL: SUTTA DEFINITION INSPECTOR (Bottom-sheet on mobile) -->
+    <!-- POP-UP MODAL: SUTTA DEFINITION -->
     <Teleport to="body">
       <div
         v-if="selectedFactor"
-        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
         @click.self="closeModal"
       >
-        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl p-4 sm:p-7 space-y-5 animate-in fade-in duration-200">
-          <div class="flex items-start justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-3">
-            <div class="space-y-0.5">
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-400">
-                អង្គទី {{ selectedFactor.step }} នៃអរិយមគ្គ
+        <div
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+        >
+          <!-- Header -->
+          <div class="p-4 sm:p-5 flex items-center justify-between border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+            <div>
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                {{ t('អង្គទី ' + selectedFactor.step + ' នៃអរិយមគ្គ', 'Factor ' + selectedFactor.step + ' of Eightfold Path') }}
               </span>
-              <h3 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+              <h3 class="font-display text-lg sm:text-xl font-bold mt-0.5" :style="{ color: 'var(--ink)' }">
                 {{ selectedFactor.km }}
               </h3>
-              <p class="text-xs font-mono italic text-stone-400">{{ selectedFactor.pali }}</p>
+              <p class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ selectedFactor.pali }}</p>
             </div>
             <button
               @click="closeModal"
-              class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 flex items-center justify-center transition shrink-0"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
             >
               ✕
             </button>
           </div>
 
-          <div class="space-y-3.5 text-xs sm:text-sm">
-            <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-1.5">
-              <span class="text-[10px] sm:text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider block">📜 ពុទ្ធវចនៈពីព្រះត្រៃបិដក៖</span>
-              <p class="text-stone-800 dark:text-stone-200 italic font-serif leading-relaxed">
+          <!-- Content -->
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
+            <div class="verse-box p-4 rounded-xl space-y-1.5">
+              <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent-bright)' }">
+                📜 {{ t('ពុទ្ធវចនៈពីព្រះត្រៃបិដក៖', 'Canonical Sutta Definition:') }}
+              </span>
+              <p class="italic font-serif leading-relaxed" :style="{ color: 'var(--ink)' }">
                 {{ selectedFactor.canonicalDefinition }}
               </p>
             </div>
 
             <div class="space-y-2">
-              <h4 class="font-bold text-stone-900 dark:text-stone-100">ការអនុវត្តលម្អិតក្នុងសម័យបច្ចុប្បន្ន៖</h4>
-              <ul class="space-y-1.5">
+              <h4 class="font-display font-bold text-sm" :style="{ color: 'var(--ink)' }">
+                {{ t('ការអនុវត្តលម្អិតក្នុងសម័យបច្ចុប្បន្ន៖', 'Detailed Practice in Daily Life:') }}
+              </h4>
+              <ul class="space-y-1.5 pl-1">
                 <li
                   v-for="(tip, idx) in selectedFactor.modernApplication"
                   :key="idx"
-                  class="flex items-start gap-2 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
+                  class="flex items-start gap-2 text-xs leading-relaxed"
+                  :style="{ color: 'var(--ink-soft)' }"
                 >
-                  <span class="text-amber-600 mt-0.5">✦</span>
+                  <span class="sutra-num font-bold mt-0.5" :style="{ color: 'var(--accent-bright)' }">✦</span>
                   <span>{{ tip }}</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="pt-2 flex justify-end">
+          <!-- Footer -->
+          <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="closeModal"
-              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs sm:text-sm font-medium transition"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
             >
-              យល់ហើយ (Close)
+              {{ t('យល់ហើយ (បិទ)', 'Understood (Close)') }}
             </button>
           </div>
         </div>

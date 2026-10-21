@@ -1,30 +1,24 @@
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3 sm:space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>☸</span>
-        <span>{{ t('អសីតិមហាថេរ & បរិស័ទឆ្នើម ៤ ពួក', 'Asīti Mahāthera & Foremost Disciples') }}</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('អសីតិមហាថេរ & បរិស័ទឆ្នើម ៤ ពួក', 'Asīti Mahāthera & Foremost Disciples') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
         {{ t('ព្រះអរហន្តសាវ័កល្បីៗ និងឯតទគ្គៈ', 'The Great Arahant Disciples & Etadagga') }}
-      </h1>
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ស្វែងយល់ពីប្រវត្តិ គុណធម៌ដ៏ឧត្តម និងការតាំងសច្ចាពីអតីតជាតិនៃព្រះអគ្គសាវ័ក មហាថេរ ៨០ អង្គ និងឧបាសក-ឧបាសិកាឆ្នើម ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់តែងតាំងជា «ឯតទគ្គៈ» (កំពូលលើសគេក្នុងផ្នែកនីមួយៗ)។', 'Discover the inspiring lives, foremost spiritual achievements (Etadagga), past-life aspirations, and wisdom verses of the supreme disciples of the Buddha.') }}
       </p>
 
-      <!-- Category Filter Pills (Horizontal swipe on mobile) -->
-      <div class="flex items-center gap-1.5 sm:gap-2 pt-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
         <button
           v-for="cat in categories"
           :key="cat.id"
           @click="activeCategory = cat.id"
-          :class="[
-            'px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 shrink-0 border',
-            activeCategory === cat.id
-              ? 'bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-600/30 scale-[1.02]'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-700'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeCategory === cat.id ? 'on' : ''"
         >
           <span>{{ cat.icon }}</span>
           <span>{{ t(cat.km, cat.en) }}</span>
@@ -34,89 +28,91 @@
     </header>
 
     <!-- Search Input -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-3 sm:p-4 shadow-sm flex items-center gap-2">
-      <span class="text-stone-400 pl-1">🔍</span>
+    <div class="card-paper p-3 sm:p-4 mt-6 flex items-center gap-2">
+      <span class="text-xs pl-1" :style="{ color: 'var(--ink-muted)' }">🔍</span>
       <input
         v-model="searchQuery"
         type="text"
         :placeholder="t('ស្វែងរកព្រះនាម (ឧទាហរណ៍៖ សារីបុត្ត, សីវលី, អានន្ទ, វិសាខា)...', 'Search disciple name or title...')"
-        class="w-full bg-transparent border-none text-xs sm:text-sm text-stone-900 dark:text-stone-100 focus:outline-none"
+        class="w-full bg-transparent border-none text-xs sm:text-sm focus:outline-none"
+        :style="{ color: 'var(--ink)' }"
       />
       <button
         v-if="searchQuery"
         @click="searchQuery = ''"
-        class="text-xs text-stone-400 hover:text-stone-600 px-2 py-1"
+        class="text-xs px-2 py-1"
+        :style="{ color: 'var(--ink-muted)' }"
       >
         ✕
       </button>
     </div>
 
     <!-- Quick Stats Cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-      <div class="p-3 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🏆</span>
-        <span class="text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-200 block mt-1">{{ t('ឯតទគ្គៈ', 'Etadagga') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('កំពូលលើសគេមួយផ្នែក', 'Supreme in each field') }}</span>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-4">
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🏆</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ឯតទគ្គៈ', 'Etadagga') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('កំពូលលើសគេមួយផ្នែក', 'Supreme in each field') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🌟</span>
-        <span class="text-xs sm:text-sm font-bold text-blue-900 dark:text-blue-200 block mt-1">{{ t('៨០ អង្គ', '80 Mahātheras') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('អសីតិមហាសាវ័ក', 'Chief elder disciples') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🌟</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('៨០ អង្គ', '80 Mahātheras') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('អសីតិមហាសាវ័ក', 'Chief elder disciples') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🪷</span>
-        <span class="text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200 block mt-1">{{ t('១៣ អង្គ', '13 Bhikkhunīs') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ភិក្ខុនីឯតទគ្គៈ', 'Foremost nuns') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🪷</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('១៣ អង្គ', '13 Bhikkhunīs') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ភិក្ខុនីឯតទគ្គៈ', 'Foremost nuns') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🤝</span>
-        <span class="text-xs sm:text-sm font-bold text-purple-900 dark:text-purple-200 block mt-1">{{ t('២០ រូប', '20 Lay Disciples') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ឧបាសក–ឧបាសិកា', 'Foremost Upāsaka') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🤝</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('២០ រូប', '20 Lay Disciples') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ឧបាសក–ឧបាសិកា', 'Foremost Upāsaka') }}</span>
       </div>
     </div>
 
     <!-- Disciples Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 mt-6">
       <div
         v-for="disciple in filteredDisciples"
         :key="disciple.id"
         @click="openModal(disciple)"
-        class="card-paper p-4 sm:p-5 rounded-2xl cursor-pointer hover:border-amber-500/60 transition-all duration-200 flex flex-col justify-between space-y-3 group border hover:shadow-md"
+        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3"
       >
         <div class="space-y-2">
           <div class="flex items-center justify-between gap-2">
             <span class="text-2xl">{{ disciple.icon }}</span>
-            <span :class="['text-[10px] font-bold px-2 py-0.5 rounded-full border uppercase tracking-wider', getCategoryBadge(disciple.category)]">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--accent)' }">
               {{ t(disciple.categoryKm, disciple.categoryEn) }}
             </span>
           </div>
 
           <div>
-            <h3 class="font-display text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+            <h3 class="font-display text-base sm:text-lg font-bold" :style="{ color: 'var(--ink)' }">
               {{ t(disciple.nameKm, disciple.nameEn) }}
             </h3>
-            <p class="font-serif italic text-xs text-amber-700 dark:text-amber-400 mt-0.5">
+            <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
               {{ disciple.pali }}
             </p>
           </div>
 
-          <div class="p-2.5 rounded-xl bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/15">
-            <span class="text-[10px] uppercase font-bold text-amber-800 dark:text-amber-300 block">
+          <div class="p-2.5 rounded-xl space-y-0.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent-bright)' }">
               🏆 {{ t('តំណែងឯតទគ្គៈ', 'Etadagga Title') }}
             </span>
-            <p class="text-xs font-semibold text-stone-800 dark:text-stone-200 mt-0.5 leading-snug">
+            <p class="text-xs font-semibold leading-snug" :style="{ color: 'var(--ink)' }">
               {{ t(disciple.titleKm, disciple.titleEn) }}
             </p>
           </div>
 
-          <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-2 leading-relaxed">
+          <p class="text-xs line-clamp-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t(disciple.shortKm, disciple.shortEn) }}
           </p>
         </div>
 
-        <div class="pt-2 border-t border-dashed border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500">
-          <span class="text-[11px] truncate max-w-[170px]">{{ disciple.symbolKey }}</span>
-          <span class="text-amber-600 dark:text-amber-400 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+        <div class="pt-2 flex items-center justify-between text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+          <span class="text-[11px] truncate max-w-[170px]" :style="{ color: 'var(--ink-muted)' }">{{ disciple.symbolKey }}</span>
+          <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
             {{ t('មើលប្រវត្តិ', 'Details') }} →
           </span>
         </div>
@@ -124,139 +120,124 @@
     </div>
 
     <!-- Empty State -->
-    <div v-if="filteredDisciples.length === 0" class="text-center py-12 space-y-2 card-paper rounded-2xl p-6">
+    <div v-if="filteredDisciples.length === 0" class="text-center py-12 space-y-2 card-paper p-6 mt-6">
       <span class="text-4xl block">🔍</span>
-      <h3 class="font-bold text-stone-800 dark:text-stone-200">{{ t('រកមិនឃើញសាវ័កឈ្មោះនេះទេ', 'No disciple found') }}</h3>
-      <p class="text-xs text-stone-500">{{ t('សូមព្យាយាមវាយពាក្យស្វែងរកផ្សេង ឬជ្រើសរើសប្រភេទ «ទាំងអស់»', 'Try another search keyword or select "All"') }}</p>
+      <h3 class="font-bold" :style="{ color: 'var(--ink)' }">{{ t('រកមិនឃើញសាវ័កឈ្មោះនេះទេ', 'No disciple found') }}</h3>
+      <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('សូមព្យាយាមវាយពាក្យស្វែងរកផ្សេង ឬជ្រើសរើសប្រភេទ «ទាំងអស់»', 'Try another search keyword or select "All"') }}</p>
     </div>
 
-    <!-- POP-UP MODAL (Mobile Bottom-Sheet) -->
+    <!-- POP-UP MODAL -->
     <Teleport to="body">
-      <transition name="modal-pop">
+      <div
+        v-if="selectedDisciple"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+        @click.self="closeModal"
+      >
         <div
-          v-if="selectedDisciple"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm transition-opacity"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
         >
+          <!-- Modal Header -->
           <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
+            class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
+            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
           >
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-2.5">
-                <span class="text-3xl">{{ selectedDisciple.icon }}</span>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
-                      {{ t(selectedDisciple.nameKm, selectedDisciple.nameEn) }}
-                    </h3>
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
-                      {{ t(selectedDisciple.categoryKm, selectedDisciple.categoryEn) }}
-                    </span>
-                  </div>
-                  <p class="font-serif italic text-xs text-amber-700 dark:text-amber-400">
-                    {{ selectedDisciple.pali }}
-                  </p>
+            <div class="flex items-center gap-2.5">
+              <span class="text-3xl">{{ selectedDisciple.icon }}</span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+                    {{ t(selectedDisciple.nameKm, selectedDisciple.nameEn) }}
+                  </h3>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--accent)' }">
+                    {{ t(selectedDisciple.categoryKm, selectedDisciple.categoryEn) }}
+                  </span>
                 </div>
-              </div>
-
-              <button
-                type="button"
-                class="w-8 h-8 rounded-full flex items-center justify-center transition text-base"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-                @click="closeModal"
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Modal Content (Scrollable) -->
-            <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
-              <!-- Title Badge Box -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 space-y-1">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wide">
-                  <span>🏆</span>
-                  <span>{{ t('តំណែងឯតទគ្គៈកំពូលក្នុងសាសនា (The Foremost Title)', 'Supreme Foremost Title') }}</span>
-                </div>
-                <p class="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100">
-                  {{ t(selectedDisciple.titleKm, selectedDisciple.titleEn) }}
-                </p>
-                <p class="text-xs text-stone-600 dark:text-stone-400 mt-1">
-                  {{ t(selectedDisciple.titleDetailKm, selectedDisciple.titleDetailEn) }}
-                </p>
-              </div>
-
-              <!-- Past Life Aspiration (បុព្វប្រណិធាន) -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/70 dark:border-stone-800 space-y-1.5">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wide">
-                  <span>⏳</span>
-                  <span>{{ t('បុព្វប្រណិធាន (Past Life Aspiration & Karmic Cause)', 'Past Life Vow') }}</span>
-                </div>
-                <p class="text-stone-700 dark:text-stone-300">
-                  {{ t(selectedDisciple.pastVowKm, selectedDisciple.pastVowEn) }}
-                </p>
-              </div>
-
-              <!-- Key Enlightenment & Life Story -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/70 dark:border-stone-800 space-y-1.5">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">
-                  <span>⚡</span>
-                  <span>{{ t('ដំណើរជីវិត និងការសម្រេចព្រះអរហត្តផល (Enlightenment Story)', 'Life & Awakening') }}</span>
-                </div>
-                <p class="text-stone-700 dark:text-stone-300">
-                  {{ t(selectedDisciple.awakeningKm, selectedDisciple.awakeningEn) }}
-                </p>
-              </div>
-
-              <!-- Famous Verse / Gāthā -->
-              <div v-if="selectedDisciple.verseKm" class="p-3.5 sm:p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-center space-y-1">
-                <span class="text-xs text-amber-700 dark:text-amber-400 font-bold block uppercase tracking-wider">
-                  📜 {{ t('គាថាបំផុសស្មារតី (Theragāthā / Inspired Verse)', 'Inspired Verse') }}
-                </span>
-                <p class="font-serif italic text-sm sm:text-base text-stone-900 dark:text-stone-100 mt-1">
-                  «{{ t(selectedDisciple.verseKm, selectedDisciple.verseEn) }}»
-                </p>
-              </div>
-
-              <!-- Practical Lesson for Laypeople -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-1.5">
-                <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wide">
-                  <span>💡</span>
-                  <span>{{ t('មេរៀន និងការអនុវត្តសម្រាប់ពុទ្ធបរិស័ទ (Practical Reflection)', 'Practical Takeaway') }}</span>
-                </div>
-                <p class="text-stone-700 dark:text-stone-300">
-                  {{ t(selectedDisciple.lessonKm, selectedDisciple.lessonEn) }}
+                <p class="paali text-xs" :style="{ color: 'var(--accent)' }">
+                  {{ selectedDisciple.pali }}
                 </p>
               </div>
             </div>
 
-            <!-- Modal Footer -->
-            <div
-              class="p-3 sm:p-4 flex items-center justify-between gap-3 border-t shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+            <button
+              @click="closeModal"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
             >
-              <span class="text-xs text-stone-500">
-                ☸ {{ t('ព្រះអរហន្តសាវ័កនៃព្រះសម្មាសម្ពុទ្ធ', 'Disciples of the Buddha') }}
+              ✕
+            </button>
+          </div>
+
+          <!-- Modal Content -->
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
+            <!-- Title Badge Box -->
+            <div class="verse-box p-4 rounded-xl space-y-1">
+              <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent-bright)' }">
+                🏆 {{ t('តំណែងឯតទគ្គៈកំពូលក្នុងសាសនា (The Foremost Title)', 'Supreme Foremost Title') }}
               </span>
-              <button
-                type="button"
-                class="px-5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs font-bold transition"
-                @click="closeModal"
-              >
-                {{ t('បិទផ្ទាំង', 'Close') }}
-              </button>
+              <p class="text-sm sm:text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ t(selectedDisciple.titleKm, selectedDisciple.titleEn) }}
+              </p>
+              <p class="text-xs mt-1" :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDisciple.titleDetailKm, selectedDisciple.titleDetailEn) }}
+              </p>
+            </div>
+
+            <!-- Past Life Aspiration -->
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
+                ⏳ {{ t('បុព្វប្រណិធាន (Past Life Aspiration & Karmic Cause)', 'Past Life Vow') }}
+              </span>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDisciple.pastVowKm, selectedDisciple.pastVowEn) }}
+              </p>
+            </div>
+
+            <!-- Key Enlightenment & Life Story -->
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
+                ⚡ {{ t('ដំណើរជីវិត និងការសម្រេចព្រះអរហត្តផល (Enlightenment Story)', 'Life & Awakening') }}
+              </span>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDisciple.awakeningKm, selectedDisciple.awakeningEn) }}
+              </p>
+            </div>
+
+            <!-- Famous Verse / Gāthā -->
+            <div v-if="selectedDisciple.verseKm" class="verse-box p-4 rounded-xl text-center space-y-1">
+              <span class="text-xs font-bold block uppercase tracking-wider" :style="{ color: 'var(--accent-bright)' }">
+                📜 {{ t('គាថាបំផុសស្មារតី (Theragāthā / Inspired Verse)', 'Inspired Verse') }}
+              </span>
+              <p class="paali italic text-sm sm:text-base font-semibold mt-1" :style="{ color: 'var(--ink)' }">
+                «{{ t(selectedDisciple.verseKm, selectedDisciple.verseEn) }}»
+              </p>
+            </div>
+
+            <!-- Practical Lesson for Laypeople -->
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
+                💡 {{ t('មេរៀន និងគំរូជីវិតសម្រាប់យើងអនុវត្តតាម (Life Lessons):', 'Practical Life Lessons:') }}
+              </span>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDisciple.lessonKm, selectedDisciple.lessonEn) }}
+              </p>
             </div>
           </div>
+
+          <!-- Modal Footer -->
+          <div
+            class="p-4 border-t flex justify-end shrink-0"
+            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+          >
+            <button
+              @click="closeModal"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
+            >
+              {{ t('បិទផ្ទាំង', 'Close') }}
+            </button>
+          </div>
         </div>
-      </transition>
+      </div>
     </Teleport>
   </div>
 </template>

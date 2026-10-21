@@ -1,30 +1,24 @@
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3 sm:space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-800 dark:text-indigo-300 border border-indigo-500/20">
-        <span>🌌</span>
-        <span>{{ t('ចក្រវាឡវិទ្យា & ដើមកំណើតមនុស្សជាតិក្នុងព្រះត្រៃបិដក', 'Buddhist Cosmology & Origin of Society') }}</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-indigo-800 via-purple-700 to-indigo-900 dark:from-indigo-200 dark:via-purple-200 dark:to-indigo-400 bg-clip-text text-transparent leading-snug">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('ចក្រវាឡវិទ្យា & ដើមកំណើតមនុស្សជាតិក្នុងព្រះត្រៃបិដក', 'Buddhist Cosmology & Origin of Society') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
         {{ t('កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', 'Cosmic Kalpas, Universes & Aggañña Sutta') }}
-      </h1>
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ស្វែងយល់ពីមាត្រាពេលវេលាដ៏មហិមាក្នុងពុទ្ធសាសនា វដ្តនៃការកើតរលាយនៃចក្រវាឡ មហាវិនាសកម្មទាំង ៣ និងការវិវត្តនៃមនុស្សជាតិ និងរបៀបរបបសង្គមក្នុងអគ្គញ្ញសូត្រ។', 'Explore cosmic time scales (Kalpas), universal dissolution cycles, the 7 suns destruction, and the evolutionary origins of human society in the Aggañña Sutta.') }}
       </p>
 
       <!-- Section Pills -->
-      <div class="flex items-center gap-1.5 sm:gap-2 pt-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
         <button
           v-for="sec in sections"
           :key="sec.id"
           @click="activeSection = sec.id"
-          :class="[
-            'px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 shrink-0 border',
-            activeSection === sec.id
-              ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm shadow-indigo-600/30 scale-[1.02]'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-700'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeSection === sec.id ? 'on' : ''"
         >
           <span>{{ sec.icon }}</span>
           <span>{{ t(sec.km, sec.en) }}</span>
@@ -33,41 +27,41 @@
     </header>
 
     <!-- Quick Stat Highlights -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-      <div class="p-3 sm:p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">⏳</span>
-        <span class="text-xs sm:text-sm font-bold text-indigo-900 dark:text-indigo-200 block mt-1">{{ t('មហាកប្ប', 'Mahā-kappa') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('៤ អសង្ខេយ្យកប្ប', '4 cosmic epochs') }}</span>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-6">
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">⏳</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('មហាកប្ប', 'Mahā-kappa') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('៤ អសង្ខេយ្យកប្ប', '4 cosmic epochs') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">☀️</span>
-        <span class="text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-200 block mt-1">{{ t('ព្រះអាទិត្យ ៧', '7 Cosmic Suns') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('វិនាសកម្មដោយភ្លើង', 'Universal fire apocalypse') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">☀️</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ព្រះអាទិត្យ ៧', '7 Cosmic Suns') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('វិនាសកម្មដោយភ្លើង', 'Universal fire apocalypse') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🌱</span>
-        <span class="text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200 block mt-1">{{ t('អគ្គញ្ញសូត្រ', 'Aggañña Sutta') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ដើមកំណើតសង្គម', 'Genesis of society & state') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🌱</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('អគ្គញ្ញសូត្រ', 'Aggañña Sutta') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ដើមកំណើតសង្គម', 'Genesis of society & state') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🪷</span>
-        <span class="text-xs sm:text-sm font-bold text-rose-900 dark:text-rose-200 block mt-1">{{ t('ភទ្ទកប្ប', 'Bhadda-kappa') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ព្រះពុទ្ធ ៥ ព្រះអង្គ', '5 Buddhas (Our era)') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🪷</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ភទ្ទកប្ប', 'Bhadda-kappa') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ព្រះពុទ្ធ ៥ ព្រះអង្គ', '5 Buddhas (Our era)') }}</span>
       </div>
     </div>
 
     <!-- SECTION 1: THE FOUR PHASES OF A MAHAKAPPA -->
-    <section v-if="activeSection === 'timeline' || activeSection === 'all'" class="space-y-4">
+    <section v-if="activeSection === 'timeline' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">🔄</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ t('ដំណាក់កាលទាំង ៤ នៃមហាកប្ប (៤ អសង្ខេយ្យកប្ប)', 'The 4 Cosmic Epochs of a Mahā-kappa') }}
-          </h2>
+          </h3>
         </div>
-        <span class="text-xs text-indigo-700 dark:text-indigo-300 font-mono">Abhidhamma & Sutta</span>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Abhidhamma & Sutta</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ចក្រវាឡមិនមែនកើតឡើងម្តងហើយចប់នោះឡើយ តែវិលវល់ក្នុងវដ្តដ៏មហិមា ៤ ដំណាក់កាល ហៅថា មហាកប្ប ១ ដែលមាន ៦៤ អន្តរកប្ប។', 'Universes expand, contract, collapse, and recreate in a ceaseless cyclic rhythm of 4 Asaṅkhyeyya-kappas.') }}
       </p>
 
@@ -75,22 +69,22 @@
         <div
           v-for="(phase, idx) in mahakappaPhases"
           :key="idx"
-          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2 relative overflow-hidden"
+          class="card-paper p-4 sm:p-5 space-y-2 relative overflow-hidden"
         >
           <div class="flex items-center justify-between">
             <span class="text-2xl">{{ phase.icon }}</span>
-            <span class="text-xs font-bold font-mono px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
-              {{ phase.num }}
+            <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+              #{{ phase.num }}
             </span>
           </div>
-          <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">
+          <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
             {{ t(phase.titleKm, phase.titleEn) }}
-          </h3>
-          <span class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 block">{{ phase.pali }}</span>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+          </h4>
+          <span class="paali text-[11px] block" :style="{ color: 'var(--accent)' }">{{ phase.pali }}</span>
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t(phase.descKm, phase.descEn) }}
           </p>
-          <div class="text-[11px] text-stone-500 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+          <div class="text-[11px] pt-2" :style="{ borderTop: '1px solid var(--border)', color: 'var(--ink-muted)' }">
             <strong>{{ t('ស្ថានភាព៖ ', 'Status: ') }}</strong>{{ t(phase.statusKm, phase.statusEn) }}
           </div>
         </div>
@@ -98,219 +92,184 @@
 
       <!-- Two Analogies of Kalpa Duration -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
-        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-transparent border border-indigo-500/20 space-y-2">
+        <div class="card-paper p-4 sm:p-5 space-y-2" :style="{ background: 'var(--bg-card-2)' }">
           <div class="flex items-center gap-2">
             <span class="text-xl">🏔️</span>
-            <h4 class="font-bold text-sm sm:text-base text-indigo-950 dark:text-indigo-200">
+            <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
               {{ t('ឧបមាទី ១៖ ភ្នំថ្ម ១ យោជន៍ (Granite Mountain)', 'Analogy 1: The 16km Solid Granite Mountain') }}
             </h4>
           </div>
-          <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t('ភ្នំថ្មតាន់មួយដុំ មានបណ្តោយ ១ យោជន៍ ទទឹង ១ យោជន៍ កម្ពស់ ១ យោជន៍ (ប្រមាណ ១៦ គីឡូម៉ែត្រ)។ រៀងរាល់ ១០០ ឆ្នាំម្តង មានទេវតាយកសំពត់កាសីស្តើងដូចផ្សែងមកបោសភ្នំនោះម្តង។ បោសរហូតដល់ភ្នំថ្មដ៏មហិមានោះសឹករាបស្មើរនឹងដី ក៏កប្បមួយនៅមិនទាន់ចប់នៅឡើយ!', 'A solid block of granite mountain, 1 yojana high, long, and wide (approx. 16 km). Every 100 years, a celestial being strokes it gently with a sheer silk cloth. Even when that mountain is worn down completely flat, a single Kalpa has still not elapsed!') }}
           </p>
-          <span class="text-[11px] font-mono text-stone-500 dark:text-stone-400 block">Samyutta Nikāya SN 15.5</span>
+          <span class="paali text-[11px] block" :style="{ color: 'var(--ink-muted)' }">Samyutta Nikāya SN 15.5</span>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20 space-y-2">
+        <div class="card-paper p-4 sm:p-5 space-y-2" :style="{ background: 'var(--bg-card-2)' }">
           <div class="flex items-center gap-2">
             <span class="text-xl">🌰</span>
-            <h4 class="font-bold text-sm sm:text-base text-purple-950 dark:text-purple-200">
+            <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
               {{ t('ឧបមាទី ២៖ ក្រុងគ្រាប់ស្ពៃដែក (Mustard Seed City)', 'Analogy 2: The Fortress of Mustard Seeds') }}
             </h4>
           </div>
-          <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t('បន្ទាយដែកមួយ មានកម្ពស់ ១ យោជន៍ ទទឹង ១ យោជន៍ ផ្ទុកទៅដោយគ្រាប់ស្ពៃដ៏តូចៗយ៉ាងណែនណាន់តាន់តាប់។ រៀងរាល់ ១០០ ឆ្នាំម្តង យកគ្រាប់ស្ពៃចេញមួយគ្រាប់។ ទោះបីជាគ្រាប់ស្ពៃរាប់ពាន់លានគ្រាប់នោះអស់រលីងពីបន្ទាយ ក៏កប្បមួយនៅមិនទាន់ចប់នៅឡើយ!', 'An iron city wall, 1 yojana long, wide, and high, packed solid with minuscule mustard seeds. Once every 100 years, someone removes one seed. All those seeds would be exhausted before a single Mahā-kappa is ended!') }}
           </p>
-          <span class="text-[11px] font-mono text-stone-500 dark:text-stone-400 block">Samyutta Nikāya SN 15.6</span>
+          <span class="paali text-[11px] block" :style="{ color: 'var(--ink-muted)' }">Samyutta Nikāya SN 15.6</span>
         </div>
       </div>
     </section>
 
     <!-- SECTION 2: THE 3 UNIVERSAL DESTRUCTIONS -->
-    <section v-if="activeSection === 'destruction' || activeSection === 'all'" class="space-y-4">
+    <section v-if="activeSection === 'destruction' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">💥</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ t('មហាវិនាសកម្មទាំង ៣ នៃលោកធាតុ (Universal Destructions)', 'The 3 Elements of Cosmic Dissolution') }}
-          </h2>
+          </h3>
         </div>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('នៅចុងបញ្ចប់នៃកប្ប លោកធាតុនឹងត្រូវបំផ្លាញទៅតាមអំណាចនៃកិលេសដែលក្រាស់ក្នុងចិត្តសត្វលោក (លោភៈ ទោសៈ ឬមោហៈ)៖', 'The mode of universal dissolution corresponds to the dominant mental defilement of beings in that cosmic era:') }}
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-        <div class="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-3">
+        <div class="card-paper p-4 sm:p-5 space-y-3">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🔥</span>
             <div>
-              <h3 class="font-bold text-sm sm:text-base text-amber-950 dark:text-amber-200">
+              <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
                 {{ t('វិនាសដោយភ្លើង (តេជោ)', 'Destroyed by Fire (Tejo)') }}
-              </h3>
-              <span class="text-[11px] font-mono text-amber-700 dark:text-amber-300">{{ t('កើតឡើងពី៖ លោភៈ (Greed)', 'Caused by: Greed (Lobha)') }}</span>
+              </h4>
+              <span class="paali text-[11px]" :style="{ color: 'var(--accent-bright)' }">{{ t('កើតឡើងពី៖ លោភៈ (Greed)', 'Caused by: Greed (Lobha)') }}</span>
             </div>
           </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t('នៅពេលសត្វលោកសម្បូរដោយការលោភលន់ហួសហេតុ ព្រះអាទិត្យ ៧ ដួងនឹងរះឡើងជាបន្តបន្ទាប់ បង្កើតជាភ្លើងឆេះបំផ្លាញតាំងពីស្ថាននរក រហូតដល់ស្ថានព្រហ្មជាន់ទី ១ (បឋមជ្ឈាន)។', 'When greed dominates beings, 7 suns emerge sequentially, incinerating everything from the lowest hell up to the 1st Jhana Brahma realms.') }}
           </p>
-          <div class="text-[11px] text-amber-800 dark:text-amber-300 font-medium">
+          <div class="text-[11px] font-medium" :style="{ color: 'var(--accent)' }">
             {{ t('ឆេះដល់៖ ព្រហ្មលោកជាន់ទី ១-៣', 'Burns up to: 1st Jhana Brahma realms') }}
           </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-blue-500/10 border border-blue-500/20 space-y-3">
+        <div class="card-paper p-4 sm:p-5 space-y-3">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🌊</span>
             <div>
-              <h3 class="font-bold text-sm sm:text-base text-blue-950 dark:text-blue-200">
+              <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
                 {{ t('វិនាសដោយទឹក (អាបោ)', 'Destroyed by Acidic Water (Āpo)') }}
-              </h3>
-              <span class="text-[11px] font-mono text-blue-700 dark:text-blue-300">{{ t('កើតឡើងពី៖ ទោសៈ (Anger)', 'Caused by: Hatred (Dosa)') }}</span>
+              </h4>
+              <span class="paali text-[11px]" :style="{ color: 'var(--accent)' }">{{ t('កើតឡើងពី៖ ទោសៈ (Anger)', 'Caused by: Hatred (Dosa)') }}</span>
             </div>
           </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t('នៅពេលសត្វលោកក្រាស់ដោយគំនុំ កំហឹង និងការកាប់សម្លាប់គ្នា មហាមេឃនឹងបង្អុរទឹកអាស៊ីតដ៏ពុលខ្លាំង រលាយភ្នំព្រះសុមេរុ និងចក្រវាឡ រហូតដល់ស្ថានព្រហ្មទុតិយជ្ឈាន (អាភស្សរា)។', 'When hatred and violence dominate, toxic acidic rain dissolves Mount Meru and realms up to the 2nd Jhana Brahma realm (Ābhassara).') }}
           </p>
-          <div class="text-[11px] text-blue-800 dark:text-blue-300 font-medium">
+          <div class="text-[11px] font-medium" :style="{ color: 'var(--accent)' }">
             {{ t('រលាយដល់៖ ព្រហ្មលោកជាន់ទី ៤-៦', 'Dissolves up to: 2nd Jhana Brahma realms') }}
           </div>
         </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-purple-500/10 border border-purple-500/20 space-y-3">
+        <div class="card-paper p-4 sm:p-5 space-y-3">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🌪️</span>
             <div>
-              <h3 class="font-bold text-sm sm:text-base text-purple-950 dark:text-purple-200">
-                {{ t('វិនាសដោយខ្យល់ (វាយោ)', 'Destroyed by Cyclone Wind (Vāyo)') }}
-              </h3>
-              <span class="text-[11px] font-mono text-purple-700 dark:text-purple-300">{{ t('កើតឡើងពី៖ មោហៈ (Delusion)', 'Caused by: Delusion (Moha)') }}</span>
+              <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+                {{ t('វិនាសដោយខ្យល់ (វាយោ)', 'Destroyed by Cosmic Wind (Vāyo)') }}
+              </h4>
+              <span class="paali text-[11px]" :style="{ color: 'var(--ink-muted)' }">{{ t('កើតឡើងពី៖ មោហៈ (Delusion)', 'Caused by: Delusion (Moha)') }}</span>
             </div>
           </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-            {{ t('នៅពេលសត្វលោកងងឹតវង្វេងដោយមោហៈខ្លាំង មហាខ្យល់កំបុតត្បូងនឹងបក់បោកបំប៉ើងចក្រវាឡឱ្យធ្លាយខ្ចាត់ខ្ចាយ រហូតដល់ស្ថានព្រហ្មតតិយជ្ឈាន (សុភកិណ្ហា)។', 'When spiritual delusion dominates, catastrophic cosmic gales shatter and pulverize realms up to the 3rd Jhana Brahma realm (Subhakiṇhā).') }}
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+            {{ t('នៅពេលសត្វលោកវង្វេងងងឹតស្លុប មិនស្គាល់ខុសត្រូវ ខ្យល់ព្យុះកំបុតត្បូងដ៏កាចសាហាវនឹងបក់បោកកម្ទេចផែនដី ភ្នំ និងចក្រវាឡ រហូតដល់ស្ថានព្រហ្មតតិយជ្ឈាន (សុភកិណ្ហា)។', 'When ignorance and blind delusion dominate, cosmic whirlwinds batter and tear the cosmos apart up to the 3rd Jhana Brahma realms (Subhakiṇhā).') }}
           </p>
-          <div class="text-[11px] text-purple-800 dark:text-purple-300 font-medium">
-            {{ t('បក់ខ្ចាត់ខ្ចាយដល់៖ ព្រហ្មលោកជាន់ទី ៧-៩', 'Pulverizes up to: 3rd Jhana Brahma realms') }}
-          </div>
-        </div>
-      </div>
-
-      <!-- Sattasūriya Sutta Breakdown (7 Suns) -->
-      <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-3">
-        <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100 flex items-center gap-2">
-          <span>☀️</span>
-          <span>{{ t('ដំណើរនៃព្រះអាទិត្យទាំង ៧ (សត្តសុរិយសូត្រ AN 7.66)', 'The Sequence of the 7 Suns (Sattasūriya Sutta AN 7.66)') }}</span>
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
-          <div v-for="sun in sevenSuns" :key="sun.num" class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200/60 dark:border-stone-700/60 space-y-1">
-            <span class="text-xs font-bold text-amber-700 dark:text-amber-300">{{ sun.num }}. {{ t(sun.titleKm, sun.titleEn) }}</span>
-            <p class="text-[11px] text-stone-600 dark:text-stone-300 leading-relaxed">{{ t(sun.descKm, sun.descEn) }}</p>
+          <div class="text-[11px] font-medium" :style="{ color: 'var(--accent)' }">
+            {{ t('បក់កម្ទេចដល់៖ ព្រហ្មលោកជាន់ទី ៧-៩', 'Destroys up to: 3rd Jhana Brahma realms') }}
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: AGGANNA SUTTA (HUMAN GENESIS & SOCIETY) -->
-    <section v-if="activeSection === 'agganna' || activeSection === 'all'" class="space-y-4">
+    <!-- SECTION 3: SURIYA SUTTA (7 SUNS) -->
+    <section v-if="activeSection === 'suns' || activeSection === 'all'" class="mt-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-lg sm:text-xl">☀️</span>
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+            {{ t('សុរិយសូត្រ៖ ព្រះអាទិត្យទាំង ៧ ដួង (Sattasuriya Sutta)', 'The 7 Suns of World Dissolution') }}
+          </h3>
+        </div>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Aṅguttara Nikāya AN 7.66</span>
+      </div>
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ព្រះពុទ្ធបានសម្តែងដំណើរនៃការឆេះបំផ្លាញនៃភពផែនដី តាមលំដាប់លំដោយនៃការរះឡើងនៃព្រះអាទិត្យ ៧ ដួង ដើម្បីរំឭកសាវ័កអំពីភាពមិនទៀងនៃសង្ខារលោក៖', 'The Buddha described step-by-step how the emergence of 7 suns evaporates all waters and consumes Mount Meru in flames to remind us of Anicca:') }}
+      </p>
+
+      <div class="space-y-2.5">
+        <div
+          v-for="sun in sevenSuns"
+          :key="sun.num"
+          class="card-paper p-3.5 sm:p-4 flex items-start gap-3"
+        >
+          <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
+            #{{ sun.num }}
+          </span>
+          <div class="space-y-0.5">
+            <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+              {{ t(sun.titleKm, sun.titleEn) }}
+            </h4>
+            <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              {{ t(sun.descKm, sun.descEn) }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: AGGANNA SUTTA (Origin of Society) -->
+    <section v-if="activeSection === 'agganna' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">🌱</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            {{ t('អគ្គញ្ញសូត្រ៖ ដំណើរដើមកំណើតមនុស្សជាតិ និងរដ្ឋ (Aggañña Sutta)', 'Aggañña Sutta: Genesis of Human Beings & State') }}
-          </h2>
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+            {{ t('អគ្គញ្ញសូត្រ៖ ដើមកំណើតមនុស្សជាតិ និងរបៀបរបបសង្គម (Aggañña Sutta)', 'Aggañña Sutta: Genesis of Society & Democracy') }}
+          </h3>
         </div>
-        <span class="text-xs text-emerald-700 dark:text-emerald-300 font-mono">Dīgha Nikāya DN 27</span>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Dīgha Nikāya DN 27</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-        {{ t('ព្រះសម្មាសម្ពុទ្ធបានបដិសេធជំនឿថា ព្រះព្រហ្មជាអ្នកបង្កើតមនុស្ស ឬវណ្ណៈ ៤ នៃពួកព្រាហ្មណ៍។ ផ្ទុយទៅវិញ ព្រះអង្គបានពន្យល់ពីការវិវត្តតាមធម្មជាតិនៃមនុស្សជាតិ និងការបង្កើតរដ្ឋដោយកិច្ចសន្យាសង្គមដំបូងបង្អស់ក្នុងលោក។', 'The Buddha rejected the myth of divine creation. Instead, he presented an evolutionary explanation of human physiology, gender differentiation, private property, and the democratic social contract.') }}
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ព្រះពុទ្ធបានបដិសេធទ្រឹស្តីព្រាហ្មណ៍ដែលថា «ព្រះព្រហ្មជាអ្នកបង្កើតមនុស្ស និងបែងចែកវណ្ណៈ»។ ផ្ទុយទៅវិញ ព្រះអង្គបានពន្យល់ពីការវិវត្តនៃសង្គមមនុស្សដែលកើតឡើងដោយកម្លាំងកម្ម និងតណ្ហា៖', 'The Buddha dismantled the Brahmin myth of divine creation. Instead, he presented an evolutionary explanation where human physical coarsement, private property, and elected kingship arose through greed:') }}
       </p>
-
-      <!-- 6-Stage Timeline -->
-      <div class="space-y-3">
-        <div
-          v-for="(stage, idx) in aggannaStages"
-          :key="idx"
-          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-emerald-500/40 transition-all space-y-2"
-        >
-          <div class="flex items-start gap-3">
-            <span class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold text-sm flex items-center justify-center shrink-0 border border-emerald-500/20">
-              {{ stage.step }}
-            </span>
-            <div class="flex-1 space-y-1">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100 flex items-center gap-2">
-                  <span>{{ stage.icon }}</span>
-                  <span>{{ t(stage.titleKm, stage.titleEn) }}</span>
-                </h3>
-                <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400">{{ stage.pali }}</span>
-              </div>
-              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-                {{ t(stage.descKm, stage.descEn) }}
-              </p>
-              <div class="p-2.5 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-500/10 text-xs text-emerald-900 dark:text-emerald-200 mt-2">
-                <strong>{{ t('សារៈសំខាន់ទស្សនវិជ្ជា៖ ', 'Philosophical insight: ') }}</strong>
-                <span>{{ t(stage.insightKm, stage.insightEn) }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: TYPES OF KALPAS (Suñña vs Asuñña) -->
-    <section v-if="activeSection === 'types' || activeSection === 'all'" class="space-y-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="text-lg sm:text-xl">🪷</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            {{ t('ប្រភេទនៃកប្ប (Types of Kalpas in the Cosmos)', 'Classification of Cosmic Kalpas') }}
-          </h2>
-        </div>
-      </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🌑</span>
-            <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">
-              {{ t('សុញ្ញកប្ប (Suñña-kappa)', 'Suñña-kappa (Void Kalpas)') }}
-            </h3>
+        <div
+          v-for="stage in aggannaStages"
+          :key="stage.step"
+          class="card-paper p-4 sm:p-5 space-y-2"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-2xl">{{ stage.icon }}</span>
+            <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+              {{ t('ដំណាក់កាលទី ' + stage.step, 'Stage ' + stage.step) }}
+            </span>
           </div>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {{ t('កប្បទទេស្អាត ដែលគ្មានព្រះសម្មាសម្ពុទ្ធ គ្មានព្រះបច្ចេកពុទ្ធ និងគ្មានព្រះស្តេចចក្រពត្តិត្រាស់ដឹង ឬឧបត្តិឡើងឡើយ។ សត្វលោកក្នុងកប្បនេះរសាត់អណ្តែតក្នុងសង្សារវដ្តដោយងងឹតសូន្យសុង រាប់លានកប្បបន្តបន្ទាប់គ្នា។', 'Cosmic periods devoid of Buddhas, Paccekabuddhas, or Universal Monarchs. Beings wander endlessly in spiritual darkness without the Dhamma.') }}
-          </p>
-        </div>
 
-        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-amber-500/30 space-y-2 bg-gradient-to-br from-amber-500/5 to-transparent">
-          <div class="flex items-center gap-2">
-            <span class="text-xl">🌕</span>
-            <h3 class="font-bold text-sm sm:text-base text-amber-900 dark:text-amber-200">
-              {{ t('អសុញ្ញកប្ប (Asuñña-kappa)', 'Asuñña-kappa (Blessed Kalpas)') }}
-            </h3>
-          </div>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {{ t('កប្បដ៏កម្របំផុត ដែលមានព្រះសម្មាសម្ពុទ្ធត្រាស់ដឹង ដើម្បីដឹកនាំសត្វឆ្លងផុតសមុទ្រទុក្ខ។ ចែកចេញជា ៥ ប្រភេទ៖', 'Extremely rare eras blessed by the appearance of Fully Enlightened Buddhas:') }}
+          <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+            {{ t(stage.titleKm, stage.titleEn) }}
+          </h4>
+
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+            {{ t(stage.descKm, stage.descEn) }}
           </p>
-          <ul class="text-xs space-y-1 text-stone-700 dark:text-stone-300 pt-1">
-            <li>• <strong>សារកប្ប (Sāra-kappa)៖</strong> មានព្រះពុទ្ធ ១ ព្រះអង្គ</li>
-            <li>• <strong>មណ្ឌកប្ប (Maṇḍa-kappa)៖</strong> មានព្រះពុទ្ធ ២ ព្រះអង្គ</li>
-            <li>• <strong>វរកប្ប (Vara-kappa)៖</strong> មានព្រះពុទ្ធ ៣ ព្រះអង្គ</li>
-            <li>• <strong>សារមណ្ឌកប្ប (Sāramaṇḍa-kappa)៖</strong> មានព្រះពុទ្ធ ៤ ព្រះអង្គ</li>
-            <li>• <strong>ភទ្ទកប្ប (Bhadda-kappa)៖</strong> មានព្រះពុទ្ធ ៥ ព្រះអង្គ (កម្របំផុត និងជាកប្បដែលយើងកំពុងរស់នៅសព្វថ្ងៃ!)</li>
-          </ul>
+
+          <div class="verse-box p-3 rounded-xl text-xs space-y-0.5 mt-2">
+            <strong class="block" :style="{ color: 'var(--accent-bright)' }">💡 {{ t('ខ្លឹមសារទស្សនវិជ្ជា៖', 'Philosophical Insight:') }}</strong>
+            <p :style="{ color: 'var(--ink)' }">{{ t(stage.insightKm, stage.insightEn) }}</p>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- FOOTER DHAMMA NOTE -->
-    <div class="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-center space-y-1">
-      <span class="text-lg">☸️</span>
-      <p class="text-xs sm:text-sm font-semibold text-indigo-950 dark:text-indigo-200">
-        {{ t('«សង្សារវដ្តនេះ មិនអាចរកទីផ្តើម និងទីបញ្ចប់ឃើញឡើយ។ ទឹកភ្នែក និងឈាមដែលអ្នកធ្លាប់ស្រក់ក្នុងសង្សារវដ្ត មានបរិមាណច្រើនជាងទឹកក្នុងមហាសមុទ្រទាំង ៤ ទៅទៀត។»', '"Inconceivable is the beginning of this Saṃsāra. The tears and blood you have shed in your infinite rebirths are far greater than the waters of all four oceans combined."') }}
-      </p>
-      <span class="text-[11px] text-stone-500 dark:text-stone-400 font-mono">Assu Sutta — Saṃyutta Nikāya SN 15.3</span>
-    </div>
   </div>
 </template>
 

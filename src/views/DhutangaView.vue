@@ -1,298 +1,238 @@
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3 sm:space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>🏕️</span>
-        <span>{{ t('វិសុទ្ធិមគ្គ • ក្បួនដុសខាត់កិលេស', 'Visuddhimagga • Ascetic Purification') }}</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-rose-700 to-amber-900 dark:from-amber-200 dark:via-rose-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('វិសុទ្ធិមគ្គ • ក្បួនដុសខាត់កិលេស', 'Visuddhimagga • Ascetic Purification') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
         {{ t('ធុតង្គ ១៣ ប្រការ ជាក់ស្តែង', 'The 13 Ascetic Dhutaṅga Practices') }}
-      </h1>
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
         {{ t('«ធុតង្គ» (ធុត = កម្ចាត់/រលាស់ចោល + អង្គ = គុណធម៌) គឺជាក្បួនបដិបត្តិដុសខាត់កម្ចាត់កិលេស ភាពលោភលន់ និងការជាប់ជំពាក់ក្នុងផាសុកភាពខាងសាច់ឈាម ដែលព្រះអរហន្តខ្សែព្រៃតែងសមាទានដើម្បីឈានទៅដល់ការត្រាស់ដឹង។', 'Dhutaṅga means practices that shake off and scour away defilements of craving, luxury, and indolence. Explore the 13 classical ascetic rules recorded in the Visuddhimagga.') }}
       </p>
 
-      <!-- Group Filter Tabs (Swipeable on mobile) -->
-      <div class="flex items-center gap-1.5 sm:gap-2 pt-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
+      <!-- Group Filter Tabs -->
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
         <button
           v-for="grp in groups"
           :key="grp.id"
           @click="activeGroup = grp.id"
-          :class="[
-            'px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 shrink-0 border',
-            activeGroup === grp.id
-              ? 'bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-600/30 scale-[1.02]'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-700'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeGroup === grp.id ? 'on' : ''"
         >
           <span>{{ grp.icon }}</span>
           <span>{{ t(grp.km, grp.en) }}</span>
-          <span class="text-[10px] opacity-75">({{ getGroupCount(grp.id) }})</span>
+          <span class="text-[10px] opacity-75 ml-0.5">({{ getGroupCount(grp.id) }})</span>
         </button>
       </div>
     </header>
 
     <!-- Essential Quote Box -->
-    <div class="verse-box p-4 sm:p-5 border-l-4" :style="{ borderColor: 'var(--accent)' }">
+    <div class="verse-box p-4 sm:p-5 mt-6">
       <p class="font-serif italic text-xs sm:text-sm md:text-base leading-relaxed text-center" :style="{ color: 'var(--ink)' }">
         {{ t('«ធុតង្គ មិនមែនជាការធ្វើទារុណកម្មខ្លួនឯង (អត្តកិលមថានុយោគ) ឡើយ ប៉ុន្តែជាឧបាយប្រាជ្ញាដើម្បីបង្ហាត់ចិត្តកុំឱ្យលោភលន់ ស្គាល់សេចក្តីសន្តោស និងរស់នៅដោយសេរីភាពផុតចាកការជាប់ជំពាក់»', '«Dhutaṅga is not self-mortification, but a skilful training of mind to shed greed, cultivate noble contentment, and abide in boundless spiritual freedom.»') }}
       </p>
-      <p class="text-[11px] sm:text-xs mt-1.5 text-center font-mono text-stone-500">
+      <p class="text-[11px] sm:text-xs mt-1.5 text-center font-mono" :style="{ color: 'var(--ink-muted)' }">
         — គម្ពីរវិសុទ្ធិមគ្គ (Visuddhimagga, Dhutaṅganiddesa)
       </p>
     </div>
 
     <!-- 3 Summary Stat Pillars -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-      <div class="p-3.5 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center space-y-1">
-        <span class="text-xl sm:text-2xl">👘</span>
-        <h4 class="font-bold text-xs sm:text-sm text-amber-900 dark:text-amber-200">{{ t('ចីវរបដិសំយុត្ត (២)', 'Robe Practices (2)') }}</h4>
-        <p class="text-[11px] text-stone-600 dark:text-stone-400">{{ t('សំពត់គងធូលី & ជីវរ ៣ ផ្ទាំង', 'Rag robes & triple robes') }}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+      <div class="card-paper p-4 text-center space-y-1">
+        <span class="text-2xl">👘</span>
+        <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('ចីវរបដិសំយុត្ត (២)', 'Robe Practices (2)') }}</h4>
+        <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('សំពត់គងធូលី & ជីវរ ៣ ផ្ទាំង', 'Rag robes & triple robes') }}</p>
       </div>
 
-      <div class="p-3.5 sm:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-1">
-        <span class="text-xl sm:text-2xl">🥣</span>
-        <h4 class="font-bold text-xs sm:text-sm text-emerald-900 dark:text-emerald-200">{{ t('បិណ្ឌបាតបដិសំយុត្ត (៥)', 'Alms & Food Practices (5)') }}</h4>
-        <p class="text-[11px] text-stone-600 dark:text-stone-400">{{ t('ឆាន់មួយពេល & ឆាន់ក្នុងបាត្រ', 'Single meal & bowl-only') }}</p>
+      <div class="card-paper p-4 text-center space-y-1">
+        <span class="text-2xl">🥣</span>
+        <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('បិណ្ឌបាតបដិសំយុត្ត (៥)', 'Alms & Food Practices (5)') }}</h4>
+        <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ឆាន់មួយពេល & ឆាន់ក្នុងបាត្រ', 'Single meal & bowl-only') }}</p>
       </div>
 
-      <div class="p-3.5 sm:p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-center space-y-1">
-        <span class="text-xl sm:text-2xl">🌲</span>
-        <h4 class="font-bold text-xs sm:text-sm text-blue-900 dark:text-blue-200">{{ t('សេនាសនបដិសំយុត្ត (៦)', 'Lodging & Energy (6)') }}</h4>
-        <p class="text-[11px] text-stone-600 dark:text-stone-400">{{ t('គង់ក្នុងព្រៃ & មិនដេក (នេសជ្ជិក)', 'Forest dwelling & non-reclining') }}</p>
+      <div class="card-paper p-4 text-center space-y-1">
+        <span class="text-2xl">⛺</span>
+        <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('សេនាសនបដិសំយុត្ត (៦)', 'Lodging & Posture (6)') }}</h4>
+        <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('គល់ឈើ ទីវាល & មិនដេក (នេសជ្ជិក)', 'Forest trees & non-lying posture') }}</p>
       </div>
     </div>
 
     <!-- Dhutanga Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 mt-6">
       <div
-        v-for="dh in filteredDhutangas"
-        :key="dh.id"
-        @click="openModal(dh)"
-        class="card-paper p-4 sm:p-5 rounded-2xl cursor-pointer hover:border-amber-500/60 transition-all duration-200 flex flex-col justify-between space-y-3 group border hover:shadow-md"
+        v-for="dhut in filteredDhutangas"
+        :key="dhut.id"
+        @click="openModal(dhut)"
+        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3"
       >
-        <div class="space-y-2.5">
+        <div class="space-y-2">
           <div class="flex items-center justify-between gap-2">
-            <span class="text-2xl">{{ dh.icon }}</span>
+            <span class="text-2xl">{{ dhut.icon }}</span>
             <div class="flex items-center gap-1.5">
-              <span class="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">
-                #{{ dh.num }}
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                #{{ dhut.num }}
               </span>
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
-                {{ t(dh.groupKm, dh.groupEn) }}
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-muted)' }">
+                {{ t(dhut.groupKm, dhut.groupEn) }}
               </span>
             </div>
           </div>
 
           <div>
-            <h3 class="font-display text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-              {{ t(dh.nameKm, dh.nameEn) }}
+            <h3 class="font-display text-base sm:text-lg font-bold" :style="{ color: 'var(--ink)' }">
+              {{ t(dhut.nameKm, dhut.nameEn) }}
             </h3>
-            <p class="font-serif italic text-xs text-amber-700 dark:text-amber-400 mt-0.5">
-              {{ dh.pali }}
+            <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
+              {{ dhut.pali }}
             </p>
           </div>
 
-          <p class="text-xs text-stone-600 dark:text-stone-400 line-clamp-2 leading-relaxed">
-            {{ t(dh.shortKm, dh.shortEn) }}
+          <p class="text-xs leading-relaxed line-clamp-2" :style="{ color: 'var(--ink-soft)' }">
+            {{ t(dhut.summaryKm, dhut.summaryEn) }}
           </p>
-
-          <div class="p-2.5 rounded-xl bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/15 text-[11px] space-y-1">
-            <div class="flex items-center gap-1 font-bold text-amber-800 dark:text-amber-300">
-              <span>🎯</span>
-              <span>{{ t('គោលបំណងកម្ចាត់កិលេស:', 'Core Purpose:') }}</span>
-            </div>
-            <p class="text-stone-700 dark:text-stone-300 leading-snug">
-              {{ t(dh.purposeKm, dh.purposeEn) }}
-            </p>
-          </div>
         </div>
 
-        <div class="pt-2 border-t border-dashed border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500">
-          <span class="text-[11px] truncate text-stone-400">{{ t(dh.levelsSummaryKm, dh.levelsSummaryEn) }}</span>
-          <span class="text-amber-600 dark:text-amber-400 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-            {{ t('ពិនិត្យក្បួន', 'Details') }} →
+        <div class="pt-2 flex items-center justify-between text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+          <span class="text-[11px] truncate max-w-[170px]" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('បំបាត់៖ ', 'Scours: ') }}{{ t(dhut.kilesaKm, dhut.kilesaEn) }}
+          </span>
+          <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
+            {{ t('លម្អិត', 'Details') }} →
           </span>
         </div>
       </div>
     </div>
 
-    <!-- Practical Layperson Section -->
-    <div class="card-paper p-4 sm:p-6 md:p-8 rounded-2xl border-2" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
-      <div class="flex items-center gap-2">
-        <span class="text-xl">🧘</span>
-        <span class="chapter-label m-0">{{ t('ការអនុវត្តសម្រាប់គ្រហស្ថ', 'LAY PRACTITIONERS') }}</span>
-      </div>
-      <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-1.5" :style="{ color: 'var(--ink)' }">
-        {{ t('តើគ្រហស្ថអាចសមាទានធុតង្គបានដែរឬទេ?', 'Can Laypeople Practice Dhutaṅga?') }}
-      </h3>
-      <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('**បានយ៉ាងពិតប្រាកដ!** នៅក្នុងគម្ពីរវិសុទ្ធិមគ្គ និងអដ្ឋកថា គ្រហស្ថឧបាសក-ឧបាសិកា អាចសមាទានធុតង្គមួយចំនួនក្នុងថ្ងៃឧបោសថសីល ឬពេលចូលរួមសមាធិវិបស្សនាបាន៖', '**YES!** In the Visuddhimagga and commentaries, lay practitioners are commended for undertaking specific Dhutaṅga practices during Uposatha retreat days:') }}
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-        <div class="p-3.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
-          <strong class="text-xs text-amber-700 dark:text-amber-400 block">១. ឯកាសនិកធុតង្គ</strong>
-          <p class="text-xs mt-1 text-stone-600 dark:text-stone-300">
-            {{ t('ហូបបាយតែមួយពេលក្នុងមួយថ្ងៃ ក្នុងពេលព្រឹក ឬមុនថ្ងៃត្រង់ ពេលក្រោកពីកន្លែងហូប លែងទទួលទានអាហាររឹងទៀត។', 'Eating only a single meal per day, rising from the seat with contentment.') }}
-          </p>
-        </div>
-        <div class="p-3.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
-          <strong class="text-xs text-emerald-700 dark:text-emerald-400 block">២. បត្តបិណ្ឌិកធុតង្គ</strong>
-          <p class="text-xs mt-1 text-stone-600 dark:text-stone-300">
-            {{ t('ដាក់បាយនិងម្ហូបក្នុងចានតែមួយ មិនទាមទារចានកែវច្រើនរញ៉េរញ៉ៃ ដើម្បីកាត់បន្ថយការជាប់ជំពាក់នឹងការតុបតែង។', 'Placing food in one single container without demanding lavish separate dish sets.') }}
-          </p>
-        </div>
-        <div class="p-3.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
-          <strong class="text-xs text-blue-700 dark:text-blue-400 block">៣. នេសជ្ជិកធុតង្គ (ពេលប្រតិបត្តិធម៌)</strong>
-          <p class="text-xs mt-1 text-stone-600 dark:text-stone-300">
-            {{ t('ក្នុងរាត្រីថ្ងៃសីល ឬវគ្គវិបស្សនា អង្គុយសមាធិ ឬដើរចង្ក្រមពេញមួយយប់ ដោយមិនដេកផ្អៀងខ្នងលើកម្រាល។', 'Sitting upright in meditation through holy nights without reclining on beds.') }}
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- POP-UP MODAL (Mobile Bottom-Sheet) -->
+    <!-- POP-UP MODAL -->
     <Teleport to="body">
-      <transition name="modal-pop">
+      <div
+        v-if="selectedDhutanga"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+        @click.self="closeModal"
+      >
         <div
-          v-if="selectedDhutanga"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-stone-950/70 backdrop-blur-sm transition-opacity"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
         >
+          <!-- Header -->
           <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
+            class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
+            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
           >
-            <!-- Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+            <div class="flex items-center gap-2.5">
+              <span class="text-3xl">{{ selectedDhutanga.icon }}</span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                    #{{ selectedDhutanga.num }}
+                  </span>
+                  <h3 class="font-display text-base sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+                    {{ t(selectedDhutanga.nameKm, selectedDhutanga.nameEn) }}
+                  </h3>
+                </div>
+                <p class="paali text-xs" :style="{ color: 'var(--accent)' }">
+                  {{ selectedDhutanga.pali }}
+                </p>
+              </div>
+            </div>
+
+            <button
+              @click="closeModal"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
             >
-              <div class="flex items-center gap-2.5">
-                <span class="text-3xl">{{ selectedDhutanga.icon }}</span>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">
-                      #{{ selectedDhutanga.num }}
-                    </span>
-                    <h3 class="font-display text-base sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
-                      {{ t(selectedDhutanga.nameKm, selectedDhutanga.nameEn) }}
-                    </h3>
-                  </div>
-                  <p class="font-serif italic text-xs text-amber-700 dark:text-amber-400 mt-0.5">
-                    {{ selectedDhutanga.pali }}
+              ✕
+            </button>
+          </div>
+
+          <!-- Content -->
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
+            <!-- Definition Box -->
+            <div class="verse-box p-4 rounded-xl space-y-1">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
+                📜 {{ t('និយមន័យ និងខ្លឹមសារក្បួនធុតង្គ', 'Definition & Vinaya Rule') }}
+              </span>
+              <p class="font-medium" :style="{ color: 'var(--ink)' }">
+                {{ t(selectedDhutanga.detailKm, selectedDhutanga.detailEn) }}
+              </p>
+            </div>
+
+            <!-- Pali Vow of Determination -->
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
+                🗣️ {{ t('ពាក្យសច្ចាសមាទានជាបាលី (Pāli Undertaking Vow)', 'Undertaking Formula') }}
+              </span>
+              <p class="paali font-semibold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+                «{{ selectedDhutanga.undertakingPali }}»
+              </p>
+              <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDhutanga.undertakingKm, selectedDhutanga.undertakingEn) }}
+              </p>
+            </div>
+
+            <!-- 3 Levels of Practice -->
+            <div class="space-y-2">
+              <h4 class="font-display font-bold flex items-center gap-2 text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+                <span>⚖️</span>
+                <span>{{ t('កម្រិតបដិបត្តិទាំង ៣ ថ្នាក់ (3 Grades of Practice):', 'The 3 Grades of Observance:') }}</span>
+              </h4>
+
+              <div class="grid grid-cols-1 gap-2">
+                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+                  <span class="text-xs font-bold block" :style="{ color: 'var(--accent-bright)' }">
+                    🔥 ១. ថ្នាក់ឧក្រឹដ្ឋ (Strict / Superior):
+                  </span>
+                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(selectedDhutanga.strictKm, selectedDhutanga.strictEn) }}
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+                  <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">
+                    ⚡ ២. ថ្នាក់មធ្យម (Medium):
+                  </span>
+                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(selectedDhutanga.mediumKm, selectedDhutanga.mediumEn) }}
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+                  <span class="text-xs font-bold block" :style="{ color: 'var(--ink-muted)' }">
+                    🌿 ៣. ថ្នាក់ស្រាល (Mild / Permissible):
+                  </span>
+                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(selectedDhutanga.mildKm, selectedDhutanga.mildEn) }}
                   </p>
                 </div>
               </div>
-
-              <button
-                type="button"
-                class="w-8 h-8 rounded-full flex items-center justify-center transition text-base"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-                @click="closeModal"
-                aria-label="Close"
-              >
-                ✕
-              </button>
             </div>
 
-            <!-- Content -->
-            <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
-              <!-- Definition Box -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 space-y-1">
-                <span class="text-xs font-bold text-amber-800 dark:text-amber-300 block uppercase">
-                  📜 {{ t('និយមន័យ និងខ្លឹមសារក្បួនធុតង្គ', 'Definition & Vinaya Rule') }}
-                </span>
-                <p class="text-stone-800 dark:text-stone-200 font-medium">
-                  {{ t(selectedDhutanga.detailKm, selectedDhutanga.detailEn) }}
-                </p>
-              </div>
-
-              <!-- Pali Vow of Determination -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/70 dark:border-stone-800 space-y-1">
-                <span class="text-xs font-bold text-blue-700 dark:text-blue-400 block uppercase">
-                  🗣️ {{ t('ពាក្យសច្ចាសមាទានជាបាលី (Pāli Undertaking Vow)', 'Undertaking Formula') }}
-                </span>
-                <p class="font-mono text-xs sm:text-sm text-stone-800 dark:text-stone-200 font-semibold">
-                  «{{ selectedDhutanga.undertakingPali }}»
-                </p>
-                <p class="text-xs text-stone-600 dark:text-stone-400 mt-0.5">
-                  {{ t(selectedDhutanga.undertakingKm, selectedDhutanga.undertakingEn) }}
-                </p>
-              </div>
-
-              <!-- 3 Levels of Practice (ឧក្រឹដ្ឋ, មធ្យម, ស្រាល) -->
-              <div class="space-y-2">
-                <h4 class="font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2 text-xs sm:text-sm">
-                  <span>⚖️</span>
-                  <span>{{ t('កម្រិតបដិបត្តិទាំង ៣ ថ្នាក់ (3 Grades of Practice):', 'The 3 Grades of Observance:') }}</span>
-                </h4>
-
-                <div class="grid grid-cols-1 gap-2">
-                  <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/60 dark:border-stone-700/60">
-                    <span class="text-xs font-bold text-red-600 dark:text-red-400 block">
-                      🔥 ១. ថ្នាក់ឧក្រឹដ្ឋ (Strict / Superior):
-                    </span>
-                    <p class="text-xs text-stone-700 dark:text-stone-300 mt-0.5">
-                      {{ t(selectedDhutanga.strictKm, selectedDhutanga.strictEn) }}
-                    </p>
-                  </div>
-
-                  <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/60 dark:border-stone-700/60">
-                    <span class="text-xs font-bold text-amber-600 dark:text-amber-400 block">
-                      ⚡ ២. ថ្នាក់មធ្យម (Medium):
-                    </span>
-                    <p class="text-xs text-stone-700 dark:text-stone-300 mt-0.5">
-                      {{ t(selectedDhutanga.mediumKm, selectedDhutanga.mediumEn) }}
-                    </p>
-                  </div>
-
-                  <div class="p-3 rounded-xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/60 dark:border-stone-700/60">
-                    <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 block">
-                      🌱 ៣. ថ្នាក់ស្រាល (Mild / Ordinary):
-                    </span>
-                    <p class="text-xs text-stone-700 dark:text-stone-300 mt-0.5">
-                      {{ t(selectedDhutanga.mildKm, selectedDhutanga.mildEn) }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Advantages & Spiritual Merit -->
-              <div class="p-3.5 sm:p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-1">
-                <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300 block uppercase">
-                  💎 {{ t('អានិសង្ស និងផលនៃការបដិបត្តិ (Spiritual Blessings & Virtues)', 'Spiritual Blessings') }}
-                </span>
-                <p class="text-stone-700 dark:text-stone-300">
-                  {{ t(selectedDhutanga.benefitsKm, selectedDhutanga.benefitsEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Footer -->
-            <div
-              class="p-3 sm:p-4 flex items-center justify-between gap-3 border-t shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <span class="text-xs text-stone-500">
-                ☸ {{ t('ធុតង្គ ១៣ នៃព្រះពុទ្ធសាសនាថេរវាទ', 'Theravada 13 Dhutanga') }}
+            <!-- Defilements Eliminated & Spiritual Benefits -->
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
+                ✨ {{ t('អានិសង្ស និងកិលេសដែលត្រូវកម្ចាត់ចេញ (Spiritual Benefits):', 'Benefits & Purification:') }}
               </span>
-              <button
-                type="button"
-                class="px-5 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900 text-xs font-bold transition"
-                @click="closeModal"
-              >
-                {{ t('បិទផ្ទាំង', 'Close') }}
-              </button>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedDhutanga.benefitsKm, selectedDhutanga.benefitsEn) }}
+              </p>
             </div>
           </div>
+
+          <!-- Footer -->
+          <div
+            class="p-4 border-t flex justify-end shrink-0"
+            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+          >
+            <button
+              @click="closeModal"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
+            >
+              {{ t('បិទផ្ទាំង', 'Close') }}
+            </button>
+          </div>
         </div>
-      </transition>
+      </div>
     </Teleport>
   </div>
 </template>

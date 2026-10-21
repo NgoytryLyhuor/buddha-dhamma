@@ -1,30 +1,24 @@
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3 sm:space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20">
-        <span>👑</span>
-        <span>{{ t('ទស្សនវិជ្ជាដឹកនាំ & អភិបាលកិច្ចតាមបែបពុទ្ធសាសនា', 'Buddhist Governance & Moral Leadership') }}</span>
-      </div>
-      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-amber-800 via-yellow-700 to-amber-900 dark:from-amber-200 dark:via-yellow-200 dark:to-amber-400 bg-clip-text text-transparent leading-snug">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('ទស្សនវិជ្ជាដឹកនាំ & អភិបាលកិច្ចតាមបែបពុទ្ធសាសនា', 'Buddhist Governance & Moral Leadership') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
         {{ t('ទសពិធរាជធម៌ ១០ & អបរិហានិយធម៌ ៧', 'The 10 Royal Virtues & 7 Principles of Non-Decline') }}
-      </h1>
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
         {{ t('គោលការណ៍ដឹកនាំរដ្ឋ ស្ថាប័ន ក្រុមហ៊ុន និងក្រុមគ្រួសារប្រកបដោយសុចរិតធម៌ យុត្តិធម៌ និងសេចក្តីស្ងប់ក្សេមក្សាន្ត ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់បានសម្តែងចំពោះព្រះរាជា និងមេដឹកនាំសាធារណរដ្ឋវជ្ជី។', 'Ethical leadership principles for rulers, executives, team managers, and families to foster justice, non-corruption, social welfare, and sustainable prosperity.') }}
       </p>
 
-      <!-- Section Navigation Pills (Horizontal swipe on mobile) -->
-      <div class="flex items-center gap-1.5 sm:gap-2 pt-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0">
+      <!-- Section Navigation Pills -->
+      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
         <button
           v-for="sec in sections"
           :key="sec.id"
           @click="activeSection = sec.id"
-          :class="[
-            'px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 shrink-0 border',
-            activeSection === sec.id
-              ? 'bg-amber-600 text-white border-amber-600 shadow-sm shadow-amber-600/30 scale-[1.02]'
-              : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-200 dark:hover:bg-stone-700'
-          ]"
+          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          :class="activeSection === sec.id ? 'on' : ''"
         >
           <span>{{ sec.icon }}</span>
           <span>{{ t(sec.km, sec.en) }}</span>
@@ -33,41 +27,41 @@
     </header>
 
     <!-- Quick Overview Stats -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-      <div class="p-3 sm:p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">👑</span>
-        <span class="text-xs sm:text-sm font-bold text-amber-900 dark:text-amber-200 block mt-1">{{ t('ទសពិធរាជធម៌', 'Dasa Rājadhamma') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ធម៌មេដឹកនាំ ១០ ប្រការ', '10 ruler virtues') }}</span>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-6">
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">👑</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ទសពិធរាជធម៌', 'Dasa Rājadhamma') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌មេដឹកនាំ ១០ ប្រការ', '10 ruler virtues') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🏛️</span>
-        <span class="text-xs sm:text-sm font-bold text-blue-900 dark:text-blue-200 block mt-1">{{ t('អបរិហានិយធម៌', 'Aparihāniya') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ធម៌មិនសាបសូន្យ ៧', '7 unity conditions') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🏛️</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('អបរិហានិយធម៌', 'Aparihāniya') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌មិនសាបសូន្យ ៧', '7 unity conditions') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">⚖️</span>
-        <span class="text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200 block mt-1">{{ t('ចក្កវត្តិវត្ត', 'Cakkavatti-vatta') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('កាតព្វកិច្ចស្តេចចក្រ ១២', '12 sovereign duties') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">⚖️</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ចក្កវត្តិវត្ត', 'Cakkavatti-vatta') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('កាតព្វកិច្ចស្តេចចក្រ ១២', '12 sovereign duties') }}</span>
       </div>
-      <div class="p-3 sm:p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-center">
-        <span class="text-xl sm:text-2xl block">🤝</span>
-        <span class="text-xs sm:text-sm font-bold text-purple-900 dark:text-purple-200 block mt-1">{{ t('សង្គហវត្ថុ', 'Saṅgahavatthu') }}</span>
-        <span class="text-[10px] sm:text-xs text-stone-500 dark:text-stone-400">{{ t('ធម៌ចងចិត្តមនុស្ស ៤', '4 bonding virtues') }}</span>
+      <div class="card-paper p-3 text-center">
+        <span class="text-xl block">🤝</span>
+        <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('សង្គហវត្ថុ', 'Saṅgahavatthu') }}</strong>
+        <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌ចងចិត្តមនុស្ស ៤', '4 bonding virtues') }}</span>
       </div>
     </div>
 
     <!-- SECTION 1: DASA RAJADHAMMA (10 Virtues of a Ruler) -->
-    <section v-if="activeSection === 'rajadhamma' || activeSection === 'all'" class="space-y-4">
+    <section v-if="activeSection === 'rajadhamma' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">👑</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ t('ទសពិធរាជធម៌ ១០ ប្រការ (Dasa Rājadhamma)', 'The 10 Virtues of a Righteous Ruler') }}
-          </h2>
+          </h3>
         </div>
-        <span class="text-xs text-amber-700 dark:text-amber-300 font-mono">Jātaka Khuddakanikāya</span>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Jātaka Khuddakanikāya</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('គុណធម៌ទាំង ១០ យ៉ាងដែលព្រះរាជា ឬមេដឹកនាំគ្រប់ជាន់ថ្នាក់ត្រូវប្រកាន់ខ្ជាប់ ដើម្បីនាំមកនូវសេចក្តីសុខក្សេមក្សាន្ត ភាពរុងរឿង និងលុបបំបាត់អំពើពុករលួយក្នុងសង្គម។', 'Ten ethical qualities that every leader must embody to ensure prosperity, fairness, justice, and the welfare of society.') }}
       </p>
 
@@ -76,35 +70,35 @@
           v-for="item in rajadhammaList"
           :key="item.id"
           @click="openModal(item)"
-          class="bg-white dark:bg-stone-900 rounded-2xl p-4 sm:p-5 border border-stone-200 dark:border-stone-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer flex flex-col justify-between group"
+          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between"
         >
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
-                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-500/10 text-amber-700 dark:text-amber-300 font-bold text-xs sm:text-sm flex items-center justify-center border border-amber-500/20">
-                  {{ item.num }}
+                <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                  #{{ item.num }}
                 </span>
                 <div>
-                  <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
                     {{ t(item.nameKm, item.nameEn) }}
-                  </h3>
-                  <span class="text-[11px] font-mono text-amber-600/80 dark:text-amber-400/80">{{ item.pali }}</span>
+                  </h4>
+                  <span class="paali text-[11px]" :style="{ color: 'var(--accent)' }">{{ item.pali }}</span>
                 </div>
               </div>
               <span class="text-lg">{{ item.icon }}</span>
             </div>
 
-            <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 line-clamp-2 mt-1 leading-relaxed">
+            <p class="text-xs sm:text-sm line-clamp-2 mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
               {{ t(item.meaningKm, item.meaningEn) }}
             </p>
           </div>
 
-          <div class="pt-3 mt-3 border-t border-stone-100 dark:border-stone-800/80 flex items-center justify-between text-[11px]">
-            <span class="text-stone-500 dark:text-stone-400 flex items-center gap-1">
+          <div class="pt-3 mt-3 flex items-center justify-between text-[11px]" :style="{ borderTop: '1px solid var(--border)' }">
+            <span class="flex items-center gap-1" :style="{ color: 'var(--ink-muted)' }">
               <span>💼</span>
               <span>{{ t(item.modernShortKm, item.modernShortEn) }}</span>
             </span>
-            <span class="text-amber-600 dark:text-amber-400 font-medium group-hover:translate-x-0.5 transition-transform">
+            <span class="font-medium" :style="{ color: 'var(--accent-bright)' }">
               {{ t('មើលលម្អិត →', 'Details →') }}
             </span>
           </div>
@@ -113,17 +107,17 @@
     </section>
 
     <!-- SECTION 2: APARIHANIYA DHAMMA 7 (Conditions of Non-Decline) -->
-    <section v-if="activeSection === 'aparihaniya' || activeSection === 'all'" class="space-y-4">
+    <section v-if="activeSection === 'aparihaniya' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">🏛️</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ t('អបរិហានិយធម៌ ៧ ប្រការ (Satta Aparihāniya Dhamma)', '7 Conditions of Non-Decline for Nations') }}
-          </h2>
+          </h3>
         </div>
-        <span class="text-xs text-blue-700 dark:text-blue-300 font-mono">Dīgha Nikāya DN 16</span>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Dīgha Nikāya DN 16</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('ព្រះពុទ្ធទ្រង់បានប្រទានចំពោះរដ្ឋសភាវជ្ជី (លិច្ឆវី) នៃក្រុងវេសាលី ថា ដរាបណាប្រជាជាតិ ឬអង្គភាពមួយប្រកាន់ខ្ជាប់នូវធម៌ទាំង ៧ នេះ ភាពចម្រើនតែម៉្យាងគត់ដែលកើតមាន គ្មានការសាបសូន្យឡើយ ទោះជាស្តេចអជាតសត្តុលើកទ័ពធំយ៉ាងណាក៏មិនអាចយកជ័យជម្នះបានឡើយ។', 'Given by the Buddha to the Vajjian Republic; as long as a nation or community practices these 7 principles, growth alone is to be expected, not decline.') }}
       </p>
 
@@ -131,25 +125,25 @@
         <div
           v-for="(ap, idx) in aparihaniyaList"
           :key="idx"
-          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm space-y-2 hover:border-blue-500/40 transition-all"
+          class="card-paper p-4 sm:p-5 space-y-2"
         >
           <div class="flex items-start gap-3">
-            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-blue-500/10 text-blue-700 dark:text-blue-300 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 border border-blue-500/20">
-              {{ ap.num }}
+            <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
+              #{{ ap.num }}
             </span>
             <div class="flex-1 space-y-1">
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">
+                <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
                   {{ t(ap.titleKm, ap.titleEn) }}
-                </h3>
-                <span class="text-[11px] font-mono text-blue-600 dark:text-blue-400">{{ ap.pali }}</span>
+                </h4>
+                <span class="paali text-[11px]" :style="{ color: 'var(--accent)' }">{{ ap.pali }}</span>
               </div>
-              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
                 {{ t(ap.descKm, ap.descEn) }}
               </p>
-              <div class="p-2.5 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-500/10 text-xs text-blue-900 dark:text-blue-200 mt-2">
-                <span class="font-semibold">{{ t('អនុវត្តក្នុងសម័យបច្ចុប្បន្ន៖ ', 'Modern Application: ') }}</span>
-                <span>{{ t(ap.appKm, ap.appEn) }}</span>
+              <div class="p-2.5 rounded-xl text-xs mt-2" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+                <span class="font-semibold" :style="{ color: 'var(--accent-bright)' }">{{ t('អនុវត្តក្នុងសម័យបច្ចុប្បន្ន៖ ', 'Modern Application: ') }}</span>
+                <span :style="{ color: 'var(--ink-soft)' }">{{ t(ap.appKm, ap.appEn) }}</span>
               </div>
             </div>
           </div>
@@ -157,18 +151,18 @@
       </div>
     </section>
 
-    <!-- SECTION 3: CAKKAVATTI-VATTA 12 (Duties of Universal Monarch) -->
-    <section v-if="activeSection === 'cakkavatti' || activeSection === 'all'" class="space-y-4">
+    <!-- SECTION 3: CAKKAVATTI-VATTA 12 -->
+    <section v-if="activeSection === 'cakkavatti' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">⚖️</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
             {{ t('ចក្កវត្តិវត្ត ១២ ប្រការ (Cakkavatti-vatta)', '12 Duties of a Righteous Universal Sovereign') }}
-          </h2>
+          </h3>
         </div>
-        <span class="text-xs text-emerald-700 dark:text-emerald-300 font-mono">Dīgha Nikāya DN 26</span>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Dīgha Nikāya DN 26</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
         {{ t('កាតព្វកិច្ចសំខាន់ៗរបស់ស្តេចចក្រពត្តិ ដែលចែងពីការការពារបរិស្ថាន ការលុបបំបាត់ភាពក្រីក្រ (ជាឬសគល់នៃឧក្រិដ្ឋកម្ម) និងការគាំពារប្រជានុរាស្ត្រគ្រប់ស្រទាប់វណ្ណៈ។', 'In the Cakkavatti-Sīhanāda Sutta, the Buddha famously pointed out that poverty is the root cause of crime, violence, and societal collapse.') }}
       </p>
 
@@ -176,195 +170,145 @@
         <div
           v-for="vatta in cakkavattiList"
           :key="vatta.num"
-          class="p-4 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2 hover:border-emerald-500/40 transition-all"
+          class="card-paper p-4 space-y-1.5"
         >
           <div class="flex items-center gap-2">
-            <span class="text-base">{{ vatta.icon }}</span>
-            <span class="text-xs font-bold text-emerald-800 dark:text-emerald-300">{{ vatta.num }}. {{ t(vatta.titleKm, vatta.titleEn) }}</span>
+            <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+              #{{ vatta.num }}
+            </span>
+            <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+              {{ t(vatta.titleKm, vatta.titleEn) }}
+            </h4>
           </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
             {{ t(vatta.descKm, vatta.descEn) }}
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: SANGAHAVATTHU 4 FOR LEADERS -->
-    <section v-if="activeSection === 'sangaha' || activeSection === 'all'" class="space-y-4">
+    <!-- SECTION 4: SANGAHAVATTHU 4 -->
+    <section v-if="activeSection === 'sangaha' || activeSection === 'all'" class="mt-6 space-y-4">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <span class="text-lg sm:text-xl">🤝</span>
-          <h2 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-            {{ t('សង្គហវត្ថុ ៤ ក្នុងការដឹកនាំមនុស្ស (Saṅgahavatthu)', 'The 4 Bases of Sympathy & Team Harmony') }}
-          </h2>
+          <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+            {{ t('សង្គហវត្ថុ ៤ ប្រការ (Saṅgaha-vatthu)', '4 Foundations of Social Harmony') }}
+          </h3>
         </div>
+        <span class="paali text-xs" :style="{ color: 'var(--accent)' }">Aṅguttara Nikāya AN 4.32</span>
       </div>
-      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-        {{ t('ធម៌ចងចិត្តមនុស្ស និងរក្សាសាមគ្គីភាពក្នុងស្ថាប័ន ដូចជាកាំរទេះដែលចងភ្ជាប់នឹងដុំកង់រទេះរត់ទៅមុខដោយរលូនយ៉ាងនោះដែរ។', 'Like the linchpin holding the moving chariot together, these 4 virtues unite teams, citizens, and families.') }}
+      <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ធម៌ជាគ្រឿងសង្គ្រោះ និងចងចិត្តមនុស្សក្នុងគ្រួសារ ស្ថាប័ន និងសង្គមជាតិ ប្រៀបដូចជា «ក្រឡាស់រទេះ» ដែលទ្រទ្រង់កង់រទេះឱ្យអាចវិលទៅមុខបាន។', 'The 4 cords of sympathy that bind society together, compared by the Buddha to the axle-pin of a moving chariot.') }}
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div
-          v-for="s in sangahaList"
-          :key="s.name"
-          class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 space-y-2 hover:border-purple-500/40 transition-all"
+          v-for="item in sangahaList"
+          :key="item.id"
+          class="card-paper p-4 sm:p-5 space-y-2"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="text-xl">{{ s.icon }}</span>
-              <h3 class="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-100">
-                {{ t(s.nameKm, s.nameEn) }}
-              </h3>
-            </div>
-            <span class="text-xs font-mono text-purple-600 dark:text-purple-400">{{ s.pali }}</span>
-          </div>
-          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-            {{ t(s.descKm, s.descEn) }}
-          </p>
-          <div class="text-xs text-purple-900 dark:text-purple-300 bg-purple-500/10 p-2.5 rounded-xl border border-purple-500/20">
-            <span class="font-semibold">{{ t('អនុវត្តន៍ក្នុងភាពជាអ្នកដឹកនាំ៖ ', 'Leadership in action: ') }}</span>
-            <span>{{ t(s.actionKm, s.actionEn) }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: INTERACTIVE LEADERSHIP ASSESSMENT -->
-    <section class="bg-gradient-to-br from-amber-500/10 via-stone-50 to-amber-500/5 dark:from-stone-900 dark:via-stone-900 dark:to-amber-950/20 border border-amber-500/20 rounded-3xl p-4 sm:p-6 space-y-4">
-      <div class="flex items-center gap-3">
-        <span class="text-2xl sm:text-3xl">🧭</span>
-        <div>
-          <h2 class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100">
-            {{ t('តេស្តវាយតម្លៃភាពជាអ្នកដឹកនាំតាមទសពិធរាជធម៌', 'Ethical Leadership Self-Checklist') }}
-          </h2>
-          <p class="text-xs text-stone-500 dark:text-stone-400">
-            {{ t('វាយតម្លៃសមត្ថភាពដឹកនាំខ្លួនឯង ឬស្ថាប័នរបស់អ្នក (ពិន្ទុសរុប ១០)', 'Check your daily leadership habits (Score out of 10)') }}
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
-        <label
-          v-for="(item, idx) in checklist"
-          :key="idx"
-          class="flex items-start gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80 cursor-pointer hover:bg-white dark:hover:bg-stone-800 transition-colors"
-        >
-          <input
-            type="checkbox"
-            v-model="item.checked"
-            class="mt-1 w-4 h-4 rounded text-amber-600 focus:ring-amber-500 focus:ring-offset-0"
-          />
-          <div class="text-xs leading-relaxed">
-            <span class="font-bold text-stone-800 dark:text-stone-200">{{ item.virtue }}: </span>
-            <span class="text-stone-600 dark:text-stone-400">{{ t(item.km, item.en) }}</span>
-          </div>
-        </label>
-      </div>
-
-      <!-- Assessment Result -->
-      <div class="p-4 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-        <div>
-          <span class="text-xs text-stone-600 dark:text-stone-300 block">
-            {{ t('ពិន្ទុរបស់អ្នក៖ ', 'Your Leadership Score: ') }}
-            <strong class="text-amber-800 dark:text-amber-300 text-sm sm:text-base">{{ totalScore }}/10</strong>
-          </span>
-          <span class="text-xs font-semibold text-stone-800 dark:text-stone-200">
-            {{ t(scoreEvaluation.km, scoreEvaluation.en) }}
-          </span>
-        </div>
-        <button
-          @click="resetChecklist"
-          class="px-3 py-1.5 rounded-xl text-xs font-medium bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-300 hover:bg-stone-300 transition-colors"
-        >
-          {{ t('កំណត់ឡើងវិញ', 'Reset') }}
-        </button>
-      </div>
-    </section>
-
-    <!-- DETAIL MODAL / BOTTOM SHEET ON MOBILE -->
-    <teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedItem"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm"
-          @click.self="closeModal"
-        >
-          <div
-            class="card-paper bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-t-3xl sm:rounded-3xl max-h-[88vh] sm:max-h-[90vh] overflow-y-auto w-full max-w-2xl p-5 sm:p-6 shadow-2xl space-y-4"
-          >
-            <!-- Modal Header -->
-            <div class="flex items-start justify-between gap-3 pb-3 border-b border-stone-200 dark:border-stone-800">
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">{{ selectedItem.icon }}</span>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-800 dark:text-amber-300">
-                      {{ t('រាជធម៌ទី ', 'Virtue #') }}{{ selectedItem.num }}
-                    </span>
-                    <span class="text-xs font-mono text-stone-400">{{ selectedItem.pali }}</span>
-                  </div>
-                  <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
-                    {{ t(selectedItem.nameKm, selectedItem.nameEn) }}
-                  </h3>
-                </div>
-              </div>
-              <button
-                @click="closeModal"
-                class="w-8 h-8 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 flex items-center justify-center text-sm"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Modal Content Body -->
-            <div class="space-y-4 text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+              <span class="text-2xl">{{ item.icon }}</span>
               <div>
-                <h4 class="font-bold text-stone-900 dark:text-stone-100 mb-1 flex items-center gap-1.5">
-                  <span>📖</span>
-                  <span>{{ t('អត្ថន័យតាមគម្ពីរពុទ្ធសាសនា', 'Canonical Meaning') }}</span>
+                <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
+                  {{ t(item.titleKm, item.titleEn) }}
                 </h4>
-                <p>{{ t(selectedItem.canonicalKm, selectedItem.canonicalEn) }}</p>
-              </div>
-
-              <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 space-y-1">
-                <h4 class="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-1.5 text-xs sm:text-sm">
-                  <span>💼</span>
-                  <span>{{ t('ការអនុវត្តជាក់ស្តែងសម្រាប់អ្នកដឹកនាំ & អ្នកគ្រប់គ្រង', 'Practical Application in Modern Leadership') }}</span>
-                </h4>
-                <p class="text-stone-700 dark:text-stone-300 text-xs sm:text-sm leading-relaxed">
-                  {{ t(selectedItem.modernDetailKm, selectedItem.modernDetailEn) }}
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-stone-100 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700/60 space-y-1">
-                <h4 class="font-bold text-stone-800 dark:text-stone-200 text-xs flex items-center gap-1.5">
-                  <span>⚠️</span>
-                  <span>{{ t('គ្រោះថ្នាក់ប្រសិនបើមេដឹកនាំខ្វះធម៌នេះ', 'Pitfall if Leader Lacks this Virtue') }}</span>
-                </h4>
-                <p class="text-stone-600 dark:text-stone-400 text-xs">
-                  {{ t(selectedItem.dangerKm, selectedItem.dangerEn) }}
-                </p>
-              </div>
-
-              <div class="text-[11px] text-stone-500 dark:text-stone-400 italic">
-                <span>{{ t('ប្រភព៖ ', 'Source: ') }}</span>
-                <span>{{ selectedItem.source }}</span>
+                <span class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ item.pali }}</span>
               </div>
             </div>
+            <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+              #{{ item.num }}
+            </span>
+          </div>
 
-            <!-- Close Button -->
-            <div class="pt-3 border-t border-stone-200 dark:border-stone-800">
-              <button
-                @click="closeModal"
-                class="w-full py-2.5 rounded-xl bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 font-medium text-xs sm:text-sm hover:opacity-90 transition-opacity"
-              >
-                {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-              </button>
-            </div>
+          <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+            {{ t(item.descKm, item.descEn) }}
+          </p>
+
+          <div class="p-3 rounded-xl text-xs space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <strong class="block" :style="{ color: 'var(--accent-bright)' }">💡 {{ t('អនុវត្តក្នុងជីវិតជាក់ស្តែង៖', 'Practical Application:') }}</strong>
+            <p :style="{ color: 'var(--ink-soft)' }">{{ t(item.practicalKm, item.practicalEn) }}</p>
           </div>
         </div>
-      </transition>
-    </teleport>
+      </div>
+    </section>
+
+    <!-- POP-UP MODAL -->
+    <Teleport to="body">
+      <div
+        v-if="selectedItem"
+        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+        @click.self="closeModal"
+      >
+        <div
+          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
+          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+        >
+          <div class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+            <div class="flex items-center gap-2.5">
+              <span class="text-3xl">{{ selectedItem.icon }}</span>
+              <div>
+                <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                  #{{ selectedItem.num }}
+                </span>
+                <h3 class="font-display text-base sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
+                  {{ t(selectedItem.nameKm, selectedItem.nameEn) }}
+                </h3>
+                <p class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ selectedItem.pali }}</p>
+              </div>
+            </div>
+
+            <button
+              @click="closeModal"
+              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
+              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
+            <div class="verse-box p-4 rounded-xl space-y-1">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
+                📜 {{ t('អត្ថន័យតាមក្បួនធម៌បុរាណ', 'Classical Buddhist Meaning') }}
+              </span>
+              <p class="font-medium" :style="{ color: 'var(--ink)' }">
+                {{ t(selectedItem.meaningKm, selectedItem.meaningEn) }}
+              </p>
+            </div>
+
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
+                💼 {{ t('ការអនុវត្តក្នុងការដឹកនាំស្ថាប័នសម័យថ្មី', 'Modern Leadership & Governance') }}
+              </span>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedItem.modernDetailKm, selectedItem.modernDetailEn) }}
+              </p>
+            </div>
+
+            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
+                ⚠️ {{ t('គ្រោះថ្នាក់នៃការខ្វះគុណធម៌នេះ (Consequences of Lack):', 'Consequences of Failure:') }}
+              </span>
+              <p :style="{ color: 'var(--ink-soft)' }">
+                {{ t(selectedItem.dangerKm, selectedItem.dangerEn) }}
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+            <button
+              @click="closeModal"
+              class="lang-pick px-5 py-2 text-xs font-semibold on"
+            >
+              {{ t('បិទផ្ទាំង', 'Close') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 

@@ -1,5 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { inject, ref, computed } from 'vue'
+
+const currentLocale = inject('locale', ref('km'))
+function t(km, en) {
+  return currentLocale.value === 'en' ? (en || km) : km
+}
 
 const selectedEmotion = ref('anger')
 const isTimerRunning = ref(false)
@@ -197,96 +202,95 @@ function playChime() {
 </script>
 
 <template>
-  <div class="w-full space-y-6 sm:space-y-8">
+  <div class="fade-up">
     <!-- Header -->
-    <header class="text-center space-y-3">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-rose-500/10 text-rose-800 dark:text-rose-300 border border-rose-500/20">
-        <span>💊</span>
-        <span>ឱសថធម៌ព្យាបាលចិត្ត • Dhamma First-Aid</span>
-      </div>
-
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-rose-800 via-amber-700 to-rose-900 dark:from-rose-200 dark:via-amber-200 dark:to-rose-400 bg-clip-text text-transparent leading-snug">
-        ធម៌សង្គ្រោះអារម្មណ៍ក្នុងជីវិតប្រចាំថ្ងៃ
-      </h1>
-
-      <p class="text-xs sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl mx-auto leading-relaxed">
-        ជ្រើសរើសអារម្មណ៍ដែលអ្នកកំពុងជួបប្រទះ ដើម្បីទទួលបានឱវាទព្រះពុទ្ធ និងលំហាត់ចិត្តរំងាប់ទុក្ខ ៣ នាទីបន្ទាន់។
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="chapter-label">{{ t('ឱសថធម៌ព្យាបាលចិត្ត • Dhamma First-Aid', 'Dhamma First-Aid for the Mind') }}</p>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
+        {{ t('ធម៌សង្គ្រោះអារម្មណ៍ក្នុងជីវិតប្រចាំថ្ងៃ', 'Dhamma First-Aid for Daily Emotions') }}
+      </h2>
+      <div class="ornament mt-4">&#9784;</div>
+      <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('ជ្រើសរើសអារម្មណ៍ដែលអ្នកកំពុងជួបប្រទះ ដើម្បីទទួលបានឱវាទព្រះពុទ្ធ និងលំហាត់ចិត្តរំងាប់ទុក្ខ ៣ នាទីបន្ទាន់។', 'Select the emotion you are experiencing to receive Buddha wisdom and an emergency 3-minute mental relief practice.') }}
       </p>
     </header>
 
-    <!-- Emotion Selector Grid (3 cols mobile, 6 cols desktop) -->
-    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
+    <!-- Emotion Selector Grid -->
+    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 mt-6">
       <button
         v-for="e in emotions"
         :key="e.id"
         @click="selectedEmotion = e.id; resetTimer()"
-        :class="[
-          'p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border text-center transition-all duration-150 flex flex-col items-center justify-center gap-1',
-          selectedEmotion === e.id
-            ? 'bg-white dark:bg-stone-800 shadow-sm ring-2 ring-amber-500 border-transparent scale-102 font-bold'
-            : 'bg-stone-50 dark:bg-stone-900/60 border-stone-200 dark:border-stone-800 hover:bg-stone-100'
-        ]"
+        class="card-paper card-paper-hover p-2.5 sm:p-3 text-center flex flex-col items-center justify-center gap-1 transition"
+        :style="selectedEmotion === e.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
       >
         <span class="text-2xl sm:text-3xl">{{ e.emoji }}</span>
-        <span class="text-[11px] sm:text-xs font-bold text-stone-800 dark:text-stone-200 line-clamp-1 leading-tight">{{ e.titleKm }}</span>
-        <span class="text-[9px] sm:text-[10px] text-stone-400 font-mono italic truncate max-w-full">{{ e.titlePali.split(' ')[0] }}</span>
+        <span class="text-[11px] sm:text-xs font-bold line-clamp-1" :style="{ color: selectedEmotion === e.id ? 'var(--accent)' : 'var(--ink)' }">
+          {{ e.titleKm }}
+        </span>
+        <span class="paali text-[9px] sm:text-[10px] truncate max-w-full" :style="{ color: 'var(--ink-muted)' }">
+          {{ e.titlePali.split(' ')[0] }}
+        </span>
       </button>
     </div>
 
     <!-- Active Emotion Detail Card -->
-    <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-sm space-y-5 sm:space-y-6 animate-in fade-in duration-200">
-      <!-- Title & Root Cause -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 dark:border-stone-800 pb-4">
-        <div class="space-y-0.5">
+    <div class="card-paper p-5 sm:p-7 mt-6 space-y-5">
+      <!-- Title & Antidote -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4" :style="{ borderBottom: '1px solid var(--border)' }">
+        <div>
           <div class="flex items-center gap-2">
             <span class="text-2xl sm:text-3xl">{{ currentEmotionData.emoji }}</span>
-            <h2 class="text-lg sm:text-2xl font-bold text-stone-900 dark:text-stone-100">
+            <h3 class="font-display text-xl sm:text-2xl font-bold" :style="{ color: 'var(--ink)' }">
               {{ currentEmotionData.titleKm }}
-            </h2>
+            </h3>
           </div>
-          <p class="text-[11px] sm:text-xs font-mono text-amber-600 dark:text-amber-400 italic">
-            បាលី៖ {{ currentEmotionData.titlePali }}
+          <p class="paali text-xs mt-1" :style="{ color: 'var(--accent)' }">
+            {{ t('បាលី៖ ', 'Pāḷi: ') }}{{ currentEmotionData.titlePali }}
           </p>
         </div>
 
-        <div class="px-3 py-1 rounded-lg sm:rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-800 dark:text-amber-300 self-start sm:self-auto">
-          ថ្នាំបន្សាប៖ {{ currentEmotionData.antidote }}
+        <div class="px-3.5 py-1.5 rounded-xl text-xs font-semibold self-start sm:self-auto" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink)' }">
+          {{ t('ថ្នាំបន្សាប៖ ', 'Antidote: ') }}<strong :style="{ color: 'var(--accent)' }">{{ currentEmotionData.antidote }}</strong>
         </div>
       </div>
 
       <!-- Root Cause Analysis -->
-      <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-stone-50 dark:bg-stone-800/40 border border-stone-200/60 dark:border-stone-700/60 space-y-1">
-        <span class="text-[10px] sm:text-xs font-bold text-stone-500 uppercase tracking-wider block">🔬 ឫសគល់នៃអារម្មណ៍នេះតាមក្បួនធម៌៖</span>
-        <p class="text-xs sm:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+      <div class="p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent-bright)' }">
+          🔬 {{ t('ឫសគល់នៃអារម្មណ៍នេះតាមក្បួនធម៌៖', 'Root Cause According to Dhamma:') }}
+        </span>
+        <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
           {{ currentEmotionData.rootCause }}
         </p>
       </div>
 
       <!-- Sutta Quote -->
-      <div class="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 dark:from-stone-800/60 dark:to-stone-800/40 border border-amber-200/60 dark:border-amber-900/40 space-y-1.5">
-        <div class="flex items-center gap-1.5 text-xs font-bold text-amber-800 dark:text-amber-400">
+      <div class="verse-box p-4 sm:p-5 mt-4 space-y-2">
+        <div class="flex items-center gap-1.5 text-xs font-bold" :style="{ color: 'var(--accent)' }">
           <span>📜</span>
           <span>{{ currentEmotionData.suttaName }}</span>
         </div>
-        <p class="text-xs sm:text-sm italic font-serif text-stone-800 dark:text-stone-200 leading-relaxed">
+        <p class="text-xs sm:text-sm italic font-serif leading-relaxed" :style="{ color: 'var(--ink)' }">
           {{ currentEmotionData.suttaQuote }}
         </p>
       </div>
 
-      <!-- Buddha's Core Wisdom Keys -->
+      <!-- Buddha’s Core Wisdom Keys -->
       <div class="space-y-2.5">
-        <h3 class="font-bold text-stone-900 dark:text-stone-100 text-sm sm:text-base flex items-center gap-2">
+        <h4 class="font-display font-bold text-sm sm:text-base flex items-center gap-2" :style="{ color: 'var(--ink)' }">
           <span>💡</span>
-          <span>គន្លឹះដោះស្រាយដោយបញ្ញា (Yoniso Manasikāra):</span>
-        </h3>
+          <span>{{ t('គន្លឹះដោះស្រាយដោយបញ្ញា (Yoniso Manasikāra):', 'Wise Reflection Keys (Yoniso Manasikāra):') }}</span>
+        </h4>
         <div class="grid grid-cols-1 gap-2">
           <div
             v-for="(w, idx) in currentEmotionData.buddhaWisdom"
             :key="idx"
-            class="flex items-start gap-2.5 p-3 rounded-xl bg-stone-50 dark:bg-stone-800/30 border border-stone-100 dark:border-stone-800/80 text-xs text-stone-700 dark:text-stone-300 leading-relaxed"
+            class="flex items-start gap-2.5 p-3 rounded-xl text-xs leading-relaxed"
+            :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--ink-soft)' }"
           >
-            <span class="w-4 h-4 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
-              {{ idx + 1 }}
+            <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
+              {{ idx + 1 }}.
             </span>
             <span>{{ w }}</span>
           </div>
@@ -294,39 +298,41 @@ function playChime() {
       </div>
 
       <!-- 3-Minute Practice Box with Timer -->
-      <div class="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-stone-900 text-stone-100 dark:bg-stone-950 border border-stone-800 space-y-4 sm:space-y-5">
+      <div class="card-paper p-5 sm:p-6 space-y-4" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div class="space-y-0.5">
-            <h3 class="text-base sm:text-lg font-bold flex items-center justify-center sm:justify-start gap-1.5 text-amber-400">
+          <div>
+            <h4 class="font-display text-base sm:text-lg font-bold flex items-center justify-center sm:justify-start gap-1.5" :style="{ color: 'var(--ink)' }">
               <span>⏱️</span>
-              <span>លំហាត់ចិត្តសង្គ្រោះបន្ទាន់ ៣ នាទី</span>
-            </h3>
-            <p class="text-[11px] sm:text-xs text-stone-400">ធ្វើតាមការណែនាំ ៣ ជំហានខាងក្រោម ដើម្បីឱ្យចិត្តវិលមករកសេចក្តីស្ងប់</p>
+              <span>{{ t('លំហាត់ចិត្តសង្គ្រោះបន្ទាន់ ៣ នាទី', '3-Minute Emergency Mindfulness Practice') }}</span>
+            </h4>
+            <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+              {{ t('ធ្វើតាមការណែនាំ ៣ ជំហានខាងក្រោម ដើម្បីឱ្យចិត្តវិលមករកសេចក្តីស្ងប់', 'Follow the 3 steps below to calm and steady your mind') }}
+            </p>
           </div>
 
           <!-- Timer Controls -->
           <div class="flex items-center gap-2">
-            <span class="text-xl sm:text-2xl font-mono font-bold text-white bg-stone-800 px-3 py-1 rounded-xl border border-stone-700">
+            <span class="text-xl sm:text-2xl font-mono font-bold px-3.5 py-1.5 rounded-xl" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--accent-bright)' }">
               {{ formatTimer(timerSeconds) }}
             </span>
             <button
               v-if="!isTimerRunning"
               @click="startTimer"
-              class="px-3.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-medium text-xs transition"
+              class="lang-pick px-3.5 py-1.5 text-xs font-semibold on"
             >
-              ចាប់ផ្តើម
+              {{ t('ចាប់ផ្តើម', 'Start') }}
             </button>
             <button
               v-else
               @click="pauseTimer"
-              class="px-3.5 py-1.5 rounded-xl bg-stone-700 hover:bg-stone-600 text-white font-medium text-xs transition"
+              class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
             >
-              ផ្អាក
+              {{ t('ផ្អាក', 'Pause') }}
             </button>
             <button
               @click="resetTimer"
-              class="p-1.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-400 text-xs transition"
-              title="កំណត់ឡើងវិញ"
+              class="lang-pick px-2.5 py-1.5 text-xs font-semibold"
+              title="Reset"
             >
               ↺
             </button>
@@ -334,14 +340,14 @@ function playChime() {
         </div>
 
         <!-- 3 Steps -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 border-t border-stone-800">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3" :style="{ borderTop: '1px solid var(--border)' }">
           <div
             v-for="(st, idx) in currentEmotionData.threeMinPractice"
             :key="idx"
-            class="p-3.5 rounded-xl sm:rounded-2xl bg-stone-800/60 border border-stone-700/60 space-y-1.5"
+            class="card-paper p-3.5 space-y-1.5"
           >
-            <span class="text-xs font-bold text-amber-400 block">{{ st.step }}</span>
-            <p class="text-[11px] sm:text-xs text-stone-300 leading-relaxed">{{ st.text }}</p>
+            <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">{{ st.step }}</span>
+            <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ st.text }}</p>
           </div>
         </div>
       </div>

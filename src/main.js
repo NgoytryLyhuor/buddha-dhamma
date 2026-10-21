@@ -4,7 +4,6 @@ import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import App from './App.vue'
 import './style.css'
-import { getSavedScroll, saveScroll, SCROLL_THRESHOLD } from './composables/useReadingProgress'
 
 inject()
 injectSpeedInsights()
@@ -70,16 +69,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, from) {
+  scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }
     }
-    if (from.matched.length) saveScroll(from.path, window.scrollY || 0)
-    const saved = getSavedScroll()[to.path]
-    if (saved > SCROLL_THRESHOLD && from.matched.length) {
-      return { top: saved, behavior: 'auto' }
-    }
-    return { top: 0, behavior: 'smooth' }
+    // Always start from the top when navigating from another menu to another menu
+    return { top: 0, left: 0 }
   }
 })
 

@@ -519,8 +519,17 @@ import { useNotifications } from './composables/useNotifications'
 const route = useRoute()
 const router = useRouter()
 
-function onNavigationDone() {
-  nextTick(scrollActiveTabIntoView)
+function onNavigationDone(to, from) {
+  if (!to.hash) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+    nextTick(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    })
+  }
 }
 router.afterEach(onNavigationDone)
 
@@ -891,21 +900,14 @@ const onScroll = () => {
   const doc = document.documentElement
   const max = doc.scrollHeight - window.innerHeight
   progress.value = max > 0 ? Math.min(100, Math.round((window.scrollY / max) * 100)) : 0
-  if (saveTimer) return
-  saveTimer = setTimeout(() => {
-    saveScroll(route.path, window.scrollY || 0)
-    saveTimer = null
-  }, 400)
-}
-const onSaveOnExit = () => {
-  saveScroll(route.path, window.scrollY || 0)
+  // No need to save scroll offset so pages always start cleanly from the top
 }
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 onMounted(() => {
+  clearSavedScroll()
   window.addEventListener('scroll', onScroll, { passive: true })
-  window.addEventListener('pagehide', onSaveOnExit)
   document.addEventListener('click', onSettingsGlobalClick)
   document.addEventListener('click', onDesktopGlobalClick)
   window.addEventListener('keydown', onDesktopKeydown)
@@ -913,7 +915,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
-  window.removeEventListener('pagehide', onSaveOnExit)
   document.removeEventListener('click', onSettingsGlobalClick)
   document.removeEventListener('click', onDesktopGlobalClick)
   window.removeEventListener('keydown', onDesktopKeydown)

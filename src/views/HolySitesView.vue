@@ -133,7 +133,7 @@ function setSite(s) {
           v-for="s in sites"
           :key="s.id"
           @click="setSite(s)"
-          class="card-paper card-paper-hover p-3 text-center transition flex flex-col items-center justify-center gap-0.5"
+          class="card-paper card-paper-hover p-3 text-center transition flex flex-col items-center justify-center gap-1 h-full min-h-[58px]"
           :style="activeSiteId === s.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
         >
           <strong class="text-xs line-clamp-1" :style="{ color: activeSiteId === s.id ? 'var(--accent)' : 'var(--ink)' }">
@@ -200,7 +200,7 @@ function setSite(s) {
           <li
             v-for="(arch, idx) in currentSite.archaeology"
             :key="idx"
-            class="card-paper p-3.5 text-xs leading-relaxed space-y-1"
+            class="card-paper p-3.5 text-xs leading-relaxed space-y-1 h-full flex flex-col justify-between"
           >
             <span class="font-bold block text-[11px]" :style="{ color: 'var(--accent)' }">✦ {{ t('ភស្តុតាងទី ', 'Evidence ') }}{{ idx + 1 }}</span>
             <span :style="{ color: 'var(--ink-soft)' }">{{ arch }}</span>

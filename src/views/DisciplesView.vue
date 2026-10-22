@@ -11,13 +11,13 @@
         {{ t('ស្វែងយល់ពីប្រវត្តិ គុណធម៌ដ៏ឧត្តម និងការតាំងសច្ចាពីអតីតជាតិនៃព្រះអគ្គសាវ័ក មហាថេរ ៨០ អង្គ និងឧបាសក-ឧបាសិកាឆ្នើម ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់តែងតាំងជា «ឯតទគ្គៈ» (កំពូលលើសគេក្នុងផ្នែកនីមួយៗ)។', 'Discover the inspiring lives, foremost spiritual achievements (Etadagga), past-life aspirations, and wisdom verses of the supreme disciples of the Buddha.') }}
       </p>
 
-      <!-- Category Filter Pills -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- Category Filter Pills (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           v-for="cat in categories"
           :key="cat.id"
           @click="activeCategory = cat.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeCategory === cat.id ? 'on' : ''"
         >
           <span>{{ cat.icon }}</span>
@@ -49,22 +49,22 @@
 
     <!-- Quick Stats Cards -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-4">
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🏆</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ឯតទគ្គៈ', 'Etadagga') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('កំពូលលើសគេមួយផ្នែក', 'Supreme in each field') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🌟</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('៨០ អង្គ', '80 Mahātheras') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('អសីតិមហាសាវ័ក', 'Chief elder disciples') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🪷</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('១៣ អង្គ', '13 Bhikkhunīs') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ភិក្ខុនីឯតទគ្គៈ', 'Foremost nuns') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🤝</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('២០ រូប', '20 Lay Disciples') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ឧបាសក–ឧបាសិកា', 'Foremost Upāsaka') }}</span>
@@ -77,7 +77,7 @@
         v-for="disciple in filteredDisciples"
         :key="disciple.id"
         @click="openModal(disciple)"
-        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3"
+        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3 h-full"
       >
         <div class="space-y-2">
           <div class="flex items-center justify-between gap-2">

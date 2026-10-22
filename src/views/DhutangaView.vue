@@ -11,13 +11,13 @@
         {{ t('«ធុតង្គ» (ធុត = កម្ចាត់/រលាស់ចោល + អង្គ = គុណធម៌) គឺជាក្បួនបដិបត្តិដុសខាត់កម្ចាត់កិលេស ភាពលោភលន់ និងការជាប់ជំពាក់ក្នុងផាសុកភាពខាងសាច់ឈាម ដែលព្រះអរហន្តខ្សែព្រៃតែងសមាទានដើម្បីឈានទៅដល់ការត្រាស់ដឹង។', 'Dhutaṅga means practices that shake off and scour away defilements of craving, luxury, and indolence. Explore the 13 classical ascetic rules recorded in the Visuddhimagga.') }}
       </p>
 
-      <!-- Group Filter Tabs -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- Group Filter Tabs (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           v-for="grp in groups"
           :key="grp.id"
           @click="activeGroup = grp.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeGroup === grp.id ? 'on' : ''"
         >
           <span>{{ grp.icon }}</span>
@@ -39,19 +39,19 @@
 
     <!-- 3 Summary Stat Pillars -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-      <div class="card-paper p-4 text-center space-y-1">
+      <div class="card-paper p-4 text-center space-y-1 h-full flex flex-col justify-between items-center">
         <span class="text-2xl">👘</span>
         <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('ចីវរបដិសំយុត្ត (២)', 'Robe Practices (2)') }}</h4>
         <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('សំពត់គងធូលី & ជីវរ ៣ ផ្ទាំង', 'Rag robes & triple robes') }}</p>
       </div>
 
-      <div class="card-paper p-4 text-center space-y-1">
+      <div class="card-paper p-4 text-center space-y-1 h-full flex flex-col justify-between items-center">
         <span class="text-2xl">🥣</span>
         <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('បិណ្ឌបាតបដិសំយុត្ត (៥)', 'Alms & Food Practices (5)') }}</h4>
         <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ឆាន់មួយពេល & ឆាន់ក្នុងបាត្រ', 'Single meal & bowl-only') }}</p>
       </div>
 
-      <div class="card-paper p-4 text-center space-y-1">
+      <div class="card-paper p-4 text-center space-y-1 h-full flex flex-col justify-between items-center">
         <span class="text-2xl">⛺</span>
         <h4 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">{{ t('សេនាសនបដិសំយុត្ត (៦)', 'Lodging & Posture (6)') }}</h4>
         <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('គល់ឈើ ទីវាល & មិនដេក (នេសជ្ជិក)', 'Forest trees & non-lying posture') }}</p>
@@ -64,7 +64,7 @@
         v-for="dhut in filteredDhutangas"
         :key="dhut.id"
         @click="openModal(dhut)"
-        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3"
+        class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3 h-full"
       >
         <div class="space-y-2">
           <div class="flex items-center justify-between gap-2">

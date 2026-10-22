@@ -11,13 +11,13 @@
         {{ t('គោលការណ៍ដឹកនាំរដ្ឋ ស្ថាប័ន ក្រុមហ៊ុន និងក្រុមគ្រួសារប្រកបដោយសុចរិតធម៌ យុត្តិធម៌ និងសេចក្តីស្ងប់ក្សេមក្សាន្ត ដែលព្រះសម្មាសម្ពុទ្ធទ្រង់បានសម្តែងចំពោះព្រះរាជា និងមេដឹកនាំសាធារណរដ្ឋវជ្ជី។', 'Ethical leadership principles for rulers, executives, team managers, and families to foster justice, non-corruption, social welfare, and sustainable prosperity.') }}
       </p>
 
-      <!-- Section Navigation Pills -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- Section Navigation Pills (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           v-for="sec in sections"
           :key="sec.id"
           @click="activeSection = sec.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeSection === sec.id ? 'on' : ''"
         >
           <span>{{ sec.icon }}</span>
@@ -26,24 +26,24 @@
       </div>
     </header>
 
-    <!-- Quick Overview Stats -->
+    <!-- Quick Overview Stats (Uniform equal heights) -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-6">
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">👑</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ទសពិធរាជធម៌', 'Dasa Rājadhamma') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌មេដឹកនាំ ១០ ប្រការ', '10 ruler virtues') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🏛️</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('អបរិហានិយធម៌', 'Aparihāniya') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌មិនសាបសូន្យ ៧', '7 unity conditions') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">⚖️</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ចក្កវត្តិវត្ត', 'Cakkavatti-vatta') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('កាតព្វកិច្ចស្តេចចក្រ ១២', '12 sovereign duties') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🤝</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('សង្គហវត្ថុ', 'Saṅgahavatthu') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ធម៌ចងចិត្តមនុស្ស ៤', '4 bonding virtues') }}</span>
@@ -70,7 +70,7 @@
           v-for="item in rajadhammaList"
           :key="item.id"
           @click="openModal(item)"
-          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between"
+          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between h-full"
         >
           <div>
             <div class="flex items-start justify-between gap-2 mb-2">
@@ -125,7 +125,7 @@
         <div
           v-for="(ap, idx) in aparihaniyaList"
           :key="idx"
-          class="card-paper p-4 sm:p-5 space-y-2"
+          class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between"
         >
           <div class="flex items-start gap-3">
             <span class="sutra-num font-bold text-xs shrink-0 mt-0.5" :style="{ color: 'var(--accent-bright)' }">
@@ -170,7 +170,7 @@
         <div
           v-for="vatta in cakkavattiList"
           :key="vatta.num"
-          class="card-paper p-4 space-y-1.5"
+          class="card-paper p-4 space-y-1.5 h-full flex flex-col justify-between"
         >
           <div class="flex items-center gap-2">
             <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
@@ -206,7 +206,7 @@
         <div
           v-for="item in sangahaList"
           :key="item.id"
-          class="card-paper p-4 sm:p-5 space-y-2"
+          class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">

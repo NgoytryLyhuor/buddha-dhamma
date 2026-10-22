@@ -192,28 +192,31 @@ function playMettaBell() {
         {{ t('ការផ្សាយរស្មីមេត្តាធំធេងគ្របដណ្តប់សព្វសត្វក្នុងលោកធាតុគ្មានព្រំដែន គ្មានពៀរវេរា ដើម្បីបណ្តុះបេះដូងត្រជាក់ និងសម្រេចអានិសង្សដ៏អស្ចារ្យ។', 'Radiating boundless loving-kindness to all beings in every direction without boundary or ill-will, cooling the heart and cultivating the 11 supreme blessings.') }}
       </p>
 
-      <!-- View Switcher Tabs -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- View Switcher Tabs (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           @click="activeTab = 'compass'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'compass' ? 'on' : ''"
         >
-          🧭 {{ t('រ៉ាដា ១០ ទិស', '10 Directions Compass') }}
+          <span>🧭</span>
+          <span>{{ t('រ៉ាដា ១០ ទិស', '10 Directions Compass') }}</span>
         </button>
         <button
           @click="activeTab = 'sequence'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'sequence' ? 'on' : ''"
         >
-          🪜 {{ t('៥ ដំណាក់កាល', '5 Stages of Mettā') }}
+          <span>🪜</span>
+          <span>{{ t('៥ ដំណាក់កាល', '5 Stages of Mettā') }}</span>
         </button>
         <button
           @click="activeTab = 'benefits'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'benefits' ? 'on' : ''"
         >
-          ✨ {{ t('អានិសង្ស ១១', '11 Blessings') }}
+          <span>✨</span>
+          <span>{{ t('អានិសង្ស ១១', '11 Blessings') }}</span>
         </button>
       </div>
     </header>
@@ -236,7 +239,7 @@ function playMettaBell() {
             v-for="d in directions"
             :key="d.id"
             @click="selectedDirection = d.id; triggerRadiate()"
-            class="card-paper card-paper-hover p-3 text-center transition"
+            class="card-paper card-paper-hover p-3 text-center transition h-full flex flex-col justify-between items-center min-h-[72px]"
             :style="selectedDirection === d.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
           >
             <span class="text-xl block">{{ d.icon }}</span>
@@ -346,7 +349,7 @@ function playMettaBell() {
         <div
           v-for="b in benefits"
           :key="b.no"
-          class="card-paper card-paper-hover p-4 flex items-start gap-3"
+          class="card-paper card-paper-hover p-4 flex items-start gap-3 h-full"
         >
           <span class="sutra-num font-bold text-sm px-2.5 py-1 rounded-lg shrink-0" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)', color: 'var(--accent-bright)' }">
             {{ b.no }}

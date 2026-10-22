@@ -11,13 +11,13 @@
         {{ t('ស្វែងយល់ពីមាត្រាពេលវេលាដ៏មហិមាក្នុងពុទ្ធសាសនា វដ្តនៃការកើតរលាយនៃចក្រវាឡ មហាវិនាសកម្មទាំង ៣ និងការវិវត្តនៃមនុស្សជាតិ និងរបៀបរបបសង្គមក្នុងអគ្គញ្ញសូត្រ។', 'Explore cosmic time scales (Kalpas), universal dissolution cycles, the 7 suns destruction, and the evolutionary origins of human society in the Aggañña Sutta.') }}
       </p>
 
-      <!-- Section Pills -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- Section Pills (Uniform height, smooth touch scroll on mobile) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           v-for="sec in sections"
           :key="sec.id"
           @click="activeSection = sec.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeSection === sec.id ? 'on' : ''"
         >
           <span>{{ sec.icon }}</span>
@@ -26,24 +26,24 @@
       </div>
     </header>
 
-    <!-- Quick Stat Highlights -->
+    <!-- Quick Stat Highlights (Uniform equal heights) -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mt-6">
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">⏳</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('មហាកប្ប', 'Mahā-kappa') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('៤ អសង្ខេយ្យកប្ប', '4 cosmic epochs') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">☀️</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ព្រះអាទិត្យ ៧', '7 Cosmic Suns') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('វិនាសកម្មដោយភ្លើង', 'Universal fire apocalypse') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🌱</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('អគ្គញ្ញសូត្រ', 'Aggañña Sutta') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ដើមកំណើតសង្គម', 'Genesis of society & state') }}</span>
       </div>
-      <div class="card-paper p-3 text-center">
+      <div class="card-paper p-3 text-center h-full flex flex-col justify-between items-center">
         <span class="text-xl block">🪷</span>
         <strong class="text-xs sm:text-sm block mt-1" :style="{ color: 'var(--ink)' }">{{ t('ភទ្ទកប្ប', 'Bhadda-kappa') }}</strong>
         <span class="text-[10px] sm:text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ព្រះពុទ្ធ ៥ ព្រះអង្គ', '5 Buddhas (Our era)') }}</span>
@@ -69,7 +69,7 @@
         <div
           v-for="(phase, idx) in mahakappaPhases"
           :key="idx"
-          class="card-paper p-4 sm:p-5 space-y-2 relative overflow-hidden"
+          class="card-paper p-4 sm:p-5 space-y-2 relative overflow-hidden h-full flex flex-col justify-between"
         >
           <div class="flex items-center justify-between">
             <span class="text-2xl">{{ phase.icon }}</span>
@@ -92,7 +92,7 @@
 
       <!-- Two Analogies of Kalpa Duration -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
-        <div class="card-paper p-4 sm:p-5 space-y-2" :style="{ background: 'var(--bg-card-2)' }">
+        <div class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card-2)' }">
           <div class="flex items-center gap-2">
             <span class="text-xl">🏔️</span>
             <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
@@ -105,7 +105,7 @@
           <span class="paali text-[11px] block" :style="{ color: 'var(--ink-muted)' }">Samyutta Nikāya SN 15.5</span>
         </div>
 
-        <div class="card-paper p-4 sm:p-5 space-y-2" :style="{ background: 'var(--bg-card-2)' }">
+        <div class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card-2)' }">
           <div class="flex items-center gap-2">
             <span class="text-xl">🌰</span>
             <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
@@ -135,7 +135,7 @@
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-        <div class="card-paper p-4 sm:p-5 space-y-3">
+        <div class="card-paper p-4 sm:p-5 space-y-3 h-full flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🔥</span>
             <div>
@@ -246,7 +246,7 @@
         <div
           v-for="stage in aggannaStages"
           :key="stage.step"
-          class="card-paper p-4 sm:p-5 space-y-2"
+          class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between"
         >
           <div class="flex items-center justify-between">
             <span class="text-2xl">{{ stage.icon }}</span>

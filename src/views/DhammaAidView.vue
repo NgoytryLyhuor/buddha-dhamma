@@ -221,7 +221,7 @@ function playChime() {
         v-for="e in emotions"
         :key="e.id"
         @click="selectedEmotion = e.id; resetTimer()"
-        class="card-paper card-paper-hover p-2.5 sm:p-3 text-center flex flex-col items-center justify-center gap-1 transition"
+        class="card-paper card-paper-hover p-2.5 sm:p-3 text-center flex flex-col items-center justify-between gap-1 transition h-full min-h-[92px]"
         :style="selectedEmotion === e.id ? { borderColor: 'var(--accent)', background: 'var(--bg-card-2)' } : {}"
       >
         <span class="text-2xl sm:text-3xl">{{ e.emoji }}</span>
@@ -344,7 +344,7 @@ function playChime() {
           <div
             v-for="(st, idx) in currentEmotionData.threeMinPractice"
             :key="idx"
-            class="card-paper p-3.5 space-y-1.5"
+            class="card-paper p-3.5 space-y-1.5 h-full flex flex-col justify-between"
           >
             <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">{{ st.step }}</span>
             <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ st.text }}</p>

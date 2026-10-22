@@ -244,32 +244,32 @@ function closeModal() {
         {{ t('បំប្លែងមាគ៌ាដ៏ឧត្តមទាំង ៨ របស់ព្រះសម្មាសម្ពុទ្ធ ឱ្យក្លាយជា ផែនការសកម្មភាព និងទម្លាប់រស់នៅប្រចាំថ្ងៃ ក្នុងសង្គមសម័យទំនើប ជាមួយតារាងតាមដានការបដិបត្តិ។', 'Translating the noble path into daily mindful actions and modern ethical life habits with our daily practice tracker.') }}
       </p>
 
-      <!-- 3 Trainings Legend Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6">
+      <!-- 3 Trainings Legend Tabs (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           @click="activeGroup = 'all'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
           :class="activeGroup === 'all' ? 'on' : ''"
         >
           {{ t('អង្គមគ្គទាំង ៨', 'All 8 Factors') }}
         </button>
         <button
           @click="activeGroup = 'panna'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
           :class="activeGroup === 'panna' ? 'on' : ''"
         >
           {{ t('១. បញ្ញាសិក្ខា', '1. Wisdom (Paññā)') }}
         </button>
         <button
           @click="activeGroup = 'sila'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
           :class="activeGroup === 'sila' ? 'on' : ''"
         >
           {{ t('២. សីលសិក្ខា', '2. Morality (Sīla)') }}
         </button>
         <button
           @click="activeGroup = 'samadhi'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
           :class="activeGroup === 'samadhi' ? 'on' : ''"
         >
           {{ t('៣. សមាធិសិក្ខា', '3. Concentration (Samādhi)') }}
@@ -319,7 +319,7 @@ function closeModal() {
       <div
         v-for="factor in filteredFactors"
         :key="factor.id"
-        class="card-paper card-paper-hover p-4 sm:p-6 space-y-4 flex flex-col justify-between"
+        class="card-paper card-paper-hover p-4 sm:p-6 space-y-4 flex flex-col justify-between h-full"
       >
         <div class="space-y-3">
           <!-- Header of card -->

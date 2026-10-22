@@ -11,11 +11,11 @@
         {{ t('ស្វែងយល់ពីដំណើរវិវឌ្ឍនៃព្រះពុទ្ធសាសនា ៥០០០ ព្រះវស្សា, ដំណាក់កាលសាបរលាបទាំង ៥ (អន្តរធាន ៥) និងប្រវត្តិព្រះសម្មាសម្ពុទ្ធអនាគត «ព្រះសិរិអារ្យមេត្រីយ៍» ព្រមទាំងវិធីសាងបុណ្យដើម្បីបានជួបសាសនារបស់ព្រះអង្គ។', 'Explore the 5,000-year destiny of the Buddha Sasana, the 5 stages of doctrinal disappearance (Antaradhāna), and the prophecy of Metteyya, the Future Buddha.') }}
       </p>
 
-      <!-- View Switcher Tabs -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- View Switcher Tabs (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           @click="activeTab = 'timeline'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'timeline' ? 'on' : ''"
         >
           <span>📜</span>
@@ -24,7 +24,7 @@
 
         <button
           @click="activeTab = 'antaradhana'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'antaradhana' ? 'on' : ''"
         >
           <span>🔥</span>
@@ -33,7 +33,7 @@
 
         <button
           @click="activeTab = 'metteyya'"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeTab === 'metteyya' ? 'on' : ''"
         >
           <span>🪷</span>
@@ -89,7 +89,7 @@
         <div
           v-for="ant in antaradhanas"
           :key="ant.id"
-          class="card-paper card-paper-hover p-4 sm:p-5 flex flex-col justify-between space-y-3"
+          class="card-paper card-paper-hover p-4 sm:p-5 flex flex-col justify-between space-y-3 h-full"
         >
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -157,7 +157,7 @@
 
       <!-- Key Prophecies Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-        <div class="card-paper p-4 sm:p-5 space-y-2">
+        <div class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between">
           <span class="text-2xl">⏳</span>
           <h4 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">{{ t('ពេលវេលានៃការត្រាស់ដឹង', 'Time of Advent') }}</h4>
           <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">

@@ -1121,22 +1121,22 @@ function getJatiBadgeColor(jati) {
     </p>
 
     <!-- View Switcher Tabs -->
-    <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-1 sm:flex-wrap">
+    <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
       <button
         @click="activeTab = 'citta'"
-        class="lang-pick px-4 py-2 text-xs font-semibold"
+        class="lang-pick px-4 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
         :class="activeTab === 'citta' ? 'on' : ''">
         🧠 {{ t('ចិត្ត ៨៩/១២១ (Citta)', 'Citta 89/121') }}
       </button>
       <button
         @click="activeTab = 'cetasika'"
-        class="lang-pick px-4 py-2 text-xs font-semibold"
+        class="lang-pick px-4 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
         :class="activeTab === 'cetasika' ? 'on' : ''">
         🌿 {{ t('ចេតសិក ៥២ (Cetasika)', 'Cetasika 52') }}
       </button>
       <button
         @click="activeTab = 'matrix'"
-        class="lang-pick px-4 py-2 text-xs font-semibold"
+        class="lang-pick px-4 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
         :class="activeTab === 'matrix' ? 'on' : ''">
         📊 {{ t('ការប្រកបគ្នា (Sampayoga)', 'Sampayoga Matrix') }}
       </button>

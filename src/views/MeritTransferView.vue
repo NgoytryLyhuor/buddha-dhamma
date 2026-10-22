@@ -11,13 +11,13 @@
         {{ t('តើការឧទ្ទិសបុណ្យដល់ញាតិដែលចែកឋានទៅដំណើរការយ៉ាងដូចម្តេច? ហេតុអ្វីបានជាមានតែប្រេតមួយពួកគត់ដែលអាចទទួលបុណ្យបាន? និងវិធីធ្វើបុណ្យឧទ្ទិសឱ្យចំគោលដៅ ១០០% តាមគម្ពីរពុទ្ធសាសនា។', 'How does merit transference work? Why can only one specific class of Petas receive shared merits? Canonical guide from the Jāṇussoṇī and Tirokuḍḍa Suttas.') }}
       </p>
 
-      <!-- Section Navigation Pills -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-6 flex-wrap justify-center">
+      <!-- Section Navigation Pills (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
         <button
           v-for="sec in sections"
           :key="sec.id"
           @click="activeSection = sec.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
           :class="activeSection === sec.id ? 'on' : ''"
         >
           <span>{{ sec.icon }}</span>
@@ -65,7 +65,7 @@
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-        <div class="card-paper p-4 sm:p-5 space-y-2">
+        <div class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🔥</span>
             <div>
@@ -80,7 +80,7 @@
           </p>
         </div>
 
-        <div class="card-paper p-4 sm:p-5 space-y-2">
+        <div class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between">
           <div class="flex items-center gap-2">
             <span class="text-2xl">🧠</span>
             <div>
@@ -186,7 +186,7 @@
         <div
           v-for="cond in threeConditions"
           :key="cond.num"
-          class="card-paper p-4 sm:p-5 space-y-2"
+          class="card-paper p-4 sm:p-5 space-y-2 h-full flex flex-col justify-between"
         >
           <div class="flex items-center gap-2">
             <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">

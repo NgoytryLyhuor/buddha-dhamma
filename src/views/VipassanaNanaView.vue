@@ -415,13 +415,13 @@ function closeModal() {
         </button>
       </div>
 
-      <!-- Visuddhi Tabs -->
-      <div class="flex items-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
+      <!-- Visuddhi Tabs (Uniform height, touch scroll) -->
+      <div class="flex items-center gap-2 mt-4 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap -mx-2 px-2 sm:mx-0 sm:px-0">
         <button
           v-for="v in visuddhiList"
           :key="v.id"
           @click="activeFilter = v.id"
-          class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center"
           :class="activeFilter === v.id ? 'on' : ''"
         >
           {{ t(v.km, v.en) }}
@@ -441,7 +441,7 @@ function closeModal() {
           v-for="nana in filteredNanas"
           :key="nana.step"
           @click="openNanaModal(nana)"
-          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between"
+          class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between h-full"
         >
           <div class="space-y-2">
             <div class="flex items-center justify-between">

@@ -366,7 +366,7 @@ watch(currentStepIndex, (newIdx) => {
 
     <!-- The 3 Crucial Zones Breakdown -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-6">
-      <div class="card-paper p-4 sm:p-5 space-y-1.5">
+      <div class="card-paper p-4 sm:p-5 space-y-1.5 h-full flex flex-col justify-between">
         <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">
           {{ t('តំបន់ទី ១ (ខណៈ ១ ដល់ ៧)', 'Zone 1: Moments 1 to 7') }}
         </span>
@@ -378,7 +378,7 @@ watch(currentStepIndex, (newIdx) => {
         </p>
       </div>
 
-      <div class="card-paper p-4 sm:p-5 space-y-1.5" :style="{ borderColor: 'var(--accent)' }">
+      <div class="card-paper p-4 sm:p-5 space-y-1.5 h-full flex flex-col justify-between" :style="{ borderColor: 'var(--accent)' }">
         <span class="text-xs font-bold block" :style="{ color: 'var(--accent-bright)' }">
           {{ t('តំបន់ទី ២ (ខណៈទី ៨: វុដ្ឋបនៈ)', 'Zone 2: Moment 8 (Voṭṭhabbana)') }}
         </span>

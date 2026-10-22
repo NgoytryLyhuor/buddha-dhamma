@@ -13,21 +13,30 @@
           </router-link>
 
           <div class="flex items-center gap-2">
-            <button class="theme-btn px-3 py-1.5 flex gap-1.5 items-center font-bold text-xs"
+            <!-- Desktop only: clean button to open all 41 pages (Hidden on mobile where bottom nav is used) -->
+            <button
+              type="button"
+              class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-bold transition cursor-pointer"
               @click="openMenu"
               :class="menuOpen ? 'active' : ''"
-              :style="menuOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)', background: 'var(--accent-soft)' } : {}"
+              :style="{
+                background: menuOpen ? 'var(--accent-soft)' : 'var(--bg-card)',
+                color: menuOpen ? 'var(--accent)' : 'var(--ink)',
+                border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
+              }"
               :title="t('ម៉ឺនុយទាំងអស់ (៤១)', 'All Pages (41)')"
-              :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')">
+              :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
+            >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-              <span>{{ t('ម៉ឺនុយ', 'Menu') }}</span>
-              <span class="text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold"
+              <span>{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
                 :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
                 ៤១
               </span>
             </button>
 
-            <button ref="settingsBtnRef" class="theme-btn px-2.5 flex gap-1.5 items-center font-bold" @click="settingsOpen = !settingsOpen"
+            <!-- Settings icon button (square icon button) -->
+            <button ref="settingsBtnRef" class="theme-btn" @click="settingsOpen = !settingsOpen"
               :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
               :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>

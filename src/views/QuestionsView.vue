@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៥ — សួរតាមដែលអ្នកជួប', 'Q&A 25 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៦ — សួរតាមដែលអ្នកជួប', 'Q&A 26 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៥ — ចុចដើម្បីបើកមើល', 'TWENTY-FIVE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៦ — ចុចដើម្បីបើកមើល', 'TWENTY-SIX QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -249,7 +249,17 @@ const qas = [
     mK: 'គ្មានឫទ្ធិណាធំជាងកម្លាំងកម្មឡើយ · អបរាបរិយវេទនីយកម្មត្រូវតែឆ្លៀតឱ្យផលលើជាតិចុងក្រោយ · ទុក្ខមានលើរូបកាយ តែចិត្តអរហន្តមិនរងទុក្ខ។',
     mE: 'No psychic power surpasses kamma; residual unripened kamma seizes the final lifetime to mature; physical pain exists, but the awakened mind is untouched.',
     tie: 'រឿងព្រះមហាមោគ្គល្លានត្ថេរ និងកម្មចាស់ · /stories#story-moggallana',
-    to: '/stories#story-moggallana',
+    to: '/stories#story-moggallana',
+  },
+  {
+    qK: 'តើព្រះពុទ្ធអាចយល់ពី Logic នៃការសរសេរកូដ (Coding) និងការបង្កើតម៉ាស៊ីនឡានដែរឬទេ ហើយហេតុអ្វីព្រះអង្គមិនបង្កើតតាំងពី ២,៦០០ ឆ្នាំមុន?',
+    qE: 'Could the Buddha understand programming logic, coding, and automobile mechanics, and why did he not invent them 2,600 years ago?',
+    aK: 'តាមគោលការណ៍ ព្រះពុទ្ធអាចដឹង និងយល់បានទាំងអស់យ៉ាងធ្លុះធ្លាយ៖ (១) Logic នៃការសរសេរកូដ (Coding & Algorithm) ដូចជា State Machine, IF/ELSE, LOOPS គ្រាន់តែជាការយកច្បាប់ «បច្ច័យ និងបដិច្ចសមុប្បាទ» (Idappaccayatā / Causal Conditionality) មកសរសេរជានិមិត្តសញ្ញាសន្មត។ ព្រះពុទ្ធមានព្រះសព្វញ្ញុតញាណ (Sabbaññuta-ñāṇa) អាចផ្ចង់ដឹងស្ថាបត្យកម្មទិន្នន័យបានជ្រៅជាងអ្នកបង្កើតទៅទៀត។ (២) ការបង្កើតម៉ូតូ ឡាន (Mechanics & Physics) ដំណើរការដោយកម្លាំងកម្ដៅ ខ្យល់ ភ្លើង និងថាមពល ដែលសុទ្ធតែជា «រូបធម៌» (Rūpa)។ ព្រះពុទ្ធបានវិភាគបំបែករូបធាតុដល់កម្រិតតូចបំផុតគឺ «រូបកលាប» (Rūpa-kalāpa) និងអន្តរកម្មនៃមហាភូតរូប ៤។ (៣) ហេតុអ្វីមិនបង្កើតកាលពី ២,៦០០ ឆ្នាំមុន? យោងតាម «សឹម្សបាសូត្រ» (SN 56.31) ព្រះពុទ្ធប្រៀបធៀបចំណេះដឹងដែលទ្រង់ដឹងដូចស្លឹកឈើក្នុងព្រៃ តែអ្វីដែលយកមកបង្រៀនមានត្រឹមស្លឹកឈើមួយក្តាប់ដៃ (អរិយសច្ច ៤) ពីព្រោះបច្ចេកវិទ្យាលោកិយមិននាំទៅរកការរំលត់ទុក្ខផ្លូវចិត្តឡើយ។ មនុស្សទោះបីមានឡានទំនើប ឬ AI ក៏នៅតែជួបទុក្ខ កើត ចាស់ ឈឺ ស្លាប់ដដែល។ ព្រះពុទ្ធមិនខ្ជះខ្ជាយពេលវេលានៃការត្រាស់ដឹងលើរបស់ដែលគ្រាន់តែជាគ្រឿងបម្រើកាមគុណក្នុងសង្សារវដ្តឡើយ។',
+    aE: 'In principle, the Buddha comprehended all these seamlessly: (1) Programming logic (algorithms, state machines, conditional branches IF/ELSE, loops) is simply a physical/symbolic application of Idappaccayatā (Causal Conditionality / Dependent Origination). Endowed with Sabbaññuta-ñāṇa (supreme omniscience), the Buddha could fathom data flows and system logic far deeper than human engineers. (2) Mechanics and vehicles operate via thermodynamics, heat, air, and combustion — all of which are physical phenomena (Rūpa). The Buddha scrutinized physical matter down to Rūpa-kalāpa (subatomic clusters) and the four primary elements (mahābhūta). (3) Why not invent them 2,600 years ago? Per the Siṃsapā Sutta (SN 56.31), the Buddha’s realization was vast like all leaves in the forest, but what he taught was merely a single handful (the Four Noble Truths) — because secular technology cannot eliminate psychological suffering. Even with supercars or advanced AI, human beings remain bound by birth, aging, illness, death, and mental afflictions. The Buddha would not divert his awakening to transient devices that only serve sensual attachment in saṃsāra.',
+    mK: 'កូដ និងគ្រឿងយន្តជាទម្រង់នៃបច្ច័យ និងរូបធម៌ · ព្រះពុទ្ធដឹងដូចស្លឹកឈើក្នុងព្រៃ តែបង្រៀនត្រឹមស្លឹកឈើមួយក្តាប់ដៃ ដើម្បីរំលត់ទុក្ខពិតប្រាកដ។',
+    mE: 'Code and mechanics are expressions of conditionality and matter; the Buddha knew boundless things like the leaves of a forest, but taught only the handful needed to end suffering.',
+    tie: 'សឹម្សបាសូត្រ (ស្លឹកឈើមួយក្តាប់ដៃ) · /suttas#sutta-simsapa',
+    to: '/suttas#sutta-simsapa',
   },
 ]
 </script>

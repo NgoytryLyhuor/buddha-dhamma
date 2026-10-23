@@ -34,10 +34,10 @@
 
     <!-- sutta list -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សូត្រជម្រើស ១០ — ចុចដើម្បីបើកមើល', 'TEN SELECTED SUTTAS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សូត្រជម្រើស ១១ — ចុចដើម្បីបើកមើល', 'ELEVEN SELECTED SUTTAS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
-      <details v-for="(s, i) in suttas" :key="s.en" class="card-paper p-6 md:p-8" :open="i === 0">
+      <details v-for="(s, i) in suttas" :key="s.en" :id="s.slug || ('sutta-' + i)" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget(s.slug, i)">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <div class="min-w-0">
@@ -83,7 +83,10 @@
 
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
+import { useRoute } from 'vue-router'
 const { t } = useLanguage()
+const route = useRoute()
+const isTarget = (slug, idx) => route.hash === '#sutta-' + idx || (slug && route.hash === '#' + slug)
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
@@ -328,6 +331,27 @@ const suttas = [
     kmVerse: '«បុគ្គលណា ប្រកបនូវហេតុវិនាសទាំងនេះ — បុគ្គលនោះ ឈ្មោះថា អ្នកវិនាស»', enVerse: '"One who pursues these causes is called a person in ruin — abandon them and stand apart."',
     applyK: 'រាល់ល្ងាច សួរខ្លួនឯងថា «ថ្ងៃនេះ ខ្ញុំកំពុងបោះជំហាន លើផ្លូវណា?» — ឃើញវិនាសហើយ កែមកធម៌វិញ។', applyE: 'Each evening ask yourself which of these you might be sliding into — then steer back to the Dhamma.',
     tags: ['Causes of Ruin', 'Lay Advice', 'Devata Question'],
+  },
+  {
+    slug: 'sutta-simsapa',
+    ref: 'SN 56.31', paali: 'SIṂSAPĀ·SUTTA',
+    km: 'សឹម្សបាសូត្រ — ស្លឹកឈើមួយក្តាប់ដៃ និងស្លឹកឈើក្នុងព្រៃ', en: 'Siṃsapā Sutta — The Handful of Leaves',
+    bgK: 'ព្រះសម្មាសម្ពុទ្ធគង់នៅក្នុងព្រៃឈើសឹម្សបា (ដើមច្រេស) ក្បែរក្រុងកោសម្ពី។ ទ្រង់ចាប់ស្លឹកឈើមួយក្តាប់ព្រះហស្ត ហើយត្រាស់សួរភិក្ខុទាំងឡាយថា តើស្លឹកឈើក្នុងក្តាប់ដៃ និងស្លឹកឈើនៅលើដើមទាំងអស់ក្នុងព្រៃ មួយណាមានច្រើនជាង?',
+    bgE: 'While dwelling in a siṃsapā forest near Kosambī, the Blessed One gathered a handful of fallen leaves and asked the monks: "Which is greater: this handful of leaves in my hand, or the leaves remaining in the forest canopy?"',
+    list: [
+      { km: 'ព្រះសង្ឃទូលតបថា ស្លឹកឈើក្នុងក្តាប់ដៃមានតិចតួចណាស់ ចំណែកស្លឹកឈើក្នុងព្រៃទាំងមូលមានច្រើនលើសលប់ រាប់ពុំអស់ឡើយ។', en: 'The bhikkhus replied that the leaves in his hand were very few, while those in the entire siṃsapā grove were overwhelmingly numerous.' },
+      { km: 'ព្រះពុទ្ធត្រាស់ថា ចំណេះដឹងដែលតថាគតបានត្រាស់ដឹងដោយប្រាជ្ញាញាណ (ព្រះសព្វញ្ញុតញាណ) មានច្រើនដូចជាស្លឹកឈើទាំងអស់ក្នុងព្រៃ ប៉ុន្តែធម៌ដែលតថាគតលើកយកមកបង្រៀន មានត្រឹមតែស្លឹកឈើមួយក្តាប់ដៃប៉ុណ្ណោះ។', en: 'The Buddha revealed: Just so, what I have directly realized through supreme omniscience is boundless like the leaves of the forest, yet what I teach you is merely a single handful.' },
+      { km: 'ហេតុអ្វីមិនបង្រៀនចំណេះដឹងទាំងអស់ (ដូចជា វិទ្យាសាស្ត្រ រូបវិទ្យា កូដ និងបច្ចេកវិទ្យា)? ពីព្រោះរឿងទាំងនោះ «មិនប្រកបដោយប្រយោជន៍ មិនមែនជាគ្រឹះនៃព្រហ្មចរិយធម៌ មិននាំទៅរកការនឿយណាយ មិននាំទៅរកការអស់តណ្ហា មិននាំទៅរកសេចក្តីស្ងប់រំលត់ និងព្រះនិព្វានឡើយ»។', en: 'Why hold back all other worldly knowledge (such as mundane physics, crafts, coding, mechanics)? Because they do not conduce to disenchantment, dispassion, cessation, inner peace, direct knowledge, awakening, or Nibbāna.' },
+      { km: 'តើអ្វីទៅជាស្លឹកឈើមួយក្តាប់ដៃដែលព្រះអង្គបង្រៀន? គឺ អរិយសច្ច ៤៖ «នេះជាទុក្ខ, នេះជាហេតុឱ្យកើតទុក្ខ, នេះជាការរំលត់ទុក្ខ, នេះជាផ្លូវបដិបត្តិនាំឱ្យដល់ការរំលត់ទុក្ខ»។', en: 'What then comprises the essential handful? The Four Noble Truths: This is suffering; this is its origin; this is its cessation; and this is the noble path leading to the cessation of suffering.' },
+      { km: 'បេសកកម្មរបស់ព្រះពុទ្ធ គឺការរំលត់ទុក្ខផ្លូវចិត្ត មិនមែនជាការបង្កើតសម្ភារៈលោកិយ ឬបច្ចេកវិទ្យាដែលបម្រើសង្សារវដ្តឡើយ។', en: 'The Buddha’s sole dispensation is the complete eradication of spiritual suffering, not the invention of mundane conveniences that perpetuate samsāra.' },
+    ],
+    raw: 'ឯវមេវ ខោ ភិក្ខវេ ឯតទេវ ពហុតរំ យំ មយា អភិញ្ញាយ នក្ខាតំ, អប្បតរំ យំ អក្ខាតំ ។ កស្មា ចេតំ មយា នក្ខាតំ? ន ហេតំ ភិក្ខវេ អត្ថសំហិតំ ន ទិព្រហ្មចរិយាកំ ន និព្វិទាយ ន វិរាគាយ ន និរោធាយ ន ឧបសមាយ ន អភិញ្ញាយ ន សម្ពោធាយ ន និព្វានាយ សំវត្តតិ...',
+    pali: 'Evameva kho, bhikkhave, etadeva bahutaraṃ yaṃ mayā abhiññāya nakkhātaṃ, appataraṃ yaṃ akkhātaṃ. Kasmā cetaṃ mayā nakkhātaṃ? Na hetaṃ, bhikkhave, atthasaṃhitaṃ nādibrahmacariyakaṃ na nibbidāya na virāgāya na nirodhāya na upasamāya na abhiññāya na sambodhāya na nibbānāya saṃvattati.',
+    kmVerse: '«ចំណេះដែលតថាគតដឹង ដូចស្លឹកឈើក្នុងព្រៃ — តែអ្វីដែលតថាគតបង្រៀន មានត្រឹមស្លឹកឈើមួយក្តាប់ដៃ ដើម្បីរំលត់ទុក្ខ»',
+    enVerse: '"What I have known is like the leaves in the forest — what I teach is only a handful, given solely to end suffering."',
+    applyK: 'កុំឱ្យការស្វែងរកចំណេះដឹងលោកិយ ឬបច្ចេកវិទ្យាថ្មីៗ មកបិទបាំងកិច្ចការសំខាន់បំផុតនៃជីវិត គឺការបដិបត្តិចម្រើនសតិ និងកាត់បន្ថយកិលេសទុក្ខ។',
+    applyE: 'Never let the endless pursuit of worldly knowledge or new technology obscure life’s supreme task: training mindfulness and ending defilement.',
+    tags: ['Simsapa Sutta', 'Handful of Leaves', 'Four Noble Truths', 'Omniscience', 'Science & Dhamma'],
   },
 ]
 </script>

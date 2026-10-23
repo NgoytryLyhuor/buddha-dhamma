@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២២ — សួរតាមដែលអ្នកជួប', 'Q&A 22 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៣ — សួរតាមដែលអ្នកជួប', 'Q&A 23 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២២ — ចុចដើម្បីបើកមើល', 'TWENTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៣ — ចុចដើម្បីបើកមើល', 'TWENTY-THREE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -224,6 +224,14 @@ const qas = [
     mK: 'គ្មានព្រលឹងអមតៈទេ — មានតែបណ្តាញតំណភ្ជាប់នៃហេតុ និងផល ដែលផ្ទេរថាមពលរវាងចិត្ត និងកាយគ្រប់វិនាទី។',
     mE: 'No permanent soul exists — only an energetic network of causes and conditions transferring momentum between mind and body.',
     tie: 'បច្ច័យទាំង ២៤ នៃបដ្ឋាន (ចិត្ត & រូប) · /paccaya#patthana-24', to: '/paccaya#patthana-24',
+  },
+  {
+    qK: 'ប្រសិនបើចិត្តកើតរលត់រាល់ខណៈ ហើយគ្មានព្រលឹង តើកម្មអាចបញ្ជូនឆ្លងជាតិដោយរបៀបណា?', qE: 'If the mind arises and perishes each moment without a soul, how does karma transmit across lifetimes?',
+    aK: 'ថាមពលកម្មមិនមែនរក្សាទុកក្នុងធុង ឬក្នុងព្រលឹងអមតៈណាមួយឡើយ ប៉ុន្តែវាត្រូវបានចម្លង និងផ្ទេរបន្តឥតដាច់តាមរយៈ «ខ្សែទឹកហូរនៃចិត្តសន្តាន» (Citta-santāna) ដោយកម្លាំងនៃ អនន្តរបច្ច័យ (ផ្ទេរទិន្នន័យពីខណៈចិត្តមួយទៅមួយគ្មានចន្លោះ) និង នានាក្ខណិកកម្មបច្ច័យ (សក្តានុពលកម្មដែលដេកសម្ងំរង់ចាំបច្ច័យផ្តល់ផល)។ នៅពេលស្លាប់ ចុតិចិត្តរលត់ ក៏បញ្ឆេះឱ្យបដិសន្ធិចិត្តក្នុងភពថ្មីកើតឡើងភ្លាមមួយរំពេច ដូចជាការយកភ្លើងទៀនមួយទៅអុជបន្តលើទៀនមួយទៀត («ន ច សោ ន ច អញ្ញោ» — មិនមែនបុគ្គលដដែល តែមិនមែនជាអ្នកដទៃ)។',
+    aE: 'Karmic energy is neither stored in an external container nor in an immortal soul; it is continually replicated and transmitted along the mental continuum (Citta-santāna) powered by Proximity Condition (Anantara-paccaya) and Asynchronous Kamma Condition (Nānākkhaṇika-kamma). At death, Cuti-citta ceases and instantly ignites Paṭisandhi-citta in the new realm with zero time gap, like lighting a second candle from the first («Na ca so na ca añño» — neither the same, nor another).',
+    mK: 'គ្មានព្រលឹងហោះឆ្លងភព — មានតែកម្លាំងសន្ទុះកម្មនៃចុតិចិត្ត ដែលទៅបញ្ឆេះបដិសន្ធិចិត្តក្នុងភពថ្មីភ្លាមៗ។',
+    mE: 'No soul migrates — only the karmic momentum of death-consciousness sparking the next rebirth-consciousness.',
+    tie: 'ដំណើរកម្មឆ្លងជាតិ (អភិធម្ម & បដ្ឋាន) · /death-and-rebirth#kamma-transference', to: '/death-and-rebirth#kamma-transference',
   },
 ]
 </script>

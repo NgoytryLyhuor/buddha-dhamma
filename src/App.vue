@@ -713,6 +713,7 @@ const descrMap = {
   daily: ['បដិបត្តិប្រចាំថ្ងៃ សីល ៥ និងពិធីបុណ្យរាល់ឆ្នាំ។', 'A simple daily practice, the five precepts, and observances.'],
   recollections: ['អនុស្សតិ ១០ និងពិចារណាប្រចាំថ្ងៃ។', 'The ten recollections and daily reflections.'],
   ariya: ['អរិយបុគ្គល ៨ ពួក សោតាបន្ន ដល់ អរហន្ត។', 'The eight noble persons, from stream-enterer to arahant.'],
+  'death-and-rebirth': ['ដំណើរនៃការស្លាប់ និងការបដិសន្ធិ យន្តការបញ្ជូនកម្មឆ្លងជាតិ។', 'The death and rebirth process, mechanism of karmic transference across lifetimes.'],
   notfound: ['រកមិនឃើញទំព័រ', 'Page not found'],
 }
 function syncPageMeta() {

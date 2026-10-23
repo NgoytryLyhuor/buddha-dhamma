@@ -19,6 +19,26 @@
       {{ t('បដិច្ចសមុប្បាទ (Paṭicca = អាស្រ័យ + Samuppāda = ការកើតឡើងព្រម) គឺជាបេះដូងនៃពុទ្ធសាសនា ដែលពន្យល់ពីដំណើរធម្មជាតិពិតថា៖ គ្មានអ្វីកើតឡើងដោយចៃដន្យ ដោយព្រះអាទិទេពបង្កើត ឬដោយគ្មានហេតុឡើយ។ អ្វីៗទាំងអស់កើតឡើងអាស្រ័យលើបច្ច័យ បើហេតុមាន ផលទើបមាន; បើហេតុរលត់ ផលក៏រលត់។ នេះជាធម៌កណ្តាល (មជ្ឈិមទេសនា) ដែលបដិសេធសស្សតទិដ្ឋិ (ការជឿថាមិនស្លាប់/មានព្រលឹងទៀង) និងឧច្ឆេទទិដ្ឋិ (ការជឿថាស្លាប់ទៅសូន្យ)។', 'Paṭiccasamuppāda (Dependent Origination) is the profound heart of Buddhist philosophy. It demonstrates that nothing arises by divine whim, chance, or without cause. All physical and mental phenomena arise conditioned by antecedent factors: when this is, that comes to be; with the cessation of this, that ceases. It is the Middle Teaching that steers clear of Eternalism (Sassata-diṭṭhi) and Annihilationism (Uccheda-diṭṭhi).') }}
     </p>
 
+    <!-- Quick Jump Sub-Navigation (Uniform h-9, smooth touch scroll on mobile) -->
+    <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+      <a href="#links-12" class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5">
+        <span>☸️</span>
+        <span>{{ t('ខ្សែច្រវាក់ ១២ អង្គ', '12 Links') }}</span>
+      </a>
+      <a href="#patthana-24" class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5 on">
+        <span>⚡</span>
+        <span>{{ t('បច្ច័យ ២៤ នៃបដ្ឋាន (ចិត្ត & រូប)', '24 Paṭṭhāna Conditions') }}</span>
+      </a>
+      <a href="#groups-4" class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5">
+        <span>📊</span>
+        <span>{{ t('សង្ខេប ៤ & អាការ ២០', '4 Groups & 20 Modes') }}</span>
+      </a>
+      <a href="#cutting-point" class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5">
+        <span>✂️</span>
+        <span>{{ t('ចំណុចកាត់ផ្តាច់វិបស្សនា', 'Cutting Point') }}</span>
+      </a>
+    </div>
+
     <!-- Mode Selector: Anuloma vs Patiloma -->
     <div class="card-paper p-4 sm:p-5 md:p-6 mt-6 sm:mt-8">
       <div class="flex items-center justify-between gap-4 flex-wrap">
@@ -69,7 +89,7 @@
     </div>
 
     <!-- The 12 Links Interactive Grid / Wheel -->
-    <div class="mt-8 space-y-4">
+    <div id="links-12" class="mt-8 space-y-4 scroll-mt-24">
       <div class="flex items-center justify-between gap-3">
         <h3 class="font-display text-2xl" :style="{ color: 'var(--ink)' }">
           {{ t('ខ្សែច្រវាក់អង្គ ១២ នៃបដិច្ចសមុប្បាទ', 'The 12 Links of the Chain') }}
@@ -125,7 +145,7 @@
     </div>
 
     <!-- The 4 Groups & 20 Modes (សង្ខេប ៤ & អាការ ២០) -->
-    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
+    <div id="groups-4" class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8 scroll-mt-24">
       <div class="flex items-center gap-2">
         <span class="text-xl">📊</span>
         <p class="chapter-label m-0">{{ t('គម្ពីរអភិធម្មពិស្ដារ', 'ABHIDHAMMA SYNTHESIS') }}</p>
@@ -203,7 +223,7 @@
     </div>
 
     <!-- Practical Insight: Cutting the Chain at Vedanā -> Taṇhā -->
-    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
+    <div id="cutting-point" class="card-paper p-4 sm:p-6 md:p-8 mt-6 scroll-mt-24" :style="{ borderColor: 'var(--accent)', background: 'var(--accent-soft)' }">
       <div class="flex items-center gap-2">
         <span class="text-xl">✂️</span>
         <p class="chapter-label m-0">{{ t('ចំណុចកាត់ផ្តាច់ខ្សែច្រវាក់ក្នុងវិបស្សនា', 'THE VIPASSANĀ CUTTING POINT') }}</p>
@@ -220,6 +240,355 @@
         </p>
       </div>
     </div>
+
+        <!-- ========================================================================= -->
+    <!-- MASTER SECTION: បច្ច័យទាំង ២៤ នៃគម្ពីរបដ្ឋាន (តួនាទីតភ្ជាប់ចិត្ត និងរូប) -->
+    <!-- ========================================================================= -->
+    <section id="patthana-24" class="card-paper p-5 sm:p-7 md:p-8 mt-8 scroll-mt-24 border-2" :style="{ borderColor: 'var(--accent)' }">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">⚡</span>
+        <div>
+          <p class="chapter-label m-0" :style="{ color: 'var(--accent)' }">
+            {{ t('គម្ពីរបដ្ឋាន (អភិធម្មបិដក) — កំពូលទស្សនវិជ្ជាវិភាគពិស្តារ', 'PAṬṬHĀNA (ABHIDHAMMA) — CONDITIONAL DYNAMICS') }}
+          </p>
+          <h3 class="font-display text-xl sm:text-2xl mt-1" :style="{ color: 'var(--ink)' }">
+            {{ t('បច្ច័យទាំង ២៤ នៃបដ្ឋាន — តួនាទីតភ្ជាប់ចិត្ត និងរូប', 'The 24 Paṭṭhāna Conditions — Interconnection of Mind & Matter') }}
+          </h3>
+        </div>
+      </div>
+
+      <p class="mt-4 text-xs sm:text-sm md:text-base leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('នៅក្នុងគម្ពីរ បដ្ឋាន (គម្ពីរទី ៧ នៃអភិធម្មបិដក ដែលជាកំពូលទស្សនវិជ្ជាវិភាគពិស្តារបំផុតក្នុងពុទ្ធសាសនា) បច្ច័យទាំង ២៤ ដើរតួនាទីជា «បណ្តាញស្ថាបត្យកម្មដ៏ស្មុគស្មាញ» ដែលពន្យល់ពីរបៀបដែល នាមធម៌ (ចិត្ត និងចេតសិក) និង រូបធម៌ (រាងកាយ និងវត្ថុធាតុ) ធ្វើអន្តរកម្ម ពឹងពាក់ និងរុញច្រានគ្នាទៅវិញទៅមកគ្រប់វិនាទី ដោយគ្មានវត្តមានរបស់ «ព្រលឹង» ឬ «អាទិទេព» បង្កើតឡើយ។', 'In the Paṭṭhāna (the 7th book of the Abhidhamma Pitaka, the pinnacle of Buddhist analytical philosophy), the 24 conditions operate as a sophisticated causal matrix explaining how Nāma (consciousness and mental factors) and Rūpa (matter and bodily faculties) interact, sustain, and propel each other moment by moment without any permanent soul or creator god.') }}
+      </p>
+
+      <!-- Section Tabs (Uniform h-9, smooth touch scroll on mobile) -->
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+        <button
+          type="button"
+          @click="activePatthanaTab = 'directions'"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
+          :class="activePatthanaTab === 'directions' ? 'on' : ''"
+        >
+          <span>🔄</span>
+          <span>{{ t('ទិសដៅ ៤ នៃការតភ្ជាប់', '4 Directions of Linkage') }}</span>
+        </button>
+        <button
+          type="button"
+          @click="activePatthanaTab = 'key_paccaya'"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
+          :class="activePatthanaTab === 'key_paccaya' ? 'on' : ''"
+        >
+          <span>⚡</span>
+          <span>{{ t('បច្ច័យសំខាន់ៗតភ្ជាប់ចិត្ត & រូប', 'Key Mind-Matter Conditions') }}</span>
+        </button>
+        <button
+          type="button"
+          @click="activePatthanaTab = 'blind_lame'"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
+          :class="activePatthanaTab === 'blind_lame' ? 'on' : ''"
+        >
+          <span>🦯</span>
+          <span>{{ t('ឧបមា៖ មនុស្សខ្វាក់ & មនុស្សពិការ', 'Blind & Lame Analogy') }}</span>
+        </button>
+        <button
+          type="button"
+          @click="activePatthanaTab = 'catalog'"
+          class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5"
+          :class="activePatthanaTab === 'catalog' ? 'on' : ''"
+        >
+          <span>📜</span>
+          <span>{{ t('បញ្ជីបច្ច័យទាំង ២៤ ពេញលេញ', '24 Conditions Catalog') }}</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: ៤ ទិសដៅចម្បងនៃការតភ្ជាប់រវាងចិត្ត និងរូប -->
+      <div v-if="activePatthanaTab === 'directions'" class="mt-6 space-y-4 fade-up">
+        <div class="p-3.5 sm:p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+          <h4 class="font-display text-sm sm:text-base font-bold flex items-center gap-2" :style="{ color: 'var(--accent)' }">
+            <span>🌐</span>
+            <span>{{ t('ទំនាក់ទំនងរវាងចិត្ត និងរូប នៅក្នុងបច្ច័យទាំង ២៤ ចែកជាទិសដៅចម្បង ៤ យ៉ាង៖', '4 Primary Directions of Conditional Interaction between Mind and Matter:') }}</span>
+          </h4>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Direction 1: Nama -> Rupa -->
+          <div class="card-paper p-4 sm:p-5 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card)' }">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+                  Nāma → Rūpa
+                </span>
+                <span class="text-xl">🧠 ➔ 🏃</span>
+              </div>
+              <h4 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ t('១. នាម ជាបច្ច័យដល់ រូប (ចិត្តបង្កើត និងទ្រទ្រង់កាយ)', '1. Mind Conditions Matter (Nāma → Rūpa)') }}
+              </h4>
+              <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ចិត្តគិត ធ្វើឱ្យរាងកាយបញ្ចេញកាយវិការ សម្តី ទឹកមុខ ឬចលនាបេះដូង។ នេះហៅថា «ចិត្តជរូប» (Cittaja-rūpa — រូបកើតពីចិត្ត)។ បើគ្មានចិត្តទេ រូបកាយនឹងរឹងស្តូក មិនអាចកម្រើក ដើរ ឈរ អង្គុយ ឬនិយាយស្តីបានឡើយ។', 'Mental intention initiates bodily movement, vocal expression, facial demeanor, and respiration. These are Cittaja-rūpa (mind-produced matter). Without mind, the body remains completely inert like a log of wood.') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Direction 2: Rupa -> Nama -->
+          <div class="card-paper p-4 sm:p-5 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card)' }">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider" :style="{ background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' }">
+                  Rūpa → Nāma
+                </span>
+                <span class="text-xl">👁️ ➔ 💡</span>
+              </div>
+              <h4 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ t('២. រូប ជាបច្ច័យដល់ នាម (កាយជាទ្រនំ និងជាទ្វារទទួលឱ្យចិត្តដឹង)', '2. Matter Conditions Mind (Rūpa → Nāma)') }}
+              </h4>
+              <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ភ្នែក ត្រចៀក ច្រមុះ អណ្តាត កាយ និងមូលដ្ឋានបេះដូង (ហទយវត្ថុ) បង្កើតជាទីតាំង (វត្ថុរូប) ឱ្យចិត្តកើតឡើង និងផ្តល់ទិន្នន័យ (អារម្មណ៍) ឱ្យចិត្តដឹង។ បើគ្មានប្រព័ន្ធប្រសាទភ្នែក និងពន្លឺចាំងចូលទេ ចក្ខុវិញ្ញាណក៏មិនអាចកើតឡើងបានឡើយ។', 'Physical sense organs (eye, ear, nose, tongue, body) and the heart base (hadayavatthu) furnish the physical foundation (vatthu-rūpa) for consciousness to arise and supply sensory data (ārammaṇa) for awareness.') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Direction 3: Co-existence -->
+          <div class="card-paper p-4 sm:p-5 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card)' }">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider" :style="{ background: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }">
+                  Sahajāta (Co-arising)
+                </span>
+                <span class="text-xl">🤝</span>
+              </div>
+              <h4 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ t('៣. នាម និង រូប កើតព្រមគ្នា និងជ្រោមជ្រែងគ្នា (Co-existence)', '3. Simultaneous Co-arising (Sahajāta)') }}
+              </h4>
+              <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ដូចកំណាត់ឈើពីរផ្អែកលើគ្នា បើដួលមួយ នឹងដួលទាំងពីរ។ ជាក់ស្តែងក្នុងខណៈបដិសន្ធិចុះកាន់គភ៌មាតា បដិសន្ធិចិត្ត (នាម) និងបដិសន្ធិកលលរូប (រូប) ត្រូវតែកើតឡើងដំណាលគ្នាក្នុងក្សណៈតែមួយ ទើបជីវិតថ្មីអាចកកើតឡើងបាន។', 'Like two sheaves of reeds leaning against one another: if one falls, both collapse. At the moment of conception, rebirth-linking consciousness (nāma) and embryonic kalala matter (rūpa) arise simultaneously, mutually co-supporting the spark of life.') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Direction 4: Nama -> Nama -->
+          <div class="card-paper p-4 sm:p-5 h-full flex flex-col justify-between" :style="{ background: 'var(--bg-card)' }">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-xs px-2 py-0.5 rounded font-bold uppercase tracking-wider" :style="{ background: 'rgba(168, 85, 247, 0.1)', color: '#a855f7' }">
+                  Nāma → Nāma
+                </span>
+                <span class="text-xl">🌊</span>
+              </div>
+              <h4 class="font-display text-base font-bold" :style="{ color: 'var(--ink)' }">
+                {{ t('៤. នាម ជាបច្ច័យដល់ នាម (លំហូរនៃចិត្តឥតដាច់)', '4. Mind Conditions Mind (Anantara Stream)') }}
+              </h4>
+              <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('គំនិតមួយរលត់ បញ្ជូនបន្តថាមពលទៅគំនិតមួយទៀតជាខ្សែទឹកហូរឥតដាច់ (វិថីចិត្ត)។ គ្មានចន្លោះទំនេររវាងចិត្តមុន និងចិត្តក្រោយឡើយ។ នេះជាយន្តការនៃអនន្តរបច្ច័យ និងសមនន្តរបច្ច័យ ដែលរក្សាការចងចាំ និងថាមពលកម្ម។', 'Each thought moment perishes immediately, transmitting its entire momentum to the succeeding thought in an unbroken stream like a rushing river. There is no vacuum between past and future consciousness.') }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: ការបកស្រាយបច្ច័យសំខាន់ៗដែលតភ្ជាប់ចិត្ត និងរូប -->
+      <div v-if="activePatthanaTab === 'key_paccaya'" class="mt-6 space-y-4 fade-up">
+        <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('ការបកស្រាយស៊ីជម្រៅនូវបច្ច័យគន្លឹះទាំង ៥ ដែលតភ្ជាប់រវាងចិត្ត និងរូបក្នុងជីវិតជាក់ស្តែង៖', 'In-depth analysis of the 5 pivotal conditions orchestrating the mind-matter connection:') }}
+        </p>
+
+        <!-- Condition 1: Hetu -->
+        <div class="card-paper p-4 sm:p-5" :style="{ background: 'var(--bg-card)' }">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">១</span>
+              {{ t('ក. ហេតុបច្ច័យ (Hetu-paccaya — ឫសគល់កំណត់ទិសដៅ)', 'A. Hetu-paccaya (Root Condition — Directional Anchor)') }}
+            </h4>
+            <span class="paali text-xs">Hetu</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('លក្ខណៈនៃបច្ច័យ (Nature)', 'Nature of Condition') }}</strong>
+              <span>{{ t('ដូចជា ឫសកែវនៃដើមឈើ ដែលជួយឱ្យដើមឈើមាំមួន និងលូតលាស់។ នៅក្នុងចិត្តមានឫស ៦ (លោភៈ ទោសៈ មោហៈ និង អលោភៈ អទោសៈ អមោហៈ)។', 'Like the deep taproot of a tree providing firm stability and nourishment. Six psychological roots exist: greed, hatred, delusion, and generosity, loving-kindness, wisdom.') }}</span>
+            </div>
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ការតភ្ជាប់ជាមួយរូប (Connection with Matter)', 'Connection with Matter') }}</strong>
+              <span>{{ t('នៅពេលចិត្តកើត «ទោសហេតុ» (កំហឹង) ភ្លាម កម្លាំងចិត្តនោះបានបង្កើត «ចិត្តជរូប» ធ្វើឱ្យសរសៃឈាមដើរញាប់ មុខឡើងក្រហម ភ្នែកបើកធំៗ និងដៃជើងញ័រទទ្រើក។ ឫសផ្លូវចិត្តជាអ្នកកំណត់រូបរាង និងកាយវិការខាងក្រៅ។', 'When anger (dosa-hetu) flares up, it instantly generates mind-produced matter (cittaja-rūpa): heartbeat spikes, blood rushes red to the face, eyes glare, and limbs tremble. The mental root shapes physical demeanor.') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 2: Arammana -->
+        <div class="card-paper p-4 sm:p-5" :style="{ background: 'var(--bg-card)' }">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">២</span>
+              {{ t('ខ. អារម្មណបច្ច័យ (Ārammaṇa-paccaya — កត្តាស្រូបទាញចិត្ត)', 'B. Ārammaṇa-paccaya (Object Condition — The Perceptual Magnet)') }}
+            </h4>
+            <span class="paali text-xs">Ārammaṇa</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('លក្ខណៈនៃបច្ច័យ (Nature)', 'Nature of Condition') }}</strong>
+              <span>{{ t('ដូចជា ឈើច្រត់សម្រាប់មនុស្សទន់ខ្សោយ ឬខ្សែពួរសម្រាប់មនុស្សឡើងភ្នំ។ ចិត្តមិនអាចកើតឡើងទទេៗក្នុងភាពអត់ន័យបានឡើយ គឺត្រូវតែមាន «អារម្មណ៍» (Object) ណាមួយឱ្យតោងទាមជានិច្ច។', 'Like a walking stick for the infirm or a rope for a climber. Consciousness cannot arise in an experiential vacuum; it must invariably cling to a cognitive object.') }}</span>
+            </div>
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ការតភ្ជាប់ជាមួយរូប (Connection with Matter)', 'Connection with Matter') }}</strong>
+              <span>{{ t('រូបធាតុខាងក្រៅ ដូចជា ពណ៌ រូបរាង សំឡេង ក្លិន រសជាតិ និងការប៉ះពាល់ (រូបារម្មណ៍ សទ្ទារម្មណ៍...) ដើរតួជាមេដែកស្រូបទាញចិត្ត។ បើគ្មានពន្លឺចាំងចូលភ្នែក វិញ្ញាណដឹងការមើលឃើញ (ចក្ខុវិញ្ញាណ) ក៏មិនអាចកើតឡើងបានឡើយ។', 'External material objects (colors, shapes, sounds, odors, tastes, tactile contacts) act as magnets attracting awareness. Without light striking retina receptors, visual consciousness cannot emerge.') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 3: Upanissaya -->
+        <div class="card-paper p-4 sm:p-5" :style="{ background: 'var(--bg-card)' }">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">៣</span>
+              {{ t('គ. ឧបនិស្សយបច្ច័យ (Upanissaya-paccaya — ទីពឹងដ៏មានកម្លាំងខ្លាំងក្លា)', 'C. Upanissaya-paccaya (Decisive Support — Powerful Conditioning)') }}
+            </h4>
+            <span class="paali text-xs">Upanissaya</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('កាយប៉ះពាល់ចិត្ត (Matter → Mind)', 'Matter Affects Mind') }}</strong>
+              <span>{{ t('សីតុណ្ហភាពបន្ទប់ក្តៅស្អុះស្អាប ឬជំងឺរាងកាយរ៉ាំរ៉ៃ (រូបធម៌) ក្លាយជាឧបនិស្ស័យជំរុញឱ្យកើតចិត្តមួរម៉ៅ ឆាប់ខឹង និងធ្លាក់ទឹកចិត្ត (នាមធម៌)។ រូបធាតុជាទីពឹងអវិជ្ជមាននៃចិត្ត។', 'A suffocatingly hot room, malnutrition, or chronic physical illness (rūpa) acts as decisive support triggering irritability, wrath, and depression (nāma).') }}</span>
+            </div>
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ចិត្តប៉ះពាល់កាយ (Mind → Matter)', 'Mind Affects Matter') }}</strong>
+              <span>{{ t('បុគ្គលដែលមានទម្លាប់ចិត្តសប្បុរស ឬសមាធិជ្រៅជ្រះយូរអង្វែង ថាមពលផ្លូវចិត្តនោះបានកែប្រែប្រព័ន្ធជីវសាស្ត្រ ធ្វើឱ្យស្បែកមុខស្រស់ថ្លា និងសរីរាង្គកាយមានសុខភាពល្អ អាយុយឺនយូរ។', 'Cultivating habitual altruism, mettā, or deep meditative samādhi biochemically revamps the somatic system, creating radiant skin complexion and physical vitality.') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 4: Purejata & Pacchajata -->
+        <div class="card-paper p-4 sm:p-5" :style="{ background: 'var(--bg-card)' }">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">៤</span>
+              {{ t('ឃ. បុរេជាតបច្ច័យ & បច្ឆាជាតបច្ច័យ (កាលវេលាមុន-ក្រោយ)', 'D. Purejāta & Pacchājāta (Temporal Sequence — Pre & Post Existence)') }}
+            </h4>
+            <span class="paali text-xs">Purejāta · Pacchājāta</span>
+          </div>
+          <p class="text-xs mt-2 italic" :style="{ color: 'var(--accent-bright)' }">
+            {{ t('ចំណុចនេះគឺជាអាថ៌កំបាំងជីវសាស្ត្រដ៏អស្ចារ្យនៅក្នុងគម្ពីរអភិធម្ម៖', 'A biological marvel revealed in the analytical Abhidhamma texts:') }}
+          </p>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('បុរេជាតបច្ច័យ (កើតមុនជួយក្រោយ)', 'Purejāta (Arisen Before to Help After)') }}</strong>
+              <span>{{ t('សរីរាង្គវិញ្ញាណ (ដូចជា ភ្នែក ឬហទយវត្ថុ/មូលដ្ឋានបេះដូង) ត្រូវតែកើតឡើង និងមានវត្តមាន ជាមុន ទើបចិត្តដឹងអាចកើតឡើងមកស្នាក់អាស្រ័យ ជាក្រោយ បាន។', 'Physical sense organs (like ocular retina or heart base) must already be generated and present BEFORE consciousness can arise to inhabit and cognize them.') }}</span>
+            </div>
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('បច្ឆាជាតបច្ច័យ (កើតក្រោយទ្រទ្រង់មុន)', 'Pacchājāta (Arisen After to Preserve Before)') }}</strong>
+              <span>{{ t('ចិត្តដែលកើតឡើង ជាក្រោយ ដើរតួនាទីការពារ និងស្រោចស្រង់រាងកាយដែលកើត ជាមុន មិនឱ្យរលួយ ឬងាប់ភ្លាមៗ ប្រៀបដូចជា ទឹកភ្លៀងដែលធ្លាក់មកតាមក្រោយ ជួយស្រោចស្រពកូនឈើឱ្យនៅរស់រវើក។ នៅពេលមនុស្សស្លាប់ (គ្មានចិត្តកើតឡើងបន្តទៀត) រាងកាយក៏លែងមានបច្ឆាជាតបច្ច័យទ្រទ្រង់ ហើយក៏ចាប់ផ្តើមក្លាយជាសាកសពរឹងស្ដូក និងរលួយភ្លាមៗ។', 'Consciousness arising LATER serves to preserve the physical body formed EARLIER, like late rainfall sustaining sprouted seedlings. At death, when consciousness ceases, this preservation vanishes and the body stiffens and decomposes instantly.') }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Condition 5: Kamma & Vipaka -->
+        <div class="card-paper p-4 sm:p-5" :style="{ background: 'var(--bg-card)' }">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-display text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">៥</span>
+              {{ t('ង. កម្មបច្ច័យ និង វិបាកបច្ច័យ (Kamma & Vipāka — ថាមពលកម្មកំណត់រូបរាង)', 'E. Kamma & Vipāka (Karmic Blueprint of Physicality)') }}
+            </h4>
+            <span class="paali text-xs">Kamma · Vipāka</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ចេតនាបង្កើតថាមពលកម្ម (Volition → Kamma)', 'Volition Stores Kamma') }}</strong>
+              <span>{{ t('ចេតនា (នាម) ពេលធ្វើសកម្មភាព បានបន្សល់ទុកជាថាមពលកម្មដ៏មានអានុភាព ឆ្លងកាត់ការកើតស្លាប់ក្នុងសង្សារវដ្ត។', 'Volitional intentions (cetanā) generate indelible karmic momentum carried across life and death in the samsaric flow.') }}</span>
+            </div>
+            <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
+              <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('បង្កើតកម្មជរូប (Produces Kammaja-rūpa)', 'Generates Karmic Matter') }}</strong>
+              <span>{{ t('ថាមពលកម្មនោះហើយ ដែលជាអ្នកបង្កើត «កម្មជរូប» (Kammaja-rūpa) តាំងពីខណៈបដិសន្ធិដំបូង ដែលកំណត់ថាតើសត្វនោះកើតមកមានភេទប្រុស ឬស្រី (ភាវរូប) ភ្នែកភ្លឺ ឬខ្វាក់ រូបរាងស្អាត ឬអាក្រក់។', 'That very karmic potency manufactures Kammaja-rūpa from the first rebirth-moment, determining gender (bhāva-rūpa), sensory visual integrity, and bodily beauty or defect.') }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: ឧបមាសង្ខេប៖ មនុស្សខ្វាក់ និងមនុស្សពិការជើង -->
+      <div v-if="activePatthanaTab === 'blind_lame'" class="mt-6 space-y-4 fade-up">
+        <div class="card-paper p-5 sm:p-6" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--accent)' }">
+          <p class="chapter-label m-0" :style="{ color: 'var(--accent)' }">{{ t('ឧបមាពីគម្ពីរអដ្ឋកថា (ATTHAKATHĀ SIMILE)', 'CLASSICAL COMMENTARIAL PARABLE') }}</p>
+          <h4 class="font-display text-lg sm:text-xl font-bold mt-1" :style="{ color: 'var(--ink)' }">
+            {{ t('ឧបមា៖ មនុស្សខ្វាក់ភ្នែក និងមនុស្សពិការជើង', 'The Parable of the Blind Man and the Lame Man') }}
+          </h4>
+          <p class="text-xs sm:text-sm mt-3 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+            {{ t('គម្ពីរអដ្ឋកថាបានលើកឧបមាដ៏ល្បីល្បាញមួយ ដើម្បីបង្ហាញពីការតភ្ជាប់រវាងចិត្ត និងរូបតាមបច្ច័យ ២៤ ដោយគ្មាន «ព្រលឹងអមតៈ» ណាមួយឡើយ៖', 'The ancient commentaries deploy this celebrated analogy to illustrate how mind and matter coordinate seamlessly via the 24 conditions without any mystical permanent soul:') }}
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div class="p-4 rounded-lg bg-white/70 dark:bg-black/30 border border-amber-500/20">
+              <span class="text-2xl block mb-1">🧠</span>
+              <h5 class="font-display font-bold text-sm" :style="{ color: 'var(--ink)' }">
+                {{ t('ចិត្ត (នាម) = មនុស្សខ្វាក់ភ្នែក តែជើងរឹងមាំ', 'Mind (Nāma) = The Strong Blind Man') }}
+              </h5>
+              <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('មានកម្លាំងបញ្ជា និងដើរបានយ៉ាងស្វាហាប់ ប៉ុន្តែគ្មានភ្នែករូបធាតុសម្រាប់មើលឃើញផ្លូវ ឬបង្ហាញចេញរូបរាងដោយខ្លួនឯងឡើយ។', 'Has the motor energy and cognitive willpower to walk, but possesses no physical eyes to see the road nor tangible form.') }}
+              </p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-white/70 dark:bg-black/30 border border-amber-500/20">
+              <span class="text-2xl block mb-1">🏃</span>
+              <h5 class="font-display font-bold text-sm" :style="{ color: 'var(--ink)' }">
+                {{ t('រូបកាយ (រូប) = មនុស្សពិការជើង តែភ្នែកភ្លឺច្បាស់', 'Matter (Rūpa) = The Sharp-Eyed Lame Man') }}
+              </h5>
+              <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('មានសរីរាង្គ មានសាច់ឈាម ភ្នែកភ្លឺច្បាស់មើលឃើញផ្លូវ ប៉ុន្តែគ្មានជើងដើរ មិនចេះគិត និងគ្មានចេតនាបញ្ជាខ្លួនឯងបានឡើយ។', 'Possesses keen physical sensory eyes to survey the road, but lacks legs, cannot think, and has zero self-propelling volition.') }}
+              </p>
+            </div>
+          </div>
+
+          <!-- The Combination Flow -->
+          <div class="mt-4 p-4 rounded-lg" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+            <h5 class="font-display font-bold text-xs uppercase tracking-wider mb-2" :style="{ color: 'var(--accent-bright)' }">
+              {{ t('នៅពេលដែល មនុស្សពិការជើង ឡើងជិះលើស្មាមនុស្សខ្វាក់៖', "When the Lame Man mounts the Blind Man's Shoulders:") }}
+            </h5>
+            <ul class="tick-list text-xs space-y-2" :style="{ color: 'var(--ink-soft)' }">
+              <li>
+                <strong :style="{ color: 'var(--ink)' }">{{ t('មនុស្សពិការជើងប្រាប់ផ្លូវ៖', 'The Lame Man Directs:') }}</strong>
+                {{ t('ដើរតួជា អារម្មណបច្ច័យ / និស្សយបច្ច័យ (ផ្តល់ទិន្នន័យរូប និងទីតាំង)។', 'Operates as Ārammaṇa-paccaya / Nissaya-paccaya (providing perceptual sensory cues).') }}
+              </li>
+              <li>
+                <strong :style="{ color: 'var(--ink)' }">{{ t('មនុស្សខ្វាក់បញ្ចេញកម្លាំងជើងដើរ៖', 'The Blind Man Walks:') }}</strong>
+                {{ t('ដើរតួជា ចិត្តជរូប / ឥន្ទ្រិយបច្ច័យ (បញ្ចេញកម្លាំងចេតនាចលនា)។', 'Operates as Cittaja-rūpa / Indriya-paccaya (generating physical kinetic mobility).') }}
+              </li>
+              <li>
+                <strong :style="{ color: 'var(--ink)' }">{{ t('អ្នកទាំងពីររួមដំណើរជាមួយគ្នា៖', 'Mutual Traveling:') }}</strong>
+                {{ t('ដើរតួជា សហជាតបច្ច័យ និង សម្បយុត្តបច្ច័យ ធ្វើដំណើរទៅដល់គោលដៅបានយ៉ាងរលូន! បើបែកចេញពីគ្នា មួយជំហានក៏ដើរមិនរួច។', 'Operates as Sahajāta and Sampayutta paccaya — reaching their destination seamlessly. Separated, neither can travel a single inch!') }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-4 p-3 rounded text-center text-xs font-serif font-bold italic" :style="{ background: 'var(--bg-card-2)', color: 'var(--accent)' }">
+            {{ t('«បច្ច័យទាំង ២៤ បង្ហាញយ៉ាងច្បាស់ថា គ្មានតួអង្គ «ព្រលឹងអមតៈ» ណាមួយនៅពីក្រោយជីវិតឡើយ គឺមានតែ បណ្តាញតំណភ្ជាប់នៃហេតុ និងផល ដែលកំពុងផ្ទេរថាមពលទៅវិញទៅមករវាងចិត្ត និងកាយគ្រប់វិនាទីតែប៉ុណ្ណោះ។»', '«The 24 conditions demonstrate beyond doubt that no immortal soul presides over life; there is solely a network of causes and conditions transferring energy between mind and body every moment.»') }}
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: បញ្ជីបច្ច័យទាំង ២៤ ពេញលេញ -->
+      <div v-if="activePatthanaTab === 'catalog'" class="mt-6 space-y-4 fade-up">
+        <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('បញ្ជីរាយនាមបច្ច័យទាំង ២៤ ប្រការ នៃគម្ពីរបដ្ឋាន មហាបករណៈ៖', 'Complete Catalog of the 24 Conditional Relations of the Paṭṭhāna:') }}
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
+          <div
+            v-for="p in patthana24List"
+            :key="p.no"
+            class="card-paper p-3 sm:p-3.5 h-full flex flex-col justify-between"
+            :style="{ background: 'var(--bg-card)' }"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-1 mb-1">
+                <span class="sutra-num font-bold text-[11px]" :style="{ color: 'var(--accent-bright)' }">#{{ khNum(p.no) }}</span>
+                <span class="paali text-[11px] truncate">{{ p.pali }}</span>
+              </div>
+              <h5 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+                {{ t(p.km, p.en) }}
+              </h5>
+              <p class="text-[11px] mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+                {{ t(p.descKm, p.descEn) }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Modal Pop-up (Dialog) for Individual Link Inspection -->
     <Teleport to="body">
@@ -386,6 +755,34 @@ const { t } = useLanguage()
 
 const viewMode = ref('anuloma')
 const activeModalLink = ref(null)
+const activePatthanaTab = ref('directions') // 'directions', 'key_paccaya', 'blind_lame', 'catalog'
+
+const patthana24List = [
+  { no: 1, pali: 'Hetu-paccaya', km: 'ហេតុបច្ច័យ', en: 'Root Condition', descKm: 'ឫសគល់ទាំង ៦ (លោភៈ ទោសៈ មោហៈ, អលោភៈ អទោសៈ អមោហៈ) ដែលកំណត់ទិសដៅនៃចិត្ត និងចិត្តជរូប។', descEn: 'The 6 roots (greed, hatred, delusion, non-greed, non-hatred, non-delusion) anchoring mental and physical states.' },
+  { no: 2, pali: 'Ārammaṇa-paccaya', km: 'អារម្មណបច្ច័យ', en: 'Object Condition', descKm: 'អារម្មណ៍ទាំង ៦ (រូប សំឡេង ក្លិន រស សម្ផស្ស ធម្មារម្មណ៍) ដែលជាមេដែកស្រូបទាញចិត្តឱ្យដឹង។', descEn: 'The 6 sensory and mental objects serving as anchors that attract and give rise to consciousness.' },
+  { no: 3, pali: 'Adhipati-paccaya', km: 'អធិបតិបច្ច័យ', en: 'Predominance Condition', descKm: 'ភាពជាធំចម្បងនៃ ឆន្ទៈ វិរិយៈ ចិត្ត ឬវីមំសា ដែលគ្របដណ្តប់ដំណើរផ្លូវចិត្ត។', descEn: 'The dominant factor (desire, effort, mind, or investigation) steering actions.' },
+  { no: 4, pali: 'Anantara-paccaya', km: 'អនន្តរបច្ច័យ', en: 'Proximity Condition', descKm: 'ការរលត់ទៅនៃចិត្តមុន បើកឱកាសឱ្យចិត្តបន្ទាប់កើតឡើងភ្លាមៗឥតមានចន្លោះ។', descEn: 'The immediate dissolution of antecedent consciousness making way for the subsequent one.' },
+  { no: 5, pali: 'Samanantara-paccaya', km: 'សមនន្តរបច្ច័យ', en: 'Contiguity Condition', descKm: 'ការតភ្ជាប់យ៉ាងស្អិតល្មួតឥតដាច់នៃចរន្តវិថីចិត្ត។', descEn: 'Unbroken contiguity and order in the sequential stream of consciousness.' },
+  { no: 6, pali: 'Sahajāta-paccaya', km: 'សហជាតបច្ច័យ', en: 'Co-nascence Condition', descKm: 'ធម៌ដែលកើតឡើងព្រមគ្នាក្នុងក្សណៈតែមួយ ហើយជួយគ្នាទៅវិញទៅមក (ដូចចិត្ត និងចេតសិក ឬនាម និងរូបក្នុងគភ៌)។', descEn: 'Phenomena arising simultaneously, sustaining each other (like mind & matter at conception).' },
+  { no: 7, pali: 'Aññamañña-paccaya', km: 'អញ្ញមញ្ញបច្ច័យ', en: 'Mutuality Condition', descKm: 'ការពឹងពាក់គ្នាទៅវិញទៅមក ដូចកំណាត់ឈើពីរផ្អែកលើគ្នា។', descEn: 'Reciprocal dependence where each factor simultaneously supports and relies on the other.' },
+  { no: 8, pali: 'Nissaya-paccaya', km: 'និស្សយបច្ច័យ', en: 'Dependence Condition', descKm: 'ការតម្កល់ជាទីពឹងអាស្រ័យ ដូចផែនដីជាទីពឹងនៃដើមឈើ (វត្ថុរូប ៦ ជាទីអាស្រ័យនៃវិញ្ញាណ)។', descEn: 'The supporting foundation, like the earth to trees, or the physical organs to sense-consciousnesses.' },
+  { no: 9, pali: 'Upanissaya-paccaya', km: 'ឧបនិស្សយបច្ច័យ', en: 'Decisive Support Condition', descKm: 'កម្លាំងឥទ្ធិពលដ៏ខ្លាំងក្លាពីអតីតកាល អារម្មណ៍ ឬបរិស្ថាន ដែលជម្រុញចិត្ត និងរូប។', descEn: 'A powerful, decisive stimulus or habitual momentum strongly conditioning present behavior.' },
+  { no: 10, pali: 'Purejāta-paccaya', km: 'បុរេជាតបច្ច័យ', en: 'Pre-nascence Condition', descKm: 'រូបដែលកើតឡើងជាមុន (ដូចជា ភ្នែក ឬហទយវត្ថុ) ដើម្បីឱ្យចិត្តកើតឡើងអាស្រ័យជាក្រោយ។', descEn: 'Physical bases that arise prior to consciousness to serve as its dwelling and medium.' },
+  { no: 11, pali: 'Pacchājāta-paccaya', km: 'បច្ឆាជាតបច្ច័យ', en: 'Post-nascence Condition', descKm: 'ចិត្តដែលកើតឡើងជាក្រោយ ជួយស្រោចស្រង់ និងការពាររូបកាយដែលកើតមុនមិនឱ្យរលួយងាប់។', descEn: 'Subsequent consciousness sustaining and preserving the pre-existing physical body from decay.' },
+  { no: 12, pali: 'Āsevana-paccaya', km: 'អាសេវនបច្ច័យ', en: 'Repetition Condition', descKm: 'ការសេពគប់ ឬធ្វើដដែលៗនៃជវនចិត្ត ធ្វើឱ្យថាមពលកុសល ឬអកុសលរឹតតែរឹងមាំឡើង។', descEn: 'Repetition and practice strengthening mental habits through successive impulsion moments (javana).' },
+  { no: 13, pali: 'Kamma-paccaya', km: 'កម្មបច្ច័យ', en: 'Kamma Condition', descKm: 'ចេតនាក្នុងអំពើ ដែលបន្សល់ទុកជាថាមពលកម្ម បង្កើតផល និងកម្មជរូប។', descEn: 'Volitional intent leaving behind karmic potency that produces subsequent results and karmic matter.' },
+  { no: 14, pali: 'Vipāka-paccaya', km: 'វិបាកបច្ច័យ', en: 'Kamma-result Condition', descKm: 'ភាពជាផលទុំនៃកម្ម ដែលកើតឡើងដោយស្ងប់ស្ងៀម គ្មានការប្រឹងប្រែង។', descEn: 'The tranquil fruition of past deeds, ripening effortlessly as result-consciousness.' },
+  { no: 15, pali: 'Āhāra-paccaya', km: 'អាហារបច្ច័យ', en: 'Nutriment Condition', descKm: 'អាហារ ៤ យ៉ាង (កវឡីការាហារ, ផស្សាហារ, មនោសញ្ចេតនាហារ, វិញ្ញាណាហារ) ដែលទ្រទ្រង់កាយ និងចិត្ត។', descEn: 'The 4 nutriments (physical food, contact, mental volition, consciousness) sustaining life.' },
+  { no: 16, pali: 'Indriya-paccaya', km: 'ឥន្ទ្រិយបច្ច័យ', en: 'Faculty Condition', descKm: 'ភាពជាធំក្នុងភារកិច្ចរៀងៗខ្លួន (ដូចជា ចក្ខុន្រ្ទិយធំក្នុងការឃើញ, ជីវិតិន្រ្ទិយធំក្នុងការរក្សាជីវិត)។', descEn: 'Controlling faculties exercising dominant authority in their respective domains.' },
+  { no: 17, pali: 'Jhāna-paccaya', km: 'ឈានបច្ច័យ', en: 'Jhāna Condition', descKm: 'អង្គឈាន (វិតក្ក វិចារ បីតិ សុខ ឯកគ្គតា) ដែលជួយដុតបំផ្លាញកិលេស និងតម្កល់ចិត្តស្ងប់។', descEn: 'Jhāna factors closely examining the object and burning away opposing hindrances.' },
+  { no: 18, pali: 'Magga-paccaya', km: 'មគ្គបច្ច័យ', en: 'Path Condition', descKm: 'អង្គមគ្គ (សម្មាទិដ្ឋិ...) ដែលដឹកនាំចិត្តឆ្ពោះទៅកាន់សុគតិ ឬព្រះនិព្វាន។', descEn: 'Path factors acting as vehicles transporting the mind toward higher realms or Nibbāna.' },
+  { no: 19, pali: 'Sampayutta-paccaya', km: 'សម្បយុត្តបច្ច័យ', en: 'Association Condition', descKm: 'ការផ្សំចូលគ្នាយ៉ាងសព្វនៃចិត្ត និងចេតសិក ដូចទឹក និងទឹកដោះ កើត-រលត់ព្រមគ្នា។', descEn: 'Thorough blending of mental states sharing the same arising, cessation, base, and object.' },
+  { no: 20, pali: 'Vippayutta-paccaya', km: 'វិប្បយុត្តបច្ច័យ', en: 'Dissociation Condition', descKm: 'ការជួយគ្នាទៅវិញទៅមករវាងធម៌ពីរដែលមិនលាយឡំគ្នា (នាម និង រូប ដូចទឹក និងប្រេង)។', descEn: 'Conditioning between dissimilar phenomena (mind and matter assisting without blending).' },
+  { no: 21, pali: 'Atthi-paccaya', km: 'អត្ថិបច្ច័យ', en: 'Presence Condition', descKm: 'ការមានវត្តមាននៅឡើយនៃធម៌ជាបច្ច័យ ទើបជួយទ្រទ្រង់ធម៌ជាបច្ចយុប្បន្នបាន។', descEn: 'The actual presence and existence of a condition maintaining the conditioned state.' },
+  { no: 22, pali: 'Natthi-paccaya', km: 'នត្ថិបច្ច័យ', en: 'Absence Condition', descKm: 'ការរលត់បាត់ទៅនៃចិត្តមុន ទើបបើកផ្លូវឱ្យចិត្តបន្ទាប់កើតឡើងបាន។', descEn: 'The absence of an antecedent mental state allowing the immediate arising of the successor.' },
+  { no: 23, pali: 'Vigata-paccaya', km: 'វិគតបច្ច័យ', en: 'Disappearance Condition', descKm: 'ការចាកចេញទៅនៃធម៌មុន ជួយឧបត្ថម្ភឱ្យធម៌ក្រោយកើតឡើង។', descEn: 'The departure or passing away of a condition giving room to the next moment.' },
+  { no: 24, pali: 'Avigata-paccaya', km: 'អវិគតបច្ច័យ', en: 'Non-disappearance Condition', descKm: 'ការមិនទាន់រលាយបាត់ទៅណា ជួយទ្រទ្រង់អ្វីៗឱ្យនៅស្ថិតស្ថេរក្នុងខណៈនោះ។', descEn: 'The non-departure and non-cessation of a condition keeping the conditioned result sustained.' }
+]
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {

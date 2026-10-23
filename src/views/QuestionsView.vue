@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២១ — សួរតាមដែលអ្នកជួប', 'Q&A 21 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២២ — សួរតាមដែលអ្នកជួប', 'Q&A 22 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២១ — ចុចដើម្បីបើកមើល', 'TWENTY-ONE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២២ — ចុចដើម្បីបើកមើល', 'TWENTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -216,6 +216,14 @@ const qas = [
     mK: 'សីល រំងាប់កិលេសក្រៅ · សមាធិ រំងាប់កិលេសក្នុង · បញ្ញា កាត់ផ្តាច់ឫសកិលេសឲ្យរលត់សូន្យ។',
     mE: 'Virtue calms outward defilement; concentration calms inner agitation; wisdom cuts the root forever.',
     tie: 'ឫសគល់នៃទុក្ខ និងវិធីរំលត់កិលេស · /core#roots-of-suffering', to: '/core#roots-of-suffering',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម (គម្ពីរបដ្ឋាន) តើបច្ច័យទាំង ២៤ មានតួនាទីតភ្ជាប់ចិត្ត និងរូបយ៉ាងដូចម្ដេចខ្លះ?', qE: 'According to the Abhidhamma (Paṭṭhāna), how do the 24 conditions connect mind and matter?',
+    aK: 'នៅក្នុងគម្ពីរបដ្ឋាន បច្ច័យទាំង ២៤ ដើរតួជាបណ្តាញស្ថាបត្យកម្មដែលពន្យល់ពីរបៀបដែលនាម (ចិត្ត) និងរូប (កាយ) ធ្វើអន្តរកម្ម ពឹងពាក់ និងរុញច្រានគ្នាគ្រប់វិនាទី ដោយគ្មាន «ព្រលឹង» ឬ «អាទិទេព» ឡើយ។ ទំនាក់ទំនងចែកជា ៤ ទិសដៅ៖ (១) នាមជាបច្ច័យដល់រូប (ចិត្តបង្កើតចិត្តជរូប) (២) រូបជាបច្ច័យដល់នាម (វត្ថុរូប ៦ ជាទីតាំង និងអារម្មណ៍ស្រូបទាញចិត្ត) (៣) នាម និងរូបកើតព្រមគ្នាជ្រោមជ្រែងគ្នា (សហជាតបច្ច័យ ដូចខណៈបដិសន្ធិ) (៤) នាមជាបច្ច័យដល់នាម (ខ្សែទឹកចិត្តហូរឥតដាច់)។ គម្ពីរបានលើកឧបមា មនុស្សខ្វាក់ (ចិត្ត) ជិះលើស្មាមនុស្សពិការជើង (រូប) ដើម្បីសហការគ្នាធ្វើដំណើរទៅដល់ទិសដៅ។',
+    aE: 'In the Paṭṭhāna, the 24 conditions form an intricate causal matrix detailing how mind (nāma) and matter (rūpa) interact, sustain, and condition one another moment by moment without an immortal soul. Linkages operate across 4 directions: (1) Mind conditions matter (producing cittaja-rūpa), (2) Matter conditions mind (sense organs and objects serving as bases), (3) Simultaneous co-arising (sahajāta, like at conception), and (4) Mind conditions mind (unbroken stream). The Atthakathā illustrates this via the strong blind man (mind) carrying the sharp-eyed lame man (matter).',
+    mK: 'គ្មានព្រលឹងអមតៈទេ — មានតែបណ្តាញតំណភ្ជាប់នៃហេតុ និងផល ដែលផ្ទេរថាមពលរវាងចិត្ត និងកាយគ្រប់វិនាទី។',
+    mE: 'No permanent soul exists — only an energetic network of causes and conditions transferring momentum between mind and body.',
+    tie: 'បច្ច័យទាំង ២៤ នៃបដ្ឋាន (ចិត្ត & រូប) · /paccaya#patthana-24', to: '/paccaya#patthana-24',
   },
 ]
 </script>

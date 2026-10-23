@@ -695,7 +695,7 @@ const descrMap = {
   home: ['ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ ជាខ្មែរ និងអង់គ្លេស។', 'The Buddha\'s teachings explained in Khmer and English.'],
   core: ['អរិយសច្ច ៤ ឫសគល់នៃទុក្ខ និងវិធីរំលត់កិលេស ផ្លូវ ៨។', 'Four Noble Truths, Roots of Suffering, Extinguishing Defilements, Eightfold Path.'],
   abhidhamma: ['ចិត្ត ចេតសិក រូប និងនិព្វាន តាមអភិធម្ម។', 'Citta, cetasika, rūpa and nibbāna in the Abhidhamma.'],
-  kamma: ['កម្ម វិបាក កុសល អកុសល និងផលនៃកម្ម។', 'Kamma, result, wholesome and unwholesome actions.'],
+  kamma: ['កម្ម វិបាក កុសល អកុសល និងយន្តការអហោសិកម្ម ៤ យ៉ាង។', 'Kamma, result, wholesome, unwholesome actions, and 4 Ahosi-kamma mechanisms.'],
   ethics: ['សីល ៥ បារមី ១០ និងការប្រព្រឹត្តល្អ។', 'Five precepts, the ten perfections, and right conduct.'],
   meditation: ['សមាធិ អានាបានស្សតិ និងសតិបដ្ឋាន ៤។', 'Meditation, mindfulness of breathing, and the four satipaṭṭhāna.'],
   suttas: ['ព្រះសូត្រ ១០ ដ៏ល្បី ជាមួយភាសាបាលី និងពន្យល់។', 'Ten famous suttas with Pali and explanations.'],

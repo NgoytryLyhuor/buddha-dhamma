@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៣ — សួរតាមដែលអ្នកជួប', 'Q&A 23 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៤ — សួរតាមដែលអ្នកជួប', 'Q&A 24 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៣ — ចុចដើម្បីបើកមើល', 'TWENTY-THREE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៤ — ចុចដើម្បីបើកមើល', 'TWENTY-FOUR QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -232,6 +232,14 @@ const qas = [
     mK: 'គ្មានព្រលឹងហោះឆ្លងភព — មានតែកម្លាំងសន្ទុះកម្មនៃចុតិចិត្ត ដែលទៅបញ្ឆេះបដិសន្ធិចិត្តក្នុងភពថ្មីភ្លាមៗ។',
     mE: 'No soul migrates — only the karmic momentum of death-consciousness sparking the next rebirth-consciousness.',
     tie: 'ដំណើរកម្មឆ្លងជាតិ (អភិធម្ម & បដ្ឋាន) · /death-and-rebirth#kamma-transference', to: '/death-and-rebirth#kamma-transference',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម តើកម្មដែលបានសាងរួចហើយ អាចក្លាយជា «អហោសិកម្ម» ដោយយន្តការបែបណាខ្លះ?', qE: 'According to Abhidhamma, through what mechanisms does committed kamma become "Ahosi-kamma" (defunct)?',
+    aK: 'អហោសិកម្ម មិនមែនជាការលុបលាងបាបដោយព្រះអាទិទេពឡើយ ប៉ុន្តែជាកម្មដែលបានសាងរួចហើយ តែបាត់បង់សក្តានុពលក្នុងការឱ្យផល តាមយន្តការ ៤ យ៉ាង៖ (១) ការផុតកាលកំណត់នៃជវនចិត្ត (ទិដ្ឋធម្មវេទនីយកម្ម ផុតក្នុងជាតិនេះ, ឧបបជ្ជវេទនីយកម្ម ផុតក្នុងជាតិទី ២) (២) ការត្រូវកាត់ផ្តាច់ដោយ «ឧបឃាតកកម្ម» (កម្មធ្ងន់កាត់ផ្តាច់ជីវិត ធ្វើឱ្យកម្មចាស់ៗលែងមានរាងកាយទទួលផល) (៣) ការរារាំងដោយ «សម្បត្តិ ៤» (គតិសម្បត្តិ ឧបធិសម្បត្តិ កាលសម្បត្តិ បយោគសម្បត្តិ ដែលរារាំងបាបមិនឱ្យជ្រៀតចូលបាន ដូចដុំអំបិលក្នុងទឹកទន្លេ) (៤) ការរលត់សូន្យទាំងស្រុងនៅពេល «ចូលបរិនិព្វាន» (អបរាបរិយវេទនីយកម្ម និងកម្មទាំងអស់រលត់ក្លាយជាអហោសិកម្មព្រមគ្នា ដូចគ្រាប់ពូជដែលត្រូវភ្លើងឆេះខ្លោច)។',
+    aE: 'Ahosi-kamma is not divine absolution; it is committed karma that has lost its potency to mature through 4 mechanisms: (1) Expiration of the javana window (1st javana expires with this life; 7th javana expires after life 2), (2) Severing by Destructive Karma (Upaghātaka-kamma cutting off the body), (3) Suppression by the 4 Favorable Endowments (Sampatti 4 buffering minor demerits like salt in a river), and (4) Ultimate Neutralization at Parinibbāna (when all remaining kamma burns out forever like roasted seeds).',
+    mK: 'កម្មប្រែជាអហោសិកម្មដោយសារ៖ ផុតកាលកំណត់ជវនចិត្ត · ត្រូវឧបឃាតកកម្មផ្តាច់ · រារាំងដោយសម្បត្តិ ៤ · និងរលត់សូន្យទាំងស្រុងពេលចូលបរិនិព្វាន។',
+    mE: 'Karma lapses into Ahosi-kamma via: window expiration, destructive severance, favorable buffering, and total cessation at Parinibbāna.',
+    tie: 'យន្តការអហោសិកម្ម ៤ ប្រការ · /kamma#ahosi-kamma', to: '/kamma#ahosi-kamma',
   },
 ]
 </script>

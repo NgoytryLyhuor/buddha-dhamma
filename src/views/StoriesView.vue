@@ -11,10 +11,10 @@
 
     <!-- the stories -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('រឿងជម្រើស ៩ — ចុចដើម្បីបើកមើល', 'NINE SELECTED STORIES — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('រឿងជម្រើស ១០ — ចុចដើម្បីបើកមើល', 'TEN SELECTED STORIES — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
-      <details v-for="(s, i) in stories" :key="s.en" :id="'story-' + i" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget('story-', i)">
+      <details v-for="(s, i) in stories" :key="s.en" :id="s.slug || ('story-' + i)" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget(s.slug, i)">
         <summary class="select-none">
           <div class="flex items-start justify-between gap-3 flex-wrap">
             <div class="min-w-0">
@@ -54,7 +54,7 @@ import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
 const { t } = useLanguage()
 const route = useRoute()
-const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
+const isTarget = (slug, idx) => route.hash === '#story-' + idx || (slug && route.hash === '#' + slug)
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
@@ -184,6 +184,36 @@ const stories = [
     essenceE: 'A story of wisdom that knows how to listen — a few well-spoken words were enough to reveal the right path.',
     lessonK: 'កុំមើលងាយពាក្យខ្លីនៃធម៌ — ពាក្យមួយ ដែលដល់ចិត្ត អាចបើកផ្លូវ ដល់ការត្រាស់ដឹង។',
     lessonE: 'Do not look down on a short saying of the Dhamma — one word that reaches the heart can open the way to awakening.',
+  },
+  {
+    slug: 'story-moggallana',
+    src: 'DHP-A · ធម្មបទដ្ឋកថា គាថា ១២៧–១៣០',
+    km: 'ព្រះមហាមោគ្គល្លានត្ថេរ — កម្លាំងកម្មធំជាងកម្លាំងឫទ្ធិ (ហេតុអ្វីកម្មមិនទាន់ក្លាយជាអហោសិកម្មមុនបរិនិព្វាន?)',
+    en: 'Ven. Mahāmoggallāna — Past Kamma, Psychic Powers, and Ahosi-kamma',
+    noteK: 'រឿងអគ្គសាវកឆ្វេងផ្នែកឫទ្ធិ ត្រូវចោរ ៥០០ នាក់វាយខ្ទេចឆ្អឹង — យោងតាមធម្មបទដ្ឋកថា និងអភិធម្ម ពន្យល់ថា ហេតុអ្វីឫទ្ធិមិនអាចជួយបាន និងហេតុអ្វីកម្មមិនទាន់ជាអហោសិកម្ម។',
+    en: 'The story of the Chief Disciple foremost in psychic power being struck by bandits — explaining through Dhammapada Commentary and Abhidhamma why iddhi could not avert it and why kamma had not yet lapsed into ahosi-kamma.',
+    paras: [
+      {
+        km: '១. ពួកបរិព្វាជកក្រៅសាសនា ច្រណែននឹងព្រះពុទ្ធសាសនាដែលមានលាភសក្ការៈច្រើន ដោយសារព្រះមោគ្គល្លានឧស្សាហ៍ប្រើឫទ្ធិចុះទៅឋាននរក និងឡើងឋានសួគ៌ មកប្រាប់ញាតិញោមពីផលនៃបុណ្យ និងបាប។ ពួកគេក៏បានប្រមូលលុយ ១,០០០ កាហាបណៈ ជួលពួកចោរព្រៃ ៥០០ នាក់ ឱ្យទៅលបសម្លាប់ព្រះថេរៈនៅវត្តកាឡសិលា។',
+        en: '1. Ascetics of other sects grew envious of the Buddhist Saṅgha’s immense veneration, won partly because Ven. Mahāmoggallāna used his psychic faculties to visit heavenly realms and hells, recounting directly to laypeople the exact fruits of merit and demerit. They pooled a thousand kahāpaṇas to hire 500 bandits to assassinate the elder at Kāḷasīlā.'
+      },
+      {
+        km: '២. កម្លាំងឫទ្ធិ ចាញ់កម្លាំងកម្មបច្ច័យ៖ លើកទី ១ ពួកចោរឡោមព័ទ្ធកុដិ ព្រះថេរៈប្រើឫទ្ធិគេចតាមរន្ធសោ។ លើកទី ២ លោកទម្លុះដំបូលកុដិហោះឡើងលើអាកាសគេចបាត់។ ដល់លើកទី ៣ គរុកម្មចាស់កាលពីអតីតជាតិបានមកដល់ទាន់ កម្លាំងកម្មបច្ច័យបានចូលមកគ្របសង្កត់ ធ្វើឱ្យលោកមិនអាចចូលឈានបាន ឫទ្ធិក៏គាំងស្ទះភ្លាមមួយរំពេច។ លោកពិចារណាដោយបុព្វេនិវាសានុស្សតិញាណ ឃើញកម្មចាស់របស់ខ្លួន ក៏សម្រេចចិត្តអង្គុយស្ងប់ស្ងៀមទទួលវិបាកកម្ម ដោយមិនគេចវេះទៀតឡើយ។ ព្រះពុទ្ធទ្រង់ត្រាស់ថា (ធម្មបទ គាថា ១២៧)៖ «ទោះបីនៅលើអាកាស កណ្តាលសមុទ្រ ឬក្នុងរូងភ្នំ ក៏គ្មានទីណាគេចផុតពីផលនៃកម្មដែលខ្លួនបានសាងឡើយ»។',
+        en: '2. Psychic power bends before kammic momentum: The first time bandits surrounded his hut, he slipped through the keyhole via supernormal powers. The second time, he burst through the roof into the open sky. On the third attempt, his ancient garuka-kamma caught up; kammic force overpowered his faculties, preventing entry into jhāna so that his psychic powers were instantly suspended. Reflecting through past-life recollection, he saw his past deed and willingly sat still to accept the ripening vipāka without evasion. The Buddha taught (Dhp 127): "Neither in the sky, nor mid-ocean, nor clefts of mountains, is there any place where one escapes one’s evil kamma."'
+      },
+      {
+        km: '៣. ហេតុអ្វីកម្មមិនទាន់ក្លាយជាអហោសិកម្មមុនបរិនិព្វាន? ក្នុងអតីតជាតិ លោកធ្លាប់ចាញ់បោកប្រពន្ធ បាននាំម្តាយឪពុកពិការភ្នែកទាំងសងខាងជិះរទេះចូលព្រៃ រួចធ្វើពុតជាចោរព្រៃវាយសម្លាប់ពួកគាត់យ៉ាងឃោរឃៅ។ កម្មសម្លាប់ម្តាយឪពុក (មាតុឃាត-បិតុឃាត) ជា «អនន្តរិយកម្ម» ឬ «គរុកម្ម» ដ៏ធ្ងន់បំផុត ដែលបាននាំលោកឱ្យធ្លាក់នរកអវិចីរាប់សែនកប្បរួចមកហើយ។ ប៉ុន្តែថាមពលកម្មនៅសេសសល់មួយចំណែកទៀត ហៅថា «កម្មាវសេស» ស្ថិតក្នុងប្រភេទ «អបរាបរិយវេទនីយកម្ម» (កម្មដែលតាមឱ្យផលតាំងពីជាតិទី ៣ រហូតដល់មុនបរិនិព្វាន)។ ដរាបណារូបខន្ធនៅមាន កម្មប្រភេទនេះមិនទាន់រលត់ឡើយ ហើយជាតិនេះជា «ជាតិចុងក្រោយបង្អស់» (អន្តិមសរីរៈ) របស់លោក ដូចនេះជាឱកាសចុងក្រោយ (Last Chance) របស់កម្ម វាក៏សម្រុកឱ្យផលលើរូបកាយ ដោយពួកចោរវាយកម្ទេចឆ្អឹងរបស់លោកឱ្យបែកម៉ដ្ឋដូចគ្រាប់ល្ង។',
+        en: '3. Why did it not become Ahosi-kamma before Parinibbāna? In a remote past life, manipulated by a scheming wife, he drove his blind elderly parents into the deep wilderness and, disguised as bandits, brutally beat them to death. Matricide and patricide constitute Anantariya-kamma (heaviest gravity), which had already plunged him into Avīci hell for countless eons. However, a residual karmic charge (kammāvasesa) remained as Aparāpariya-vedanīya-kamma (kamma ripening from life 3 until final liberation). As long as conditioned aggregates persist, this kamma never lapses into ahosi-kamma; and because this was his final rebirth (antimasarīra), it was the karmic momentum’s ultimate window to ripen upon his physical form before the aggregates dissolved forever.'
+      },
+      {
+        km: '៤. ទុក្ខកើតតែលើរូបខន្ធ តែចិត្តមិនរងទុក្ខឡើយ៖ ពួកចោរវាយបំបាក់តែរូបកាយធាតុ ៤ ប៉ុន្តែចិត្តរបស់ព្រះមោគ្គល្លានជាចិត្តព្រះអរហន្ត តម្កល់ក្នុងឧបេក្ខាដ៏បរិសុទ្ធ គ្មានសេចក្តីខឹង ស្អប់ ឬឈឺចាប់ផ្លូវចិត្តឡើយ។ បន្ទាប់ពីពួកចោរបោះបង់ចោល លោកបានចូលឈានប្រើកម្លាំងឫទ្ធិតឆ្អឹងឡើងវិញមួយគ្រា ហោះទៅក្រាបថ្វាយបង្គំព្រះសម្មាសម្ពុទ្ធលាចូលបរិនិព្វាន។ លុះលោកចូល «អនុបាទិសេសបរិនិព្វាន» រលត់ខន្ធទាំងស្រុង កម្មទាំងអស់ដែលនៅសេសសល់ ក៏រលត់សូន្យក្លាយជា «អហោសិកម្ម» ជារៀងរហូត។',
+        en: '4. Physical suffering without mental distress: The bandits could shatter only the physical form composed of four physical elements; the Elder’s mind, abiding as a fully enlightened Arahant, rested in immaculate equanimity with zero anger or grief. Once the bandits abandoned his battered body, he entered jhāna, miraculously reassembled his physical frame, and flew to pay final respects to the Buddha before returning to enter Anupādisesa-Parinibbāna at Kāḷasīlā — whereupon all remaining traces of unripened kamma permanently dissolved into Ahosi-kamma.'
+      }
+    ],
+    essenceK: '«ន អន្តលិក្ខេ ន សមុទ្ទមជ្ឈេ...» គ្មានឫទ្ធិអំណាចណាលើសកម្លាំងកម្មឡើយ — តែចិត្តបរិសុទ្ធ មិនរងទុក្ខតាមកាយ។',
+    essenceE: 'No supernormal power surpasses the fruition of kamma — yet an awakened heart suffers no distress alongside the body.',
+    lessonK: 'កុំធ្វេសប្រហែសនឹងអំពើអាក្រក់ សូម្បីបន្តិចបន្តួច — ចូរកសាងកុសល និងបដិបត្តិចម្រើនបញ្ញាដើម្បីរំលត់ទុក្ខទាំងស្រុង។',
+    lessonE: 'Never be careless with evil deeds, however slight — cultivate virtue and insight to reach ultimate freedom.',
   },
 ]
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៤ — សួរតាមដែលអ្នកជួប', 'Q&A 24 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៥ — សួរតាមដែលអ្នកជួប', 'Q&A 25 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៤ — ចុចដើម្បីបើកមើល', 'TWENTY-FOUR QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៥ — ចុចដើម្បីបើកមើល', 'TWENTY-FIVE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -240,6 +240,16 @@ const qas = [
     mK: 'កម្មប្រែជាអហោសិកម្មដោយសារ៖ ផុតកាលកំណត់ជវនចិត្ត · ត្រូវឧបឃាតកកម្មផ្តាច់ · រារាំងដោយសម្បត្តិ ៤ · និងរលត់សូន្យទាំងស្រុងពេលចូលបរិនិព្វាន។',
     mE: 'Karma lapses into Ahosi-kamma via: window expiration, destructive severance, favorable buffering, and total cessation at Parinibbāna.',
     tie: 'យន្តការអហោសិកម្ម ៤ ប្រការ · /kamma#ahosi-kamma', to: '/kamma#ahosi-kamma',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរធម្មបទដ្ឋកថា ហេតុអ្វីបានជាព្រះមោគ្គល្លានមានឫទ្ធិអស្ចារ្យ នៅតែមិនអាចគេចផុតពីកម្មចាស់សម្លាប់ឪពុកម្តាយ ហើយហេតុអ្វីកម្មនោះមិនក្លាយជាអហោសិកម្មមុនបរិនិព្វាន?',
+    qE: 'Why could Ven. Mahāmoggallāna, foremost in psychic powers, not escape past kamma of killing his parents, and why did it not become ahosi-kamma before Parinibbāna?',
+    aK: 'ព្រះមោគ្គល្លានមិនអាចគេចផុតពីពួកចោរ ហើយកម្មនោះមិនទាន់ក្លាយជាអហោសិកម្ម ពីព្រោះ៖ (១) កម្លាំងកម្មធំជាងកម្លាំងឫទ្ធិ៖ កម្មសម្លាប់ម្តាយឪពុកជា «គរុកម្ម» (អនន្តរិយកម្ម) ដែលមានសន្ទុះខ្លាំងក្លាបំផុត។ លើកទី ១ និងទី ២ លោកប្រើឫទ្ធិគេចបាន តែដល់លើកទី ៣ កម្លាំងកម្មបច្ច័យបានចូលមកគ្របសង្កត់ ធ្វើឱ្យឫទ្ធិគាំងស្ទះ មិនអាចចូលឈានបាន លោកក៏ព្រមទទួលផលកម្មស្ងប់ស្ងៀមតាមធម្មបទគាថា ១២៧ («គ្មានទីណាគេចផុតពីផលនៃកម្មឡើយ»)។ (២) ហេតុអ្វីមិនទាន់ជាអហោសិកម្ម? ព្រោះសំណល់កម្ម (កម្មាវសេស) ជា «អបរាបរិយវេទនីយកម្ម» ដែលដេកសម្ងំរង់ចាំឱកាសឱ្យផល ដរាបណារូបខន្ធនៅមាន។ ជាតិនេះជា «អន្តិមសរីរៈ» (ជាតិចុងក្រោយបង្អស់) របស់លោក គឺជាឱកាសចុងក្រោយ (Last Chance) របស់កម្មមុនពេលលោកចូលបរិនិព្វានរលត់ខន្ធអស់ ដូច្នេះកម្មត្រូវតែសម្រុកឱ្យផលលើរូបកាយដោយពួកចោរវាយកម្ទេចឆ្អឹងឱ្យបែកម៉ដ្ឋដូចគ្រាប់ល្ង។ (៣) ទុក្ខកើតតែលើរូបកាយ (រូបក្ខន្ធ) ប៉ុន្តែចិត្តលោកជាអរហន្ត តម្កល់ក្នុងឧបេក្ខា មិនរងទុក្ខឡើយ។ លុះលោកចូលអនុបាទិសេសបរិនិព្វាន ទើបកម្មទាំងអស់រលត់ក្លាយជាអហោសិកម្មជាស្ថាពរ។',
+    aE: 'Ven. Mahāmoggallāna could not escape the bandits and the kamma did not lapse into ahosi-kamma beforehand because: (1) Kamma supersedes psychic power: Killing parents is Garuka-kamma (heaviest gravity). He slipped away twice via iddhi, but on the 3rd attempt, kammic momentum overpowered his faculties, preventing entry into jhāna and jamming psychic faculties — he willingly submitted to the ripening vipāka per Dhammapada 127 ("Nowhere can one escape kamma"). (2) Why not Ahosi-kamma yet? The residual charge (kammāvasesa) was Aparāpariya-vedanīya-kamma, which cannot lapse as long as aggregates persist. Because this was his Antimasarīra (final lifetime), it was kamma’s ultimate window before Parinibbāna dissolved the aggregates forever — compelling it to mature on his body with 500 bandits shattering his bones like sesame seeds. (3) Only the physical aggregates endured damage; his purified arahant mind rested in unshakable equanimity. Only upon entering Anupādisesa-Parinibbāna did all remaining unripened kamma permanently extinguish into Ahosi-kamma.',
+    mK: 'គ្មានឫទ្ធិណាធំជាងកម្លាំងកម្មឡើយ · អបរាបរិយវេទនីយកម្មត្រូវតែឆ្លៀតឱ្យផលលើជាតិចុងក្រោយ · ទុក្ខមានលើរូបកាយ តែចិត្តអរហន្តមិនរងទុក្ខ។',
+    mE: 'No psychic power surpasses kamma; residual unripened kamma seizes the final lifetime to mature; physical pain exists, but the awakened mind is untouched.',
+    tie: 'រឿងព្រះមហាមោគ្គល្លានត្ថេរ និងកម្មចាស់ · /stories#story-moggallana',
+    to: '/stories#story-moggallana',
   },
 ]
 </script>

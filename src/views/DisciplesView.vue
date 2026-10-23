@@ -308,8 +308,8 @@ const disciples = [
     awakeningEn: 'Overcame extreme sleepiness with the Buddha’s 8 antidotes, contemplated elements, and achieved full enlightenment.',
     verseKm: 'ព្រៃស្ងាត់ មហាសមុទ្រ ភ្នំថ្មដារ ឬទីវាលក្តី អ្នកមានចិត្តស្ងប់ មានសតិបរិបូណ៌ រមែងរស់នៅជាសុខគ្រប់វេលា។',
     verseEn: 'Whether in the deep forest or rocky hills, the mindful one of peaceful heart abides in bliss.',
-    lessonKm: 'កម្មចាស់មិនអាចគេចផុតបានឡើយ៖ ទោះបីជាមានឫទ្ធិខ្លាំងក្លាដល់កម្រិតណាក៏ដោយ ក៏ព្រះមោគ្គល្លានត្រូវទទួលផលកម្មចាស់កាលពីជាតិមុនដែលធ្លាប់វាយសម្លាប់ម្តាយឪពុក ត្រូវពួកចោរព្រៃវាយបាក់ឆ្អឹងខ្ទេចខ្ទីមុនពេលបរិនិព្វាន។',
-    lessonEn: 'Even the greatest supernatural powers cannot circumvent past destructive kamma.'
+    lessonKm: 'កម្មចាស់មិនអាចគេចផុតបានឡើយ៖ ទោះបីជាមានឫទ្ធិខ្លាំងក្លាដល់កម្រិតណាក៏ដោយ ក៏ព្រះមោគ្គល្លានត្រូវទទួលផលកម្មចាស់កាលពីជាតិមុនដែលធ្លាប់វាយសម្លាប់ម្តាយឪពុក ត្រូវពួកចោរព្រៃវាយបាក់ឆ្អឹងខ្ទេចខ្ទីមុនពេលបរិនិព្វាន (អានលម្អិតក្នុង «រឿងល្បីៗ» > ព្រះមហាមោគ្គល្លានត្ថេរ)។',
+    lessonEn: 'Even the greatest supernatural powers cannot circumvent past destructive kamma (read full details in Stories > Ven. Mahāmoggallāna).'
   },
   {
     id: 'kassapa',

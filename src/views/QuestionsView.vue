@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២០ — សួរតាមដែលអ្នកជួប', 'Q&A 20 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២១ — សួរតាមដែលអ្នកជួប', 'Q&A 21 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២០ — ចុចដើម្បីបើកមើល', 'TWENTY QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២១ — ចុចដើម្បីបើកមើល', 'TWENTY-ONE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -208,6 +208,14 @@ const qas = [
     mK: 'សីល វាស់ នៅ ទង្វើ ពិត ប្រាកដ — សាច់ ដែល បរិសុទ្ធ តាម តិកោដិ អាច បរិភោគ បាន; ការ បួស ជា មេត្តា បន្ថែម ។',
     mE: 'Precepts judge the actual deed — meat pure by the threefold criterion is allowed; vegetarianism is an extra kindness.',
     tie: 'កម្ម និងផល · /kamma#kusala-akusala', to: '/kamma#kusala-akusala',
+  },
+  {
+    qK: 'តើអ្វីជាឫសគល់នៃទុក្ខ ហើយតើមានវិធីអ្វីខ្លះដើម្បីរំលត់កិលេស?', qE: 'What are the root causes of suffering, and how do we extinguish defilements?',
+    aK: 'ទុក្ខកើតចេញពីខ្សែសង្វាក់នៃ តណ្ហា ៣ (កាមតណ្ហា ភវតណ្ហា វិភវតណ្ហា) ឧបាទាន (ការតោងប្រកាន់) និង អវិជ្ជា (ការមិនដឹងពិត) ព្រមទាំងអកុសលមូលទាំង ៣ (លោភៈ ទោសៈ មោហៈ)។ ដើម្បីរំលត់ទុក្ខបាន ត្រូវកម្ចាត់កិលេសតាម ត្រៃសិក្ខា ៣ ថ្នាក់៖ (១) កិលេសគ្រោតគ្រាតតាមកាយ-វាចា រំងាប់ដោយ «សីល» (២) កិលេសកម្រិតមធ្យមក្នុងចិត្ត រំងាប់ដោយ «សមាធិ» (៣) កិលេសដេកសម្ងំនៅបាតចិត្ត កាត់ផ្តាច់ជាស្ថាពរដោយ «បញ្ញា» (វិបស្សនា) រហូតដល់សម្រេចអរហត្តផល។',
+    aE: 'Suffering stems from a causal chain of Craving (kāma, bhava, vibhava taṇhā), Clinging (upādāna), deep Ignorance (avijjā), and the three unwholesome roots (greed, hatred, delusion). Eradication proceeds through the Threefold Training (tisikkhā): gross defilements are restrained by Sīla (morality), medium mental hindrances are quieted by Samādhi (concentration), and latent roots (anusaya) are severed forever by Paññā (wisdom/insight).',
+    mK: 'សីល រំងាប់កិលេសក្រៅ · សមាធិ រំងាប់កិលេសក្នុង · បញ្ញា កាត់ផ្តាច់ឫសកិលេសឲ្យរលត់សូន្យ។',
+    mE: 'Virtue calms outward defilement; concentration calms inner agitation; wisdom cuts the root forever.',
+    tie: 'ឫសគល់នៃទុក្ខ និងវិធីរំលត់កិលេស · /core#roots-of-suffering', to: '/core#roots-of-suffering',
   },
 ]
 </script>

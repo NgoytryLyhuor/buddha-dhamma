@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៦ — សួរតាមដែលអ្នកជួប', 'Q&A 26 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៨ — សួរតាមដែលអ្នកជួប', 'Q&A 28 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៦ — ចុចដើម្បីបើកមើល', 'TWENTY-SIX QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៨ — ចុចដើម្បីបើកមើល', 'TWENTY-EIGHT QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -260,6 +260,26 @@ const qas = [
     mE: 'Code and mechanics are expressions of conditionality and matter; the Buddha knew boundless things like the leaves of a forest, but taught only the handful needed to end suffering.',
     tie: 'សឹម្សបាសូត្រ (ស្លឹកឈើមួយក្តាប់ដៃ) · /suttas#sutta-simsapa',
     to: '/suttas#sutta-simsapa',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម តើរូបកលាប (Rūpa-kalāpa) មានដំណើរការយ៉ាងដូចម្ដេច ហើយស្រដៀងគ្នានឹងទ្រឹស្តីរូបវិទ្យាកង់ទិច (Quantum Physics) យ៉ាងណា?',
+    qE: 'According to Abhidhamma, how do Rūpa-kalāpa operate, and how do they correspond to Quantum / Subatomic Physics?',
+    aK: 'នៅក្នុងគម្ពីរអភិធម្ម គ្មានរូបធាតុណាមួយរឹងមាំ ឬនៅនឹងមួយកន្លែងឡើយ។ ព្រះពុទ្ធបានបំបែករូបរហូតដល់កម្រិតល្អិតបំផុតហៅថា «រូបកលាប» (បណ្តុំរូបធាតុតូចៗដែលកើតរលត់រាប់ពាន់កោដិដងក្នុងមួយវិនាទី)។ កញ្ចប់តូចបំផុតគឺ «សុទ្ធដ្ឋកកលាប» មានធាតុ ៨ ជាប់ស្អិតរមួត (ដី ទឹក ភ្លើង ខ្យល់ + ពណ៌ ក្លិន រស ឱជា)។ ចំណុចស្រដៀងគ្នានឹង Quantum Physics រួមមាន៖ (១) គ្មានដុំរឹងពិតប្រាកដ — អាតូមមានចន្លោះទទេ 99.9999999% ភាគល្អិតជាកញ្ចប់រលកថាមពល (Wave-packets) (២) ការកើតរលត់រាប់កោដិដង/វិនាទី ត្រូវគ្នានឹង Quantum Fluctuations (10⁻²³ s) (៣) កម្លាំងធាតុទឹក (Cohesion) ត្រូវនឹង Strong Nuclear Force, ធាតុភ្លើងត្រូវនឹង Thermal Energy, ធាតុខ្យល់ត្រូវនឹង Kinetic Momentum (៤) ឥទ្ធិពលនៃចិត្តលើរូប (ចិត្តជរូប) ស្រដៀងគ្នានឹង Observer Effect ក្នុង Quantum។ យ៉ាងណាក៏ដោយ រូបវិទ្យាទំនើបសិក្សាខាងក្រៅដើម្បីបង្កើតសម្ភារៈ ចំណែកអភិធម្មបំបែករូបដោយភាវនាមយបញ្ញា ដើម្បីឃើញត្រៃលក្ខណ៍ កម្ចាត់ការប្រកាន់តួខ្លួន (សក្កាយទិដ្ឋិ) និងរំលត់ទុក្ខដល់ព្រះនិព្វាន។',
+    aE: 'In the Abhidhamma, physical matter possesses no solid, static core. Matter exists only in microscopic clusters called "Rūpa-kalāpa", vibrating and flashing in and out of existence billions of times per second (17 mind-moments lifespan). The minimal "Pure Octad" (Suddhaṭṭhaka) consists of 8 inseparable properties: mass/solidity, cohesive fluid binding, thermal energy, and kinetic oscillation, combined with color, odor, taste, and nutrition. Parallels to Quantum Physics: (1) No permanent solidity — 99.9999999% empty space with subatomic wave-packets; (2) Incessant arising-passing mirrors quantum fluctuations (10⁻²³ s); (3) Āpo cohesion reflects strong nuclear force, Tejo thermal energy, and Vāyo kinetic oscillation; (4) Mind-born matter (cittaja-rūpa) echoes the Observer Effect. Crucially, physics explores the outer cosmos to build machines, while Buddhism uses meditative insight to pierce the illusion of selfhood (sakkāya-diṭṭhi) and attain Nibbāna.',
+    mK: 'រូបកលាបជាកញ្ចប់រលកធាតុដែលកើតរលត់រាប់ពាន់កោដិដង/វិនាទី · វិទ្យាសាស្ត្រដឹងខាងក្រៅដើម្បីបង្កើតសម្ភារៈ · ធម៌ដឹងខាងក្នុងដើម្បីរំលត់ទុក្ខ។',
+    mE: 'Rūpa-kalāpas are subatomic wave-packets arising and passing billions of times a second; science uses this to build machines, while Dhamma uses it to end suffering.',
+    tie: 'រូបកលាប និងរូបវិទ្យាកង់ទិច · /abhidhamma#rupa-kalapa',
+    to: '/abhidhamma#rupa-kalapa',
+  },
+  {
+    qK: 'តើពាក្យថា «ឈាន» (Jhāna) មានន័យដូចម្ដេច មានប៉ុន្មានកម្រិត របៀបបដិបត្តិ និងពេលស្លាប់ទៅតើទៅកើតនៅឯណា?',
+    qE: 'What does "Jhāna" mean, how many levels exist, how is it attained, and where is one reborn upon death?',
+    aK: '«ឈាន» (Jhāna) ជាសមាធិកម្រិតខ្ពស់បំផុត (អប្បនាសមាធិ) ដែលមានន័យ ២ យ៉ាង៖ ឈាយតិ (ការសញ្ជឹងគិតផ្ដោតលើអារម្មណ៍កម្មដ្ឋានតែមួយ) និង ឈាបេតិ (ការដុតកម្ទេចនីវរណធម៌ ៥ ឱ្យស្ងប់រលត់)។ ឈានមាន ៨ កម្រិត គឺ រូបឈាន ៤ (បឋមជ្ឈាន មានអង្គ ៥, ទុតិយជ្ឈាន លះវិតក្ក-វិចារ, តតិយជ្ឈាន លះបីតិ, ចតុត្ថជ្ឈាន នៅសល់ឧបេក្ខា-ឯកគ្គតា ដង្ហើមរលត់ស្ងប់ឈឹង) និង អរូបឈាន ៤ (អាកាសា, វិញ្ញាណា, អាកិញ្ចញ្ញា, នេវសញ្ញា)។ របៀបបដិបត្តិ៖ តម្កល់សីលបរិសុទ្ធ ជ្រើសរើសកម្មដ្ឋាន (អានាបានសតិ ឬកសិណ) ចម្រើនឆ្លងកាត់ បរិកម្មនិមិត្ត -> ឧគ្គហនិមិត្ត -> បដិភាគនិមិត្ត (ពន្លឺថ្លាឈ្វេងដូចកែវមណី) រួចទម្លាក់ចិត្តចូលក្នុងអប្បនាសមាធិ។ ពេលស្លាប់ទៅ៖ ឈានជាគរុកម្មបុណ្យ បើមិនសាបសូន្យ នឹងបាញ់វិញ្ញាណឱ្យទៅកើតនៅ «ឋានព្រហ្មលោក» ភ្លាមៗ (រូបព្រហ្ម ១៦ ជាន់ និងអរូបព្រហ្ម ៤ ជាន់ អាយុរាប់ម៉ឺនមហាកប្ប)។ ព្រះពុទ្ធដាស់តឿនថា ឈានគ្រាន់តែជាសមថៈ «ថ្មសង្កត់ស្មៅ» មិនទាន់កាត់ឫសកិលេសទេ ត្រូវយកថាមពលស្ងប់នៃឈានមកចម្រើន «វិបស្សនាបញ្ញា» ទើបសម្រេចព្រះនិព្វានបាន។',
+    aE: 'Jhāna is full meditative absorption (appanā-samādhi) bearing two etymological meanings: Jhāyati (steadfast contemplation on a single meditation object) and Jhāpeti (incinerating the 5 hindrances). There are 8 Jhānas: 4 Form Jhānas (1st with 5 factors, 2nd dropping thought, 3rd dropping rapture, 4th resting in pure equanimity with breath stilled) and 4 Formless Jhānas (boundless space, boundless consciousness, nothingness, neither-perception-nor-non-perception). Attainment requires: purified virtue, a meditation subject (breath or kasiṇa), progressing through Preparatory, Acquired, and Counterpart Signs (paṭibhāga-nimitta) into full absorption. Post-mortem destiny: Jhāna is heavyweight wholesome kamma (garuka-kusala); if uncorrupted at death, it ensures immediate rebirth in the Brahma realms (16 form tiers or 4 formless tiers, lasting up to 84,000 Mahākappas). The Buddha warned that Jhāna is merely temporary suppression ("a stone on grass"); one must harness its laser-sharp stillness to cultivate Vipassanā insight to uproot latent defilements and realize Nibbāna.',
+    mK: 'ឈានជាសមាធិជ្រៅដុតកម្ទេចនីវរណៈ · នាំឱ្យទៅកើតឋានព្រហ្ម · ត្រូវយកឈានជាគ្រឹះចម្រើនវិបស្សនាបញ្ញា ទើបដល់និព្វាន។',
+    mE: 'Jhāna is deep absorption that incinerates hindrances and leads to the Brahma realms; use it as a foundation for insight to reach Nibbāna.',
+    tie: 'ឈានទាំង ៨ កម្រិត និងភពកំណើត · /meditation#jhana-deep',
+    to: '/meditation#jhana-deep',
   },
 ]
 </script>

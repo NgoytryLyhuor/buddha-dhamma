@@ -107,6 +107,157 @@
       </div>
     </div>
 
+    <!-- Rūpa-kalāpa & Quantum Physics -->
+    <div id="rupa-kalapa" class="card-paper p-6 md:p-8 mt-8 scroll-mt-24">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <p class="chapter-label">RŪPA-KALĀPA · QUANTUM PHYSICS</p>
+        <span class="text-xs px-2.5 py-0.5 rounded-full font-bold" :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
+          {{ t('អភិធម្ម និង រូបវិទ្យាទំនើប', 'Abhidhamma & Quantum Physics') }}
+        </span>
+      </div>
+
+      <h3 class="font-display text-2xl mt-2" :style="{ color: 'var(--ink)' }">
+        {{ t('រូបកលាប៖ ការបំបែករូបធាតុល្អិត និងរូបវិទ្យាកង់ទិច', 'Rūpa-kalāpa: Subatomic Wave-Packets & Quantum Reality') }}
+      </h3>
+      <p class="mt-3 text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+        {{ t('នៅក្នុងគម្ពីរអភិធម្ម រូបធាតុដែលយើងមើលឃើញជារបស់រឹងមាំ (ដូចជា ថ្ម ដែក ឬសាច់ឈាម) តាមពិតទៅគ្មានដុំរឹង ឬនៅនឹងមួយកន្លែងឡើយ។ ព្រះពុទ្ធបានបំបែករូបធាតុរហូតដល់កម្រិតតូចបំផុតដែលមិនអាចបំបែកដោយកាំបិតបានទៀត ហៅថា «រូបកលាប» (Rūpa-kalāpa) ដែលមានលក្ខណៈស្របគ្នាយ៉ាងអស្ចារ្យនឹងទ្រឹស្តី Quantum Physics សម័យទំនើប។', 'In the Abhidhamma, material objects that appear solid (like stone, metal, or flesh) possess no static solidity at all. The Buddha resolved matter down to its indivisible subatomic units called "Rūpa-kalāpa" (matter-clusters), which parallel modern Quantum Physics in striking detail.') }}
+      </p>
+
+      <!-- Subatomic scale breakdown -->
+      <div class="mt-6 p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <p class="text-xs font-bold uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
+          {{ t('ក. ជណ្តើរខ្នាតរង្វាស់រូបធាតុ (វិភង្គអដ្ឋកថា)', 'A. Hierarchy of Subatomic Scale (Vibhaṅga Commentary)') }}
+        </p>
+        <p class="text-xs mt-1" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('ការបំបែកពីវត្ថុធំដែលអាចមើលឃើញ រហូតដល់កម្រិតបរមាណូ និងរូបកលាប៖', 'Resolution from visible grains down to indivisible paramāṇu and kalāpas:') }}
+        </p>
+        <div class="flex items-center gap-2 flex-wrap mt-3 text-xs">
+          <span class="px-2.5 py-1 rounded bg-[var(--bg-card)] border border-[var(--border)] font-bold text-[var(--ink)]">
+            {{ t('ធូលីរថ (រថរេណុ)', 'Chariot Dust') }}
+          </span>
+          <span class="text-[var(--accent)]">&rarr;</span>
+          <span class="px-2.5 py-1 rounded bg-[var(--bg-card)] border border-[var(--border)] font-bold text-[var(--ink)]">
+            {{ t('ត្រជ្ជារី (ធូលីក្នុងពន្លឺថ្ងៃ)', 'Sunbeam Speck') }}
+          </span>
+          <span class="text-[var(--accent)]">&rarr;</span>
+          <span class="px-2.5 py-1 rounded bg-[var(--bg-card)] border border-[var(--border)] font-bold text-[var(--ink)]">
+            {{ t('អណុ (Aṇu)', 'Subtle Molecule') }}
+          </span>
+          <span class="text-[var(--accent)]">&rarr;</span>
+          <span class="px-2.5 py-1 rounded bg-[var(--bg-card)] border border-[var(--border)] font-bold text-[var(--ink)]">
+            {{ t('បរមាណូ (Paramāṇu)', 'Subatomic Atom') }}
+          </span>
+          <span class="text-[var(--accent)]">&rarr;</span>
+          <span class="px-2.5 py-1 rounded bg-[var(--accent-soft)] border border-[var(--accent)] font-bold text-[var(--accent)]">
+            {{ t('រូបកលាប (Rūpa-kalāpa)', 'Wave-packet Cluster') }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Suddhatthaka-kalapa (Pure Octad) -->
+      <div class="mt-6">
+        <p class="text-xs font-bold uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
+          {{ t('ខ. កញ្ចប់រូបមូលដ្ឋានបំផុត៖ «សុទ្ធដ្ឋកកលាប» (Pure Octad — អវិនិព្ភោគរូប ៨)', 'B. The Fundamental Unit: "Pure Octad" (Suddhaṭṭhaka-kalāpa — 8 Inseparable Elements)') }}
+        </p>
+        <p class="text-xs mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('ពាក្យថា «កលាប» ប្រែថា «បណ្តុំ ឬកញ្ចប់»។ គ្មានរូបធាតុណាកើតឡើងទោលឯកឯងបានឡើយ — កលាបតូចបំផុតមានធាតុ ៨ ជាប់ស្អិតរមួត មិនអាចកាត់ញែកពីគ្នាបាន៖', 'Kalāpa means "cluster or packet". No physical element ever arises in isolation — the minimal unit contains 8 inseparable properties tightly bound together:') }}
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 mt-3">
+          <div class="p-3 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+            <p class="text-xs font-bold" :style="{ color: 'var(--ink)' }">{{ t('មហាភូតរូប ៤ (ធាតុបង្គោលកម្លាំង)', '4 Primary Great Elements') }}</p>
+            <ul class="mt-2 space-y-1.5 text-xs" :style="{ color: 'var(--ink-soft)' }">
+              <li>• <strong>{{ t('បឋវីធាតុ (ដី)៖', 'Pathavī (Earth):') }}</strong> {{ t('គុណសម្បត្តិរឹង ឬទន់ — ផ្តល់ទីតាំង និងទម្ងន់', 'Solid/soft — provides mass, inertia, and location') }}</li>
+              <li>• <strong>{{ t('អាបោធាតុ (ទឹក)៖', 'Āpo (Water):') }}</strong> {{ t('គុណសម្បត្តិស្អិត ឬស្រូបទាញគ្នា (Cohesion / Binding Force)', 'Fluidity/bonding — the attractive cohesive force holding matter') }}</li>
+              <li>• <strong>{{ t('តេជោធាតុ (ភ្លើង)៖', 'Tejo (Fire):') }}</strong> {{ t('គុណសម្បត្តិកម្ដៅ ត្រជាក់ ឬថាមពល (Energy / Temperature)', 'Temperature — thermal energy sustaining maturation') }}</li>
+              <li>• <strong>{{ t('វាโยធាតុ (ខ្យល់)៖', 'Vāyo (Air):') }}</strong> {{ t('គុណសម្បត្តិចលនា រំញ័រ ឬសម្ពាធ (Oscillation / Pressure)', 'Motion/pressure — kinetic momentum and vibration') }}</li>
+            </ul>
+          </div>
+
+          <div class="p-3 rounded-sm" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)' }">
+            <p class="text-xs font-bold" :style="{ color: 'var(--ink)' }">{{ t('ឧបាទាយរូប ៤ (រូបអាស្រ័យជាប់ក្នុងកលាប)', '4 Inseparable Secondary Elements') }}</p>
+            <ul class="mt-2 space-y-1.5 text-xs" :style="{ color: 'var(--ink-soft)' }">
+              <li>• <strong>{{ t('វណ្ណៈ (ពណ៌)៖', 'Vaṇṇa (Color):') }}</strong> {{ t('ពន្លឺ ឬរូបារម្មណ៍ដែលអាចប៉ះនឹងចក្ខុវិញ្ញាណ', 'Visible luminosity and radiation detectable by sight') }}</li>
+              <li>• <strong>{{ t('គន្ធៈ (ក្លិន)៖', 'Gandha (Odor):') }}</strong> {{ t('ក្លិនដែលផ្សាយចេញពីកលាប', 'Olfactory quality emitted by the cluster') }}</li>
+              <li>• <strong>{{ t('រសៈ (រសជាតិ)៖', 'Rasa (Flavor):') }}</strong> {{ t('រសជាតិខាងក្នុងនៃរូបធាតុ', 'Gustatory quality present in the cluster') }}</li>
+              <li>• <strong>{{ t('ឱជា (ជីវជាតិ)៖', 'Ojā (Nutritive Essence):') }}</strong> {{ t('ថាមពលចិញ្ចឹមដែលទ្រទ្រង់រូបផ្សេងៗ', 'Sustaining nutrient energy that fuels adjacent matter') }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-3 p-3 rounded-sm" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--border-strong)' }">
+          <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+            <strong>{{ t('អាយុកាល និងល្បឿននៃការកើតរលត់ (Khaṇika)៖', 'Lifespan & Frequency of Arising-Passing (Khaṇika):') }}</strong>
+            {{ t('រូបកលាបនីមួយៗឆ្លងកាត់ ឧប្បាទៈ (កើត) &rarr; ឋិតិ (តាំងនៅ) &rarr; ភង្គៈ (រលត់) ស្មើនឹង ១៧ ខណៈចិត្ត។ ក្នុងមួយពព្រិចភ្នែក ចិត្តកើតរលត់រាប់សែនកោដិដង ដូច្នេះរូបកលាបកើតរលត់រាប់ពាន់កោដិដងក្នុងមួយវិនាទី បង្កើតជាការបំភាន់ភ្នែកដូចជារបស់រឹងមាំមួយនៅនឹងថ្កល់។', 'Each kalāpa traverses Arising (uppāda) &rarr; Static Peak (ṭhiti) &rarr; Dissolution (bhaṅga), living exactly 17 mind-moments. Since trillions of mind-moments flash by in a finger-snap, kalāpas combust and vanish billions of times per second, creating the sensory illusion of solid matter.') }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Comparison with Quantum Physics -->
+      <div class="mt-6">
+        <p class="text-xs font-bold uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
+          {{ t('គ. តារាងប្រៀបធៀប៖ អភិធម្ម (រូបកលាប) និង រូបវិទ្យាកង់ទិច (Quantum Physics)', 'C. Comparative Matrix: Abhidhamma (Kalāpa) vs. Quantum Physics') }}
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-3 mt-3">
+          <div class="p-3.5 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold" :style="{ color: 'var(--accent)' }">១.</span>
+              <p class="font-bold text-xs" :style="{ color: 'var(--ink)' }">{{ t('គ្មានវត្ថុរឹងមាំពិតប្រាកដ (No Solid Reality)', 'No Solid Reality') }}</p>
+            </div>
+            <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('គ្មានដុំរឹងឯករាជ្យទេ មានតែការប្រជុំគ្នានៃគុណសម្បត្តិធាតុ បើបំបែកធាតុទាំងនេះចេញ គឺគ្មាន «វត្ថុ» នោះឡើយ។', 'No solid independent lump exists — only an assemblage of qualities. If stripped apart, no "object" remains.') }}<br/>
+              <strong>{{ t('រូបវិទ្យា៖', 'Quantum:') }}</strong> {{ t('អាតូមមានចន្លោះទទេ (Empty space) 99.9999999%។ ភាគល្អិតតូចៗមិនមែនជាគ្រាប់រឹងទេ តែជា «កញ្ចប់រលកថាមពល» (Wave-packets)។', 'Atoms are 99.9999999% empty space. Subatomic particles are not billiard balls but localized wave-packets of probability.') }}
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold" :style="{ color: 'var(--accent)' }">២.</span>
+              <p class="font-bold text-xs" :style="{ color: 'var(--ink)' }">{{ t('ការកើតរលត់ឥតឈប់ឈរ (Incessant Fluctuations)', 'Incessant Fluctuations') }}</p>
+            </div>
+            <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('រូបកលាបកើតឡើង រួចរលត់ទៅវិញភ្លាមៗ (Uppāda-Bhaṅga) ជំនួសដោយកលាបថ្មីរាប់កោដិដងក្នុងមួយវិនាទី។', 'Kalāpas flash into existence and perish instantly (uppāda-bhaṅga), succeeded by new waves billions of times each second.') }}<br/>
+              <strong>{{ t('រូបវិទ្យា៖', 'Quantum:') }}</strong> {{ t('Quantum Fluctuations៖ នៅកម្រិត Subatomic ភាគល្អិតនិម្មិត (Virtual particles) កើតឡើង និងរលាយសូន្យទៅវិញក្នុងរយៈពេលមួយចំណិតនៃវិនាទី (10⁻²³ s)។', 'Quantum fluctuations: virtual particles pop into existence and annihilate in fractions of a second (10⁻²³ s).') }}
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold" :style="{ color: 'var(--accent)' }">៣.</span>
+              <p class="font-bold text-xs" :style="{ color: 'var(--ink)' }">{{ t('ថាមពល និងកម្លាំងទាញ (Energy & Forces)', 'Energy & Forces') }}</p>
+            </div>
+            <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('អាបោ (កម្លាំងស្រូបទាញស្អិត), តេជោ (ថាមពលកម្ដៅ/វិទ្យុសកម្ម), វាโย (ចលនារំញ័រ និងសម្ពាធ)។', 'Āpo provides attractive cohesion; Tejo governs thermal energy; Vāyo manifests as kinetic momentum and vibration.') }}<br/>
+              <strong>{{ t('រូបវិទ្យា៖', 'Quantum:') }}</strong> {{ t('Strong Nuclear Force & Electromagnetic force (ទាញភាគល្អិតឱ្យនៅជាប់គ្នា), Thermal Energy, និង Kinetic Momentum (ចលនារំញ័រ)។', 'Strong nuclear force binds subatomic particles; thermodynamics dictates energy states; kinetic energy drives oscillatory motion.') }}
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold" :style="{ color: 'var(--accent)' }">៤.</span>
+              <p class="font-bold text-xs" :style="{ color: 'var(--ink)' }">{{ t('ឥទ្ធិពលនៃចិត្តលើរូប (Mind-Matter / Observer Effect)', 'Mind-Matter / Observer Effect') }}</p>
+            </div>
+            <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('ចិត្តជាបច្ច័យបង្កើត «ចិត្តជរូប» (Cittaja-rūpa) គឺចិត្តគិតយ៉ាងណា រូបកលាបក្នុងខ្លួនប្រែប្រួលតាមនោះ។', 'Mind generates Mind-born Matter (Cittaja-rūpa) — every thought instantly alters the biochemical and electrical kalāpa matrix of the body.') }}<br/>
+              <strong>{{ t('រូបវិទ្យា៖', 'Quantum:') }}</strong> {{ t('Observer Effect (ការពិសោធន៍ Double-slit)៖ វត្តមាននៃការសង្កេត ឬការវាស់វែង បានជះឥទ្ធិពលលើឥរិយាបថរបស់ភាគល្អិត (ពីសភាពរលក មកជាភាគល្អិត)។', 'The Observer Effect (double-slit experiment): conscious observation causes the collapse of wave functions into definite particle states.') }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core divergence: Physics vs. Liberation -->
+      <div class="mt-6 p-4 rounded-sm" :style="{ background: 'var(--bg-card-2)', borderLeft: '4px solid var(--accent)' }">
+        <p class="text-xs font-bold uppercase tracking-wider" :style="{ color: 'var(--ink)' }">
+          {{ t('ឃ. ភាពខុសគ្នាស្នូលរវាងវិទ្យាសាស្ត្រ និងព្រះពុទ្ធសាសនា', 'D. Core Divergence: Worldly Science vs. Spiritual Liberation') }}
+        </p>
+        <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+          • <strong>{{ t('រូបវិទ្យាទំនើប៖', 'Modern Physics:') }}</strong> {{ t('ប្រើឧបករណ៍ពិសោធន៍បច្ចេកវិទ្យា (ដូចជា ម៉ាស៊ីនបាញ់ភាគល្អិត CERN) ដើម្បីយល់ដឹងពីចក្រវាឡខាងក្រៅ រួចយកចំណេះដឹងនោះមកបង្កើតបច្ចេកវិទ្យា សម្ភារៈ ឬអាវុធ — តែមិនអាចជួយមនុស្សឱ្យរួចផុតពីសេចក្តីទុក្ខផ្លូវចិត្តឡើយ។', 'Uses external instruments (like CERN particle colliders) to dissect the external cosmos, converting findings into machines, consumer tech, or weapons — yet cannot free the human mind from anguish.') }}<br/>
+          • <strong>{{ t('គម្ពីរអភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('ព្រះពុទ្ធប្រើ «ភាវនាមយបញ្ញា» (ចិត្តស្ងប់ក្នុងកម្រិតឈាន) ដើម្បីបំបែករូបកាយឱ្យឃើញសច្ចធម៌នៃ ត្រៃលក្ខណ៍ (អនិច្ចំ ទុក្ខំ អនត្តា)។ គោលដៅចម្បង គឺដើម្បីកម្ចាត់ការជាប់ជំពាក់លើរូបកាយ (សក្កាយទិដ្ឋិ) ថាជា «ខ្លួនយើង ឬជារបស់យើង» រួចដកខ្លួនចេញពីវដ្តសង្សារ សម្រេចនូវព្រះនិព្វាន។', 'The Buddha deployed meditative insight (bhāvanā-mayā paññā) to penetrate the body’s impermanence, suffering, and not-self (tilakkhaṇa). The sole aim is to uproot bodily clinging (sakkāya-diṭṭhi) and reach the deathless peace of Nibbāna.') }}
+        </p>
+      </div>
+    </div>
+
     <!-- Dependent origination -->
     <div class="card-paper p-6 md:p-8 mt-8">
       <p class="chapter-label">PAṬICCASAMUPPĀDA</p>

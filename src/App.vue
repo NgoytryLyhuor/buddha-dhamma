@@ -24,14 +24,14 @@
                 color: menuOpen ? 'var(--accent)' : 'var(--ink)',
                 border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
               }"
-              :title="t('ម៉ឺនុយទាំងអស់ (៤១)', 'All Pages (41)')"
+              :title="t('ម៉ឺនុយទាំងអស់ (៤២)', 'All Pages (42)')"
               :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
               <span>{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
               <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
                 :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
-                ៤១
+                {{ nav.length }}
               </span>
             </button>
 
@@ -293,7 +293,7 @@
                 ref="menuSearchInputRef"
                 v-model="menuSearchQuery"
                 type="text"
-                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤១ ម៉ឺនុយ (ឧ. សមាធិ, កម្ម, ៣៦)...', 'Search 41 pages (e.g. meditation, 36)...')"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤២ ម៉ឺនុយ (ឧ. សមាធិ, កម្ម, ៣៦)...', 'Search 42 pages (e.g. meditation, 36)...')"
                 class="w-full bg-transparent border-none text-xs focus:outline-none"
                 :style="{ color: 'var(--ink)' }"
               />
@@ -497,6 +497,7 @@ const nav = [
   { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', kmShort: 'ទសពិធរាជធម៌', en: 'Leadership & Rajadhamma', num: '៣៩' },
   { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', kmShort: 'ចក្រវាឡ', en: 'Cosmology & Origins', num: '៤០' },
   { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication', num: '៤១' },
+  { to: '/my-gems', km: 'សំណួរពិសេស & ធម៌រតនៈ', kmShort: 'ធម៌រតនៈពិសេស', en: 'My Top Gems', num: '៤២' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -513,7 +514,7 @@ const tabRoutes = {
   home: ['/'],
   dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer'],
-  learn: ['/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
+  learn: ['/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
 }
 
 const activeTab = computed(() => {
@@ -578,6 +579,7 @@ const related = {
   '/rajadhamma': ['/ethics', '/core', '/suttas', '/daily'],
   '/cosmology': ['/realms', '/prophecy', '/kamma', '/suttas'],
   '/merit-transfer': ['/kamma', '/realms', '/daily', '/ethics'],
+  '/my-gems': ['/questions', '/suttas', '/core', '/abhidhamma'],
 }
 
 const relatedList = computed(() => {
@@ -698,13 +700,14 @@ const descrMap = {
   kamma: ['កម្ម វិបាក កុសល អកុសល និងយន្តការអហោសិកម្ម ៤ យ៉ាង។', 'Kamma, result, wholesome, unwholesome actions, and 4 Ahosi-kamma mechanisms.'],
   ethics: ['សីល ៥ បារមី ១០ និងការប្រព្រឹត្តល្អ។', 'Five precepts, the ten perfections, and right conduct.'],
   meditation: ['សមាធិ ឈានទាំង ៨ កម្រិត របៀបបដិបត្តិ និងភពកំណើតព្រហ្មលោក។', 'Meditation, 8 Jhānas, attainment steps, and rebirth in Brahma realms.'],
-  suttas: ['ព្រះសូត្រ ១១ ដ៏ល្បី ជាមួយភាសាបាលី និងពន្យល់ (ធម្មចក្ក, សឹម្សបាសូត្រ...)។', 'Eleven famous suttas with Pali and explanations (Dhammacakka, Siṃsapā...).'],
+  suttas: ['ព្រះសូត្រ ១២ ដ៏ល្បី ជាមួយភាសាបាលី និងពន្យល់ (ធម្មចក្ក, សឹម្សបា, ចូឡមាលុង្ក្យោវាទ...)។', 'Twelve famous suttas with Pali and explanations (Dhammacakka, Siṃsapā, Cūḷamāluṅkya...).'],
   life: ['ជីវប្រវត្តិព្រះសម្មាសម្ពុទ្ធ ព្រះសិទ្ធត្ថ គោតម។', 'The life of the Buddha, Siddhattha Gotama.'],
   gathas: ['គាថាព្រះធម៌ និងធម្មបទ សម្រាប់ត្រិះរិះ។', 'Verses of Dhamma and the Dhammapada for reflection.'],
   chanting: ['សូត្រ ១០ សម្រាប់សូត្ររាល់ថ្ងៃ ជាមួយភាសាបាលី។', 'Ten daily recitals for chanting with Pali.'],
   glossary: ['វចនានុក្រមពាក្យធម៌ ជាខ្មែរ និងអង់គ្លេស។', 'Glossary of Dhamma terms in Khmer and English.'],
   stories: ['រឿងល្បីៗ ១០ អំពីព្រះពុទ្ធ និងព្រះអរហន្ត (អង្គុលីមាលៈ ព្រះមោគ្គល្លាន...)។', 'Ten famous stories about the Buddha and Arahants (Angulimāla, Moggallāna...).'],
-  questions: ['សំណួរ–ចម្លើយ ២៨ សំណួរដែលគេសួរញឹកញាប់អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', '28 questions and answers about Dhamma and practice.'],
+  questions: ['សំណួរ–ចម្លើយ ២៩ សំណួរដែលគេសួរញឹកញាប់អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', '29 questions and answers about Dhamma and practice.'],
+  'my-gems': ['កម្រងសំណួរកំពូល និងធម៌រតនៈពិសេសផ្ទាល់ខ្លួន៖ ឧបមាព្រួញបាញ់ ឫសគល់ទុក្ខ បច្ច័យ ២៤ និងឈាន។', 'Personal collection of top questions & Dhamma gems: Poisoned Arrow Parable, 24 conditions, Ahosi-kamma, and Jhana.'],
   'rupa-qa': ['សំណួរ–ចម្លើយ រូបបរមត្ថ ២៨ និងភាគរូបផ្សេងៗ។', 'Rūpa Paramattha Q&A — the 28 rūpas and related parts.'],
   'cetasika-qa': ['សំណួរ–ចម្លើយ ចេតសិកបរមត្ថ ៥២ ផស្ស វេទនា សញ្ញា ចេតនា ឯកគ្គតា។', 'Cetasika Paramattha Q&A — the 52 cetasikas, phassa, vedanā, saññā, cetanā, ekaggatā.'],
   'lobha-mula-citta': ['រំលឹកមេរៀនលោភមូលចិត្ត ៨ ដួង បរមត្ថអភិធម្ម ភាគ ១–៦។', 'Lobha Mūla Citta review — the 8 greed-rooted consciousnesses in Abhidhamma, parts 1–6.'],

@@ -34,7 +34,7 @@
 
     <!-- sutta list -->
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សូត្រជម្រើស ១១ — ចុចដើម្បីបើកមើល', 'ELEVEN SELECTED SUTTAS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សូត្រជម្រើស ១២ — ចុចដើម្បីបើកមើល', 'TWELVE SELECTED SUTTAS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(s, i) in suttas" :key="s.en" :id="s.slug || ('sutta-' + i)" class="card-paper p-6 md:p-8 scroll-mt-24" :open="i === 0 || isTarget(s.slug, i)">
@@ -352,6 +352,28 @@ const suttas = [
     applyK: 'កុំឱ្យការស្វែងរកចំណេះដឹងលោកិយ ឬបច្ចេកវិទ្យាថ្មីៗ មកបិទបាំងកិច្ចការសំខាន់បំផុតនៃជីវិត គឺការបដិបត្តិចម្រើនសតិ និងកាត់បន្ថយកិលេសទុក្ខ។',
     applyE: 'Never let the endless pursuit of worldly knowledge or new technology obscure life’s supreme task: training mindfulness and ending defilement.',
     tags: ['Simsapa Sutta', 'Handful of Leaves', 'Four Noble Truths', 'Omniscience', 'Science & Dhamma'],
+  },
+  {
+    slug: 'sutta-culamalunkya',
+    ref: 'MN 63 (ម. ម. ២១/១៤៣/១៩២)', paali: 'CŪḶAMĀLUṄKYA·SUTTA',
+    km: 'ចូឡមាលុង្ក្យោវាទសូត្រ — ឧបមាព្រួញបំពុលពិស និងបញ្ហាអព្យាក្រឹត្យទាំង ១០',
+    en: 'Cūḷamāluṅkya Sutta — The Parable of the Poisoned Arrow',
+    bgK: 'ព្រះភិក្ខុមាលុង្ក្យបុត្ត បានកើតសេចក្តីមិនពេញចិត្តដោយសារព្រះពុទ្ធមិនព្រមបកស្រាយ «បញ្ហាអព្យាក្រឹត្យទាំង ១០» (លោកទៀងឬមិនទៀង, មានទីបញ្ចប់ឬគ្មាន, ព្រលឹងនិងកាយជារបស់តែមួយឬផ្សេងគ្នា, ស្លាប់ទៅនៅមានឬអត់...) ហើយបានគំរាមលាចាកសិក្ខាបទភ្លាម ប្រសិនបើព្រះអង្គមិនឆ្លើយ។ ព្រះពុទ្ធបានត្រាស់លើកឧបមាព្រួញបំពុលពិស ដើម្បីដាស់តឿនឱ្យភ្ញាក់រឭក។',
+    bgE: 'Ven. Māluṅkyaputta grew dissatisfied because the Buddha did not answer the 10 speculative metaphysical questions (whether the universe is eternal or finite, whether soul and body are one, whether the Tathāgata exists after death), threatening to disrobe unless answered. The Blessed One responded with the famous Parable of the Poisoned Arrow.',
+    list: [
+      { km: 'ឧបមាព្រួញបំពុលពិស៖ បុរសម្នាក់ត្រូវព្រួញបំពុលពិសបាញ់ចំទ្រូងយ៉ាងធ្ងន់ធ្ងរ។ ពេលគ្រូពេទ្យវះកាត់រៀបនឹងដកព្រួញ ស្រាប់តែបុរសនោះស្រែកឃាត់ថា «ឈប់សិន! កុំអាលដក! ខ្ញុំត្រូវដឹងសិនថា អ្នកបាញ់ឈ្មោះអី វណ្ណៈណា មាឌខ្ពស់ឬទាប ធ្នូធ្វើពីឈើអ្វី ខ្សែធ្នូធ្វើពីសរសៃអ្វី ព្រួញមានរោមស្លាបសត្វអ្វី ហើយផ្លែដែកធ្វើពីអ្វី?» — បុរសនោះច្បាស់ជាស្លាប់មុននឹងដឹងចម្លើយទាំងអស់នោះ។', en: 'The Parable of the Poisoned Arrow: A man is shot in the chest by a heavily poisoned arrow. As the surgeon prepares to extract it, the victim shouts: "Hold on! Do not pull it out until I know who shot me, their caste, name, village, height, bow wood, bowstring material, arrow fletching, and iron tip!" — The man would surely die before ever learning the answers.' },
+      { km: 'ខ្លឹមសារពិតដែលព្រះពុទ្ធចង់ដាស់តឿន៖ ព្រួញបំពុលពិស គឺ «សេចក្តីទុក្ខ» (ជាតិ ជរា ព្យាធិ មរណៈ សោកៈ) ដែលកំពុងដោតជាប់ទ្រូងសត្វលោក។ គ្រូពេទ្យ គឺ ព្រះពុទ្ធ និងព្រះធម៌។ ការវះកាត់ដកព្រួញ គឺ ការបដិបត្តិកម្ចាត់កិលេសក្នុងបច្ចុប្បន្ន។ សំណួរអត់ប្រយោជន៍ គឺ ការវង្វេងជជែករឿងអរូបីឥតការ ដូចជាការសួរថាយើងកើតពីណា ឬចក្រវាឡកើតពីកាលណា។', en: 'The Buddha’s Warning: The poisoned shaft is suffering itself (birth, aging, sickness, death, sorrow) lodged in every being. The surgeon is the Buddha and the Dhamma. The extraction is practicing to extinguish defilements right now. The foolish questions are speculative metaphysical obsessions that distract from the present crisis.' },
+      { km: 'ហេតុអ្វីព្រះពុទ្ធមិនព្រមឆ្លើយរឿងទាំង ១០ (អព្យាកតវត្ថុ)? ពីព្រោះសំណួរទាំងនោះ «ន អត្ថសំហិតំ» (មិននាំមកនូវប្រយោជន៍ដល់ជីវិតពិត) «ន អាទិព្រហ្មចរិយកំ» (មិនមែនជាគ្រឹះនៃព្រហ្មចរិយធម៌) មិននាំទៅរកការនឿយណាយ ការប្រាសចាករាគៈ ការរំលត់ទុក្ខ ភាពស្ងប់ស្ងាត់ ការត្រាស់ដឹង និងព្រះនិព្វានឡើយ។', en: 'Why the Buddha refused to answer the 10 questions (Abyākata-vatthu): Because they are unprofitable (na atthasaṃhitaṃ), not fundamental to the holy life, and do not lead to disenchantment, dispassion, cessation, peace, direct knowledge, awakening, or Nibbāna.' },
+      { km: 'អ្វីដែលព្រះពុទ្ធបង្រៀន (ព្យាកតវត្ថុ)៖ ព្រះអង្គបង្រៀនតែ «អរិយសច្ច ៤» ប៉ុណ្ណោះ គឺ ទុក្ខ (ដឹងថាខ្លួនត្រូវព្រួញ), សមុទយ (ដឹងពីពិសគឺតណ្ហា), និរោធ (ការដកព្រួញជាសះស្បើយគឺនិព្វាន), និង មគ្គ (វិធីវះកាត់និងឱសថព្យាបាលគឺអដ្ឋង្គិកមគ្គ)។', en: 'What the Buddha actually taught (Byākata-vatthu): The Four Noble Truths alone — Dukkha (recognizing the arrow wound), Samudaya (craving as the deadly venom), Nirodha (extracting the arrow and curing the wound in Nibbāna), and Magga (the surgical surgery and medicine of the Eightfold Path).' },
+      { km: 'មេរៀនជីវិតជាក់ស្តែង៖ ឈប់ខ្ជះខ្ជាយថាមពលលើរឿងទស្សនវិជ្ជាស្មានៗដែលគ្មានចម្លើយ ឬការរិះគន់អ្នកដទៃ ហើយងាកមកដកព្រួញនៃកំហឹង ស្ត្រេស និងលោភលន់ចេញពីចិត្តក្នុងបច្ចុប្បន្នខណៈ។', en: 'Life Application: Cease squandering energy on unanswerable speculative debates; turn inward and immediately extract the poisoned arrows of anger, greed, stress, and anxiety from your heart.' },
+    ],
+    raw: 'សេយ្យថាបិ មាលុង្ក្យបុត្ត បុរិសោ សល្លេន វិទ្ធោ អស្ស សវិសេន គាឡ្ហេន... ន តាវាហំ ឥមំ សល្លំ អព្វុឡ្ហិស្សាមិ យាវ ន តំ បុរិសំ ជានាមិ... ឥតោ សោ មាលុង្ក្យបុត្ត បុរិសោ អញ្ញាតំយេវ តស្ស អស្ស អថ សោ បុរិសោ កាលំ ករេយ្យ... កស្មា ចេតំ មយា អព្យាកតំ? ន ហេតំ មាលុង្ក្យបុត្ត អត្ថសំហិតំ ន អាទិព្រហ្មចរិយកំ... យំ ចេតំ មាលុង្ក្យបុត្ត ព្យាកតំ? ឥទំ ទុក្ខន្តិ មយា ព្យាកតំ, អយំ ទុក្ខសមុទយោតិ មយា ព្យាកតំ, អយំ ទុក្ខនិរោធោតិ មយា ព្យាកតំ, អយំ ទុក្ខនិរោធគាមិនី បដិបទាតិ មយា ព្យាកតំ ។',
+    pali: 'Seyyathāpi, māluṅkyaputta, puriso sallena viddho assa savisena gāḷhena... "Na tāvāhaṃ imaṃ sallaṃ abbūḷhāmi yāva na taṃ purisaṃ jānāmi"... Kasmā cetaṃ mayā abyākataṃ? Na hetaṃ, māluṅkyaputta, atthasaṃhitaṃ nādibrahmacariyakaṃ... Kiñca, māluṅkyaputta, mayā byākataṃ? "Idaṃ dukkhan"ti mayā byākataṃ; "Ayaṃ dukkhasamudayo"ti mayā byākataṃ; "Ayaṃ dukkhanirodho"ti mayā byākataṃ; "Ayaṃ dukkhanirodhagāminī paṭipadā"ti mayā byākataṃ.',
+    kmVerse: '«កុំរវល់តែចង់ដឹងឈ្មោះអ្នកបាញ់ រហូតស្លាប់ដោយពិសព្រួញ — ត្រូវដកព្រួញនៃសេចក្តីទុក្ខចេញពីចិត្តក្នុងបច្ចុប្បន្ន»',
+    enVerse: '"Do not obsess over the archer’s clan while the poison spreads — extract the arrow of suffering from your heart right now."',
+    applyK: 'ពេលជួបបញ្ហាជីវិត ឬអារម្មណ៍ស្មុគស្មាញ ចូរឈប់សួរថា «ហេតុអ្វីរឿងនេះកើតលើខ្ញុំ?» តែសួរថា «តើខ្ញុំត្រូវរំងាប់កំហឹង និងដោះស្រាយវិបត្តិនេះដោយសតិយ៉ាងដូចម្តេច?»',
+    applyE: 'When crisis or mental turmoil strikes, stop asking "Why me?" and ask instead: "How do I extract this anger and anxiety with mindfulness right now?"',
+    tags: ['Cūḷamāluṅkya Sutta', 'Poisoned Arrow', '10 Unanswered Questions', 'Pragmatism', 'Four Noble Truths'],
   },
 ]
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៨ — សួរតាមដែលអ្នកជួប', 'Q&A 28 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៩ — សួរតាមដែលអ្នកជួប', 'Q&A 29 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៨ — ចុចដើម្បីបើកមើល', 'TWENTY-EIGHT QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ២៩ — ចុចដើម្បីបើកមើល', 'TWENTY-NINE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -280,6 +280,16 @@ const qas = [
     mE: 'Jhāna is deep absorption that incinerates hindrances and leads to the Brahma realms; use it as a foundation for insight to reach Nibbāna.',
     tie: 'ឈានទាំង ៨ កម្រិត និងភពកំណើត · /meditation#jhana-deep',
     to: '/meditation#jhana-deep',
+  },
+  {
+    qK: 'តើឧបមានៃ «បុរសត្រូវព្រួញបំពុលពិស» ក្នុងចូឡមាលុង្ក្យោវាទសូត្រ មានអត្ថន័យយ៉ាងណា ហើយហេតុអ្វីព្រះពុទ្ធមិនឆ្លើយបញ្ហាអព្យាក្រឹត្យទាំង ១០?',
+    qE: 'What is the meaning of the "Parable of the Poisoned Arrow" in the Cūḷamāluṅkya Sutta, and why did the Buddha refuse to answer the 10 speculative questions?',
+    aK: 'ព្រះភិក្ខុមាលុង្ក្យបុត្តបានគំរាមលាចាកសិក្ខាបទ ប្រសិនបើព្រះពុទ្ធមិនព្រមបកស្រាយបញ្ហាទស្សនវិជ្ជាអរូបីទាំង ១០ (លោកទៀងឬមិនទៀង, មានទីបញ្ចប់ឬគ្មាន, ព្រលឹងនិងកាយជារបស់តែមួយឬផ្សេងគ្នា, ស្លាប់ទៅនៅមានឬអត់...)។ ព្រះពុទ្ធបានលើកឧបមាថា៖ បុរសម្នាក់ត្រូវព្រួញបំពុលពិសបាញ់ចំទ្រូង ពេលគ្រូពេទ្យរៀបនឹងដកព្រួញ ស្រាប់តែបុរសនោះស្រែកឃាត់ថា «កុំអាលដក! ខ្ញុំត្រូវដឹងសិនថា អ្នកបាញ់ឈ្មោះអី វណ្ណៈណា ធ្នូធ្វើពីឈើអី រោមស្លាបសត្វអី ផ្លែដែកអី...» បុរសនោះច្បាស់ជាស្លាប់មុននឹងដឹងចម្លើយ។ ព្រះពុទ្ធបញ្ជាក់ថា មនុស្សយើងកំពុងត្រូវព្រួញនៃជាតិ ជរា ព្យាធិ និងមរណៈបាញ់ចំទ្រូង ដូច្នេះកិច្ចបន្ទាន់បំផុតគឺការ «ដកព្រួញរំលត់ទុក្ខក្នុងបច្ចុប្បន្ន» មិនមែនការជជែករឿងអរូបីឥតប្រយោជន៍ឡើយ។ ព្រះពុទ្ធមិនឆ្លើយរឿងទាំង ១០ (អព្យាកតវត្ថុ) ពីព្រោះមិននាំមកនូវប្រយោជន៍ (ន អត្ថសំហិតំ) មិនមែនជាគ្រឹះបរិសុទ្ធ និងមិននាំទៅរកព្រះនិព្វាន។ អ្វីដែលព្រះអង្គបង្រៀនគឺ «អរិយសច្ច ៤» ដែលជាវិធីសង្គ្រោះជីវិតជាក់ស្តែង។',
+    aE: 'Ven. Māluṅkyaputta threatened to disrobe unless the Buddha answered 10 metaphysical conundrums (whether the cosmos is eternal or finite, whether soul and body are identical, whether the Tathāgata exists after death, etc.). The Buddha responded with the Parable of the Poisoned Arrow: a man shot by a poisoned arrow insists on knowing the archer’s name, caste, bow material, and arrow feather before allowing the surgeon to extract the shaft — he would perish long before receiving those answers. The Buddha proclaimed that humanity is already pierced by the poisoned arrow of birth, aging, illness, death, and mental afflictions; our urgent duty is removing the arrow right now, not speculating on insoluble metaphysical questions. The Buddha set aside those 10 questions (Abyākata-vatthu) because they are unprofitable (na atthasaṃhitaṃ), non-essential to holiness, and do not lead to Nibbāna. Instead, he taught the Four Noble Truths — the emergency surgery for liberating the mind.',
+    mK: 'កុំរវល់តែចង់ដឹងឈ្មោះអ្នកបាញ់ រហូតភ្លេចដកព្រួញពិសចេញពីទ្រូង · ព្រះពុទ្ធបង្រៀនឱ្យដកព្រួញទុក្ខក្នុងបច្ចុប្បន្ន មិនមែនវង្វេងក្នុងទ្រឹស្តីស្មានៗឡើយ។',
+    mE: 'Do not obsess over the archer’s identity while ignoring the poisoned shaft in your heart; Dhamma is the emergency surgery to extinguish suffering right here and now.',
+    tie: 'ឧបមាព្រួញបាញ់ (ចូឡមាលុង្ក្យោវាទសូត្រ) · /my-gems#arrow-parable',
+    to: '/my-gems#arrow-parable',
   },
 ]
 </script>

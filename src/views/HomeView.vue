@@ -66,6 +66,38 @@
     <!-- Next festival countdown -->
     <FestivalCountdownCard />
 
+    <!-- Personal Gems Banner Card -->
+    <router-link to="/my-gems"
+      class="card-paper card-paper-hover p-6 md:p-8 mt-8 block transition relative overflow-hidden group"
+      :style="{ border: '1.5px solid var(--accent)', background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--accent-soft) 100%)' }">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider inline-flex items-center gap-1"
+              :style="{ background: 'var(--accent)', color: '#fff' }">
+              <span>👑</span>
+              <span>{{ t('ទំព័រពិសេសផ្ទាល់ខ្លួន', 'PERSONAL SANCTUARY') }}</span>
+            </span>
+            <span class="text-xs font-mono font-bold" :style="{ color: 'var(--accent-bright)' }">#៤២</span>
+          </div>
+          <h3 class="font-display text-xl md:text-2xl mt-2 group-hover:text-amber-500 transition" :style="{ color: 'var(--ink)' }">
+            {{ t('កម្រងសំណួរកំពូល & ធម៌រតនៈផ្ទាល់ខ្លួន (My Gems)', 'My Top Questions & Dhamma Gems') }}
+          </h3>
+          <p class="text-xs md:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ប្រមូលផ្តុំកំពូលសំណួរជ្រៅៗ ៖ ឧបមាព្រួញបំពុលពិស (MN 63), ឫសគល់ទុក្ខ & វិធីរំលត់, បច្ច័យ ២៤, យន្តការអហោសិកម្ម, ព្រះមោគ្គល្លាន, ឈាន ៨ និងរូបកលាប...', 'Curated deep answers: Parable of the Poisoned Arrow (MN 63), Roots of Suffering, 24 Conditions, Ahosi-kamma, Moggallāna, 8 Jhānas, and Rūpa-kalāpa...') }}
+          </p>
+        </div>
+        <div class="hidden sm:flex flex-col items-center justify-center w-12 h-12 rounded-full shrink-0 mt-1 transition group-hover:scale-110"
+          :style="{ background: 'var(--accent-soft)', border: '1px solid var(--accent)' }">
+          <span class="text-xl">💎</span>
+        </div>
+      </div>
+      <div class="mt-4 flex items-center gap-1.5 text-xs font-bold" :style="{ color: 'var(--accent)' }">
+        <span>{{ t('ចូលអានធម៌ពិសេសឥឡូវនេះ', 'Open My Gems Collection') }}</span>
+        <span class="transition group-hover:translate-x-1">&#8594;</span>
+      </div>
+    </router-link>
+
     <!-- Explore cards -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
       <router-link v-for="c in explore" :key="c.to" :to="c.to"

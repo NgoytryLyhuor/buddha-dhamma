@@ -103,6 +103,16 @@ html.high-contrast.dark {
 ::-webkit-scrollbar-thumb { background: var(--border-strong); }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
+.scrollbar-none, .no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none !important;
+}
+.scrollbar-none::-webkit-scrollbar, .no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {

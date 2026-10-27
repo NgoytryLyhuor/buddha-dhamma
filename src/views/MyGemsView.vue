@@ -301,7 +301,8 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១០)', en: 'All (10)' },
+  { id: 'all', km: 'ទាំងអស់ (១២)', en: 'All (12)' },
+  { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
   { id: 'arrow', km: '🎯 ឧបមាព្រួញ & ទស្សនវិជ្ជា', en: '🎯 Arrow & Pragmatism' },
   { id: 'abhidhamma', km: '🧠 អភិធម្ម & បដ្ឋាន', en: '🧠 Abhidhamma & Paṭṭhāna' },
@@ -818,6 +819,129 @@ const gems = ref([
         titleEn: '4. Psychosomatic Reality: The Mind Governs Biology and the Cosmos',
         contentKm: 'ចក្កវត្តិសីហនាទសូត្រ បានបង្ហាញនូវច្បាប់ធម្មជាតិដ៏ជ្រាលជ្រៅបំផុត ៣ ប្រការ ៖\n១. ចិត្តនិយាម កំណត់ រូបនិយាម ៖ កោសិកា សម្បុរ និងអាយុកាលរបស់រូបកាយ (ចិត្តជរូប) ប្រែប្រួលទៅតាមថាមពលនៃចិត្ត។ កាលណាស្អប់ គុំកួន សម្លាប់ កោសិកាបំផ្លាញខ្លួនឯង។ កាលណាមានមេត្តា សីល និងសច្ចៈ កោសិកាបង្កើតថាមពលជីវិតដ៏បរិសុទ្ធ។\n២. បុគ្គលនិយាម បង្កើត ឧតុជរូប (បរិស្ថានផែនដី) ៖ ផែនដីមានជីជាតិ រាបស្មើ ទឹកថ្លា ខ្យល់បរិសុទ្ធ ឬរងគ្រោះដោយគ្រោះរាំងស្ងួត និងការបំពុល គឺកើតចេញពីកម្លាំងកម្មរួម (Communal Kamma) របស់មនុស្ស។\n៣. គ្មានអាទិទេពណាដាក់ទណ្ឌកម្ម ៖ អាយុខ្លីឬវែង មិនមែនជាការដាក់ទណ្ឌកម្ម ឬប្រទានពរពីព្រះឡើយ តែជាលទ្ធផលសុទ្ធសាធនៃ «ច្បាប់ហេតុនិងផល»។ ចង់ឱ្យពិភពលោកស្រស់បំព្រង និងមានអាយុយឺនយូរ ត្រូវចាប់ផ្តើមពីការសម្អាតចិត្ត និងសមាទានសីលក្នុងបច្ចុប្បន្ន!',
         contentEn: 'The sutta illuminates 3 profound Buddhist natural laws: (1) Citta-niyāma governs Rūpa-niyāma: biological cells, radiance, and longevity are physically configured by mental states (cittaja-rūpa). Hatred and slaughter trigger cellular breakdown; virtue and mettā generate radiant longevity. (2) Collective morality shapes planetary climate and botany (Utu-niyāma & kamma-niyāma). (3) No divine entity punishes or rewards: longevity is the natural deterministic fruit of moral evolution. To heal biology and ecology, one must purify the mind and uphold ethics today.'
+      }
+    ]
+  },
+
+  // GEM 11: Kurudhamma Jātaka (Jātaka No. 276) - 11 Precept Keepers & Ending the Kaliṅga Drought
+  {
+    id: 'kurudhamma-jataka',
+    num: 11,
+    open: false,
+    category: 'kurudhamma',
+    categoryKm: '📜 កុរុធម្មជាតក & សីល ៥',
+    categoryEn: '📜 Kurudhamma Jātaka & Precepts',
+    ref: 'ខុទ្ទកនិកាយ ជាតក កុរុធម្មជាតក (ជាតកលេខ ២៧៦ / ព្រះត្រៃបិដកភាគ ៥៩)',
+    paliQuote: 'ធម្មំ ចរេ សុចរិតំ ន តំ ទុច្ចរិតំ ចរេ · ធម្មចារី សុខំ សេតិ អស្មឹ លោកេ បរម្ហិ ច (បុគ្គលគប្បីប្រព្រឹត្តធម៌ឱ្យសុចរិត កុំប្រព្រឹត្តទុច្ចរិតឡើយ អ្នកប្រព្រឹត្តធម៌រមែងដេកជាសុខ ទាំងក្នុងលោកនេះ ទាំងក្នុងលោកបរលោក)',
+    questionKm: 'យោងតាមកុរុធម្មជាតក តើសីលធម៌របស់ស្តេច និងប្រជាជននៅដែនដីកុរុ មានភាពម៉ត់ចត់ និងបរិសុទ្ធយ៉ាងណាខ្លះ រហូតដល់នគរកលិង្គរដ្ឋដែលកំពុងរាំងស្ងួត ត្រូវបញ្ជូនបេសកជនមកចម្លងយក «កុរុធម្ម» នេះទៅប្រតិបត្តិ?',
+    questionEn: 'According to the Kurudhamma Jātaka (No. 276), how scrupulously pure was the morality of the king and 11 citizens of Kuru, leading drought-stricken Kaliṅga to send envoys to inscribe it on golden plates?',
+    shortKm: 'កុរុធម្មជាតក & សីលបរិសុទ្ធ ១១ រូប',
+    shortEn: 'Kurudhamma Jātaka: 11 Pure Precept Keepers',
+    essenceKm: 'នៅក្នុងកុរុធម្មជាតក (ជាតកលេខ ២៧៦) «កុរុធម្ម» គឺជាការរក្សាសីល ៥ ដ៏បរិសុទ្ធស្អាតបំផុតរបស់ស្តេច និងប្រជាជនដែនកុរុ ដែលប្រុងប្រយ័ត្ន និងស្អប់ខ្ពើមអំពើបាបដល់កម្រិតកំពូល រហូតសូម្បីតែការសង្ស័យនឹងកំហុសដ៏ល្អិតល្អោច (កុក្កុច្ចៈ) ក៏ចាត់ទុកថាជាកំហុស និងមានសេចក្តីសោកស្តាយក្រៀមក្រំ។ ពេលនគរកលិង្គរដ្ឋរងគ្រោះរាំងស្ងួតធ្ងន់ធ្ងរ ព្រះរាជាកលិង្គរាជបានសុំដំរីមង្គលអញ្ជនវសភៈ តែភ្លៀងនៅតែមិនធ្លាក់។ ទើបដឹងការពិតថា ភ្លៀងធ្លាក់ដោយសារ «កម្លាំងសីលកុរុធម្ម» ហើយបានចាត់រាជទូតមកចារឹកកុរុធម្មលើបន្ទះមាស (សុវណ្ណបដ្ត)។ ពេលមនុស្សទូទាំងនគរកលិង្គរដ្ឋសមាទានសីល ៥ ព្រមគ្នា ភ្លៀងមេឃធំបានបង្អុរចុះមកភ្លាម រំលត់គ្រោះទុរភិក្សទាំងស្រុង!',
+    essenceEn: 'In Kurudhamma Jātaka (No. 276), "Kurudhamma" represents the immaculate observance of the 5 Precepts by the King and 11 citizens of Kuru, characterized by extreme moral vigilance where even the slightest micro-doubt (kukkucca) caused deep self-reproach. When Kaliṅga suffered severe drought, their king requested Kuru’s auspicious rain-elephant, but rain never fell. Realizing rain was produced solely by Kuru’s moral integrity, envoys were sent to transcribe the Kurudhamma onto golden plates. When the entire Kaliṅga kingdom resolved to uphold the 5 Precepts, torrential rains immediately poured forth, eradicating famine forever.',
+    practicalKm: 'សីលមិនមែនគ្រាន់តែជាការមិនសម្លាប់ ឬមិនលួចខាងក្រៅប៉ុណ្ណោះទេ តែជា «សេចក្តីស្អាតស្អំនៃមនសិការ»។ ការមានសតិប្រុងប្រយ័ត្នចំពោះគំនិតលោភលន់ លំអៀង ឬការធ្វេសប្រហែសសូម្បីបន្តិចបន្តួច គឺជាគ្រឹះនៃមហាកុសល ដែលអាចផ្លាស់ប្តូរជីវិត គ្រួសារ និងសង្គមជាតិទាំងមូល!',
+    practicalEn: 'Precepts are not merely external mechanical restraints against killing or stealing, but an immaculate inward clarity of conscience. Vigilance against microscopic greed, bias, or negligence builds spiritual power capable of transforming destiny, family harmony, and national wellbeing.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣១', en: 'Q&A 31' },
+      { to: '/ethics', km: 'សីលធម៌ & សីល ៥', en: 'Ethics & 5 Precepts' },
+      { to: '/stories', km: 'រឿងល្បីៗសម័យពុទ្ធកាល', en: 'Famous Stories' },
+      { to: '/my-gems#sila-weather-physics', km: 'យន្តការអភិធម្ម និងធាតុអាកាស', en: 'Abhidhamma Weather Physics' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ហេតុការណ៍ដែលនាំឱ្យកលិង្គរដ្ឋចម្លង «កុរុធម្ម»',
+        titleEn: '1. The Drought in Kaliṅga & The Elephant Misconception',
+        contentKm: '— គ្រោះទុរភិក្សនៅកលិង្គរដ្ឋ ៖ នគរកលិង្គរដ្ឋបានរងគ្រោះរាំងស្ងួតយ៉ាងធ្ងន់ធ្ងរ ភ្លៀងមិនធ្លាក់អស់ជាច្រើនឆ្នាំ បង្កជាទុរភិក្ស អត់បាយស្លាប់ និងជំងឺរាតត្បាតពេញនគរ។\n— ការសុំដំរីមង្គលមិនបានផល ៖ ព្រះបាទកលិង្គរាជបានដឹងថា ព្រះបាទធនញ្ជ័យកោរព្យៈ (ព្រះពោធិសត្វ ស្តេចនៃដែនដីកុរុ) មានដំរីទិព្វឈ្មោះ «អញ្ជនវសភៈ» ដែលទៅដល់ទីណា ទីនោះតែងមានភ្លៀងធ្លាក់។ ស្តេចកលិង្គរដ្ឋបានចាត់ព្រាហ្មណ៍ទៅសុំដំរី ហើយស្តេចកុរុក៏បានប្រទានឱ្យដោយមិនស្តាយស្រណោះ។ ប៉ុន្តែពេលយកដំរីមកដល់ ភ្លៀងនៅតែមិនធ្លាក់ដដែល។\n— ការរកឃើញការពិត ៖ ស្តេចកលិង្គរាជបានពិចារណាទើបដឹងថា ហេតុដែលធ្វើឱ្យដែនដីកុរុមានភ្លៀងធ្លាក់ទៀងទាត់តាមរដូវកាល មិនមែនមកពីដំរីស ឬឫទ្ធិអំណាចខាងក្រៅឡើយ ប៉ុន្តែមកពី «កម្លាំងសីលធម៌កុរុធម្ម» របស់ព្រះរាជា និងប្រជាជននៅទីនោះ។ ព្រះអង្គក៏បានចាត់រាជទូត និងអាមាត្យឱ្យទៅចារឹកកុរុធម្មនេះលើបន្ទះមាស (សុវណ្ណបដ្ត) ដើម្បីយកមកប្រតិបត្តិ។',
+        contentEn: '— Famine in Kaliṅga: Severe protracted drought struck the kingdom of Kaliṅga; crops withered, people starved, and pestilence ran rampant.\n— Rain Elephant Request Fails: Hearing that King Dhanañjaya Koravya of Kuru possessed an auspicious state elephant named "Añjanavasabha" credited with bringing rain, the King of Kaliṅga dispatched Brahmins to plead for it. The generous Bodhisatta gifted the elephant immediately. Yet in Kaliṅga, not a single raindrop fell.\n— The Realization: King Kaliṅga discerned that nature’s seasonal harmony derived not from an external creature, but from Kuru’s immaculate moral purity ("Kurudhamma"). He dispatched high royal envoys to inscribe this code onto golden plates (suvaṇṇapaṭṭa) to institute it throughout Kaliṅga.'
+      },
+      {
+        titleKm: '២. ភាពបរិសុទ្ធ និងការប្រុងប្រយ័ត្នរបស់បុគ្គលទាំង ១១ រូប (Kukkucca)',
+        titleEn: '2. The 11 Citizens & Their Microscopic Moral Conscience (Kukkucca)',
+        contentKm: 'ពេលរាជទូតទៅដល់ មនុស្សទាំង ១១ នាក់នៅដែនដីកុរុ គ្មាននរណាម្នាក់ហ៊ានអះអាងថាសីលរបស់ខ្លួនបរិសុទ្ធពេញលេញឡើយ ព្រោះម្នាក់ៗសុទ្ធតែមាន «ការសង្ស័យនឹងកំហុសដ៏ល្អិតល្អោច» (កុក្កុច្ចៈ) របស់ខ្លួន ៖',
+        contentEn: 'When Kaliṅga’s envoys arrived, none of the 11 individuals dared claim their precepts were flawless, each distressed by subtle micro-doubts (kukkucca):',
+        points: [
+          { boldKm: '១. ព្រះមហាក្សត្រ (ធនញ្ជ័យ)', boldEn: '1. The King (Bodhisatta)', km: 'ក្នុងពិធីបាញ់ព្រួញកម្សាន្ត ព្រួញមួយបានធ្លាក់ចុះទៅក្នុងទឹកបឹង។ ព្រះអង្គសង្ស័យថា «តើព្រួញនោះបានមុតត្រូវត្រី ឬអណ្តើកក្នុងទឹកស្លាប់ដែរឬទេ?» (ខ្លាចដាច់សីលទី ១)។', en: 'During archery recreation, an arrow fell into a lake; he agonized whether it might have injured a fish or turtle underwater (fearing a breach of the 1st precept).' },
+          { boldKm: '២. ព្រះរាជមាតា', boldEn: '2. The Queen Mother', km: 'ទទួលកម្រងផ្កា ២ មួយល្អជាង មួយទៀតអន់ជាង។ ព្រះនាងយកផ្កាល្អទៅឱ្យកូនប្រសារច្បង រួចសង្ស័យថា «ខ្លួនមានចិត្តលម្អៀង ស្រឡាញ់មិនស្មើគ្នា»។', en: 'Received two flower garlands of slightly unequal quality; giving the finer one to the elder daughter-in-law, she grieved fearing partiality and bias.' },
+          { boldKm: '៣. ព្រះអគ្គមហេសី', boldEn: '3. The Chief Queen', km: 'សម្លឹងមើលព្រះអនុជស្វាមី (ប្អូនថ្លៃ) ដោយក្តីរាប់អាន ស្រាប់តែមានអារម្មណ៍ភ្លែតមួយគិតថាប្អូនថ្លៃសង្ហា ព្រះនាងភ័យស្លន់ស្លោសង្ស័យថា «តើខ្លួនមានចិត្តកាមរាគក្បត់ស្វាមីឬទេ?» (ខ្លាចដាច់សីលទី ៣)។', en: 'Looking warmly at her brother-in-law, a fleeting impression of his handsome grace passed her mind; she was horrified fearing subtle lust or disloyalty (3rd precept).' },
+          { boldKm: '៤. ព្រះឧបរាជ (ប្អូនស្តេច)', boldEn: '4. The Viceroy', km: 'យប់មួយយាងទៅគាល់ស្តេច ឃើញស្តេចលក់ មិនហ៊ានដាស់ ក៏គិតក្នុងចិត្តថា «បើបងអញសុគត អញនឹងបានឡើងគ្រងរាជ្យ»។ ពេលដឹងខ្លួន ព្រះអង្គស្តាយក្រោយយ៉ាងខ្លាំងដែលកើតចិត្តលោភរាជសម្បត្តិ។', en: 'Visiting the sleeping king late at night, the thought arose: "If my brother dies, the kingdom becomes mine." He immediately recoiled in shame at harbor ambition.' },
+          { boldKm: '៥. ព្រាហ្មណ៍បុរោហិត', boldEn: '5. The Royal Chaplain', km: 'ពេលព្រះរាជាប្រទានរាជរថជាទាន លោកសប្បាយចិត្តដើរជុំវិញរថ រួចសង្ស័យថា «ខ្លួនជាអ្នកបួស បែរជាមានចិត្តជាប់ជំពាក់នឹងទ្រព្យសម្បត្តិលោកិយ»។', en: 'Given a royal chariot by the king, he admired it joyfully by circling it, then reproached himself for harboring worldly attachment as a religious ascetic.' },
+          { boldKm: '៦. អាមាត្យវាស់ដី (រជ្ជុកាហកៈ)', boldEn: '6. The Land Surveyor', km: 'ពេលកាន់ខ្សែវាស់ដីស្រែឱ្យរដ្ឋ បង្គោលខ្សែចំរន្ធក្តាម។ គាត់គិតថា «បើបោះបង្គោលចំ ខ្លាចមុតក្តាម (ខុសសីលទី១) បើវាងទៅមុខ រដ្ឋខាត បើថយក្រោយ រាស្ត្រខាត (ខុសសីលទី២)»។', en: 'Measuring royal fields, his survey peg aligned with a crab hole; he was paralyzed whether planting it might kill the crab, while shifting it forward harmed the state and backward harmed the farmer.' },
+          { boldKm: '៧. នាយសារថី (អ្នកបររថ)', boldEn: '7. The Charioteer', km: 'ពេលភ្លៀងធ្លាក់ខ្លាំង គាត់លើកแสែគោះខ្នងសេះបន្តិចដើម្បីឱ្យរត់លឿនគេចភ្លៀង រួចសោកស្តាយថា «សេះប្រឹងរត់យ៉ាងនេះហើយ ហេតុអ្វីខ្លួននៅធ្វើឱ្យវាឈឺចាប់ទៀត?»។', en: 'In sudden rain, he tapped his horses with a whip to urge them home quickly, then suffered deep regret for inflicting unnecessary discomfort on willing beasts.' },
+          { boldKm: '៨. សេដ្ឋីប្រចាំនគរ', boldEn: '8. The Royal Merchant', km: 'ពេលច្រូតស្រូវ គាត់បេះកួរស្រូវ ២-៣ កួរមកចងកណ្តាប់ រួចភ័យសង្ស័យថា «ស្រូវនេះមិនទាន់បង់ពន្ធជូនព្រះរាជាផង ហេតុអ្វីខ្លួនហ៊ានបេះមុន?» (ខ្លាចខុសសីលលួចទ្រព្យ)។', en: 'Harvesting his fields, he plucked a few stalks of rice to tie a sheaf, then panicked fearing theft because the king’s tithe had not yet been assessed.' },
+          { boldKm: '៩. អាមាត្យអ្នកវាស់ស្រូវ (ទោណមាបកៈ)', boldEn: '9. The Grain Measurer', km: 'ពេលវាស់ស្រូវពន្ធរដ្ឋ ភ្លៀងចាប់ផ្តើមស្រក់ គាត់ប្រញាប់បោសស្រូវគរទុក រួចសង្ស័យថា «តើស្រូវដែលបោសនោះ មានផ្នែកណាដែលមិនមែនជារបស់រដ្ឋ ធ្លាក់ចូលទៅដែរឬទេ?»។', en: 'Measuring royal grain taxes during sudden drizzle, he swept grain into piles hurriedly, then doubted whether any grains had been wrongly credited to either party.' },
+          { boldKm: '១០. នាយឆ្មាំទ្វារនគរ', boldEn: '10. The City Gatekeeper', km: 'ដល់ម៉ោងបិទទ្វារ មានស្ត្រីក្រីក្រម្នាក់ចេញមកយឺត គាត់ចាប់ទាញដៃនាងឱ្យប្រញាប់ចេញ រួចសង្ស័យថា «តើការចាប់ដៃនោះ បណ្តាលមកពីចិត្តខឹង ឬចិត្តស្រឡាញ់កាមគុណ?»។', en: 'Closing the city gate at nightfall, a poor woman lingered; he gripped her arm to usher her out, then tormented himself wondering whether anger or lust motivated his touch.' },
+          { boldKm: '១១. ស្រីពេស្យា (វណ្ណទាសី)', boldEn: '11. The Courtesan', km: 'ព្រះឥន្ទ្រក្លែងខ្លួនយកមាស ១ ពាន់កក់នាងឱ្យរង់ចាំ ៣ ឆ្នាំ។ នាងអត់បាយយ៉ាងណា ក៏មិនទទួលប្រុសផ្សេង។ ផុត ៣ ឆ្នាំ មានប្រុសថ្មីហុចលុយ នាងបម្រុងទទួល ក៏សង្ស័យថា «តើផុត ៣ ឆ្នាំពេញលេញតាមម៉ោងឬនៅ?» ហើយដកដៃមកវិញភ្លាម។', en: 'Sakka tested her with 1,000 gold coins to remain faithful for 3 years; despite acute poverty, she turned away all suitors. At 3 years, another man offered coins; she stretched her hand, then recoiled doubting if the exact hour of the contract had elapsed.' }
+        ]
+      },
+      {
+        titleKm: '៣. អានុភាពនៃកុរុធម្មលើធម្មជាតិ និងការបង្អុរភ្លៀងនៅកលិង្គរដ្ឋ',
+        titleEn: '3. The Inscription on Golden Plates & Torrential Rain in Kaliṅga',
+        contentKm: 'តាមពិតទៅ សីលរបស់មនុស្សទាំង ១១ រូបខាងលើ មិនមានការដាច់រលាត់សូម្បីតែបន្តិចឡើយ ព្រោះចេតនាប្រព្រឹត្តអាក្រក់មិនមាននោះទេ ប៉ុន្តែមនសិការរបស់ពួកគេបរិសុទ្ធខ្លាំងពេក រហូតដល់មិនព្រមឱ្យមានស្រមោលនៃកិលេសសូម្បីតែមួយចំណុចក្នុងចិត្ត។\n\nពេលរាជទូតកលិង្គរដ្ឋបានកត់ត្រានូវចរិយាវត្ត និងការប្រុងប្រយ័ត្ននៃកុរុធម្មទាំងនេះលើបន្ទះមាស ហើយយកទៅថ្វាយព្រះបាទកលិង្គរាជ ៖\n១. ព្រះរាជា មន្ត្រី និងប្រជានុរាស្ត្រនៃកលិង្គរដ្ឋ បានព្រមព្រៀងគ្នាសមាទាន និងរក្សាសីល ៥ ឱ្យបានម៉ត់ចត់តាមគំរូនៃដែនដីកុរុ។\n២. ដោយសារអានុភាពនៃ «សច្ចវាចា និងកុសលសីលធម៌រួម (សាធារណកម្ម)» របស់មនុស្សទូទាំងនគរ ធាតុអាកាសដែលធ្លាប់តែក្តៅហួតហែង ក៏ស្រាប់តែកើតមានពពកខ្មៅដេរដាស ហើយ ភ្លៀងមេឃដ៏ធំបានបង្អុរចុះមកពេញនគរកលិង្គរដ្ឋ ធ្វើឱ្យដីធ្លីមានជីជាតិ ដំណាំដុះលូតលាស់ និងរំលត់គ្រោះទុរភិក្សទាំងស្រុង!',
+        contentEn: 'In truth, not a single one of the 11 individuals had broken their precepts in the slightest, as intentional evil (cetanā) was entirely absent; their conscience was simply so crystalline that even the shadow of defilement disturbed them.\n\nWhen the Kaliṅga envoys inscribed these 5 precepts and mental attitudes onto sheets of pure gold and delivered them to King Kaliṅga:\n(1) The King, nobility, and populace unanimously undertook and scrupulously observed the Kurudhamma 5 Precepts.\n(2) Through the immense power of collective truthfulness and moral virtue (Sādhāraṇa-kusala-kamma), the scorched skies gathered dense dark clouds, and a massive downpour (kālavassa) inundated Kaliṅga, reviving agriculture, refilling reservoirs, and dissolving the famine completely.'
+      },
+      {
+        titleKm: '៤. មេរៀនទស្សនវិជ្ជា ៖ មនសិការបរិសុទ្ធ & ថាមពលនៃសច្ចវាចា',
+        titleEn: '4. Philosophical Lessons: Conscience & The Potency of Collective Truth',
+        contentKm: 'រឿងរ៉ាវនេះបញ្ជាក់នូវសច្ចធម៌ ៣ យ៉ាង ៖\n១. សីលមិនមែនជាទម្រង់ខាងក្រៅ ៖ សីលពិតប្រាកដគឺ «ចេតនា និងមនសិការខាងក្នុង»។ សូម្បីតែគំនិតលំអៀង លោភលន់ ឬធ្វេសប្រហែស ក៏ត្រូវដឹងខ្លួនភ្លាម។\n២. វត្ថុទិព្វមិនស្មើនឹងសីល ៖ ដំរីសទិព្វមិនអាចបង្អុរភ្លៀងបានទេ ប្រសិនបើមនុស្សក្នុងនគរគ្មានសីលធម៌។ កម្លាំងសីលធម៌រួមជាអ្នកកំណត់ជោគវាសនាធម្មជាតិ។\n៣. សច្ចកិរិយា ៖ ការពោលពាក្យពិត និងការរក្សាសច្ចៈ មានថាមពលអស្ចារ្យដែលអាចរំញ័រដល់ធាតុទាំង ៤ ក្នុងធម្មជាតិ!',
+        contentEn: 'This Jātaka demonstrates 3 profound truths: (1) Precepts are not mere ritualistic outer motions; true sīla is internal mental purity (cetanā). (2) External amulets or sacred elephants cannot override collective negative karma; authentic moral integrity is the only real foundation of environmental harmony. (3) The Declaration of Truth (Saccakiriya) rooted in unblemished morality wields an undeniable physical influence upon the natural elements.'
+      }
+    ]
+  },
+
+  // GEM 12: Abhidhamma & Weather Physics: How Sīla 5 Governs Utu-niyāma & Rain Formation
+  {
+    id: 'sila-weather-physics',
+    num: 12,
+    open: false,
+    category: 'science',
+    categoryKm: '🔬 វិទ្យាសាស្ត្រ & ធាតុអាកាស',
+    categoryEn: '🔬 Science & Weather Physics',
+    ref: 'គម្ពីរអភិធម្ម, វិសុទ្ធិមគ្គ & អធម្មិកសូត្រ (AN 4.70 / ព្រះត្រៃបិដកភាគ ៤២)',
+    paliQuote: 'ធម្មេ ឋិតា ហោន្តិ... សម្មា ទេវោ វស្សតិ (កាលណាមនុស្សស្ថិតនៅក្នុងធម៌ ភ្លៀងរមែងបង្អុរចុះមកត្រូវតាមកាលវេលា)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម និងធម្មនិយាម តើកម្លាំងសីលធម៌របស់មនុស្ស (សីល ៥) មានដំណើរការយ៉ាងដូចម្ដេច ក្នុងការជះឥទ្ធិពលលើធាតុទឹក និងធាតុខ្យល់ បង្កើតជាពពក និងភ្លៀងធ្លាក់តាមរដូវកាល?',
+    questionEn: 'According to the Abhidhamma and Dhamma-niyāma, how does human moral power (5 Precepts) physically influence wind and water elements to generate clouds and timely rain (Kālavassa)?',
+    shortKm: 'អភិធម្ម & យន្តការសីលបង្កបង្កើតភ្លៀង',
+    shortEn: 'Abhidhamma: How Sīla Generates Rain',
+    essenceKm: 'ទំនាក់ទំនងរវាងសីល ៥ និងធាតុអាកាស ដំណើរការតាមរយៈចំណងរវាង «កម្មនិយាម (ច្បាប់កម្មផល)» និង «ឧតុនិយាម (ច្បាប់រូបវិទ្យា/សីតុណ្ហភាព)» ដោយមាន «សាធារណកម្ម (កម្មរួមរបស់សត្វលោក)» ជាអ្នកកំណត់តុល្យភាពនៃមហាភូតរូបទាំង ៤។ ពិភពលោក និងបរិស្ថានខាងក្រៅ (ពាហិររូប / ឧតុជរូប) គឺជា «ឧបភោគសម្បត្តិ» ដែលធម្មជាតិរៀបចំឡើងឱ្យត្រូវនឹងផលវិបាកកម្មរបស់សត្វលោក។ កាលណាមនុស្សទូទាំងនគរមានសីល ៥ បរិសុទ្ធ៖ កម្ដៅនៃទោសៈរលត់ -> តេជោធាតុមានតុល្យភាព -> អាបោធាតុរំហួតនិងចងក្រងភាគល្អិតជាពពកក្រាស់ -> វាយោធាតុរុញក្បួនពពកក្នុងល្បឿនស្មើល្អគ្មានព្យុះ -> កើតជា «កាលវស្ស» (ភ្លៀងធ្លាក់ត្រូវតាមរដូវកាល ទឹកថ្លាត្រជាក់ គ្មានជាតិពុល) ដូចដែលព្រះពុទ្ធបានបញ្ជាក់ក្នុងអធម្មិកសូត្រ (AN 4.70)!',
+    essenceEn: 'The connection between the 5 Precepts and weather operates through the bridge connecting Kamma-niyāma (moral causality) and Utu-niyāma (physical thermodynamics), mediated by Collective Karma (Sādhāraṇa-kamma) configuring the 4 Great Elements. External matter (Bāhira-rūpa / Utuja-rūpa) is the ecological habitat (Upabhoga-sampatti) manifesting beings’ collective karmic fruits. When society observes pure ethics: hatred subsides -> Tejo thermal energy stabilizes -> Āpo cohesion binds vapor into dense clouds -> Vāyo propulsion steers rainclouds steadily without hurricanes -> resulting in Kālavassa (timely pure rain nourishing all life), precisely as proclaimed in the Adhammika Sutta (AN 4.70).',
+    practicalKm: 'បរិស្ថាន និងធាតុអាកាសជុំវិញខ្លួនយើង មិនមែននៅដាច់ដោយឡែកពីចិត្តឡើយ។ ភាពស្ងប់ក្នុងចិត្ត ការរក្សាសីល និងមេត្តា បង្កើត «ចិត្តជរូប» ដ៏ត្រជាក់សាយភាយក្នុងលំហ ដែលជួយបន្សាបកម្ដៅ និងការបំពុលបរិស្ថាន។ ចង់កែប្រែធម្មជាតិ និងអាកាសធាតុ ត្រូវចាប់ផ្តើមកែប្រែចិត្តគំនិត និងរបៀបរស់នៅប្រកបដោយសីលធម៌ជាមុនសិន!',
+    practicalEn: 'The planetary climate and atmosphere are not disconnected from the human mind. Inner peace, ethics, and mettā project cooling cittaja-rūpa radiation into physical space, neutralizing environmental psychic heat pollution. To heal nature and the climate, humanity must first heal its own moral conscience.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣២', en: 'Q&A 32' },
+      { to: '/my-gems#kurudhamma-jataka', km: 'កុរុធម្មជាតក & សីល ១១ រូប', en: 'Kurudhamma Jātaka' },
+      { to: '/abhidhamma#rupa-kalapa', km: 'រូបកលាប & អភិធម្ម', en: 'Rūpa-kalāpa' },
+      { to: '/kamma', km: 'ច្បាប់កម្មផល & សាធារណកម្ម', en: 'Kamma & Collective Destiny' }
+    ],
+    sections: [
+      {
+        titleKm: '១. យន្តការអភិធម្ម ៖ របៀបដែល «កម្ម» បញ្ជា «រូបធាតុខាងក្រៅ»',
+        titleEn: '1. The Abhidhamma Mechanism: How Karma Commands External Matter',
+        contentKm: 'នៅក្នុងគម្ពីរអភិធម្ម រូបធាតុទាំងអស់ត្រូវបានបែងចែកជាពីរផ្នែក ៖\n— អជ្ឈត្តិករូប (រូបខាងក្នុង) ៖ រូបកាយ សរីរាង្គ និងកោសិការបស់ភាវៈរស់ ដែលកើតឡើងពីបច្ច័យ ៤ គឺ កម្ម ចិត្ត ឧតុ និងអាហារ។\n— ពាហិររូប (រូបខាងក្រៅ) ៖ ភ្នំ ដើមឈើ ទន្លេ ពពក ខ្យល់ និងទឹកភ្លៀង ដែលកើតឡើងពីបច្ច័យតែមួយគត់គឺ «ឧតុ» (Utuja-rūpa — សីតុណ្ហភាព និងថាមពលកម្ដៅនៃតេជោធាតុ)។\n\nចំណុចគន្លឹះស្ថិតនៅត្រង់ថា «តេជោធាតុនៃឧតុខាងក្រៅ មិនដំណើរការដោយចៃដន្យឡើយ» ប៉ុន្តែវាស្ថិតនៅក្រោមឥទ្ធិពលចម្បងនៃ «សាធារណកម្ម» (Collective Karma)។ ពិភពលោក និងបរិស្ថានខាងក្រៅ គឺជា «ឧបភោគសម្បត្តិ» ដែលធម្មជាតិរៀបចំឡើងឱ្យសមស្របទៅនឹងផលវិបាកកម្មរបស់សត្វលោកដែលរស់នៅក្នុងតំបន់នោះ ៖\n— កាលណាសត្វលោកមានអកុសលច្រើន បរិស្ថាននឹងប្រែជាកាចសាហាវ ក្តៅហួតហែង ដើម្បីផ្ដល់ផលវិបាកជាទុក្ខ។\n— កាលណាសត្វលោកមានសីលធម៌បរិសុទ្ធ បរិស្ថាននឹងកែសម្រួលធាតុអាកាសឱ្យមានតុល្យភាពល្អឥតខ្ចោះ ដើម្បីផ្ដល់ផលវិបាកជាសេចក្ដីសុខ។',
+        contentEn: 'In Abhidhamma, matter is classified into two domains:\n— Ajjhattika-rūpa (Internal Matter): Organs, flesh, and cells of living beings, generated by 4 conditions: Kamma, Citta, Utu, and Āhāra.\n— Bāhira-rūpa (External Matter): Mountains, rivers, oceans, clouds, winds, and rain, produced solely by Utu (Utuja-rūpa — temperature/thermal energy of Tejo-dhātu).\n\nCrucially, external thermal energy does not operate in a vacuum: it is directly governed by Collective Karma (Sādhāraṇa-kamma). The external environment serves as the "experiential habitat" (Upabhoga-sampatti) harmonized with the collective moral fruits of its inhabitants: rampant vice turns nature abrasive and drought-ridden, while collective virtue adjusts cosmic physics toward flourishing harmony.'
+      },
+      {
+        titleKm: '២. ដំណើរការនៃមហាភូតរូប ៤ ក្នុងការបង្កបង្កើតពពក និងទឹកភ្លៀង',
+        titleEn: '2. The 4 Great Elements in Cloud Physics & Rain Formation',
+        contentKm: 'នៅពេលមនុស្សទូទាំងសង្គមប្រកាន់ខ្ជាប់នូវសីល ៥ ចិត្តគំនិតរបស់ពួកគេពោរពេញដោយ អលោភៈ (មិនលោភលន់), អទោសៈ (មេត្តាចិត្ត), និង អមោហៈ (បញ្ញា)។ ថាមពលនៃចិត្តបរិសុទ្ធនេះ ជះឥទ្ធិពលផ្ទាល់ដល់តុល្យភាពនៃធាតុទាំង ៤ ៖\n\n[កុសលចិត្ត / សីល ៥] -> [ស្ងប់រម្ងាប់កម្ដៅកិលេស] -> [តេជោធាតុមានតុល្យភាព (ឧតុនិយាម)]\n                                                  |\n               [វាយោធាតុបក់ត្រូវទិស + អាបោធាតុប្រមូលផ្តុំកក]\n                                                  |\n                        [កើតពពក និងភ្លៀងតាមរដូវកាល (កាលវស្ស)]',
+        contentEn: 'When society adheres to the 5 Precepts, minds abound with non-greed (alobha), loving-kindness (adosa), and wisdom (amoha). This moral radiation systematically recalibrates the 4 Great Elements:\n\n[Moral Mind / Sīla 5] -> [Extinguishes psychic fire] -> [Tejo-dhātu thermodynamic balance]\n                                                  |\n               [Vāyo smooth propulsion + Āpo cohesive cloud clustering]\n                                                  |\n                        [Dense rainclouds & seasonal downpour (Kālavassa)]',
+        points: [
+          { boldKm: 'តេជោធាតុ (ធាតុភ្លើង / កម្ដៅ)', boldEn: 'Tejo-dhātu (Thermal Energy)', km: 'ទោសៈ (កំហឹង គំនុំ ការកាប់សម្លាប់ រំលោភសីលទី១) មានលក្ខណៈក្តៅក្រហាយ ដូចភ្លើង។ ពេលមនុស្សឈប់សម្លាប់ និងមានមេត្តា កម្ដៅនៃអកុសលរលត់ ធ្វើឱ្យតេជោធាតុក្នុងបរិយាកាសស្ថិតក្នុងកម្រិតលំនឹង មិនរាំងស្ងួត និងមិនកកស្ទះ។', en: 'Hatred and slaughter emit scorching psychic heat. Renouncing killing and radiating loving-kindness cools atmospheric Tejo into thermal equilibrium, preventing blistering droughts.' },
+          { boldKm: 'អាបោធាតុ (ធាតុទឹក / ការប្រមូលផ្តុំ)', boldEn: 'Āpo-dhātu (Cohesion / Water)', km: 'អាបោធាតុមានតួនាទី «ពន្ធនលក្ខណៈ» (ស្រូបទាញ និងភ្ជាប់ភាគល្អិតធាតុឱ្យនៅជុំគ្នា)។ កាលណាតេជោធាតុមានកម្តៅល្មម អាបោធាតុក្នុងសមុទ្រ និងដី នឹងរំហួតឡើងដោយរលូន រួចស្រូបទាញភាគល្អិតចំហាយទឹកឱ្យកកផ្តុំគ្នា បង្កើតជាដុំពពក (Megha) ដ៏ក្រាស់ឃ្មឹក។', en: 'Governed by cohesion (bandhana-lakkhaṇa), balanced heat allows smooth ocean evaporation, binding water particles into dense, luminous cloud banks (megha).' },
+          { boldKm: 'វាយោធាតុ (ធាតុខ្យល់ / ចលនា)', boldEn: 'Vāyo-dhātu (Kinetic Motion / Wind)', km: 'វាយោធាតុមានតួនាទី «សមុទីរណលក្ខណៈ» (ការរុញច្រាន និងចលនា)។ ក្រោមឥទ្ធិពលនៃកុសលកម្ម ខ្យល់បក់ក្នុងល្បឿនថេរ និងមានរបៀបរៀបរយ មិនបង្កជាព្យុះកំបុតត្បូងបំផ្លាញពពកឡើយ ហើយរុញក្បួនពពកពីសមុទ្រមកកាន់ដីគោកយ៉ាងទៀងទាត់។', en: 'Governed by propulsion (samudīraṇa-lakkhaṇa), wholesome kamma guides winds at steady, measured velocities without destructive hurricanes, escorting rainclouds inland.' },
+          { boldKm: 'ការធ្លាក់ចុះនៃទឹកភ្លៀង (Kālavassa)', boldEn: 'Kālavassa (Timely Seasonal Rain)', km: 'នៅពេលពពកមកដល់ដីគោក វាយោធាតុបន្ថយល្បឿន អាបោធាតុផ្តុំទម្ងន់ធ្ងន់ជាងមុន រួចធ្លាក់ចុះមកក្រោមដោយទំនាញនៃបឋវីធាតុ បង្កើតជា «កាលវស្ស» (ភ្លៀងធ្លាក់ត្រូវតាមរដូវកាល) មានដំណក់ទឹកថ្លាត្រជាក់ គ្មានជាតិអាស៊ីត។', en: 'Upon reaching agricultural lands, wind eases, cohesive water droplets coalesce, and gravity brings forth Kālavassa: pristine, nutrient-rich rainwater nourishing the earth.' }
+        ]
+      },
+      {
+        titleKm: '៣. ការបញ្ជាក់ក្នុង «អធម្មិកសូត្រ» (Aṅguttara Nikāya 4.70)',
+        titleEn: '3. Canonical Evidence: The Adhammika Sutta (AN 4.70)',
+        contentKm: 'នៅក្នុង អធម្មិកសូត្រ (ចតុក្កនិបាត ព្រះត្រៃបិដក) ព្រះសម្មាសម្ពុទ្ធបានបង្ហាញពីខ្សែសង្វាក់តភ្ជាប់រវាងចិត្តមនុស្ស និងធាតុអាកាសយ៉ាងលម្អិត ៖\n\n— ពេលមនុស្សប្រព្រឹត្តអសីលធម៌ (អធម្មិកា ហោន្តិ) ៖\n១. ព្រះចន្ទ និងព្រះអាទិត្យ ធ្វើដំណើរខុសគន្លង (វិសមំ វត្តន្តិ)។\n២. ផ្កាយ និងនក្ខត្តឫក្ស ដំណើរការមិនប្រក្រតី។\n៣. ធាតុខ្យល់បក់បោកខុសប្រក្រតី បង្កជាខ្យល់ព្យុះធំៗ និងធូលីហុយពេញមេឃ។\n៤. ទេវតា និងធម្មជាតិកើតសេចក្ដីក្តៅក្រហាយ ធ្វើឱ្យ ភ្លៀងមិនធ្លាក់ត្រូវតាមរដូវកាល (ន សម្មា ទេវោ វស្សតិ) បង្កជាគ្រោះរាំងស្ងួត និងទុរភិក្ស។\n\n— ពេលមនុស្សមានសីលធម៌បរិសុទ្ធ (ធម្មិកា ហោន្តិ) ៖\n១. ព្រះចន្ទ ព្រះអាទិត្យ និងផ្កាយ ធ្វើដំណើរស្របតាមគន្លងទៀងទាត់។\n២. ធាតុខ្យល់បក់ស្រាលស្រទន់ និងស្មើល្អ (សមា វាយន្តិ)។\n៣. ពពកប្រមូលផ្តុំត្រូវតាមពេលវេលា ហើយ ភ្លៀងធ្លាក់ត្រូវតាមរដូវកាល (សម្មា ទេវោ វស្សតិ) ធ្វើឱ្យដំណាំកសិកម្មដុះលូតលាស់ ដីធ្លីមានជីជាតិ និងមនុស្សគ្មានរោគាពាធ។',
+        contentEn: 'In the Adhammika Sutta (AN 4.70), the Buddha outlined the cosmic cascade linking collective ethics with the physical universe:\n— When rulers and people are corrupt (adhammikā):\n1. The sun and moon course erratically (visamaṃ vattanti).\n2. Constellations and stars drift out of seasonal alignment.\n3. Winds blow turbulently, kicking up harsh storms and cosmic dust.\n4. Devas and nature spirits are agitated; rain does not fall in due season (na sammā devo vassati), triggering droughts and mass famine.\n\n— When rulers and people cultivate righteousness (dhammikā):\n1. Sun, moon, and stars course in harmonious rhythm.\n2. Winds blow gently and evenly (samā vāyanti).\n3. Clouds gather on schedule and rain pours seasonably (sammā devo vassati), causing bountiful crops and eradicating disease.'
+      },
+      {
+        titleKm: '៤. ថាមពលនៃ «ចិត្តជរូប» ជះឥទ្ធិពលលើលំហជុំវិញ (វិសុទ្ធិមគ្គ)',
+        titleEn: '4. Mind-Born Radiance: Cittaja-Rūpa Decontaminating Environmental Space',
+        contentKm: 'យោងតាមគម្ពីរវិសុទ្ធិមគ្គ រាល់ពេលដែលបុគ្គលម្នាក់ៗរក្សាសីល និងចម្រើនមេត្តាភាវនា ចិត្តនោះបង្កើតនូវ «ចិត្តជរូប» (រូបដែលកើតអំពីចិត្ត) ដែលមានរលកធាតុត្រជាក់ និងសុខដុមរមនា។\n\nនៅពេលមនុស្សរាប់លាននាក់នៅក្នុងប្រទេសមួយ (ដូចជានៅដែនដីកុរុ ឬកលិង្គរដ្ឋ) រក្សាសីល ៥ ព្រមៗគ្នា រលកថាមពលនៃចិត្តស្ងប់នេះ បានសាយភាយគ្របដណ្តប់បរិយាកាសផែនដីទាំងមូល។ កម្លាំងនេះបានទៅបន្សាប «វិទ្យុសកម្មនៃកម្ដៅកិលេស» ក្នុងលំហអាកាស ជួយសម្រួលឱ្យឧតុនិយាមនៃធម្មជាតិ ដំណើរការទៅតាមគន្លងតុល្យភាពដើមរបស់វាដោយស្វ័យប្រវត្តិ។',
+        contentEn: 'According to the Visuddhimagga, whenever an individual maintains pure virtue and cultivates mettā, consciousness generates Cittaja-rūpa (mind-born subtle matter) radiating cooling, harmonious subatomic vibrational waves.\n\nWhen millions of citizens collectively observe the 5 Precepts simultaneously (as in Kuru and Kaliṅga), these soothing vibrational waves saturate the regional atmosphere. This psychic de-escalation neutralizes the thermodynamic friction of greed and hatred in the skies, allowing planetary Utu-niyāma to restore its natural equilibrium effortlessly.'
       }
     ]
   }

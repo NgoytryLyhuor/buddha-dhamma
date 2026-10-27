@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣០ — សួរតាមដែលអ្នកជួប', 'Q&A 30 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣២ — សួរតាមដែលអ្នកជួប', 'Q&A 32 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣០ — ចុចដើម្បីបើកមើល', 'THIRTY QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣២ — ចុចដើម្បីបើកមើល', 'THIRTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -300,6 +300,26 @@ const qas = [
     mE: 'Lifespan, biological health, and planetary ecology mirror mental purity; virtue elevates humanity while heedlessness precipitates decay.',
     tie: 'ដំណើរវិវត្តអាយុកាលមនុស្ស (ចក្កវត្តិសីហនាទសូត្រ) · /my-gems#lifespan-evolution',
     to: '/my-gems#lifespan-evolution',
+  },
+  {
+    qK: 'យោងតាមកុរុធម្មជាតក តើសីលធម៌កុរុធម្មមានភាពម៉ត់ចត់យ៉ាងណា ហើយហេតុអ្វីនគរកលិង្គរដ្ឋត្រូវចម្លងយកទៅប្រតិបត្តិដើម្បីរំលត់គ្រោះរាំងស្ងួត?',
+    qE: 'According to Kurudhamma Jātaka, how pure was Kurudhamma and why did drought-stricken Kaliṅga transcribe it on golden plates to end drought?',
+    aK: 'នៅក្នុងកុរុធម្មជាតក (ជាតកលេខ ២៧៦) «កុរុធម្ម» គឺជាការរក្សាសីល ៥ ដ៏បរិសុទ្ធស្អាតបំផុតរបស់ស្តេច និងប្រជាជនដែនកុរុ (បុគ្គលទាំង ១១ រូប រួមមានស្តេច មាតា អគ្គមហេសី ឧបរាជ បុរោហិត អាមាត្យវាស់ដី នាយសារថី សេដ្ឋី អាមាត្យវាស់ស្រូវ នាយឆ្មាំទ្វារ និងស្រីពេស្យា) ដែលមានការប្រុងប្រយ័ត្នខ្ពស់ដល់កម្រិតសូម្បីតែការសង្ស័យនឹងកំហុសដ៏ល្អិតល្អោច (កុក្កុច្ចៈ) ក៏ចាត់ទុកជាកំហុស។ ពេលនគរកលិង្គរដ្ឋរាំងស្ងួត ស្តេចកលិង្គបានសុំដំរីមង្គលអញ្ជនវសភៈ តែភ្លៀងនៅតែមិនធ្លាក់។ លុះដឹងថាហេតុពិតមកពី «កម្លាំងសីលធម៌» ស្តេចកលិង្គបានចាត់រាជទូតមកចារឹកកុរុធម្មលើបន្ទះមាស (សុវណ្ណបដ្ត)។ ពេលមនុស្សទូទាំងនគរកលិង្គរដ្ឋសមាទានសីល ៥ ព្រមគ្នា ភ្លៀងមេឃធំបានបង្អុរចុះមកភ្លាម រំលត់គ្រោះរាំងស្ងួតទាំងស្រុង។',
+    aE: 'In Kurudhamma Jātaka (No. 276), Kurudhamma represents the immaculate 5 Precepts observed by the King and 11 citizens of Kuru (King, Queen Mother, Chief Queen, Viceroy, Purohita, Surveyor, Charioteer, Banker, Grain Measurer, Gatekeeper, and Courtesan) with supreme conscience where even micro-doubts (kukkucca) caused self-reproach. When Kaliṅga suffered severe drought, requesting Kuru’s rain-elephant brought no rain; realizing virtue was the true cause, Kaliṅga transcribed Kurudhamma onto golden plates. When the entire kingdom upheld the 5 Precepts, massive rains immediately quenched the drought.',
+    mK: 'សីលមិនមែនគ្រាន់តែជាច្បាប់ខាងក្រៅទេ តែជាមនសិការស្អាតស្អំដល់កម្រិតល្អិតបំផុត · កម្លាំងសីលរួមអាចរំលត់គ្រោះរាំងស្ងួត និងនាំមកនូវសេចក្តីសុខសាន្តដល់នគរ។',
+    mE: 'Precepts are an immaculate inner conscience down to the finest thought; collective virtue can quench droughts and restore prosperity to a nation.',
+    tie: 'កុរុធម្មជាតក (ជាតកលេខ ២៧៦) · /my-gems#kurudhamma-jataka',
+    to: '/my-gems#kurudhamma-jataka',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម និងអធម្មិកសូត្រ តើកម្លាំងសីល ៥ បញ្ជាធាតុអាកាស (ឧតុនិយាម) ឱ្យមានពពក និងភ្លៀងធ្លាក់តាមរដូវកាលយ៉ាងដូចម្ដេច?',
+    qE: 'According to Abhidhamma and the Adhammika Sutta, how does the moral power of the 5 Precepts physically govern Utu-niyāma to generate clouds and timely rain?',
+    aK: 'ទំនាក់ទំនងរវាងសីល ៥ និងធាតុអាកាស ដំណើរការតាមរយៈចំណងរវាង កម្មនិយាម និង ឧតុនិយាម ដោយមាន សាធារណកម្ម (កម្មរួម) កំណត់តុល្យភាពនៃមហាភូតរូប ៤។ ពាហិររូប (រូបខាងក្រៅ ដូចជាពពក និងភ្លៀង) កើតពីឧតុជរូប ដែលជា «ឧបភោគសម្បត្តិ» សម្រាប់ទទួលវិបាកកម្ម។ កាលណាមនុស្សមានសីល ៥ បរិសុទ្ធ៖ កម្ដៅទោសៈរលត់ -> តេជោធាតុមានតុល្យភាព -> អាបោធាតុរំហួតនិងចងក្រងជាពពកក្រាស់ -> វាយោធាតុរុញក្បួនពពកស្មើល្អគ្មានព្យុះ -> កើតជា «កាលវស្ស» (ភ្លៀងធ្លាក់ត្រូវតាមរដូវ ទឹកថ្លាត្រជាក់ បង្កើតភោគផលកសិកម្ម)។ អធម្មិកសូត្រ (AN 4.70) បញ្ជាក់ថា កាលណាមនុស្សអសីលធម៌ ព្រះអាទិត្យ ព្រះចន្ទ ផ្កាយ ដើរខុសគន្លង ខ្យល់ព្យុះបោកបក់ ភ្លៀងរាំងស្ងួត; ផ្ទុយទៅវិញ កាលណាមនុស្សមានសីលធម៌ ធម្មជាតិដើរទៀងទាត់ ភ្លៀងធ្លាក់ត្រូវរដូវកាល!',
+    aE: 'The connection between the 5 Precepts and weather operates through Kamma-niyāma and Utu-niyāma, mediated by Collective Karma. External matter (clouds, rain) is Utuja-rūpa serving as the experiential habitat (Upabhoga-sampatti) for experiencing karmic fruits. Collective virtue quenches psychic heat -> Tejo thermal balance -> Āpo cohesive cloud clustering -> Vāyo smooth propulsion -> Kālavassa (timely, pure seasonal rain). The Adhammika Sutta (AN 4.70) validates that moral degradation causes erratic planetary orbits, storms, and droughts, whereas collective righteousness ensures cosmic order and bountiful rain.',
+    mK: 'ចិត្តនិយាម កំណត់ រូបនិយាម · កុសលចិត្ត និងសីល ៥ ធ្វើឱ្យធាតុភ្លើង ខ្យល់ ទឹក មានលំនឹង បង្កជាភ្លៀងកាលវស្សត្រូវតាមរដូវកាល។',
+    mE: 'Mental consciousness shapes physical reality; virtue and the 5 Precepts balance heat, wind, and water to bring timely, life-giving rain.',
+    tie: 'យន្តការអភិធម្ម និងធាតុអាកាស · /my-gems#sila-weather-physics',
+    to: '/my-gems#sila-weather-physics',
   },
 ]
 </script>

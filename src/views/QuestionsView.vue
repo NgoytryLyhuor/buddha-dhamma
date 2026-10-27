@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ២៩ — សួរតាមដែលអ្នកជួប', 'Q&A 29 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣០ — សួរតាមដែលអ្នកជួប', 'Q&A 30 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ២៩ — ចុចដើម្បីបើកមើល', 'TWENTY-NINE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣០ — ចុចដើម្បីបើកមើល', 'THIRTY QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -290,6 +290,16 @@ const qas = [
     mE: 'Do not obsess over the archer’s identity while ignoring the poisoned shaft in your heart; Dhamma is the emergency surgery to extinguish suffering right here and now.',
     tie: 'ឧបមាព្រួញបាញ់ (ចូឡមាលុង្ក្យោវាទសូត្រ) · /my-gems#arrow-parable',
     to: '/my-gems#arrow-parable',
+  },
+  {
+    qK: 'យោងតាមចក្កវត្តិសីហនាទសូត្រ តើអាយុកាលមនុស្សជាតិវិវត្តពី ១០ ឆ្នាំ ឡើងទៅដល់ «អសង្ខេយ្យឆ្នាំ» ហើយធ្លាក់មកវិញដោយសារបច្ច័យធម៌អ្វីខ្លះ?',
+    qE: 'According to the Cakkavatti-sīhanāda Sutta, how does human lifespan evolve from 10 years up to Asaṅkheyya and descend again through psychophysical laws?',
+    aK: 'នៅក្នុងចក្កវត្តិសីហនាទសូត្រ (DN 26) ព្រះពុទ្ធបានលាតត្រដាងថា អាយុកាល រូបកាយ និងបរិស្ថានរបស់មនុស្ស វិវត្តស្របគ្នាទាំងស្រុងជាមួយនឹងកម្រិតនៃការរក្សាសីលធម៌។ កាលណាកិលេសកើនឡើងដល់កម្រិតសម្លាប់គ្នា (សត្ថន្តរកប្ប) អាយុធ្លាក់ចុះមកត្រឹម ១០ ឆ្នាំ។ ក្រោយពេលមនុស្សភ្ញាក់រលឹក ហើយចាប់ផ្តើមសមាទានសីលម្តងមួយជំហាន៖ លះបង់ការសម្លាប់ (អាយុកើនដល់ ២០ ឆ្នាំ), លះបង់ការលួច (ឡើងដល់ ៤០ ឆ្នាំ), វៀរចាកការកាមេសុ (ឡើងដល់ ៨០ ឆ្នាំ), វៀរមុសាវាទ (ឡើងដល់ ១៦០ ឆ្នាំ)... រហូតដល់បំពេញកុសលកម្មបថ ១០ ពេញលេញ ឡើងដល់ ៨០,០០០ ឆ្នាំ (សម័យព្រះសិរិអារ្យមេត្រី) និងឡើងដល់អសង្ខេយ្យឆ្នាំ (កាយមានពន្លឺដូចទេវតា ហោះហើរបាន)។ ប៉ុន្តែពេលរស់នៅយូរពេក កើតសេចក្តីប្រមាទ (Pamāda) ភ្លេចស្លាប់ គិតស្មានថាខ្លួនជាអមតៈ កិលេសរើឡើងវិញ ក៏ធ្លាក់មកវិញជាវដ្តចក្រ!',
+    aE: 'In the Cakkavatti-sīhanāda Sutta (DN 26), the Buddha revealed that biological lifespan, cellular radiance, and ecology directly mirror collective moral consciousness. When defilements peaked in the 7-day slaughter era, lifespan dropped to 10 years. Upon moral awakening, humanity progressively adopted virtues: renouncing killing (lifespan doubled to 20 yrs), renouncing stealing (40 yrs), renouncing sexual misconduct (80 yrs), renouncing lies (160 yrs)... up to full 10 wholesome actions (80,000 yrs, the era of Metteyya Buddha) and pure translucent states (Asaṅkheyya years). Eventually, extreme longevity spawned heedlessness (pamāda) and the illusion of immortality, rekindling defilements and plunging lifespan back down in an ongoing cycle.',
+    mK: 'អាយុ សុខភាព និងបរិស្ថាន ជាកញ្ចក់ឆ្លុះបញ្ចាំងពីគុណភាពនៃចិត្ត · សីលនាំឱ្យជីវិតរីកចម្រើន ប្រមាទនាំឱ្យធ្លាក់ចុះ។',
+    mE: 'Lifespan, biological health, and planetary ecology mirror mental purity; virtue elevates humanity while heedlessness precipitates decay.',
+    tie: 'ដំណើរវិវត្តអាយុកាលមនុស្ស (ចក្កវត្តិសីហនាទសូត្រ) · /my-gems#lifespan-evolution',
+    to: '/my-gems#lifespan-evolution',
   },
 ]
 </script>

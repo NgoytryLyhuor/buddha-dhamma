@@ -301,7 +301,8 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (៩)', en: 'All (9)' },
+  { id: 'all', km: 'ទាំងអស់ (១០)', en: 'All (10)' },
+  { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
   { id: 'arrow', km: '🎯 ឧបមាព្រួញ & ទស្សនវិជ្ជា', en: '🎯 Arrow & Pragmatism' },
   { id: 'abhidhamma', km: '🧠 អភិធម្ម & បដ្ឋាន', en: '🧠 Abhidhamma & Paṭṭhāna' },
   { id: 'kamma', km: '⚖️ កម្មផល & អហោសិកម្ម', en: '⚖️ Kamma & Ahosi' },
@@ -748,6 +749,75 @@ const gems = ref([
         titleEn: '4. The Buddha’s Vital Warning: Stone on Grass',
         contentKm: 'ទោះបីជាឈានមានសេចក្តីស្ងប់សុខ និងអាយុវែងក្នុងឋានព្រហ្មយ៉ាងណាក៏ដោយ ព្រះសម្មាសម្ពុទ្ធតែងដាស់តឿនថា ៖\n១. ឈានគ្រាន់តែជា «ថ្មសង្កត់ស្មៅ» (សង្កត់កិលេសឱ្យស្ងប់មួយគ្រា ប៉ុន្តែឫសគល់នៃកិលេសនៅតែមានដដែល)។\n២. បើចេះតែត្រេកត្រអាលលើឈាន ពេលអស់បុណ្យពីឋានព្រហ្ម ក៏នៅតែអាចធ្លាក់មកកើតជាមនុស្ស សត្វ ឬធ្លាក់នរកបានដដែល។\n៣. ដូច្នេះ ព្រះពុទ្ធបង្គាប់ឱ្យយក «ភាពស្ងប់មាំនៃឈាន» មកធ្វើជាគ្រឹះ រួចបង្វែរចិត្តមកចម្រើន «វិបស្សនាញាណ» (ពិនិត្យរូប-នាម ឱ្យឃើញអនិច្ចំ ទុក្ខំ អនត្តា) ទើបអាចកាត់ឫសកិលេស និងសម្រេចព្រះនិព្វានជាស្ថាពរ!',
         contentEn: 'The Buddha emphatically warned: (1) Jhāna is merely "a stone suppressing grass" — hindrances are dormant, but latent roots (anusaya) remain intact. (2) When life in the Brahma world expires, one can still plunge back into human realms, animals, or hells. (3) Therefore, harness the laser clarity of Jhāna as a launching pad for Vipassanā insight (contemplating anicca, dukkha, anattā) to eradicate defilements forever and attain Nibbāna.'
+      }
+    ]
+  },
+
+  // GEM 10: Human Lifespan Evolution: 10 Years to Asaṅkheyya & The Great Reversal (DN 26)
+  {
+    id: 'lifespan-evolution',
+    num: 10,
+    open: false,
+    category: 'cosmology',
+    categoryKm: '⏳ អាយុកាល & ចក្កវត្តិសីហនាទសូត្រ',
+    categoryEn: '⏳ Lifespan Evolution (DN 26)',
+    ref: 'ទីឃនិកាយ បាដិកវគ្គ ចក្កវត្តិសីហនាទសូត្រ (DN 26 / ព្រះត្រៃបិដកភាគ ១៩)',
+    paliQuote: 'កុសលានំ ធម្មានំ សមាទានហេតុ សោ វឌ្ឍតិ អាយុនាបិ វណ្ណេនបិ (ព្រោះតែការសមាទានកុសលធម៌ រមែងចម្រើនឡើងទាំងអាយុ ទាំងសម្បុរកាយ)',
+    questionKm: 'យោងតាមចក្កវត្តិសីហនាទសូត្រ តើអាយុកាលមនុស្សជាតិវិវត្តពី ១០ ឆ្នាំ ឡើងទៅដល់ «អសង្ខេយ្យឆ្នាំ» ហើយធ្លាក់មកវិញដោយសារបច្ច័យធម៌អ្វីខ្លះ?',
+    questionEn: 'According to the Cakkavatti-sīhanāda Sutta, how does human lifespan evolve from 10 years up to Asaṅkheyya and descend again through psychophysical laws?',
+    shortKm: 'អាយុមនុស្ស ១០ ឆ្នាំ ទៅ អសង្ខេយ្យឆ្នាំ',
+    shortEn: 'Lifespan: 10 Years to Asaṅkheyya',
+    essenceKm: 'ដំណើរវិវត្តនៃអាយុកាលមនុស្សជាតិពី ១០ ឆ្នាំ រហូតដល់ អសង្ខេយ្យឆ្នាំ (Asaṅkheyya) ក្នុងចក្កវត្តិសីហនាទសូត្រ (DN 26) គឺជាការលាតត្រដាងនូវ «ច្បាប់រូបវិទ្យាផ្លូវចិត្ត (Psychophysical Evolution)» ដែលបង្ហាញថា កាយសម្បទា សុខភាព អាយុ និងបរិស្ថានផែនដី វិវត្តស្របគ្នាទាំងស្រុងជាមួយនឹង «កម្រិតនៃការលាងជម្រះកិលេស និងការបន្ថែមសីលធម៌ម្តងមួយជំហាន»។ ពេលមនុស្សលះបង់ការសម្លាប់ អាយុកើនដល់ ២០ ឆ្នាំ, លះបង់ការលួច ឡើងដល់ ៤០ ឆ្នាំ, រហូតដល់កុសលកម្មបថ ១០ ពេញលេញ ឡើងដល់ ៨០,០០០ ឆ្នាំ (សម័យព្រះសិរិអារ្យមេត្រី) និងឡើងដល់អសង្ខេយ្យឆ្នាំ (កាយមានពន្លឺដូចទេវតា ហោះហើរបាន)។ ប៉ុន្តែពេលរស់នៅយូរពេក កើតសេចក្តីប្រមាទ (Pamāda) ភ្លេចស្លាប់ កិលេសរើឡើងវិញ ក៏ធ្លាក់មកវិញជាវដ្តចក្រ!',
+    essenceEn: 'The evolution of human lifespan from 10 years to Asaṅkheyya (Incalculable) in the Cakkavatti-sīhanāda Sutta (DN 26) reveals the ultimate Buddhist psychophysical law: lifespan, biological radiance, and environmental ecology are direct physical projections of collective moral consciousness. As humanity progressively abandons killing (->20 yrs), stealing (->40 yrs), sexual misconduct (->80 yrs), through to full 10 wholesome actions (->80,000 yrs, the Metteyya Buddha era) and pure luminous states (Asaṅkheyya years). Eventually, extreme longevity breeds heedlessness (pamāda) and the illusion of immortality, sparking moral decay and plunging lifespan back down in an eternal cosmic cycle.',
+    practicalKm: 'អាយុជីវិត និងបរិស្ថានជុំវិញខ្លួនយើងក្នុងបច្ចុប្បន្ន មិនមែនកើតឡើងដោយចៃដន្យឡើយ តែជាកញ្ចក់ឆ្លុះបញ្ចាំងពីគុណភាពចិត្ត។ ការរក្សាសីល ការពោលពាក្យសច្ចៈ ការមានមេត្តា និងការដឹងគុណ មិនត្រឹមតែជាកុសលផ្លូវចិត្តប៉ុណ្ណោះទេ តែជាថាមពលជីវសាស្រ្តពិតប្រាកដដែលជួយកាត់បន្ថយស្ត្រេស បង្កើនអាយុយឺនយូរ និងធ្វើឱ្យសង្គមរស់នៅប្រកបដោយសន្តិភាព!',
+    practicalEn: 'Our biological lifespan and environment are not random accidents; they are direct physical reflections of mental purity. Cultivating ethics, truthfulness, loving-kindness, and gratitude is not merely moral virtue — it is biological preservation that lowers stress, prolongs life, and restores harmonious living to society.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣០', en: 'Q&A 30' },
+      { to: '/suttas', km: 'ព្រះសូត្រទាំងឡាយ', en: 'All Suttas' },
+      { to: '/kamma', km: 'ច្បាប់កម្មផល', en: 'Kamma & Rebirth' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់', en: '31 Planes of Existence' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ចំណុចចាប់ផ្តើមនៃការធ្លាក់ចុះ និងយុគអន្តរកប្ប (អាយុ ១០ ឆ្នាំ)',
+        titleEn: '1. The Downward Spiral & The 7-Day Slaughter Era (10-Year Lifespan)',
+        contentKm: 'ព្រះសម្មាសម្ពុទ្ធសម្តែងថា ការធ្លាក់ចុះនៃអាយុកាលមនុស្សជាតិកើតចេញពី «ភាពក្រីក្រ និងការមិនចែករំលែកទ្រព្យ» ៖\n១. ស្តេចមិនបានចែកទ្រព្យដល់អ្នកខ្វះខាត បង្កឱ្យកើតទុគ៌តភាព (ភាពក្រីក្រ)។\n២. ភាពក្រីក្រនាំឱ្យកើត អទិន្នាទាន (ការលួចប្លន់) -> នាំឱ្យមានការប្រហារជីវិត និងការប្រើអាវុធ -> នាំឱ្យកើត បាណាតិបាត (ការកាប់សម្លាប់) -> មុសាវាទ (ភូតភរ) -> បិសុណាវាចា (ញុះញង់) -> កាមេសុ មិច្ឆាចារ (ផិតក្បត់) -> ផរុសវាចា (ជេរប្រទេច) -> សម្ផប្បលាប (ពាក្យឥតប្រយោជន៍) -> អភិជ្ឈានិងព្យាបាទ (លោភលន់និងគុំកួន) -> មិច្ឆាទិដ្ឋិ (ការមិនជឿកម្មផល) -> ការមិនគោរពមាតាបិតា សមណព្រាហ្មណ៍ និងចាស់ទុំ។\n\nអាយុកាលមនុស្សបានធ្លាក់ចុះពី ៨០,០០០ ឆ្នាំ រហូតដល់ត្រឹម «១០ ឆ្នាំ» ៖\n— ក្មេងស្រីអាយុ ៥ ឆ្នាំមានគភ៌ និងរៀបការ\n— រសជាតិអាហារល្អៗ (ទឹកដោះថ្លា ទឹកឃ្មុំ ស្ករអំពៅ ស្រូវសាលី) រលាយបាត់អស់ សល់តែស្មៅកណ្ដាស់ (កុទ្រូសកៈ) ធ្វើជាអាហារកំពូល\n— មនុស្សលែងស្គាល់ម្តាយ ឪពុក មីងមា បងប្អូន ប្រព្រឹត្តកាមរុករានដូចសត្វពាហនៈ\n— កើត «សត្ថន្តរកប្ប» (ចម្បាំងកាប់សម្លាប់គ្នា) រយៈពេល ៧ ថ្ងៃ ដោយឃើញមុខគ្នាសុទ្ធតែជាសត្វម្រឹគដែលត្រូវសម្លាប់!',
+        contentEn: 'The downward spiral began with poverty: (1) Rulers failed to distribute wealth to the destitute, generating extreme inequality. (2) Poverty led to theft, weapons, killing, falsehood, slander, sexual misconduct, harsh speech, idle talk, covetousness, ill-will, false views, and filial disrespect. Human lifespan degenerated from 80,000 years down to just 10 years: girls married at age 5; fine flavours (ghee, honey, cane-sugar) vanished, replaced by wild grass as staple food; family incestuous chaos became unchecked; and the 7-day "Sword Interval" (satthantara-kappa) erupted where people perceived each other as wild game to be slaughtered.',
+        quoteKm: '«ក្នុងកាលនោះ មនុស្សទាំងឡាយរមែងកើតសេចក្តីសំគាល់ក្នុងគ្នានិងគ្នា ថាជាម្រឹគ ហើយកាន់យកគ្រឿងសាស្ត្រាវុធដ៏មុតថ្លា សម្លាប់គ្នានិងគ្នាទៅវិញទៅមក...» — (ចក្កវត្តិសីហនាទសូត្រ)',
+        quoteEn: '"At that time, they will see one another as wild beasts; taking up sharp weapons, they will butcher one another..." — (DN 26)'
+      },
+      {
+        titleKm: '២. របត់ភ្ញាក់រលឹក និងដំណាក់កាលវិវត្តឡើងវិញទាំង ១៣ (ពី ១០ ឆ្នាំ ដល់ អសង្ខេយ្យឆ្នាំ)',
+        titleEn: '2. The Turning Point & The 13 Ascending Stages (10 to Asaṅkheyya Years)',
+        contentKm: 'មនុស្សមួយចំនួនបានរត់គេចខ្លួនទៅពួនក្នុងរូងភ្នំ ជ្រលងជ្រោះ ក្រហែងថ្ម រយៈពេល ៧ ថ្ងៃ។ ផុត ៧ ថ្ងៃ ចេញមកឃើញគ្នាឱបយំ អរអរ សង្វេគចិត្ត ហើយប្តេជ្ញាថា៖ «យើងលែងកាប់សម្លាប់គ្នាទៀតហើយ យើងត្រូវសមាទានកុសលធម៌!» ហើយការវិវត្តឡើងវិញក៏ចាប់ផ្តើមជា ១៣ ដំណាក់កាល ៖',
+        contentEn: 'A remnant escaped into mountain clefts and caves for 7 days. Emerging and embracing each other with profound remorse (saṃvega), they resolved: "Let us slaughter no more; let us practice wholesome virtues!" Thus began the 13-stage upward evolution:',
+        points: [
+          { boldKm: 'ដំណាក់កាលទី ១ (១០ -> ២០ ឆ្នាំ)', boldEn: 'Stage 1 (10 -> 20 Yrs)', km: 'សមាទាន «បាណាតិបាតា វេរមណី» (វៀរចាកការសម្លាប់ជីវិត) -> កាយវិការទន់ភ្លន់ គ្មានការភ័យខ្លាច កោសិកាស្ងប់ កូនចៅមានអាយុវែងទ្វេដងឡើងដល់ ២០ ឆ្នាំ។', en: 'Renouncing killing (Pāṇātipātā veramaṇī) -> Fear subsides, biological cellular repair begins; lifespan doubles to 20 years.' },
+          { boldKm: 'ដំណាក់កាលទី ២ (២០ -> ៤០ ឆ្នាំ)', boldEn: 'Stage 2 (20 -> 40 Yrs)', km: 'សមាទាន «អទិន្នាទានា វេរមណី» (វៀរចាកការលួចប្លន់) -> សង្គមមានសុវត្ថិភាពលើទ្រព្យសម្បត្តិ បាត់ការភ័យខ្លាចពីចោរកម្ម កូនចៅមានអាយុឡើងដល់ ៤០ ឆ្នាំ។', en: 'Renouncing stealing (Adinnādānā veramaṇī) -> Economic security and peaceful sleep; lifespan climbs to 40 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៣ (៤០ -> ៨០ ឆ្នាំ)', boldEn: 'Stage 3 (40 -> 80 Yrs)', km: 'សមាទាន «កាមេសុ មិច្ឆាចារា វេរមណី» (វៀរចាកការផិតក្បត់ ប្រព្រឹត្តខុសក្នុងកាម) -> គ្រួសាររឹងមាំ សីលធម៌សង្គមខ្ពស់ កាយសម្បទារឹងប៉ឹង កូនចៅមានអាយុឡើងដល់ ៨០ ឆ្នាំ។', en: 'Renouncing sexual misconduct (Kāmesu micchācārā veramaṇī) -> Sacred family bonds, sound genetics; lifespan reaches 80 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៤ (៨០ -> ១៦០ ឆ្នាំ)', boldEn: 'Stage 4 (80 -> 160 Yrs)', km: 'សមាទាន «មុសាវាទា វេរមណី» (វៀរចាកការកុហក ភូតភរ) -> សង្គមមានសច្ចធម៌ ទំនុកចិត្តគ្នាទៅវិញទៅមក គ្មានការបោកប្រាស់ កូនចៅមានអាយុឡើងដល់ ១៦០ ឆ្នាំ។', en: 'Renouncing falsehood (Musāvādā veramaṇī) -> Absolute social trust; biological lifespan advances to 160 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៥ (១៦០ -> ៣២០ ឆ្នាំ)', boldEn: 'Stage 5 (160 -> 320 Yrs)', km: 'សមាទាន «បិសុណាវាចាយ វេរមណី» (វៀរចាកការនិយាយញុះញង់ បំបែកបំបាក់) -> សាមគ្គីភាពជាតិខ្ពស់ គ្មានបក្ខពួកនិយម គ្មានសង្គ្រាមត្រជាក់ កូនចៅមានអាយុឡើងដល់ ៣២០ ឆ្នាំ។', en: 'Renouncing divisive speech (Pisuṇāvācā veramaṇī) -> Harmonious social cohesion; lifespan reaches 320 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៦ (៣២០ -> ៦៤០ ឆ្នាំ)', boldEn: 'Stage 6 (320 -> 640 Yrs)', km: 'សមាទាន «ផរុសវាចាយ វេរមណី» (វៀរចាកពាក្យទ្រគោះ ជេរប្រទេច) -> ពោលតែពាក្យពិរោះ ផ្អែមល្ហែម សំឡេងពិរោះដូចសត្វករវិក គ្មានស្ត្រេស កូនចៅមានអាយុឡើងដល់ ៦៤០ ឆ្នាំ។', en: 'Renouncing harsh speech (Pharusāvācā veramaṇī) -> Gentle speech like the karavīka bird, zero cortisol stress; lifespan doubles to 640 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៧ (៦៤០ -> ២,០០០ ឆ្នាំ)', boldEn: 'Stage 7 (640 -> 2,000 Yrs)', km: 'សមាទាន «សម្ផប្បលាបា វេរមណី» (វៀរចាកការនិយាយឥតប្រយោជន៍ រោយរាយ) -> និយាយតែធម៌ ចិត្តផ្ដោតលើការភាវនា សមាធិ កូនចៅមានអាយុឡើងដល់ ២,០០០ ឆ្នាំ។', en: 'Renouncing idle chatter (Samphappalāpā veramaṇī) -> Mind dedicated to Dhamma contemplation and samādhi; lifespan jumps to 2,000 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៨ (២,០០០ -> ៤,០០០ ឆ្នាំ)', boldEn: 'Stage 8 (2,000 -> 4,000 Yrs)', km: 'លះបង់ «អភិជ្ឈា» (ការសម្លឹងចង់បានទ្រព្យអ្នកដទៃ) -> មានសន្តោសគតិ ពេញចិត្តនឹងអ្វីដែលខ្លួនមាន ចិត្តមិនក្តៅក្រហាយ កូនចៅមានអាយុឡើងដល់ ៤,០០០ ឆ្នាំ។', en: 'Eradicating covetousness (Anabhijjhā) -> Profound contentment and tranquility; lifespan extends to 4,000 years.' },
+          { boldKm: 'ដំណាក់កាលទី ៩ (៤,០០០ -> ៨,០០០ ឆ្នាំ)', boldEn: 'Stage 9 (4,000 -> 8,000 Yrs)', km: 'លះបង់ «ព្យាបាទ» (គំនិតគុំកួន ចងពៀរ) -> បំពេញព្រហ្មវិហារធម៌ និងមេត្តាចិត្ត រស្មីមេត្តាគ្របដណ្តប់ សូម្បីសត្វព្រៃកាចសាហាវក៏ស្លូតបូត កូនចៅមានអាយុឡើងដល់ ៨,០០០ ឆ្នាំ។', en: 'Eradicating ill-will (Abyāpāda) -> Radiating boundless loving-kindness; wild beasts turn gentle; lifespan rises to 8,000 years.' },
+          { boldKm: 'ដំណាក់កាលទី ១០ (៨,០០០ -> ២០,០០០ ឆ្នាំ)', boldEn: 'Stage 10 (8,000 -> 20,000 Yrs)', km: 'បង្កើត «សម្មាទិដ្ឋិ» (ការយល់ត្រូវតាមច្បាប់កម្មផល) -> ធម្មជាតិ ទឹក ដី ខ្យល់ ក្លាយជាបរិសុទ្ធ គ្មានជាតិពុល កូនចៅមានអាយុឡើងដល់ ២០,០០០ ឆ្នាំ។', en: 'Cultivating Right View (Sammādiṭṭhi) -> Clear comprehension of kamma, planetary ecology is purified; lifespan reaches 20,000 years.' },
+          { boldKm: 'ដំណាក់កាលទី ១១ (២០,០០០ -> ៤០,០០០ ឆ្នាំ)', boldEn: 'Stage 11 (20,000 -> 40,000 Yrs)', km: 'បំពេញ «មាតាបិតុឧបដ្ឋាន & កុលជេដ្ឋាបចាយនធម៌» (ដឹងគុណមាតាបិតា គោរពព្រះសង្ឃ និងចាស់ទុំ) -> កូនចៅមានអាយុឡើងដល់ ៤០,០០០ ឆ្នាំ (សម័យព្រះពុទ្ធកកុសន្ធោ)។', en: 'Filial piety & honoring spiritual elders -> Lifespan expands to 40,000 years (era of Kakusandha Buddha).' },
+          { boldKm: 'ដំណាក់កាលទី ១២ (៤០,០០០ -> ៨០,០០០ ឆ្នាំ)', boldEn: 'Stage 12 (40,000 -> 80,000 Yrs)', km: 'បំពេញ «កុសលកម្មបថ ១០ ពេញលេញ» -> ផែនដីរាបស្មើដូចស្គរ មានដើមកល្បព្រឹក្ស គ្មានជំងឺរាតត្បាត មានតែជំងឺ ៣ យ៉ាងប៉ុណ្ណោះគឺ ឃ្លាន ស្រេក និងចាស់ជរា។ ស្រ្តីអាយុ ៥០០ ឆ្នាំទើបរៀបការ។ សម័យនេះ ព្រះសិរិអារ្យមេត្រី (Metteyya Buddha) នឹងត្រាស់ដឹង! កូនចៅមានអាយុ ៨០,០០០ ឆ្នាំ។', en: 'Full 10 Wholesome Actions (Kusala Kammapatha) -> Earth becomes smooth like a drum, wish-fulfilling trees flourish, only 3 mild ailments exist (hunger, thirst, aging). Women marry at age 500. Era of Metteyya Buddha; lifespan reaches 80,000 years.' },
+          { boldKm: 'ដំណាក់កាលទី ១៣ (ឡើងដល់ «អសង្ខេយ្យឆ្នាំ»)', boldEn: 'Stage 13 (Ascending to Asaṅkheyya)', km: 'ចិត្តបរិសុទ្ធស្អាតស្អំដល់កម្រិតកំពូល -> កាយសម្បទាមានពន្លឺរស្មីចាំងផ្លេក ដូចទេវតា អាចហោះហើរលើអាកាសបាន បរិភោគបីតិជាអាហារ (បីតិភក្ខា) រស់នៅរាប់សិបសែនលានឆ្នាំ គ្មានទុក្ខព្រួយ រហូតដល់មិនអាចរាប់បាន (អសង្ខេយ្យ Asaṅkheyya)។', en: 'Supreme Mental Purity -> Translucent radiant bodies like Devas, ability to levitate, feeding on spiritual joy (pīti-bhakkhā), living for incalculable cosmic eons (Asaṅkheyya).' }
+        ]
+      },
+      {
+        titleKm: '៣. វដ្តត្រឡប់មកវិញ ៖ វិបត្តិនៃសេចក្តីប្រមាទ (Pamāda) និងការធ្លាក់ចុះសារជាថ្មី',
+        titleEn: '3. The Great Reversal: The Crisis of Heedlessness (Pamāda) & Moral Decay',
+        contentKm: 'សំណួរសួរថា ៖ ហេតុអ្វីបានជាមនុស្សអាយុវែងដល់អសង្ខេយ្យឆ្នាំហើយ មិននៅស្ថិតស្ថេររហូត បែរជាធ្លាក់ចុះមកវិញ?\n\nព្រះសម្មាសម្ពុទ្ធបានលាតត្រដាងការពិតថា ៖\n១. ពេលមនុស្សរស់នៅរាប់លានឆ្នាំយូរពេក ក៏ចាប់ផ្តើម «ភ្លេចខ្លួន និងកើតសេចក្តីប្រមាទ (Pamāda)»។\n២. មនុស្សលែងឃើញ ជាតិ ជរា ព្យាធិ មរណៈ ក៏គិតស្មានថារូបកាយ និងជីវិតនេះជា «អមតៈ (Immortality Illusion)»។\n៣. ពេលគិតថាខ្លួនមិនចេះស្លាប់ មនុស្សក៏លែងខ្វល់ខ្វាយធ្វើបុណ្យកុសល លែងចម្រើនសតិ បណ្តោយឱ្យតណ្ហានិងសេចក្តីលោភលន់ជ្រៀតចូលជាថ្មី។\n៤. ការលោភលន់លើរបស់របរ និងអាហារបង្កឱ្យមានការបែងចែកព្រំប្រទល់ និងកម្មសិទ្ធិ -> នាំឱ្យមានការលួចប្លន់ -> កុហក -> កាប់សម្លាប់... កិលេសរើឡើងវិញជាលំដាប់ ធ្វើឱ្យអាយុកាលមនុស្សធ្លាក់ចុះពីអសង្ខេយ្យ មក ៨០,០០០ ឆ្នាំ មក ៤០,០០០ ឆ្នាំ មក ១,០០០ ឆ្នាំ មក ១០០ ឆ្នាំ (សម័យព្រះសមណគោតម) និងធ្លាក់ទៅ ១០ ឆ្នាំសារជាថ្មី វិលវល់ឥតឈប់ឈរ!',
+        contentEn: 'Why did extreme longevity not persist forever? The Buddha revealed the psycho-spiritual pitfall: (1) Living for incalculable millions of years bred deep heedlessness (pamāda). (2) Without visible aging, illness, or death, beings fell into the grand illusion of immortality. (3) Assuming they were immortal, they ceased cultivating mindfulness and virtue, allowing latent greed (taṇhā) to re-emerge. (4) Covetous hoarding sparked ownership boundaries, theft, falsehood, weapons, and bloodshed. As defilements resurfaced, lifespan tumbled from Asaṅkheyya back to 80,000, 40,000, 1,000, 100 years (our Gotama Buddha era), and down to 10 years again in an endless cosmic cycle.'
+      },
+      {
+        titleKm: '៤. សច្ចធម៌វិទ្យាសាស្ត្រចិត្ត ៖ កាយនិងចិត្តជាកញ្ចក់ឆ្លុះគ្នា (Psychosomatic Causality)',
+        titleEn: '4. Psychosomatic Reality: The Mind Governs Biology and the Cosmos',
+        contentKm: 'ចក្កវត្តិសីហនាទសូត្រ បានបង្ហាញនូវច្បាប់ធម្មជាតិដ៏ជ្រាលជ្រៅបំផុត ៣ ប្រការ ៖\n១. ចិត្តនិយាម កំណត់ រូបនិយាម ៖ កោសិកា សម្បុរ និងអាយុកាលរបស់រូបកាយ (ចិត្តជរូប) ប្រែប្រួលទៅតាមថាមពលនៃចិត្ត។ កាលណាស្អប់ គុំកួន សម្លាប់ កោសិកាបំផ្លាញខ្លួនឯង។ កាលណាមានមេត្តា សីល និងសច្ចៈ កោសិកាបង្កើតថាមពលជីវិតដ៏បរិសុទ្ធ។\n២. បុគ្គលនិយាម បង្កើត ឧតុជរូប (បរិស្ថានផែនដី) ៖ ផែនដីមានជីជាតិ រាបស្មើ ទឹកថ្លា ខ្យល់បរិសុទ្ធ ឬរងគ្រោះដោយគ្រោះរាំងស្ងួត និងការបំពុល គឺកើតចេញពីកម្លាំងកម្មរួម (Communal Kamma) របស់មនុស្ស។\n៣. គ្មានអាទិទេពណាដាក់ទណ្ឌកម្ម ៖ អាយុខ្លីឬវែង មិនមែនជាការដាក់ទណ្ឌកម្ម ឬប្រទានពរពីព្រះឡើយ តែជាលទ្ធផលសុទ្ធសាធនៃ «ច្បាប់ហេតុនិងផល»។ ចង់ឱ្យពិភពលោកស្រស់បំព្រង និងមានអាយុយឺនយូរ ត្រូវចាប់ផ្តើមពីការសម្អាតចិត្ត និងសមាទានសីលក្នុងបច្ចុប្បន្ន!',
+        contentEn: 'The sutta illuminates 3 profound Buddhist natural laws: (1) Citta-niyāma governs Rūpa-niyāma: biological cells, radiance, and longevity are physically configured by mental states (cittaja-rūpa). Hatred and slaughter trigger cellular breakdown; virtue and mettā generate radiant longevity. (2) Collective morality shapes planetary climate and botany (Utu-niyāma & kamma-niyāma). (3) No divine entity punishes or rewards: longevity is the natural deterministic fruit of moral evolution. To heal biology and ecology, one must purify the mind and uphold ethics today.'
       }
     ]
   }

@@ -84,7 +84,7 @@
             {{ t('កម្រងសំណួរកំពូល & ធម៌រតនៈផ្ទាល់ខ្លួន (My Gems)', 'My Top Questions & Dhamma Gems') }}
           </h3>
           <p class="text-xs sm:text-sm mt-1.5 sm:mt-2 leading-relaxed break-words" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('ប្រមូលផ្តុំកំពូលសំណួរជ្រៅៗ ៖ ឧបមាព្រួញបំពុលពិស (MN 63), ឫសគល់ទុក្ខ & វិធីរំលត់, បច្ច័យ ២៤, យន្តការអហោសិកម្ម, ព្រះមោគ្គល្លាន, ឈាន ៨ និងរូបកលាប...', 'Curated deep answers: Parable of the Poisoned Arrow (MN 63), Roots of Suffering, 24 Conditions, Ahosi-kamma, Moggallāna, 8 Jhānas, and Rūpa-kalāpa...') }}
+            {{ t('ប្រមូលផ្តុំកំពូលសំណួរជ្រៅៗ ៖ ឧបមាព្រួញបំពុលពិស (MN 63), វិវត្តអាយុ ១០ ដល់អសង្ខេយ្យ (DN 26), ឫសគល់ទុក្ខ, បច្ច័យ ២៤, អហោសិកម្ម, ឈាន ៨ និងរូបកលាប...', 'Curated deep answers: Poisoned Arrow (MN 63), Lifespan 10 to Asaṅkheyya (DN 26), Roots of Suffering, 24 Conditions, Ahosi-kamma, 8 Jhānas, and Rūpa-kalāpa...') }}
           </p>
         </div>
         <div class="flex flex-col items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full shrink-0 mt-1 transition group-hover:scale-110"

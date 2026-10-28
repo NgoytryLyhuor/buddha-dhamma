@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៤)', en: 'All (14)' },
+  { id: 'all', km: 'ទាំងអស់ (១៥)', en: 'All (15)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1074,6 +1074,68 @@ const gems = ref([
         titleEn: '4. Physical Agony vs. The Mind Door: Living Habits Rule Death',
         contentKm: 'សំណួរសួរថា ៖ ចុះការឈឺចាប់ ឬការតក់ស្លុតពេលបុកទង្គិច អាចទាញចិត្តឱ្យធ្លាក់នរកបានទេ?\n\n១. ទុក្ខវេទនាខាងកាយ (Dukkha-vedanā) ៖ កើតឡើងលើប្រព័ន្ធប្រសាទ និងកាយទ្វារក្នុងកម្រិតរូបធាតុប៉ុណ្ណោះ។\n២. មនោទ្វារវិថីកាត់ផ្តាច់ការឈឺចាប់ ៖ នៅវិនាទីចុងក្រោយ វិញ្ញាណនឹងផ្តាច់ខ្លួនចេញពីកាយវិញ្ញាណទាំងស្រុង ហើយដំណើរការតែលើមនោទ្វារ។\n៣. កម្លាំងនៃទម្លាប់ ៖ ប្រសិនបើបុគ្គលនោះមាន «ទម្លាប់ផ្លូវចិត្តល្អ» មនោទ្វារនឹងរំលងការឈឺចាប់លើដងខ្លួន ហើយស្ទុះទៅចាប់យកនិមិត្តនៃអំពើល្អដែលធ្លាប់ធ្វើភ្លាម។ ផ្ទុយទៅវិញ ប្រសិនបើគ្មានមូលដ្ឋានធម៌ទេ ចិត្តនឹងកើតទោសៈ (តក់ស្លុត ភ័យខ្លាច) ហើយទោសៈនោះនឹងទាញទម្លាក់ទៅកាន់អបាយភូមិ។\n\nសរុបសេចក្តី ៖ ក្នុងទស្សនៈព្រះពុទ្ធសាសនា «របៀបរស់នៅប្រចាំថ្ងៃ សំខាន់ជាងរបៀបដែលយើងស្លាប់»។ ការសន្សំទម្លាប់ល្អ និងការគ្រប់គ្រងចិត្តក្នុងជីវិតបច្ចុប្បន្ន គឺជាការរៀបចំកញ្ចប់ធានារ៉ាប់រងសម្រាប់មរណាសន្នវិថីដ៏មានសុវត្ថិភាពបំផុត ទោះបីជាត្រូវជួបឧបទ្ទវហេតុក្នុងរូបភាពណាក៏ដោយ!',
         contentEn: 'Does physical trauma or instant terror doom the dying mind?\n1. Bodily Pain is physical: Dukkha-vedanā registers purely across the bodily sensory faculty (kāyadvāra).\n2. Sensory Decoupling: In the final moments, consciousness detaches from bodily sensations, operating solely within the Mind Door.\n3. Habit Overrides Trauma: A mind saturated with lifelong mindfulness automatically discards physical pain, locking onto memories of goodness and virtue. Conversely, a mind void of spiritual anchor succumbs to aversion and horror, dragging rebirth into lower realms.\n\nConclusion: In Buddhist psychology, "how you live daily matters far more than how you die." Daily mindfulness and ethical deeds represent the only authentic insurance policy for the death-proximate mind, ensuring peace regardless of external catastrophe.'
+      }
+    ]
+  },
+
+  // GEM 15: Death in Sleep & Coma States (Maraṇāsanna-vīthi, Dream-Visions & Bhavanga)
+  {
+    id: 'sleep-coma-death',
+    num: 15,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & បដិសន្ធិ',
+    categoryEn: '💀 Death in Sleep & Coma',
+    ref: 'គម្ពីរអភិធម្មត្ថសង្គហៈ (វិថីសង្គហៈ) & អដ្ឋកថា',
+    paliQuote: 'សុបិនន្តេបិ កម្មំ វិបច្ចតិ... ភវង្គតោ វុដ្ឋាយ មនោទ្វារិកមរណាសន្នវិថី ឧប្បជ្ជតិ (សូម្បីក្នុងដំណេកលក់ ឬសន្លប់ ចិត្តរមែងងើបចេញពីភវង្គ ហើយដំណើរការមរណាសន្នវិថីក្នុងមនោទ្វារយ៉ាងពេញលេញ)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម ក្នុងករណីមនុស្សដែលដេកលក់ហើយស្លាប់ទៅតែម្តង (ស្លាប់ទាំងមិនដឹងខ្លួនក្នុងដំណេក) ឬអ្នកជំងឺសន្លប់បាត់ស្មារតីយូរថ្ងៃ (Coma) តើមរណាសន្នវិថីដំណើរការទាញយកអារម្មណ៍ចុងក្រោយយ៉ាងដូចម្ដេច?',
+    questionEn: 'According to Abhidhamma, when someone dies peacefully in their sleep or in a prolonged coma, how does Maraṇāsanna-vīthi pull the final object from the subconscious?',
+    shortKm: 'ការស្លាប់ក្នុងដំណេក & អ្នកជំងឺសន្លប់ Coma',
+    shortEn: 'Death in Sleep & Coma (Subconscious Mind)',
+    essenceKm: 'ចំពោះមនុស្សដែលស្លាប់ក្នុងដំណេក ឬសន្លប់បាត់ស្មារតីយូរថ្ងៃ (Coma) រូបកាយខាងក្រៅស្ងប់ស្ងាត់ពិតមែន ប៉ុន្តែ «មនោទ្វារ» ខាងក្នុងនៅតែដំណើរការមរណាសន្នវិថីយ៉ាងពេញលេញ។ ពេលសរីរាង្គកាយឈានដល់ចំណុចគាំង ចិត្តងើបចេញពី «ភវង្គ» (ចរន្តក្រោមដឹង) មកបើកមនោទ្វារ ៖ (១) ករណីស្លាប់ក្នុងដំណេក ៖ ចិត្តចាប់យកអារម្មណ៍តាមរយៈ «សុបិននិមិត្ត (Dream-Vision)» បើជាអ្នកមានបុណ្យ នឹងយល់សប្តិឃើញហោះហើរ ដើរក្នុងសួនផ្កា ឃើញប្រាសាទ ឬព្រះសង្ឃ រួចស្លាប់ក្នុងសេចក្តីជ្រះថ្លា; បើជាអ្នកមានបាប នឹងយល់សប្តិឃើញគេដេញកាប់ ធ្លាក់ជ្រោះ ភ្លើងឆេះ រួចស្លាប់ក្នុងភាពតក់ស្លុត (២) ករណីសន្លប់យូរថ្ងៃ (Coma) ៖ ចិត្តទាញយកអារម្មណ៍តាម «អាសយានុស័យ (Dormant Habitual Forces)» ដែលជាគំនិតបង្កប់ជ្រៅៗដែលធ្លាប់គិតរាប់ពាន់ដងក្នុងជីវិត ផ្ទុះឡើងលើផ្ទៃមនោទ្វារដូចពពុះទឹកពីបាតបឹង (៣) សំឡេងសូត្រធម៌ក្បែរត្រចៀកអ្នកជំងឺ Coma នៅតែអាចជ្រាបចូលតាមរំញ័រសោតបសាទ កាត់ផ្តាច់រូបភាពអាក្រក់ និងប្តូរទៅជាកុសលនិមិត្តបាន!',
+    essenceEn: 'When dying during sleep or long-term coma, the physical shell appears passive, yet the inner Mind Door (Mano-dvāra) executes the complete Maraṇāsanna-vīthi without omission. As bodily faculties shut down, consciousness stirs from the Bhavanga (subconscious life-continuum): (1) In sleep fatalities: the final javana operates as a vivid "Dream-Vision" — the virtuous dream of soaring, heavenly gardens, celestial palaces, or monks, dying with joyful calm (kusala-javana); the non-virtuous dream of being hunted, falling off cliffs, or fire, dying in terror (akusala-javana). (2) In comatose states: subconscious forces (Āsayānusaya) accumulated over thousands of life thoughts surface like bubbles from a lake bed to grasp the final object. (3) Soft Dhamma chanting near a coma patient’s ear can still register through residual subtle ear-sensitivity (sota-pasāda), severing traumatic visions and pivoting the mind toward bright kamma-nimittas.',
+    practicalKm: 'ការស្លាប់ក្នុងដំណេក ឬពេលសន្លប់ គឺដូចជាការផ្លាស់ប្តូរសម្លៀកបំពាក់ក្នុងបន្ទប់ងងឹត។ ភ្នែកសាច់មើលមិនឃើញ មាត់និយាយមិនចេញ តែ «កម្លាំងកម្ម និងទម្លាប់ចិត្ត» ជាអ្នកកំណត់ទិសដៅយ៉ាងសុក្រឹតបំផុត ៖ (១) មុនចូលគេងរាល់យប់ ចូររំលឹកគុណព្រះពុទ្ធ ចម្រើនមេត្តាភាវនា ព្រោះរាល់ការគេងលក់ អាចជាមាត់ទ្វារនៃមរណាសន្នសម័យ (២) សម្រាប់អ្នកជំងឺ Coma ចូរនៅបន្តសូត្រធម៌ និយាយពាក្យល្អៗ និងរំលឹកបុណ្យកុសលក្បែរត្រចៀកគាត់ កុំគិតថាគាត់មិនដឹងឮឱ្យសោះ!',
+    practicalEn: 'Dying in sleep or coma is like changing garments in a dark room: physical senses are dormant, but lifetime karmic habits steer destiny with mathematical precision. (1) Every night before bed, recollect the Triple Gem and radiate mettā, treating sleep as a sacred dry-run for death; (2) For comatose loved ones, continue softly chanting Dhamma and recounting their merits near their ear — never assume they cannot register peaceful auditory vibrations.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៥', en: 'Q&A 35' },
+      { to: '/my-gems#death-rebirth-process', km: 'ដំណើរពេលស្លាប់ ៥ ដំណាក់កាល', en: '5 Stages of Death' },
+      { to: '/my-gems#sudden-death-kamma', km: 'ការស្លាប់ភ្លាមៗ & អាចិណ្ណកម្ម', en: 'Sudden Death' },
+      { to: '/death-and-rebirth', km: 'មរណាសន្នវិថី & បដិសន្ធិ', en: 'Death & Rebirth Process' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ស្ថានភាពចិត្តពេលកំពុងដេកលក់ ឬសន្លប់ (The Bhavanga State)',
+        titleEn: '1. Mental State During Sleep & Coma: The Continuous Bhavanga Stream',
+        contentKm: 'យោងតាមអភិធម្ម នៅពេលមនុស្សដេកលក់ស្កប់ស្កល់ (គ្មានការយល់សប្តិ) ឬស្ថិតក្នុងសភាពសន្លប់ (Coma) វិញ្ញាណទ្វារទាំង ៥ ខាងក្រៅ (ភ្នែក ត្រចៀក ច្រមុះ អណ្តាត កាយ) ត្រូវគាំងដំណើរការបណ្តោះអាសន្ន។\n\nក្នុងពេលនោះ ចិត្តមិនបានរលត់បាត់ឡើយ ប៉ុន្តែវាធ្លាក់ទៅដំណើរការក្នុងចរន្ត «ភវង្គចិត្ត» (Life-Continuum) ៖\n— ភវង្គចិត្ត គឺជាចរន្តចិត្តដែលហូរភ្ជាប់ជីវិតពីមួយវិនាទីទៅមួយវិនាទីមិនឱ្យដាច់។\n— នៅក្នុងសភាពនេះ ចិត្តមិនដឹងរឿងរ៉ាវពិភពខាងក្រៅទេ ប៉ុន្តែ រក្សាទុកនូវរាល់ទិន្នន័យកម្ម ចរិតលក្ខណៈ និងទម្លាប់ទាំងអស់ដែលមនុស្សធ្លាប់សន្សំមកតាំងពីដើមរៀងមក។',
+        contentEn: 'According to Abhidhamma, during deep dreamless sleep or prolonged coma, the 5 external sensory doors (eye, ear, nose, tongue, body) temporarily suspend cognitive processing.\n\nConsciousness does not cease; it lapses continuously into the "Bhavanga-citta" (the subconscious life-continuum):\n— Bhavanga flows incessantly like a subterranean river, bridging life from moment to moment.\n— In this state, consciousness does not register external horizons, yet it faithfully preserves all karmic seeds, dispositions, memories, and latent habits (anusaya) accumulated across life.'
+      },
+      {
+        titleKm: '២. ដំណាក់កាលដំណើរការនៃ «មរណាសន្នវិថីក្នុងមនោទ្វារ»',
+        titleEn: '2. Execution of the Mind-Door Death Process (Maraṇāsanna-vīthi)',
+        contentKm: 'នៅពេលកោសិការាងកាយ ឈាម ឬបេះដូង (ហទយវត្ថុ) ឈានដល់ចំណុចគាំងលែងដំណើរការ កម្លាំងនៃរូបរលំដួលនេះ បានចូលទៅរំជើបរំជួលខ្សែទឹកភវង្គ បង្កើតចេញជា មរណាសន្នមនោទ្វារវិថី ដូចខាងក្រោម ៖\n\n[អតីតភវង្គ] -> [ភវង្គចលនៈ (ញ័រ)] -> [ភវង្គុបច្ឆេទ (កាត់ផ្តាច់)]\n                                      |\n[មនោទ្វារាវជ្ជនៈ (បើកទ្វារចិត្ត)] <- [ចាប់យក និមិត្ត ពី subconscious]\n                                      |\n[ជវនចិត្ត ៥ ខណៈ] (កុសល ឬ អកុសល កំណត់វាសនា)\n                                      |\n[ចុតិចិត្ត (១ ខណៈ)] (ដាច់ដង្ហើមជាស្ថាពរ)\n                                      |\n[បដិសន្ធិចិត្ត (ភ្លាមៗ)] (ចាប់កំណើតក្នុងភពថ្មី)',
+        contentEn: 'When biological tissue, oxygenation, or the physical heart base (hadaya-vatthu) reaches systemic collapse, the shockwaves of physical dissolution destabilize the life-continuum, triggering the Mind-Door Death Pathway:\n\n[Atīta-bhavanga (Past)] -> [Bhavanga-calana (Vibration)] -> [Bhavangupaccheda (Arrest)]\n                                      |\n[Mano-dvārāvajjana (Mind-Door Adverting)] <- [Retrieves object from subconscious]\n                                      |\n[5 Javana Moments] (Wholesome or unwholesome final charge)\n                                      |\n[Cuti-citta (1 moment)] (Official severance of present life)\n                                      |\n[Paṭisandhi-citta (Instant)] (Rebirth in new plane)',
+        points: [
+          { boldKm: 'ការកាត់ផ្តាច់ភវង្គ', boldEn: 'Bhavanga Severance', km: 'ភវង្គចិត្តញ័ររំញើប (ភវង្គចលនៈ) រួចកាត់ផ្តាច់ចរន្តស្ងប់ស្ងាត់ (ភវង្គុបច្ឆេទ)។', en: 'Subconscious stream vibrates (bhavanga-calana) and arrests its passive flow (bhavangupaccheda).' },
+          { boldKm: 'មនោទ្វារាវជ្ជនៈ (បើកទ្វារចិត្ត)', boldEn: 'Mind-Door Adverting', km: 'ចិត្តបើកទ្វារមនោទ្វារឡើង ដើម្បីទទួលយកអារម្មណ៍ចុងក្រោយ។ ដោយសារគ្មានសំឡេង គ្មានរូបភាពពីខាងក្រៅ វានឹងស្ទុះទៅទាញទិន្នន័យពី ជម្រៅនៃកម្មខាងក្នុង មកបង្ហាញភ្លាមៗ។', en: 'Consciousness adverts inward; absent sensory inputs, it locks onto latent karmic imprints rising from the psychic depths.' },
+          { boldKm: 'ជវនចិត្ត ៥ ខណៈ', boldEn: '5 Javana Moments', km: 'ចិត្តទទួលដឹង និងមានប្រតិកម្មលើអារម្មណ៍នោះយ៉ាងលឿនបំផុត (កុសល ឬ អកុសល)។', en: 'Consciousness processes and reacts to the vision with emotional intensity (peace, joy, aversion, or terror).' },
+          { boldKm: 'ចុតិចិត្ត និង បដិសន្ធិចិត្ត', boldEn: 'Cuti-citta & Paṭisandhi', km: 'ចុតិចិត្តរលត់ បញ្ចប់ជីវិតមនុស្ស រួចបដិសន្ធិចិត្តចាប់កំណើតថ្មីតកន្ទុយគ្នាភ្លាមៗ ដោយគ្មានចន្លោះពេល។', en: 'Cuti-citta ceases, concluding the human life; Paṭisandhi-citta sparks in the subsequent realm with zero time gap.' }
+        ]
+      },
+      {
+        titleKm: '៣. ការទាញយកអារម្មណ៍ចុងក្រោយ ៖ សុបិននិមិត្ត & អាសយានុស័យ',
+        titleEn: '3. Two Modes of Retrieval: Dream-Visions vs. Dormant Habitual Currents',
+        contentKm: 'ក្នុងករណីដេកលក់ ឬសន្លប់ ចិត្តទាញយកអារម្មណ៍ និងនិមិត្តតាមច្រក ២ យ៉ាង ៖',
+        contentEn: 'In sleep and comatose demises, the final consciousness captures its object through two distinct avenues:',
+        points: [
+          { boldKm: 'ក. ករណីស្លាប់ក្នុងដំណេក ៖ ចិត្តចាប់យកតាម «សុបិននិមិត្ត» (Dream-Vision)', boldEn: 'A. Dying in Sleep: The Dream-Vision State', km: 'កម្លាំងនៃ អាចិណ្ណកម្ម (ទម្លាប់ជីវិត) នឹងបង្កើតជាសុបិនចុងក្រោយយ៉ាងរស់រវើក ៖ បើជាអ្នកមានសីលធម៌ គាត់នឹងយល់សប្តិឃើញខ្លួនឯងកំពុងហោះហើរ ដើរក្នុងសួនផ្កា ឃើញប្រាសាទ ឬឃើញព្រះសង្ឃ ចិត្តកើតកុសលជវនៈ រួចដាច់ខ្យល់ស្លាប់ក្នុងដំណេកនោះទៅកាន់សុគតិភព; បើជាអ្នកសន្សំទោសៈ នឹងយល់សប្តិឃើញគេដេញកាប់ ធ្លាក់ជ្រោះ ឬភ្លើងឆេះ កើតអកុសលជវនៈ ធ្លាក់ទៅទុគ្គតិភព។', en: 'Lifelong habit manifests as a vivid final dream: the virtuous dream of levitating, serene gardens, temples, or monks, expiring peacefully into heavenly realms; those steeped in aversion or malice dream of being chased, falling into abysses, or fire, passing in panic into lower destinations.' },
+          { boldKm: 'ខ. ករណីសន្លប់យូរថ្ងៃ (Coma) ៖ ចិត្តចាប់យកតាម «អាសយានុស័យ» (Dormant Habitual Forces)', boldEn: 'B. Comatose States: Dormant Subconscious Currents (Āsayānusaya)', km: 'អ្នកជំងឺសន្លប់យូរថ្ងៃ គ្មានការយល់សប្តិដូចមនុស្សធម្មតាឡើយ ប៉ុន្តែអារម្មណ៍ដែលមនុស្សធ្លាប់គិតរាប់ពាន់ដងក្នុងជីវិត (បារម្ភពីកូន ស្អប់នរណាម្នាក់ ឬជ្រះថ្លាក្នុងការធ្វើទាន) មិនដែលបាត់ឡើយ គឺបង្កប់ក្នុងសន្តានចិត្ត (អនុស័យ)។ ពេលកោសិកាខួរក្បាល និងបេះដូងជិតដាច់ខ្យល់ ថាមពលដែលខ្លាំងជាងគេក្នុងជីវិត នឹង ផ្ទុះឡើងមកលើផ្ទៃមនោទ្វារ ដោយស្វ័យប្រវត្តិ ដូចពពុះទឹកផុសពីបាតបឹង។', en: 'Coma patients do not dream normally; however, thoughts rehearsed thousands of times (family anxiety, lingering grudges, or spiritual devotions) dwell deep as latent roots (anusaya). At systemic failure, the single most dominant lifelong psychic current bubbles to the surface of the Mind Door like gas bubbles bursting from a lake bed.' }
+        ]
+      },
+      {
+        titleKm: '៤. ការដឹងឮសំឡេងសូត្រធម៌របស់អ្នកជំងឺ Coma (Sota-pasāda Sensitivity)',
+        titleEn: '4. Auditory Sensitivity in Coma (Sota-pasāda): Why Chanting Matters',
+        contentKm: 'យោងតាមការបកស្រាយក្នុងអដ្ឋកថា ទោះបីជាអ្នកជំងឺ Coma មើលទៅដូចជាសន្លប់បាត់ស្មារតី (Brain-dead / Unresponsive) ក៏ដោយ ៖\n\n១. រំញ័រនៃសោតបសាទ ៖ ក្នុងករណីខ្លះ «សោតបសាទ» (សរសៃវិញ្ញាណត្រចៀក) នៅតែអាចមានសេសសល់រំញ័ររូបធាតុតិចតួច ដែលម៉ាស៊ីនវេជ្ជសាស្ត្រមិនអាចវាស់ដឹង។\n២. ឥទ្ធិពលនៃសំឡេងធម៌ ៖ ប្រសិនបើសាច់ញាតិមកសូត្រធម៌ក្បែរត្រចៀកគាត់ដោយចិត្តស្ងប់ រំញ័រនៃសំឡេងនោះ អាចមានឱកាសជ្រៀតចូលទៅដាស់ សោតទ្វារវិថី បានមួយភ្លែត។\n៣. ការប្តូរនិមិត្តចុងក្រោយ ៖ សំឡេងធម៌នោះ អាចជួយកាត់ផ្តាច់រូបភាពអាក្រក់ក្នុងចិត្តរបស់អ្នកជំងឺ ហើយប្តូរអារម្មណ៍ចុងក្រោយឱ្យក្លាយជា «កុសលកម្មនិមិត្ត» បាននៅវិនាទីចុងក្រោយ!',
+        contentEn: 'According to ancient Aṭṭhakathā commentaries, even when a comatose patient appears completely clinically unresponsive:\n1. Residual Auditory Sensitivity: Microscopic physical vibrations across the auditory faculty (sota-pasāda) may persist beyond medical instrumentation.\n2. Penetration of Chanting: Sincere, tranquil Dhamma recitations beside their ear can penetrate the subconscious, momentarily stimulating the auditory gateway (sota-dvāra).\n3. Overriding Nightmarish Visions: The acoustic resonance of Dhamma can shatter harrowing subconscious distress, implanting a bright wholesome Kamma-nimitta at the critical final threshold!'
       }
     ]
   }

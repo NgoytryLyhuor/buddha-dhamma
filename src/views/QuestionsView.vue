@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៤ — សួរតាមដែលអ្នកជួប', 'Q&A 34 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៥ — សួរតាមដែលអ្នកជួប', 'Q&A 35 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៤ — ចុចដើម្បីបើកមើល', 'THIRTY-FOUR QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៥ — ចុចដើម្បីបើកមើល', 'THIRTY-FIVE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -340,6 +340,16 @@ const qas = [
     mE: 'Consciousness moves millions of times faster than physical trauma; in sudden death, habitual karma (āciṇṇa-kamma) determines the final trajectory, like a leaning tree falling where it inclined.',
     tie: 'ការស្លាប់ភ្លាមៗ & អាចិណ្ណកម្ម (មហានាមសូត្រ) · /my-gems#sudden-death-kamma',
     to: '/my-gems#sudden-death-kamma',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម ក្នុងករណីមនុស្សដែលដេកលក់ហើយស្លាប់ទៅតែម្តង (ស្លាប់ក្នុងដំណេក) ឬអ្នកជំងឺសន្លប់បាត់ស្មារតីយូរថ្ងៃ (Coma) តើមរណាសន្នវិថីដំណើរការទាញយកអារម្មណ៍ចុងក្រោយយ៉ាងដូចម្ដេច?',
+    qE: 'According to Abhidhamma, when someone dies in their sleep or in a prolonged coma, how does Maraṇāsanna-vīthi process the final mental object?',
+    aK: 'នៅក្នុងគម្ពីរអភិធម្ម ទោះបីជាមនុស្សដេកលក់ ឬសន្លប់ Coma ដែលមើលពីក្រៅឃើញស្ងប់ស្ងាត់ក៏ដោយ មនោទ្វារខាងក្នុងនៅតែដំណើរការមរណាសន្នវិថីពេញលេញឥតចន្លោះឡើយ។ ពេលសរីរាង្គកាយឈានដល់ចំណុចគាំង ចិត្តងើបចេញពី «ភវង្គ» (ចរន្តក្រោមដឹង) មកបើកមនោទ្វារ ៖ (១) ករណីស្លាប់ក្នុងដំណេក ៖ ចិត្តចាប់យកតាម «សុបិននិមិត្ត (Dream-Vision)» បើមានបុណ្យ នឹងយល់សប្តិឃើញហោះហើរ ដើរក្នុងសួនផ្កា ប្រាសាទកែវ ឬព្រះសង្ឃ រួចស្លាប់ក្នុងកុសលជវនៈ ទៅកាន់សុគតិភព; បើមានបាប នឹងយល់សប្តិឃើញគេដេញកាប់ ធ្លាក់ជ្រោះ ភ្លើងឆេះ ស្លាប់ក្នុងអកុសលជវនៈ ទៅកាន់ទុគ្គតិភព (២) ករណីសន្លប់យូរថ្ងៃ (Coma) ៖ ចិត្តចាប់យកតាម «អាសយានុស័យ (Dormant Habitual Forces)» ដែលជាគំនិតបង្កប់ជ្រៅៗដែលធ្លាប់គិតរាប់ពាន់ដងក្នុងជីវិត ផ្ទុះឡើងលើផ្ទៃមនោទ្វារដូចពពុះទឹកផុសពីបាតបឹង (៣) សំឡេងសូត្រធម៌ក្បែរត្រចៀកអ្នកជំងឺ Coma នៅតែអាចជ្រាបចូលតាមរំញ័រសោតបសាទ កាត់ផ្តាច់រូបភាពអាក្រក់ និងប្តូរទៅជាកុសលនិមិត្តបាននៅវិនាទីចុងក្រោយ។',
+    aE: 'In Abhidhamma, even in sleep or deep coma where the outer body is motionless, the inner Mind Door executes the death-vīthi completely. As bodily organs fail, consciousness stirs from Bhavanga into the Mind Door: (1) In sleep: the mind grasps a vivid Dream-Vision (soaring, heavenly gardens, monks for the virtuous; being hunted, falling off cliffs, fire for the non-virtuous); (2) In coma: lifelong latent currents (Āsayānusaya) held thousands of times bubble to the surface like bubbles from a lake bed; (3) Soft Dhamma chanting near a coma patient’s ear can still register through subtle auditory sensitivity (sota-pasāda), neutralizing nightmares and implanting a wholesome Kamma-nimitta at the threshold.',
+    mK: 'ក្នុងដំណេក ឬ Coma ចិត្តដំណើរការក្នុងមនោទ្វារយ៉ាងពេញលេញ · ចាប់យកអារម្មណ៍តាមរយៈសុបិននិមិត្ត ឬថាមពលអនុស័យកិលេស · សំឡេងសូត្រធម៌នៅតែអាចជួយកែប្រែនិមិត្តចុងក្រោយបាន។',
+    mE: 'In sleep or coma, the mind executes the death-vīthi through the Mind Door; final impressions manifest via dream-visions or deep latent karmic currents, where soft Dhamma chanting can still pivot the final trajectory.',
+    tie: 'ការស្លាប់ក្នុងដំណេក & អ្នកជំងឺ Coma · /my-gems#sleep-coma-death',
+    to: '/my-gems#sleep-coma-death',
   },
 ]
 </script>

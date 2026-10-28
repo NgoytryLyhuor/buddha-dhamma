@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៧ — សួរតាមដែលអ្នកជួប', 'Q&A 37 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៨ — សួរតាមដែលអ្នកជួប', 'Q&A 38 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៧ — ចុចដើម្បីបើកមើល', 'THIRTY-SEVEN QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៨ — ចុចដើម្បីបើកមើល', 'THIRTY-EIGHT QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -370,6 +370,15 @@ const qas = [
     mE: 'Yamapālas are authentic sentient beings (Vemānika-petas) with mind and volition; immune to hellfire via specialized karmic biology; their cruelty accumulates severe demerit that eventually plunges them into being tortured hell beings themselves.',
     tie: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម? · /my-gems#yamapala-nature',
     to: '/my-gems#yamapala-nature',
+  },  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ តើសត្វនរកដែលត្រូវយមបាលកាប់ចិញ្ច្រាំ ឬដុតរលាយសាច់អស់ ហេតុអ្វីបានជាមិនស្លាប់បាត់បង់ជីវិត ហើយរូបកាយអាចកើតឡើងវិញភ្លាមៗមួយរំពេច (ឱបបាតិកកំណើត) យ៉ាងដូចម្ដេច?',
+    qE: 'According to Abhidhamma and Visuddhimagga, why don\'t hell denizens die when chopped into pieces or incinerated, and how does their body regenerate instantaneously (Opapātika)?',
+    aK: 'នៅក្នុងគម្ពីរព្រះអភិធម្ម និងវិសុទ្ធិមគ្គ សត្វនរកត្រូវយមបាលកាប់ចិញ្ច្រាំ ឬដុតរលាយក្លាយជាផេះហើយ នៅតែមិនស្លាប់បាត់បង់ជីវិត ពីព្រោះអាយុជីវិតរបស់ពួកគេមិនបានពឹងលើសរីរាង្គកាយសាច់ឈាមឡើយ ប៉ុន្តែពឹងផ្អែកទាំងស្រុងលើ «ការអស់កម្មបាប (Kammakkhaya)» តែមួយគត់ (ដរាបណាកម្មមិនទាន់អស់ មិនអាចស្លាប់បានឡើយ)។ ពួកគេកើតជា «ឱបបាតិកៈ» ដែលរូបកាយផ្សំឡើងពី កម្មជរូប ១០០%។ រាល់ពេលរូបកាយចាស់ត្រូវកម្ទេច រូបកលាបៈថ្មីៗ (កាយទសកកលាបៈជាសរសៃប្រសាទឈឺចាប់ ភាវទសកកលាបៈ និងវត្ថុទសកកលាបៈ) ផុសឡើងជំនួសភ្លាមៗក្នុងល្បឿននៃចលនាចិត្ត (ដូចដុំបារតរាវរត់ផ្គុំគ្នាវិញ)។ សត្វនរកមិនអាចសន្លប់ឡើយ ដោយសារមានកាយបសាទរូបក្រាស់ឃ្មឹកទូទាំងខ្លួន និងទទួលទុក្ខសហគតកាយវិញ្ញាណ ១០០% ដោយគ្មានយន្តការកាត់ផ្តាច់ការឈឺចាប់ឡើយ។',
+    aE: 'In Abhidhamma and Visuddhimagga, hell beings do not die despite severe butchering or incineration because their life is not anchored in biological organs, but exclusively in the exhaustion of karma (Kammakkhaya) as proclaimed in MN 130. As spontaneous apparitions (Opapātika-yoni), their bodies consist 100% of kamma-born matter (kammaja-rūpa). Whenever old matter is destroyed, new rupa-kalapas (neural pain receptors and physical faculties) precipitate instantly at thought-speed like liquid mercury coalescing. Furthermore, they can never lose consciousness or faint: their neural sensitivity is omnipresent and dense, experiencing pure excruciating bodily consciousness (dukkha-sahagata-kāyaviññāṇa) without shock-induced relief.',
+    mK: 'សត្វនរកស្លាប់ដោយការអស់កម្មបាបតែមួយមុខគត់ (Kammakkhaya) មិនមែនដោយសាររូបកាយខូចខាតឡើយ · រូបកាយជាឱបបាតិកៈ កើតចេញពីកម្មជរូប ១០០% កើតឡើងវិញក្នុងល្បឿននៃចិត្ត (ដូចបារតរាវ) · មិនអាចសន្លប់បានឡើយ ដោយសារទទួលទុក្ខសហគតកាយវិញ្ញាណពេញលេញ ១០០%។',
+    mE: 'Hell denizens die SOLELY by karmic exhaustion (Kammakkhaya), not organ damage; their 100% kamma-born body reconstitutes at thought-speed (like quicksilver); cannot lose consciousness due to omnipresent hyper-sensitive pain receptors.',
+    tie: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់ & កើតឡើងវិញភ្លាមៗ? · /my-gems#hell-body-regeneration',
+    to: '/my-gems#hell-body-regeneration',
   },
 ]
 </script>

@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៧)', en: 'All (17)' },
+  { id: 'all', km: 'ទាំងអស់ (១៨)', en: 'All (18)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1263,6 +1263,105 @@ const gems = ref([
         titleEn: '4. The Karmic Retribution: Do Hell Wardens Incur Demerit?',
         contentKm: 'យោងតាមគម្ពីរអភិធម្ម ៖ បាបយ៉ាងធ្ងន់ធ្ងរ!\n\n១. ទោសចិត្តប្រចាំថ្ងៃ ៖ រាល់ពេលដែលយមបាលយកលំពែងចាក់ យកពូថៅកាប់ ឬច្រកទឹកទង់ដែងក្តៅទៅក្នុងមាត់សត្វនរក ចិត្តរបស់ពួកគេពោរពេញដោយ ទោសចិត្ត (ទោសមូលចិត្ត ប្រកបដោយបដិឃៈ និងទោមនស្ស)។\n២. ការសាងកម្មថ្មី ៖ ពួកគេកំពុងបង្កើត អកុសលកម្មថ្មីៗ ជារៀងរាល់ថ្ងៃឥតឈប់ឈរ។\n៣. ផលវិបាកចុងក្រោយ ៖ ហេតុដូច្នេះហើយ នៅពេលដែលពួកគេអស់អាយុ ឬអស់ផលបុណ្យចាស់ដែលទ្រទ្រង់ក្នុងឋានៈជាយមបាល ថាមពលនៃទោសកម្មដែលបានកាប់ចាក់សត្វនរកទាំងនោះ នឹងទាញទម្លាក់ពួកគេឱ្យ ក្លាយទៅជាសត្វនរកដែលត្រូវគេកាប់ចាក់ធ្វើទារុណកម្មវិញ ក្នុងភពបន្ទាប់ដោយចៀសមិនរួចឡើយ!',
         contentEn: 'According to the Abhidhamma: Demerit of the most catastrophic order!\\n\\n1. Daily Toxic Rage: Every time a Yamapāla impales, hacks, flogs, or pours boiling molten copper down a victim\'s throat, their consciousness is dominated by Dosa-mūla-citta (hatred, aversion, and sadistic cruelty).\\n2. Continuous Fresh Karmic Debt: They are generating horrific new unwholesome karma every single waking moment.\\n3. The Inevitable Karmic Reversal: When their sustaining lifespan or past merit as a warden expires, the immense mountain of cruelty they generated drags them down: they become the helpless hell beings being butchered and boiled in their very next rebirth!'
+      }
+    ]
+  },
+
+  // GEM 18: Hell Denizens Body Mechanics: Why They Don't Die & Instant Regeneration (Abhidhamma & Visuddhimagga)
+  {
+    id: 'hell-body-regeneration',
+    num: 18,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & នរក',
+    categoryEn: '💀 Hell Body Regeneration',
+    ref: 'គម្ពីរព្រះអភិធម្ម, វិសុទ្ធិមគ្គ & ទេវទូតសូត្រ (MN 130)',
+    paliQuote: 'ន ច តាវ កាលំ ករោតិ យាវ ន តំ បាបកម្មំ ខីយតិ (សត្វនរកនោះ រមែងមិនធ្វើមរណកាលឡើយ ដរាបណាអំពើបាបអកុសលនោះ មិនទាន់អស់កម្លាំងនៅឡើយ)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ តើសត្វនរកដែលត្រូវយមបាលកាប់ចិញ្ច្រាំ ឬដុតរលាយសាច់អស់ ហេតុអ្វីបានជាមិនស្លាប់បាត់បង់ជីវិត ហើយរូបកាយអាចកើតឡើងវិញភ្លាមៗមួយរំពេច (ឱបបាតិកកំណើត) យ៉ាងដូចម្ដេច?',
+    questionEn: 'According to Abhidhamma and Visuddhimagga, why don\'t hell denizens die when chopped into pieces or incinerated, and how does their body regenerate instantaneously (Opapātika)?',
+    shortKm: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់ & កើតឡើងវិញភ្លាមៗ?',
+    shortEn: 'Hell Denizens: Immortal Torture & Instant Regeneration',
+    essenceKm: 'នៅក្នុងគម្ពីរព្រះអភិធម្ម និងវិសុទ្ធិមគ្គ មូលហេតុដែលសត្វនរកត្រូវយមបាលកាប់ចិញ្ច្រាំជាកង់ៗ ឬដុតរលាយក្លាយជាផេះហើយ នៅតែមិនស្លាប់បាត់បង់ជីវិត គឺដោយសារតែ «អាយុជីវិតរបស់សត្វនរក មិនបានតោងទាក់លើសរីរាង្គកាយសាច់ឈាមឡើយ ប៉ុន្តែតោងទាក់ទាំងស្រុងលើទម្ងន់នៃអកុសលកម្ម (Kammakkhaya)»។ ពួកគេកើតជា «ឱបបាតិកៈ» ដែលរូបកាយផ្សំឡើងពី កម្មជរូប ១០០%។ រាល់ពេលរូបកាយត្រូវកម្ទេច រូបកលាបៈថ្មីៗ (កាយទសកកលាបៈ ភាវទសកកលាបៈ និងវត្ថុទសកកលាបៈ) ក៏ផុសឡើងជំនួសភ្លាមៗក្នុងល្បឿននៃចលនាចិត្ត (ដូចដុំបារតរាវរត់ផ្គុំគ្នាវិញ)។ សត្វនរកមិនអាចសន្លប់ឡើយ ដោយសារមានកាយបសាទរូបក្រាស់ឃ្មឹកទូទាំងខ្លួន និងទទួលទុក្ខសហគតកាយវិញ្ញាណពេញទំហឹង ១០០% ដោយគ្មានយន្តការកាត់ផ្តាច់ការឈឺចាប់ឡើយ។',
+    essenceEn: 'In Abhidhamma and Visuddhimagga, hell denizens do not die despite being chopped to mincemeat or melted to ash because their lifespan does not depend on biological organs, but exclusively on the exhaustion of bad karma (Kammakkhaya). Possessing an instantaneous spontaneous rebirth (Opapātika-yoni), their bodies consist 100% of kamma-born matter (kammaja-rūpa). Whenever incinerated or sliced, new rupa-kalapas (kāya-dasaka, bhāva-dasaka, vatthu-dasaka) precipitate instantly at the speed of thought (like droplet clusters of liquid mercury). Furthermore, hell beings can never lose consciousness or faint: their neural sensitivity (kāya-pasāda-rūpa) is omnipresent and exceptionally dense, continuously sustaining intense painful bodily consciousness (dukkha-sahagata-kāyaviññāṇa) without any shock-numbing relief.',
+    practicalKm: 'ច្បាប់នៃកម្ម គឺជាច្បាប់រូបវិទ្យាផ្លូវចិត្តដ៏តឹងរ៉ឹងបំផុត ដែលគ្មានការលើកលែង ឬកាត់បន្ថយទោសដោយចៃដន្យឡើយ។ ការប្រព្រឹត្តអំពើបាបដោយគិតថា «ស្លាប់ទៅចប់រឿង» គឺជាការភាន់ច្រឡំដ៏គ្រោះថ្នាក់បំផុត។ ទុក្ខវេទនាក្នុងអបាយភូមិ គ្មានឱកាសសូម្បីតែសន្លប់មួយវិនាទីឡើយ។ ហេតុនេះ ការមានសេចក្តីស្អប់ខ្ពើម និងខ្លាចរអាក្នុងអំពើបាប (ហិរិ និង ឱត្តប្បៈ) គឺជាខែលការពារជីវិតដ៏ពិសិដ្ឋបំផុតដែលត្រូវរក្សាឱ្យបានរាល់ថ្ងៃ។',
+    practicalEn: 'The law of kamma is an exacting psychophysical reality with zero arbitrary pardons. The delusion that death ends all suffering is perilous: hellish suffering permits not even a microsecond of unconscious respite. Cultivating moral shame (hiri) and moral dread of evil (ottappa) remains our paramount daily spiritual armor.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៨', en: 'Q&A 38' },
+      { to: '/my-gems#yamapala-nature', km: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម?', en: 'Yamapālas Nature' },
+      { to: '/my-gems#king-yama-devaduta', km: 'ស្តេចយមរាជ & ទេវទូត ៥', en: 'King Yama & 5 Devadūta' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' },
+      { to: '/kamma', km: 'ច្បាប់កម្មផល & វិបាក', en: 'Kamma & Vipāka' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ហេតុអ្វីបានជាមិនស្លាប់? (អំណាចនៃជីវិតិន្ទ្រិយរូប និងកម្មសេសសល់)',
+        titleEn: '1. Why Don\'t They Die? (Lifespan Anchored Exclusively on Kamma)',
+        contentKm: 'ដើម្បីយល់ពីរឿងនេះ ត្រូវពិនិត្យមើលភាពខុសគ្នារវាងការស្លាប់របស់មនុស្ស និងការស្លាប់របស់សត្វនរក ៖\n\n— មនុស្សលោកស្លាប់ដោយ «រូបកាយខូចខាត» (Physical Organ Failure) ៖\nជីវិតរបស់មនុស្សពឹងផ្អែកលើបច្ច័យ ៤ គឺ កម្ម ចិត្ត ឧតុ និងអាហារ។ កាលណាបេះដូងត្រូវគេចាក់ធ្លុះ ក្បាលត្រូវកាត់ផ្តាច់ ឬបាត់បង់ឈាមអស់ រូបកាយ (ហទយវត្ថុ និង កាយទ្វារ) មិនអាចទ្រទ្រង់ចរន្តឈាម និងខ្យល់ដង្ហើមបានឡើយ។ ពេលរូបខូច វិញ្ញាណក៏មិនអាចតាំងនៅបាន ទើបដាច់ខ្យល់ស្លាប់។\n\n— សត្វនរកស្លាប់ដោយ «កម្មអស់» តែមួយគត់ (Kammakkhaya) ៖\nនៅក្នុងទេវទូតសូត្រ ព្រះសម្មាសម្ពុទ្ធបានត្រាស់បញ្ជាក់នូវគោលការណ៍ដែកនៃច្បាប់ធម្មជាតិថា ៖ «ន ច តាវ កាលំ ករោតិ យាវ ន តំ បាបកម្មំ ខីយតិ» (សត្វនរកនោះ រមែងមិនធ្វើមរណកាលឡើយ ដរាបណាអំពើបាបអកុសលនោះ មិនទាន់អស់កម្លាំងនៅឡើយ)។\n\nជីវិតិន្ទ្រិយរូប (រូបដែលជាកម្លាំងទ្រទ្រង់ជីវិត) របស់សត្វនរក ត្រូវបានបង្កើតឡើងដោយអំណាចនៃអកុសលចេតនាដ៏ធ្ងន់ធ្ងរ។ គោលដៅនៃភពនរក គឺការសោយទុក្ខវេទនា (វិបាកទុករស្វាទ) ឱ្យសក្តិសមនឹងទោសកំហុស។ ប្រសិនបើកាប់ដាច់ក្បាលហើយស្លាប់បាត់ នោះមានន័យថាការសោយកម្មត្រូវបានកាត់ផ្តាច់ ដែលជាការខុសពីច្បាប់កម្មផល។ ដូច្នេះ ទោះបីជារូបកាយត្រូវរលាយខ្ទេចខ្ទីដល់កម្រិតណាក៏ដោយ ក៏កម្លាំងនៃកម្មអាក្រក់នៅតែចងភ្ជាប់វិញ្ញាណឱ្យជាប់នឹងទីនោះជានិច្ច មិនអាចស្លាប់រួចខ្លួនឡើយ។',
+        contentEn: 'To comprehend this, one must contrast human mortality with that of hell beings:\n\n— Humans Die from Physical Organ Failure:\nHuman biological life relies on four contributing factors: Kamma, Mind (Citta), Climate/Temperature (Utu), and Nutrition (Āhāra). When the heart is punctured, the brain destroyed, or blood lost, the biological base (hadaya-vatthu & bodily faculty) fails to sustain circulation and respiration. When the physical substratum shatters, consciousness ceases in that body, causing death.\n\n— Hell Beings Die SOLELY by Exhaustion of Karma (Kammakkhaya):\nIn the Devadūta Sutta (MN 130), the Buddha declares the unbending iron law of existence:\n"Na ca tāva kālaṃ karoti yāva na taṃ pāpakammaṃ khīyati"\n(They do not pass away so long as that evil karma has not been completely exhausted).\n\nThe life-faculty matter (jīvitindriya-rūpa) of hell beings is directly forged and maintained by heinous unwholesome volition. The intrinsic cosmological function of hell is karmic retribution. If decapitation caused final death, their retribution would be cut short—violating the universal conservation of karmic law. Thus, no matter how utterly pulverized or incinerated their anatomy becomes, negative karmic momentum relentlessly anchors their consciousness to that realm.'
+      },
+      {
+        titleKm: '២. យន្តការនៃការបង្កើតរូបកាយឡើងវិញភ្លាមៗ (Instant Opapātika Regeneration)',
+        titleEn: '2. The Mechanics of Instantaneous Body Regeneration (Opapātika & Rūpa-Kalāpa)',
+        contentKm: 'ដំណើរការដែលរូបកាយសត្វនរកកកើតឡើងវិញមួយរំពេច ត្រូវបានពន្យល់តាមក្បួនបរមត្ថវិជ្ជា ដូចខាងក្រោម ៖',
+        contentEn: 'The instantaneous reconstitution of a hell being\'s body is systematically explained in Abhidhamma metaphysics through three principles:',
+        points: [
+          {
+            boldKm: 'ក. ធម្មជាតិនៃ «ឱបបាតិកកំណើត» (Opapātika Yoni)',
+            boldEn: 'A. Spontaneous Manifestation (Opapātika Yoni)',
+            km: 'សត្វនរកមិនបានកើតចេញពីផ្ទៃម្តាយ ឬពងឡើយ ប៉ុន្តែកើតជា «ឱបបាតិកៈ» (ផុសឡើងពេញរូបរាងភ្លាមៗ)។ រូបកាយរបស់ពួកគេមិនមែនផ្សំឡើងពីកោសិកាជីវសាស្ត្រដែលត្រូវចំណាយពេលលូតលាស់ ឬជួសជុលរបួសដូចស្បែកមនុស្សឡើយ។ ផ្ទុយទៅវិញ គ្រប់រូបធាតុទាំងអស់ក្នុងខ្លួនសត្វនរកសុទ្ធតែជា កម្មជរូប (Rūpa produced by Kamma) ១០០%។',
+            en: 'Hell beings are not born from a womb or egg, but appear spontaneously full-grown (opapātika). Their bodies do not consist of cellular organic tissues that require cellular mitosis, healing, or medical grafts like human skin. Instead, 100% of their physical matter is directly generated by Karma (kammaja-rūpa).'
+          },
+          {
+            boldKm: 'ខ. ដំណើរការនៃរូបកលាបៈ (Rūpa-kalāpa Mechanics)',
+            boldEn: 'B. Subatomic Matter Clusters (Rūpa-kalāpa Mechanics)',
+            km: 'នៅក្នុងអភិធម្ម រូបកើតអំពីកម្ម កើតឡើងរៀងរាល់ «ឧប្បាទខណៈ» (Uppāda-khaṇa) នៃចិត្ត (រាប់ពាន់លានដងក្នុងមួយវិនាទី)។ នៅពេលដែលពូថៅ ឬដាវកាប់កាត់កាយសាច់ដាច់ជាកំណាត់ៗ ឬភ្លើងនរកដុតរលាយដូចទឹក ៖ រូបចាស់ត្រូវបានកម្ទេចរលត់ទៅដោយសារតេជោធាតុ និងវាយោធាតុខាងក្រៅ ប៉ុន្តែខ្សែទឹកនៃ «អកុសលវិបាកចិត្ត» នៅតែហូរបន្តមិនឈប់។ ចិត្តនោះបានបង្គាប់ឱ្យ កម្មជកលាបៈ ថ្មីៗ (មាន កាយទសកកលាបៈ ដែលជាសរសៃប្រសាទទទួលការឈឺចាប់, ភាវទសកកលាបៈ និង វត្ថុទសកកលាបៈ) ផុសឡើងជំនួសកន្លែងចាស់ភ្លាមៗមួយរំពេច។',
+            en: 'In Abhidhamma, kamma-produced matter is generated at every arising sub-moment (uppāda-khaṇa) of consciousness (billions of times per second). When demonic axes cleave their limbs or molten fire liquefies their flesh: previous matter disintegrates, yet the torrential continuum of unwholesome resultant consciousness (akusala-vipāka-citta) never stops. That karmic energy commands new kammaja-kalāpas (including kāya-dasaka kalāpas—the very neural pain receptors—along with bhāva-dasaka and vatthu-dasaka) to crystallize instantaneously in place.'
+          },
+          {
+            boldKm: 'គ. ឧបមាក្នុងគម្ពីរអដ្ឋកថា (Liquid Mercury & Sañjīva Wind)',
+            boldEn: 'C. Commentarial Analogies (Liquid Mercury & Sañjīva Wind)',
+            km: 'ព្រះអដ្ឋកថាចារ្យបានលើកឧបមា ២ យ៉ាង ៖ (១) ឧបមាដុំបារតរាវ ឬដំណក់ទឹក ៖ ដូចជាដុំបារតរាវ ឬដំណក់ទឹកដែលត្រូវគេយកដំបងវាយបំបែកជាភាគល្អិតខ្ចាត់ខ្ចាយ ប៉ុន្តែគ្រាន់តែដកដំបងចេញភ្លាម ដំណក់ទឹកទាំងនោះក៏ស្រូបទាញគ្នារត់មកផ្គុំជាដុំរូបរាងដើមវិញមួយរំពេច (២) ឧបមាដើមចេក ឬស្មៅដែលត្រូវកាប់ ៖ ក្នុងនរកសញ្ជីវៈ (Sañjīva Naraka) ពេលសត្វនរកត្រូវគេកាប់ចិញ្ច្រាំធ្លាក់ជាកង់ៗលើកម្រាលដែក ស្រាប់តែមាន «កម្មជវាត» (ខ្យល់កម្មត្រជាក់ដ៏ចម្លែក) បក់កាត់ពីលើ រូបកាយសាច់ឈាម ឆ្អឹង ក្បាល ដៃជើង ក៏ស្រូបទាញផ្គុំគ្នាវិញភ្លាមៗ ហើយក្រោកឈរស្រែកទ្រហោយំរងទុក្ខបន្តទៀត។',
+            en: 'Ancient commentators provide two luminous analogies: (1) Liquid Mercury (Quick-Silver) or Water Droplets: When struck with a rod, mercury shatters into hundreds of micro-droplets, but the instant the force leaves, surface tension immediately fuses them back into a single droplet; (2) Cut Reeds & Sañjīva Wind: In the Sañjīva Hell, as soon as victims are sliced into fragments, a cold karmic wind (kammaja-vāta) sweeps across, causing flesh, bone, and limbs to reconstitute instantly, standing upright to suffer anew.'
+          }
+        ]
+      },
+      {
+        titleKm: '៣. ការប្រៀបធៀបរូបកាយមនុស្ស និងរូបកាយសត្វនរក',
+        titleEn: '3. Comparative Table: Human Body vs. Hell Denizen Body',
+        contentKm: 'ភាពខុសគ្នាជាមូលដ្ឋានរវាងរូបកាយមនុស្ស និងរូបកាយសត្វនរក តាមក្បួនព្រះអភិធម្ម ៖',
+        contentEn: 'Fundamental contrasts between human physiology and hell denizen embodiment according to Abhidhamma:',
+        points: [
+          {
+            boldKm: 'កំណើត (Yoni)',
+            boldEn: 'Mode of Origin (Yoni)',
+            km: 'មនុស្សលោក ៖ គព្ភសេយ្យកៈ (កើតក្នុងផ្ទៃម្តាយ មានកោសិកាជីវសាស្ត្រលូតលាស់) | សត្វនរក ៖ ឱបបាតិកៈ (ផុសឡើងពេញរូបរាងភ្លាមៗ គ្មានកោសិកាសាច់ឈាមធម្មជាតិឡើយ)។',
+            en: 'Human: Gabbhaseyyaka (womb-born, cellular embryonic development) | Hell Denizen: Opapātika (spontaneous, full-grown manifestation without organic embryonic biology).'
+          },
+          {
+            boldKm: 'បច្ច័យទ្រទ្រង់ (Sustaining Conditions)',
+            boldEn: 'Sustaining Conditions',
+            km: 'មនុស្សលោក ៖ ពឹងលើបច្ច័យ ៤ (កម្ម, ចិត្ត, ឧតុ, អាហារ) បើខ្វះបាយ ទឹក ឬដាច់ខ្យល់ គឺស្លាប់ | សត្វនរក ៖ កម្មតែមួយមុខគត់ជាអ្នកទ្រទ្រង់ដាច់ខាត (ទោះគ្មានបាយ គ្មានទឹក ត្រូវភ្លើងដុត ក៏មិនស្លាប់)។',
+            en: 'Human: 4 generative conditions (Kamma, Citta, Utu, Āhāra)—lack of oxygen, food, or water causes death | Hell Denizen: Exclusively sustained by Kamma (flourishes in hellfire without biological nutrition).'
+          },
+          {
+            boldKm: 'ការជួសជុលរូបកាយ (Regeneration)',
+            boldEn: 'Regeneration Speed',
+            km: 'មនុស្សលោក ៖ ត្រូវការពេលវេលាព្យាបាល ផឹកថ្នាំ សម្រាក និងកោសិកាលូតលាស់សន្សឹមៗ | សត្វនរក ៖ កើតឡើងវិញភ្លាមៗក្នុងមួយខណៈនៃចិត្ត (មួយប៉ប្រិចភ្នែក)។',
+            en: 'Human: Slow biological healing requiring medical care, rest, and scar tissue | Hell Denizen: Instantaneous reconstitution within a single thought-moment (a fraction of a microsecond).'
+          },
+          {
+            boldKm: 'មូលហេតុនៃការស្លាប់ (Cause of Death)',
+            boldEn: 'Cause of Mortality',
+            km: 'មនុស្សលោក ៖ រូបកាយទ្រុឌទ្រោម, ជំងឺ, ដាច់អាហារ, ឬគ្រោះថ្នាក់បាក់បែកកាយ | សត្វនរក ៖ អស់កម្មបាបតែមួយគត់ (Kammakkhaya) ទើបអាចធ្វើមរណកាលបាន។',
+            en: 'Human: Physical injury, organ failure, disease, starvation, aging | Hell Denizen: SOLELY the complete exhaustion of unwholesome karma (Kammakkhaya).'
+          }
+        ]
+      },
+      {
+        titleKm: '៤. ហេតុអ្វីបានជាមិនសន្លប់ ឬលែងដឹងខ្លួនពេលឈឺខ្លាំង? (Pure Dukkha-Vedanā)',
+        titleEn: '4. Why Don\'t Hell Beings Faint or Lose Consciousness? (Pure Dukkha-Vedanā)',
+        contentKm: 'មនុស្សលោកពេលជួបការឈឺចាប់ខ្លាំងជ្រុល ប្រព័ន្ធប្រសាទ និងខួរក្បាលនឹងបញ្ជាឱ្យសន្លប់បាត់ស្មារតី (Unconscious/Shock) ដើម្បីការពារចិត្តពីការឈឺចាប់ហួសកម្រិត។ ប៉ុន្តែនៅក្នុងនរក យន្តការនេះត្រូវបានកាត់ផ្តាច់ទាំងស្រុង ៖\n\n១. គ្មានយន្តការកាត់ផ្តាច់ការឈឺចាប់ឡើយ ៖\nនៅក្នុងអភិធម្ម សត្វនរកមាន «កាយបសាទរូប» (កោសិកាសរសៃប្រសាទទទួលដឹងការឈឺចាប់) ក្រាស់ឃ្មឹក និងសព្វសាច់ទូទាំងខ្លួន ចាប់តាំងពីសរសៃសក់រហូតដល់ក្រចកជើង។ គ្មានចំណុចណាមួយដែលស្ពឹក ឬមិនដឹងការឈឺចាប់នោះឡើយ។\n\n២. វិបាកទុក្ខវេទនាកម្រិតអតិបរមា (Pure Dukkha-vedanā) ៖\nចិត្តរបស់សត្វនរក ត្រូវទទួលនូវ «ទុក្ខសហគតកាយវិញ្ញាណ» (វិញ្ញាណដឹងទុក្ខវេទនាដ៏ខ្លាំងក្លា) ជានិច្ច គ្មានចន្លោះទំនេរសម្រាប់ឱ្យចិត្តធ្លាក់ចុះទៅកាន់សេចក្តីស្ងប់ ឬសន្លប់ឡើយ។\n\n៣. រូបកាយកើតឡើងវិញ ដើម្បីបន្តសងកម្ម ៖\nសត្វនរកត្រូវដឹងខ្លួនពេញលេញ ១០០% នូវគ្រប់វិនាទីដែលសាច់ត្រូវរលាក ឆ្អឹងត្រូវកិនបែក ឬក្បាលត្រូវកាត់។ ការកើតរូបរាងថ្មីឡើងវិញ មិនមែនជាការសង្គ្រោះឱ្យរួចខ្លួនឡើយ ប៉ុន្តែជាការ «បង្កើតឧបករណ៍ទទួលទុក្ខថ្មីមួយទៀតភ្លាមៗ» ដើម្បីបន្តសងបំណុលកម្មដែលខ្លួនបានសាង រហូតដល់វិនាទីចុងក្រោយ!',
+        contentEn: 'When humans experience unbearable agony, biological pain-shock and neurovascular reflexes trigger fainting or coma to shield the mind from terminal sensory overload. In the hell realms, this protective mechanism is utterly abolished:\n\n1. No Anesthetic Numbness or Shock:\nIn Abhidhamma, hell denizens possess exceptionally dense, hyper-sensitive Kāya-pasāda-rūpa (bodily sentient receptors) suffusing every square millimeter of their anatomy—from the tips of their hair down to their toenails. There is zero sensory numbness.\n\n2. Unmitigated Agonizing Consciousness (Pure Dukkha-vedanā):\nTheir mental continuum is bound to continuous "Dukkha-sahagata-kāyaviññāṇa" (bodily consciousness accompanying excruciating physical pain). There is no opportunity for the mind to lapse into peaceful bhavanga or unconscious shock.\n\n3. Regeneration as Continuous Retribution:\nThey remain 100% conscious through every fraction of a second while being incinerated, crushed, flayed, or decapitated. The instant regeneration of their body is not an act of mercy, but the relentless manufacture of a fresh sensory instrument designed to discharge the precise remaining balance of their negative karmic debt!'
       }
     ]
   }

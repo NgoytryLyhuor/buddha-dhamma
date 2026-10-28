@@ -437,7 +437,7 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   }
   .menu-sheet-list {
     grid-template-columns: 1fr !important;
-    padding: 12px 14px calc(32px + env(safe-area-inset-bottom, 0px)) !important;
+    padding: 12px 14px calc(76px + env(safe-area-inset-bottom, 0px)) !important;
     gap: 8px !important;
   }
 }
@@ -573,9 +573,11 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 
 /* Cards List Container */
 .menu-sheet-list {
-  flex: 1;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  flex: 1 1 0% !important;
+  min-height: 0 !important; /* CRITICAL for flexbox child scrolling on mobile */
+  max-height: 100% !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
   overscroll-behavior: contain;
   display: grid;
 }
@@ -1330,4 +1332,35 @@ html.dark .offline-banner {
   color: var(--bg-card);
   border-color: var(--accent);
   transform: translateY(-2px);
+}
+/* Floating Bottom Close Button (Mobile Only) */
+.menu-floating-bottom {
+  position: fixed;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+.menu-floating-close-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.menu-floating-close-btn:active {
+  transform: scale(0.95);
 }

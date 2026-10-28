@@ -350,7 +350,7 @@
               </div>
               <div class="menu-card-body">
                 <div class="menu-card-title">{{ t(n.km, n.en) }}</div>
-                <div class="menu-card-sub">{{ t(n.en, n.kmShort) }}</div>
+                <div class="menu-card-sub">{{ t(n.descKm || n.kmShort, n.en) }}</div>
               </div>
               <div class="menu-card-action">
                 <span v-if="routeMeta === n.to" class="menu-card-current">
@@ -380,9 +380,34 @@
             </div>
 
             <!-- Footer indicator -->
-            <div v-if="filteredMenuNav.length > 0" class="col-span-full py-4 text-center text-[11px] opacity-50">
-              {{ t('☸️ ព្រះធម៌ ៤២ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 42 Pages — Ordered systematically for study & practice') }}
+            <div v-if="filteredMenuNav.length > 0" class="col-span-full py-6 text-center text-xs opacity-80">
+              <p class="font-medium" :style="{ color: 'var(--ink)' }">
+                {{ t('☸️ ព្រះធម៌ ៤២ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 42 Pages — Ordered systematically for study & practice') }}
+              </p>
+              <p v-if="selectedMenuCategory !== 'all' || menuSearchQuery" class="mt-2 text-xs">
+                <button
+                  type="button"
+                  @click="selectedMenuCategory = 'all'; menuSearchQuery = ''"
+                  class="font-bold underline cursor-pointer"
+                  :style="{ color: 'var(--accent-bright)' }"
+                >
+                  {{ t('បង្ហាញទំព័រទាំង ៤២ ឡើងវិញ (ទំព័រ ០១ ដល់ ៤២)', 'Show all 42 pages (Pages 01 to 42)') }}
+                </button>
+              </p>
             </div>
+          </div>
+
+          <!-- Floating bottom close button for quick thumb access on mobile -->
+          <div class="menu-floating-bottom sm:hidden">
+            <button
+              type="button"
+              class="menu-floating-close-btn"
+              @click="closeMenu"
+              :aria-label="t('បិទម៉ឺនុយ', 'Close Menu')"
+            >
+              <span>✕</span>
+              <span>{{ t('បិទម៉ឺនុយ (៤២ ទំព័រ)', 'Close Menu (42 Pages)') }}</span>
+            </button>
           </div>
         </div>
       </div>
@@ -530,6 +555,7 @@ const filteredMenuNav = computed(() => {
   if (!q) return list
   return list.filter(n => {
     return n.km.toLowerCase().includes(q) ||
+      (n.descKm && n.descKm.toLowerCase().includes(q)) ||
       n.kmShort.toLowerCase().includes(q) ||
       n.en.toLowerCase().includes(q) ||
       n.num.toLowerCase().includes(q)
@@ -557,48 +583,48 @@ function onSettingsGlobalClick(e) {
 }
 
 const nav = [
-  { to: '/', km: 'ទំព័រដើម', kmShort: 'ដើម', en: 'Home', num: '១' },
-  { to: '/core', km: 'ធម៌មូលដ្ឋាន', kmShort: 'មូលដ្ឋាន', en: 'Core', num: '២' },
-  { to: '/abhidhamma', km: 'អភិធម្ម', kmShort: 'អភិធម្ម', en: 'Abhidhamma', num: '៣' },
-  { to: '/kamma', km: 'កម្ម និងផល', kmShort: 'កម្មផល', en: 'Kamma', num: '៤' },
-  { to: '/ethics', km: 'សីល និងបារមី', kmShort: 'សីល', en: 'Ethics', num: '៥' },
-  { to: '/meditation', km: 'សមាធិ', kmShort: 'សមាធិ', en: 'Meditation', num: '៦' },
-  { to: '/suttas', km: 'ព្រះសូត្រ', kmShort: 'សូត្រ', en: 'Suttas', num: '៧' },
-  { to: '/life', km: 'ជីវប្រវត្តិ', kmShort: 'ជីវិតព្រះពុទ្ធ', en: 'Life', num: '៨' },
-  { to: '/gathas', km: 'គាថាព្រះធម៌', kmShort: 'គាថា', en: 'Gāthā', num: '៩' },
-  { to: '/chanting', km: 'សូត្រ ១០', kmShort: 'សូត្រមន្ត', en: 'Chanting', num: '១០' },
-  { to: '/glossary', km: 'វចនានុក្រមធម៌', kmShort: 'វចនានុក្រម', en: 'Glossary', num: '១១' },
-  { to: '/stories', km: 'រឿងល្បីៗ', kmShort: 'រឿង', en: 'Stories', num: '១២' },
-  { to: '/questions', km: 'សំណួរ–ចម្លើយ', kmShort: 'សំណួរ', en: 'Q&A', num: '១៣' },
-  { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Q&A', num: '១៤' },
-  { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ', kmShort: 'ចេតសិក', en: 'Cetasika Q&A', num: '១៥' },
-  { to: '/lobha-mula-citta', km: 'ចិត្តបរមត្ថ', kmShort: 'ចិត្តបរមត្ថ', en: 'Citta Paramattha', num: '១៦' },
-  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Origination', num: '១៧' },
-  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', kmShort: 'ព្រះសង្ឃ', en: 'Monastic', num: '១៨' },
-  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily', num: '១៩' },
-  { to: '/recollections', km: 'អនុស្សតិ', kmShort: 'អនុស្សតិ', en: 'Recollections', num: '២០' },
-  { to: '/ariya', km: 'អរិយបុគ្គល', kmShort: 'អរិយ', en: 'Noble Ones', num: '២១' },
-  { to: '/calendar', km: 'បដិទិនពុទ្ធសាសនា', kmShort: 'បដិទិន', en: 'Calendar', num: '២២' },
-  { to: '/realms', km: 'ស្ថានទាំង ៣១ ភព', kmShort: '៣១ ភព', en: '31 Realms', num: '២៣' },
-  { to: '/bodhipakkhiya', km: 'ពោធិបក្ខិយធម៌ ៣៧', kmShort: 'ពោធិបក្ខិយ', en: '37 Awakening', num: '២៤' },
-  { to: '/timer', km: 'នាឡិកាសមាធិ', kmShort: 'នាឡិកាសមាធិ', en: 'Timer', num: '២៥' },
-  { to: '/quiz', km: 'ល្បងប្រាជ្ញាធម៌', kmShort: 'ល្បងប្រាជ្ញា', en: 'Quiz', num: '២៦' },
-  { to: '/death-and-rebirth', km: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', kmShort: 'ស្លាប់-បដិសន្ធិ', en: 'Death & Rebirth', num: '២៧' },
-  { to: '/anapanasati', km: 'អានាបានសតិ ១៦ ដំណាក់កាល', kmShort: 'អានាបានសតិ', en: 'Anapanasati', num: '២៨' },
-  { to: '/citta-matrix', km: 'ផែនទីចិត្ត និងចេតសិក', kmShort: 'ផែនទីចិត្ត', en: 'Citta Matrix', num: '២៩' },
-  { to: '/vipassana-nana', km: 'វិបស្សនាញាណ ១៦ ដំណាក់កាល', kmShort: 'វិបស្សនាញាណ', en: '16 Vipassanā', num: '៣០' },
-  { to: '/dhamma-aid', km: 'ឱសថធម៌សង្គ្រោះអារម្មណ៍', kmShort: 'សង្គ្រោះអារម្មណ៍', en: 'Dhamma Aid', num: '៣១' },
-  { to: '/metta', km: 'មេត្តាភាវនា ១០ ទិស', kmShort: 'មេត្តា ១០ ទិស', en: 'Mettā 10 Directions', num: '៣២' },
-  { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', kmShort: 'វិថីចិត្ត', en: 'Citta Vīthi', num: '៣៣' },
-  { to: '/magga', km: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', kmShort: 'មគ្គ ៨', en: 'Noble Path', num: '៣៤' },
-  { to: '/holy-sites', km: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', kmShort: 'សង្វេជនីយដ្ឋាន', en: 'Holy Sites', num: '៣៥' },
-  { to: '/disciples', km: 'ព្រះអរហន្តសាវ័ក & ឯតទគ្គៈ', kmShort: 'អរហន្តសាវ័ក', en: 'Great Disciples', num: '៣៦' },
-  { to: '/dhutanga', km: 'ធុតង្គ ១៣ ប្រការ', kmShort: 'ធុតង្គ ១៣', en: '13 Dhutanga', num: '៣៧' },
-  { to: '/prophecy', km: 'ពុទ្ធព្យាករណ៍ & ព្រះមេត្រី', kmShort: 'ពុទ្ធព្យាករណ៍', en: 'Prophecy & Metteyya', num: '៣៨' },
-  { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', kmShort: 'ទសពិធរាជធម៌', en: 'Leadership & Rajadhamma', num: '៣៩' },
-  { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', kmShort: 'ចក្រវាឡ', en: 'Cosmology & Origins', num: '៤០' },
-  { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication', num: '៤១' },
-  { to: '/my-gems', km: 'សំណួរពិសេស & ធម៌រតនៈ', kmShort: 'ធម៌រតនៈពិសេស', en: 'My Top Gems', num: '៤២' },
+  { to: '/', km: 'ទំព័រដើម', descKm: 'ពន្លឺព្រះធម៌សម្រាប់ជីវិតរស់នៅ', kmShort: 'ដើម', en: 'Home', num: '០១' },
+  { to: '/core', km: 'ធម៌មូលដ្ឋាន', descKm: 'អរិយសច្ច ៤ ឫសគល់ទុក្ខ & មគ្គ ៨', kmShort: 'មូលដ្ឋាន', en: 'Core Teachings', num: '០២' },
+  { to: '/abhidhamma', km: 'អភិធម្ម', descKm: 'បរមត្ថធម៌ ៤ & រូបវិទ្យាកង់ទិច', kmShort: 'អភិធម្ម', en: 'Abhidhamma', num: '០៣' },
+  { to: '/kamma', km: 'កម្ម និងផល', descKm: 'ច្បាប់កម្មផល & យន្តការអហោសិកម្ម', kmShort: 'កម្មផល', en: 'Kamma & Result', num: '០៤' },
+  { to: '/ethics', km: 'សីល និងបារមី', descKm: 'សីល ៥ សីល ៨ & បារមី ១០', kmShort: 'សីល', en: 'Ethics & Perfections', num: '០៥' },
+  { to: '/meditation', km: 'សមាធិ', descKm: 'សមថភាវនា & ឈានទាំង ៨ កម្រិត', kmShort: 'សមាធិ', en: 'Meditation & Jhāna', num: '០៦' },
+  { to: '/suttas', km: 'ព្រះសូត្រ', descKm: 'ព្រះសូត្រល្បីៗ ១២ & ធម្មចក្ក', kmShort: 'សូត្រ', en: '12 Essential Suttas', num: '០៧' },
+  { to: '/life', km: 'ជីវប្រវត្តិ', descKm: 'ព្រះពុទ្ធប្រវត្តិ សិទ្ធត្ថ គោតម', kmShort: 'ជីវិតព្រះពុទ្ធ', en: 'Life of the Buddha', num: '០៨' },
+  { to: '/gathas', km: 'គាថាព្រះធម៌', descKm: 'គាថាធម្មបទ & ពិចារណាដាស់តឿន', kmShort: 'គាថា', en: 'Dhamma Gāthā', num: '០៩' },
+  { to: '/chanting', km: 'ធម៌សូត្រប្រចាំថ្ងៃ', descKm: 'សូត្របន្ទូល ១២ បទ & ភាសាបាលី', kmShort: 'សូត្រមន្ត', en: 'Daily Chanting', num: '១០' },
+  { to: '/glossary', km: 'វចនានុក្រមធម៌', descKm: 'វចនានុក្រមពាក្យគន្លឹះ ខ្មែរ-អង់គ្លេស', kmShort: 'វចនានុក្រម', en: 'Dhamma Glossary', num: '១១' },
+  { to: '/stories', km: 'រឿងល្បីៗ', descKm: 'រឿងព្រះពុទ្ធ និងអរហន្ត ១០ រឿង', kmShort: 'រឿង', en: '10 Great Stories', num: '១២' },
+  { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤៣', descKm: '៤៣ សំណួរ–ចម្លើយដែលគេសួរញឹកញាប់', kmShort: 'សំណួរ', en: '43 Q&A', num: '១៣' },
+  { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', descKm: 'រូបបរមត្ថ ២៨ & រូបកលាប', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Paramattha Q&A', num: '១៤' },
+  { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ', descKm: 'ចេតសិក ៥២ & ដំណើរផ្លូវចិត្ត', kmShort: 'ចេតសិក', en: 'Cetasika Paramattha Q&A', num: '១៥' },
+  { to: '/lobha-mula-citta', km: 'លោភមូលចិត្ត ៨ ដួង', descKm: '១០៩ សំណួរ–ចម្លើយចិត្តបាបលោភៈ', kmShort: 'លោភមូលចិត្ត', en: '8 Lobha Mūla Citta', num: '១៦' },
+  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', descKm: 'បដិច្ចសមុប្បាទ ១២ & បច្ច័យ ២៤', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Dependent Origination', num: '១៧' },
+  { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', descKm: 'វិន័យសង្ឃ ជីវិតបព្វជិត & បុណ្យទាន', kmShort: 'ព្រះសង្ឃ', en: 'Monastic Life & Sangha', num: '១៨' },
+  { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', descKm: 'បដិបត្តិធម៌ប្រចាំថ្ងៃ & ពិធីបុណ្យ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily Practice', num: '១៩' },
+  { to: '/recollections', km: 'អនុស្សតិ', descKm: 'អនុស្សតិ ១០ & ពិចារណាប្រចាំថ្ងៃ', kmShort: 'អនុស្សតិ', en: '10 Recollections', num: '២០' },
+  { to: '/ariya', km: 'អរិយបុគ្គល', descKm: 'អរិយបុគ្គល ៨ ពួក សោតាបន្ន-អរហន្ត', kmShort: 'អរិយ', en: '8 Noble Persons', num: '២១' },
+  { to: '/calendar', km: 'បដិទិនពុទ្ធសាសនា', descKm: 'កាលវិភាគថ្ងៃសីល & បុណ្យប្រពៃណី', kmShort: 'បដិទិន', en: 'Buddhist Calendar', num: '២២' },
+  { to: '/realms', km: 'ស្ថានទាំង ៣១ ភព', descKm: 'អបាយភូមិ ៤ មនុស្ស សួគ៌ ព្រហ្ម', kmShort: '៣១ ភព', en: '31 Cosmic Realms', num: '២៣' },
+  { to: '/bodhipakkhiya', km: 'ពោធិបក្ខិយធម៌ ៣៧', descKm: 'ធម៌ជាជំនួយដល់ការត្រាស់ដឹង ៣៧', kmShort: 'ពោធិបក្ខិយ', en: '37 Awakening Factors', num: '២៤' },
+  { to: '/timer', km: 'នាឡិកាសមាធិ', descKm: 'កំណត់ពេលភាវនា & សំឡេងកណ្ដឹង', kmShort: 'នាឡិកាសមាធិ', en: 'Meditation Timer', num: '២៥' },
+  { to: '/quiz', km: 'ល្បងប្រាជ្ញាធម៌', descKm: 'សំណួរប្រលងចំណេះដឹងព្រះធម៌', kmShort: 'ល្បងប្រាជ្ញា', en: 'Dhamma Quiz Challenge', num: '២៦' },
+  { to: '/death-and-rebirth', km: 'ដំណើរនៃការស្លាប់-បដិសន្ធិ', descKm: 'មរណាសន្នវិថី & កម្មឆ្លងជាតិ', kmShort: 'ស្លាប់-បដិសន្ធិ', en: 'Death & Rebirth Process', num: '២៧' },
+  { to: '/anapanasati', km: 'អានាបានសតិ ១៦ ដំណាក់កាល', descKm: 'ដង្ហើមចេញចូល ១៦ ដំណាក់កាល', kmShort: 'អានាបានសតិ', en: '16 Steps of Anapanasati', num: '២៨' },
+  { to: '/citta-matrix', km: 'ផែនទីចិត្ត និងចេតសិក', descKm: 'តារាងចិត្ត ៨៩/១២១ & ចេតសិក ៥២', kmShort: 'ផែនទីចិត្ត', en: 'Citta & Cetasika Matrix', num: '២៩' },
+  { to: '/vipassana-nana', km: 'វិបស្សនាញាណ ១៦ ដំណាក់កាល', descKm: 'លំដាប់ញាណវិបស្សនា ១៦ កម្រិត', kmShort: 'វិបស្សនាញាណ', en: '16 Stages of Vipassanā', num: '៣០' },
+  { to: '/dhamma-aid', km: 'ឱសថធម៌សង្គ្រោះអារម្មណ៍', descKm: 'រំងាប់កំហឹង ព្រួយបារម្ភ & ទុក្ខសោក', kmShort: 'សង្គ្រោះអារម្មណ៍', en: 'Dhamma Emotional Aid', num: '៣១' },
+  { to: '/metta', km: 'មេត្តាភាវនា ១០ ទិស', descKm: 'ផ្សាយមេត្តាធម៌ទូទាំង ១០ ទិស', kmShort: 'មេត្តា ១០ ទិស', en: 'Mettā 10 Directions', num: '៣២' },
+  { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត តាមទ្វារទាំង ៦', descKm: 'យន្តការដឹងអារម្មណ៍តាមទ្វារ ៦', kmShort: 'វិថីចិត្ត', en: 'Citta Vīthi Simulator', num: '៣៣' },
+  { to: '/magga', km: 'មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិត', descKm: 'អនុវត្តអរិយមគ្គ ៨ ក្នុងជីវិតប្រចាំថ្ងៃ', kmShort: 'មគ្គ ៨', en: 'Noble Eightfold Path', num: '៣៤' },
+  { to: '/holy-sites', km: 'ទីសក្ការៈបូជាសំខាន់ទាំង ៤', descKm: 'សង្វេជនីយដ្ឋានទាំង ៤ ក្នុងឥណ្ឌា', kmShort: 'សង្វេជនីយដ្ឋាន', en: '4 Sacred Holy Sites', num: '៣៥' },
+  { to: '/disciples', km: 'ព្រះអរហន្តសាវ័ក & ឯតទគ្គៈ', descKm: 'ព្រះសាវ័កឆ្នើម ៤០ អង្គ & អរហន្តី', kmShort: 'អរហន្តសាវ័ក', en: 'Great Disciples & Etadagga', num: '៣៦' },
+  { to: '/dhutanga', km: 'ធុតង្គ ១៣ ប្រការ', descKm: 'វត្ថបដិបត្តិដុសខាត់កិលេស ១៣', kmShort: 'ធុតង្គ ១៣', en: '13 Dhutanga Practices', num: '៣៧' },
+  { to: '/prophecy', km: 'ពុទ្ធព្យាករណ៍ & ព្រះមេត្រី', descKm: 'អាយុព្រះសាសនា ៥០០០ វស្សា & អនាគត', kmShort: 'ពុទ្ធព្យាករណ៍', en: '5,000-Yr Prophecy & Metteyya', num: '៣៨' },
+  { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', descKm: 'ធម៌ដឹកនាំ ១០ & អបរិហានិយធម៌ ៧', kmShort: 'ទសពិធរាជធម៌', en: '10 Royal Virtues of Leadership', num: '៣៩' },
+  { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', descKm: 'វដ្តនៃចក្រវាឡ & ដើមកំណើតមនុស្ស', kmShort: 'ចក្រវាឡ', en: 'Cosmology, Kalpas & Origins', num: '៤០' },
+  { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', descKm: 'ការឧទ្ទិសបុណ្យ & បរទត្តូបជីវីប្រេត', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication & Pattidāna', num: '៤១' },
+  { to: '/my-gems', km: 'កម្រងធម៌រតនៈ & សំណួរពិសេស', descKm: '២៣ ធម៌រតនៈកំពូល & សំណួរពិស្តារ', kmShort: 'ធម៌រតនៈ ២៣', en: '23 Dhamma Gems', num: '៤២' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)

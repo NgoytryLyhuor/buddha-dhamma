@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៦)', en: 'All (16)' },
+  { id: 'all', km: 'ទាំងអស់ (១៧)', en: 'All (17)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1201,6 +1201,68 @@ const gems = ref([
         titleEn: '5. Who is King Yama in Reality? The Vemānika-peta Deity',
         contentKm: 'យោងតាមអដ្ឋកថា អភិធម្ម និងវិមានវត្ថុ ស្តេចយមរាជមិនមែនជាយក្សកំណាច ឬបិសាចនរកឡើយ ប៉ុន្តែជា «វេមានិកប្រេត» (Vemānika-peta) ឬជាទេវតាក្នុងជាន់ចាតុម្មហារាជិកា ដែលមានបុណ្យផង និងបាបចម្រុះគ្នា ៖\n\n១. សោយសម្បត្តិទិព្វ ៖ ពេលខ្លះសោយសម្បត្តិទិព្វក្នុងវិមានកែវដូចទេវតា (ដោយសារបុណ្យដែលធ្លាប់ធ្វើ)។\n២. សោយទុក្ខវេទនា ៖ ពេលខ្លះត្រូវចុះមកអង្គុយស៊ើបសួរក្តី និងឃើញទុក្ខវេទនារបស់សត្វនរក (ជាផលវិបាកកម្ម)។\n៣. បំណងប្រាថ្នារបស់យមរាជ ៖ គម្ពីរបានបញ្ជាក់ថា ព្រះបាទយមរាជតែងតែមានព្រះទ័យនឿយណាយនឹងការងារនេះ ហើយតែងបួងសួងថា «សូមឱ្យអាត្មាអញរួចផុតពីភពនេះ បានទៅកើតជាមនុស្ស បានជួបព្រះពុទ្ធ និងបានស្តាប់ព្រះធម៌ដើម្បីរួចផុតចាកទុក្ខផងចុះ!»',
         contentEn: 'According to Abhidhamma commentaries and the Vimānavatthu, King Yama is neither an evil demon nor a devil; he is a Vemānika-peta (mansion-dwelling spirit) or a deity in the Cātumahārājikā realm of mixed karma:\n\n1. Celestial Bliss: During certain periods, he enjoys divine pleasure in a crystal mansion like a Deva (fruits of generosity).\n2. Karmic Duty: During other periods, he must preside over the sorrowful tribunal, forced to witness the terrifying agony of hell realms (karmic retribution).\n3. King Yama’s Heartfelt Longing: The canon records that King Yama grows utterly weary of witnessing endless samsaric suffering and perpetually prays: "Oh, that I might attain human status, that a Tathāgata might appear in the world, and that I might sit at his feet to listen to the Dhamma and end all suffering!"'
+      }
+    ]
+  },
+
+  // GEM 17: Yamapālas in Hell: Sentient Beings vs. Kamma Projections (Kathāvatthu & Sammohavinodanī)
+  {
+    id: 'yamapala-nature',
+    num: 17,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & យមបាល',
+    categoryEn: '💀 Yamapālas: Sentient or Illusions?',
+    ref: 'គម្ពីរកថាវត្ថុ (ជំពូកទី ២០), វិភង្គអដ្ឋកថា (សម្មោហវិនោទនី) & ទេវទូតសូត្រ',
+    paliQuote: 'អត្ថិ និរយេសុ និរយបាលា... ចេតនាសម្បយុត្តា សត្តា ឯវ (ពួកនាយនិរយបាលក្នុងនរកមានពិតប្រាកដ ជាសត្វមានជីវិតប្រកបដោយចេតនាពិតមែន មិនមែនជារូបយន្តឡើយ)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម និងវិភង្គអដ្ឋកថា តើ «យមបាល» (ពួកនាយនិរយបាលដែលធ្វើទារុណកម្មសត្វនរក) គឺជាសត្វមានជីវិតពិតប្រាកដ ឬគ្រាន់តែជារូបរាងដែលកើតចេញពីកម្លាំងកម្ម (កម្មជរូប) របស់សត្វនរកផ្ទាល់?',
+    questionEn: 'According to Abhidhamma and the Vibhaṅga Commentary (Sammohavinodanī), are Yamapālas (hell wardens) real sentient beings or merely soulless karmic illusions (kammaja-rūpa)?',
+    shortKm: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម?',
+    shortEn: 'Yamapālas: Sentient Beings vs. Kamma Machines',
+    essenceKm: 'នៅក្នុងគម្ពីរអភិធម្ម (គម្ពីរកថាវត្ថុ ជំពូក ២០ និងវិភង្គអដ្ឋកថា សម្មោហវិនោទនី) ថេរវាទផ្លូវការបានបញ្ជាក់យ៉ាងម៉ឺងម៉ាត់ថា ពួកនាយនិរយបាល (យមបាល) គឺជា «សត្វមានជីវិតពិតប្រាកដ (Sentient Beings)» មានចិត្ត ចេតសិក និងវិញ្ញាណ មិនមែនជារូបយន្តកម្មគ្មានវិញ្ញាណ (ដូចទស្សនៈនិកាយអន្ធកៈ) ឡើយ។ ពួកគេជាជំពូក «វេមានិកប្រេត» ឬជាបរិវារបស់ស្តេចចាតុម្មហារាជិកា ដែលកាលពីជាតិមុនបានធ្វើបុណ្យខ្លះ តែមានចិត្តសប្បាយរីករាយនឹងការធ្វើបាប និងឃើញអ្នកដទៃឈឺចាប់ (ទោសៈក្រាស់)។ រូបកាយរបស់ពួកគេធន់ទ្រាំនឹងភ្លើងនរកដោយកម្លាំងកម្មវិបាក (ដូចត្រីក្នុងទឹក ដង្កូវក្នុងលាមក) ប៉ុន្តែរាល់ការកាប់ចាក់ធ្វើទារុណកម្មសត្វនរក សុទ្ធតែជា «អកុសលទោសចិត្តធ្ងន់ធ្ងរ» ដែលនឹងទាញទម្លាក់ពួកគេឱ្យក្លាយជាសត្វនរកដែលត្រូវគេកាប់ចាក់វិញ ក្នុងភពបន្ទាប់ដោយចៀសមិនរួចឡើយ!',
+    essenceEn: 'In the Abhidhamma (Kathāvatthu ch. 20 and Sammohavinodanī), orthodox Theravāda definitively establishes that Yamapālas (hell wardens) are genuine sentient beings (satta) endowed with mind, mental factors, and volition — rejecting the Andhaka view that they are soulless robotic karmic projections (kammaja-rūpa). They belong to a distinct class of Vemānika-petas or Cātumahārājikā demonic retinues who performed merit but harbored sadistic delight in cruelty and malice. Their bodies are biologically conditioned by kamma-vipāka to endure the extreme heat of hell without suffering (like fish in water or maggots in dung). Crucially, every act of torture they inflict generates fresh, severe unwholesome karma (dosa-mūla-citta), inevitably plunging them into becoming the tortured hell beings in their next existence!',
+    practicalKm: 'ការមានចិត្តរីករាយពេលឃើញអ្នកដទៃរងទុក្ខ (Sadism) ការគុំកួន ការធ្វើទារុណកម្មសត្វ ឬការខឹងក្រោធជាប្រចាំ គឺជាគ្រាប់ពូជនៃកម្មដ៏គ្រោះថ្នាក់បំផុត។ ចូរកុំបណ្តោយឱ្យចិត្តជាប់ជំពាក់នឹង «ទោសៈ និងការចង់ឈ្នះចង់ផ្ចាញ់» ព្រោះទោសៈនេះ មិនត្រឹមតែបំផ្លាញអ្នកដទៃប៉ុណ្ណោះទេ ប៉ុន្តែវានឹងបង្កើតជាខ្សែច្រវាក់កម្មចងត្រឡប់មកធ្វើបាបខ្លួនឯងវិញយ៉ាងសាហាវបំផុតក្នុងសង្សារវដ្ត!',
+    practicalEn: 'Deriving pleasure from the suffering of others, harbored malice, animal abuse, or chronic anger are lethal karmic seeds. Never indulge anger or vengeance; cruelty does not merely harm the victim, but constructs an unbreakable chain of negative karma that boomerangs back as torment upon oneself in future existences.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៧', en: 'Q&A 37' },
+      { to: '/my-gems#king-yama-devaduta', km: 'ស្តេចយមរាជ & ទេវទូត ៥', en: 'King Yama & 5 Devadūta' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' },
+      { to: '/kamma', km: 'ច្បាប់កម្មផល & វិបាក', en: 'Kamma & Vipāka' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ជម្លោះទស្សនវិជ្ជាក្នុងគម្ពីរកថាវត្ថុ (The Great Debate in Kathāvatthu)',
+        titleEn: '1. The Great Philosophical Debate in Kathāvatthu (Chapter 20)',
+        contentKm: 'នៅក្នុងគម្ពីរកថាវត្ថុ មានការជជែកដេញដោលគ្នាយ៉ាងក្តៅគគុក រវាងនិកាយពុទ្ធសាសនាបុរាណពីរ ៖\n\n— ទស្សនៈរបស់និកាយអន្ធកៈ (Andhaka School) ៖\nនិកាយនេះយល់ថា នៅក្នុងនរក គ្មានសត្វមានជីវិតដទៃក្រៅពីសត្វនរកឡើយ។ ពួកយមបាល ដែកកណ្ដៀវ អាវុធ ឆ្កែនរក និងក្អែកដែក សុទ្ធសឹងតែជា «កម្មជរូប» (Kamma-produced Matter) ឬជារូបយន្តគ្មានចិត្តវិញ្ញាណ (យន្តរូប) ដែលកើតចេញពីកម្មអាក្រក់របស់សត្វនរកផ្ទាល់ ដើម្បីមកធ្វើទារុណកម្មសត្វនរកនោះ (ប្រៀបដូចជាស្រមោល ឬមនុស្សយន្តនៃកម្មផល)។\n\n— ទស្សនៈផ្លូវការរបស់ថេរវាទ (Orthodox Theravāda) ៖\nព្រះអរហន្តមោគ្គល្លីបុត្តតិស្សត្ថេរ បានបដិសេធទស្សនៈខាងលើ ហើយបញ្ជាក់យ៉ាងម៉ឺងម៉ាត់ថា យមបាលគឺជាសត្វមានជីវិតពិតប្រាកដ (អត្ថិ និរយេសុ និរយបាលា)។',
+        contentEn: 'In the Kathāvatthu (one of the 7 books of the Abhidhamma Piṭaka), a historic debate unfolded between two early Buddhist schools:\n\n— The Andhaka School View:\nAsserted that there are no sentient beings in hell except the damned hell denizens themselves. They argued that Yamapālas, hell-hounds, iron crows, and cauldrons are merely "Kammaja-rūpa" (matter materialized by the victim’s own negative kamma) — soulless robotic automata designed to execute torture.\n\n— The Orthodox Theravāda Stance:\nVen. Moggaliputtatissa Mahāthera decisively refuted this view, confirming: "Atthi nirayesu nirayapālā" — hell wardens are genuine living, conscious entities (satta).'
+      },
+      {
+        titleKm: '២. ហេតុផលតាមអភិធម្ម ៖ ហេតុអ្វីយមបាលត្រូវតែជា «សត្វមានជីវិត»?',
+        titleEn: '2. Abhidhamma Evidence: Why Yamapālas Are Living Sentient Entities',
+        contentKm: 'យោងតាមអដ្ឋកថាសម្មោហវិនោទនី និងមជ្ឈិមនិកាយអដ្ឋកថា យមបាលមិនអាចជារូបយន្តគ្មានវិញ្ញាណបានឡើយ ដោយសារកត្តា ២ យ៉ាង ៖',
+        contentEn: 'According to the Sammohavinodanī (Vibhaṅga Commentary) and Majjhima Nikāya Aṭṭhakathā, Yamapālas cannot be insentient matter for two fundamental reasons:',
+        points: [
+          { boldKm: 'ក. មានការប្រាស្រ័យទាក់ទង និងចេតនា (Cetanā & Viññatti)', boldEn: 'A. Volition & Communication (Cetanā & Viññatti)', km: 'ក្នុងទេវទូតសូត្រ ពួកយមបាលបានចាប់ក្រៀកសត្វនរក នាំយកមកថ្វាយស្តេចយមរាជ និយាយទូលរាយការណ៍ និងសួរដេញដោល។ តាមក្បួនអភិធម្ម ការនិយាយស្តី (វចីវិញ្ញត្តិ) និងកាយវិការធ្វើទារុណកម្ម (កាយវិញ្ញត្តិ) កើតចេញពី «ចិត្តជរូប» សុទ្ធសាធ។ បើជារូបយន្តគ្មានវិញ្ញាណ វាមិនអាចមានចេតនាបង្កើតពាក្យសម្តី ចងកំហឹង ឬឆ្លើយឆ្លងប្រកបដោយស្មារតីបានឡើយ។', en: 'In the Devadūta Sutta, Yamapālas physically seize hell denizens, present them before King Yama, deliver verbal reports, and converse. In Abhidhamma, bodily intimation (kāya-viññatti) and vocal intimation (vacī-viññatti) require Cittaja-rūpa animated by conscious intention (cetanā). Non-sentient matter cannot formulate purposeful speech or intentional cruelty.' },
+          { boldKm: 'ខ. កំណើត និងប្រភេទនៃភពរបស់យមបាល', boldEn: 'B. Realm & Karmic Heritage of Yamapālas', km: 'ពួកយមបាលជាក្រុមអបាយភូមិពិសេស ស្ថិតក្នុងជំពូក វេមានិកប្រេត (Vemānika-peta) ឬជាពពួកយក្ស/អសុរកាយ ដែលជាបរិវារបស់ស្តេចចាតុម្មហារាជិកា (ដូចជាពួកកុម្ភណ្ឌ)។ ពួកគេបានសាង «កម្មចម្រុះដ៏ចម្លែក» កាលពីនៅជាមនុស្ស គឺបានធ្វើបុណ្យខ្លះ ប៉ុន្តែមានចិត្តចូលចិត្តធ្វើបាបសត្វ មានសេចក្តីសប្បាយរីករាយពេលឃើញអ្នកដទៃឈឺចាប់ ឬមានទោសៈក្រាស់ក្រែល។', en: 'Yamapālas belong to a unique sub-category of the woeful planes: Vemānika-petas or demonic Yakṣa/Kumbhaṇḍa retinues under the Cātumahārājikā devas. They are humans who did some charity, but indulged in sadistic pleasure witnessing torture, animal cruelty, or possessed severe habitual wrath (dosa).' }
+        ]
+      },
+      {
+        titleKm: '៣. ចម្ងល់ធំ ៖ ហេតុអ្វីយមបាលមិនរលាកភ្លើងនរក?',
+        titleEn: '3. The Great Mystery: Why Aren’t Yamapālas Burned by Hellfire?',
+        contentKm: 'ប្រសិនបើពួកគេជាសត្វមានជីវិត តើហេតុអ្វីបានជាពួកគេអាចដើរជាន់កម្រាលដែកដុតក្រហមច្រាល និងកាន់ច្រវាក់ភ្លើងធ្វើទារុណកម្មសត្វនរកបាន ដោយមិនរងទុក្ខវេទនា ឬរលាកខ្លួនឯង?\n\nព្រះអដ្ឋកថាចារ្យបានពន្យល់តាមរយៈ «ធម្មជាតិនៃកម្មវិបាក» ដោយប្រៀបធៀបនឹងសត្វលោកក្នុងធម្មជាតិ ៖',
+        contentEn: 'If they are flesh-and-blood living beings, how can they stride barefoot across white-hot iron plates and wield blazing iron chains without suffering agony or burning themselves?\n\nThe ancient commentators resolve this by the law of Karmic Adaptation (Kamma-vipāka), drawing brilliant natural parallels:',
+        points: [
+          { boldKm: 'ត្រីរស់ក្នុងទឹក', boldEn: 'Fish in Water', km: 'មនុស្សធ្លាក់ចូលទឹកជ្រៅនឹងលង់ស្លាប់ ប៉ុន្តែត្រីរស់នៅ និងហែលក្នុងទឹកយ៉ាងសុខស្រួល។', en: 'Humans submerged in deep oceans drown, yet fish breathe, thrive, and dwell effortlessly.' },
+          { boldKm: 'ដង្កូវរស់ក្នុងលាមក', boldEn: 'Maggots in Dung', km: 'មនុស្សខ្ពើមលាមក និងមេរោគ ប៉ុន្តែដង្កូវចាត់ទុកលាមកជាផ្ទះ និងជាអាហារដ៏មានឱជារស។', en: 'Humans find rotting filth repellent, yet maggots regard it as their palace and gourmet banquet.' },
+          { boldKm: 'សត្វបក្សីហើរលើមេឃ', boldEn: 'Birds in the Sky', km: 'មនុស្សធ្លាក់ពីលើមេឃនឹងបាក់ឆ្អឹងស្លាប់ ប៉ុន្តែសត្វបក្សីប្រើខ្យល់ដើម្បីហោះហើរយ៉ាងរលូន។', en: 'Humans falling from altitude perish, yet birds master the currents with grace.' },
+          { boldKm: 'រូបកាយស៊ាំនឹងភ្លើង', boldEn: 'Immunity to Hellfire', km: 'យ៉ាងណាមិញ រូបកាយ (កម្មជរូប) របស់ពួកយមបាល ត្រូវបានកសាងឡើងដោយអំណាចកម្មពិសេស ដែលធ្វើឱ្យ កោសិការបស់ពួកគេស៊ាំ និងធន់ទ្រាំនឹងកម្ដៅភ្លើងនរក។ ភ្លើងនរកមិនអាចដុតរោលរូបកាយរបស់ពួកគេបានឡើយ ប៉ុន្តែវាដុតកម្ទេចតែរូបកាយរបស់សត្វនរកដែលជាអ្នកមកទទួលទោសប៉ុណ្ណោះ។', en: 'Just so, the physical matter (kammaja-rūpa) of Yamapālas is biologically configured by specific kamma to be impervious to hellfire. The flames cannot scorch their tissues; the fire burns only the condemned beings whose karma makes them vulnerable.' }
+        ]
+      },
+      {
+        titleKm: '៤. តើការធ្វើទារុណកម្មសត្វនរក នាំឱ្យយមបាលបាបដែរឬទេ?',
+        titleEn: '4. The Karmic Retribution: Do Hell Wardens Incur Demerit?',
+        contentKm: 'យោងតាមគម្ពីរអភិធម្ម ៖ បាបយ៉ាងធ្ងន់ធ្ងរ!\n\n១. ទោសចិត្តប្រចាំថ្ងៃ ៖ រាល់ពេលដែលយមបាលយកលំពែងចាក់ យកពូថៅកាប់ ឬច្រកទឹកទង់ដែងក្តៅទៅក្នុងមាត់សត្វនរក ចិត្តរបស់ពួកគេពោរពេញដោយ ទោសចិត្ត (ទោសមូលចិត្ត ប្រកបដោយបដិឃៈ និងទោមនស្ស)។\n២. ការសាងកម្មថ្មី ៖ ពួកគេកំពុងបង្កើត អកុសលកម្មថ្មីៗ ជារៀងរាល់ថ្ងៃឥតឈប់ឈរ។\n៣. ផលវិបាកចុងក្រោយ ៖ ហេតុដូច្នេះហើយ នៅពេលដែលពួកគេអស់អាយុ ឬអស់ផលបុណ្យចាស់ដែលទ្រទ្រង់ក្នុងឋានៈជាយមបាល ថាមពលនៃទោសកម្មដែលបានកាប់ចាក់សត្វនរកទាំងនោះ នឹងទាញទម្លាក់ពួកគេឱ្យ ក្លាយទៅជាសត្វនរកដែលត្រូវគេកាប់ចាក់ធ្វើទារុណកម្មវិញ ក្នុងភពបន្ទាប់ដោយចៀសមិនរួចឡើយ!',
+        contentEn: 'According to the Abhidhamma: Demerit of the most catastrophic order!\\n\\n1. Daily Toxic Rage: Every time a Yamapāla impales, hacks, flogs, or pours boiling molten copper down a victim\'s throat, their consciousness is dominated by Dosa-mūla-citta (hatred, aversion, and sadistic cruelty).\\n2. Continuous Fresh Karmic Debt: They are generating horrific new unwholesome karma every single waking moment.\\n3. The Inevitable Karmic Reversal: When their sustaining lifespan or past merit as a warden expires, the immense mountain of cruelty they generated drags them down: they become the helpless hell beings being butchered and boiled in their very next rebirth!'
       }
     ]
   }

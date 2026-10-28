@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៦ — សួរតាមដែលអ្នកជួប', 'Q&A 36 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៧ — សួរតាមដែលអ្នកជួប', 'Q&A 37 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៦ — ចុចដើម្បីបើកមើល', 'THIRTY-SIX QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៧ — ចុចដើម្បីបើកមើល', 'THIRTY-SEVEN QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -360,6 +360,16 @@ const qas = [
     mE: 'Heinous sinners plunge to hell immediately; those with mixed deeds are interrogated by King Yama via the 5 Divine Messengers; recalling merit sparks immediate ascension to heaven; Yama is a compassionate rescuer, not an executioner.',
     tie: 'ស្តេចយមរាជ & ទេវទូតទាំង ៥ (MN 130) · /my-gems#king-yama-devaduta',
     to: '/my-gems#king-yama-devaduta',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម និងវិភង្គអដ្ឋកថា តើ «យមបាល» (ពួកនាយនិរយបាលដែលធ្វើទារុណកម្មសត្វនរក) គឺជាសត្វមានជីវិតពិតប្រាកដ ឬគ្រាន់តែជារូបរាងដែលកើតចេញពីកម្លាំងកម្ម (កម្មជរូប) របស់សត្វនរកផ្ទាល់?',
+    qE: 'According to Abhidhamma and the Vibhaṅga Commentary (Sammohavinodanī), are Yamapālas (hell wardens) real sentient beings or merely soulless karmic illusions?',
+    aK: 'នៅក្នុងគម្ពីរអភិធម្ម (គម្ពីរកថាវត្ថុ ជំពូក ២០ និងវិភង្គអដ្ឋកថា សម្មោហវិនោទនី) ថេរវាទផ្លូវការបានបញ្ជាក់ថា ពួកយមបាលគឺជា «សត្វមានជីវិតពិតប្រាកដ (Sentient Beings)» មានចិត្ត ចេតសិក និងវិញ្ញាណ មិនមែនជារូបយន្តកម្មគ្មានវិញ្ញាណ (ដូចទស្សនៈនិកាយអន្ធកៈ) ឡើយ។ ពួកគេជាជំពូក «វេមានិកប្រេត» ឬជាបរិវារបស់ស្តេចចាតុម្មហារាជិកា ដែលកាលពីជាតិមុនបានធ្វើបុណ្យខ្លះ តែមានចិត្តសប្បាយរីករាយនឹងការធ្វើបាប និងឃើញអ្នកដទៃឈឺចាប់ (ទោសៈក្រាស់)។ រូបកាយរបស់ពួកគេធន់ទ្រាំនឹងភ្លើងនរកដោយកម្លាំងកម្មវិបាក (ដូចត្រីក្នុងទឹក ដង្កូវក្នុងលាមក) ប៉ុន្តែរាល់ការកាប់ចាក់ធ្វើទារុណកម្មសត្វនរក សុទ្ធតែជា «អកុសលទោសចិត្តធ្ងន់ធ្ងរ» ដែលនឹងទាញទម្លាក់ពួកគេឱ្យក្លាយជាសត្វនរកដែលត្រូវគេកាប់ចាក់វិញ ក្នុងភពបន្ទាប់ដោយចៀសមិនរួចឡើយ។',
+    aE: 'In the Abhidhamma (Kathāvatthu ch. 20 and Sammohavinodanī), orthodox Theravāda confirms that Yamapālas are genuine sentient beings endowed with mind and volition — rejecting the Andhaka view that they are soulless robotic karmic projections. They belong to a distinct class of Vemānika-petas or Cātumahārājikā demonic retinues who performed merit but harbored sadistic delight in cruelty and chronic malice. Their bodies are biologically conditioned by kamma-vipāka to endure hellfire without suffering (like fish in water or maggots in dung). Crucially, every act of torture they inflict generates fresh, severe unwholesome karma (dosa-mūla-citta), inevitably plunging them into becoming the tortured hell beings in their next existence.',
+    mK: 'យមបាលជាសត្វមានជីវិតពិតប្រាកដ (វេមានិកប្រេត) មានចិត្តនិងចេតនា · ធន់នឹងភ្លើងនរកដោយសារកម្មវិបាកពិសេស · ការធ្វើទារុណកម្មសត្វនរកជាអកុសលទោសចិត្ត ដែលនឹងទាញទម្លាក់យមបាលឱ្យក្លាយជាសត្វនរកវិញក្នុងភពបន្ទាប់។',
+    mE: 'Yamapālas are authentic sentient beings (Vemānika-petas) with mind and volition; immune to hellfire via specialized karmic biology; their cruelty accumulates severe demerit that eventually plunges them into being tortured hell beings themselves.',
+    tie: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម? · /my-gems#yamapala-nature',
+    to: '/my-gems#yamapala-nature',
   },
 ]
 </script>

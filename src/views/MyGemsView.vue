@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៩)', en: 'All (19)' },
+  { id: 'all', km: 'ទាំងអស់ (២០)', en: 'All (20)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1473,6 +1473,99 @@ const gems = ref([
         titleEn: '5. How Do Hell Beings Ultimately Escape? (Kammakkhaya)',
         contentKm: 'សត្វនរកមានច្រកចេញតែមួយគត់ គឺ «ការសោយទុក្ខទាល់តែអស់កម្លាំងនៃកម្មបាប» (យាវ ន តំ បាបកម្មំ ខីយតិ — Kammakkhaya) ៖\n\n១. អស់ថាមពលនៃបាប ៖ នៅពេលដែលទម្ងន់នៃអកុសលកម្មដែលនាំទៅកើតក្នុងនរកនោះ ត្រូវដុតរលាយអស់ថាមពលតាមកាលកំណត់ (រាប់ពាន់ រាប់លាន ឬរាប់កោដិឆ្នាំ)។\n២. កុសលចាស់រើបម្រះឡើង ៖ នៅវិនាទីចុងក្រោយ កុសលកម្មចាស់ៗកាលពីរាប់រយជាតិមុន (អបរាបរិយវេទនីយកម្ម) ដែលធ្លាប់កប់ទុកក្នុងភវង្គចិត្ត នឹងចាប់ផ្តើមមានឱកាសរើបម្រះឡើងមកលើផ្ទៃមនោទ្វារ។\n៣. ការចាប់កំណើតថ្មី ៖ ចុតិចិត្តក្នុងនរករលត់ទៅ ហើយ បដិសន្ធិចិត្តថ្មី ក៏ចាប់កំណើតឡើងក្នុងភពផ្សេង (អាចជាសត្វតិរច្ឆាន ប្រេត ឬមនុស្ស) ទៅតាមកម្លាំងកម្មបន្ទាប់នោះឯង។',
         contentEn: 'Hell denizens have only one escape hatch: the complete exhaustion of that specific unwholesome karmic energy (Kammakkhaya):\n\n1. Karmic Depletion: When the horrific negative momentum that cast them into hell burns through its allotted lifespan (be it thousands, millions, or trillions of cosmic years).\n2. Latent Merit Resurfaces: In the final moments of life in hell, ancient wholesome deeds performed in distant past lifetimes (aparāpariya-vedanīya-kamma), long dormant in the bhavanga continuum, find room to register at the mind-door.\n3. Rebirth into Higher Spheres: The hell death-consciousness (cuti-citta) ceases, immediately followed by patisandhi-citta into another plane (as animal, peta, or human) guided by that next ripened karma.'
+      }
+    ]
+  },
+
+  // GEM 20: The Eight Great Hells in Exhaustive Canonical Detail (Tipiṭaka, Aṭṭhakathā & Visuddhimagga)
+  {
+    id: 'eight-great-hells',
+    num: 20,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មហានរកទាំង ៨ & អបាយភូមិ',
+    categoryEn: '💀 The 8 Great Hells',
+    ref: 'ទេវទូតសូត្រ (MN 130), ពាលបណ្ឌិតសូត្រ (MN 129), វិសុទ្ធិមគ្គ & អដ្ឋកថា',
+    paliQuote: 'អត្ថិ ភិក្ខវេ មហានិរយោ នាម... ចតុណ្ណំ ទ្វារា សោឡស ឧស្សទនិរយា បរិក្ខិត្តា (ម្នាលភិក្ខុទាំងឡាយ មានមហានរក... មានទ្វារ ៤ និងព័ទ្ធជុំវិញដោយឧស្សទនរក ១៦)',
+    questionKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើមហានរកទាំង ៨ ជាន់ មានឈ្មោះអ្វីខ្លះ បរិស្ថាន ទារុណកម្មជាក់ស្តែង កម្មដែលនាំឱ្យធ្លាក់ និងអាយុកាលយ៉ាងដូចម្ដេច?',
+    questionEn: 'According to the Tipiṭaka and Commentaries, what are the Eight Great Hells (Mahānaraka), their environments, specific torments, causes (kamma), and lifespans?',
+    shortKm: 'មហានរកទាំង ៨ ជាន់ ពិស្តារ',
+    shortEn: 'The 8 Great Hells (Mahānaraka)',
+    essenceKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក (ទេវទូតសូត្រ និងពាលបណ្ឌិតសូត្រ) ព្រមទាំងគម្ពីរអដ្ឋកថា និងវិសុទ្ធិមគ្គ មហានរកធំៗមានចំនួន ៨ ជាន់ តម្រៀបជង់លើគ្នាពីលើចុះក្រោមនៅក្នុងផ្ទៃក្រោមនៃជម្ពូទ្វីប (ភពមនុស្ស) ដោយនរកជាន់នីមួយៗមានទំហំធំធេង និងឡោមព័ទ្ធដោយ ឧស្សទនរក (នរកបរិវារ) ចំនួន ១៦ នៅគ្រប់ទិសទាំង ៤។ នរកទាំង ៨ រួមមាន ៖ (១) សញ្ជីវៈ (រស់ឡើងវិញឥតឈប់) (២) កាឡសុត្តៈ (បន្ទាត់ខ្មៅអារកាត់) (៣) សង្ឃាតៈ (ភ្នំដែកកិនសង្កត់) (៤) រោរុវៈ ឬ ជលារោរុវៈ (ភ្លើងឆេះទម្លុះទ្វារទាំង ៩) (៥) មហារោរុវៈ ឬ ធូមារោរុវៈ (ផ្សែងក្តៅពុលដុតរោលក្នុង) (៦) តាបនៈ (ដោតចម្រូងដែកភ្លើង) (៧) មហាតាបនៈ (ធ្លាក់ពីកំពូលភ្នំលើចម្រូងដាវ) (៨) អវិចី (គ្មានចន្លោះទំនេរនៃភ្លើង ទុក្ខ និងពេលវេលា)។ អាយុកាលកើនឡើងជាលំដាប់ពី ១,៦២០,០០០ លានឆ្នាំមនុស្ស ក្នុងជាន់ទី ១ រហូតដល់ ១ អន្តរកប្បពេញ ក្នុងជាន់អវិចី។',
+    essenceEn: 'According to the Tipiṭaka (Devadūta Sutta MN 130, Bālapaṇḍita Sutta MN 129), Commentaries, and Visuddhimagga, there are Eight Great Hells (Mahānaraka) stacked vertically beneath the human plane of Jambudīpa, each encircled on all four quadrants by 16 auxiliary Ussada-hells: (1) Sañjīva (Continuous Revival Hell), (2) Kāḷasutta (Black-Line Measuring Hell), (3) Sanghāta (Crushing Iron Mountain Hell), (4) Roruva/Jālaroruva (Blazing Nine-Gate Screaming Hell), (5) Mahāroruva/Dhūmaroruva (Suffocating Toxic Smoke Hell), (6) Tāpana (Impaling Iron Stake Hell), (7) Mahātāpana (Great Escalating Fire & Stake Hell), and (8) Avīci (Uninterrupted Intervalless Hell). Lifespans escalate exponentially from 1.62 million million human years in the first hell to a full Antarakappa in Avīci.',
+    practicalKm: 'ការយល់ដឹងពីមហានរកទាំង ៨ មិនមែនជាការបំភិតបំភ័យឡើយ ប៉ុន្តែជាការដាស់តឿនសតិឱ្យស្គាល់ «ច្បាប់រូបវិទ្យាផ្លូវចិត្តនៃកម្ម» យ៉ាងពិតប្រាកដ។ រាល់ពេលដែលចិត្តប្រព្រឹត្តអំពើបាប គឺកំពុងរៀបចំឧបករណ៍ធ្វើទារុណកម្មខ្លួនឯងទៅតាមទម្ងន់នៃទោសៈ លោភៈ និងមោហៈ។ ដូច្នេះ ការរក្សាសីល ៥ បរិសុទ្ធ ការមិនបៀតបៀនជីវិតអ្នកដទៃ និងការមានសេចក្តីស្អប់ខ្ពើមខ្លាចរអាក្នុងបាប (ហិរិ និង ឱត្តប្បៈ) គឺជាស្ពានតែមួយគត់ដែលរារាំងមិនឱ្យធ្លាក់ចុះទៅក្នុងរណ្តៅមហានរកទាំងនេះ។',
+    practicalEn: 'Contemplating the 8 Great Hells is not superstitious terror, but sober comprehension of the psychophysical conservation of moral energy. Every unwholesome act manufactures its own precise somatic torture chamber. Cherishing the 5 Precepts, cultivating moral shame (hiri) and moral dread of evil (ottappa) are our sole impenetrable shields against these abysses.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤០', en: 'Q&A 40' },
+      { to: '/my-gems#hell-merit-prayers', km: 'សត្វនរក ៖ បួងសួង ឬទទួលបុណ្យបានទេ?', en: 'Hell Merit & Prayers' },
+      { to: '/my-gems#hell-body-regeneration', km: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់?', en: 'Hell Body Regeneration' },
+      { to: '/my-gems#yamapala-nature', km: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម?', en: 'Yamapālas Nature' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' }
+    ],
+    sections: [
+      {
+        titleKm: '១. សញ្ជីវមហានរក (Sañjīva — នរកដែលរស់ឡើងវិញឥតឈប់ឈរ)',
+        titleEn: '1. Sañjīva Mahānaraka: The Hell of Continuous Revival',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «សញ្ជីវៈ» ប្រែថា ការរស់ឡើងវិញ។ នរកនេះស្ថិតនៅជាន់ខាងលើគេបង្អស់ មានកម្រាលដែកដុតភ្លើងឡើងក្រហមច្រាល និងមានផ្សែងហុយទ្រលោម។\n— ទារុណកម្មជាក់ស្តែង ៖ ពួកយមបាលកាន់ដាវ ពូថៅ និងកាំបិតដែកភ្លើង ដេញកាប់ ច្រាន និងចិញ្ច្រាំសត្វនរកជាកង់ៗធ្លាក់រាយប៉ាយពេញដី។ លុះកាប់រួចហើយ ស្រាប់តែមាន «កម្មជវាត» (ខ្យល់កម្មត្រជាក់) បក់កាត់ពីលើ ឆ្អឹង សាច់ និងឈាមក៏រត់មករកគ្នា បង្កើតជារូបកាយដើមវិញភ្លាមៗ ហើយយមបាលក៏ចាប់កាប់ចិញ្ច្រាំបន្តឥតឈប់ឈរ។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ អំពើបាណាតិបាតកម្រិតធ្ងន់ (ការកាប់សម្លាប់មនុស្ស និងសត្វជាប្រចាំ ការធ្វើទារុណកម្មសត្វ ការប្រកបរបរជាអ្នកសម្លាប់សត្វ ឬមេដឹកនាំដែលបញ្ជាឱ្យកាប់សម្លាប់គេ)។\n— អាយុកាល ៖ ៥០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ៩ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ១,៦២០,០០០ លានឆ្នាំមនុស្ស លើលោកយើង)។',
+        contentEn: '— Name & Environment: Sañjīva means "reviving". Upper-most hell featuring glowing red-hot iron ground covered in boiling embers and dense smoke.\n— Torment: Wardens brandish blazing swords and axes, butchering victims into fragments. Instantly, an icy karmic wind (kammaja-vāta) sweeps across, fusing flesh and bones back together, only to be hacked apart immediately in an infinite cycle.\n— Karmic Cause: Habitual, heavy killing of living beings (slaughterhouse butchers, animal abusers, murderous tyrants and warlords).\n— Lifespan: 500 hell years (1 hell day/night = 9 million human years; totaling 1.62 million million human years).'
+      },
+      {
+        titleKm: '២. កាឡសុត្តមហានរក (Kāḷasutta — នរកខ្សែបន្ទាត់ខ្មៅ)',
+        titleEn: '2. Kāḷasutta Mahānaraka: The Black-Line Measuring Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «កាឡសុត្ត» ប្រែថា ខ្សែខ្មៅ។ បរិស្ថានពោរពេញដោយសំឡេងអារឈើ និងកម្ទេចដែកភ្លើងហោះខ្ចាយ។\n— ទារុណកម្មជាក់ស្តែង ៖ ពួកយមបាលចាប់សត្វនរកផ្តួលផ្កាប់មុខ ឬផ្ងារលើកម្រាលដែកភ្លើង រួចយក «ខ្សែបន្ទាត់ដែកខ្មៅដុតភ្លើង» មកវាយគូសវាស់លើរូបកាយសត្វនរកជាបន្ទាត់ៗ (ដូចជាងឈើគូសបន្ទាត់លើឈើ)។ បន្ទាប់មក យមបាលយកពូថៅ រណា និងកាំបិតមុតស្រួច មកអារ ច្រៀក និងកាប់សាច់តាមបន្ទាត់ខ្មៅនោះជាបន្ទះៗ។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ ការបៀតបៀន ឬប្រមាថដល់អ្នកមានគុណ (ឪពុក ម្តាយ គ្រូអាចារ្យ ព្រះសង្ឃ), ការលួចប្លន់ទ្រព្យសម្បត្តិអ្នកដទៃ (អទិន្នាទាន), និងការក្បត់មិត្តភក្តិដែលធ្លាប់ជួយខ្លួន។\n— អាយុកាល ៖ ១,០០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ៣៦ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ១២,៩៦០,០០០ លានឆ្នាំមនុស្ស)។',
+        contentEn: '— Name & Environment: Kāḷasutta means "black measuring line". Resounds with screeching saws and molten sparks.\n— Torment: Hell wardens pin victims face-down on red-hot iron sheets and snap fiery black cords across their limbs like carpenters snapping chalk lines on lumber. Then they slice, saw, and plane their flesh along the black lines with serrated blades.\n— Karmic Cause: Persecution and abuse of benefactors (parents, teachers, monks), grand theft (adinnādāna), and malicious betrayal of loyal friends.\n— Lifespan: 1,000 hell years (1 hell day/night = 36 million human years; totaling 12.96 million million human years).'
+      },
+      {
+        titleKm: '៣. សង្ឃាតមហានរក (Sanghāta — នរកភ្នំដែកកិនសង្កត់)',
+        titleEn: '3. Sanghāta Mahānaraka: The Crushing Iron Mountain Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «សង្ឃាតៈ» ប្រែថា ការប្រមូលផ្តុំកិនបំបែក។ ទីនោះមានភ្នំដែកភ្លើងដ៏ធំសម្បើមកំពស់រាប់យោជន៍។\n— ទារុណកម្មជាក់ស្តែង ៖ ភ្នំដែកដែលឆេះក្រហមច្រាល បានរមៀលមកពីទិសទាំង ៤ (កើត លិច ត្បូង ជើង) រត់សំដៅមករកគ្នា។ សត្វនរកត្រូវភ្នំដែកកិនខ្ទេចដូចគ្រាប់ល្ងដែលគេកិនយកប្រេង ឈាមហូរដាលដូចទន្លេ។ ពេលភ្នំរមៀលហួសទៅ រូបកាយក៏កើតឡើងវិញ រួចត្រូវភ្នំពីទិសផ្សេងរមៀលមកកិនសង្កត់បន្តទៀត។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ ការជិះជាន់សង្កត់សង្កិនអ្នកទន់ខ្សោយ ការប្រើអំណាចផ្តាច់ការធ្វើបាបប្រជារាស្ត្រ ការធ្វើទារុណកម្មសត្វពាហនៈ (ដំរី សេះ គោ ក្របី) ដោយការផ្ទុកទម្ងន់ហួសកម្លាំង ឬវាយដំទារុណកម្ម។\n— អាយុកាល ៖ ២,០០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ១៤៤ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ១០៣,៦៨០,០០០ លានឆ្នាំមនុស្ស)។',
+        contentEn: '— Name & Environment: Sanghāta means "crushing together". Features colossal blazing iron mountains miles high.\n— Torment: Mountains of white-hot iron roll in simultaneously from the four cardinal directions, colliding in the center and pulverizing victims like sesame seeds crushed for oil in an oil press. Rivers of gore flow out; as mountains roll back, the bodies regenerate and are crushed again.\n— Karmic Cause: Tyrannical oppression of the weak, abusing authority to exploit citizens, cruelty to working animals (overloading beasts of burden and mercilessly beating them).\n— Lifespan: 2,000 hell years (1 hell day/night = 144 million human years; totaling 103.68 million million human years).'
+      },
+      {
+        titleKm: '៤. រោរុវមហានរក ឬ ជលារោរុវៈ (Roruva — នរកស្រែកទ្រហោយំដោយភ្លើង)',
+        titleEn: '4. Roruva / Jālaroruva Mahānaraka: The Blazing Nine-Gate Screaming Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «រោរុវៈ» ប្រែថា ការស្រែកថ្ងូរខ្លាំងៗ។ នរកនេះពោរពេញដោយអណ្តាតភ្លើងឆេះសន្ធោសន្ធៅមិនដែលរលត់។\n— ទារុណកម្មជាក់ស្តែង ៖ សត្វនរកត្រូវគេចាប់ញាត់ចូលទៅក្នុងរណ្តៅផ្កាឈូកដែកភ្លើង។ អណ្តាតភ្លើងដ៏ក្តៅគគុកបាន «ឆេះច្រាលចូលតាមទ្វារទាំង ៩ នៃរាងកាយ» (រន្ធភ្នែក ២ រន្ធត្រចៀក ២ រន្ធច្រមុះ ២ មាត់ ១ ទ្វារលាមក និងទ្វារមូត្រ) ដុតរោលសរីរាង្គខាងក្នុងឱ្យរលាយហូរមកក្រៅ សត្វនរកស្រែកទ្រហោយំយ៉ាងខ្លាំងរំពងពេញលំហអាកាស។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ ការសេពសុរា និងគ្រឿងញៀនដែលបំផ្លាញស្មារតី ការកុហកបោកប្រាស់បំផ្លាញជីវិតអ្នកដទៃ ការរំលោភសេពសន្ថវៈ (កាមេសុមិច្ឆាចារ)។\n— អាយុកាល ៖ ៤,០០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ៥៧៦ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ៨២៩,៤៤០,០០០ លានឆ្នាំមនុស្ស)។',
+        contentEn: '— Name & Environment: Roruva means "wailing/shrieking". Filled with unquenchable roaring flame.\n— Torment: Victims are forced into hollow red-hot iron lotus pits. Blazing fire bursts inward through all 9 bodily orifices (2 eyes, 2 ears, 2 nostrils, mouth, anus, and urethra), liquefying internal viscera while the condemned emit deafening roars of agony.\n— Karmic Cause: Chronic alcohol and drug addiction destroying moral consciousness, malicious deceit ruining lives, and sexual assault/adultery (kāmesu micchācāra).\n— Lifespan: 4,000 hell years (1 hell day/night = 576 million human years; totaling 829.44 million million human years).'
+      },
+      {
+        titleKm: '៥. មហារោរុវមហានរក ឬ ធូមារោរុវៈ (Mahāroruva — នរកស្រែកទ្រហោយំដោយផ្សែងពុល)',
+        titleEn: '5. Mahāroruva / Dhūmaroruva Mahānaraka: The Suffocating Smoke Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ នរកនេះខុសប្លែកពីនរកដទៃត្រង់ថា «គ្មានអណ្តាតភ្លើងចំហឡើយ ប៉ុន្តែពោរពេញដោយផ្សែងដែកក្តៅហុយទ្រលោម» ដែលមានជាតិពុល និងជាតិអាស៊ីតកាត់យ៉ាងខ្លាំងក្លា។\n— ទារុណកម្មជាក់ស្តែង ៖ ផ្សែងក្តៅពុលបានជ្រាបចូលតាមរន្ធញើស និងច្រមុះ មាត់ ចូលទៅដុតរោលសាច់ ឈាម ឆ្អឹង និងខួរក្បាលពីខាងក្នុង។ ទុក្ខវេទនានេះខ្លាំងជាងរោរុវនរកទ្វេដង សត្វនរកស្ទះដង្ហើម ស្រែកយំលែងចេញសំឡេង បានត្រឹមតែដកដង្ហក់ និងប្រកាច់ននៀលលើកម្រាលដែក។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ ការលួចប្លន់ទ្រព្យសម្បត្តិព្រះពុទ្ធសាសនា (ទ្រព្យវត្តអារាម ទ្រព្យសង្ឃ) ការកេងប្រវ័ញ្ចទ្រព្យសាធារណៈ ការក្លែងបន្លំបោកប្រាស់សទ្ធាអ្នកមានជំនឿ និងការប្រព្រឹត្តអំពើពុករលួយកម្រិតធ្ងន់។\n— អាយុកាល ៖ ៨,០០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ២,៣០៤ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ៦,៦៣៥,៥២០,០០០ លានឆ្នាំមនុស្ស)។',
+        contentEn: '— Name & Environment: Mahāroruva / Dhūmaroruva means "Great Screaming with Smoke". Instead of open fire, it is choked with thick, scorching, acidic metallic smoke.\n— Torment: Caustic toxic smoke penetrates through every skin pore, nostril, and mouth, corroding marrow, bone, and cerebral tissues from within. Victims suffocate in silence, unable to draw breath to scream, thrashing in blind convulsion.\n— Karmic Cause: Embezzlement of monastic Dhamma property (saṅghika-dhana), grand public corruption, counterfeiting religious relics, exploiting devout believers.\n— Lifespan: 8,000 hell years (1 hell day/night = 2,304 million human years; totaling 6,635.52 million million human years).'
+      },
+      {
+        titleKm: '៦. តាបនមហានរក (Tāpana — នរកដុតរោលលើចម្រូងដែក)',
+        titleEn: '6. Tāpana Mahānaraka: The Impaling Iron Stake Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «តាបនៈ» ប្រែថា ការធ្វើឱ្យក្តៅក្រហាយ។\n— ទារុណកម្មជាក់ស្តែង ៖ ពួកយមបាលចាប់សត្វនរកលើកដោតលើ «ចម្រូងដែកភ្លើងដ៏ធំសម្បើម» ដោយដោតទម្លុះពីទ្វារក្រោមធ្លុះឡើងលើក្បាល រួចបញ្ឈរចម្រូងដែកនោះលើគំនរភ្លើងដ៏សន្ធោសន្ធៅ។ សាច់សត្វនរកត្រូវភ្លើងដុតខ្លោចរលួយហូរស្រក់ចុះក្រោម ហើយមានឆ្កែនរក និងក្អែកដែកភ្នែកក្រហម ចាំហែកស៊ីសាច់ដែលធ្លាក់នោះ។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ ការដុតបំផ្លាញព្រៃឈើ បំផ្លាញភូមិឋាន ដុតសម្លាប់សត្វទាំងរស់ ឬការសម្លាប់ជីវិតសត្វដោយការយកទៅស្ងោរ អាំង ឬបំពងទាំងនៅរស់។\n— អាយុកាល ៖ ១៦,០០០ ឆ្នាំនរក (១ ថ្ងៃយប់នរក = ៩,២១៦ លានឆ្នាំមនុស្ស; សរុបស្មើនឹង ៥៣,០៨៤,១៦០,០០០ លានឆ្នាំមនុស្ស)។',
+        contentEn: '— Name & Environment: Tāpana means "tormenting heat". Characterized by towering impaling spikes fixed over roaring furnaces.\n— Torment: Wardens impale victims lengthwise on incandescent iron spits—driving through the lower torso and out through the skull—and plant them upright over molten infernos. As roasting flesh drips down, iron-beaked crows and ravenous hell-hounds devour the falling entrails.\n— Karmic Cause: Arson, wildfire clearance incinerating wildlife, cooking, boiling, or frying animals alive.\n— Lifespan: 16,000 hell years (1 hell day/night = 9,216 million human years; totaling 53,084.16 million million human years).'
+      },
+      {
+        titleKm: '៧. មហាតាបនមហានរក (Mahātāpana — នរកដុតរោលដ៏មហិមា)',
+        titleEn: '7. Mahātāpana Mahānaraka: The Great Escalating Fire Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ នរកដែលបង្កើនកម្រិតកម្ដៅ និងការឈឺចាប់លើសតាបននរកជាច្រើនដង ដោយមានភ្នំដែកភ្លើងដុះច្រូងច្រាង។\n— ទារុណកម្មជាក់ស្តែង ៖ ពួកយមបាលកាន់លំពែង និងច្រវាក់ភ្លើង ដេញកាប់ចាក់បង្ខំឱ្យសត្វនរករត់ឡើងទៅលើកំពូលភ្នំដែកដែលកំពុងឆេះក្រហមច្រាល។ លុះឡើងដល់កំពូលភ្នំ ស្រាប់តែមាន «ខ្យល់ព្យុះភ្លើងបក់បោកយ៉ាងខ្លាំង» ផាត់សត្វនរកឱ្យធ្លាក់ចុះមកក្រោមវិញ ដោយធ្លាក់ចំលើចម្រូងដែក ដាវ និងលំពែងភ្លើងដែលដោតច្រូងច្រាងនៅបាតភ្នំ ធ្លុះធ្លាយខ្លួនរាប់កំណាត់។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ មិច្ឆាទិដ្ឋិធ្ងន់ធ្ងរ (ការប្រកាន់ជំហរបដិសេធបុណ្យបាប បដិសេធផលនៃកម្ម បដិសេធគុណម្តាយឪពុក) និងការដើរបញ្ចុះបញ្ចូលបំផ្លាញជំនឿល្អរបស់អ្នកដទៃឱ្យដើរផ្លូវខុសតាមខ្លួន។\n— អាយុកាល ៖ កន្លះអន្តរកប្ប (Half an Antarakappa) ដែលជាពេលវេលាយូរអង្វែងរាប់ឆ្នាំមនុស្សលែងកើត។',
+        contentEn: '— Name & Environment: Mahātāpana means "Great Heat". Dominated by razor-sharp jagged iron cliffs glowing white-hot.\n— Torment: Wardens whip and impale victims, forcing them to scale incandescent iron peaks. Upon reaching the summit, violent firestorms blow them off the precipice to plummet onto hundreds of upward-pointing iron spears and spikes at the base.\n— Karmic Cause: Stubborn pernicious wrong view (niyata-micchā-diṭṭhi: nihilism, denial of kamma, denial of parents\' virtues) and aggressively propagating nihilistic delusions to lead others astray.\n— Lifespan: Half an Antarakappa (an astronomical expanse impossible to calculate in solar years).'
+      },
+      {
+        titleKm: '៨. អវិចីមហានរក (Avīci — នរកដែលគ្មានចន្លោះទំនេរ)',
+        titleEn: '8. Avīci Mahānaraka: The Uninterrupted Intervalless Hell',
+        contentKm: '— អត្ថន័យ និងបរិស្ថាន ៖ «អវិចី» ប្រែថា គ្មានចន្លោះ (No Interval) គឺ គ្មានចន្លោះទំនេរនៃរូបកាយ គ្មានចន្លោះទំនេរនៃភ្លើង និងគ្មានចន្លោះទំនេរនៃពេលវេលាសម្រាក សូម្បីតែមួយប៉ប្រិចភ្នែក។ នរកនេះមានទំហំធំបំផុត ហ៊ុមព័ទ្ធដោយជញ្ជាំងដែកកម្រាស់ ៩ យោជន៍ ទាំង ៦ ទិស (លើ ក្រោម កើត លិច ត្បូង ជើង)។\n— ទារុណកម្មជាក់ស្តែង ៖ អណ្តាតភ្លើងបាញ់ចេញពីជញ្ជាំងទាំង ៦ ទិស ប៉ះទង្គិចគ្នានៅចំកណ្តាលយ៉ាងសន្ធោសន្ធៅ។ សត្វនរកឈរណែនណាន់តាន់តាប់ដូចគ្រាប់ល្ងដែលគេញាត់ក្នុងបំពង់ឫស្សី គ្មានចន្លោះកម្រើកខ្លួនឡើយ។ សត្វនរកត្រូវភ្លើងដុតទម្លុះពីមុខទៅក្រោយ ពីលើចុះក្រោម ២៤ ម៉ោងជាប់រហូត គ្មានពេលសម្រាកដកដង្ហើមសូម្បីតែមួយវិនាទី (ខុសពីនរក ៧ ខាងលើ ដែលពេលខ្លះនៅមានចន្លោះពេលខ្យល់បក់រស់ឡើងវិញបន្តិច)។\n— កម្មដែលនាំឱ្យធ្លាក់ ៖ អនន្តរិយកម្មទាំង ៥ (សម្លាប់ម្តាយ, សម្លាប់ឪពុក, សម្លាប់ព្រះអរហន្ត, ធ្វើឱ្យព្រះពុទ្ធចេញឈាម, បំបែកសង្ឃ) ដូចជាករណីព្រះទេវទត្ត និងនន្ទមាណព (ដែលចាប់រំលោភព្រះឧប្បលវណ្ណាថេរី)។\n— អាយុកាល ៖ ១ អន្តរកប្បពេញ (1 Full Antarakappa) ពោលគឺរង់ចាំរហូតដល់អាយុកាលមនុស្សលើផែនដីឡើងពី ១០ ឆ្នាំ ដល់អសង្ខេយ្យឆ្នាំ រួចថយចុះមកដល់ ១០ ឆ្នាំវិញ ទើបអាចអស់កម្ម។',
+        contentEn: '— Name & Environment: Avīci means "Without Wave/Interval" (A-vīci): zero spatial gap, zero temporal relief, zero temperature relief. Vaulted in a 9-yojana-thick iron cube enclosing all 6 directions.\n— Torment: Roaring flame jets erupt simultaneously from top, bottom, east, west, north, and south walls, colliding in the core. Beings stand packed tight as sesame seeds in a tube, unable to budge. Torment is completely contiguous with zero seconds of respite.\n— Karmic Cause: The 5 Anantarika-kamma (matricide, patricide, murdering an Arahant, wounding a Buddha, causing a schism in the Sangha) and heinous violations like Nanda raping Uppalavaṇṇā Therī.\n— Lifespan: 1 Full Antarakappa (the colossal span required for human lifespan to cycle from 10 years up to Asaṅkheyya and back down to 10 years).'
+      },
+      {
+        titleKm: '៩. តារាងប្រៀបធៀបសង្ខេបមហានរកទាំង ៨ ជាន់',
+        titleEn: '9. Summary Comparison Table of the Eight Great Hells',
+        contentKm: 'សង្ខេបលក្ខណៈសម្បត្តិនៃមហានរកទាំង ៨ ជាន់ តាមលំដាប់ជាន់ ៖',
+        contentEn: 'Overview comparison of the eight great hells:',
+        points: [
+          { boldKm: '១. សញ្ជីវៈ', boldEn: '1. Sañjīva', km: 'ទារុណកម្ម ៖ កាប់ចិញ្ច្រាំ រស់ឡើងវិញតាមខ្យល់កម្ម | កម្ម ៖ សម្លាប់សត្វច្រើន ធ្វើបាបជីវិត | អាយុ ៖ ៥០០ ឆ្នាំនរក (១,៦២០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Butchered, revived by karmic wind | Cause: Habitual slaughter | Lifespan: 500 hell yrs (1.62M million human yrs).' },
+          { boldKm: '២. កាឡសុត្តៈ', boldEn: '2. Kāḷasutta', km: 'ទារុណកម្ម ៖ គូសបន្ទាត់ខ្មៅ អារច្រៀកតាមខ្សែ | កម្ម ៖ បៀតបៀនអ្នកមានគុណ លួចទ្រព្យ | អាយុ ៖ ១,០០០ ឆ្នាំនរក (១២,៩៦០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Black lines, sawn into planks | Cause: Abusing parents, grand theft | Lifespan: 1,000 hell yrs (12.96M million human yrs).' },
+          { boldKm: '៣. សង្ឃាតៈ', boldEn: '3. Sanghāta', km: 'ទារុណកម្ម ៖ ភ្នំដែកភ្លើងរមៀលកិនសង្កត់ | កម្ម ៖ ជិះជាន់អ្នកទន់ខ្សោយ បង្ខំកម្លាំងសត្វ | អាយុ ៖ ២,០០០ ឆ្នាំនរក (១០៣,៦៨០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Rolling iron mountains crush | Cause: Oppression, animal abuse | Lifespan: 2,000 hell yrs (103.68M million human yrs).' },
+          { boldKm: '៤. រោរុវៈ', boldEn: '4. Roruva', km: 'ទារុណកម្ម ៖ ភ្លើងឆេះទម្លុះទ្វារកាយទាំង ៩ | កម្ម ៖ ស្រវឹងខួប កុហក រំលោភសេពសន្ថវៈ | អាយុ ៖ ៤,០០០ ឆ្នាំនរក (៨២៩,៤៤០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Fire piercing 9 orifices | Cause: Addiction, deceit, sexual assault | Lifespan: 4,000 hell yrs (829.44M million human yrs).' },
+          { boldKm: '៥. មហារោរុវៈ', boldEn: '5. Mahāroruva', km: 'ទារុណកម្ម ៖ ផ្សែងដែកក្តៅពុលចូលដុតសរីរាង្គក្នុង | កម្ម ៖ ប្លន់ទ្រព្យសង្ឃ ក្លែងបន្លំធម៌ ពុករលួយ | អាយុ ៖ ៨,០០០ ឆ្នាំនរក (៦,៦៣៥,៥២០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Corrosive acidic smoke | Cause: Embezzling temple property, graft | Lifespan: 8,000 hell yrs (6,635.52M million human yrs).' },
+          { boldKm: '៦. តាបនៈ', boldEn: '6. Tāpana', km: 'ទារុណកម្ម ៖ ដោតលើចម្រូងដែកភ្លើង អាំងរោល | កម្ម ៖ ដុតព្រៃ ដុតសត្វ ដុតផ្ទះសម្បែង | អាយុ ៖ ១៦,០០០ ឆ្នាំនរក (៥៣,០៨៤,១៦០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Impaled on blazing spits | Cause: Arson, roasting animals alive | Lifespan: 16,000 hell yrs (53,084.16M million human yrs).' },
+          { boldKm: '៧. មហាតាបនៈ', boldEn: '7. Mahātāpana', km: 'ទារុណកម្ម ៖ រត់ឡើងភ្នំភ្លើង ត្រូវខ្យល់បក់ធ្លាក់លើដាវ | កម្ម ៖ មិច្ឆាទិដ្ឋិធ្ងន់ធ្ងរ បដិសេធកម្មផល | អាយុ ៖ កន្លះអន្តរកប្ប (Half an Antarakappa)។', en: 'Torment: Blown from peaks onto spears | Cause: Stubborn nihilism (micchādiṭṭhi) | Lifespan: Half an Antarakappa.' },
+          { boldKm: '៨. អវិចី', boldEn: '8. Avīci', km: 'ទារុណកម្ម ៖ ភ្លើងឆេះជាប់គ្នាសព្វទិស គ្មានចន្លោះសម្រាក | កម្ម ៖ អនន្តរិយកម្ម ៥ (សម្លាប់ឪពុកម្តាយ...) | អាយុ ៖ ១ អន្តរកប្បពេញ (1 Full Antarakappa)។', en: 'Torment: Uninterrupted inferno in 6 directions | Cause: 5 Anantarika-kamma | Lifespan: 1 Full Antarakappa.' }
+        ]
       }
     ]
   }

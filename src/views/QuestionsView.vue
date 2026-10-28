@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៩ — សួរតាមដែលអ្នកជួប', 'Q&A 39 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤០ — សួរតាមដែលអ្នកជួប', 'Q&A 40 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៩ — ចុចដើម្បីបើកមើល', 'THIRTY-NINE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៤០ — ចុចដើម្បីបើកមើល', 'FORTY QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -388,6 +388,15 @@ const qas = [
     mE: 'Hell beings cannot cultivate wholesome consciousness; prayers are futile as no being annuls kamma; cannot receive dedicated merit (0%); escape occurs solely when negative karma is completely exhausted (Kammakkhaya).',
     tie: 'សត្វនរក ៖ បង្កើតកុសល បួងសួង ឬទទួលបុណ្យបានទេ? · /my-gems#hell-merit-prayers',
     to: '/my-gems#hell-merit-prayers',
+  },  {
+    qK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើមហានរកទាំង ៨ ជាន់ មានឈ្មោះអ្វីខ្លះ បរិស្ថាន ទារុណកម្មជាក់ស្តែង កម្មដែលនាំឱ្យធ្លាក់ និងអាយុកាលយ៉ាងដូចម្ដេច?',
+    qE: 'According to the Tipiṭaka and Commentaries, what are the Eight Great Hells (Mahānaraka), their environments, specific torments, causes (kamma), and lifespans?',
+    aK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក (ទេវទូតសូត្រ និងពាលបណ្ឌិតសូត្រ) ព្រមទាំងគម្ពីរអដ្ឋកថា និងវិសុទ្ធិមគ្គ មហានរកធំៗមានចំនួន ៨ ជាន់ តម្រៀបជង់លើគ្នាពីលើចុះក្រោមនៅក្នុងផ្ទៃក្រោមនៃជម្ពូទ្វីប (ភពមនុស្ស) ដោយនរកជាន់នីមួយៗមានទំហំធំធេង និងឡោមព័ទ្ធដោយ ឧស្សទនរក (នរកបរិវារ) ចំនួន ១៦ នៅគ្រប់ទិសទាំង ៤ ៖ (១) សញ្ជីវៈ (រស់ឡើងវិញឥតឈប់ឈរតាមខ្យល់កម្ម) (២) កាឡសុត្តៈ (គូសខ្សែបន្ទាត់ខ្មៅអារច្រៀកសាច់) (៣) សង្ឃាតៈ (ភ្នំដែកភ្លើង ៤ ទិសរមៀលកិនសង្កត់) (៤) រោរុវៈ ឬ ជលារោរុវៈ (ភ្លើងឆេះទម្លុះទ្វារកាយទាំង ៩) (៥) មហារោរុវៈ ឬ ធូមារោរុវៈ (ផ្សែងក្តៅពុលជ្រាបដុតសរីរាង្គក្នុង) (៦) តាបនៈ (ដោតចម្រូងដែកភ្លើងអាំងរោល) (៧) មហាតាបនៈ (រត់ឡើងភ្នំភ្លើងត្រូវខ្យល់ផាត់ធ្លាក់លើចម្រូងដាវ) (៨) អវិចី (ភ្លើងឆេះជាប់គ្នាសព្វទិស គ្មានចន្លោះទំនេរនៃទុក្ខ និងពេលវេលា)។ អាយុកាលកើនឡើងពី ១,៦២០,០០០ លានឆ្នាំមនុស្ស ក្នុងជាន់ទី ១ រហូតដល់ ១ អន្តរកប្បពេញ ក្នុងជាន់អវិចី។',
+    aE: 'According to the Tipiṭaka (Devadūta Sutta MN 130, Bālapaṇḍita Sutta MN 129), Commentaries, and Visuddhimagga, the Eight Great Hells (Mahānaraka) are vertically stacked beneath the human world, each surrounded by 16 auxiliary Ussada hells: (1) Sañjīva (Continuous Revival Hell), (2) Kāḷasutta (Black-Line Measuring Hell), (3) Sanghāta (Crushing Iron Mountain Hell), (4) Roruva/Jālaroruva (Blazing Nine-Gate Screaming Hell), (5) Mahāroruva/Dhūmaroruva (Suffocating Smoke Hell), (6) Tāpana (Impaling Spits Hell), (7) Mahātāpana (Great Escalating Fire Hell), and (8) Avīci (Uninterrupted Intervalless Hell). Lifespans escalate exponentially from 1.62 million million human years in Sañjīva to an entire Antarakappa in Avīci.',
+    mK: 'មហានរក ៨ ជាន់ ៖ សញ្ជីវៈ (រស់ឡើងវិញ) · កាឡសុត្តៈ (ខ្សែបន្ទាត់ខ្មៅ) · សង្ឃាតៈ (ភ្នំកិន) · រោរុវៈ (ភ្លើងទ្វារ ៩) · មហារោរុវៈ (ផ្សែងពុល) · តាបនៈ (ចម្រូងដែក) · មហាតាបនៈ (ធ្លាក់លើដាវ) · អវិចី (គ្មានចន្លោះ) · ព័ទ្ធដោយឧស្សទនរក ១៦ គ្រប់ទិស។',
+    mE: 'The 8 Great Hells: Sañjīva (Revival), Kāḷasutta (Black Line), Sanghāta (Crushing), Roruva (Fire in 9 Gates), Mahāroruva (Toxic Smoke), Tāpana (Spikes), Mahātāpana (Spear Fall), Avīci (No Interruption); each ringed by 16 auxiliary Ussada hells.',
+    tie: 'មហានរកទាំង ៨ ជាន់ ពិស្តារ · /my-gems#eight-great-hells',
+    to: '/my-gems#eight-great-hells',
   },
 ]
 </script>

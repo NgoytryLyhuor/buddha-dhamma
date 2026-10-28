@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤២ — សួរតាមដែលអ្នកជួប', 'Q&A 42 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤៤ — សួរតាមដែលអ្នកជួប', 'Q&A 44 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៤២ — ចុចដើម្បីបើកមើល', 'FORTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៤៤ — ចុចដើម្បីបើកមើល', 'FORTY-FOUR QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -425,6 +425,16 @@ const qas = [
     mE: 'King Nimi deliberately toured Hell first to warn living beings of karmic reality; declined borrowed heavenly bliss like a borrowed carriage; emphasized self-reliance in cultivating merit (Attā hi attano nātho).',
     tie: 'និមិរាជជាតក (ជាតកលេខ ៥៤១) · /my-gems#nimi-jataka-tour',
     to: '/my-gems#nimi-jataka-tour',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើសត្វនរកមានពេលនិយាយដែរឬទេ? ពួកគេនិយាយភាសាអ្វី? ហើយតើពួកគេនិយាយពាក្យអ្វីខ្លះ?',
+    qE: 'According to the Tipiṭaka and Commentaries, do hell denizens have time to speak, which language do they speak, and what do they say?',
+    aK: 'នៅក្នុងមហានរក សត្វនរកស្ទើរតែគ្មានពេលដកដង្ហើម ក្រៅពីស្រែកទ្រហោយំ ប៉ុន្តែមានកាលៈទេសៈជាក់លាក់ ៣ ដែលពួកគេបាននិយាយ ៖ ១. ពេលឆ្លើយសារភាពចំពោះស្តេចយមរាជអំពីទេវទូត ៥ មុនធ្លាក់នរក («បមាទោ មេ មហារាជ អហោសិ» — ខ្ញុំព្រះករុណាភ្លេចខ្លួន ស្រវឹងនឹងការសប្បាយ) ២. ពេលត្រូវសន្ទូចដែកស្ទូចពីស្ទឹងវេតរណី ស្រែកសុំទឹក និងអាហារ ៣. ពេលផុសក្បាលផុតមាត់ថ្លាងដែកពុះលោហកុម្ភីមួយប៉ប្រិចភ្នែក (ក្រោយពុះរមៀល ៦០,០០០ ឆ្នាំ)។ ពួកគេនិយាយជា «ភាសាមាគធី» (មូលភាសា — ភាសាដើមធម្មជាតិរបស់សត្វលោក ដែលជំពូកសត្វ ៤ ប្រភេទ គឺ នរក តិរច្ឆាន/ប្រេត ក្មេងកើតក្នុងព្រៃស្ងាត់ និងព្រហ្ម យល់និងនិយាយដោយឯកឯង)។ ពាក្យសម្តីល្បីល្បាញបំផុត គឺសម្រែកវិប្បដិសារី ៤ ព្យាង្គ «ទុ-ស-ន-សោ» របស់កូនសេដ្ឋី ៤ នាក់ក្នុងថ្លាងលោហកុម្ភី ៖ «ទុ» (ទុជ្ជីវិតមជីវម្ហ — ជីវិតអាក្រក់ណាស់ មានទ្រព្យតែមិនធ្វើបុណ្យ បែរជាផិតក្បត់ប្រពន្ធគេ), «ស» (សដ្ឋិ វស្សសហស្សានិ — ៦០,០០០ ឆ្នាំហើយ តើកាលណាទើបផុតទុក្ខ?), «ន» (នត្ថិ អន្តោ កុតោ អន្តោ — គ្មានទីបញ្ចប់ឡើយ ព្រោះបាបកម្មធ្ងន់ពេក), «សោ» (សោហំ នូន ឥតោ គន្ត្វា — បើបានកើតជាមនុស្សវិញ នឹងខំធ្វើបុណ្យរក្សាសីលមិនឱ្យខាន)។',
+    aE: 'Hell denizens scarcely have breath between screams of agony, yet they speak on 3 specific occasions: 1. Confessing to King Yama regarding the 5 Divine Messengers ("Pamādo me mahārāja ahosi" — I was heedless and intoxicated with pleasure); 2. Begging for water and food when hooked ashore from the caustic Vettaraṇī river; 3. Surfacing for a fraction of a second at the rim of the boiling Lohakumbhī vat after a 60,000-year cycle. They speak "Māgadhī" (Mūla-bhāsā — the primordial natural root language instinctively understood and uttered by 4 beings: hell denizens, animals/petas, isolated forest infants, and Brahmas). Their most celebrated utterances are the four syllables "Du-Sa-Na-So" screamed by 4 wealthy merchant sons in Lohakumbhī: "Du" (Dujjīvitaṃ — wretchedly we lived, squandering wealth on adultery without making merit), "Sa" (Saṭṭhi vassasahassāni — 60,000 years of boiling, when will it end?), "Na" (Natthi anto — there is no end, for our evil was immense), "So" (Sohaṃ nūna — if ever reborn human, I shall practice boundless generosity and virtue).',
+    mK: 'សត្វនរកនិយាយជា «ភាសាមាគធី» (មូលភាសាធម្មជាតិ) · និយាយពេលសារភាពចំពោះស្តេចយមរាជ ពេលសុំទឹកនៅស្ទឹងវេតរណី និងពេលផុសមាត់ថ្លាងលោហកុម្ភី · សម្រែក «ទុ-ស-ន-សោ» ជាការស្តាយក្រោយពេលហួសពេល កុំបណ្តោយឱ្យជីវិតធ្លាក់ក្នុងសភាពបែបនេះឡើយ។',
+    mE: 'Hell denizens speak Māgadhī (the primordial root language) · Uttered when confessing to King Yama, begging water at Vettaraṇī, and surfacing at Lohakumbhī · The "Du-Sa-Na-So" cry represents futile posthumous remorse; cultivate virtue now before time runs out.',
+    tie: 'ភាសា & ការនិយាយរបស់សត្វនរក (ទុ-ស-ន-សោ) · /my-gems#hell-speech-language',
+    to: '/my-gems#hell-speech-language',
   },
 ]
 </script>

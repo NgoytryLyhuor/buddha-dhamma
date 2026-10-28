@@ -595,7 +595,7 @@ const nav = [
   { to: '/chanting', km: 'ធម៌សូត្រប្រចាំថ្ងៃ', descKm: 'សូត្របន្ទូល ១២ បទ & ភាសាបាលី', kmShort: 'សូត្រមន្ត', en: 'Daily Chanting', num: '១០' },
   { to: '/glossary', km: 'វចនានុក្រមធម៌', descKm: 'វចនានុក្រមពាក្យគន្លឹះ ខ្មែរ-អង់គ្លេស', kmShort: 'វចនានុក្រម', en: 'Dhamma Glossary', num: '១១' },
   { to: '/stories', km: 'រឿងល្បីៗ', descKm: 'រឿងព្រះពុទ្ធ និងអរហន្ត ១០ រឿង', kmShort: 'រឿង', en: '10 Great Stories', num: '១២' },
-  { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤៣', descKm: '៤៣ សំណួរ–ចម្លើយដែលគេសួរញឹកញាប់', kmShort: 'សំណួរ', en: '43 Q&A', num: '១៣' },
+  { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤៤', descKm: '៤៤ សំណួរ–ចម្លើយដែលគេសួរញឹកញាប់', kmShort: 'សំណួរ', en: '44 Q&A', num: '១៣' },
   { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', descKm: 'រូបបរមត្ថ ២៨ & រូបកលាប', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Paramattha Q&A', num: '១៤' },
   { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ', descKm: 'ចេតសិក ៥២ & ដំណើរផ្លូវចិត្ត', kmShort: 'ចេតសិក', en: 'Cetasika Paramattha Q&A', num: '១៥' },
   { to: '/lobha-mula-citta', km: 'លោភមូលចិត្ត ៨ ដួង', descKm: '១០៩ សំណួរ–ចម្លើយចិត្តបាបលោភៈ', kmShort: 'លោភមូលចិត្ត', en: '8 Lobha Mūla Citta', num: '១៦' },
@@ -624,7 +624,7 @@ const nav = [
   { to: '/rajadhamma', km: 'ទសពិធរាជធម៌ ១០', descKm: 'ធម៌ដឹកនាំ ១០ & អបរិហានិយធម៌ ៧', kmShort: 'ទសពិធរាជធម៌', en: '10 Royal Virtues of Leadership', num: '៣៩' },
   { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', descKm: 'វដ្តនៃចក្រវាឡ & ដើមកំណើតមនុស្ស', kmShort: 'ចក្រវាឡ', en: 'Cosmology, Kalpas & Origins', num: '៤០' },
   { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', descKm: 'ការឧទ្ទិសបុណ្យ & បរទត្តូបជីវីប្រេត', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication & Pattidāna', num: '៤១' },
-  { to: '/my-gems', km: 'កម្រងធម៌រតនៈ & សំណួរពិសេស', descKm: '២៣ ធម៌រតនៈកំពូល & សំណួរពិស្តារ', kmShort: 'ធម៌រតនៈ ២៣', en: '23 Dhamma Gems', num: '៤២' },
+  { to: '/my-gems', km: 'កម្រងធម៌រតនៈ & សំណួរពិសេស', descKm: '២៤ ធម៌រតនៈកំពូល & សំណួរពិស្តារ', kmShort: 'ធម៌រតនៈ ២៤', en: '24 Dhamma Gems', num: '៤២' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -862,8 +862,8 @@ const descrMap = {
   chanting: ['សូត្រ ១០ សម្រាប់សូត្ររាល់ថ្ងៃ ជាមួយភាសាបាលី។', 'Ten daily recitals for chanting with Pali.'],
   glossary: ['វចនានុក្រមពាក្យធម៌ ជាខ្មែរ និងអង់គ្លេស។', 'Glossary of Dhamma terms in Khmer and English.'],
   stories: ['រឿងល្បីៗ ១០ អំពីព្រះពុទ្ធ និងព្រះអរហន្ត (អង្គុលីមាលៈ ព្រះមោគ្គល្លាន...)។', 'Ten famous stories about the Buddha and Arahants (Angulimāla, Moggallāna...).'],
-  questions: ['សំណួរ–ចម្លើយ ៤២ សំណួរដែលគេសួរញឹកញាប់អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', '42 questions and answers about Dhamma and practice.'],
-  'my-gems': ['កម្រងសំណួរកំពូល និងធម៌រតនៈពិសេសផ្ទាល់ខ្លួន៖ ដំណើរឆ្លងកាត់នរក ១៦ ឧស្សទនរក មហានរកទាំង ៨ និងយមបាល។', 'Personal collection of top questions & Dhamma gems: Journey Through Hell, 16 Ussada Hells, The 8 Great Hells, and Yamapālas.'],
+  questions: ['សំណួរ–ចម្លើយ ៤៤ សំណួរដែលគេសួរញឹកញាប់អំពីព្រះធម៌ និងការប្រព្រឹត្ត។', '44 questions and answers about Dhamma and practice.'],
+  'my-gems': ['កម្រងសំណួរកំពូល និងធម៌រតនៈពិសេសផ្ទាល់ខ្លួន៖ ភាសា & ការនិយាយរបស់សត្វនរក (ទុ-ស-ន-សោ), និមិរាជជាតក, ដំណើរឆ្លងកាត់នរក ១៦ ឧស្សទនរក មហានរកទាំង ៨ និងយមបាល។', 'Personal collection of top questions & Dhamma gems: Speech & Language in Hell (Du-Sa-Na-So), Nimi Jātaka, Journey Through Hell, 16 Ussada Hells, The 8 Great Hells, and Yamapālas.'],
   'rupa-qa': ['សំណួរ–ចម្លើយ រូបបរមត្ថ ២៨ និងភាគរូបផ្សេងៗ។', 'Rūpa Paramattha Q&A — the 28 rūpas and related parts.'],
   'cetasika-qa': ['សំណួរ–ចម្លើយ ចេតសិកបរមត្ថ ៥២ ផស្ស វេទនា សញ្ញា ចេតនា ឯកគ្គតា។', 'Cetasika Paramattha Q&A — the 52 cetasikas, phassa, vedanā, saññā, cetanā, ekaggatā.'],
   'lobha-mula-citta': ['រំលឹកមេរៀនលោភមូលចិត្ត ៨ ដួង បរមត្ថអភិធម្ម ភាគ ១–៦។', 'Lobha Mūla Citta review — the 8 greed-rooted consciousnesses in Abhidhamma, parts 1–6.'],

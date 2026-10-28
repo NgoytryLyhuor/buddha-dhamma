@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (២៣)', en: 'All (23)' },
+  { id: 'all', km: 'ទាំងអស់ (២៤)', en: 'All (24)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1923,6 +1923,104 @@ const gems = ref([
         titleEn: '6. Homecoming: Preaching to Mithilā & Royal Renunciation',
         contentKm: 'ការត្រឡប់មកកាន់នគរមនុស្សបានបង្កើតនូវចលនាសីលធម៌ដ៏ធំធេង ៖\n\n— ការទេសនាដាស់តឿនប្រជានុរាស្ត្រ ៖\nពេលត្រឡប់មកដល់ ប្រជានុរាស្ត្របានជួបជុំគ្នាទទួលព្រះអង្គ។ ព្រះបាទនិមិរាជបានរៀបរាប់យ៉ាងពិស្តារអំពីទារុណកម្មដ៏រន្ធត់ក្នុងនរក និងសេចក្តីសុខដ៏ប្រណីតលើឋានសួគ៌ ដែលព្រះអង្គបានឃើញផ្ទាល់នឹងភ្នែក។ សេចក្តីទេសនានោះ ធ្វើឱ្យមនុស្សគ្រប់គ្នាភ័យខ្លាចបាប ហើយនាំគ្នាសាងតែអំពើល្អ រក្សាសីល និងធ្វើទានពេញទាំងនគរ។\n\n— ការចេញសាងផ្នួស ៖\nនៅពេលព្រះកេសារបស់ព្រះអង្គចាប់ផ្តើមស្កូវមួយសរសៃ (ទេវទូតដាស់រំលឹកសេចក្តីស្លាប់) ព្រះបាទនិមិរាជក៏បានដាក់រាជ្យសម្បត្តិ ប្រគល់ឱ្យព្រះរាជបុត្រ រួចយាងចេញទៅសាងផ្នួសជាតាបសចម្រើនព្រហ្មវិហារធម៌ក្នុងព្រៃមិគទាយវ័ន រហូតដល់អស់ព្រះជន្ម ហើយបានទៅកើតក្នុងព្រហ្មលោក។',
         contentEn: 'King Nimi’s return ignited an empire-wide moral transformation:\n\n— Eyewitness Preaching to the Populace:\nGathering his subjects, King Nimi delivered an electrifying firsthand account of the horrific retributions of hell and the dazzling rewards of heaven. Trembling at the reality of kamma, the entire kingdom embraced virtue, generosity, and the precepts.\n\n— Renunciation on a Single Gray Hair:\nYears later, when the royal barber found his first gray hair, King Nimi recognized it as a Divine Messenger of mortality. He abdicated the throne to his son, entered ascetic monkhood in the Migadāya forest, perfected the Brahmavihāras, and attained the Brahma world upon death.'
+      }
+    ]
+  },
+  {
+    id: 'hell-speech-language',
+    num: 24,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 ភាសា & ការនិយាយរបស់សត្វនរក',
+    categoryEn: '💀 Speech & Language of Hell Denizens',
+    ref: 'ទេវទូតសូត្រ (MN 130), វិភង្គអដ្ឋកថា (សម្មោហវិនោទនី) & អដ្ឋកថាធម្មបទ',
+    paliQuote: '«ទុ. ស. ន. សោ... នត្ថិ អន្តោ កុតោ អន្តោ... បមាទោ មេ មហារាជ អហោសិ» (សម្រែកវិប្បដិសារីជាភាសាមាគធីក្នុងភពនរក)',
+    questionKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើសត្វនរកមានពេលនិយាយដែរឬទេ? ពួកគេនិយាយភាសាអ្វី? ហើយតើពួកគេនិយាយពាក្យអ្វីខ្លះ?',
+    questionEn: 'According to the Tipiṭaka and Commentaries, do hell denizens have time to speak, which language do they speak, and what do they say?',
+    shortKm: 'ភាសា & ការនិយាយរបស់សត្វនរក (ទុ-ស-ន-សោ)',
+    shortEn: 'Speech & Language in Hell (Du-Sa-Na-So)',
+    essenceKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា (ទេវទូតសូត្រ, វិភង្គអដ្ឋកថា សម្មោហវិនោទនី, និងអដ្ឋកថាធម្មបទ) សត្វនរកមានពេលវេលាជាក់លាក់ដើម្បីនិយាយ ដូចជាពេលឆ្លើយសារភាពចំពោះស្តេចយមរាជអំពីទេវទូត ៥, ពេលត្រូវសន្ទូចស្ទូចពីស្ទឹងវេតរណីស្រែកសុំទឹក, និងពេលផុសក្បាលផុតមាត់ថ្លាងលោហកុម្ភីមួយប៉ប្រិចភ្នែក។ ពួកគេនិយាយជា «ភាសាមាគធី» (មូលភាសា — ភាសាដើមធម្មជាតិរបស់សត្វលោក ដែលពួកនរក តិរច្ឆាន ប្រេត ក្មេងព្រៃ និងព្រហ្ម យល់និងនិយាយដោយឯកឯងដោយមិនបាច់រៀន)។ ពាក្យសម្តីរបស់ពួកគេ មិនមែនជាការជជែកកម្សាន្តឡើយ តែជាសម្រែកវិប្បដិសារីស្តាយក្រោយ និងសារភាពកំហុស ដូចជាសម្រែក ៤ ព្យាង្គដ៏ល្បីល្បាញ «ទុ-ស-ន-សោ» ក្នុងថ្លាងដែកលោហកុម្ភី។',
+    essenceEn: 'According to the Tipiṭaka and Commentaries (Devadūta Sutta MN 130, Vibhaṅga-aṭṭhakathā Sammohavinodanī, and Dhammapada-aṭṭhakathā), hell denizens have distinct occasions to speak: confessing before King Yama regarding the 5 Devadūtas, gasping for water when dredged by hooks from the caustic Vettaraṇī river, and surfacing momentarily at the rim of the boiling Lohakumbhī vat. They speak "Māgadhī" (Mūla-bhāsā — the primordial root language naturally understood and uttered without education by four classes: hell denizens, animals/petas, feral children, and Brahmas). Their speech is never leisure chatter, but agonizing confessions and irrecoverable remorse (vippaṭisāra), immortalized by the four syllables "Du-Sa-Na-So".',
+    practicalKm: 'ការស្វែងយល់អំពីរឿងរ៉ាវនេះ ផ្តល់ជាគតិធម៌ដ៏ជ្រាលជ្រៅ ៖ កុំបណ្តោយឱ្យជីវិតធ្លាក់ចូលក្នុងសភាព «ទុ-ស-ន-សោ» ដែលស្តាយក្រោយនៅពេលហួសពេល។ កាលណាមានកាយវិការ សំឡេង និងសេរីភាពក្នុងភពមនុស្ស គប្បីបន្លឺតែពាក្យសច្ចៈ សុភាសិតវាចា មិនប្រព្រឹត្តកាមេសុមិច្ឆាចារ និងប្រញាប់ប្រញាល់សាងទាន រក្សាសីល ចម្រើនភាវនា ព្រោះពេលធ្លាក់នរក សូម្បីតែឱកាសស្រែកពាក្យពេញលេញមួយឃ្លាក៏គ្មានដែរ។',
+    practicalEn: 'Contemplating this truth provides profound urgency: never let life degenerate into the futile regret of "Du-Sa-Na-So". While possessing a human body, vocal cords, and moral agency, utter only truthful, wholesome speech (sammā-vācā), abstain from sensual misconduct and greed, and hasten to cultivate generosity, virtue, and mental development before the golden opportunity slips away.',
+    sections: [
+      {
+        titleKm: '១. តើសត្វនរកមានពេលនិយាយដែរឬទេ? (កាលៈទេសៈទាំង ៣ នៃការនិយាយ)',
+        titleEn: '1. Do Hell Denizens Have Time to Speak? (The 3 Canonical Occasions)',
+        contentKm: 'នៅក្នុងមហានរកជាន់ជ្រៅៗដូចជា អវិចីមហានរក ឬតាបនមហានរក ភ្លើងឆេះរោលរាល និងទារុណកម្មមានសភាពជា «អវិចី» (គ្មានចន្លោះទំនេរ គ្មានការឈប់សម្រាក) ធ្វើឱ្យសត្វនរកស្ទើរតែគ្មានពេលសូម្បីតែដកដង្ហើម ក្រៅពីការបន្លឺសំឡេងស្រែកទ្រហោយំដោយសេចក្តីឈឺចាប់ខ្លោចផ្សា (អដ្ដស្សរ)។ ប៉ុន្តែនៅក្នុងកាលៈទេសៈជាក់លាក់មួយចំនួន សត្វនរកមានឱកាស និងពេលវេលាជាក់លាក់ដើម្បីនិយាយ ៖',
+        contentEn: 'In deep Great Hells such as Avīci or Tapana, blazing fires and excruciating tortures are "avīci" (uninterrupted, devoid of intervals), leaving denizens almost no room even to inhale, uttering only continuous piercing shrieks of agony (aṭṭassara). Nevertheless, in specific canonical situations, hell denizens possess definite moments to speak:',
+        items: [
+          {
+            boldKm: 'ក. ពេលជួប និងសាកសួរដោយស្តេចយមរាជ (មុនទម្លាក់ទៅក្នុងនរក)',
+            boldEn: 'a. Interrogation by King Yama (Before Being Cast into Hell)',
+            km: 'នៅក្នុង «ទេវទូតសូត្រ» (មជ្ឈិមនិកាយ ឧបរិបណ្ណាសក) នៅពេលសត្វនរកទើបស្លាប់ពីមនុស្ស ហើយពួកយមបាលចាប់នាំយកមកកាន់យមរាជដ្ឋាន ស្តេចយមរាជមានព្រះទ័យមេត្តា បានសាកសួរដាស់តឿនសតិអំពី ទេវទូតទាំង ៥ (ទារកទន់ខ្សោយ, មនុស្សចាស់ជរា, មនុស្សមានជំងឺដេកក្នុងលាមកនោម, ចោររងទណ្ឌកម្មកាត់ក្បាល, និងសាកសពហើមស្អុយ)។ សត្វនរកមានស្មារតីពេញលេញ និងឆ្លើយសារភាពត្រង់ៗទាំងរន្ធត់ថា ៖ «បពិត្រព្រះសម្មតិទេព! ខ្ញុំព្រះករុណាភ្លេចខ្លួន ខ្ញុំរវល់តែស្រវឹងនិងសប្បាយ មិនបានសាងអំពើល្អដោយកាយ វាចា ចិត្តឡើយ» (បមាទោ មេ មហារាជ អហោសិ)។',
+            en: 'In the Devadūta Sutta (MN 130), when deceased beings are dragged before King Yama by the wardens, King Yama compassionately interrogates them regarding the 5 Divine Messengers (a tender infant, a frail elder, an agonizing sick person in filth, a punished felon, and a bloated corpse). The being retains full consciousness and confesses in terror: "Lord King, I was heedless; lost in intoxication and trivial pleasures, I failed to cultivate good by body, speech, or mind!" (Pamādo me mahārāja ahosi).'
+          },
+          {
+            boldKm: 'ខ. ពេលត្រូវសន្ទូចដែកស្ទូចឡើងពីស្ទឹងទឹកក្បុងវេតរណី',
+            boldEn: 'b. Dragged by Iron Fishhooks from the Caustic Vettaraṇī River',
+            km: 'នៅពេលសត្វនរករត់ធ្លាក់ទៅក្នុងស្ទឹងវេតរណី ដែលមានទឹកអាស៊ីតក្បុងពុះកញ្ជ្រោល និងដើមឈូកដែកផ្លែដាវមុតស្រួច ពួកយមបាលតែងយកសន្ទូចដែកភ្លើងដ៏ធំមកស្ទូចទាញសត្វនរកឡើងមកលើច្រាំងថ្មដែកដុតក្រហម។ ពួកយមបាលសួរដោយគំរោះគំរើយថា ៖ «តើពួកឯងចង់បានអ្វី?» ពេលនោះ សត្វនរកមានឱកាសនិយាយតបទាំងដង្ហក់ដង្ហោយថា ៖ «បពិត្រលោកម្ចាស់! ពួកយើងស្រេកទឹកណាស់ ពួកយើងឃ្លានណាស់!» ប៉ុន្តែជាលទ្ធផល យមបាលបែរជាយកដង្កាប់គាស់មាត់ ច្រកទឹកទង់ដែងពុះក្រហម និងដុំដែកភ្លើងចូលបំពង់ក។',
+            en: 'When denizens escape into the caustic, acid-boiling river Vettaraṇī bristling with sword-blade lotuses, wardens drag them ashore with blazing iron fishhooks onto scorching red-hot iron slabs. The wardens bark: "What do you want?" The gasping denizens plead: "Lord, we are desperately parched! We are starving!" In response, wardens pry open their jaws and pour in boiling molten copper and red-hot iron balls.'
+          },
+          {
+            boldKm: 'គ. ពេលផុសក្បាលផុតមាត់ខ្ទះដែកលោហកុម្ភី (មួយប៉ប្រិចភ្នែក)',
+            boldEn: 'c. Surfacing at the Rim of Lohakumbhī (A Fleeting Instant)',
+            km: 'នៅក្នុងនរកខ្ទះដែកពុះលោហកុម្ភី សត្វនរកត្រូវពុះរមៀលចុះទៅបាតអស់ ៣០,០០០ ឆ្នាំ និងអណ្តែតឡើងមកលើផ្ទៃវិញអស់ ៣០,០០០ ឆ្នាំ (សរុប ៦០,០០០ ឆ្នាំក្នុងមួយជុំ)។ នៅពេលក្បាលផុសផុតផ្ទៃទឹកទង់ដែងពុះក្នុងរយៈពេលខ្លីមួយប៉ប្រិចភ្នែក ពួកគេមានខ្យល់ដង្ហើមបន្លឺសំឡេងបានត្រឹមតែមួយម៉ាត់ (មួយព្យាង្គ) ប៉ុណ្ណោះ មុនពេលរលកទង់ដែងពុះទាញពន្លិចចុះទៅបាតវិញ។',
+            en: 'In the colossal boiling copper vat Lohakumbhī, denizens sink to the bottom over 30,000 years and swirl back up to the surface over another 30,000 years (a 60,000-year cycle). As their heads breach the boiling surface for a fleeting second, they have just enough breath to cry out a single syllable before being pulled down into the depths again.'
+          }
+        ]
+      },
+      {
+        titleKm: '២. តើសត្វនរកនិយាយភាសាអ្វី? (ភាសាមាគធី / មូលភាសា)',
+        titleEn: '2. Which Language Do Hell Denizens Speak? (Māgadhī / Mūla-bhāsā)',
+        contentKm: 'យោងតាមគម្ពីរ «វិភង្គអដ្ឋកថា» (សម្មោហវិនោទនី ត្រង់សច្ចវិភង្គនិទ្ទេស) ភាសាដែលសត្វនរកនិយាយប្រាស្រ័យទាក់ទងគ្នា និងនិយាយជាមួយយមបាល គឺ «ភាសាមាគធី» (Māgadhī) ឬហៅម្យ៉ាងទៀតថា «មូលភាសា» (Mūla-bhāsā — ភាសាប្ញសគល់ដើមធម្មជាតិនៃសព្វសត្វ)។\n\nហេតុផលតាមទស្សនៈព្រះអភិធម្ម ៖\nភាសាសម័យបច្ចុប្បន្នដែលមនុស្សយើងប្រើប្រាស់ (ដូចជា ភាសាខ្មែរ អង់គ្លេស ចិន បារាំង បាលី សំស្ក្រឹត...) គឺជា «វោហារសច្ចៈ» ឬភាសាសិប្បនិម្មិត ដែលកើតពីការសន្មត ការបង្រៀន និងការរៀនសូត្រពីបរិស្ថានសង្គម។ កាលណាបុគ្គលម្នាក់ស្លាប់ រូបកាយ និងខួរក្បាលមនុស្សត្រូវបានរលត់បាត់បង់ ការចងចាំនៃភាសាសិប្បនិម្មិតក៏ត្រូវបានកាត់ផ្តាច់។\n\nផ្ទុយទៅវិញ នៅពេលបដិសន្ធិជាសត្វនរក (ឱបបាតិកកំណើត) សំឡេងដែលកើតចេញពីចិត្ត (ចិត្តជរូប) ដោយគ្មានការបង្រៀនពីអ្នកដទៃ នឹងរំញ័រចេញមកតាមសភាពធម្មជាតិដើមនៃសត្វលោក ដែលជា «រលកសំឡេងនៃភាសាមាគធី»។',
+        contentEn: 'According to the Vibhaṅga Commentary (Sammohavinodanī, Sacca-vibhaṅga Niddesa), the language spoken by hell denizens among themselves and with the wardens is "Māgadhī", also termed "Mūla-bhāsā" (the primordial root language innate to all sentient beings).\n\nAbhidhamma Philosophical Rationale:\nModern languages spoken by humans (Khmer, English, Chinese, French, Pali, Sanskrit, etc.) are conventional languages (vohāra-sacca) forged by social conventions, imitation, and cultural conditioning. Upon death, the physical vocal apparatus and cultural memory dissolve.\n\nConversely, upon spontaneous rebirth (opapātika) in hell without prior social tutoring, the sounds generated by consciousness (cittaja-sadda) naturally resonate at the fundamental frequency of universal existence — the pure vibratory stream of Māgadhī.',
+        items: [
+          {
+            boldKm: 'ជំពូកសត្វទាំង ៤ ដែលយល់ និងនិយាយភាសាមាគធីដោយធម្មជាតិ (ឥតបាច់រៀន)',
+            boldEn: 'The 4 Classes of Beings Who Naturally Understand & Speak Māgadhī Without Tutoring',
+            km: 'នៅក្នុងវិភង្គអដ្ឋកថា បានបញ្ជាក់ច្បាស់ថា មានជំពូកសត្វចំនួន ៤ ដែលបន្លឺសំឡេង និងយល់ភាសាមាគធីដោយស្វ័យប្រវត្តិតាមធម្មជាតិ ៖\n១. ពួកសត្វនរក (Niraya) — ស្រែក និងនិយាយឆ្លើយឆ្លងជាភាសាមាគធី។\n២. ពួកតិរច្ឆាន និងប្រេត (Tiracchāna & Peta) — បន្លឺសូរសៀង និងទទួលដឹងរំញ័រនៃមូលភាសា។\n៣. កូនក្មេងតូចដែលកើតក្នុងព្រៃដាច់ស្រយាល — ប្រសិនបើទារកកើតមកហើយត្រូវគេទុកចោលក្នុងព្រៃជ្រៅ ដោយមិនដែលឮមនុស្សចាស់និយាយភាសាអ្វីសោះ ទារកនោះពេលធំឡើងនឹងបន្លឺពាក្យជាភាសាមាគធីដោយឯកឯង។\n៤. ពួកព្រហ្ម (Brahma) — គង់នៅជាន់ព្រហ្មលោក ប្រើប្រាស់រលកសូរសៀងដ៏បរិសុទ្ធនៃភាសាមាគធីដើម។',
+            en: 'The Sammohavinodanī explicitly identifies four categories of beings who spontaneously vocalize and comprehend Māgadhī naturally:\n1. Hell Denizens (Niraya) — weeping, shrieking, and answering in pure Māgadhī.\n2. Animals and Petas (Tiracchāna & Peta) — vibrating and responding to root primordial frequencies.\n3. Feral Infants Raised in Total Forest Isolation — an infant abandoned in a deep wilderness, having never heard human speech, will instinctively utter Māgadhī words as its first natural dialect.\n4. Brahmas (Brahma) — dwelling in exalted Brahma realms, conversing in pristine primordial soundwaves.'
+          }
+        ]
+      },
+      {
+        titleKm: '៣. តើពួកគេនិយាយពាក្យអ្វីខ្លះ? (សម្រែក «ទុ-ស-ន-សោ» ក្នុងថ្លាងលោហកុម្ភី)',
+        titleEn: '3. What Do They Say? (The Chilling "Du-Sa-Na-So" Lohakumbhī Syllables)',
+        contentKm: 'ពាក្យសម្តីរបស់សត្វនរក មិនមែនជាការសន្ទនាកម្សាន្តឡើយ ប៉ុន្តែជាសម្រែកវិប្បដិសារី (ស្តាយក្រោយរកអ្វីប្រៀបផ្ទឹមពុំបាន) និងការសារភាពកំហុស។ ករណីល្បីល្បាញបំផុតក្នុងពុទ្ធសាសនា គឺរឿងរ៉ាវនៃសម្រែក ៤ ព្យាង្គ «ទុ! ស! ន! សោ!» ដែលកត់ត្រាក្នុង «អដ្ឋកថាធម្មបទ» (រឿងព្រះបាទបសេនទិកោសល) ៖\n\nកាលសម័យពុទ្ធកាល ព្រះបាទបសេនទិកោសល បានឮសំឡេងចម្លែកលាន់ឮយ៉ាងរន្ធត់កណ្តាលអធ្រាត្រថា «ទុ! ស! ន! សោ!» ធ្វើឱ្យព្រះអង្គភ័យតក់ស្លុតជាខ្លាំង រហូតដល់ពួកព្រាហ្មណ៍ទូលណែនាំឱ្យធ្វើពិធីពលិកម្មសម្លាប់មនុស្ស និងសត្វរាប់រយដើម្បីរំដោះគ្រោះ។ ព្រះនាងមល្លិកាទេវីបាននាំព្រះរាជាទៅបង្គំទូលសួរព្រះសម្មាសម្ពុទ្ធ។\n\nព្រះសម្មាសម្ពុទ្ធទ្រង់ត្រាស់សំដែងថា សំឡេងនោះមិនមែនជាគ្រោះថ្នាក់ដល់ព្រះរាជាឡើយ ប៉ុន្តែជា «សំឡេងកូនសេដ្ឋី ៤ នាក់នៅក្រុងពារាណសី» កាលពីសម័យព្រះពុទ្ធកស្សបៈ។ ពួកគេមានទ្រព្យសម្បត្តិមហាសាល ៤០ កោដិក្នុងម្នាក់ៗ ប៉ុន្តែមិនបានធ្វើទាន ឬសាងកុសលអ្វីឡើយ បែរជារួមគំនិតគ្នាប្រព្រឹត្តអំពើកាមេសុមិច្ឆាចារ លួចលាក់សេពកាមជាមួយប្រពន្ធកូនរបស់អ្នកដទៃរហូតដល់អស់ជីវិត។ ពេលធ្លាក់ទៅក្នុងថ្លាងដែកពុះលោហកុម្ភី ពួកគេត្រូវលិចចុះ ៣០,០០០ ឆ្នាំ និងអណ្តែតឡើង ៣០,០០០ ឆ្នាំ។ ពេលផុសក្បាលផុតមាត់ថ្លាងដែកមួយរំពេច ម្នាក់ៗចង់ពោលគាថាដាស់តឿនសត្វលោកមួយចប់ ប៉ុន្តែមានពេលស្រែកបានត្រឹមតែមួយព្យាង្គប៉ុណ្ណោះ ក៏ត្រូវលិចចុះទៅបាតវិញ ៖',
+        contentEn: 'Speech in hell is never casual gossip; it is the agonizing shriek of irrecoverable regret (vippaṭisāra) and desperate confession. The most celebrated account in Buddhist literature is the terrifying four-syllable roar "Du! Sa! Na! So!" recorded in the Dhammapada Commentary (The Story of King Pasenadi of Kosala):\n\nDuring the Buddha\'s ministry, King Pasenadi of Kosala was awakened at midnight by four bone-chilling cries echoing through the night: "Du! Sa! Na! So!" Stricken with terror, his court brahmins advised a massive animal-and-human blood sacrifice to avert impending doom. Queen Mallikā intervened and urged the king to seek the Buddha\'s wisdom.\n\nThe Blessed One revealed that the cries posed no threat to the king; they were the voices of four wealthy merchant sons from Bārāṇasī during the dispensation of Kassapa Buddha. Possessing 400 million in gold each, they gave no alms and performed no virtue, instead squandering their fortunes on systematic adultery (kāmesu micchācāra). Born into the giant boiling Lohakumbhī vat, each spent 30,000 years sinking and 30,000 years rising. Surfacing for a fraction of a second, each intended to recite a full verse of warning to mankind, but had only sufficient breath to utter a single opening syllable before the boiling molten bronze dragged them under:',
+        items: [
+          {
+            boldKm: '១. ព្យាង្គ «ទុ» (Dhu) — មកពីពាក្យ «ទុជ្ជីវិតមជីវម្ហ...»',
+            boldEn: '1. The Syllable "Du" (Dhu) — From "Dujjīvitaṃ ajīvimha..."',
+            km: 'គាថាពេញ ៖ «ទុជ្ជីវិតមជីវម្ហ យេ សន្តា ន ទទាមសេ | វិជ្ជមានេសុ ភោគេសុ ទីបំ នាកម្ហ អត្តនោ»\nអត្ថន័យ ៖ «ពួកយើងបានរស់នៅដោយជីវិតដ៏អាក្រក់ក្រៃលែង! កាលពួកយើងមានជីវិតនៅជាមនុស្ស មានភោគទ្រព្យសម្បត្តិស្ដុកស្ដម្ភ បែរជាមិនបានធ្វើទាន មិនបានកសាងកោះទីពឹងដល់ខ្លួនសោះ បែរជាយកទ្រព្យនោះទៅប្រព្រឹត្តអំពើបាបបំផ្លាញគ្រួសារអ្នកដទៃ!»',
+            en: 'Full Verse: "Dujjīvitaṃ ajīvimha, ye santā na dadāmase; Vijjamānesu bhogesu, dīpaṃ nākāmha attano."\nMeaning: "Wretchedly indeed did we live! Possessing ample wealth, we gave no gifts and created no island of refuge for ourselves, but squandered our fortune in vile misconduct!"'
+          },
+          {
+            boldKm: '២. ព្យាង្គ «ស» (Sa) — មកពីពាក្យ «សដ្ឋិ វស្សសហស្សានិ...»',
+            boldEn: '2. The Syllable "Sa" — From "Saṭṭhi vassasahassāni..."',
+            km: 'គាថាពេញ ៖ «សដ្ឋិ វស្សសហស្សានិ បរិបុណ្ណានិ សព្វសោ | និរយេ បច្ចមានានំ កទា អន្តោ ភវិស្សតិ»\nអត្ថន័យ ៖ «៦០,០០០ ឆ្នាំកន្លងផុតទៅយ៉ាងពេញលេញគ្រប់បែបយ៉ាងហើយ ដែលពួកយើងត្រូវគេដាំស្លក្នុងខ្ទះដែកពុះនេះ! តើកាលណាទើបមានទីបំផុតនៃសេចក្តីទុក្ខវេទនានេះទៅ?»',
+            en: 'Full Verse: "Saṭṭhi vassasahassāni, paripunnāni sabbaso; Niraye paccamānānaṃ, kadā anto bhavissati."\nMeaning: "A full sixty thousand years have passed while we are cooked in this hell cauldron! When, oh when, will there ever be an end to this torment?"'
+          },
+          {
+            boldKm: '៣. ព្យាង្គ «ន» (Na) — មកពីពាក្យ «នត្ថិ អន្តោ កុតោ អន្តោ...»',
+            boldEn: '3. The Syllable "Na" — From "Natthi anto kuto anto..."',
+            km: 'គាថាពេញ ៖ «នត្ថិ អន្តោ កុតោ អន្តោ ន អន្តោ បដិទិស្សតិ | តទា ហិ បកតំ បាបំ មម តុយ្ហញ្ច មារិសា»\nអត្ថន័យ ៖ «គ្មានទីបំផុតឡើយ! តើឱ្យមានទីបំផុតមកពីណា ទីបំផុតមិនប្រាកដឃើញសោះឡើយ! ម្នាលគ្នាយើង ពីព្រោះកាលនោះ ខ្ញុំ និងអ្នកទាំងអស់គ្នា បានសាងអំពើបាបកម្មធ្ងន់ធ្ងរក្រៃលែងពេកណាស់!»',
+            en: 'Full Verse: "Natthi anto kuto anto, na anto padissiti; Tadā hi pakataṃ pāpaṃ, mama tuyhañca mārisā."\nMeaning: "There is no end! Whence could there be an end? No end is in sight! For back then, my comrades, you and I wrought heinous, monstrous evil!"'
+          },
+          {
+            boldKm: '៤. ព្យាង្គ «សោ» (So) — មកពីពាក្យ «សោហំ នូន ឥតោ គន្ត្វា...»',
+            boldEn: '4. The Syllable "So" — From "Sohaṃ nūna ito gantvā..."',
+            km: 'គាថាពេញ ៖ «សោហំ នូន ឥតោ គន្ត្វា យោនឹ លទ្ធាន មានុសឹ | វទញ្ញូ សីលសម្បន្នោ កាហាមិ កុសលំ ពហុំ»\nអត្ថន័យ ៖ «ប្រសិនបើថ្ងៃណាមួយ ខ្ញុំបានរួចផុតពីនរកនេះ ហើយបានទៅកើតក្នុងកំណើតជាមនុស្សវិញ ខ្ញុំនឹងក្លាយជាអ្នកដឹងពាក្យគេ (ជាអ្នកចេះធ្វើទាន) បរិបូណ៌ដោយសីល និងខិតខំសាងកុសលឱ្យបានច្រើនបំផុត!»',
+            en: 'Full Verse: "Sohaṃ nūna ito gantvā, yoniṃ laddhāna mānusiṃ; Vadaññū sīlasampanno, kāhāmi kusalaṃ bahuṃ."\nMeaning: "If ever I escape from this abyss and regain human birth, I shall be bountifully generous, endowed with stainless virtue, and perform boundless wholesome deeds!"'
+          }
+        ]
+      },
+      {
+        titleKm: '៤. គតិធម៌ដាស់តឿនសតិ ៖ កុំរង់ចាំឱ្យដល់ពេលស្រែក «ទុ-ស-ន-សោ»',
+        titleEn: '4. Spiritual Exhortation: Never Wait Until the Cry of "Du-Sa-Na-So"',
+        contentKm: 'ដំណើររឿង និងការពិតនៃភាសាព្រមទាំងពាក្យសម្តីរបស់សត្វនរក បង្ហាញយ៉ាងច្បាស់ថា ៖\n\n— ការស្តាយក្រោយពេលហួសពេល (វិប្បដិសារី) គ្មានប្រយោជន៍ឡើយ ៖\nពេលដែលធ្លាក់ចូលទៅក្នុងរណ្តៅនរកហើយ សូម្បីតែទ្រព្យសម្បត្តិ ៤០ កោដិ ឬឋានៈបុណ្យស័ក្តិក៏មិនអាចជួយស្រោចស្រង់បានឡើយ។ ការប្រាថ្នាចង់ធ្វើបុណ្យ ធ្វើទាន រក្សាសីល នៅពេលកំពុងពុះក្នុងថ្លាងដែក គឺជាការប្រាថ្នាដែលឥតន័យ ព្រោះបាត់បង់ឱកាសជាមនុស្សទៅហើយ។\n\n— តម្លៃដ៏កម្រនៃកំណើតមនុស្ស (កិច្ឆោ មនុស្សប្បដិលាភោ) ៖\nក្នុងពេលបច្ចុប្បន្នដែលយើងមានជីវិតជាមនុស្ស មានអវយវៈ និងអណ្តាតសម្រាប់និយាយស្តី គប្បីបង្វែរសំឡេង និងសម្តីរបស់យើង ទៅជា «សម្មាវាចា» (វាចាត្រឹមត្រូវ — មិនភូតកុហក មិនញុះញង់ មិនទ្រគោះបោះបោក មិនរោយរាយឥតប្រយោជន៍) និងបន្លឺពាក្យសូត្រធម៌ សរសើរគុណព្រះរតនត្រ័យ និងផ្សាយមេត្តាចិត្ត។\n\n— ប្រញាប់ប្រញាល់សាងកុសល (អប្បមាទេន សម្បាទេថ) ៖\nកុំរង់ចាំដល់ចាស់ កុំរង់ចាំដល់ជិតស្លាប់ ឬរង់ចាំដល់ពេលជួបទេវទូតទាំង ៥ ទើបភ្ញាក់រលឹក។ ត្រូវប្រញាប់សាងទីពឹងដល់ខ្លួនឯង (អត្តទីបា អត្តសរណា) តាមរយៈទាន សីល និងភាវនា ចាប់ពីពេលនេះតទៅ។',
+        contentEn: 'The canonical reality of speech and language in hell presents profound warnings:\n\n— Futility of Posthumous Regret (Vippaṭisāra):\nOnce plunging into the abyss of hell, neither 400 million in gold nor high worldly status can deliver salvation. Wishing to practice generosity and guard precepts while boiling in molten copper is utterly futile, for the human opportunity has vanished.\n\n— The Preciousness of Human Existence (Kiccho manussapaṭilābho):\nWhile we possess human rebirth, sound health, and vocal organs, transform your speech into Sammā-vācā (Right Speech — abstaining from lying, slander, harsh words, and idle chatter) and dedicate vocal energy to chanting, praising the Triple Gem, and radiating loving-kindness.\n\n— Urgent Merit Cultivation (Appamādena sampādetha):\nNever postpone virtue until old age, sickness, or the brink of death when King Yama presents the 5 Divine Messengers. Forge your own island of refuge (Attadīpā attasaraṇā) through Dana, Sīla, and Bhāvanā immediately.'
       }
     ]
   }

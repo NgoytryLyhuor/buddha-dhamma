@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៨ — សួរតាមដែលអ្នកជួប', 'Q&A 38 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៩ — សួរតាមដែលអ្នកជួប', 'Q&A 39 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៨ — ចុចដើម្បីបើកមើល', 'THIRTY-EIGHT QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៩ — ចុចដើម្បីបើកមើល', 'THIRTY-NINE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -379,6 +379,15 @@ const qas = [
     mE: 'Hell denizens die SOLELY by karmic exhaustion (Kammakkhaya), not organ damage; their 100% kamma-born body reconstitutes at thought-speed (like quicksilver); cannot lose consciousness due to omnipresent hyper-sensitive pain receptors.',
     tie: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់ & កើតឡើងវិញភ្លាមៗ? · /my-gems#hell-body-regeneration',
     to: '/my-gems#hell-body-regeneration',
+  },  {
+    qK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម តើសត្វនរកមានឱកាសបង្កើតចិត្តកុសល ឬអាចបួងសួងសុំឱ្យព្រះ ឬទេវតាមកជួយស្រោចស្រង់រំដោះចេញពីរណ្តៅនរកបានដែរឬទេ?',
+    qE: 'According to the Tipiṭaka and Abhidhamma, can hell beings generate wholesome thoughts (kusala citta), or pray to the Buddha or Devas for divine rescue, or receive dedicated merit?',
+    aK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម សត្វនរកស្ទើរតែគ្មានឱកាសអាចបង្កើតកុសលចិត្តបានឡើយ (ព្រោះជួបតែអនិដ្ឋារម្មណ៍ និងទោសចិត្ត ២៤ ម៉ោង) ហើយការបួងសួង ឬអង្វរសុំឱ្យព្រះ ឬទេវតាមកជួយស្រោចស្រង់ ក៏គ្មានប្រសិទ្ធភាពដែរ ព្រោះគ្មាននរណាម្នាក់ធំជាងច្បាប់កម្មផលឡើយ (ព្រះពុទ្ធជាអ្នកចង្អុលផ្លូវ មិនមែនអ្នកលាងបាបឡើយ)។ បុណ្យដែលញាតិឧទ្ទិសទៅពីលោកមនុស្ស ក៏មិនអាចជួយសត្វនរកបានដែរ (០%) ព្រោះពួកគេមិនអាចជ្រះថ្លាអនុមោទនាបាន (បុណ្យឧទ្ទិសជួយបានតែពួកបរទត្តូបជីវីប្រេតមួយពួកគត់)។ សត្វនរកអាចរួចផុតពីនរកបានតែតាមផ្លូវមួយគត់ គឺការសោយទុក្ខទាល់តែអស់កម្លាំងកម្មបាប (Kammakkhaya) ទើបកុសលកម្មចាស់ពីអតីតជាតិ ផុសឡើងនាំទៅកើតក្នុងសុគតិភពវិញ។',
+    aE: 'According to the Tipiṭaka and Abhidhamma, hell beings cannot generate wholesome consciousness due to unceasing suffering and aversion-rooted mind (dosa-mūla-citta), and prayers to the Buddha or devas are futile because no entity can override the natural law of kamma (the Buddha is a way-shower, not an absolver of sins). Furthermore, merit dedicated by living relatives cannot reach hell denizens (0%) as they cannot generate joyful appreciation (anumodanā); only Paradattūpajīvī-petas can receive transferred merit. The sole exit from hell is the complete karmic exhaustion of that unwholesome debt (Kammakkhaya), enabling latent past merit to surface.',
+    mK: 'សត្វនរកមិនអាចបង្កើតកុសលចិត្តបានឡើយ (ជួបតែទុក្ខវេទនា ២៤ ម៉ោង) · ការបួងសួងអង្វរគ្មានប្រសិទ្ធភាព (ព្រះពុទ្ធមិនមែនអ្នកលុបបាប) · មិនអាចទទួលបុណ្យឧទ្ទិសបានឡើយ (០%) ព្រោះមិនអាចអនុមោទនា · រួចផុតបានតែពេលអស់កម្មបាប (Kammakkhaya) តែមួយគត់។',
+    mE: 'Hell beings cannot cultivate wholesome consciousness; prayers are futile as no being annuls kamma; cannot receive dedicated merit (0%); escape occurs solely when negative karma is completely exhausted (Kammakkhaya).',
+    tie: 'សត្វនរក ៖ បង្កើតកុសល បួងសួង ឬទទួលបុណ្យបានទេ? · /my-gems#hell-merit-prayers',
+    to: '/my-gems#hell-merit-prayers',
   },
 ]
 </script>

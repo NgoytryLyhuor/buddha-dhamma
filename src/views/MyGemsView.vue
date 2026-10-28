@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៨)', en: 'All (18)' },
+  { id: 'all', km: 'ទាំងអស់ (១៩)', en: 'All (19)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1362,6 +1362,117 @@ const gems = ref([
         titleEn: '4. Why Don\'t Hell Beings Faint or Lose Consciousness? (Pure Dukkha-Vedanā)',
         contentKm: 'មនុស្សលោកពេលជួបការឈឺចាប់ខ្លាំងជ្រុល ប្រព័ន្ធប្រសាទ និងខួរក្បាលនឹងបញ្ជាឱ្យសន្លប់បាត់ស្មារតី (Unconscious/Shock) ដើម្បីការពារចិត្តពីការឈឺចាប់ហួសកម្រិត។ ប៉ុន្តែនៅក្នុងនរក យន្តការនេះត្រូវបានកាត់ផ្តាច់ទាំងស្រុង ៖\n\n១. គ្មានយន្តការកាត់ផ្តាច់ការឈឺចាប់ឡើយ ៖\nនៅក្នុងអភិធម្ម សត្វនរកមាន «កាយបសាទរូប» (កោសិកាសរសៃប្រសាទទទួលដឹងការឈឺចាប់) ក្រាស់ឃ្មឹក និងសព្វសាច់ទូទាំងខ្លួន ចាប់តាំងពីសរសៃសក់រហូតដល់ក្រចកជើង។ គ្មានចំណុចណាមួយដែលស្ពឹក ឬមិនដឹងការឈឺចាប់នោះឡើយ។\n\n២. វិបាកទុក្ខវេទនាកម្រិតអតិបរមា (Pure Dukkha-vedanā) ៖\nចិត្តរបស់សត្វនរក ត្រូវទទួលនូវ «ទុក្ខសហគតកាយវិញ្ញាណ» (វិញ្ញាណដឹងទុក្ខវេទនាដ៏ខ្លាំងក្លា) ជានិច្ច គ្មានចន្លោះទំនេរសម្រាប់ឱ្យចិត្តធ្លាក់ចុះទៅកាន់សេចក្តីស្ងប់ ឬសន្លប់ឡើយ។\n\n៣. រូបកាយកើតឡើងវិញ ដើម្បីបន្តសងកម្ម ៖\nសត្វនរកត្រូវដឹងខ្លួនពេញលេញ ១០០% នូវគ្រប់វិនាទីដែលសាច់ត្រូវរលាក ឆ្អឹងត្រូវកិនបែក ឬក្បាលត្រូវកាត់។ ការកើតរូបរាងថ្មីឡើងវិញ មិនមែនជាការសង្គ្រោះឱ្យរួចខ្លួនឡើយ ប៉ុន្តែជាការ «បង្កើតឧបករណ៍ទទួលទុក្ខថ្មីមួយទៀតភ្លាមៗ» ដើម្បីបន្តសងបំណុលកម្មដែលខ្លួនបានសាង រហូតដល់វិនាទីចុងក្រោយ!',
         contentEn: 'When humans experience unbearable agony, biological pain-shock and neurovascular reflexes trigger fainting or coma to shield the mind from terminal sensory overload. In the hell realms, this protective mechanism is utterly abolished:\n\n1. No Anesthetic Numbness or Shock:\nIn Abhidhamma, hell denizens possess exceptionally dense, hyper-sensitive Kāya-pasāda-rūpa (bodily sentient receptors) suffusing every square millimeter of their anatomy—from the tips of their hair down to their toenails. There is zero sensory numbness.\n\n2. Unmitigated Agonizing Consciousness (Pure Dukkha-vedanā):\nTheir mental continuum is bound to continuous "Dukkha-sahagata-kāyaviññāṇa" (bodily consciousness accompanying excruciating physical pain). There is no opportunity for the mind to lapse into peaceful bhavanga or unconscious shock.\n\n3. Regeneration as Continuous Retribution:\nThey remain 100% conscious through every fraction of a second while being incinerated, crushed, flayed, or decapitated. The instant regeneration of their body is not an act of mercy, but the relentless manufacture of a fresh sensory instrument designed to discharge the precise remaining balance of their negative karmic debt!'
+      }
+    ]
+  },
+
+  // GEM 19: Hell Beings: Inability to Form Kusala, Inefficacy of Prayers, and Transferred Merit (Tipiṭaka & Abhidhamma)
+  {
+    id: 'hell-merit-prayers',
+    num: 19,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & នរក',
+    categoryEn: '💀 Hell: Prayers & Transferred Merit',
+    ref: 'ព្រះត្រៃបិដក, គម្ពីរអភិធម្ម, តិរោកុឌ្ឌសូត្រ (Khp 7) & ពាលបណ្ឌិតសូត្រ (MN 129)',
+    paliQuote: 'អត្ថានមេតំ អនវកាសោ យំ អញ្ញោ អញ្ញស្ស បាបកម្មំ បដិហនេយ្យ... អក្ខាតារោ តថាគតា (គ្មានហេតុ គ្មានឱកាសដែលអ្នកដទៃអាចកម្ចាត់បាបកម្មជំនួសអ្នកដទៃបានឡើយ... ព្រះតថាគតទាំងឡាយគ្រាន់តែជាអ្នកចង្អុលបង្ហាញផ្លូវប៉ុណ្ណោះ)',
+    questionKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម តើសត្វនរកមានឱកាសបង្កើតចិត្តកុសល ឬអាចបួងសួងសុំឱ្យព្រះ ឬទេវតាមកជួយស្រោចស្រង់រំដោះចេញពីរណ្តៅនរកបានដែរឬទេ?',
+    questionEn: 'According to the Tipiṭaka and Abhidhamma, can hell beings generate wholesome thoughts (kusala citta), or pray to the Buddha or Devas for divine rescue, or receive dedicated merit?',
+    shortKm: 'សត្វនរក ៖ បង្កើតកុសល បួងសួង ឬទទួលបុណ្យបានទេ?',
+    shortEn: 'Hell Beings: Kusala, Prayers & Transferred Merit',
+    essenceKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម នៅក្នុងភពនរក សត្វនរកស្ទើរតែគ្មានឱកាសអាចបង្កើតកុសលចិត្តបានឡើយ ហើយការបួងសួង ឬអង្វរសុំឱ្យព្រះ ឬទេវតាមកជួយស្រោចស្រង់ ក៏គ្មានប្រសិទ្ធភាពសូម្បីតែបន្តិចដែរ ពីព្រោះច្បាប់កម្មផល (កម្មនិយាម) ដំណើរការដោយស្វ័យប្រវត្តិតាមធម្មជាតិ ដោយគ្មានបុគ្គល អាទិទេព ឬព្រះពុទ្ធអង្គណាអាចកែប្រែ ឬលើកលែងទោសជំនួសបានឡើយ។ បុណ្យដែលញាតិឧទ្ទិសទៅពីលោកមនុស្ស ជួយសត្វនរកមិនបានឡើយ (០%) ព្រោះសត្វនរកកំពុងសោយទុក្ខវេទនាខ្លាំង មិនអាចជ្រះថ្លាអនុមោទនាបុណ្យបាន (បុណ្យឧទ្ទិសជួយបានតែពួក បរទត្តូបជីវីប្រេត មួយពួកគត់)។ សត្វនរកអាចរួចផុតពីនរកបានតែតាមផ្លូវមួយគត់ គឺ «ការសោយទុក្ខទាល់តែអស់កម្លាំងកម្មបាប (Kammakkhaya)» រួចទើបអំណាចនៃកុសលកម្មចាស់ៗពីអតីតជាតិ ផុសឡើងមកផ្តល់ផលនាំទៅកើតក្នុងសុគតិភពវិញ។',
+    essenceEn: 'According to the Tipiṭaka and Abhidhamma, hell beings have virtually zero opportunity to generate wholesome consciousness (kusala citta), and prayers or pleas to the Buddha or gods have zero efficacy because the law of kamma (kammaniyāma) operates as an immutable natural law beyond arbitrary divine intervention. Dedicated merit from human relatives cannot reach hell denizens (0%) because their minds are engulfed in severe torture, incapable of rejoicing (anumodanā); only Paradattūpajīvī-petas can receive transferred merit. The only escape from hell is the complete karmic exhaustion of that specific unwholesome debt (Kammakkhaya), after which latent past wholesome karma (aparāpariya-vedanīya-kamma) surfaces to propel rebirth into higher realms.',
+    practicalKm: 'កុំចាំដល់ធ្លាក់នរកទើបស្រែករកព្រះ ឬសង្ឃឹមឱ្យកូនចៅឧទ្ទិសបុណ្យឱ្យ ព្រោះដល់ពេលនោះគ្មាននរណាអាចជួយបានឡើយ សូម្បីព្រះពុទ្ធក៏មិនអាចកែប្រែកម្មជំនួសយើងបានដែរ។ ឱកាសមាសតែមួយគត់ គឺ «ពេលកំពុងមានជីវិតជាមនុស្ស និងមានស្មារតីពេញលេញ» នេះឯង។ ចូរប្រញាប់ប្រញាល់សាងបុណ្យកុសល រក្សាសីល និងចម្រើនភាវនាឱ្យបានរាល់ថ្ងៃ កុំបណ្តោយឱ្យពេលវេលាកន្លងផុតទៅដោយសេចក្តីធ្វេសប្រហែស (អប្បមាទធម៌)។',
+    practicalEn: 'Never defer spiritual vigilance until hellfire engulfs you, assuming prayers or posthumous dedication can rescue you. Not even a Buddha can annul another\'s kamma. The human rebirth is our solitary golden window to cultivate virtues, observe the precepts, and awaken liberating wisdom before the opportunity slips away.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៩', en: 'Q&A 39' },
+      { to: '/my-gems#hell-body-regeneration', km: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់?', en: 'Hell Body Regeneration' },
+      { to: '/my-gems#yamapala-nature', km: 'យមបាលនរក ៖ សត្វមានជីវិត ឬរូបយន្តកម្ម?', en: 'Yamapālas Nature' },
+      { to: '/merit-transfer', km: 'ពិធីឧទ្ទិសបុណ្យ & បរទត្តូបជីវីប្រេត', en: 'Merit Transfer & Petas' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' }
+    ],
+    sections: [
+      {
+        titleKm: '១. មូលហេតុតាមអភិធម្ម ដែលសត្វនរកមិនអាចបង្កើត «កុសលចិត្ត»',
+        titleEn: '1. Abhidhamma Mechanics: Why Kusala Citta Cannot Arise in Hell',
+        contentKm: 'នៅក្នុងគម្ពីរអភិធម្ម ចិត្តកើតឡើងអាស្រ័យលើ «អារម្មណ៍» (Ārammaṇa) ដែលមកប៉ះនឹងទ្វារវិញ្ញាណ ៖\n\n— ការជួបប្រទះតែ «អនិដ្ឋារម្មណ៍ជាបរមត្ថ» (Pure Undesirable Objects) ៖\nនៅក្នុងនរក រូបដែលឃើញ (ភ្លើង អាវុធ ឈាម) សំឡេងដែលឮ (សំឡេងស្រែកទ្រហោយំ សំឡេងកាប់ចាក់) និងការប៉ះពាល់កាយ (រលាក មុត ត្រជាក់កក) សុទ្ធសឹងតែជាអារម្មណ៍អាក្រក់បំផុតកម្រិតអតិបរមា។\n\n— ចិត្តត្រូវគ្របដណ្ដប់ដោយ «ទោសមូលចិត្ត» ២៤ ម៉ោង ៖\nនៅពេលជួបតែការឈឺចាប់ខ្លាំង ចិត្តរបស់សត្វនរកដំណើរការតែក្នុងរង្វង់ ទោសមូលចិត្ត ប្រកបដោយទោមនស្សវេទនា និងបដិឃៈ (កំហឹង ការឈឺចាប់ និងការភ័យខ្លាច) ឥតឈប់ឈរ។ គ្មានចន្លោះពេលណាដែលចិត្តអាចស្ងប់ ដើម្បីបង្កើត សតិ (ការដឹងខ្លួន), សទ្ធា (ជំនឿលើអំពើល្អ) ឬ បញ្ញា ដែលជាចេតសិកកុសលបានឡើយ។\n\n— ឧបមាអណ្តើកខ្វាក់ក្នុង «ពាលបណ្ឌិតសូត្រ» (MN 129) ៖\nព្រះពុទ្ធត្រាស់ថា ឱកាសដែលសត្វនរក ឬសត្វតិរច្ឆាន អាចបង្កើតចិត្តល្អដើម្បីបានត្រឡប់មកកើតជាមនុស្សវិញ គឺពិបាកជាង «សត្វអណ្តើកខ្វាក់ភ្នែកទាំងសងខាង ដែលរស់នៅបាតសមុទ្រ ហើយងើបក្បាលឡើងលើផ្ទៃទឹក ១០០ ឆ្នាំម្តង ឱ្យក្បាលរបស់វាលូកចំកណ្តាលប្រហោងនឹមនង្គ័លទោលមួយ ដែលកំពុងអណ្តែតរសាត់ប៉ើងតាមខ្យល់លើមហាសមុទ្រដ៏ធំធេង» ទៅទៀត។',
+        contentEn: 'In Abhidhamma epistemology, conscious states arise conditionally upon sensory objects (ārammaṇa) striking the sensory doors:\n\n— Exposure to Pure Aniṭṭhārammaṇa (Horrific Objects):\nIn hell, all visual shapes (raging fire, serrated blades, blood), sounds (agonized shrieks, clanging iron weapons), and bodily tactile contacts (third-degree incineration, arctic freezing) are exclusively and overwhelmingly repulsive (aniṭṭhārammaṇa).\n\n— 24/7 Domination by Dosa-Mūla-Citta (Aversion-Rooted Mind):\nTormented continuously, the mental continuum of hell denizens is locked in aversion-rooted consciousness accompanied by profound anguish (domanassa-vedanā) and psychic resistance (paṭigha). There is no psychological room for wholesome mental factors—such as mindfulness (sati), confidence (saddhā), non-hatred (adosa), or wisdom (paññā)—to germinate.\n\n— The Blind Sea Turtle Simile in Bālapaṇḍita Sutta (MN 129):\nThe Buddha declared that the likelihood of a hell denizen regaining human rebirth through spontaneous wholesome insight is far rarer than a blind sea turtle, surfacing once every 100 years from oceanic depths, randomly threading its head through a single wooden yoke tossed about by winds across the world oceans.'
+      },
+      {
+        titleKm: '២. ហេតុអ្វីបានជាការបួងសួង ឬការអង្វររកជំនួយ គ្មានប្រសិទ្ធភាព?',
+        titleEn: '2. Why Prayers and Pleas for Divine Rescue Are Powerless',
+        contentKm: 'ការបួងសួង ឬអង្វរករក្នុងនរក មិនអាចជួយសង្គ្រោះបានឡើយ ដោយសារហេតុផល ៣ យ៉ាង ៖',
+        contentEn: 'Prayers and supplications in hell yield zero efficacy for three structural reasons:',
+        points: [
+          {
+            boldKm: 'ការស្រែកអង្វរ កើតចេញពីទោសៈ និងតណ្ហា',
+            boldEn: 'Pleas Stem from Aversion & Craving, Not Wisdom',
+            km: 'សត្វនរកតែងតែលើកដៃសំពះ អង្វរពួកយមបាល និងស្រែកទ្រហោយំសុំឱ្យគេដោះលែង។ ប៉ុន្តែចិត្តដែលកំពុងស្រែកនោះ ជាចិត្តដែលកំពុងរងទុក្ខវេទនា ភ័យខ្លាច និងស្រេកឃ្លានការរួចខ្លួន (តណ្ហា និងទោសៈ) មិនមែនជាការភ្ញាក់រលឹកដឹងកំហុសដោយបញ្ញាឡើយ។',
+            en: 'Hell beings constantly wail, clasp their hands, and beg wardens for mercy. Yet that desperate cry arises from sheer physical agony, terror, and frantic craving to escape (taṇhā and dosa)—not genuine moral repentance anchored in liberating wisdom.'
+          },
+          {
+            boldKm: 'ព្រះពុទ្ធមិនមែនជាអ្នកលាងបាប (No Divine Intervention)',
+            boldEn: 'The Buddha Is a Guide, Not a Divine Absolver',
+            km: 'នៅក្នុងពុទ្ធសាសនាថេរវាទ ព្រះសម្មាសម្ពុទ្ធជា «អក្ខាតារោ» (អ្នកចង្អុលបង្ហាញផ្លូវ) ប៉ុណ្ណោះ ព្រះអង្គមិនមែនជាអ្នកបង្កើតចក្រវាឡ ឬជាអ្នកកាត់ទោសសត្វលោកឡើយ។ សូម្បីតែមហាករុណាទិគុណរបស់ព្រះពុទ្ធធំធេងយ៉ាងណាក៏ដោយ ក៏ព្រះអង្គមិនអាចលូកព្រះហស្តទៅស្រង់ ឬលុបលាងកម្មអកុសលរបស់សត្វណាម្នាក់បានឡើយ ព្រោះគ្មាននរណាម្នាក់ធំជាងច្បាប់កម្មផលនោះទេ។',
+            en: 'In Theravāda Buddhism, the Buddha is an "Akkhātāro" (Way-shower: Dhp 276). He is neither a creator deity nor a celestial judge. Despite infinite compassion, the Buddha cannot unilaterally annul another\'s karmic momentum, because no being transcends the universal law of kamma.'
+          },
+          {
+            boldKm: 'ស្តេចយមរាជ ឬទេវតា គ្មានសិទ្ធិលើកលែងទោស',
+            boldEn: 'King Yama and Devas Possess Zero Pardon Authority',
+            km: 'ដូចដែលបានបញ្ជាក់ក្នុង ទេវទូតសូត្រ ស្តេចយមរាជបានត្រាស់ប្រាប់សត្វនរកត្រង់ៗថា ៖ «អំពើអាក្រក់នេះ អ្នកបានធ្វើវាដោយខ្លួនឯង ម្តាយឪពុក ឬទេវតាមិនបានធ្វើជំនួសអ្នកទេ ដូច្នេះមានតែខ្លួនអ្នកប៉ុណ្ណោះដែលត្រូវទទួលវា»។ គ្មានយន្តការសូកប៉ាន់ ឬការសម្រាលទោសដោយការបួងសួងឡើយ។',
+            en: 'In the Devadūta Sutta, King Yama reminds the condemned: "This evil deed was done by you alone—neither parents, friends, nor devas did it for you. You alone must reap its fruit." There is no bribery, judicial discretion, or divine pardon.'
+          }
+        ]
+      },
+      {
+        titleKm: '៣. ចុះការឧទ្ទិសបុណ្យពីសាច់ញាតិលើលោកមនុស្ស អាចជួយស្រង់បានទេ?',
+        titleEn: '3. Can Dedicated Merit from Living Relatives Rescue Hell Beings? (Tirokuḍḍa Sutta)',
+        contentKm: 'យោងតាម តិរោកុឌ្ឌសូត្រ (ខុទ្ទកនិកាយ) និងគម្ពីរអភិធម្ម បុណ្យដែលញាតិមិត្តឧទ្ទិសទៅ (បត្តានុប្បទាន) អាចជួយបានតែពួកអបាយភូមិមួយក្រុមតូចប៉ុណ្ណោះ ៖',
+        contentEn: 'According to the Tirokuḍḍa Sutta (Khuddakapāṭha 7) and the Abhidhamma commentaries, transferred merit (pattidāna/pattānuppadāna) operates under rigorous conditions:',
+        points: [
+          {
+            boldKm: 'សត្វនរក (Niraya) ៖ ០% មិនអាចទទួលបុណ្យបានដាច់ខាត',
+            boldEn: 'Hell Denizens (Niraya): 0% Absolutely Ineligible',
+            km: 'កំពុងសោយទុក្ខវេទនាធ្ងន់ធ្ងរខ្លាំង ២៤ ម៉ោង មិនដឹងដំណឹង និងមិនអាចកើតចិត្តជ្រះថ្លាអនុមោទនាបុណ្យបានឡើយ។',
+            en: 'Submerged in 24/7 unremitting agony; completely unaware of human rituals and psychologically incapable of generating joyful appreciation (anumodanā-citta).'
+          },
+          {
+            boldKm: 'សត្វតិរច្ឆាន (Tiracchāna) ៖ ០% មិនអាចទទួលបុណ្យបាន',
+            boldEn: 'Animals (Tiracchāna): 0% Ineligible',
+            km: 'មានមោហៈក្រាស់ មិនស្គាល់អ្វីជាបុណ្យ អ្វីជាកុសល ឬការឧទ្ទិស។',
+            en: 'Dominated by dense delusion (moha); lacking conceptual understanding of merit and transference.'
+          },
+          {
+            boldKm: 'អសុរកាយ (Asura) ៖ ០% មិនអាចទទួលបុណ្យបាន',
+            boldEn: 'Asuras: 0% Ineligible',
+            km: 'ជាប់ជំពាក់នឹងការស្រេកឃ្លាន ការលាក់ខ្លួនក្នុងភាពងងឹត និងការភ័យខ្លាច។',
+            en: 'Consumed by nocturnal hiding, gnawing hunger, and terror.'
+          },
+          {
+            boldKm: 'ប្រេតទូទៅ (ភាគច្រើន) ៖ ០% មិនអាចទទួលបុណ្យបាន',
+            boldEn: 'General Petas: 0% Ineligible',
+            km: 'ដូចជា ខុប្បិបាសិកប្រេត (ឃ្លានជានិច្ច គ្មានពេលគិតរឿងបុណ្យ), និជ្ឈាមតណ្ហិកប្រេត (ភ្លើងឆេះកាយជានិច្ច)។',
+            en: 'Classes such as Khuppipāsika (insatiable starvation) and Nijjhāmataṇhika (eternally engulfed in internal flame) are overwhelmed by agony.'
+          },
+          {
+            boldKm: 'បរទត្តូបជីវីប្រេត (តែមួយពួកគត់) ៖ ១០០% អាចទទួលបុណ្យបាន',
+            boldEn: 'Paradattūpajīvī Petas (Sole Class): 100% Eligible',
+            km: 'ជាប្រេតដែលរស់នៅដោយសារការស៊ីចំណីបុណ្យដែលគេឧទ្ទិសឱ្យ ព្រោះពួកគេដឹងដំណឹង និងមានសមត្ថភាពបង្កើតចិត្ត «អនុមោទនា» (ត្រេកអរនឹងបុណ្យ) បានភ្លាមៗមួយរំពេច។',
+            en: 'The singular realm of spirits living on gifts of others; they perceive the dedication, rejoice with pure hearts (anumodanā), and instantly transform their rebirth into celestial bliss.'
+          }
+        ]
+      },
+      {
+        titleKm: '៤. ករណីលើកលែងដ៏កម្រ ៖ ពន្លឺព្រះពុទ្ធក្នុង «លោកន្តរិកនរក»',
+        titleEn: '4. The Singular Cosmic Anomaly: Buddha\'s Light in the Lokantarika Hell',
+        contentKm: 'មានករណីតែមួយគត់ដែលសត្វនរកទទួលបានការធូរស្បើយមួយប៉ប្រិចភ្នែក ប៉ុន្តែក៏មិនមែនជាការស្រោចស្រង់ឱ្យរួចពីនរកទាំងស្រុងដែរ ៖\n\n— ទីតាំងលោកន្តរិកនរក ៖ ជាអន្តរនរកដ៏ត្រជាក់សូន្យសុង ស្ថិតនៅចន្លោះចក្រវាឡទាំង ៣ ដែលគ្មានពន្លឺព្រះអាទិត្យ ឬព្រះចន្ទទៅដល់ឡើយ។\n\n— ព្រឹត្តិការណ៍អស្ចារ្យ ៤ លើក ៖ នៅពេលដែលព្រះពោធិសត្វចុះចាប់បដិសន្ធិក្នុងផ្ទៃមាតា, ពេលត្រាស់ដឹង, ពេលបង្វិលកង់ធម៌ (ធម្មចក្កប្បវត្តនសូត្រ), និងពេលបរិនិព្វាន អានុភាពនៃព្រះធម៌ធ្វើឱ្យចក្រវាឡរំជើបរំជួល ហើយមាន រស្មីដ៏ត្រចះត្រចង់មួយភ្លែត ជះទម្លុះចូលទៅក្នុងលោកន្តរិកនរកនោះ។\n\n— ភាពភ្ញាក់ផ្អើលរបស់សត្វនរក ៖ ក្នុងមួយវិនាទីនោះ សត្វនរកដែលតោងជញ្ជាំងចក្រវាឡក្នុងភាពងងឹតស្លុប បានមើលឃើញគ្នាទៅវិញទៅមក ហើយលាន់មាត់ថា ៖ «ឱហ្ន៎! ចម្លែកណាស់ មិនមែនមានតែយើងម្នាក់ឯងទេតើ ដែលនៅទីនេះ ក៏មានសត្វដទៃទៀតរស់នៅទីនេះដែរ!» ប៉ុន្តែមួយភ្លែតក្រោយមក ពន្លឺនោះក៏រលត់បាត់ទៅវិញ ហើយពួកគេក៏បន្តរងទុក្ខដដែល។',
+        contentEn: 'There is only one canonical cosmic event where hell beings experience a momentary microsecond of visual clarity, though it does not liberate them:\n\n— The Lokantarika Hell Realm:\nThe abyssal, freezing interstitial voids located between three adjacent world-systems, shrouded in pitch-black darkness unreachable by sun or moon.\n\n— 4 Miraculous Buddha Events:\nAt the Bodhisatta\'s final Conception, Supreme Enlightenment, First Sermon (Dhammacakkappavattana Sutta), and Final Parinibbāna, the entire cosmos vibrates, and an unearthly radiance flashes into Lokantarika for a split second.\n\n— The Transient Shock:\nClinging to the icy outer cosmic walls, the beings momentarily perceive one another and exclaim: "Amazing! Truly, other sentient beings dwell here besides myself!" But the flash dissolves in a heartbeat, and the cold darkness reclaims them.'
+      },
+      {
+        titleKm: '៥. តើសត្វនរកអាចរួចផុតពីនរកដោយរបៀបណា?',
+        titleEn: '5. How Do Hell Beings Ultimately Escape? (Kammakkhaya)',
+        contentKm: 'សត្វនរកមានច្រកចេញតែមួយគត់ គឺ «ការសោយទុក្ខទាល់តែអស់កម្លាំងនៃកម្មបាប» (យាវ ន តំ បាបកម្មំ ខីយតិ — Kammakkhaya) ៖\n\n១. អស់ថាមពលនៃបាប ៖ នៅពេលដែលទម្ងន់នៃអកុសលកម្មដែលនាំទៅកើតក្នុងនរកនោះ ត្រូវដុតរលាយអស់ថាមពលតាមកាលកំណត់ (រាប់ពាន់ រាប់លាន ឬរាប់កោដិឆ្នាំ)។\n២. កុសលចាស់រើបម្រះឡើង ៖ នៅវិនាទីចុងក្រោយ កុសលកម្មចាស់ៗកាលពីរាប់រយជាតិមុន (អបរាបរិយវេទនីយកម្ម) ដែលធ្លាប់កប់ទុកក្នុងភវង្គចិត្ត នឹងចាប់ផ្តើមមានឱកាសរើបម្រះឡើងមកលើផ្ទៃមនោទ្វារ។\n៣. ការចាប់កំណើតថ្មី ៖ ចុតិចិត្តក្នុងនរករលត់ទៅ ហើយ បដិសន្ធិចិត្តថ្មី ក៏ចាប់កំណើតឡើងក្នុងភពផ្សេង (អាចជាសត្វតិរច្ឆាន ប្រេត ឬមនុស្ស) ទៅតាមកម្លាំងកម្មបន្ទាប់នោះឯង។',
+        contentEn: 'Hell denizens have only one escape hatch: the complete exhaustion of that specific unwholesome karmic energy (Kammakkhaya):\n\n1. Karmic Depletion: When the horrific negative momentum that cast them into hell burns through its allotted lifespan (be it thousands, millions, or trillions of cosmic years).\n2. Latent Merit Resurfaces: In the final moments of life in hell, ancient wholesome deeds performed in distant past lifetimes (aparāpariya-vedanīya-kamma), long dormant in the bhavanga continuum, find room to register at the mind-door.\n3. Rebirth into Higher Spheres: The hell death-consciousness (cuti-citta) ceases, immediately followed by patisandhi-citta into another plane (as animal, peta, or human) guided by that next ripened karma.'
       }
     ]
   }

@@ -301,7 +301,8 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១២)', en: 'All (12)' },
+  { id: 'all', km: 'ទាំងអស់ (១៣)', en: 'All (13)' },
+  { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
   { id: 'arrow', km: '🎯 ឧបមាព្រួញ & ទស្សនវិជ្ជា', en: '🎯 Arrow & Pragmatism' },
@@ -942,6 +943,75 @@ const gems = ref([
         titleEn: '4. Mind-Born Radiance: Cittaja-Rūpa Decontaminating Environmental Space',
         contentKm: 'យោងតាមគម្ពីរវិសុទ្ធិមគ្គ រាល់ពេលដែលបុគ្គលម្នាក់ៗរក្សាសីល និងចម្រើនមេត្តាភាវនា ចិត្តនោះបង្កើតនូវ «ចិត្តជរូប» (រូបដែលកើតអំពីចិត្ត) ដែលមានរលកធាតុត្រជាក់ និងសុខដុមរមនា។\n\nនៅពេលមនុស្សរាប់លាននាក់នៅក្នុងប្រទេសមួយ (ដូចជានៅដែនដីកុរុ ឬកលិង្គរដ្ឋ) រក្សាសីល ៥ ព្រមៗគ្នា រលកថាមពលនៃចិត្តស្ងប់នេះ បានសាយភាយគ្របដណ្តប់បរិយាកាសផែនដីទាំងមូល។ កម្លាំងនេះបានទៅបន្សាប «វិទ្យុសកម្មនៃកម្ដៅកិលេស» ក្នុងលំហអាកាស ជួយសម្រួលឱ្យឧតុនិយាមនៃធម្មជាតិ ដំណើរការទៅតាមគន្លងតុល្យភាពដើមរបស់វាដោយស្វ័យប្រវត្តិ។',
         contentEn: 'According to the Visuddhimagga, whenever an individual maintains pure virtue and cultivates mettā, consciousness generates Cittaja-rūpa (mind-born subtle matter) radiating cooling, harmonious subatomic vibrational waves.\n\nWhen millions of citizens collectively observe the 5 Precepts simultaneously (as in Kuru and Kaliṅga), these soothing vibrational waves saturate the regional atmosphere. This psychic de-escalation neutralizes the thermodynamic friction of greed and hatred in the skies, allowing planetary Utu-niyāma to restore its natural equilibrium effortlessly.'
+      }
+    ]
+  },
+
+  // GEM 13: Full 5-Stage Process of Death (Maraṇāsanna) & Instant Rebirth (Paṭisandhi-citta)
+  {
+    id: 'death-rebirth-process',
+    num: 13,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & បដិសន្ធិ',
+    categoryEn: '💀 Death Process & Rebirth',
+    ref: 'គម្ពីរអភិធម្មត្ថសង្គហៈ (វិថីសង្គហៈ) & វិសុទ្ធិមគ្គ (មរណានុស្សតិនិទ្ទេស)',
+    paliQuote: 'ចុតិ ចេតនា បដិសន្ធិ... អនន្តរា បដិសន្ធិ ភវតិ (ខណៈចុតិចិត្តរលត់ផុតទៅភ្លាម បដិសន្ធិចិត្តក៏កើតឡើងតគ្នាភ្លាម ដោយគ្មានចន្លោះពេលឡើយ)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ តើដំណើរការនៃពេលដែលមនុស្សម្នាក់ស្លាប់ (មរណាសន្នសម័យ) និងការតភ្ជាប់ជាតិថ្មី មានដំណើរការយ៉ាងលម្អិតដូចម្ដេចខ្លះ?',
+    questionEn: 'According to the Abhidhamma and Visuddhimagga, what is the exact physical and psychological step-by-step process during death (Maraṇāsanna) and instant rebirth?',
+    shortKm: 'ដំណើរការពេលស្លាប់ ៥ ដំណាក់កាល & បដិសន្ធិ',
+    shortEn: '5 Stages of Death & Instant Rebirth',
+    essenceKm: 'ដំណើរការនៃពេលមនុស្សស្លាប់ (មរណាសន្នសម័យ) ក្នុងអភិធម្ម មិនមែនជាការរលត់បាត់ដោយចៃដន្យឡើយ តែឆ្លងកាត់ ៥ ដំណាក់កាលធំៗ ៖ (១) ធាតុទាំង ៤ រលំដួលជាលំដាប់ (ដី ទឹក ភ្លើង ខ្យល់) -> (២) វិញ្ញាណដកថយពីទ្វារទាំង ៥ មកប្រមូលផ្តុំនៅមនោទ្វារត្រង់បេះដូង -> (៣) និមិត្ត ៣ យ៉ាងបង្ហាញខ្លួនជាខ្សែភាពយន្តចុងក្រោយ (កម្ម, កម្មនិមិត្ត, គតនិមិត្ត) -> (៤) មរណាសន្នវិថីដំណើរការ ជវនចិត្ត ៥ ខណៈ កំណត់អារម្មណ៍ចុងក្រោយ រួចចុតិចិត្តកើតឡើងកាត់ផ្តាច់រូបកាយចាស់ -> (៥) គ្មានអន្តរភព (គ្មានការរង់ចាំ ៧ ឬ ៤៩ ថ្ងៃក្នុងថេរវាទ) បដិសន្ធិចិត្តកើតឡើងក្នុងភពថ្មីភ្លាមៗ មួយរំពេចបន្ទាប់ពីចុតិចិត្តរលត់ ប្រៀបដូចត្រាដែកដក់លើដីឥដ្ឋ ឬភ្លើងទៀនអុជបន្តគ្នា!',
+    essenceEn: 'The death process (Maraṇāsanna-samaya) according to Abhidhamma unfolds in 5 precise sequential stages: (1) Physical dissolution of the 4 elements (Earth, Water, Fire, Wind); (2) Sensory shutdown across the 5 outer doors, converging entirely into the Mind Door at the heart base; (3) The emergence of 3 Death Visions (Kamma, Kamma-nimitta, Gati-nimitta); (4) Maraṇāsanna-vīthi with 5 Javana mind-moments determining the dying mental state, culminating in Cuti-citta severing physical life; (5) Instantaneous rebirth (Paṭisandhi-citta) in the next destination with zero time gap — no 7-day or 49-day intermediate limbo (no Bardo in Theravāda), analogous to a seal impressed on clay or flame lighting flame.',
+    practicalKm: 'ការរៀនដឹងពីដំណើរការពេលស្លាប់ ជួយឱ្យយើងមិនភ័យខ្លាច មិនភ័ន្តច្រឡំ និងដឹងពីរបៀបត្រៀមខ្លួន ៖ (១) ហ្វឹកហាត់ចម្រើនសតិក្នុងបច្ចុប្បន្ន ព្រោះជវនចិត្តពេលស្លាប់មានត្រឹមតែ ៥ ខណៈ ចិត្តទន់ខ្សោយណាស់ ត្រូវពឹងលើទម្លាប់សតិចាស់ (២) ធ្វើបុណ្យ និងរក្សាសីលជាប្រចាំ ដើម្បីឱ្យ «កម្មនិមិត្តល្អ» លេចឡើងពេលជិតស្លាប់ (៣) សម្រាប់សាច់ញាតិ ចូរបង្កើតបរិយាកាសស្ងប់ស្ងាត់ រំលឹកបុណ្យកុសល បើកធម៌ ឬពោលពាក្យសច្ចៈផ្អែមល្ហែម កុំយំសោកក្បែរអ្នកជំងឺ ដែលនាំឱ្យគេកើតទោសៈ ឬជាប់ជំពាក់អាឡោះអាល័យ!',
+    practicalEn: 'Understanding the death process removes terror and confusion, providing actionable preparation: (1) Cultivate continuous mindfulness now, as the 5 weak Javana moments at death cannot improvise and must rely on lifelong habits; (2) Live virtuously so bright Kamma-nimittas arise naturally; (3) Loved ones should maintain calm, chant Dhamma softly, and recount good deeds, avoiding crying which incites grief, clinging, or anger in the dying mind.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៣', en: 'Q&A 33' },
+      { to: '/death-and-rebirth', km: 'មរណាសន្នវិថី & បដិសន្ធិពិស្តារ', en: 'Death & Rebirth Deep Dive' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់', en: '31 Planes of Existence' },
+      { to: '/citta-vithi', km: 'ដំណើរវិថីចិត្ត ១៧ ខណៈ', en: 'Citta Vīthi Matrix' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ការរលំដួលនៃរូបធាតុទាំង ៤ ក្នុងរាងកាយ (Physical Dissolution)',
+        titleEn: '1. Dissolution of the 4 Physical Elements (Mahābhūta-rūpa)',
+        contentKm: 'នៅពេលកម្លាំងកម្មចាស់ជិតអស់ ហើយជីវិតិន្ទ្រិយ (កម្លាំងទ្រទ្រង់ជីវិត) ចាប់ផ្តើមចុះខ្សោយ មហាភូតរូបទាំង ៤ ចាប់ផ្តើមរលាយលំនឹងជាបន្តបន្ទាប់ ៖',
+        contentEn: 'As the past life-sustaining karmic force nears exhaustion and jīvitindriya (vital vitality) diminishes, the four physical elements systematically collapse:',
+        points: [
+          { boldKm: 'បឋវីធាតុចុះខ្សោយ (ធាតុដី)', boldEn: 'Earth Element (Pathavī) Fails', km: 'សាច់ ដុំសាច់ និងឆ្អឹងបាត់បង់ភាពរឹងមាំ។ មនុស្សមានអារម្មណ៍ថាខ្លួនធ្ងន់ដូចភ្នំសង្កត់ លើកដៃជើងមិនរួច មានអារម្មណ៍ដូចកំពុងលិចចុះទៅក្នុងដី ឬកប់ជ្រៅទៅក្នុងពូក។', en: 'Muscles and bones lose structural cohesion; the body feels overwhelmingly heavy as though crushed by a mountain, unable to lift limbs, feeling swallowed into the bed.' },
+          { boldKm: 'អាបោធាតុចុះខ្សោយ (ធាតុទឹក)', boldEn: 'Water Element (Āpo) Fails', km: 'ការគ្រប់គ្រងសារធាតុរាវក្នុងខ្លួនចាប់ផ្តើមបាត់បង់។ មាត់ បំពង់ក ច្រមុះស្ងួតហួតហែង ស្រេកទឹកខ្លាំង ភ្នែកស្រអាប់ ខ្លះបែកញើសស្អិត ឬលេចទឹកនោមលាមកដោយមិនដឹងខ្លួន។', en: 'Fluid regulation fails; lips, mouth, throat, and nostrils become parched with acute thirst; eyes glaze over; cold clammy sweat breaks out; sphincters involuntarily relax.' },
+          { boldKm: 'តេជោធាតុចុះខ្សោយ (ធាតុភ្លើង / កម្ដៅ)', boldEn: 'Fire Element (Tejo) Fails', km: 'កម្ដៅក្នុងរាងកាយចាប់ផ្តើមរលត់ថយក្រោយ។ រាងកាយត្រជាក់ចាប់ពីចុងជើង ចុងដៃ ឡើងមកលើជាលំដាប់ ដោយនៅសល់កម្ដៅចុងក្រោយត្រង់តំបន់បេះដូង (ហទយវត្ថុ)។', en: 'Thermal energy recedes inward; limbs turn icy cold progressing from toes and fingers upward, with the final vestige of warmth localized around the heart base (hadaya-vatthu).' },
+          { boldKm: 'វាយោធាតុចុះខ្សោយ (ធាតុខ្យល់)', boldEn: 'Wind Element (Vāyo) Fails', km: 'ចលនាដង្ហើមចាប់ផ្តើមរអាក់រអួល។ ការដកដង្ហើមចូលកាន់តែខ្លី ដង្ហើមចេញកាន់តែវែង និងពិបាក ដង្ហើមមានសំឡេងក្អកៗ ឬដង្ហក់ខ្លាំង (ខ្យល់កាត់កាយ) រហូតដល់ដង្ហើមចេញចុងក្រោយផុតទៅ។', en: 'Respiratory motion destabilizes; inhalations become brief and shallow while exhalations become prolonged and labored (death rattle/agonal respiration) until the final breath ceases.' }
+        ]
+      },
+      {
+        titleKm: '២. វិញ្ញាណដកថយពីទ្វារទាំង ៥ មកកាន់មនោទ្វារ (Sensory Shutdown)',
+        titleEn: '2. Sensory Shutdown & Convergence into the Mind Door (Mano-dvāra)',
+        contentKm: 'នៅពេលរាងកាយចុះខ្សោយដល់កម្រិតធ្ងន់ធ្ងរ ៖\n១. ភ្នែក ត្រចៀក ច្រមុះ អណ្តាត និងស្បែកកាយ លែងទទួលយកអារម្មណ៍ខាងក្រៅបានទៀតហើយ (ភ្នែកមើលលែងច្បាស់ ឬងងឹតឈឹង ត្រចៀកឮសំឡេងស្រអាប់ៗពីចម្ងាយ)។\n២. ចិត្តទាំងមូលដកថយចេញពីពិភពខាងក្រៅ ហើយប្រមូលផ្តុំមកធ្វើការនៅកន្លែងតែមួយគត់ គឺ «មនោទ្វារ» (Mind Door) ត្រង់ហទយវត្ថុ (ក្នុងបេះដូង)។\n៣. ក្នុងដំណាក់កាលនេះ ទោះបីជាមនុស្សខាងក្រៅនិយាយ ឬយំយ៉ាងណា អ្នកជំងឺអាចនឹងមិនដឹងឮទៀតឡើយ ព្រោះចិត្តបានបិទទ្វារខាងក្រៅទាំងអស់ ហើយកំពុងដំណើរការពិភពខាងក្នុងយ៉ាងមមាញឹក។',
+        contentEn: 'As physical vitality collapses:\n1. Visual, auditory, olfactory, gustatory, and tactile faculties progressively cease processing external sensory stimuli (eyes dim or go dark, voices sound distant and muffled).\n2. Consciousness detaches completely from external horizons, converging strictly into the "Mind Door" (Mano-dvāra) grounded at the heart physical base (hadaya-vatthu).\n3. External speech or sobbing from bystanders may no longer register consciously; the dying person is now fully immersed in the internal experiential drama of memory and karma.'
+      },
+      {
+        titleKm: '៣. ការលេចឡើងនៃ «និមិត្ត ៣ យ៉ាង» នៅមនោទ្វារ (The 3 Death Visions)',
+        titleEn: '3. The 3 Death Visions at the Mind Door (Maraṇāsanna-nimitta)',
+        contentKm: 'មុនពេលខ្យល់ដង្ហើមដាច់ ក្នុងចិត្តរបស់មនុស្សម្នាក់ៗនឹងបង្ហាញនូវ «ខ្សែភាពយន្តជីវិតចុងក្រោយ» យ៉ាងច្បាស់ក្រឡែត ដោយមិនអាចកុហក ឬគេចវេះបានឡើយ។ និមិត្តណាមួយក្នុងចំណោម ៣ នេះ នឹងលេចឡើង ៖',
+        contentEn: 'Before the final breath, the mind projects an unvarnished cinematic replay of life; one of three types of visions inexorably emerges at the Mind Door:',
+        points: [
+          { boldKm: '១. កម្ម (Kamma — សកម្មភាពអតីតកាល)', boldEn: '1. Kamma (Action Flashback)', km: 'ចិត្តនឹកឃើញទង្វើល្អ ឬអាក្រក់ដែលខ្លួនធ្លាប់បានធ្វើកន្លងមក ដូចជា រូបភាពពេលកំពុងធ្វើបុណ្យ ជួយអ្នកដទៃ ការបួស ឬរូបភាពពេលឈ្លោះប្រកែក កាប់សម្លាប់ លួចទ្រព្យ ឬធ្វើបាបអ្នកដទៃ។', en: 'Flashback of past deeds: mental replay of giving alms, protecting others, ordained life, or memories of violence, theft, cruelty, or betrayal.' },
+          { boldKm: '២. កម្មនិមិត្ត (Kamma-nimitta — ឧបករណ៍/សញ្ញានៃទង្វើ)', boldEn: '2. Kamma-nimitta (Instruments of Action)', km: 'មើលឃើញរបស់របរដែលជាប់ពាក់ព័ន្ធនឹងទង្វើនោះ ដូចជា ឃើញផ្កាឈូក កែវភ្នែកព្រះពុទ្ធ ព្រះសង្ឃ សំពត់កាសាវពស្ត្រ (បើធ្វើបុណ្យ) ឬឃើញកាំបិត កាំភ្លើង ដបស្រា ទឹកភ្នែកសត្វដែលខ្លួនធ្លាប់សម្លាប់ (បើធ្វើបាប)។', en: 'Objects and symbols associated with past actions: lotus flowers, Buddha images, monks’ saffron robes, scriptures (if wholesome); or weapons, butcher knives, liquor bottles, butchered animals (if unwholesome).' },
+          { boldKm: '៣. គតនិមិត្ត (Gati-nimitta — សញ្ញានៃទីកន្លែងដែលត្រូវទៅកើត)', boldEn: '3. Gati-nimitta (Signs of Next Destination)', km: 'មើលឃើញទិដ្ឋភាពនៃភពថ្មី ដូចជា ប្រាសាទកែវ សួនផ្កា ពន្លឺភ្លឺស្រស់ស្អាត ផ្ទៃមេឃ (ទៅឋានសួគ៌/មនុស្ស) ឬឃើញអណ្តាតភ្លើង ផ្សែងខ្មៅ ជ្រោះជ្រៅ ឆ្កែព្រៃ ឬមនុស្សមុខកាចៗដេញចាប់ (ធ្លាក់នរក/ប្រេត)។', en: 'Visions of the destination awaiting them: celestial mansions, glowing gardens, radiant light, peaceful landscapes (heaven/human realm); or blazing fires, black smoke, chasms, predatory beasts, or terrifying figures (hell/peta realms).' }
+        ]
+      },
+      {
+        titleKm: '៤. មរណាសន្នវិថី និងចុតិចិត្ត (The Final Consciousness)',
+        titleEn: '4. The Maraṇāsanna Vīthi & Severing Cuti-citta',
+        contentKm: 'នៅក្នុងគម្ពីរអភិធម្ម ចិត្តចុងក្រោយដំណើរការយ៉ាងលឿនបំផុតត្រឹមតែប៉ុន្មានរំពេចប៉ុណ្ណោះ ៖\n\n១. ការកម្រើកនៃភវង្គចិត្ត ៖ ភវង្គ (ចរន្តចិត្តក្រោមដឹង) ញ័ររំញើប រួចបើកមនោទ្វារទទួលយករូបនិមិត្តណាមួយខាងលើ។\n\n២. ជវនចិត្ត ៥ ខណៈ (Javana Moments) ៖\n— ធម្មតាក្នុងពេលរស់នៅ ជវនចិត្ត (ចិត្តដែលទទួលដឹងរសជាតិអារម្មណ៍ និងសាងកម្ម) មាន ៧ ខណៈ។\n— ប៉ុន្តែនៅពេលជិតស្លាប់ ដោយសារកម្លាំងបេះដូង និងកាយចុះខ្សោយខ្លាំង ជវនចិត្តដំណើរការបានត្រឹមតែ ៥ ខណៈប៉ុណ្ណោះ។\n— ជវនចិត្តទាំង ៥ នេះហើយ ជាអ្នកកំណត់ អារម្មណ៍ចុងក្រោយ (ស្ងប់ស្ងាត់ ជ្រះថ្លា ភ័យខ្លាច ឬក្តៅក្រហាយ)។\n\n៣. ចុតិចិត្ត (Cuti-citta — ចិត្តចុងក្រោយបង្អស់) ៖\n— ពេលជវនចិត្តរលត់ផុតទៅ ចុតិចិត្តកើតឡើងមួយខណៈ ដើម្បីបំពេញកាតព្វកិច្ច «កាត់ផ្តាច់» ការតភ្ជាប់រវាងចិត្ត និងរូបកាយចាស់នេះជាផ្លូវការ។\n— ពេលចុតិចិត្តរលត់ទៅ រាងកាយក៏ក្លាយទៅជាសាកសព (ធាតុដីគ្មានវិញ្ញាណ)។',
+        contentEn: 'In Abhidhamma, the final mental trajectory executes in fleeting micro-moments:\n\n1. Bhavanga Oscillation: The subconscious life-continuum vibrates and subsides, opening the Mind Door to receive the death vision.\n\n2. 5 Javana Moments (Active Karma Processing):\n— In ordinary waking life, the javana cycle comprises 7 moments.\n— Near death, weakened by cardiovascular and biological collapse, the javanas run only 5 moments.\n— These 5 javanas experience the final emotional charge (peace, faith, joy, terror, or agitation) and encode the karmic momentum.\n\n3. Cuti-citta (The Final Cut-Off Consciousness):\n— Immediately succeeding the javana/tadārammaṇa sequence, Cuti-citta arises for a single mind-moment to fulfill the definitive duty of severing the mind-body link of the present life.\n— The moment Cuti-citta dissolves, the body is officially a corpse — lifeless matter devoid of consciousness.'
+      },
+      {
+        titleKm: '៥. ការតភ្ជាប់ជាតិថ្មីភ្លាមៗ (Instant Rebirth / Paṭisandhi-citta)',
+        titleEn: '5. Instant Rebirth: No 7 or 49-Day Limbo (Theravāda Reality)',
+        contentKm: 'យោងតាមគម្ពីរអភិធម្មថេរវាទ មិនមានព្រលឹងវិញ្ញាណហោះហើរតាក់តេង ឬនៅរង់ចាំ ៧ ថ្ងៃ ឬ ៤៩ ថ្ងៃ (គ្មានអន្តរភព / Bardo) ឡើយ ៖\n\n— ល្បឿននៃការតភ្ជាប់ ៖ មួយខណៈបន្ទាប់ពី ចុតិចិត្ត ក្នុងជាតិនេះរលត់ទៅភ្លាម បដិសន្ធិចិត្ត (Paṭisandhi-citta) នៅក្នុងភពថ្មីនឹងកើតឡើង តកន្ទុយគ្នាភ្លាមៗ ដោយគ្មានចន្លោះពេលសូម្បីតែមួយវិនាទី (អនន្តរបច្ច័យ)។\n\n— ឧបមាប្រៀបធៀប ២ យ៉ាង ៖\n១. ប្រៀបដូចជាត្រាដែលដក់លើដីឥដ្ឋ ៖ ពេលត្រាដែកងើបឡើង ដានស្នាមត្រាក៏កើតលើដីឥដ្ឋស្របគ្នា (មិនមែនលោហៈត្រាហោះទៅនៅនឹងដីឥដ្ឋទេ ប៉ុន្តែដានត្រាកើតពីត្រា)។\n២. ប្រៀបដូចជាពន្លឺភ្លើងនៃទៀនមួយដើមដែលយកទៅអុជបន្តទៀនមួយទៀត ៖ ពន្លឺពីទៀនទីមួយមិនបានហោះទៅទេ ប៉ុន្តែវាជាបច្ច័យធ្វើឱ្យភ្លើងទៀនទីពីរកើតឡើងភ្លាមៗ។\n\n— ប្រសិនបើផលនៃកម្មចុងក្រោយជាកុសល បដិសន្ធិចិត្តនឹងទៅចាប់កំណើតក្នុងផ្ទៃម្តាយជាមនុស្ស ឬផុសឡើងជាទេវតាភ្លាមៗ (ឧបបាតិកកំណើត)។ ប្រសិនបើជាអកុសល វានឹងទៅចាប់កំណើតក្នុងភពសត្វតិរច្ឆាន ប្រេត ឬនរកភ្លាមៗក្នុងពេលនោះឯង!',
+        contentEn: 'According to Theravāda Abhidhamma, there is no drifting wandering soul awaiting rebirth for 7 or 49 days (no Antarābhava or Bardo):\n\n— Immediate Contiguity: In the exact micro-moment following the dissolution of Cuti-citta, Rebirth-Linking Consciousness (Paṭisandhi-citta) ignites in the new realm via Anantara-paccaya (Proximity Condition) with zero time interval.\n\n— Two Classical Analogies:\n1. The seal impressed on clay: As the die lifts, the impression appears simultaneously; no physical metal migrates, yet the mark is causally produced by the die.\n2. One candle lighting another: The flame from the first candle does not fly across space, yet it is the direct causal condition igniting the new flame.\n\n— If the concluding karmic momentum is wholesome, rebirth immediately manifests in a human womb or apparitionally as a Deva; if unwholesome, it instantly awakens in animal, ghost (peta), or hell realms.'
       }
     ]
   }

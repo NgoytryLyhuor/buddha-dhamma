@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣២ — សួរតាមដែលអ្នកជួប', 'Q&A 32 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៣ — សួរតាមដែលអ្នកជួប', 'Q&A 33 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣២ — ចុចដើម្បីបើកមើល', 'THIRTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៣ — ចុចដើម្បីបើកមើល', 'THIRTY-THREE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -320,6 +320,16 @@ const qas = [
     mE: 'Mental consciousness shapes physical reality; virtue and the 5 Precepts balance heat, wind, and water to bring timely, life-giving rain.',
     tie: 'យន្តការអភិធម្ម និងធាតុអាកាស · /my-gems#sila-weather-physics',
     to: '/my-gems#sila-weather-physics',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ តើដំណើរការនៃពេលដែលមនុស្សម្នាក់ស្លាប់ (មរណាសន្នសម័យ) និងការតភ្ជាប់ជាតិថ្មី មានដំណើរការយ៉ាងលម្អិតដូចម្ដេចខ្លះ?',
+    qE: 'According to Abhidhamma and Visuddhimagga, what is the exact step-by-step process of death (Maraṇāsanna) and instant rebirth?',
+    aK: 'នៅក្នុងគម្ពីរអភិធម្ម និងវិសុទ្ធិមគ្គ ការស្លាប់ឆ្លងកាត់ ៥ ដំណាក់កាលធំៗ ៖ (១) ធាតុទាំង ៤ រលំដួលជាលំដាប់ — ដី (រាងកាយធ្ងន់ដូចភ្នំសង្កត់) -> ទឹក (មាត់បំពង់កស្ងួតហួតហែង បែកញើសស្អិត) -> ភ្លើង (រាងកាយត្រជាក់ពីចុងជើងឡើងលើ នៅសល់កម្ដៅចុងក្រោយត្រង់បេះដូង) -> ខ្យល់ (ដង្ហើមខ្លី ដង្ហក់ខ្យល់កាត់កាយរហូតដល់ដាច់ដង្ហើម) (២) វិញ្ញាណដកថយពីទ្វារទាំង ៥ មកប្រមូលផ្តុំនៅ «មនោទ្វារ» ក្នុងបេះដូង (៣) និមិត្ត ៣ យ៉ាងលេចឡើងនៅមនោទ្វារ — កម្ម (រូបភាពទង្វើកន្លងមក), កម្មនិមិត្ត (ឧបករណ៍/សញ្ញា ដូចជាផ្កាឈូក ព្រះសង្ឃ ឬកាំបិត សត្វយំ), គតនិមិត្ត (សញ្ញាទីកន្លែងថ្មី ដូចជាប្រាសាទកែវ ឬភ្លើងនរក) (៤) មរណាសន្នវិថីដំណើរការ ជវនចិត្ត ៥ ខណៈ (ចុះខ្សោយពី ៧ មក ៥) កំណត់អារម្មណ៍ចុងក្រោយ រួចចុតិចិត្តកើតឡើងកាត់ផ្តាច់រូបកាយចាស់ (៥) គ្មានអន្តរភព (គ្មានការរង់ចាំ ៧ ឬ ៤៩ ថ្ងៃក្នុងថេរវាទ) មួយខណៈបន្ទាប់ពីចុតិចិត្តរលត់ បដិសន្ធិចិត្តកើតឡើងក្នុងភពថ្មីភ្លាមៗ គ្មានចន្លោះពេល ប្រៀបដូចត្រាដក់លើដីឥដ្ឋ ឬភ្លើងទៀនអុជបន្តគ្នា។',
+    aE: 'In Abhidhamma and Visuddhimagga, death systematically proceeds in 5 stages: (1) 4 elements collapse sequentially — Earth (body feels crushed), Water (extreme parched throat, cold sweat), Fire (limbs turn icy cold progressing to heart), Wind (ragged agonal breathing ceases); (2) 5 sense doors shut down, converging into the Mind Door at the heart base; (3) 3 Death Visions manifest — Kamma (past deeds), Kamma-nimitta (symbols: lotus/monks vs weapons/slaughtered animals), Gati-nimitta (destinations: celestial mansions vs fires of hell); (4) Maraṇāsanna-vīthi with 5 Javana moments encapsulates the final state, followed by Cuti-citta severing life; (5) Instant rebirth (Paṭisandhi-citta) emerges in the next realm with zero gap (no 7 or 49-day Bardo in Theravāda), like a stamp on clay or one flame lighting another.',
+    mK: 'ការស្លាប់ជាការរលំដួលនៃធាតុ ៤ និងការបិទទ្វារវិញ្ញាណ · ជវនចិត្ត ៥ ខណៈ ចាប់យកនិមិត្ត រួចចុតិចិត្តកាត់ផ្តាច់ · បដិសន្ធិចិត្តកើតឡើងក្នុងភពថ្មីភ្លាមៗ គ្មានចន្លោះពេល។',
+    mE: 'Death is the orderly collapse of the 4 physical elements and sense faculties; 5 Javana moments grasp the final vision, cuti-citta severs the link, and paṭisandhi-citta arises instantaneously in the next existence.',
+    tie: 'ដំណើរការពេលស្លាប់ & បដិសន្ធិចិត្ត · /my-gems#death-rebirth-process',
+    to: '/my-gems#death-rebirth-process',
   },
 ]
 </script>

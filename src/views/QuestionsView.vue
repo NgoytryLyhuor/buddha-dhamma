@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៣ — សួរតាមដែលអ្នកជួប', 'Q&A 33 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៤ — សួរតាមដែលអ្នកជួប', 'Q&A 34 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៣ — ចុចដើម្បីបើកមើល', 'THIRTY-THREE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៤ — ចុចដើម្បីបើកមើល', 'THIRTY-FOUR QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -330,6 +330,16 @@ const qas = [
     mE: 'Death is the orderly collapse of the 4 physical elements and sense faculties; 5 Javana moments grasp the final vision, cuti-citta severs the link, and paṭisandhi-citta arises instantaneously in the next existence.',
     tie: 'ដំណើរការពេលស្លាប់ & បដិសន្ធិចិត្ត · /my-gems#death-rebirth-process',
     to: '/my-gems#death-rebirth-process',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម ក្នុងករណីមនុស្សស្លាប់ភ្លាមៗមួយរំពេច (ដូចជា គ្រោះថ្នាក់ចរាចរណ៍ ឬគាំងបេះដូង) តើ «មរណាសន្នវិថី» ដំណើរការទាញយកកម្មយ៉ាងដូចម្ដេច បើគ្មានអ្នកនៅក្បែរជួយរំលឹកធម៌?',
+    qE: 'According to Abhidhamma, in sudden deaths (car crash, cardiac arrest), how does Maraṇāsanna-vīthi process karma without anyone nearby to remind Dhamma?',
+    aK: 'នៅក្នុងករណីស្លាប់ភ្លាមៗមួយរំពេច (គ្រោះថ្នាក់ចរាចរណ៍ គ្រាប់កាំភ្លើង ឬគាំងបេះដូង) មរណាសន្នវិថីនៅតែដំណើរការពេញលេញឥតចន្លោះ ពីព្រោះល្បឿននៃការកើតរលត់នៃចិត្តលឿនជាងប្រតិកម្មរូបវន្តរាប់លានដង (មួយខ្ទាត់ម្រាមដៃ ចិត្តកើតរលត់មួយកោដិខណៈ ខណៈមរណាសន្នវិថីត្រូវការតែ ១៧ ខណៈប៉ុណ្ណោះ)។ ពេលគ្មានអ្នកជួយរំលឹកធម៌ អាសន្នកម្មត្រូវបានរំលង ហើយ «អាចិណ្ណកម្ម» (ទម្លាប់ដែលធ្វើញឹកញាប់បំផុតក្នុងជីវិត) នឹងស្ទុះមកក្ដោបក្ដាប់ចិត្តចុងក្រោយ ១០០% ដូចជាប្រតិកម្មរហ័ស។ ដូចដែលព្រះពុទ្ធបានត្រាស់លួងលោមស្តេចមហានាម (SN 55.21) ៖ (១) ឧបមាដើមឈើទេរទៅទិសខាងកើត ពេលគេកាប់ផ្តាច់គល់ រមែងដួលទៅទិសខាងកើតដែលវាធ្លាប់ទេរទៅនោះឯង (២) ឧបមាឆ្នាំងប្រេងធ្លាក់ក្នុងទឹក ដុំថ្មធ្ងន់លិចចុះបាត តែប្រេងស្រាលរមែងអណ្តែតឡើង។ ដូច្នេះ របៀបរស់នៅប្រចាំថ្ងៃ សំខាន់ជាងរបៀបដែលយើងស្លាប់!',
+    aE: 'In sudden fatalities (instant crash, cardiac arrest), Maraṇāsanna-vīthi executes fully because mental cognition operates millions of times faster than physical trauma (one trillion mind-moments per finger snap, while the death-vīthi takes merely 17 moments). Without deathbed reminders, near-death karma is bypassed, and "Āciṇṇa-kamma" (core habitual karma) takes command 100% as an instinctual reflex. As the Buddha comforted King Mahānāma (SN 55.21): (1) A tree leaning east inevitably falls east when cut; (2) In a broken pot in deep water, heavy stones sink but buoyant oil floats to the top. Thus, how we live daily matters far more than how we die!',
+    mK: 'ចិត្តដើរលឿនជាងរូបវន្តរាប់លានដង · ពេលស្លាប់ភ្លាមៗ អាចិណ្ណកម្ម (ទម្លាប់ប្រចាំជីវិត) ក្ដោបក្ដាប់ចិត្តចុងក្រោយ ១០០% ប្រៀបដូចដើមឈើទេរទៅទិសណា រមែងដួលទៅទិសនោះ។',
+    mE: 'Consciousness moves millions of times faster than physical trauma; in sudden death, habitual karma (āciṇṇa-kamma) determines the final trajectory, like a leaning tree falling where it inclined.',
+    tie: 'ការស្លាប់ភ្លាមៗ & អាចិណ្ណកម្ម (មហានាមសូត្រ) · /my-gems#sudden-death-kamma',
+    to: '/my-gems#sudden-death-kamma',
   },
 ]
 </script>

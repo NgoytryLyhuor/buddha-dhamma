@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៣)', en: 'All (13)' },
+  { id: 'all', km: 'ទាំងអស់ (១៤)', en: 'All (14)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1012,6 +1012,68 @@ const gems = ref([
         titleEn: '5. Instant Rebirth: No 7 or 49-Day Limbo (Theravāda Reality)',
         contentKm: 'យោងតាមគម្ពីរអភិធម្មថេរវាទ មិនមានព្រលឹងវិញ្ញាណហោះហើរតាក់តេង ឬនៅរង់ចាំ ៧ ថ្ងៃ ឬ ៤៩ ថ្ងៃ (គ្មានអន្តរភព / Bardo) ឡើយ ៖\n\n— ល្បឿននៃការតភ្ជាប់ ៖ មួយខណៈបន្ទាប់ពី ចុតិចិត្ត ក្នុងជាតិនេះរលត់ទៅភ្លាម បដិសន្ធិចិត្ត (Paṭisandhi-citta) នៅក្នុងភពថ្មីនឹងកើតឡើង តកន្ទុយគ្នាភ្លាមៗ ដោយគ្មានចន្លោះពេលសូម្បីតែមួយវិនាទី (អនន្តរបច្ច័យ)។\n\n— ឧបមាប្រៀបធៀប ២ យ៉ាង ៖\n១. ប្រៀបដូចជាត្រាដែលដក់លើដីឥដ្ឋ ៖ ពេលត្រាដែកងើបឡើង ដានស្នាមត្រាក៏កើតលើដីឥដ្ឋស្របគ្នា (មិនមែនលោហៈត្រាហោះទៅនៅនឹងដីឥដ្ឋទេ ប៉ុន្តែដានត្រាកើតពីត្រា)។\n២. ប្រៀបដូចជាពន្លឺភ្លើងនៃទៀនមួយដើមដែលយកទៅអុជបន្តទៀនមួយទៀត ៖ ពន្លឺពីទៀនទីមួយមិនបានហោះទៅទេ ប៉ុន្តែវាជាបច្ច័យធ្វើឱ្យភ្លើងទៀនទីពីរកើតឡើងភ្លាមៗ។\n\n— ប្រសិនបើផលនៃកម្មចុងក្រោយជាកុសល បដិសន្ធិចិត្តនឹងទៅចាប់កំណើតក្នុងផ្ទៃម្តាយជាមនុស្ស ឬផុសឡើងជាទេវតាភ្លាមៗ (ឧបបាតិកកំណើត)។ ប្រសិនបើជាអកុសល វានឹងទៅចាប់កំណើតក្នុងភពសត្វតិរច្ឆាន ប្រេត ឬនរកភ្លាមៗក្នុងពេលនោះឯង!',
         contentEn: 'According to Theravāda Abhidhamma, there is no drifting wandering soul awaiting rebirth for 7 or 49 days (no Antarābhava or Bardo):\n\n— Immediate Contiguity: In the exact micro-moment following the dissolution of Cuti-citta, Rebirth-Linking Consciousness (Paṭisandhi-citta) ignites in the new realm via Anantara-paccaya (Proximity Condition) with zero time interval.\n\n— Two Classical Analogies:\n1. The seal impressed on clay: As the die lifts, the impression appears simultaneously; no physical metal migrates, yet the mark is causally produced by the die.\n2. One candle lighting another: The flame from the first candle does not fly across space, yet it is the direct causal condition igniting the new flame.\n\n— If the concluding karmic momentum is wholesome, rebirth immediately manifests in a human womb or apparitionally as a Deva; if unwholesome, it instantly awakens in animal, ghost (peta), or hell realms.'
+      }
+    ]
+  },
+
+  // GEM 14: Sudden Death (Accidents/Cardiac Arrest), Maraṇāsanna-vīthi & Habitual Karma (SN 55.21)
+  {
+    id: 'sudden-death-kamma',
+    num: 14,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & បដិសន្ធិ',
+    categoryEn: '💀 Sudden Death & Habitual Kamma',
+    ref: 'គម្ពីរអភិធម្ម (វិថីសង្គហៈ) & សំយុត្តនិកាយ មហានាមសូត្រ (SN 55.21 / ព្រះត្រៃបិដកភាគ ៣៧)',
+    paliQuote: 'យថា រុក្ខោ បាចីននិន្នោ បាចីនបោណោ បាចីនបព្ភារោ... (ប្រៀបដូចជាដើមឈើដែលទេរទៅទិសខាងកើត ពេលគេកាប់ផ្តាច់គល់ រមែងដួលទៅទិសខាងកើតដូច្នោះដែរ)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម ក្នុងករណីមនុស្សស្លាប់ភ្លាមៗមួយរំពេច (ដូចជា គ្រោះថ្នាក់ចរាចរណ៍ ឬគ្រោះថ្នាក់បេះដូងគាំង) តើ «មរណាសន្នវិថី» ដំណើរការទាញយកកម្មយ៉ាងដូចម្ដេច បើគ្មានអ្នកនៅក្បែរជួយរំលឹកធម៌ទាល់តែសោះ?',
+    questionEn: 'According to Abhidhamma, in sudden deaths (car crash, cardiac arrest, bullet), how does Maraṇāsanna-vīthi process karma without anyone nearby to remind Dhamma?',
+    shortKm: 'ការស្លាប់ភ្លាមៗ & អាចិណ្ណកម្ម (មហានាមសូត្រ)',
+    shortEn: 'Sudden Death & Habitual Kamma (SN 55.21)',
+    essenceKm: 'ក្នុងករណីស្លាប់ភ្លាមៗមួយរំពេច (គ្រោះថ្នាក់ចរាចរណ៍ ឬគាំងបេះដូង) មរណាសន្នវិថីនៅតែដំណើរការពេញលេញឥតចន្លោះ ពីព្រោះល្បឿននៃការកើតរលត់នៃចិត្តលឿនជាងរូបវន្តរាប់លានដង (មួយខ្ទាត់ម្រាមដៃ ចិត្តកើតរលត់មួយកោដិខណៈ ខណៈមរណាសន្នវិថីត្រូវការតែ ១៧ ខណៈប៉ុណ្ណោះ)។ ពេលគ្មានអ្នកជួយរំលឹក អាសន្នកម្មត្រូវបានរំលង ហើយ «អាចិណ្ណកម្ម» (ទម្លាប់ដែលធ្វើញឹកញាប់បំផុតក្នុងជីវិត) នឹងស្ទុះមកក្ដោបក្ដាប់ចិត្តចុងក្រោយ ១០០% ស្របតាមពុទ្ធដីកាក្នុងមហានាមសូត្រ (SN 55.21) ៖ ប្រៀបដូចដើមឈើដែលទេរទៅទិសណា ពេលកាប់ផ្តាច់រមែងដួលទៅទិសនោះ និងប្រៀបដូចឆ្នាំងប្រេងធ្លាក់ក្នុងទឹក ដុំថ្មធ្លាក់ចុះ តែប្រេងស្រាលរមែងអណ្តែតឡើង!',
+    essenceEn: 'In sudden fatalities (instant crash or cardiac arrest), Maraṇāsanna-vīthi still executes flawlessly because consciousness operates millions of times faster than gross physical trauma (one trillion mind-moments per finger-snap, while the death-vīthi takes merely 17 moments). With no external reminders, near-death karma is bypassed, and "Āciṇṇa-kamma" (core habitual karma accumulated over a lifetime) seizes the Mind Door 100% as an instinctual reflex. As the Buddha illustrated to King Mahānāma (SN 55.21): like a tree habitually leaning east falling east when felled, and like a broken pot in deep water where heavy stones sink but buoyant oil ascends to the surface.',
+    practicalKm: '«របៀបរស់នៅប្រចាំថ្ងៃ សំខាន់ជាងរបៀបដែលយើងស្លាប់!» កុំរង់ចាំដល់ចាស់ ឬសង្ឃឹមលើអ្នកដទៃមកជួយរំលឹកធម៌នៅមាត់ច្រកមរណៈ។ ការសន្សំទម្លាប់ល្អ ការចម្រើនសតិ ការធ្វើទាន និងការរក្សាចិត្តឱ្យស្ងប់ក្នុងជីវិតប្រចាំថ្ងៃ គឺជា «កញ្ចប់ធានារ៉ាប់រងវិញ្ញាណដ៏មានសុវត្ថិភាពបំផុត» ទោះបីជាត្រូវជួបឧបទ្ទវហេតុភ្លាមៗក្នុងរូបភាពណាក៏ដោយ!',
+    practicalEn: 'How we live daily matters infinitely more than how we die! Never postpone virtue or rely on bystanders to whisper chants at the deathbed. Cultivating habitual mindfulness, generosity, and peace today is the ultimate non-negotiable insurance policy for a safe departure, regardless of external circumstances.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៤', en: 'Q&A 34' },
+      { to: '/my-gems#death-rebirth-process', km: 'ដំណើរពេលស្លាប់ ៥ ដំណាក់កាល', en: '5 Stages of Death' },
+      { to: '/death-and-rebirth', km: 'មរណាសន្នវិថី & បដិសន្ធិ', en: 'Death & Rebirth Process' },
+      { to: '/kamma', km: 'ច្បាប់កម្មផល & អាចិណ្ណកម្ម', en: 'Kamma & Habits' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ល្បឿននៃចិត្ត និងពេលវេលារូបវន្ត (Citta vs. Physical Time)',
+        titleEn: '1. Speed of Mind vs. Physical Time: Why Seconds Are Eternity',
+        contentKm: 'មនុស្សទូទៅតែងគិតថា ការបុកទង្គិចនៃឡាន ឬគ្រាប់កាំភ្លើងកើតឡើងត្រឹមតែ ០.០០១ វិនាទី រហូតដល់រាងកាយខ្ទេចខ្ទី តើចិត្តមានពេលណាទៅបង្កើតវិថីចិត្តទាន់?\n\n— ល្បឿននៃចិត្តតាមអភិធម្ម ៖ ក្នុងរយៈពេលត្រឹមតែ មួយប៉ប្រិចភ្នែក ឬមួយខ្ទាត់ម្រាមដៃ ចិត្តកើតរលត់អស់ចំនួន ១,០០០,០០០,០០០,០០០ (មួយកោដិ ឬមួយទ្រីលាន) ខណៈ!\n— រយៈពេលនៃមរណាសន្នវិថី ៖ វិថីចិត្តចុងក្រោយមុនពេលស្លាប់ ត្រូវការពេលត្រឹមតែ ១៧ ខណៈនៃចិត្ត ប៉ុណ្ណោះ (ចាប់តាំងពីភវង្គញ័រ ជវនចិត្ត ៥ ខណៈ រហូតដល់ចុតិចិត្ត)។\n— ការពិតជាក់ស្តែង ៖ ទោះបីជារថយន្តបុកក្នុងល្បឿន ១៥០ គីឡូម៉ែត្រ/ម៉ោង ឬគ្រាប់កាំភ្លើងបាញ់ធ្លុះក្បាលភ្លាមៗក៏ដោយ ពេលវេលាដ៏ខ្លីនោះនៅតែ «យូរហួសពីគ្រប់គ្រាន់» សម្រាប់ឱ្យចិត្តដំណើរការមរណាសន្នវិថីបានរាប់រយរាប់ពាន់ជុំ មុនពេលចុតិចិត្តរលត់ជាស្ថាពរ។',
+        contentEn: 'People often wonder: if a crash or gunshot shatters the body in 0.001 seconds, how could the mind possibly have time to formulate a mental process?\n\n— Abhidhamma Cognitive Speed: Within the blink of an eye or snap of a finger, consciousness arises and dissolves approximately 1,000,000,000,000 (one trillion) moments!\n— Duration of Maraṇāsanna-vīthi: The final mental pathway requires merely 17 mind-moments (from Bhavanga vibration through 5 Javana moments to Cuti-citta).\n— The Scientific Reality: Even if a vehicle crashes at 150 km/h or a bullet strikes instantaneously, that microscopic fraction of a physical second is an immense eternity for mental processing, permitting the Maraṇāsanna-vīthi to execute hundreds or thousands of cycles before Cuti-citta definitively ceases.'
+      },
+      {
+        titleKm: '២. ក្បួនទាញយកកម្មទាំង ៤ ជាន់ (The Kamma Priority Order)',
+        titleEn: '2. The 4-Tier Karmic Priority Order in Accidents',
+        contentKm: 'នៅពេលមនុស្សស្លាប់ដោយធម្មតា មានកូនចៅនៅក្បែរជួយសូត្រធម៌ នោះហៅថា អាសន្នកម្ម (កម្មរំលឹកនៅមាត់ច្រកមរណៈ)។ ប៉ុន្តែក្នុងករណីគ្រោះថ្នាក់ភ្លាមៗ គ្មាននរណាម្នាក់នៅក្បែរ ច្បាប់កម្មផលដំណើរការតាមលំដាប់អាទិភាព ៤ ថ្នាក់ដូចខាងក្រោម ៖\n\n[១. គរុកម្ម (Garuka)]\n       | (បើគ្មាន)\n[២. អាសន្នកម្ម (Āsanna)]  <-- ត្រូវរំលង ព្រោះគ្មានអ្នកជួយរំលឹក\n       | (បើគ្មាន)\n[៣. អាចិណ្ណកម្ម (Āciṇṇa / Bahula)]  <-- ដើរតួជាអ្នកសម្រេច ១០០%\n       | (បើគ្មាន)\n[៤. កដត្តាកម្ម (Kaṭattā)]',
+        contentEn: 'In peaceful hospice deaths with loved ones chanting, Āsanna-kamma (deathbed reminder karma) operates. In sudden violent fatalities where no one is present, nature applies the strict 4-tier karmic sequence:\n\n[1. Garuka-kamma (Weighty Karma)]\n       | (if absent)\n[2. Āsanna-kamma (Near-Death Karma)] <-- Bypassed (no conscious reminder)\n       | (if absent)\n[3. Āciṇṇa-kamma (Habitual Karma)] <-- Decides destiny 100%\n       | (if absent)\n[4. Kaṭattā-kamma (Residual Deeds)]',
+        points: [
+          { boldKm: 'ថ្នាក់ទី ១ ៖ គរុកម្ម (កម្មធ្ងន់បំផុត)', boldEn: 'Tier 1: Garuka-kamma (Weighty)', km: 'ប្រសិនបើធ្លាប់ធ្វើអនន្តរិយកម្ម (សម្លាប់ឪពុក ម្តាយ ព្រះអរហន្ត ធ្វើឱ្យព្រះពុទ្ធចេញឈាម បំបែកសង្ឃ) ឬសម្រេចឈានសមាបត្តិ កម្មធ្ងន់នេះនឹងស្ទុះមកកាត់មុខគេភ្លាមៗ បង្កើតជានរកនិមិត្ត ឬព្រហ្មលោកនិមិត្ត ដោយមិនបាច់រង់ចាំកម្មផ្សេងឡើយ។', en: 'Anantarika-kamma (matricide, patricide, etc.) or Jhana absorptions supersede all else, projecting hellish or Brahma visions instantly.' },
+          { boldKm: 'ថ្នាក់ទី ២ ៖ អាសន្នកម្ម (កម្មជិតស្លាប់)', boldEn: 'Tier 2: Āsanna-kamma (Deathbed)', km: 'ក្នុងករណីគ្រោះថ្នាក់រហ័ស ដំណាក់កាលនេះត្រូវបានរំលងចោល ដោយសារគ្មានសតិដឹងខ្លួនធ្វើបុណ្យ ឬគ្មានអ្នកមកដាស់តឿន។', en: 'Bypassed in sudden trauma since the dying person lacks reflective waking time and no loved ones are present to guide the mind.' },
+          { boldKm: 'ថ្នាក់ទី ៣ ៖ អាចិណ្ណកម្ម ឬ ពហុលកម្ម (ទម្លាប់ប្រចាំជីវិត — សំខាន់បំផុត)', boldEn: 'Tier 3: Āciṇṇa-kamma (Core Daily Habit — The Deciding Factor)', km: 'នេះជាអ្នកក្ដោបក្ដាប់ជោគវាសនាទាំងស្រុង! អ្វីដែលបុគ្គលធ្លាប់គិត និយាយ ឬធ្វើជាប្រចាំ (Core Daily Habit) នឹងស្ទុះឡើងមកបង្ហាញខ្លួនក្នុងមនោទ្វារដូចជាប្រតិកម្មរហ័ស (Instinctual Reflex) ៖ អ្នកមានទម្លាប់មេត្តា សីល សមាធិ ចិត្តនឹងស្ងប់ភ្លាម; អ្នកមានទម្លាប់កំហឹង លោភលន់ ល្បែង ស្រវឹង ចិត្តនឹងក្តៅក្រហាយ និងភ័យតក់ស្លុតភ្លាម!', en: 'The master determinant: lifelong ingrained habits leap forward as an instinctual reflex. The habitual meditator/virtuous soul reflexively defaults to peace; the habitually angry, greedy, or addicted mind reflexively spirals into panic and fire.' },
+          { boldKm: 'ថ្នាក់ទី ៤ ៖ កដត្តាកម្ម (កម្មស្រាលៗកាលពីអតីត)', boldEn: 'Tier 4: Kaṭattā-kamma (Residual)', km: 'ប្រសិនបើគ្មានទម្លាប់ច្បាស់លាស់ កម្មចាស់ៗដែលធ្លាប់ធ្វើដោយអចេតនាកាលពីជាតិមុន ឬពេលនៅក្មេង នឹងឡើងមកបង្ហាញខ្លួនជំនួស។', en: 'If habitual momentum is inconclusive, past residual deeds from youth or prior lives step in to cast the final vision.' }
+        ]
+      },
+      {
+        titleKm: '៣. ឧបមាពុទ្ធដីកាក្នុង «មហានាមសូត្រ» (The Leaning Tree & The Pot of Oil)',
+        titleEn: '3. The Buddha’s Two Famous Analogies in the Mahānāma Sutta (SN 55.21)',
+        contentKm: 'ស្តេចសក្យរាជ ព្រះនាម មហានាម ធ្លាប់បានចូលទៅទូលសួរព្រះពុទ្ធនូវសំណួរដូចគ្នានេះថា ៖ «បពិត្រព្រះអង្គដ៏ចម្រើន! ទីក្រុងកបិលវត្ថុ សម្បូរទៅដោយមនុស្ស ដំរី សេះ និងរទេះចរាចរណ៍ខ្វាត់ខ្វែង។ ប្រសិនបើខ្ញុំព្រះករុណា ត្រូវដំរីចុះប្រេងរត់ជាន់ ឬត្រូវរទេះបុកស្លាប់ភ្លាមៗមួយរំពេច ដោយមិនទាន់បានតាំងសតិ ឬរំលឹកដល់ព្រះធម៌ តើដំណើរទៅកាន់បរលោករបស់ខ្ញុំព្រះករុណា នឹងទៅជាយ៉ាងណា?»\n\nព្រះសម្មាសម្ពុទ្ធបានត្រាស់លួងលោម និងប្រទានឧបមា ២ យ៉ាង ៖',
+        contentEn: 'King Mahānāma of the Sakyans once approached the Buddha with this exact anxiety: "Bhante! Kapilavatthu is crowded with elephants, horses, and speeding carts. If I were suddenly trampled by an enraged elephant or crushed by a cart before I could compose my mindfulness, what would become of my future rebirth?" The Blessed One reassured him with two immortal parables:',
+        points: [
+          { boldKm: 'ឧបមាដើមឈើទេរ (The Leaning Tree)', boldEn: 'Parable of the Leaning Tree', km: '«មហានាម! ប្រៀបដូចជាដើមឈើមួយដើម ដែលដុះទេរ ផ្អៀង និងទន់ទោរទៅទិសខាងកើតតាំងពីដើមមក។ នៅពេលដែលគេយកពូថៅមកកាប់ផ្តាច់គល់របស់វា តើដើមឈើនោះនឹងដួលរលំទៅទិសណា?» ព្រះបាទមហានាមទូលឆ្លើយថា ៖ «ពិតជាដួលទៅទិសខាងកើត ដែលវាធ្លាប់ទេរទៅនោះឯង ព្រះអង្គ!» ព្រះពុទ្ធត្រាស់ថា ៖ ចិត្តមនុស្សក៏ដូច្នោះដែរ បើពេញមួយជីវិត ចិត្តធ្លាប់តែទោរទន់ទៅរកសីលធម៌ និងសេចក្តីល្អ ទោះបីជាត្រូវស្លាប់ដោយគ្រោះថ្នាក់ភ្លាមៗយ៉ាងណាក៏ដោយ ក៏ ចិត្តចុងក្រោយនឹងដួលរលំទៅកាន់សុគតិភពតាមកម្លាំងទោរទន់នៃទម្លាប់នោះជាមិនខាន!', en: '"Mahānāma, suppose a tree grows leaning, sloping, and inclining toward the east. When cut at the base, which way will it fall?" Mahānāma replied: "It falls in the direction it inclined, Bhante." The Buddha confirmed: "So too, when a mind has long been cultivated in faith, virtue, and wisdom, even if crushed in sudden catastrophe, it inevitably falls toward Sugati (the heavenly realms)."' },
+          { boldKm: 'ឧបមាឆ្នាំងប្រេងធ្លាក់ក្នុងទឹក (The Pot of Oil)', boldEn: 'Parable of the Pot of Oil', km: '«ប្រៀបដូចជាបុរសម្នាក់ យកឆ្នាំងដែលផ្ទុកទៅដោយដុំថ្ម និងខ្លាញ់ប្រេង ទៅទម្លាក់ក្នុងបឹងទឹកជ្រៅ រួចវាយបំបែកឆ្នាំងនោះ។ ដុំថ្មនិងអំបែងឆ្នាំងដែលមានទម្ងន់ធ្ងន់ នឹងលិចចុះទៅបាតបឹង រីឯខ្លាញ់ប្រេងដែលស្រាល នឹងអណ្តែតឡើងមកលើផ្ទៃទឹកយ៉ាងណាមិញ កាយសាច់ឈាមដែលគ្រើមនឹងធ្លាក់លើដី រីឯចិត្តដែលបានអប់រំល្អហើយ នឹងអណ្តែតឡើងទៅកាន់ឋានខ្ពស់យ៉ាងនោះឯង។»', en: '"Suppose a man submerges a clay jar filled with stones and ghee in a deep pool and shatters it. The heavy gravel sinks to the muddy floor, but the buoyant ghee rises and floats atop the water. Just so, the coarse flesh drops to earth, but the trained mind ascends to higher realms."' }
+        ]
+      },
+      {
+        titleKm: '៤. ការឈឺចាប់ និងការភ័យស្លន់ស្លោពេលបុកទង្គិច (Bodily Pain vs. Mind Door)',
+        titleEn: '4. Physical Agony vs. The Mind Door: Living Habits Rule Death',
+        contentKm: 'សំណួរសួរថា ៖ ចុះការឈឺចាប់ ឬការតក់ស្លុតពេលបុកទង្គិច អាចទាញចិត្តឱ្យធ្លាក់នរកបានទេ?\n\n១. ទុក្ខវេទនាខាងកាយ (Dukkha-vedanā) ៖ កើតឡើងលើប្រព័ន្ធប្រសាទ និងកាយទ្វារក្នុងកម្រិតរូបធាតុប៉ុណ្ណោះ។\n២. មនោទ្វារវិថីកាត់ផ្តាច់ការឈឺចាប់ ៖ នៅវិនាទីចុងក្រោយ វិញ្ញាណនឹងផ្តាច់ខ្លួនចេញពីកាយវិញ្ញាណទាំងស្រុង ហើយដំណើរការតែលើមនោទ្វារ។\n៣. កម្លាំងនៃទម្លាប់ ៖ ប្រសិនបើបុគ្គលនោះមាន «ទម្លាប់ផ្លូវចិត្តល្អ» មនោទ្វារនឹងរំលងការឈឺចាប់លើដងខ្លួន ហើយស្ទុះទៅចាប់យកនិមិត្តនៃអំពើល្អដែលធ្លាប់ធ្វើភ្លាម។ ផ្ទុយទៅវិញ ប្រសិនបើគ្មានមូលដ្ឋានធម៌ទេ ចិត្តនឹងកើតទោសៈ (តក់ស្លុត ភ័យខ្លាច) ហើយទោសៈនោះនឹងទាញទម្លាក់ទៅកាន់អបាយភូមិ។\n\nសរុបសេចក្តី ៖ ក្នុងទស្សនៈព្រះពុទ្ធសាសនា «របៀបរស់នៅប្រចាំថ្ងៃ សំខាន់ជាងរបៀបដែលយើងស្លាប់»។ ការសន្សំទម្លាប់ល្អ និងការគ្រប់គ្រងចិត្តក្នុងជីវិតបច្ចុប្បន្ន គឺជាការរៀបចំកញ្ចប់ធានារ៉ាប់រងសម្រាប់មរណាសន្នវិថីដ៏មានសុវត្ថិភាពបំផុត ទោះបីជាត្រូវជួបឧបទ្ទវហេតុក្នុងរូបភាពណាក៏ដោយ!',
+        contentEn: 'Does physical trauma or instant terror doom the dying mind?\n1. Bodily Pain is physical: Dukkha-vedanā registers purely across the bodily sensory faculty (kāyadvāra).\n2. Sensory Decoupling: In the final moments, consciousness detaches from bodily sensations, operating solely within the Mind Door.\n3. Habit Overrides Trauma: A mind saturated with lifelong mindfulness automatically discards physical pain, locking onto memories of goodness and virtue. Conversely, a mind void of spiritual anchor succumbs to aversion and horror, dragging rebirth into lower realms.\n\nConclusion: In Buddhist psychology, "how you live daily matters far more than how you die." Daily mindfulness and ethical deeds represent the only authentic insurance policy for the death-proximate mind, ensuring peace regardless of external catastrophe.'
       }
     ]
   }

@@ -259,7 +259,7 @@ const qas = [
     mK: 'កូដ និងគ្រឿងយន្តជាទម្រង់នៃបច្ច័យ និងរូបធម៌ · ព្រះពុទ្ធដឹងដូចស្លឹកឈើក្នុងព្រៃ តែបង្រៀនត្រឹមស្លឹកឈើមួយក្តាប់ដៃ ដើម្បីរំលត់ទុក្ខពិតប្រាកដ។',
     mE: 'Code and mechanics are expressions of conditionality and matter; the Buddha knew boundless things like the leaves of a forest, but taught only the handful needed to end suffering.',
     tie: 'សឹម្សបាសូត្រ (ស្លឹកឈើមួយក្តាប់ដៃ) · /suttas#sutta-simsapa',
-    to: '/suttas#sutta-simsapa',
+    to: '/suttas#sutta-simsapa',
   },
   {
     qK: 'យោងតាមគម្ពីរអភិធម្ម តើរូបកលាប (Rūpa-kalāpa) មានដំណើរការយ៉ាងដូចម្ដេច ហើយស្រដៀងគ្នានឹងទ្រឹស្តីរូបវិទ្យាកង់ទិច (Quantum Physics) យ៉ាងណា?',
@@ -415,6 +415,16 @@ const qas = [
     mE: 'Sequential journey through hallucinatory traps: Mahānaraka -> Gūtha (feces) -> Kukkula (boiling ash) -> Asipattavana (sword leaves) -> Simbalīvana (thorny tree) -> Vettaraṇī (acid river) -> Specialized Stations (swallowing iron balls...) until final Kammakkhaya.',
     tie: 'ដំណើរឆ្លងកាត់ឧស្សទនរក ១៦ តាមលំដាប់ · /my-gems#hell-escape-journey',
     to: '/my-gems#hell-escape-journey',
+  },
+  {
+    qK: 'យោងតាមនិមិរាជជាតក តើរឿងរ៉ាវដែលព្រះបាទនិមិរាជ ត្រូវព្រះឥន្ទ្រចាត់មាតលីទេវបុត្រឱ្យបររាជរថទិព្វនាំទៅទស្សនានរក និងឧស្សទនរកទាំងឡាយ មានដំណើររឿងយ៉ាងដូចម្ដេច?',
+    qE: 'According to Nimi Jātaka (Jātaka 541), what is the story of King Nimi being escorted by the divine charioteer Mātali to tour the hells, auxiliary hells, and heavenly mansions?',
+    aK: 'នៅក្នុងគម្ពីរខុទ្ទកនិកាយ ជាតក (និមិរាជជាតក លេខ ៥៤១) ព្រះបាទនិមិរាជ (ព្រះពោធិសត្វ) សោយរាជ្យនៅក្រុងមិថិលា ប្រកបដោយទសពិធរាជធម៌ រក្សាសីល ៥ សីល ៨ និងសាងរោងទាន ៥ កន្លែង ចែកទានឥតដាច់។ ទេវតានៅតាវត្តិង្សចង់ជួបព្រះភក្ត្រ ព្រះឥន្ទ្រក៏ចាត់មាតលីទេវបុត្របរ «វេជយន្តរថ» ទឹមសេះសិន្ធពទិព្វ ១,០០០ ក្បាល ចុះមកទទួលនៅយប់ពេញបូណ៌មី។ មកដល់ផ្លូវបំបែក ព្រះបាទនិមិរាជជ្រើសរើសទស្សនា «ឋាននរក» ជាមុនសិន ដើម្បីឃើញជាក់ស្តែងពីផលនៃបាបកម្ម យកទៅដាស់តឿនមនុស្សលោក។ មាតលីបានបង្ហាញទារុណកម្មក្នុងស្ទឹងវេតរណី (កាប់សង្កត់អ្នកទន់ខ្សោយ), ហ្វូងក្អែកដែក (ជេរប្រមាថអ្នកមានគុណ), កង់រទេះដែកកិន (ឆបោកបន្លំជញ្ជីង), ដុំដែកច្រកមាត់ (លួចទ្រព្យសង្ឃ & ស្រវឹង), ព្រៃរកា (កាមេសុមិច្ឆាចារ), ព្រៃស្លឹកដាវ (កាប់សម្លាប់សត្វ) និងខ្ទះដែកលោហកុម្ភី។ បន្ទាប់មក មាតលីនាំព្រះអង្គឡើងទស្សនាវិមានសួគ៌ និងចូលគាល់ព្រះឥន្ទ្រនៅសុធម្មាសភា។ ទោះបីព្រះឥន្ទ្រថ្វាយពាក់កណ្តាលរាជសម្បត្តិទិព្វ ព្រះអង្គបានបដិសេធដោយព្រះរាជឱង្ការថា «សម្បត្តិអ្នកដទៃដូចជារទេះដែលគេខ្ចី» រួចត្រឡប់មកក្រុងមិថិលាទេសនាដាស់តឿនប្រជានុរាស្ត្រឱ្យសាងកុសល ហើយនៅទីបំផុតបានយាងចេញសាងផ្នួសពេលព្រះកេសាស្កូវមួយសរសៃ បានទៅកើតក្នុងព្រហ្មលោក។',
+    aE: 'In the Khuddaka Nikāya (Nimi Jātaka No. 541), King Nimi (the Bodhisatta) ruled Mithilā with the Ten Royal Virtues, 5 and 8 precepts, and 5 perpetual alms-halls. Yearning to see him, the deities of Tāvatiṃsa urged Sakka to dispatch the charioteer Mātali with the Vejayanta chariot drawn by 1,000 divine steeds. At the crossroads between Hell and Heaven, King Nimi chose to tour the Hells first to witness karmic retributions firsthand to instruct humanity. Mātali guided him through Vettaraṇī (oppressing the weak), iron dogs/crows (insulting parents/elders), cartwheel presses (dishonest weights), swallowing fiery iron balls (temple theft & alcohol), thorny silk-cotton trees (adultery), sword-leaf forests (killing living beings), and boiling cauldrons. Ascending to heaven, Sakka offered half of the celestial kingdom, which King Nimi declined with his famous words: "Another’s merit is like a borrowed chariot; I must cultivate my own." Returning home, he inspired nationwide virtue, eventually renouncing the throne upon seeing his first gray hair to attain the Brahma realm.',
+    mK: 'ព្រះបាទនិមិរាជជ្រើសរើសទស្សនានរកមុន ដើម្បីយកការពិតមកដាស់តឿនមនុស្សលោក · បដិសេធសម្បត្តិសួគ៌របស់ព្រះឥន្ទ្រ ដោយប្រៀបដូចជារទេះដែលគេខ្ចី · ត្រូវតែកសាងកុសលផ្ទាល់ខ្លួន (អត្តា ហិ អត្តនោ នាថោ)។',
+    mE: 'King Nimi deliberately toured Hell first to warn living beings of karmic reality; declined borrowed heavenly bliss like a borrowed carriage; emphasized self-reliance in cultivating merit (Attā hi attano nātho).',
+    tie: 'និមិរាជជាតក (ជាតកលេខ ៥៤១) · /my-gems#nimi-jataka-tour',
+    to: '/my-gems#nimi-jataka-tour',
   },
 ]
 </script>

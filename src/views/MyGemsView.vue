@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (២២)', en: 'All (22)' },
+  { id: 'all', km: 'ទាំងអស់ (២៣)', en: 'All (23)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1814,6 +1814,115 @@ const gems = ref([
         titleEn: '4. The Final Crossing: Exhaustion of Debt and Samsaric Rebirth',
         contentKm: 'សត្វនរកមិនអាចស្លាប់នៅពាក់កណ្តាលទីក្នុងឧស្សទនរកណាមួយឡើយ ដរាបណាអំពើបាបនោះមិនទាន់រលាយអស់ (ន ច តាវ កាលំ ករោតិ យាវ ន តំ បាបកម្មំ ខីយតិ)។\n\nលុះត្រាតែបានឆ្លងកាត់ការរងទុក្ខវេទនាក្នុងឧស្សទនរកទាំងនោះ រហូតដល់ «កម្លាំងអកុសលកម្មត្រូវបានទូទាត់រលត់សូន្យ» (Kammakkhaya) ទើប ចុតិចិត្ត ក្នុងនរកកើតឡើង ហើយសត្វនោះក៏ស្លាប់ចាកផុតពីភពនរក។\n\nពេលនោះ កុសលកម្មចាស់ៗកាលពីរាប់រយជាតិមុន (អបរាបរិយវេទនីយកម្ម) ដែលធ្លាប់កប់ទុកក្នុងភវង្គចិត្ត នឹងមានឱកាសរុញឱ្យវិញ្ញាណទៅចាប់បដិសន្ធិឡើងវិញជាសត្វតិរច្ឆាន ប្រេត ឬមនុស្សពិការ/ក្រីក្រ ដើម្បីបន្តសងកម្មស្រាលៗលើលោកិយ រហូតដល់បានជួបព្រះធម៌ជាថ្មី។',
         contentEn: 'A hell denizen can never perish halfway through any Ussada hell until the debt is paid in full ("Na ca tāva kālaṃ karoti yāva na taṃ pāpakammaṃ khīyati").\n\nOnly when the entire unwholesome momentum has been utterly depleted through experiential suffering (Kammakkhaya) does the hell death-consciousness (cuti-citta) arise. At that juncture, dormant wholesome deeds performed hundreds of lifetimes earlier (aparāpariya-vedanīya-kamma) surface to propel rebirth into the animal kingdom, ghost realm, or as an impoverished human, gradually working through residual ripples until encountering the Dhamma once more.'
+      }
+    ]
+  },
+
+// GEM 23: Nimi Jātaka — King Nimi's Chariot Tour of Hell and Heaven (Jātaka 541)
+  {
+    id: 'nimi-jataka-tour',
+    num: 23,
+    open: false,
+    category: 'death',
+    categoryKm: '📜 និមិរាជជាតក & ទស្សនានរក-សួគ៌',
+    categoryEn: '📜 Nimi Jātaka: Tour of Hell & Heaven',
+    ref: 'និមិរាជជាតក (ទសជាតក គម្ពីរខុទ្ទកនិកាយ ជាតកលេខ ៥៤១)',
+    paliQuote: '«យថា យានំ អយាចិតំ... ន តំ អម្ហាកំ...» (សម្បត្តិដែលកើតពីបុណ្យរបស់អ្នកដទៃ ប្រៀបដូចជារទេះដែលគេខ្ចី វាមិនមែនជារបស់យើងឡើយ... ត្រូវតែសាងកុសលផ្ទាល់ខ្លួន)',
+    questionKm: 'យោងតាមនិមិរាជជាតក តើរឿងរ៉ាវដែលព្រះបាទនិមិរាជ ត្រូវព្រះឥន្ទ្រចាត់មាតលីទេវបុត្រឱ្យបររាជរថទិព្វនាំទៅទស្សនានរក និងឧស្សទនរកទាំងឡាយ មានដំណើររឿងយ៉ាងដូចម្ដេច?',
+    questionEn: 'According to the Nimi Jātaka (Jātaka 541), what is the story of King Nimi being escorted by the divine charioteer Mātali on the celestial chariot to tour the hells, auxiliary hells, and heavenly realms?',
+    shortKm: 'និមិរាជជាតក ៖ ទស្សនានរក និងសួគ៌',
+    shortEn: 'Nimi Jātaka: Tour of Hell & Heaven',
+    essenceKm: 'នៅក្នុងគម្ពីរខុទ្ទកនិកាយ ជាតក (និមិរាជជាតក — ជាតកទី ៤ ក្នុងទសជាតក ឬមហានិបាតជាតក លេខ ៥៤១) ដំណើររឿងដែលព្រះបាទនិមិរាជ (ព្រះពោធិសត្វ) យាងទស្សនានរក ឧស្សទនរក និងវិមានសួគ៌ គឺជាព្រឹត្តិការណ៍ដ៏ល្បីល្បាញបំផុតមួយក្នុងពុទ្ធសាសនា។ ដោយសារគុណធម៌ សីល ៥ សីល ៨ និងទសពិធរាជធម៌ដ៏បរិសុទ្ធ ព្រះឥន្ទ្របានចាត់មាតលីទេវបុត្រឱ្យបរ «វេជយន្តរថ» ទឹមសេះសិន្ធពទិព្វ ១,០០០ ក្បាល ចុះមកទទួលព្រះអង្គនៅយប់ថ្ងៃពេញបូណ៌មី។ នៅផ្លូវបំបែក ព្រះបាទនិមិរាជបានជ្រើសរើសទស្សនា «ឋាននរក» ជាមុនសិន ដើម្បីឃើញផ្ទាល់ភ្នែកពីផលនៃបាបកម្ម យកទៅដាស់តឿនមនុស្សលោក។ បន្ទាប់ពីទតឃើញទារុណកម្មក្នុងស្ទឹងវេតរណី ហ្វូងក្អែកដែក ព្រៃស្លឹកដាវ ព្រៃរកា និងខ្ទះដែក មាតលីបាននាំព្រះអង្គឡើងទៅទស្សនាវិមានសួគ៌ និងចូលគាល់ព្រះឥន្ទ្រនៅសុធម្មាសភា។ ទោះបីព្រះឥន្ទ្រថ្វាយពាក់កណ្តាលរាជសម្បត្តិទិព្វ ព្រះអង្គបានបដិសេធដោយព្រះរាជឱង្ការប្រវត្តិសាស្ត្រថា «សម្បត្តិទិព្វពីបុណ្យអ្នកដទៃ ប្រៀបដូចជារទេះដែលគេខ្ចី» រួចយាងត្រឡប់មកក្រុងមិថិលាវិញ ដើម្បីទេសនាដាស់តឿនប្រជានុរាស្ត្រ ហើយនៅទីបំផុតបានយាងចេញសាងផ្នួសជាតាបស សម្រេចព្រហ្មលោក។',
+    essenceEn: 'In the Khuddaka Nikāya (Nimi Jātaka, the 4th story in the Mahānipāta / 10 Great Jātakas, No. 541), King Nimi (the Bodhisatta) reigning in Mithilā is invited by Sakka (Indra) to Tāvatiṃsa due to his extraordinary moral virtue, charity, and observance of the precepts. Sakka dispatches the divine charioteer Mātali with the Vejayanta chariot drawn by 1,000 celestial steeds on the full-moon night. Reaching the crossroads between Hell and Heaven, King Nimi resolutely chooses to inspect the Hells first to witness the tangible horrors of unwholesome karma to instruct humanity. After surveying Vettaraṇī river, iron dogs/crows, sword-leaf forests, thorny silk-cotton trees, and boiling cauldrons, Mātali ascends to the dazzling mansions of heaven and the Sudhammā Hall. When Sakka offers half of the celestial kingdom, King Nimi famously declines: "Enjoyment born of another’s merit is like a borrowed carriage; I must return to cultivate my own merit." Returning to Mithilā, he preaches to his subjects, later renouncing the throne upon seeing his first gray hair to achieve Brahma realm.',
+    practicalKm: 'មេរៀនជីវិតដ៏ឧត្តមពីព្រះបាទនិមិរាជ ៖ «សម្បត្តិដែលកើតពីបុណ្យរបស់អ្នកដទៃ មិនមែនជារបស់យើងឡើយ ដូចជារទេះដែលគេខ្ចី»។ គ្មាននរណាម្នាក់អាចខ្ចីបុណ្យ ឬរស់ពឹងផ្អែកលើការស្រោចស្រង់របស់អ្នកដទៃរហូតបានឡើយ។ យើងត្រូវតែកសាងកុសលផ្ទាល់ខ្លួន (អត្តា ហិ អត្តនោ នាថោ — ខ្លួនជាទីពឹងរបស់ខ្លួន) តាមរយៈទាន សីល និងភាវនា។ លើសពីនេះ ពេលឃើញ «ព្រះកេសាស្កូវមួយសរសៃ» ព្រះអង្គចាត់ទុកជាទេវទូតដាស់តឿនការមិនប្រមាទ មិនឱ្យជាប់ជំពាក់នឹងអំណាចរាជសម្បត្តិឡើយ។',
+    practicalEn: 'The profound life takeaway from King Nimi: "Pleasure derived from another’s merit is like a borrowed chariot; it does not truly belong to us." Spiritual attainment and peace cannot be borrowed or outsourced; we must generate our own refuge (Attā hi attano nātho) through giving, ethical discipline, and mental cultivation. Furthermore, treating a single gray hair as a divine messenger of mortality prevented complacency and attachment to worldly power.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤៣', en: 'Q&A 43' },
+      { to: '/my-gems#eight-great-hells', km: 'មហានរកទាំង ៨ ជាន់', en: '8 Great Hells' },
+      { to: '/my-gems#sixteen-ussada-hells', km: 'ឧស្សទនរកទាំង ១៦ ជាន់', en: '16 Ussada Hells' },
+      { to: '/my-gems#hell-escape-journey', km: 'ដំណើរឆ្លងកាត់នរក ១៦ ជាន់', en: 'Journey Through 16 Hells' },
+      { to: '/realms', km: 'ស្ថានទាំង ៣១ ភព', en: '31 Realms' }
+    ],
+    sections: [
+      {
+        titleKm: '១. មូលហេតុនៃការយាងទៅកាន់បរលោក & រាជរថទិព្វមាតលី',
+        titleEn: '1. Why King Nimi Was Invited to the Heavens & The Celestial Chariot',
+        contentKm: 'ព្រឹត្តិការណ៍ចាប់ផ្តើមពីគុណធម៌ដ៏អស្ចារ្យរបស់ព្រះបាទនិមិរាជលើលោកមនុស្ស ៖\n\n— គុណធម៌ដ៏លើសលប់របស់ព្រះបាទនិមិរាជ ៖\nព្រះបាទនិមិរាជ គឺជាព្រះពោធិសត្វដែលសោយរាជ្យនៅក្រុងមិថិលា ដែនវិទេហៈ។ ព្រះអង្គជាស្តេចប្រកបដោយទសពិធរាជធម៌ រក្សាសីល ៥ និងសីល ៨ យ៉ាងបរិសុទ្ធ ព្រមទាំងបានសាងរោងទាន ៥ កន្លែង (នៅទ្វារក្រុងទាំង ៤ និងចំកណ្តាលក្រុង) ចែកទានដល់ជនក្រីក្រឥតដាច់។ ប្រជានុរាស្ត្រដែលប្រតិបត្តិតាមការណែនាំរបស់ព្រះអង្គ លុះស្លាប់ទៅបានទៅកើតនៅឋានសួគ៌យ៉ាងកុះករ។\n\n— ទេវតានៅឋានតាវត្តិង្សចង់ជួបព្រះអង្គ ៖\nពួកទេវតាថ្មីៗដែលទើបឡើងមកកើតលើឋានសួគ៌ តែងតែជួបជុំគ្នានៅសុធម្មាសភា ហើយលើកសរសើរគុណធម៌ និងការណែនាំរបស់ព្រះបាទនិមិរាជមិនដាច់ពីមាត់ រហូតដល់កើតចិត្តចង់ជួបព្រះភក្ត្ររបស់ព្រះអង្គផ្ទាល់។\n\n— ព្រះឥន្ទ្រចាត់មាតលីទេវបុត្រឱ្យចុះមកទទួល ៖\nសម្តេចព្រះឥន្ទ្រ (សក្កទេវរាជ) បានចាត់ឱ្យ មាតលីទេវបុត្រ បររាជរថទិព្វឈ្មោះ «វេជយន្តរថ» ដែលទឹមដោយសេះសិន្ធពទិព្វ ១,០០០ ក្បាល ចុះមកកាន់ក្រុងមិថិលានៅយប់ថ្ងៃពេញបូណ៌មី។ ប្រជាជនផ្អើលស្មានថាមានព្រះចន្ទពីររះលើមេឃ ប៉ុន្តែការពិតជារាជរថទិព្វដែលចុះមកអញ្ជើញព្រះមហាក្សត្រឡើងទៅទស្សនាឋានសួគ៌។',
+        contentEn: 'The genesis of the celestial invitation rooted in King Nimi’s exemplary virtue:\n\n— Boundless Moral Virtue:\nKing Nimi, the Bodhisatta ruling Mithilā in Videha, reigned with the Ten Royal Virtues (Dasa-rājadhamma), observed the 5 and 8 precepts impeccably, and established 5 great alms-halls (at the four city gates and the royal square). Beings inspired by his guidance were reborn in heavenly realms in immense numbers.\n\n— Acclaim in the Sudhammā Assembly:\nNewly arrived deities in Tāvatiṃsa gathered at the Sudhammā Hall constantly sang King Nimi’s praises, longing to gaze upon his noble countenance.\n\n— Sakka Dispatches Mātali:\nSakka, King of Gods, commanded his charioteer Mātali to harness the divine Vejayanta chariot drawn by 1,000 celestial steeds and descend to Mithilā on the full-moon night. Citizens gasped in wonder, mistaking the radiant chariot for a second moon rising in the night sky.'
+      },
+      {
+        titleKm: '២. សំណួរនៅផ្លូវបំបែក និងការជ្រើសរើសផ្លូវ',
+        titleEn: '2. The Crossroads Choice: Hell First or Heaven First?',
+        contentKm: 'នៅពេលរាជរថហោះឡើងផុតពីដែនមនុស្សលោក មកដល់ «ផ្លូវបំបែកជាពីរ» មាតលីទេវបុត្របានទូលសួរព្រះបាទនិមិរាជថា ៖\n\n«បពិត្រព្រះសម្មតិទេព! ផ្លូវមួយនាំទៅកាន់ «ឋាននរក» ជាទីសោយទុក្ខវេទនារបស់សត្វដែលសាងបាបកម្ម រីឯផ្លូវមួយទៀតនាំទៅកាន់ «ឋានសួគ៌» ជាទីសោយសម្បត្តិទិព្វរបស់សត្វដែលសាងបុណ្យកុសល។ តើព្រះអង្គសព្វព្រះទ័យយាងទៅទស្សនាទីណាមុន?»\n\nព្រះបាទនិមិរាជបានត្រាស់ឆ្លើយភ្លាមៗថា ៖\n«យើងចង់ឃើញទីកន្លែងទាំងពីរ! ប៉ុន្តែចូរអ្នកបររាជរថនាំយើងទៅមើល «ឋាននរក» ជាមុនសិនចុះ!»\n\nព្រះអង្គជ្រើសរើសទស្សនានរកមុន ព្រោះចង់ឃើញឱ្យច្បាស់ពីផលវិបាកជាក់ស្តែងនៃអំពើអាក្រក់ ដើម្បីយកការណ៍ពិតនោះមកដាស់តឿនប្រជានុរាស្ត្រលើលោកមនុស្សឱ្យភ័យខ្លាចបាប។',
+        contentEn: 'Soaring above the human realm, the chariot arrived at a great bifurcation of paths. Mātali posed a monumental inquiry:\n\n"Sire! One path leads to the Hells, where evil-doers reap agonies of their deeds; the other leads to the Heavenly Mansions, where the virtuous enjoy divine fruits. Which realm does Your Majesty wish to behold first?"\n\nKing Nimi responded without hesitation:\n"I wish to see both realms! But turn the chariot toward the Hells first!"\n\nHe deliberately chose Hell first to witness the raw retribution of evil, so that he could report the undeniable truth back to warn the living.'
+      },
+      {
+        titleKm: '៣. ទិដ្ឋភាពនរក និងឧស្សទនរក ដែលមាតលីបានបង្ហាញ',
+        titleEn: '3. The Horrific Stations of Hell Revealed by Mātali',
+        contentKm: 'មាតលីទេវបុត្របានបររាជរថទិព្វហោះរេរាំងពីលើដែនដីនរក។ ព្រះបាទនិមិរាជទតឃើញទារុណកម្មដ៏រន្ធត់ញាក់សាច់ ក៏ត្រាស់សួរមាតលីអំពីកម្មផលនៃសត្វនរកទាំងនោះម្តងមួយស្ថានីយ ៖',
+        contentEn: 'Mātali hovered the glowing chariot above the smoking realms of agony, where King Nimi observed the torments and inquired of their karmic causes:',
+        points: [
+          {
+            boldKm: '១. ស្ទឹងវេតរណី (Vettaraṇី — ស្ទឹងទឹកក្បុងអាស៊ីត)',
+            boldEn: '1. Vettaraṇī (Boiling Caustic River)',
+            km: 'ទិដ្ឋភាព ៖ សត្វនរកត្រូវទឹកក្បុងអាស៊ីតក្តៅពុះកាត់រលាយសាច់ រួចត្រូវបន្លាផ្តៅដែកមុតស្រួចរារាំងមិនឱ្យឡើងគោក។ | កម្មផល ៖ ជាពួកដែលកាលនៅជាមនុស្ស មានអំណាច ជិះជាន់សង្កត់សង្កិន ប្លន់យកដីធ្លី និងកេងប្រវ័ញ្ចអ្នកទន់ខ្សោយ។',
+            en: 'Torment: Beings steeped in boiling caustic acid river fringed by razor iron thorns. | Karmic Cause: Tyrants, oppressors, corrupt land-grabbers, and those abusing authority against the weak.'
+          },
+          {
+            boldKm: '២. ហ្វូងក្អែកដែក និងត្មាតដែក (Kāka/Sunakha)',
+            boldEn: '2. Kāka & Sunakha (Iron Crows & Hounds)',
+            km: 'ទិដ្ឋភាព ៖ សត្វនរកត្រូវសត្វស្លាបដែក និងឆ្កែនរកដេញខាំហែកស៊ីសាច់ និងចឹកភ្នែកទាំងរស់។ | កម្មផល ៖ ជាពួកកំណាញ់ស្វិតស្វាញ ជេរប្រមាថសមណព្រាហ្មណ៍ អ្នកមានគុណ និងមាតាបិតា។',
+            en: 'Torment: Ferocious iron-jawed hounds and iron-beaked crows disemboweling flesh and blinding eyes alive. | Karmic Cause: Stingy misers who insulted recluses, virtuous elders, and parents.'
+          },
+          {
+            boldKm: '៣. កង់រទេះដែកភ្លើងកិនសង្កត់ (Khandha)',
+            boldEn: '3. Khandha (Fiery Cartwheel Presses)',
+            km: 'ទិដ្ឋភាព ៖ សត្វនរកត្រូវគេចងជាប់នឹងរទេះភ្លើង រួចរមៀលកិនលើកម្រាលដែកឡើងម៉ត់។ | កម្មផល ៖ ជាពួកដែលប្រព្រឹត្តអំពើឆបោក លួចបន្លំជញ្ជីងទម្ងន់ទំនិញ និងក្បត់ទំនុកចិត្តគេ។',
+            en: 'Torment: Lashed to flaming iron wagons and crushed under rumbling millwheels into paste. | Karmic Cause: Cheats using dishonest scales, fraudulent merchants, and betrayers of trust.'
+          },
+          {
+            boldKm: '៤. ដុំដែកភ្លើង និងទឹកទង់ដែងច្រកមាត់ (Ayoguḷa & Tambaloha)',
+            boldEn: '4. Ayoguḷa & Tambaloha (Molten Iron & Bronze)',
+            km: 'ទិដ្ឋភាព ៖ ពួកយមបាលយកដង្កាប់ដែកគាស់មាត់ រួចច្រកដុំដែកដុតក្រហមច្រាល និងទឹកទង់ដែងពុះចូលបំពង់ក ឆេះធ្លាយពោះវៀន។ | កម្មផល ៖ ជាពួកដែលលួចបន្លំទ្រព្យសម្បត្តិសង្ឃ កេងប្រវ័ញ្ចទ្រព្យវត្តអារាម និងសេពសុរាស្រវឹងខួបបំផ្លាញសីលធម៌។',
+            en: 'Torment: Jaws pried open with red-hot iron tongs to swallow blazing iron balls and liquid copper. | Karmic Cause: Embezzling monastic assets, temple theft, and chronic drunken debauchery.'
+          },
+          {
+            boldKm: '៥. ព្រៃរកាបន្លាដែក (Simbalīvana)',
+            boldEn: '5. Simbalīvana (Thorny Silk-Cotton Forest)',
+            km: 'ទិដ្ឋភាព ៖ មនុស្សប្រុសស្រីត្រូវយមបាលយកលំពែងចាក់បង្ខំឱ្យឡើងចុះដើមរកា មានបន្លាដែកភ្លើងវែងមុតដោតទម្លុះទ្រូង និងពោះ។ | កម្មផល ៖ ជាពួកដែលប្រព្រឹត្តអំពើកាមេសុមិច្ឆាចារ (ផិតក្បត់ប្តីប្រពន្ធគេ លួចលាក់មានសហាយស្មន់)។',
+            en: 'Torment: Forced up and down blazing 16-inch iron thorns by wardens\' spears. | Karmic Cause: Adultery, marital infidelity, and illicit sexual exploitation.'
+          },
+          {
+            boldKm: '៦. ព្រៃស្លឹកដាវ (Asipattavana)',
+            boldEn: '6. Asipattavana (Sword-Leaf Forest)',
+            km: 'ទិដ្ឋភាព ៖ ស្លឹកឈើជាផ្លែដាវធ្លាក់មកកាត់ក្បាល ដៃ ជើង ដាច់ជាកង់ៗ។ | កម្មផល ៖ ជាពួកដែលចូលចិត្តកាប់សម្លាប់សត្វ បាញ់សត្វព្រៃ និងបង្កសង្គ្រាមកាប់សម្លាប់មនុស្ស។',
+            en: 'Torment: Razor-sharp sword leaves showering down, slicing limbs and heads into shreds. | Karmic Cause: Slaughtering animals, cruel hunting, and instigating wars of slaughter.'
+          },
+          {
+            boldKm: '៧. ខ្ទះដែកលោហកុម្ភី (Lohakumbhī)',
+            boldEn: '7. Lohakumbhī (Giant Boiling Metal Vat)',
+            km: 'ទិដ្ឋភាព ៖ សត្វនរកត្រូវដាំពុះក្នុងខ្ទះដែកយក្ស រមៀលចុះឡើងរាប់ម៉ឺនឆ្នាំ។ | កម្មផល ៖ ជាពួកដែលប្រព្រឹត្តអំពើអាក្រក់ ប្រមាថអ្នកមានសីលបរិសុទ្ធ។',
+            en: 'Torment: Boiling for millennia in mountain-sized vats of swirling molten copper. | Karmic Cause: Chronic evil deeds and blaspheming noble recluses of pure virtue.'
+          }
+        ]
+      },
+      {
+        titleKm: '៤. ដំណើរយាងទៅកាន់ឋានសួគ៌ និងការជួបជុំទេវតា',
+        titleEn: '4. Ascension to the Celestial Mansions & Sudhammā Hall',
+        contentKm: 'បន្ទាប់ពីទស្សនានរកចប់ មាតលីទេវបុត្របានបង្វែររាជរថ នាំព្រះបាទនិមិរាជហោះឡើងទៅកាន់ឋានសួគ៌វិញម្តង ៖\n\n— ទស្សនាវិមានកែវ និងវិមានមាស ៖\nមាតលីបានបង្ហាញវិមានទិព្វជាច្រើន (ដូចជា វិមាននាងពិរុឡ្ហកា, វិមាននាងសោណាទិន្នា) និងពន្យល់ពីអានុភាពនៃការធ្វើទាន ការរក្សាសីល និងការកតញ្ញូចំពោះឪពុកម្តាយ ដែលនាំឱ្យទេវតាទាំងនោះទទួលបានសម្បត្តិទិព្វដ៏ត្រកាល។\n\n— ឡើងដល់ឋានតាវត្តិង្ស ៖\nព្រះឥន្ទ្រ និងពពួកទេវតាទាំងអស់បានចេញមកទទួលស្វាគមន៍ព្រះបាទនិមិរាជយ៉ាងកងរំពង។ ព្រះឥន្ទ្របានថ្វាយពាក់កណ្តាលនៃរាជសម្បត្តិទិព្វ និងយាងព្រះអង្គឱ្យគង់នៅសោយសុខលើឋានសួគ៌រហូត។',
+        contentEn: 'Concluding the tour of hell, Mātali steered the chariot upward to the celestial realms:\n\n— Heavenly Mansions of Gem and Gold:\nMātali displayed resplendent vimānas (such as Biruḷhakā’s and Soṇadinnā’s mansions), elucidating how devoted generosity, moral precepts, and filial piety generated such radiant celestial habitats.\n\n— Arrival at Tāvatiṃsa:\nSakka and myriads of devas assembled to give a thunderous reception. Sakka offered King Nimi half of the heavenly realm, inviting him to dwell in immortal bliss forever.'
+      },
+      {
+        titleKm: '៥. ការបដិសេធសម្បត្តិទិព្វ និងព្រះរាជឱង្ការជាប្រវត្តិសាស្ត្រ',
+        titleEn: '5. The Historic Refusal: "Borrowed Chariot" Royal Utterance',
+        contentKm: 'ទោះបីជាសម្បត្តិទិព្វលើឋានសួគ៌ស្រស់ស្អាត និងសុខស្រួលយ៉ាងណាក៏ដោយ ព្រះបាទនិមិរាជបានបដិសេធសំណើរបស់ព្រះឥន្ទ្រ ដោយទ្រង់មានព្រះរាជឱង្ការដ៏មានអត្ថន័យជ្រាលជ្រៅថា ៖\n\n«សម្បត្តិទិព្វដែលកើតពីបុណ្យរបស់អ្នកដទៃ ប្រៀបដូចជា «រទេះដែលគេខ្ចី» វាមិនមែនជារបស់យើងឡើយ។ យើងមិនចង់សោយសុខដោយសារបុណ្យរបស់អ្នកដទៃនោះទេ យើងត្រូវតែត្រឡប់ទៅនគរមនុស្សវិញ ដើម្បីសាងកុសលផ្ទាល់ខ្លួន តាមរយៈទាន សីល និងភាវនា»។\n\nព្រះអង្គបានស្នាក់នៅសម្តែងធម៌ដល់ពួកទេវតាអស់រយៈពេល ៧ ថ្ងៃមនុស្ស រួចក៏បានឱ្យមាតលីទេវបុត្របររាជរថជូនព្រះអង្គត្រឡប់មកកាន់នគរមិថិលាវិញ។',
+        contentEn: 'Despite the breathtaking splendors of heaven, King Nimi declined Sakka’s lavish offer with an immortal royal declaration:\n\n"Delights produced by another’s merit are like a borrowed chariot; they do not truly belong to me. I seek no secondhand bliss; I must return to the mortal realm to cultivate my own merits through generosity, virtue, and contemplation."\n\nHe preached the Dhamma to the assembled gods for seven human days before Mātali returned him to Mithilā.'
+      },
+      {
+        titleKm: '៦. ផលវិបាកក្រោយការត្រឡប់មកវិញ (ការទេសនា & ចេញសាងផ្នួស)',
+        titleEn: '6. Homecoming: Preaching to Mithilā & Royal Renunciation',
+        contentKm: 'ការត្រឡប់មកកាន់នគរមនុស្សបានបង្កើតនូវចលនាសីលធម៌ដ៏ធំធេង ៖\n\n— ការទេសនាដាស់តឿនប្រជានុរាស្ត្រ ៖\nពេលត្រឡប់មកដល់ ប្រជានុរាស្ត្របានជួបជុំគ្នាទទួលព្រះអង្គ។ ព្រះបាទនិមិរាជបានរៀបរាប់យ៉ាងពិស្តារអំពីទារុណកម្មដ៏រន្ធត់ក្នុងនរក និងសេចក្តីសុខដ៏ប្រណីតលើឋានសួគ៌ ដែលព្រះអង្គបានឃើញផ្ទាល់នឹងភ្នែក។ សេចក្តីទេសនានោះ ធ្វើឱ្យមនុស្សគ្រប់គ្នាភ័យខ្លាចបាប ហើយនាំគ្នាសាងតែអំពើល្អ រក្សាសីល និងធ្វើទានពេញទាំងនគរ។\n\n— ការចេញសាងផ្នួស ៖\nនៅពេលព្រះកេសារបស់ព្រះអង្គចាប់ផ្តើមស្កូវមួយសរសៃ (ទេវទូតដាស់រំលឹកសេចក្តីស្លាប់) ព្រះបាទនិមិរាជក៏បានដាក់រាជ្យសម្បត្តិ ប្រគល់ឱ្យព្រះរាជបុត្រ រួចយាងចេញទៅសាងផ្នួសជាតាបសចម្រើនព្រហ្មវិហារធម៌ក្នុងព្រៃមិគទាយវ័ន រហូតដល់អស់ព្រះជន្ម ហើយបានទៅកើតក្នុងព្រហ្មលោក។',
+        contentEn: 'King Nimi’s return ignited an empire-wide moral transformation:\n\n— Eyewitness Preaching to the Populace:\nGathering his subjects, King Nimi delivered an electrifying firsthand account of the horrific retributions of hell and the dazzling rewards of heaven. Trembling at the reality of kamma, the entire kingdom embraced virtue, generosity, and the precepts.\n\n— Renunciation on a Single Gray Hair:\nYears later, when the royal barber found his first gray hair, King Nimi recognized it as a Divine Messenger of mortality. He abdicated the throne to his son, entered ascetic monkhood in the Migadāya forest, perfected the Brahmavihāras, and attained the Brahma world upon death.'
       }
     ]
   }

@@ -275,40 +275,113 @@
       <div v-if="menuOpen" class="menu-backdrop" @click.self="closeMenu">
         <div class="menu-sheet" role="dialog" aria-modal="true" :aria-label="t('ម៉ឺនុយទំព័រទាំងអស់', 'All pages')">
           <div class="menu-sheet-head">
-            <div class="flex items-center gap-2">
-              <span class="menu-sheet-title">{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
-              <span class="text-[11px] px-2 py-0.5 rounded-full font-mono font-bold"
-                :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
-                {{ nav.length }}
-              </span>
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="text-xl shrink-0" aria-hidden="true">☸️</span>
+              <div class="min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="menu-sheet-title">{{ t('ម៉ឺនុយទំព័រទាំងអស់', 'All Pages') }}</span>
+                  <span class="text-[11px] px-2 py-0.5 rounded-full font-mono font-bold shrink-0"
+                    :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+                    {{ filteredMenuNav.length }}/{{ nav.length }}
+                  </span>
+                </div>
+                <div class="text-[11px] text-stone-500 dark:text-stone-400 truncate">
+                  {{ t('ចុចលើទំព័រណាមួយដើម្បីចូលអានភ្លាមៗ', 'Tap any page to open directly') }}
+                </div>
+              </div>
             </div>
-            <button class="menu-sheet-close" @click="closeMenu" :aria-label="t('បិទ', 'Close')">&#10005;</button>
+            <button class="menu-sheet-close" @click="closeMenu" :aria-label="t('បិទ', 'Close')">
+              <span class="text-base font-bold leading-none">&#10005;</span>
+              <span class="text-xs font-bold">{{ t('បិទ', 'Close') }}</span>
+            </button>
           </div>
 
           <!-- Quick Search Filter in Menu Sheet -->
-          <div class="px-3.5 py-2 border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
-            <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-xl border" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }">
-              <span class="text-xs text-stone-400">🔍</span>
+          <div class="px-3.5 py-2.5 border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
+            <div class="flex items-center gap-2 px-3 py-2 rounded-xl border" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }">
+              <span class="text-sm opacity-60">🔍</span>
               <input
                 ref="menuSearchInputRef"
                 v-model="menuSearchQuery"
                 type="text"
-                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤២ ម៉ឺនុយ (ឧ. សមាធិ, កម្ម, ៣៦)...', 'Search 42 pages (e.g. meditation, 36)...')"
-                class="w-full bg-transparent border-none text-xs focus:outline-none"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤២ ម៉ឺនុយ (ឧ. សមាធិ, នរក, ចិត្ត)...', 'Search 42 pages (e.g. meditation, hell, citta)...')"
+                class="w-full bg-transparent border-none text-xs sm:text-sm focus:outline-none"
                 :style="{ color: 'var(--ink)' }"
               />
-              <button v-if="menuSearchQuery" type="button" @click="menuSearchQuery = ''" class="text-xs opacity-50 hover:opacity-100 px-1">✕</button>
+              <button
+                v-if="menuSearchQuery"
+                type="button"
+                @click="menuSearchQuery = ''"
+                class="text-xs px-2 py-1 rounded-md bg-stone-200 dark:bg-stone-700 font-bold opacity-70 hover:opacity-100 cursor-pointer"
+                :aria-label="t('សម្អាត', 'Clear')"
+              >
+                ✕
+              </button>
             </div>
           </div>
 
+          <!-- Category filter pills -->
+          <div class="menu-category-bar">
+            <button
+              v-for="cat in menuCategories"
+              :key="cat.id"
+              type="button"
+              class="menu-cat-pill"
+              :class="{ 'active': selectedMenuCategory === cat.id }"
+              @click="selectedMenuCategory = cat.id"
+            >
+              <span>{{ t(cat.km, cat.en) }}</span>
+              <span class="count">({{ getCategoryCount(cat.id) }})</span>
+            </button>
+          </div>
+
+          <!-- Card list -->
           <div class="menu-sheet-list">
-            <router-link v-for="n in filteredMenuNav" :key="n.to" :to="n.to" class="menu-sheet-item"
-              :class="routeMeta === n.to ? 'active' : ''" @click="closeMenu">
-              <span class="menu-sheet-num" :style="{ color: 'var(--accent-bright)' }">{{ n.num }}</span>
-              <span class="menu-sheet-name">{{ t(n.kmShort, n.en) }}</span>
+            <router-link
+              v-for="n in filteredMenuNav"
+              :key="n.to"
+              :to="n.to"
+              class="menu-sheet-card"
+              :class="{ 'active': routeMeta === n.to }"
+              @click="closeMenu"
+            >
+              <div class="menu-card-badge">
+                <span class="menu-card-num">{{ n.num }}</span>
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-card-title">{{ t(n.km, n.en) }}</div>
+                <div class="menu-card-sub">{{ t(n.en, n.kmShort) }}</div>
+              </div>
+              <div class="menu-card-action">
+                <span v-if="routeMeta === n.to" class="menu-card-current">
+                  ✓ {{ t('កំពុងអាន', 'Active') }}
+                </span>
+                <span v-else class="menu-card-arrow">›</span>
+              </div>
             </router-link>
-            <div v-if="filteredMenuNav.length === 0" class="col-span-full py-8 text-center text-xs opacity-60">
-              {{ t('រកមិនឃើញម៉ឺនុយដែលត្រូវនឹងពាក្យស្វែងរកឡើយ', 'No matching pages found') }}
+
+            <!-- Empty state -->
+            <div v-if="filteredMenuNav.length === 0" class="col-span-full py-12 px-4 text-center">
+              <div class="text-3xl mb-2">🔍</div>
+              <p class="text-sm font-semibold mb-2" :style="{ color: 'var(--ink)' }">
+                {{ t('រកមិនឃើញម៉ឺនុយដែលត្រូវនឹងពាក្យស្វែងរកឡើយ', 'No matching pages found') }}
+              </p>
+              <p class="text-xs text-stone-500 mb-4">
+                {{ t('សូមព្យាយាមស្វែងរកពាក្យផ្សេង ឬចុចសម្អាត', 'Try searching for another word or clear filters') }}
+              </p>
+              <button
+                type="button"
+                @click="menuSearchQuery = ''; selectedMenuCategory = 'all'"
+                class="px-4 py-2 rounded-lg text-xs font-bold cursor-pointer"
+                :style="{ background: 'var(--accent)', color: '#fff' }"
+              >
+                {{ t('បង្ហាញទំព័រទាំងអស់ឡើងវិញ', 'Show all pages') }}
+              </button>
+            </div>
+
+            <!-- Footer indicator -->
+            <div v-if="filteredMenuNav.length > 0" class="col-span-full py-4 text-center text-[11px] opacity-50">
+              {{ t('☸️ ព្រះធម៌ ៤២ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 42 Pages — Ordered systematically for study & practice') }}
             </div>
           </div>
         </div>
@@ -424,10 +497,38 @@ const settingsBtnRef = ref(null)
 const menuSearchQuery = ref('')
 const menuSearchInputRef = ref(null)
 
+const selectedMenuCategory = ref('all')
+const menuCategories = [
+  { id: 'all', km: 'ទាំងអស់', en: 'All' },
+  { id: 'gems', km: '💎 រតនៈ & សំណួរ', en: '💎 Gems & Q&A' },
+  { id: 'abhidhamma', km: '🧠 អភិធម្ម', en: '🧠 Abhidhamma' },
+  { id: 'practice', km: '🧘 បដិបត្តិ & សមាធិ', en: '🧘 Practice' },
+  { id: 'sutta', km: '📜 ព្រះសូត្រ & ធម៌', en: '📜 Suttas' },
+  { id: 'life', km: '🪷 ជីវិត & សង្គម', en: '🪷 Life' },
+]
+
+const menuCategoryRoutes = {
+  gems: ['/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary'],
+  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta'],
+  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga'],
+  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma'],
+}
+
+function getCategoryCount(catId) {
+  if (catId === 'all') return nav.length
+  return (menuCategoryRoutes[catId] || []).length
+}
+
 const filteredMenuNav = computed(() => {
+  let list = nav
+  if (selectedMenuCategory.value !== 'all') {
+    const allowed = menuCategoryRoutes[selectedMenuCategory.value] || []
+    list = list.filter(n => allowed.includes(n.to))
+  }
   const q = menuSearchQuery.value.trim().toLowerCase()
-  if (!q) return nav
-  return nav.filter(n => {
+  if (!q) return list
+  return list.filter(n => {
     return n.km.toLowerCase().includes(q) ||
       n.kmShort.toLowerCase().includes(q) ||
       n.en.toLowerCase().includes(q) ||
@@ -527,13 +628,35 @@ const menuOpen = ref(false)
 function openMenu() {
   menuOpen.value = !menuOpen.value
   menuSearchQuery.value = ''
+  selectedMenuCategory.value = 'all'
   if (menuOpen.value) {
-    nextTick(() => {
-      menuSearchInputRef.value?.focus()
-    })
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+      nextTick(() => {
+        menuSearchInputRef.value?.focus()
+      })
+    }
+  } else {
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = ''
+    }
   }
 }
-function closeMenu() { menuOpen.value = false }
+function closeMenu() {
+  menuOpen.value = false
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
+}
+
+watch(menuOpen, (val) => {
+  if (typeof document !== 'undefined') {
+    if (val) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }
+})
 
 const pageNav = computed(() => {
   const cur = route.name === 'home' ? '/' : route.path
@@ -690,7 +813,14 @@ onBeforeUnmount(() => {
   if (installTimer) clearTimeout(installTimer)
 })
 
-watch(() => route.path, () => { if (settingsOpen.value) settingsOpen.value = false; if (menuOpen.value) menuOpen.value = false; if (hasError.value) hasError.value = false })
+watch(() => route.path, () => {
+  if (settingsOpen.value) settingsOpen.value = false
+  if (menuOpen.value) menuOpen.value = false
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
+  if (hasError.value) hasError.value = false
+})
 
 const siteName = t('ព្រះធម៌ អត្ថបទសម្រាប់ជីវិត', 'Buddha Dhamma — Dhamma for Life')
 const descrMap = {

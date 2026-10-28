@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤១ — សួរតាមដែលអ្នកជួប', 'Q&A 41 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤២ — សួរតាមដែលអ្នកជួប', 'Q&A 42 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៤១ — ចុចដើម្បីបើកមើល', 'FORTY-ONE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៤២ — ចុចដើម្បីបើកមើល', 'FORTY-TWO QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -406,6 +406,15 @@ const qas = [
     mE: 'The 16 Ussada Auxiliary Hells: Coals Pit, Boiling Ash, Excrement Worms, Sword Forest, Thorny Tree, Caustic Acid River, Scalding Slime, Iron Spears, Fiery Iron Balls, Molten Copper, 60,000-Yr Cauldron, Mountain Presses, Iron Dogs, Razor Peaks, Glacial Ice, Sealed Iron Vault.',
     tie: 'ឧស្សទនរកទាំង ១៦ ជាន់ ពិស្តារ · /my-gems#sixteen-ussada-hells',
     to: '/my-gems#sixteen-ussada-hells',
+  },  {
+    qK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើដំណើរជីវិតរបស់សត្វនរកដែលរត់ចេញពីមហានរក ត្រូវឆ្លងកាត់ឧស្សទនរកទាំង ១៦ តាមលំដាប់លំដោយយ៉ាងដូចម្ដេច?',
+    qE: 'According to the Tipiṭaka and Commentaries, how does a hell denizen escaping from the Great Hell journey sequentially through the sixteen Ussada hells?',
+    aK: 'ដំណើរជីវិតរបស់សត្វនរកដែលរត់ចេញពីមហានរក ឆ្លងកាត់ឧស្សទនរកទាំង ១៦ ជា «ដំណើរឆ្លងកាត់អន្ទាក់នៃវិបល្លាស (ការយល់ច្រឡំដែលជំរុញដោយតណ្ហា)» ដោយសត្វនរកតែងតែមើលឃើញទារុណកម្មនៅស្ថានីយបន្ទាប់ ថាជាទីពឹងពាក់ជានិច្ច ៖ ចេញពីមហានរកធំ -> ធ្លាក់ចូលគូថនរក (លាមកពុះ + ដង្កូវមាត់ម្ជុល) -> កុក្កុលនរក & អង្គារកាសុ (ស្មានថាដីស្ងួត ជាផេះក្តៅរលួយជើង) -> អសិបត្តវននរក (ស្មានថាម្លប់ត្រជាក់ ជាព្រៃស្លឹកដាវធ្លាក់កាត់ខ្លួន) -> សិម្ពលីវននរក (ត្រូវបង្ខំឡើងចុះដើមរកាបន្លាដែក) -> វេតរណីនទី (ស្មានថាស្ទឹងត្រជាក់ ជាទឹកក្បុងអាស៊ីត) -> ស្ថានីយឯកទេស (ដុំដែកច្រកមាត់ ទឹកទង់ដែង ត្បាល់កិន ភ្នំកាំបិតកោរ...)។ ដំណើរនេះប្រៀបដូចជាការបកស្រទាប់ខ្ទឹមបារាំងនៃកម្មផល រហូតដល់អស់កម្លាំងបាប (Kammakkhaya) ទើបអាចស្លាប់រួចផុតទៅចាប់កំណើតថ្មី។',
+    aE: 'A hell denizen escaping a Mahānaraka journeys through sequential cognitive hallucinations (vipallāsa) driven by craving, mistaking each new torture station for cooling refuge: Mahānaraka -> Gūtha (boiling feces & needle worms) -> Kukkula/Aṅgārakāsu (mistaken for dry land, melting feet) -> Asipattavana (mistaken for cool shade, sword-leaves decapitating them) -> Simbalīvana (forced up/down thorny iron trees) -> Vettaraṇī (mistaken for fresh stream, scalding acid river) -> Specialized Stations (ingesting red-hot iron balls, molten copper, mountain presses, razor mountains...). This systematic "onion-skin peeling" of residual karma continues until final karmic exhaustion (Kammakkhaya).',
+    mK: 'ដំណើរឆ្លងកាត់នរកជាអន្ទាក់វិបល្លាស (ការយល់ច្រឡំ) ៖ មហានរក -> គូថនរក (លាមក) -> កុក្កុលនរក (ផេះក្តៅ) -> អសិបត្តវនៈ (ព្រៃដាវ) -> សិម្ពលីវនៈ (ដើមរកា) -> វេតរណី (ស្ទឹងអាស៊ីត) -> ស្ថានីយឯកទេស (ដែកក្តៅច្រកមាត់...) · បកស្រទាប់កម្មរហូតដល់ Kammakkhaya។',
+    mE: 'Sequential journey through hallucinatory traps: Mahānaraka -> Gūtha (feces) -> Kukkula (boiling ash) -> Asipattavana (sword leaves) -> Simbalīvana (thorny tree) -> Vettaraṇī (acid river) -> Specialized Stations (swallowing iron balls...) until final Kammakkhaya.',
+    tie: 'ដំណើរឆ្លងកាត់ឧស្សទនរក ១៦ តាមលំដាប់ · /my-gems#hell-escape-journey',
+    to: '/my-gems#hell-escape-journey',
   },
 ]
 </script>

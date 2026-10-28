@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (២១)', en: 'All (21)' },
+  { id: 'all', km: 'ទាំងអស់ (២២)', en: 'All (22)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1723,6 +1723,97 @@ const gems = ref([
             en: 'Torment: Thick, hermetically sealed iron chamber without vents, windows, or doors. Roaring heat builds up in the enclosed vault, roasting trapped victims in pure darkness without fresh air. | Karmic Cause: Caging and locking animals in cramped cages, kidnapping for ransom, secret dungeon torture, and tyrannical suppression of human liberty.'
           }
         ]
+      }
+    ]
+  },
+
+  // GEM 22: Sequential Escape Journey Through the 16 Ussada Hells (Tipiṭaka, Devadūta Sutta MN 130 & Abhidhamma)
+  {
+    id: 'hell-escape-journey',
+    num: 22,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 ដំណើរជីវិតឆ្លងកាត់នរក',
+    categoryEn: '💀 Journey Through Ussada Hells',
+    ref: 'ទេវទូតសូត្រ (MN 130), គម្ពីរអភិធម្ម & វិសុទ្ធិមគ្គ',
+    paliQuote: 'តេន ខោ បន សមយេន តស្ស មហានិរយស្ស បុរត្ថិមំ ទ្វារំ អបាភុរតិ... (សម័យនោះ ទ្វារខាងកើតនៃមហានរកនោះក៏របើកឡើង សត្វទាំងនោះក៏ស្ទុះរត់ទៅដោយល្បឿន...)',
+    questionKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើដំណើរជីវិតរបស់សត្វនរកដែលរត់ចេញពីមហានរក ត្រូវឆ្លងកាត់ឧស្សទនរកទាំង ១៦ តាមលំដាប់លំដោយយ៉ាងដូចម្ដេច?',
+    questionEn: 'According to the Tipiṭaka and Commentaries, how does a hell denizen escaping from the Great Hell journey sequentially through the sixteen Ussada hells?',
+    shortKm: 'ដំណើរឆ្លងកាត់ឧស្សទនរក ១៦ តាមលំដាប់',
+    shortEn: 'Sequential Journey Through 16 Ussada Hells',
+    essenceKm: 'ដំណើរជីវិតរបស់សត្វនរកដែលរត់ចេញពីមហានរក ឆ្លងកាត់ឧស្សទនរកទាំង ១៦ មិនមែនជាការរត់គេចខ្លួនដោយសេរីភាពឡើយ ប៉ុន្តែជា «ដំណើរឆ្លងកាត់អន្ទាក់នៃវិបល្លាស (ការយល់ច្រឡំដែលជំរុញដោយតណ្ហា)» ដោយសត្វនរកតែងតែមើលឃើញទារុណកម្មនៅស្ថានីយបន្ទាប់ ថាជាទីពឹងពាក់ ឬកន្លែងត្រជាក់ជួយសង្គ្រោះជានិច្ច។ ខ្សែសង្វាក់ដំណើរការពី ៖ មហានរកធំ -> គូថនរក (លាមកពុះ + ដង្កូវមាត់ម្ជុល) -> កុក្កុលនរក/អង្គារកាសុ (ស្មានថាដីស្ងួត ជាផេះក្តៅរលួយជើង) -> អសិបត្តវននរក (ស្មានថាម្លប់ត្រជាក់ ជាព្រៃស្លឹកដាវធ្លាក់កាត់ខ្លួន) -> សិម្ពលីវននរក (ត្រូវបង្ខំឡើងចុះដើមរកាបន្លាដែក) -> វេតរណីនទី (ស្មានថាស្ទឹងត្រជាក់ ជាទឹកក្បុងអាស៊ីត) -> ស្ថានីយឯកទេស (ដុំដែកច្រកមាត់ ទឹកទង់ដែង ត្បាល់កិន ភ្នំកាំបិតកោរ...)។ ដំណើរនេះប្រៀបដូចជាការបកស្រទាប់ខ្ទឹមបារាំងនៃកម្មផល រហូតដល់អស់កម្លាំងបាប (Kammakkhaya) ទើបអាចស្លាប់រួចផុតទៅចាប់កំណើតថ្មី។',
+    essenceEn: 'The escape journey of a hell being fleeing a Mahānaraka is not a journey to freedom, but a sequential gauntlet through cognitive hallucinations (vipallāsa) engineered by residual craving. Driven by unbearable agony, victims perceive each successive torture station as a haven or sanctuary of relief: Mahānaraka -> Gūtha (boiling feces & needle worms) -> Kukkula/Aṅgārakāsu (mistaken for dry land, melting feet) -> Asipattavana (mistaken for cool shade, sword-leaves decapitating them) -> Simbalīvana (forced up/down thorny iron trees) -> Vettaraṇī (mistaken for fresh stream, scalding acid river) -> Specialized Stations (forced ingestion of red-hot iron balls, molten copper, mountain presses, razor mountains...). This operates as an exacting "onion-skin peeling" of residual karma until final karmic exhaustion (Kammakkhaya).',
+    practicalKm: 'ការយល់ខុស (វិបល្លាស) ដែលគិតថា «អ្វីដែលផ្តល់សេចក្តីសុខបណ្តោះអាសន្ន ជាទីពឹងពិតប្រាកដ» គឺជាមេក្លោងដែលទាញសត្វលោកឱ្យធ្លាក់ក្នុងអន្ទាក់តាំងពីលើលោកមនុស្ស រហូតដល់ក្នុងរណ្តៅនរក។ លើលោកមនុស្ស យើងតែងគិតថាលុយកាក់ កាមគុណ និងការសងសឹក នឹងជួយរំដោះទុក្ខ តែធាតុពិតវាជាភ្លើងដែលកំពុងរោលរាល។ ចូរបណ្តុះ «សម្មាទិដ្ឋិ» (ការយល់ត្រូវតាមការពិត) ដើម្បីកុំឱ្យធ្លាក់ចូលក្នុងអន្ទាក់នៃវិបល្លាសផ្លូវចិត្តនេះ។',
+    practicalEn: 'The cognitive delusion (vipallāsa) mistaking transient sensory appeasement for genuine refuge traps sentient beings from human life down to the hells. In human life, we assume sensual indulgence, wealth, or revenge bring peace, yet they fuel the blaze. Cultivating Right View (sammā-diṭṭhi) penetrates these cognitive traps before they materialize as physical retribution.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤២', en: 'Q&A 42' },
+      { to: '/my-gems#sixteen-ussada-hells', km: 'ឧស្សទនរកទាំង ១៦ ជាន់', en: '16 Ussada Hells' },
+      { to: '/my-gems#eight-great-hells', km: 'មហានរកទាំង ៨ ជាន់', en: 'The 8 Great Hells' },
+      { to: '/my-gems#hell-body-regeneration', km: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់?', en: 'Hell Body Regeneration' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ដំណាក់កាលទ្វារមហានរករបើក និងការរត់ចេញ (The Iron Gate Opens)',
+        titleEn: '1. The Iron Gate Opens: The Tragic Stampede and False Relief',
+        contentKm: 'នៅក្នុង ទេវទូតសូត្រ ព្រះសម្មាសម្ពុទ្ធបានពិពណ៌នាអំពីការរត់ចេញពីមហានរកយ៉ាងកម្សត់ ៖\n\n— ទ្វារដែករបើកដោយកម្លាំងកម្ម ៖ បន្ទាប់ពីត្រូវភ្លើងមហានរកដុតរោលរាប់រយពាន់លានឆ្នាំ រហូតទាល់តែអកុសលកម្មកម្រិតធ្ងន់ធ្ងរបំផុតចាប់ផ្តើមស្រាលបន្តិច ទ្វារដែកមួយក្នុងចំណោមទ្វារទាំង ៤ ក៏របើកឡើងដោយឯកឯង។\n\n— ការប្រជ្រៀតជាន់គ្នា ៖ សត្វនរករាប់ម៉ឺនកោដិដែលឃើញពន្លឺមាត់ទ្វារ ក៏ប្រញាប់ប្រញាល់រត់សំដៅទៅរកទ្វារនោះ ដោយការជាន់ឈ្លីលើគ្នាយ៉ាងវេទនា។ សត្វខ្លះរត់ទៅមិនទាន់ដល់ផង ទ្វារក៏បិទខ្ទប់មកវិញ ត្រូវរង់ចាំរាប់ពាន់ឆ្នាំទៀតទើបរបើកម្តងទៀត។\n\n— ពេលរត់ផុតមាត់ទ្វារ ៖ កាលណាទ្វាររបើកសាជាថ្មី សត្វនរកដែលរត់ផុតចេញក្រៅមហានរក តែងគិតក្នុងចិត្តថា «អាត្មាអញបានរួចផុតពីសេចក្តីទុក្ខហើយ!» ប៉ុន្តែគ្រាន់តែបោះជំហានផុតមហានរកភ្លាម ពួកគេក៏បានធ្លាក់ចូលទៅក្នុង ខ្សែសង្វាក់នៃឧស្សទនរក ដែលឡោមព័ទ្ធនៅជុំវិញមាត់ទ្វារនោះជាបន្តបន្ទាប់។',
+        contentEn: 'In the Devadūta Sutta (MN 130), the Buddha depicts the heart-wrenching scene at the great hell\'s gates:\n\n— Spontaneous Opening by Karma: After undergoing incineration across billions of solar years, when the heaviest core garuka-karma begins to attenuate, one of the four gargantuan iron gates swings open automatically.\n\n— The Desperate Stampede: Millions of charred beings, spotting the distant glimmer, stampede frantically toward the opening, trampling one another. Often before they reach it, the heavy iron gate slams shut, sealing them inside for further thousands of years.\n\n— The False Sense of Liberation: When a gate opens again and beings finally surge across the threshold, they exclaim in sheer joy: "I am finally free from suffering!" Yet the moment their feet hit the ground, they plunge straight into the contiguous gauntlet of auxiliary Ussada hells ringing the perimeter.'
+      },
+      {
+        titleKm: '២. ដំណើរឆ្លងកាត់ឧស្សទនរកជាលំដាប់លំដោយ (The Sequential Stations)',
+        titleEn: '2. The Sequential Gauntlet: From Feces to Swords, Acid and Molten Copper',
+        contentKm: 'ដំណើរការកាត់ទោសបន្តនេះ ប្រព្រឹត្តទៅជាខ្សែសង្វាក់ជាប្រព័ន្ធ ដូចដែលបានចែងក្នុងគម្ពីរអដ្ឋកថា និងទេវទូតសូត្រ ៖',
+        contentEn: 'The systematic sequence of secondary retribution follows an unbroken progression:',
+        points: [
+          {
+            boldKm: 'ជំហានទី ១ ៖ ធ្លាក់ចូល «គូថនរក» (Gūtha-niraya)',
+            boldEn: 'Station 1: Gūtha (Boiling Feces & Needle Worms)',
+            km: 'គ្រាន់តែជើងជាន់ដីខាងក្រៅភ្លាម សត្វនរកក៏ធ្លាក់ស្រុតចុះទៅក្នុងអន្លង់លាមកដ៏ធំសម្បើម ដែលកំពុងពុះកញ្ជ្រោល និងមានក្លិនស្អុយអសោចក្រៃលែង។ នៅក្នុងនោះ មានពួក ដង្កូវមាត់ដែកស្រួចដូចម្ជុល (សូចិមុខបាណៈ) ទំហំប៉ុនដើមត្នោត នាំគ្នារោមចោះទម្លុះស្បែក សាច់ សរសៃ និងឆ្អឹង ចូលទៅស៊ីខួរក្បាល និងសរីរាង្គក្នុង។',
+            en: 'Stepping outside, they plunge neck-deep into an ocean of boiling feces. Needle-mouthed iron worms the size of palm trees bore through skin, skull, and bones to devour marrow and visceral organs from within.'
+          },
+          {
+            boldKm: 'ជំហានទី ២ ៖ រត់បន្តចូល «កុក្កុលនរក & អង្គារកាសុនរក»',
+            boldEn: 'Station 2: Kukkula & Aṅgārakāsu (Boiling Ash & Coals Pit)',
+            km: 'នៅពេលសត្វនរកប្រឹងវារងើបចេញពីអន្លង់លាមក ឃើញដីរាបស្មើខាងមុខ ស្មានតែដីស្ងួត ក៏ប្រញាប់រត់ជាន់លើ។ ការពិតវាជា រណ្តៅផេះក្តៅ និងរងើកភ្លើង។ ពេលជាន់លើ ជើងទាំងពីរត្រូវភ្លើងឆេះរលួយសាច់ដល់ឆ្អឹង ពេលលើកជើងឡើង សាច់ក៏កើតមកវិញ រួចជាន់លិចឆេះរលួយម្តងទៀតរហូតដល់ផុតរណ្តៅ។',
+            en: 'Crawling out of the mire, they spot smooth grey plains ahead, mistaking it for dry relief. It is scalding ash and ember pits: each step dissolves foot tissue to white bone, which regenerates as lifted, only to melt upon the next step.'
+          },
+          {
+            boldKm: 'ជំហានទី ៣ ៖ ស្ទុះចូល «អសិបត្តវននរក» (ព្រៃស្លឹកដាវ)',
+            boldEn: 'Station 3: Asipattavana (Sword-Leaf Forest)',
+            km: 'ឆ្លងផុតរណ្តៅផេះក្តៅ សត្វនរកមានកាយរោលរាលខ្លាំង ក៏ក្រឡេកឃើញព្រៃឈើពណ៌បៃតងខ្ចី ហាក់ដូចជាមានម្លប់ត្រជាក់ ទើបរត់ប្រញាប់ទៅជ្រកកោន។ ពេលចូលដល់ក្រោមដើមឈើ ខ្យល់កម្មបក់មក ស្លឹកឈើដែលជា ផ្លែដាវពីរមុខមុតស្រួច ក៏ជ្រុះធ្លាក់មកកាត់ក្បាល កាត់ដៃ កាត់ជើង និងដងខ្លួនជាកង់ៗ។ នៅលើដី មានស្មៅដែកមុតស្រួចដោតច្រូងច្រាង ព្រមទាំងមានឆ្កែនរក និងក្អែកដែក ចុះមកហែកស៊ីសាច់ដែលធ្លាក់នោះ។',
+            en: 'Charred and blistering, they gaze ahead and see emerald forest canopies promising cooling shade. Rushing in, gusting karmic winds detach double-edged sword leaves that rain down, severing heads, limbs, and torsos while iron hounds tear the fragments.'
+          },
+          {
+            boldKm: 'ជំហានទី ៤ ៖ ត្រូវបង្ខំឱ្យឡើង «សិម្ពលីវននរក» (ព្រៃរកាបន្លាដែក)',
+            boldEn: 'Station 4: Simbalīvana (Thorny Iron Trees)',
+            km: 'សត្វនរករត់រើបម្រះចេញពីព្រៃស្លឹកដាវ ឃើញព្រៃដើមរកាធំៗ ស្មានតែជាទីសុវត្ថិភាព។ ពួកយមបាលដែលកាន់ដាវ និងលំពែងភ្លើង ក៏ដេញកាប់ចាក់ពីក្រោយ បង្ខំឱ្យសត្វនរកឡើងដើមរកាដែកដែលមាន បន្លាដែកភ្លើងដុះច្រូងច្រាង។ ពេលឡើងទៅ បន្លាងាកចុះក្រោមដោតទម្លុះទ្រូង លុះដល់ចុងឈើ ត្រូវក្អែកដែកចឹកភ្នែក ហើយពេលយមបាលយកលំពែងចាក់បង្ខំឱ្យចុះមកវិញ បន្លាក៏ងាកឡើងលើដោតច្រាសទម្លុះពោះបន្តទៀត។',
+            en: 'Fleeing the sword-fall, they encounter colossal silk-cotton trees. Wardens brandishing spears herd them up; thorns bend downward to impale their chests ascending; iron vultures gouge eyes at the top; forced down, thorns point upward to gore them in reverse.'
+          },
+          {
+            boldKm: 'ជំហានទី ៥ ៖ លោតចូល «វេតរណីនទី» (ស្ទឹងទឹកក្បុងអាស៊ីត)',
+            boldEn: 'Station 5: Vettaraṇī River (Caustic Acid & Cane Thorns)',
+            km: 'ពេលធ្លាក់ចុះពីដើមរកា សត្វនរកស្រេកទឹកខ្លាំង និងក្តៅក្រហាយពេញខ្លួន ស្រាប់តែឃើញស្ទឹងទឹកមួយហូរថ្លាឈ្វេង ក៏ស្ទុះលោតចុះទៅក្នុងទឹកដើម្បីផឹក និងងូតឱ្យត្រជាក់។ តាមពិត ស្ទឹងនោះជា ទឹកក្បុងអាស៊ីតក្តៅពុះគគ្រុក។ រូបកាយត្រូវទឹកអាស៊ីតកាត់រលាយដូចដុំអំបិលត្រូវទឹក ហើយក្នុងស្ទឹងមានបន្លាផ្តៅដែកមុតស្រួចរារាំងមិនឱ្យឡើងគោក។',
+            en: 'Parched with terminal thirst, they hear rushing waters and spot a crystal stream. Leaping in to drink, they find it boiling caustic alkaline acid that dissolves flesh like salt in water, while tangled iron ratan thorns prevent escape.'
+          },
+          {
+            boldKm: 'ជំហានទី ៦ ដល់ ១៦ ៖ ស្ថានីយធ្វើទារុណកម្មឯកទេស',
+            boldEn: 'Stations 6 to 16: Specialized Karmic Stations',
+            km: 'លុះសត្វនរករសាត់តាមស្ទឹងវេតរណី ពួកយមបាលយកសន្ទូចដែកស្ទូចស្រង់មកលើច្រាំង រួចសួរថា ៖ «តើឯងត្រូវការអ្វី?» សត្វនរកឆ្លើយទាំងដង្ហក់ថា ៖ «ខ្ញុំឃ្លានណាស់ ខ្ញុំស្រេកទឹកណាស់!» យមបាលក៏គាស់មាត់ ច្រកដុំដែកដុតក្រហមច្រាល (អយោគុឡៈ) និងទឹកទង់ដែងរលាយពុះ (តម្ពលោហៈ) ដុតរលាយពោះវៀនធ្លាយចេញតាមទ្វារលាមក។ បន្ទាប់មក បញ្ជូនបន្តទៅកាន់ យន្តបាសាណៈ (ត្បាល់កិន), ខុរធារៈ (ភ្នំកាំបិតកោរ), លោហកុម្ភី (ថ្លាងដែកពុះ), សីតោទកៈ (ទឹកកកសូន្យសុង), អយោឃរៈ (បន្ទប់ដែកបិទជិត)... ទៅតាមសំណល់កម្មដែលនៅសេសសល់។',
+            en: 'Dredged ashore on iron hooks, wardens ask: "What do you desire?" Victims gasp: "We are starving and parched!" Wardens pry jaws open with red-hot tongs, cramming incandescent iron balls (Ayoguḷa) and molten copper (Tambaloha) down their gullets. Subsequently, based on unexhausted debts, they are routed to Crushing Mountain Presses, Razor Mountains, Lohakumbhī vats, or Glacial Chambers.'
+          }
+        ]
+      },
+      {
+        titleKm: '៣. យន្តការផ្លូវចិត្តតាមអភិធម្ម ៖ ហេតុអ្វីបានជាសត្វនរករត់ចូលទារុណកម្មទាំងនោះ?',
+        titleEn: '3. Abhidhamma Psychology: Hallucinatory Traps Driven by Craving (Vipallāsa)',
+        contentKm: 'យន្តការផ្លូវចិត្តដែលនាំឱ្យសត្វនរករត់ចូលអន្ទាក់ទារុណកម្ម ត្រូវបានពន្យល់តាមក្បួនបរមត្ថ ៖\n\n— វិបល្លាសនៃតណ្ហា (The Illusion Driven by Craving) ៖\nនៅក្នុងគម្ពីរអភិធម្ម នៅពេលចិត្តរបស់សត្វលោកត្រូវគ្របដណ្ដប់ដោយទុក្ខវេទនាខ្លាំង កម្លាំងនៃ តណ្ហា នឹងបង្កើតនូវ «រូបភាពបញ្ឆោតភ្នែក» (Hallucination) ភ្លាមៗ ៖ ឃើញរណ្តៅផេះថាជាដីស្ងួត, ឃើញព្រៃដាវថាជាម្លប់ឈើត្រជាក់, និងឃើញទឹកអាស៊ីតពុះថាជាស្ទឹងទឹកថ្លា។ សត្វនរករត់ចូលដោយក្តីសង្ឃឹម តែត្រូវជួបទារុណកម្មធ្ងន់ធ្ងរជាងមុន។\n\n— កម្មក្ខយៈ (ការបកស្រទាប់កម្ម — Layer Peeling) ៖\nដំណើរនៃការឆ្លងកាត់ឧស្សទនរកទាំង ១៦ នេះ គឺដូចជាការបកស្រទាប់ខ្ទឹមបារាំងដូច្នោះដែរ ៖\n១. មហានរក ៖ សម្រាប់ដុតកម្ទេចឫសគល់កម្មធ្ងន់បំផុត (គរុកម្ម / បាបធំៗ)។\n២. ឧស្សទនរកទាំង ១៦ ៖ សម្រាប់ដុតរំលាយកាកសំណល់កម្មរណប (កម្មលម្អិតៗ និងទម្លាប់អាក្រក់បន្ទាប់បន្សំ) ម្តងមួយដំណាក់កាលៗរហូតដល់អស់ថាមពលកម្ម។',
+        contentEn: 'Why do hell denizens repeatedly walk into these horrific traps? Abhidhamma explains two profound principles:\n\n— The Cognitive Mirage of Craving (Vipallāsa):\nWhen bodily pain reaches maximum intensity, craving (taṇhā) projects urgent optical hallucinations onto the sense doors: scalding ash appears as a tranquil pathway; falling sword-leaves appear as cooling orchard shade; boiling caustic acid appears as a sparkling brook. In desperation, they dash toward these phantoms, only to trigger fresh horrors.\n\n— The "Onion-Peeling" Mechanics of Karmic Exhaustion:\nThe transition through Mahānaraka and the 16 Ussada stations resembles peeling layers of an onion: the Great Hell incinerates the root Garuka-kamma; the subsequent 16 satellite hells systematically scour away secondary habit energies and auxiliary moral debts.'
+      },
+      {
+        titleKm: '៤. ទីបញ្ចប់នៃដំណើរឆ្លងកាត់ (The Ultimate Karmic Exhaustion / Kammakkhaya)',
+        titleEn: '4. The Final Crossing: Exhaustion of Debt and Samsaric Rebirth',
+        contentKm: 'សត្វនរកមិនអាចស្លាប់នៅពាក់កណ្តាលទីក្នុងឧស្សទនរកណាមួយឡើយ ដរាបណាអំពើបាបនោះមិនទាន់រលាយអស់ (ន ច តាវ កាលំ ករោតិ យាវ ន តំ បាបកម្មំ ខីយតិ)។\n\nលុះត្រាតែបានឆ្លងកាត់ការរងទុក្ខវេទនាក្នុងឧស្សទនរកទាំងនោះ រហូតដល់ «កម្លាំងអកុសលកម្មត្រូវបានទូទាត់រលត់សូន្យ» (Kammakkhaya) ទើប ចុតិចិត្ត ក្នុងនរកកើតឡើង ហើយសត្វនោះក៏ស្លាប់ចាកផុតពីភពនរក។\n\nពេលនោះ កុសលកម្មចាស់ៗកាលពីរាប់រយជាតិមុន (អបរាបរិយវេទនីយកម្ម) ដែលធ្លាប់កប់ទុកក្នុងភវង្គចិត្ត នឹងមានឱកាសរុញឱ្យវិញ្ញាណទៅចាប់បដិសន្ធិឡើងវិញជាសត្វតិរច្ឆាន ប្រេត ឬមនុស្សពិការ/ក្រីក្រ ដើម្បីបន្តសងកម្មស្រាលៗលើលោកិយ រហូតដល់បានជួបព្រះធម៌ជាថ្មី។',
+        contentEn: 'A hell denizen can never perish halfway through any Ussada hell until the debt is paid in full ("Na ca tāva kālaṃ karoti yāva na taṃ pāpakammaṃ khīyati").\n\nOnly when the entire unwholesome momentum has been utterly depleted through experiential suffering (Kammakkhaya) does the hell death-consciousness (cuti-citta) arise. At that juncture, dormant wholesome deeds performed hundreds of lifetimes earlier (aparāpariya-vedanīya-kamma) surface to propel rebirth into the animal kingdom, ghost realm, or as an impoverished human, gradually working through residual ripples until encountering the Dhamma once more.'
       }
     ]
   }

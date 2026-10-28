@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤០ — សួរតាមដែលអ្នកជួប', 'Q&A 40 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៤១ — សួរតាមដែលអ្នកជួប', 'Q&A 41 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៤០ — ចុចដើម្បីបើកមើល', 'FORTY QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៤១ — ចុចដើម្បីបើកមើល', 'FORTY-ONE QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -397,6 +397,15 @@ const qas = [
     mE: 'The 8 Great Hells: Sañjīva (Revival), Kāḷasutta (Black Line), Sanghāta (Crushing), Roruva (Fire in 9 Gates), Mahāroruva (Toxic Smoke), Tāpana (Spikes), Mahātāpana (Spear Fall), Avīci (No Interruption); each ringed by 16 auxiliary Ussada hells.',
     tie: 'មហានរកទាំង ៨ ជាន់ ពិស្តារ · /my-gems#eight-great-hells',
     to: '/my-gems#eight-great-hells',
+  },  {
+    qK: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើ «ឧស្សទនរក» (នរកបរិវារទាំង ១៦ ជាន់) មានឈ្មោះអ្វីខ្លះ ទារុណកម្មជាក់ស្តែង និងកម្មផលដែលនាំឱ្យធ្លាក់យ៉ាងដូចម្ដេច?',
+    qE: 'According to the Tipiṭaka and Commentaries, what are the Sixteen Ussada (Auxiliary) Hells, their specific torments, and the distinct karmic causes leading to each?',
+    aK: 'នៅក្នុងគម្ពីរព្រះត្រៃបិដក (ទេវទូតសូត្រ, ពាលបណ្ឌិតសូត្រ និង និមិរាជជាតក) មហានរកទាំង ៨ នីមួយៗ មានទ្វារ ៤ នៅទិសទាំងបួន ហើយនៅជុំវិញទ្វារនីមួយៗ មាន «ឧស្សទនរក» (នរកបរិវារ) ចំនួន ១៦ ជាន់ ៖ (១) អង្គារកាសុ (រណ្តៅរងើកភ្លើង — កម្មបន្លំជញ្ជីង លួចទ្រព្យ) (២) កុក្កុលៈ (កម្ទេចផេះក្តៅ — កម្មដុតស្រែចម្ការ ផ្ទះ) (៣) គូថៈ (ទឹកលាមក & ដង្កូវមាត់ម្ជុល — កម្មបង្ខូចកេរ្តិ៍ឈ្មោះគេ) (៤) អសិបត្តវនៈ (ព្រៃស្លឹកដាវ — កម្មកាប់ចាក់ ធ្វើសង្គ្រាម) (៥) សិម្ពលីវនៈ (ព្រៃដើមរកាបន្លាដែក — កម្មកាមេសុមិច្ឆាចារ) (៦) វេតរណី (ស្ទឹងទឹកក្បុងអាស៊ីត — កម្មសង្កត់សង្កិន អយុត្តិធម៌តុលាការ) (៧) ថោហរៈ (ភក់ជ្រាំស្អុយក្តៅ — កម្មលក់ចំណីពុល) (៨) សត្តិកូលៈ (ចម្រូងលំពែងដែក — កម្មបាញ់ប្រហារ ដាក់អន្ទាក់សត្វ) (៩) អយោគុឡៈ (ដុំដែកភ្លើងច្រកមាត់ — កម្មលួចបន្លំទ្រព្យសង្ឃ ស៊ីសំណូក) (១០) តម្ពលោហៈ (ទឹកទង់ដែងរលាយ — កម្មស្រវឹងខួប គ្រឿងញៀន) (១១) លោហកុម្ភី (ថ្លាងដែកពុះ ៦០,០០០ ឆ្នាំ — កម្មសហាយស្មន់ ប្រព្រឹត្តកាមខុស) (១២) យន្តបាសាណៈ (ត្បាល់កិនយន្តថ្ម — កម្មវាយដំប្រពន្ធកូន កេងប្រវ័ញ្ចពលកម្ម) (១៣) សុនខៈ (ឆ្កែដែក និងត្មាតដែក — កម្មជេរប្រមាថ ពោលពាក្យអាក្រក់) (១៤) ខុរធារៈ (ភ្នំកាំបិតកោរ — កម្មកុហក ញុះញង់បំបែកគេ) (១៥) សីតោទកៈ (ទឹកត្រជាក់កកសូន្យសុង — កម្មចិត្តត្រជាក់សម្លាប់គេ ចោលកូន) (១៦) អយោឃរៈ (បន្ទប់ដែកភ្លើងបិទជិត — កម្មបង្ខាំងមនុស្សសត្វក្នុងទ្រុង គុកងងឹត)។',
+    aE: 'In the Tipiṭaka (Devadūta Sutta MN 130, Nimi Jātaka 541), each of the Eight Great Hells is surrounded on its four gates by 16 auxiliary satellite hells (Ussada Naraka): (1) Aṅgārakāsu (Glowing Coals — fraudulent weights), (2) Kukkula (Boiling Ash — arson & sabotage), (3) Gūtha (Excrement & Needle Worms — defamation), (4) Asipattavana (Sword-Leaf Forest — warfare & weapons), (5) Simbalīvana (Thorny Silk-Cotton Tree — adultery), (6) Vettaraṇī (Caustic Acid River — judicial corruption), (7) Thohara (Scalding Putrid Slime — toxic food), (8) Sattisūla (Iron Spear Spikes — wildlife poaching), (9) Ayoguḷa (Swallowing Iron Balls — temple theft & bribery), (10) Tambaloha (Molten Copper — alcohol/drug addiction), (11) Lohakumbhī (60,000-Yr Boiling Cauldron — sexual misconduct), (12) Yantapāsāṇa (Crushing Mountain Presses — domestic abuse & forced labor), (13) Sunakha (Iron Dogs & Vultures — coarse verbal abuse), (14) Khuradhāra (Razor Blade Mountain — slander & divisive speech), (15) Sītodaka (Sub-zero Glacial Ice — cold-blooded abandonment), and (16) Ayoghara (Sealed Blazing Iron Vault — imprisonment & caging living beings).',
+    mK: 'ឧស្សទនរក ១៦ ជាន់ ៖ រណ្តៅរងើកភ្លើង · ផេះក្តៅ · ទឹកលាមក & ដង្កូវមាត់ម្ជុល · ព្រៃស្លឹកដាវ · ដើមរកាបន្លាដែក · ស្ទឹងទឹកក្បុងអាស៊ីត · ភក់ជ្រាំស្អុយ · ចម្រូងលំពែង · ដុំដែកច្រកមាត់ · ទឹកទង់ដែង · ថ្លាងដែកពុះ · ត្បាល់កិនយន្តថ្ម · ឆ្កែដែក · ភ្នំកាំបិតកោរ · ទឹកត្រជាក់កក · បន្ទប់ដែកបិទជិត។',
+    mE: 'The 16 Ussada Auxiliary Hells: Coals Pit, Boiling Ash, Excrement Worms, Sword Forest, Thorny Tree, Caustic Acid River, Scalding Slime, Iron Spears, Fiery Iron Balls, Molten Copper, 60,000-Yr Cauldron, Mountain Presses, Iron Dogs, Razor Peaks, Glacial Ice, Sealed Iron Vault.',
+    tie: 'ឧស្សទនរកទាំង ១៦ ជាន់ ពិស្តារ · /my-gems#sixteen-ussada-hells',
+    to: '/my-gems#sixteen-ussada-hells',
   },
 ]
 </script>

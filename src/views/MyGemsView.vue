@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (២០)', en: 'All (20)' },
+  { id: 'all', km: 'ទាំងអស់ (២១)', en: 'All (21)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1565,6 +1565,163 @@ const gems = ref([
           { boldKm: '៦. តាបនៈ', boldEn: '6. Tāpana', km: 'ទារុណកម្ម ៖ ដោតលើចម្រូងដែកភ្លើង អាំងរោល | កម្ម ៖ ដុតព្រៃ ដុតសត្វ ដុតផ្ទះសម្បែង | អាយុ ៖ ១៦,០០០ ឆ្នាំនរក (៥៣,០៨៤,១៦០,០០០ លានឆ្នាំមនុស្ស)។', en: 'Torment: Impaled on blazing spits | Cause: Arson, roasting animals alive | Lifespan: 16,000 hell yrs (53,084.16M million human yrs).' },
           { boldKm: '៧. មហាតាបនៈ', boldEn: '7. Mahātāpana', km: 'ទារុណកម្ម ៖ រត់ឡើងភ្នំភ្លើង ត្រូវខ្យល់បក់ធ្លាក់លើដាវ | កម្ម ៖ មិច្ឆាទិដ្ឋិធ្ងន់ធ្ងរ បដិសេធកម្មផល | អាយុ ៖ កន្លះអន្តរកប្ប (Half an Antarakappa)។', en: 'Torment: Blown from peaks onto spears | Cause: Stubborn nihilism (micchādiṭṭhi) | Lifespan: Half an Antarakappa.' },
           { boldKm: '៨. អវិចី', boldEn: '8. Avīci', km: 'ទារុណកម្ម ៖ ភ្លើងឆេះជាប់គ្នាសព្វទិស គ្មានចន្លោះសម្រាក | កម្ម ៖ អនន្តរិយកម្ម ៥ (សម្លាប់ឪពុកម្តាយ...) | អាយុ ៖ ១ អន្តរកប្បពេញ (1 Full Antarakappa)។', en: 'Torment: Uninterrupted inferno in 6 directions | Cause: 5 Anantarika-kamma | Lifespan: 1 Full Antarakappa.' }
+        ]
+      }
+    ]
+  },
+
+  // GEM 21: The Sixteen Ussada (Auxiliary) Hells in Exhaustive Canonical Detail (Tipiṭaka, Nimi Jātaka & Aṭṭhakathā)
+  {
+    id: 'sixteen-ussada-hells',
+    num: 21,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 ឧស្សទនរកទាំង ១៦ ជាន់',
+    categoryEn: '💀 The 16 Ussada Hells',
+    ref: 'ទេវទូតសូត្រ (MN 130), និមិរាជជាតក (Jātaka 541), ពាលបណ្ឌិតសូត្រ & វិសុទ្ធិមគ្គ',
+    paliQuote: 'តស្ស ខោ បន ភិក្ខវេ មហានិរយស្ស... ចតុណ្ណំ ទ្វារា សោឡស ឧស្សទនិរយា បរិក្ខិត្តា (នៅជុំវិញទ្វារទាំង ៤ នៃមហានរកនីមួយៗ មានឧស្សទនរក ១៦ តម្រៀបគ្នាជាបរិវារ)',
+    questionKm: 'យោងតាមគម្ពីរព្រះត្រៃបិដក និងអដ្ឋកថា តើ «ឧស្សទនរក» (នរកបរិវារទាំង ១៦ ជាន់) មានឈ្មោះអ្វីខ្លះ ទារុណកម្មជាក់ស្តែង និងកម្មផលដែលនាំឱ្យធ្លាក់យ៉ាងដូចម្ដេច?',
+    questionEn: 'According to the Tipiṭaka and Commentaries, what are the Sixteen Ussada (Auxiliary) Hells, their specific torments, and the distinct karmic causes leading to each?',
+    shortKm: 'ឧស្សទនរកទាំង ១៦ ជាន់ ពិស្តារ',
+    shortEn: 'The 16 Ussada (Auxiliary) Hells',
+    essenceKm: 'នៅក្នុងគម្ពីរព្រះត្រៃបិដក (ទេវទូតសូត្រ, ពាលបណ្ឌិតសូត្រ និង និមិរាជជាតក) មហានរកធំៗទាំង ៨ នីមួយៗ មានទ្វារដែក ៤ នៅទិសទាំងបួន ហើយនៅជុំវិញទ្វារនីមួយៗ មាន «ឧស្សទនរក» (នរកបរិវារ) ចំនួន ១៦ ជាន់ តម្រៀបជុំវិញ ដែលជាទីលានធ្វើទារុណកម្មបន្តសម្រាប់សត្វនរកដែលរើខ្លួនចេញពីមហានរកធំ។ នរកទាំង ១៦ រួមមាន ៖ (១) អង្គារកាសុ (រណ្តៅរងើកភ្លើង) (២) កុក្កុលៈ (កម្ទេចផេះក្តៅ) (៣) គូថៈ (ទឹកលាមក & ដង្កូវមាត់ម្ជុល) (៤) អសិបត្តវនៈ (ព្រៃស្លឹកដាវ) (៥) សិម្ពលីវនៈ (ព្រៃដើមរកាបន្លាដែក) (៦) វេតរណី (ស្ទឹងទឹកក្បុងអាស៊ីត) (៧) ថោហរៈ (ភក់ជ្រាំស្អុយក្តៅ) (៨) សត្តិកូលៈ (ចម្រូងលំពែងដែក) (៩) អយោគុឡៈ (ដុំដែកភ្លើងច្រកមាត់) (១០) តម្ពលោហៈ (ទឹកទង់ដែងរលាយពុះ) (១១) លោហកុម្ភី (ថ្លាងដែកពុះ ៦០,០០០ ឆ្នាំ) (១២) យន្តបាសាណៈ (ត្បាល់កិនយន្តថ្ម) (១៣) សុនខៈ (ហ្វូងឆ្កែដែក និងត្មាតដែក) (១៤) ខុរធារៈ (ភ្នំកាំបិតកោរ) (១៥) សីតោទកៈ (ទឹកត្រជាក់កកសូន្យសុង) (១៦) អយោឃរៈ (បន្ទប់ដែកភ្លើងបិទជិត)។',
+    essenceEn: 'In the Tipiṭaka (Devadūta Sutta MN 130, Bālapaṇḍita Sutta MN 129, and Nimi Jātaka 541), each of the Eight Great Hells has four iron gates, and surrounding each gate are 16 auxiliary satellite hells (Ussada Naraka) where escaping victims encounter secondary karmic retribution: (1) Aṅgārakāsu (Glowing Coals), (2) Kukkula (Boiling Ash), (3) Gūtha (Filth & Needle Worms), (4) Asipattavana (Sword-Leaf Forest), (5) Simbalīvana (Thorny Silk-Cotton Tree), (6) Vettaraṇī (Caustic Acid River), (7) Thohara (Scalding Putrid Slime), (8) Sattisūla (Iron Spear Spikes), (9) Ayoguḷa (Swallowing Fiery Iron Balls), (10) Tambaloha (Molten Copper Gulping), (11) Lohakumbhī (Giant 60,000-year Boiling Cauldron), (12) Yantapāsāṇa (Crushing Mountain Presses), (13) Sunakha (Iron Dogs & Vultures), (14) Khuradhāra (Razor Blade Mountain), (15) Sītodaka (Sub-zero Glacial Ice), and (16) Ayoghara (Sealed Blazing Iron Vault).',
+    practicalKm: 'ឧស្សទនរកទាំង ១៦ បង្ហាញពីលក្ខណៈជាក់លាក់នៃ «កម្មផលសមមូល» (Karmic Retribution Parallels) ៖ អំពើបាបដែលប្រព្រឹត្តបែបណា នឹងបង្កើតជាបរិស្ថានធ្វើទារុណកម្មបែបនោះយ៉ាងសក្តិសម (អ្នកផិតក្បត់ត្រូវឡើងដើមរកា, អ្នកកុហកត្រូវកាត់អណ្តាត, អ្នកលួចលាក់ស៊ីសំណូកត្រូវច្រកដុំដែកភ្លើង)។ ការដឹងច្បាស់ពីទារុណកម្មទាំងនេះ ជួយឱ្យយើងមិនហ៊ានប្រព្រឹត្តអំពើបាប ទោះជាបាបតូចតាចក្នុងទីកំបាំងមុខក៏ដោយ។',
+    practicalEn: 'The 16 Ussada hells reveal the exact somatic mirror of moral retribution: the mode of evil dictates the mode of torment (adulterers scale thorny trees, slanderers endure razor mountains, thieves swallow fiery iron). Contemplating this exact psychophysical mirror instills unwavering diligence in avoiding even the slightest hidden transgressions.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៤១', en: 'Q&A 41' },
+      { to: '/my-gems#eight-great-hells', km: 'មហានរកទាំង ៨ ជាន់', en: 'The 8 Great Hells' },
+      { to: '/my-gems#hell-merit-prayers', km: 'សត្វនរក ៖ បួងសួង ឬទទួលបុណ្យបានទេ?', en: 'Hell Merit & Prayers' },
+      { to: '/my-gems#hell-body-regeneration', km: 'រូបកាយសត្វនរក ៖ ហេតុអ្វីមិនស្លាប់?', en: 'Hell Body Regeneration' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ឧស្សទនរក ជាន់ទី ១ ដល់ ទី ៤ (រណ្តៅរងើកភ្លើង, ផេះក្តៅ, ទឹកលាមក & ព្រៃស្លឹកដាវ)',
+        titleEn: '1. Ussada Hells 1 to 4: Fiery Coals, Hot Ashes, Excrement Worms & Sword Forests',
+        contentKm: 'ការធ្វើទារុណកម្មនៅតាមទ្វារចេញនៃមហានរក ៖',
+        contentEn: 'Torment stations confronting denizens fleeing the four gates of Mahānaraka:',
+        points: [
+          {
+            boldKm: '១. អង្គារកាសុនរក (Aṅgārakāsu — នរករណ្តៅរងើកភ្លើង)',
+            boldEn: '1. Aṅgārakāsu (Glowing Coals Pit Hell)',
+            km: 'ទារុណកម្ម ៖ រណ្តៅធ្យូងភ្លើងដ៏ធំសម្បើម ជម្រៅរាប់សិបម៉ែត្រ ដុតរោលក្រហមច្រាលគ្មានផ្សែង។ ពេលសត្វនរករត់ចេញពីទ្វារមហានរក ព្រោះស្មានថារួចខ្លួន ក៏ស្រាប់តែធ្លាក់ជើងកប់ក្នុងរណ្តៅរងើកភ្លើងនេះ។ យមបាលយកដំបងដែកភ្លើងវាយសង្កត់ក្បាលឱ្យលិចកប់ក្នុងរងើកភ្លើង ឆេះសាច់បាតជើង ភ្លៅ និងខ្លួនប្រាណរលាយភ្លាមៗ។ | កម្ម ៖ ការបោកប្រាស់បន្លំជញ្ជីង កេងប្រវ័ញ្ចទម្ងន់ទំនិញ ការលួចបន្លំកេងកិបថវិកាសាធារណៈ និងការលួចទ្រព្យអ្នកដទៃដោយកលល្បិចស្ងាត់ៗ។',
+            en: 'Torment: Massive pit of white-hot embers without smoke. Fleeing victims sink into burning coals while wardens bludgeon their heads downward, incinerating limbs and flesh instantly. | Karmic Cause: Rigging market scales, fraudulent trade weights, embezzlement of public funds, and clandestine extortion.'
+          },
+          {
+            boldKm: '២. កុក្កុលនរក (Kukkula — នរកកម្ទេចផេះក្តៅ)',
+            boldEn: '2. Kukkula (Scalding Ash Pit Hell)',
+            km: 'ទារុណកម្ម ៖ រណ្តៅផេះក្តៅហុយផ្សែងទ្រលោម មើលពីលើដូចជាដីរាបស្មើធម្មតា ប៉ុន្តែខាងក្រោមជាកម្ទេចផេះភ្លើងដុតពុះគគ្រុក។ សត្វនរករត់ជាន់លើ ស្រាប់តែស្រុតជើងលិចដល់ក្បាលជង្គង់ ភ្លៅ ឬទ្រូង ផេះក្តៅកាត់រលួយសាច់ស្បែករហូតដល់សល់តែឆ្អឹង។ | កម្ម ៖ ការបំផ្លាញផលប្រយោជន៍អ្នកដទៃ ការលួចដុតបំផ្លាញស្រែចម្ការ ផ្ទះសម្បែង និងការធ្វើឱ្យខូចខាតទ្រព្យសម្បត្តិសាធារណៈ។',
+            en: 'Torment: Decpetively flat field of boiling ash. As victims step across, they sink to knees, hips, and chest, corrosive heat sloughing muscle and skin to the bone. | Karmic Cause: Sabotaging livelihoods, arson burning fields, destroying homes, and damaging common infrastructure.'
+          },
+          {
+            boldKm: '៣. គូថនរក (Gūtha — នរកទឹកលាមក & ដង្កូវមាត់ម្ជុល)',
+            boldEn: '3. Gūtha (Excrement & Needle-Mouthed Worms Hell)',
+            km: 'ទារុណកម្ម ៖ អន្លង់ទឹកលាមកស្អុយគគ្រុកជ្រៅរាប់យោជន៍ ពោរពេញដោយ «ដង្កូវមាត់ដែក» (សូចិមុខបាណៈ) ទំហំប៉ុនដើមត្នោត។ ដង្កូវទាំងនោះមានមាត់ស្រួចដូចម្ជុល ចោះទម្លុះស្បែក ក្បាល ភ្នែក ច្រមុះ ចូលទៅទំពាស៊ីខួរក្បាល ពោះវៀន និងសរីរាង្គក្នុងយ៉ាងវេទនា។ | កម្ម ៖ ការបង្ខូចកេរ្តិ៍ឈ្មោះអ្នកដទៃ ការប្រមាថចាស់ព្រឹទ្ធាចារ្យ ការក្បត់ទំនុកចិត្ត និងការរស់នៅដោយកេងប្រវ័ញ្ចញើសឈាមអ្នកដទៃដោយគ្មានភាពខ្មាសអៀន។',
+            en: 'Torment: Vast ocean of putrid feces populated by palm-tree-sized needle-mouthed iron worms (sūcimukha). They bore through skull, eyes, and skin to devour brain, heart, and intestines from inside. | Karmic Cause: Malicious defamation, insulting elders, betraying trust, and shamelessly parasitizing the livelihood of others.'
+          },
+          {
+            boldKm: '៤. អសិបត្តវននរក (Asipattavana — នរកព្រៃស្លឹកដាវ)',
+            boldEn: '4. Asipattavana (Sword-Leaf Forest Hell)',
+            km: 'ទារុណកម្ម ៖ ព្រៃឈើដ៏ធំសម្បើម មើលពីចម្ងាយដូចជាព្រៃម្លប់ត្រជាក់ ធ្វើឱ្យសត្វនរករត់ចូលទៅជ្រកកោន។ ប៉ុន្តែស្លឹកឈើទាំងអស់សុទ្ធសឹងជា ផ្លែដាវពីរមុខដ៏មុតស្រួច។ ពេលខ្យល់បក់មក ស្លឹកដាវជ្រុះធ្លាក់ដូចគ្រាប់ភ្លៀង កាត់ផ្តាច់ក្បាល ដៃ ជើង ត្រចៀក ច្រមុះធ្លាក់រាយប៉ាយ។ ពេលដួលលើដី ស្មៅដែកមុតស្រួចដោតទម្លុះខ្នងបន្តទៀត។ | កម្ម ៖ ការកាប់ចាក់ប្រហារគ្នា ការធ្វើសង្គ្រាមឈ្លានពាន ការប្រើអាវុធគំរាមកំហែង និងការបំផ្លាញសន្តិភាពសង្គម។',
+            en: 'Torment: Forest resembling cool shade that entices victims. Every leaf is a double-edged razor blade. Winds shower blade-rain amputating heads, arms, and ears; fallen victims are impaled by iron razor grass below. | Karmic Cause: Violent assaults, instigating aggressive wars, wielding lethal weapons to terrorize, and destroying social harmony.'
+          }
+        ]
+      },
+      {
+        titleKm: '២. ឧស្សទនរក ជាន់ទី ៥ ដល់ ទី ៨ (ព្រៃដើមរកា, ស្ទឹងអាស៊ីត, ភក់ជ្រាំ & ចម្រូងលំពែង)',
+        titleEn: '2. Ussada Hells 5 to 8: Thorny Trees, Acid Rivers, Boiling Mud & Iron Spears',
+        contentKm: 'ការធ្វើទារុណកម្មសម្រាប់កម្មកាមគុណ អំណាចអយុត្តិធម៌ និងការប្រមាញ់ ៖',
+        contentEn: 'Torment stations addressing sexual misconduct, judicial corruption, and violent hunting:',
+        points: [
+          {
+            boldKm: '៥. សិម្ពលីវននរក (Simbalīvana — នរកព្រៃដើមរកាបន្លាដែក)',
+            boldEn: '5. Simbalīvana (Thorny Silk-Cotton Tree Hell)',
+            km: 'ទារុណកម្ម ៖ ព្រៃដើមរកាដែកកម្ពស់ ១ យោជន៍ មានបន្លាដែកភ្លើងដុះច្រូងច្រាងប្រវែង ១៦ ធ្នាប់ (ប្រហែលកន្លះម៉ែត្រ)។ យមបាលកាន់លំពែងដែកភ្លើងចាក់គំរាមពីក្រោយ បង្ខំឱ្យឡើងដើមរកា។ ពេលឡើងទៅ បន្លាងាកចុះក្រោមដោតទម្លុះទ្រូង និងពោះ លុះដល់ចុង ក្អែកដែក និងត្មាតដែកទុំចឹកភ្នែក។ ពេលយមបាលបង្ខំឱ្យចុះមកវិញ បន្លាងាកឡើងលើដោតច្រាសទម្លុះខ្លួនបន្តទៀត។ | កម្ម ៖ អំពើកាមេសុមិច្ឆាចារ (ការផិតក្បត់ប្តីប្រពន្ធ ការលួចលាក់មានសហាយស្មន់ និងការរំលោភបំពានផ្លូវភេទកូនក្រមុំ ឬប្រពន្ធអ្នកដទៃ)។',
+            en: 'Torment: 1-yojana tall iron trees covered with foot-long incandescent spikes. Wardens with flaming tridents force victims up; upward climbing bends spikes downward to gore chests; at the top, iron vultures peck out eyes; forced down, thorns bend upward to gore them in reverse. | Karmic Cause: Adultery (kāmesu micchācāra), sexual assault, seducing others\' spouses, and shattering families.'
+          },
+          {
+            boldKm: '៦. វេតរណីនរក ឬ ខារោទកនរក (Vettaraṇī — នរកស្ទឹងទឹកក្បុងអាស៊ីត)',
+            boldEn: '6. Vettaraṇī / Khārodaka (Caustic Acid River Hell)',
+            km: 'ទារុណកម្ម ៖ ស្ទឹងទឹកក្បុងអាស៊ីតក្តៅពុះ ដែលមានបន្លាផ្តៅដែកដុះទ្រុបទ្រុល និងផ្កាឈូកដែកមុតស្រួចក្នុងទឹក។ សត្វនរកដែលស្រេកទឹកខ្លាំង ស្ទុះលោតចុះទៅ ត្រូវទឹកអាស៊ីតកាត់រលាយសាច់ និងឆ្អឹង ហើយត្រូវបន្លាផ្តៅដែកមុតជាប់ ព្រមទាំងមានយមបាលយកសន្ទូចដែកស្ទូចទាញមកច្រាំងធ្វើទារុណកម្មបន្ត។ | កម្ម ៖ ការជិះជាន់សង្កត់សង្កិនអ្នកទន់ខ្សោយ ការប្រើប្រាស់អំណាចតុលាការដោយអយុត្តិធម៌ និងការកេងប្រវ័ញ្ចយកដីធ្លីអ្នកក្រីក្រ។',
+            en: 'Torment: Boiling river of caustic lye/acid fringed with iron ratan cane thorns and razor lotus pads. Parched victims jump in only to have flesh dissolved; wardens dredge them out with iron fishhooks for further flogging. | Karmic Cause: Oppressing the vulnerable, judicial bribery, passing corrupt verdicts, and dispossessing impoverished landowners.'
+          },
+          {
+            boldKm: '៧. ថោហរនរក (Thohara — នរកភក់ជ្រាំស្អុយក្តៅ)',
+            boldEn: '7. Thohara (Scalding Putrid Slime Hell)',
+            km: 'ទារុណកម្ម ៖ អន្លង់ភក់ល្បាប់ក្តៅពុះក្រហមច្រាល និងមានក្លិនស្អុយអសោចលើសពីសាកសពរាប់ពាន់ដង។ សត្វនរកលិចកប់ក្នុងភក់នោះ ដកដង្ហើមចូលសុទ្ធតែជាតិពុលរលាកសួត និងរលាយសរីរាង្គខាងក្នុង។ | កម្ម ៖ ការលក់ចំណីអាហារពុល ការលាយសារធាតុគ្រោះថ្នាក់ក្នុងអាហារឱ្យគេបរិភោគ និងការប្រកបរបរទុច្ចរិតបំផ្លាញសុខភាពអ្នកដទៃ។',
+            en: 'Torment: Vast bog of boiling, putrid slime emitting toxic vapor thousands of times viler than rotting corpses. Inhaled fumes ulcerate lungs and dissolve internal organs. | Karmic Cause: Selling adulterated poisonous food, spiking consumables with deadly chemicals, and greedy commercial practices harming public health.'
+          },
+          {
+            boldKm: '៨. សត្តិកូលនរក (Sattisūla — នរកចម្រូងលំពែងដែក)',
+            boldEn: '8. Sattisūla (Iron Spear Spikes Hell)',
+            km: 'ទារុណកម្ម ៖ វាលរាបដែលដោតពេញដោយចម្រូងដែក ដាវ និងលំពែងភ្លើងច្រូងច្រាងដូចព្រៃឫស្សី។ ពួកយមបាលចាប់ជើងសត្វនរកបោកបោះទម្លាក់ពីលើអាកាស ឱ្យធ្លាក់មកដោតច្រូងចំចម្រូងលំពែងទាំងនោះធ្លុះធ្លាយខ្លួន។ | កម្ម ៖ ការបាញ់សម្លាប់សត្វព្រៃ ការដាក់អន្ទាក់សម្លាប់សត្វ និងការប្រើឧបាយកលធ្វើបាបមនុស្សស្លូតត្រង់។',
+            en: 'Torment: Field bristling with blazing iron spears, javelins, and stakes dense as a bamboo grove. Wardens seize victims by the ankles and fling them high, impaling them through torsos upon descending. | Karmic Cause: Trapping and shooting wildlife, setting snare traps for birds/game, and malicious conspiracies entrapping innocents.'
+          }
+        ]
+      },
+      {
+        titleKm: '៣. ឧស្សទនរក ជាន់ទី ៩ ដល់ ទី ១២ (ដុំដែកច្រកមាត់, ទឹកទង់ដែង, ថ្លាងដែក ៦០,០០០ ឆ្នាំ & យន្តថ្មកិន)',
+        titleEn: '3. Ussada Hells 9 to 12: Molten Balls, Molten Copper, 60,000-Yr Cauldron & Crushing Presses',
+        contentKm: 'ការធ្វើទារុណកម្មចំពោះការឆបោកទ្រព្យសង្ឃ ការស្រវឹង និងការគាបសង្កត់ពលកម្ម ៖',
+        contentEn: 'Torment stations punishing temple embezzlement, chronic drunkenness, and violent labor exploitation:',
+        points: [
+          {
+            boldKm: '៩. អយោគុឡនរក (Ayoguḷa — នរកដុំដែកភ្លើងច្រកមាត់)',
+            boldEn: '9. Ayoguḷa (Red-Hot Iron Ball Swallowing Hell)',
+            km: 'ទារុណកម្ម ៖ យមបាលយកដង្កាប់ដែកភ្លើងគាស់ទាញមាត់សត្វនរកឱ្យរបើកធំ រួចយកដុំដែកដុតភ្លើងឡើងក្រហមច្រាលទំហំប៉ុនផ្លែក្រូច ឬផ្លែដូង មកញាត់ចូលក្នុងមាត់។ ដុំដែកនោះរលាយបំពង់ក ឆេះធ្លុះក្រពះ ពោះវៀន ហើយធ្លាក់ចេញតាមទ្វារលាមក។ | កម្ម ៖ ការលួចបន្លំ ឬឆបោកយកលុយកាក់ចំណីអាហាររបស់សង្ឃ ទ្រព្យវត្តអារាម ព្រមទាំងការកុហកភូតភរដើម្បីស៊ីសំណូកសូកប៉ាន់។',
+            en: 'Torment: Wardens pry jaws open with tongs and force red-hot iron balls down their throats. The molten mass melts palate, burns through stomach and bowels, exiting through the anus. | Karmic Cause: Embezzling temple funds, misappropriating alms offerings, taking bribes, and feeding luxuriously on stolen monastic wealth.'
+          },
+          {
+            boldKm: '១០. តម្ពលោហនរក (Tambaloha — នរកទឹកទង់ដែងរលាយពុះ)',
+            boldEn: '10. Tambaloha (Boiling Molten Copper Hell)',
+            km: 'ទារុណកម្ម ៖ ខ្ទះទង់ដែងដ៏ធំសម្បើម ពោរពេញដោយទឹកទង់ដែងរលាយក្តៅពុះគគ្រុក។ យមបាលចាប់សត្វនរកចងផ្កាប់មុខ រួចដងយកទឹកទង់ដែងពុះច្រកចូលមាត់ កាត់ផ្តាច់អណ្តាត បំពង់ក និងរលាយសរីរាង្គខាងក្នុងទាំងអស់។ | កម្ម ៖ ការសេពសុរា គ្រឿងស្រវឹង និងគ្រឿងញៀនជាប្រចាំ ការបំពុលអ្នកដទៃដោយគ្រឿងស្រវឹង និងការបង្ខំឱ្យគេផឹកថ្នាំពុល។',
+            en: 'Torment: Vast vats filled with molten liquid copper. Wardens ladles boiling bronze down gaping throats, searing the tongue, dissolving the larynx, and liquefying internal organs. | Karmic Cause: Chronic alcohol and drug intoxication, spiking others\' drinks with intoxicating substances, and poisoning people.'
+          },
+          {
+            boldKm: '១១. លោហកុម្ភីនរក (Lohakumbhī — នរកថ្លាងដែកពុះ ៦០,០០០ ឆ្នាំ)',
+            boldEn: '11. Lohakumbhī (The 60,000-Year Giant Boiling Cauldron)',
+            km: 'ទារុណកម្ម ៖ ថ្លាងដែកទំហំស្មើនឹងភ្នំ ដែលដុតភ្លើងពុះកញ្ជ្រោល។ សត្វនរកត្រូវទម្លាក់ចុះទៅក្នុងនោះ រមៀលលិចចុះទៅបាតថ្លាងអស់រយៈពេល ៣០,០០០ ឆ្នាំ ទើបអណ្តែតឡើងមកលើផ្ទៃវិញ ៣០,០០០ ឆ្នាំ រួចលិចចុះទៅវិញឥតឈប់ឈរ (ដូចក្នុងរឿងសេដ្ឋីបុត្ត ៤ នាក់ដែលស្រែកពាក្យ «ទុ ស ន សោ»)។ | កម្ម ៖ ការលួចមានសហាយស្មន់ជាមួយប្រពន្ធកូនគេ ការរំលោភបំពានសីលធម៌គ្រួសារ និងការរស់នៅដោយខ្ជះខ្ជាយអួតអាងទ្រព្យសម្បត្តិដោយមិនធ្វើបុណ្យទាន។',
+            en: 'Torment: Colossal mountain-sized cauldron of boiling metal. Beings sink to the bottom over 30,000 years, then float back to the boiling surface over 30,000 years (uttering the 4 tragic syllables Du-Sa-Na-So as recounted in the Dhammapada commentary). | Karmic Cause: Seducing married women, dissolute hedonism squandering wealth in sensual misconduct without ever practicing charity.'
+          },
+          {
+            boldKm: '១២. យន្តបាសាណនរក (Yantapāsāṇa — នរកត្បាល់កិនយន្តថ្ម)',
+            boldEn: '12. Yantapāsāṇa (Crushing Mountain Presses Hell)',
+            km: 'ទារុណកម្ម ៖ មានផ្ទាំងថ្មភ្នំធំៗពីររត់បុកទង្គិចគ្នាយ៉ាងលឿនដូចយន្តត្បាល់កិន។ យមបាលដេញកៀងសត្វនរកឱ្យរត់ចូលចន្លោះផ្ទាំងថ្មនោះ រួចថ្មទាំងពីរក៏រត់មកកិនសង្កត់កម្ទេចសាច់ និងឆ្អឹងឱ្យបែកខ្ទេចខ្ទីដូចកម្ទេចម្សៅ រួចក៏កើតរូបរាងឡើងវិញ ដើម្បីឱ្យគេកិនបន្ត។ | កម្ម ៖ ការវាយដំធ្វើបាបប្រពន្ធកូន ការគាបសង្កត់កេងប្រវ័ញ្ចកម្លាំងពលកម្មអ្នកបម្រើ ឬកម្មករដោយគ្មានក្តីមេត្តា។',
+            en: 'Torment: Two immense mountain slabs grinding together like automated millstones. Wardens herd victims between them; the slabs smash together, reducing flesh and bone into pulverized pulp, only to reform for repeated crushing. | Karmic Cause: Domestic violence, savagely beating spouse and children, and mercilessly overworking impoverished laborers without pay or care.'
+          }
+        ]
+      },
+      {
+        titleKm: '៤. ឧស្សទនរក ជាន់ទី ១៣ ដល់ ទី ១៦ (ហ្វូងឆ្កែដែក, ភ្នំកាំបិតកោរ, ទឹកត្រជាក់កក & បន្ទប់ដែកបិទជិត)',
+        titleEn: '4. Ussada Hells 13 to 16: Iron Dogs, Razor Peaks, Glacial Ice & Sealed Chambers',
+        contentKm: 'ការធ្វើទារុណកម្មចំពោះពាក្យទ្រគោះបោះបោក ពាក្យញុះញង់ ចិត្តត្រជាក់សាហាវ និងការបង្ខាំងសេរីភាព ៖',
+        contentEn: 'Torment stations punishing verbal venom, slander, cold-blooded abandonment, and wrongful imprisonment:',
+        points: [
+          {
+            boldKm: '១៣. សុនខនរក (Sunakha — នរកហ្វូងឆ្កែដែក និងត្មាតដែក)',
+            boldEn: '13. Sunakha (Iron Dogs & Vultures Hell)',
+            km: 'ទារុណកម្ម ៖ ពោរពេញដោយហ្វូងឆ្កែនរកសម្បុរក្រហម ខ្មៅ ស និងត្មាតដែក ក្អែកដែក ដែលមានចង្កូម និងចំពុះដែកមុតស្រួច។ ពួកវាដេញខាំហែកសាច់ ពោះវៀន និងចឹកភ្នែកសត្វនរកទាំងរស់ សត្វនរករត់ស្រែកយំពេញទីលាន។ | កម្ម ៖ ការជេរប្រមាថសមណព្រាហ្មណ៍ អ្នកមានគុណ ការប្រើសម្តីអាក្រក់ដូចឆ្កែខាំ (ផរុសវាចា) និងការបញ្ចើចបញ្ចើឱ្យគេឈ្លោះប្រកែកគ្នា។',
+            en: 'Torment: Ravaged by packs of ferocious red, black, and white hell-hounds alongside iron-beaked crows and vultures. They rip throats open, eviscerate bowels, and tear eyes out alive. | Karmic Cause: Cursing noble recluses and parents, habitually spewing venomous coarse abuse (pharusa-vācā), and barking slander to incite brawls.'
+          },
+          {
+            boldKm: '១៤. ខុរធារនរក (Khuradhāra — នរកភ្នំកាំបិតកោរ)',
+            boldEn: '14. Khuradhāra (Razor-Blade Mountain Hell)',
+            km: 'ទារុណកម្ម ៖ ភ្នំដែកដែលមានផ្លែកាំបិតកោរមុតស្រួចដុះពេញដូចស្មៅ។ យមបាលបង្ខំសត្វនរកឱ្យរត់ឡើងចុះលើភ្នំនោះ ជើង និងខ្លួនប្រាណត្រូវកាំបិតកាត់ជាបន្ទះៗរហូតដល់សល់តែឆ្អឹងសក្បុស។ | កម្ម ៖ ការកុហកបោកប្រាស់ ភូតភរ ពោលពាក្យញុះញង់បំបែកបំបាក់មិត្តភក្តិ ឬប្តីប្រពន្ធគេឱ្យបែកបាក់គ្នា (បិសុណាវាចា)។',
+            en: 'Torment: Mountains blanketed with upward-facing razor blades sharp as scalpels. Wardens force denizens to run barefoot up and down, shearing soles, tendons, and flesh into ribbons until only white bones remain. | Karmic Cause: Deceit, chronic lying, and divisive malicious gossip destroying friendships and marriages (pisuṇa-vācā).'
+          },
+          {
+            boldKm: '១៥. សីតោទកនរក (Sītodaka — នរកទឹកត្រជាក់កកសូន្យសុង)',
+            boldEn: '15. Sītodaka (Sub-Zero Glacial Ice Hell)',
+            km: 'ទារុណកម្ម ៖ នរកដែលគ្មានកម្ដៅទាល់តែសោះ មានតែទឹកកក និងខ្យល់ត្រជាក់កករាប់រយអង្សាក្រោមសូន្យ។ សត្វនរកធ្លាក់ចូលទៅ រាងកាយឡើងរឹងកំព្រឹស ឆ្អឹងប្រេះស្រួយបែកខ្ញែកជាកម្ទេចដោយសារភាពត្រជាក់ខ្លាំងហួសប្រមាណ។ | កម្ម ៖ ការមានចិត្តត្រជាក់សម្លាប់គេដោយស្ងាត់ៗ ការបោះបង់ចោលកូនតូចៗឱ្យស្លាប់ដោយភាពរងារ ឬការមិនផ្តល់ភាពកក់ក្តៅដល់ឪពុកម្តាយជរា។',
+            en: 'Torment: Abyss devoid of all warmth, dominated by howling blizzard gales and liquid nitrogen-level ice. Flesh freezes instantly brittle and shatters like glass under the sub-zero frost. | Karmic Cause: Cold-blooded premeditated murder, abandoning infants in cold wilderness, and neglecting elderly parents in shivering deprivation.'
+          },
+          {
+            boldKm: '១៦. អយោឃរនរក (Ayoghara — នរកបន្ទប់ដែកភ្លើងបិទជិត)',
+            boldEn: '16. Ayoghara (Sealed Blazing Iron Vault Hell)',
+            km: 'ទារុណកម្ម ៖ បន្ទប់ដែកភ្លើងកម្រាស់រាប់ម៉ែត្រ បិទជិតគ្មានបង្អួច គ្មានទ្វារចេញ។ ភ្លើងឆេះសន្ធោសន្ធៅពីគ្រប់ទិស សត្វនរកត្រូវឃុំឃាំងក្នុងនោះ រងការដុតរោលដោយគ្មានខ្យល់អាកាសបរិសុទ្ធ ស្រែកឱ្យគេជួយក៏គ្មាននរណាឮឡើយ។ | កម្ម ៖ ការចាប់មនុស្ស ឬសត្វបង្ខាំងទុកក្នុងទ្រុង ការចាប់ជំរិត ការធ្វើទារុណកម្មក្នុងគុកងងឹត និងការបំបិទសិទ្ធិសេរីភាពអ្នកដទៃ។',
+            en: 'Torment: Thick, hermetically sealed iron chamber without vents, windows, or doors. Roaring heat builds up in the enclosed vault, roasting trapped victims in pure darkness without fresh air. | Karmic Cause: Caging and locking animals in cramped cages, kidnapping for ransom, secret dungeon torture, and tyrannical suppression of human liberty.'
+          }
         ]
       }
     ]

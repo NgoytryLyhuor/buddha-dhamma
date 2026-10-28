@@ -301,7 +301,7 @@ const activeCategory = ref('all')
 const copiedId = ref(null)
 
 const categories = [
-  { id: 'all', km: 'ទាំងអស់ (១៥)', en: 'All (15)' },
+  { id: 'all', km: 'ទាំងអស់ (១៦)', en: 'All (16)' },
   { id: 'death', km: '💀 មរណាសន្ន & បដិសន្ធិ', en: '💀 Death & Rebirth' },
   { id: 'kurudhamma', km: '📜 កុរុធម្ម & សីលធម៌', en: '📜 Kurudhamma & Morality' },
   { id: 'cosmology', km: '⏳ អាយុកាល & ចក្កវត្តិសូត្រ', en: '⏳ Lifespan & Cakkavatti Sutta' },
@@ -1136,6 +1136,71 @@ const gems = ref([
         titleEn: '4. Auditory Sensitivity in Coma (Sota-pasāda): Why Chanting Matters',
         contentKm: 'យោងតាមការបកស្រាយក្នុងអដ្ឋកថា ទោះបីជាអ្នកជំងឺ Coma មើលទៅដូចជាសន្លប់បាត់ស្មារតី (Brain-dead / Unresponsive) ក៏ដោយ ៖\n\n១. រំញ័រនៃសោតបសាទ ៖ ក្នុងករណីខ្លះ «សោតបសាទ» (សរសៃវិញ្ញាណត្រចៀក) នៅតែអាចមានសេសសល់រំញ័ររូបធាតុតិចតួច ដែលម៉ាស៊ីនវេជ្ជសាស្ត្រមិនអាចវាស់ដឹង។\n២. ឥទ្ធិពលនៃសំឡេងធម៌ ៖ ប្រសិនបើសាច់ញាតិមកសូត្រធម៌ក្បែរត្រចៀកគាត់ដោយចិត្តស្ងប់ រំញ័រនៃសំឡេងនោះ អាចមានឱកាសជ្រៀតចូលទៅដាស់ សោតទ្វារវិថី បានមួយភ្លែត។\n៣. ការប្តូរនិមិត្តចុងក្រោយ ៖ សំឡេងធម៌នោះ អាចជួយកាត់ផ្តាច់រូបភាពអាក្រក់ក្នុងចិត្តរបស់អ្នកជំងឺ ហើយប្តូរអារម្មណ៍ចុងក្រោយឱ្យក្លាយជា «កុសលកម្មនិមិត្ត» បាននៅវិនាទីចុងក្រោយ!',
         contentEn: 'According to ancient Aṭṭhakathā commentaries, even when a comatose patient appears completely clinically unresponsive:\n1. Residual Auditory Sensitivity: Microscopic physical vibrations across the auditory faculty (sota-pasāda) may persist beyond medical instrumentation.\n2. Penetration of Chanting: Sincere, tranquil Dhamma recitations beside their ear can penetrate the subconscious, momentarily stimulating the auditory gateway (sota-dvāra).\n3. Overriding Nightmarish Visions: The acoustic resonance of Dhamma can shatter harrowing subconscious distress, implanting a bright wholesome Kamma-nimitta at the critical final threshold!'
+      }
+    ]
+  },
+
+  // GEM 16: King Yama, The 5 Devadūta (MN 130), Immediate Hell vs. Trial & The Vemānika-peta Reality
+  {
+    id: 'king-yama-devaduta',
+    num: 16,
+    open: false,
+    category: 'death',
+    categoryKm: '💀 មរណាសន្នសម័យ & យមរាជ',
+    categoryEn: '💀 King Yama & 5 Devadūta (MN 130)',
+    ref: 'មជ្ឈិមនិកាយ ឧបរិបណ្ណាសក ទេវទូតសូត្រ (MN 130 / ព្រះត្រៃបិដកភាគ ២៩) & គម្ពីរអភិធម្ម',
+    paliQuote: 'ន តំ មាត្រា កតំ... ឯវន្តំ ទុក្ខំ វេទយន្តិ (អំពើបាបនេះ មិនមែនម្តាយឪពុកធ្វើឱ្យអ្នកទេ គឺអ្នកធ្វើវាដោយខ្លួនឯង ដូច្នេះមានតែខ្លួនអ្នកទេដែលត្រូវទទួលផល)',
+    questionKm: 'យោងតាមគម្ពីរអភិធម្ម និងទេវទូតសូត្រ តើមនុស្សដែលធ្វើបាបស្លាប់ទៅ ត្រូវធ្លាក់នរកភ្លាមៗ ឬត្រូវឆ្លងកាត់ការសាកសួរ និងកាត់ក្តីពីស្តេចយមរាជជាមុនសិន?',
+    questionEn: 'According to the Abhidhamma and Devadūta Sutta (MN 130), do sinners fall into hell immediately or undergo interrogation by King Yama first?',
+    shortKm: 'ស្តេចយមរាជ & ទេវទូតទាំង ៥ (MN 130)',
+    shortEn: 'King Yama & 5 Devadūta (MN 130)',
+    essenceKm: 'មនុស្សដែលធ្វើបាបស្លាប់ទៅ មិនមែនសុទ្ធតែត្រូវឆ្លងកាត់ការសាកសួរពីស្តេចយមរាជទាំងអស់នោះទេ គឺចែកជា ២ ករណី ៖ (១) ធ្លាក់នរកភ្លាមៗដោយស្វ័យប្រវត្តិកាត់មុខ មិនឆ្លងកាត់យមរាជឡើយ ចំពោះអ្នកធ្វើ គរុកម្ម (អនន្តរិយកម្ម ៥ ដូចជាសម្លាប់ម្តាយ ឪពុក ព្រះអរហន្ត ធ្វើឱ្យព្រះពុទ្ធចេញឈាម បំបែកសង្ឃ) ឬមាន និយតមិច្ឆាទិដ្ឋិ ដូចដុំដែកធ្ងន់ធ្លាក់ដល់បាតទឹកជ្រៅ (២) ត្រូវនាំទៅជួបស្តេចយមរាជ ចំពោះអ្នកសាងកម្មចម្រុះ (ល្អខ្លះ អាក្រក់ខ្លះ)។ យមរាជមិនមែនជាចៅក្រមកាចសាហាវដែលចាំតែដាក់ទោសមនុស្សទេ ប៉ុន្តែជា «អ្នកព្យាយាមជួយសង្គ្រោះ» ដោយសួរដាស់រំលឹក ទេវទូតទាំង ៥ (ទារក, មនុស្សចាស់, មនុស្សឈឺ, អ្នកទោស, និងសាកសព) ដើម្បីឱ្យនឹកឃើញបុណ្យ។ បើនឹកឃើញបុណ្យភ្លាម នឹងរួចផុតពីនរក ហើយកើតនៅឋានសួគ៌ភ្លាមៗ; លុះត្រាតែនឹកមិនឃើញទាល់តែសោះ ទើបធ្លាក់នរកតាមកម្ម។ តាមពិត យមរាជជា វេមានិកប្រេត (មានបុណ្យនិងបាបចម្រុះគ្នា) ដែលសូម្បីតែព្រះអង្គផ្ទាល់ ក៏ប្រាថ្នារួចផុតពីភពនេះ ដើម្បីបានកើតជាមនុស្ស និងស្តាប់ធម៌ព្រះពុទ្ធដែរ!',
+    essenceEn: 'Sinners do not uniformly face King Yama; the Abhidhamma and Devadūta Sutta (MN 130) delineate two distinct categories: (1) Immediate Automatic Plunge into Hell (Bypassing Yama entirely) for perpetrators of Garuka-kamma (the 5 Anantarika heinous crimes) and fixed wrong views (Niyata-micchādiṭṭhi) — sinking like a solid iron boulder straight to the depths of Avīci with zero trial; (2) Escorted to King Yama for beings with mixed karma (both virtues and vices) whose dying thoughts faltered. Yama is not a sadistic torturer, but a benevolent rescuer interrogating them via the 5 Divine Messengers (Newborn, Elderly, Sick, Punished Criminal, and Corpse) to stimulate dormant memories of merit. If merit is recalled, the being is instantly liberated to heaven; only if oblivious across all 5 messengers do they descend to hell. Yama himself is a Vemānika-peta who weary of his grim duties, perpetually longs to obtain human rebirth and attain liberation under a Buddha.',
+    practicalKm: 'ចូរកុំរង់ចាំឱ្យដល់ថ្ងៃជួបស្តេចយមរាជទើបខំគិតរកបុណ្យ! ក្នុងជីវិតប្រចាំថ្ងៃ រាល់ពេលឃើញ «ទេវទូតទាំង ៥» (ឃើញកូនក្មេងទារក, ឃើញមនុស្សចាស់ជរា, ឃើញអ្នកជំងឺនៅមន្ទីរពេទ្យ, ឃើញទារុណកម្ម, និងឃើញសាកសពពិធីបុណ្យខ្មោច) ចូររំលឹកដាស់តឿនខ្លួនឯងឱ្យកើត «សង្វេគធម៌» កុំធ្វេសប្រហែស កុំជាប់ជំពាក់នឹងភាពក្មេង ភាពមិនមានរោគ និងជីវិតរស់នៅ ហើយប្រញាប់សន្សំកុសលធម៌ សីល និងភាវនាឱ្យបានពេញលេញ!',
+    practicalEn: 'Never wait until standing before King Yama to scramble for memories of good deeds! In daily life, whenever encountering the 5 Divine Messengers (infants, frail elders, hospitalized patients, prisoners, or funeral corpses), arouse instant spiritual urgency (saṃvega): abandon heedlessness, realize impermanence, and hoard virtues, ethics, and meditation today.',
+    links: [
+      { to: '/questions', km: 'សំណួរ–ចម្លើយ ៣៦', en: 'Q&A 36' },
+      { to: '/realms', km: 'ភពទាំង ៣១ ជាន់ & នរក', en: '31 Planes & Hell Realms' },
+      { to: '/my-gems#death-rebirth-process', km: 'ដំណើរពេលស្លាប់ ៥ ដំណាក់កាល', en: '5 Stages of Death' },
+      { to: '/my-gems#sudden-death-kamma', km: 'ការស្លាប់ភ្លាមៗ & អាចិណ្ណកម្ម', en: 'Sudden Death' }
+    ],
+    sections: [
+      {
+        titleKm: '១. ករណីធ្លាក់នរកភ្លាមៗដោយស្វ័យប្រវត្តិ (មិនឆ្លងកាត់យមរាជ)',
+        titleEn: '1. Automatic Immediate Plunge to Hell (Bypassing King Yama)',
+        contentKm: 'បុគ្គលដែលប្រព្រឹត្តអំពើបាបធ្ងន់ធ្ងរដាច់គេ នឹងត្រូវ ធ្លាក់ចុះទៅកាន់មហានរកភ្លាមៗមួយរំពេច ក្រោយពេលចុតិចិត្តរលត់ ដោយគ្មានការនាំខ្លួនទៅជួបស្តេចយមរាជ ឬមានការសាកសួរដេញដោលអ្វីឡើយ ៖\n\n— អនន្តរិយកម្មទាំង ៥ (គរុកម្ម) ៖ សម្លាប់ម្តាយ, សម្លាប់ឪពុក, សម្លាប់ព្រះអរហន្ត, ធ្វើឱ្យព្រះពុទ្ធចេញឈាម, និងបំបែកសង្ឃឱ្យបែកបាក់គ្នា (ដូចករណីព្រះបាទអជាតសត្តុ ឬព្រះទេវទត្ត)។\n— និយតមិច្ឆាទិដ្ឋិ ៖ ការប្រកាន់ទស្សនៈខុសកម្រិតធ្ងន់ធ្ងរបំផុត (មិនជឿកម្មផល មិនជឿបុណ្យបាប មិនជឿបរលោក) រហូតដល់ដង្ហើមចុងក្រោយ។\n— យន្តការអភិធម្ម ៖ ទម្ងន់នៃកម្មអកុសលទាំងនេះធ្ងន់ធ្ងរខ្លាំងពេក ប្រៀបដូចជាការទម្លាក់ដុំថ្ម ឬដុំដែកដ៏ធំចូលទៅក្នុងទឹកជ្រៅ វានឹងលិចចុះត្រង់ទៅកាន់បាតមហានរក (ដូចជា អវិចីមហានរក) ភ្លាមៗ ដោយគ្មានកម្លាំងណាអាចទប់ ឬរារាំងបានឡើយ។',
+        contentEn: 'Beings guilty of heinous transgressions plunge headlong into Great Hell immediately upon the dissolution of Cuti-citta, entirely bypassing King Yama’s hall:\n\n— The 5 Anantarika-kamma (Weightiest Crimes): Matricide, patricide, murdering an Arahant, wounding a Buddha, or creating a schism in the Sangha (e.g., King Ajātasattu or Devadatta).\n— Niyata-micchādiṭṭhi: Fixed extreme nihilistic views (denying moral cause-and-effect, rebirth, and spiritual fruition) maintained up to the last breath.\n— Abhidhamma Mechanism: The sheer gravitational momentum of these unwholesome deeds resembles dropping a solid iron boulder into deep water; it sinks directly and inexorably to the floor of Avīci Hell without interruption or trial.'
+      },
+      {
+        titleKm: '២. ករណីត្រូវនាំខ្លួនទៅជួបស្តេចយមរាជ (ឆ្លងកាត់ការសាកសួរ)',
+        titleEn: '2. Escorted to King Yama: Beings with Mixed Karma',
+        contentKm: 'ចំពោះបុគ្គលដែល មិនបានធ្វើអនន្តរិយកម្ម ប៉ុន្តែក្នុងមួយជីវិតបានសាងទាំងអំពើល្អខ្លះ និងអំពើអាក្រក់ខ្លះ (កម្មចម្រុះ) ហើយនៅពេលជិតស្លាប់ ចិត្តបែរជាភ្លាត់ទៅចាប់យកអារម្មណ៍អកុសល បណ្តាលឱ្យធ្លាក់ទៅកាន់ យមលោក (ដែនដីរបស់ស្តេចយមរាជ ដែលនៅក្បែរមាត់ទ្វារនរក) ៖\n\n១. នៅពេលស្លាប់ យមបាល (អ្នកយាមនរក) នឹងចាប់ក្រៀកបុគ្គលនោះ នាំយកទៅចំពោះព្រះភក្ត្រនៃ ស្តេចយមរាជ។\n២. យមបាលនឹងទូលរាយការណ៍ថា ៖ «បពិត្រព្រះសម្មតិទេព! បុរសនេះកាលនៅជាមនុស្ស មិនដឹងគុណម្តាយឪពុក មិនគោរពសមណព្រាហ្មណ៍ មិនគោរពចាស់ព្រឹទ្ធាចារ្យ សូមទ្រង់មេត្តាដាក់ទោសដល់បុគ្គលនេះចុះ!»។',
+        contentEn: 'Those who did not commit heinous crimes but lived with mixed karma (both virtues and vices), and whose final dying moments slipped into negative impressions, awaken in Yama’s domain (the border realm adjoining hell):\n\n1. Upon death, Yamapālas (hell wardens) seize the being and escort them before King Yama.\n2. The wardens announce: "Lord! This individual in the human realm was disrespectful to parents, ascetics, and elders, and neglected spiritual duties. May your Majesty decree punishment!"'
+      },
+      {
+        titleKm: '៣. តួនាទីពិតរបស់ស្តេចយមរាជ ៖ «អ្នកជួយសង្គ្រោះ មិនមែនអ្នកកាត់ទោសឡើយ»',
+        titleEn: '3. King Yama’s True Role: Compassionate Rescuer, Not Punisher',
+        contentKm: 'មនុស្សភាគច្រើនយល់ច្រឡំថាស្តេចយមរាជ គឺជាចៅក្រមកាចសាហាវដែលចាំតែដាក់ទោសមនុស្ស។ ប៉ុន្តែនៅក្នុងទេវទូតសូត្រ ព្រះពុទ្ធត្រាស់ថា ស្តេចយមរាជដើរតួជាអ្នកព្យាយាមជួយសង្គ្រោះវិញ្ញាណនោះទៅវិញទេ ៖\n\nស្តេចយមរាជមានចិត្តមេត្តា មិនចង់ឱ្យបុគ្គលនោះធ្លាក់នរកឡើយ ព្រះអង្គក៏ព្យាយាមដេញដោលសួរនាំ ដាស់រំលឹក «ទេវទូតទាំង ៥» ដើម្បីដាស់ស្មារតីឱ្យបុគ្គលនោះ នឹកឃើញបុណ្យ ដែលខ្លួនធ្លាប់បានធ្វើកាលនៅរស់ ៖',
+        contentEn: 'Common folklore misunderstands King Yama as a sadistic tormentor. In the Devadūta Sutta, the Buddha clarifies that Yama functions as an advocate seeking to awaken the soul’s latent memories of merit through the 5 Divine Messengers:',
+        points: [
+          { boldKm: 'ទេវទូតទី ១ (ទារកទើបកើត)', boldEn: '1st Messenger: Newborn Infant', km: '«កាលនៅរស់ តើអ្នកធ្លាប់ឃើញទារកទើបកើត ដេកននៀលក្នុងទឹកមូត្រលាមកខ្លួនឯងដែរទេ? តើអ្នកធ្លាប់គិតទេថា ខ្លួនក៏ធ្លាប់កើតបែបនេះ ហើយគួរខំសាងអំពើល្អ?»', en: '"Did you never see in the world a tender newborn infant lying helpless in its own urine and filth? Did it not occur to you that you too are subject to birth and should cultivate virtue?"' },
+          { boldKm: 'ទេវទូតទី ២ (មនុស្សចាស់ជរា)', boldEn: '2nd Messenger: Frail Elderly Person', km: '«តើអ្នកធ្លាប់ឃើញមនុស្សចាស់ជរា ដើរទ្រុឌទ្រោម កាន់ឈើច្រត់ ធ្មេញបាក់ សក់ស្កូវដែរទេ? តើអ្នកធ្លាប់គិតទេថា ខ្លួនក៏គង់នឹងចាស់ទ្រុឌទ្រោមដូចគេ?»', en: '"Did you never see an aged person bent double like a roof-bracket, walking leaning on a stick, with white hair and shattered teeth? Did you not realize aging was inevitable?"' },
+          { boldKm: 'ទេវទូតទី ៣ (មនុស្សមានជំងឺធ្ងន់)', boldEn: '3rd Messenger: Gravely Ill Person', km: '«តើអ្នកធ្លាប់ឃើញមនុស្សមានជំងឺធ្ងន់ធ្ងរ ដេកដកដង្ហើមញាប់ ជួយខ្លួនឯងមិនរួចដែរទេ? តើអ្នកធ្លាប់គិតទេថា ខ្លួនក៏មិនអាចគេចផុតពីជំងឺបានឡើយ?»', en: '"Did you never see a sick person bedridden in acute agony, dependent on others for basic survival? Did it not occur to you that you too are subject to illness?"' },
+          { boldKm: 'ទេវទូតទី ៤ (អ្នកទោសត្រូវធ្វើទារុណកម្ម)', boldEn: '4th Messenger: Convicted Criminal', km: '«តើអ្នកធ្លាប់ឃើញចោរ ឬអ្នកទោស ត្រូវស្តេចចាប់យកទៅធ្វើទារុណកម្ម កាត់ដៃកាត់ជើងដែរទេ? តើអ្នកធ្លាប់គិតទេថា អំពើអាក្រក់រមែងឱ្យផលជាទុក្ខក្នុងបច្ចុប្បន្ន និងបរលោក?»', en: '"Did you never see criminals seized and subjected to diverse floggings, mutilations, and executions? Did you not realize that evil deeds bear bitter fruit in this world and the next?"' },
+          { boldKm: 'ទេវទូតទី ៥ (សាកសពមនុស្សស្លាប់)', boldEn: '5th Messenger: Deceased Corpse', km: '«តើអ្នកធ្លាប់ឃើញសាកសពមនុស្សស្លាប់ ហើមប៉ោង ឡើងខៀវ និងស្អុយរលួយដែរទេ? តើអ្នកធ្លាប់គិតទេថា ខ្លួនក៏គង់នឹងស្លាប់បែបនេះដូចគ្នា?»', en: '"Did you never see a corpse one, two, or three days dead, bloated, discolored, and oozing foul matter? Did it not occur to you that death is inescapable?"' }
+        ]
+      },
+      {
+        titleKm: '៤. លទ្ធផលបន្ទាប់ពីការសាកសួរ ៖ រួចផុតទៅសួគ៌ ឬធ្លាក់នរកតាមកម្ម',
+        titleEn: '4. The Verdict: Instant Ascent to Heaven vs. Descending to Hell',
+        contentKm: '— បើនឹកឃើញបុណ្យភ្លាម -> រួចផុតពីនរក ៖\nប្រសិនបើពេលស្តេចយមរាជសួរដេញដោល ស្រាប់តែបុគ្គលនោះនឹកឃើញកុសលដែលខ្លួនធ្លាប់ធ្វើ (ឧទាហរណ៍ ៖ «កាលនោះ ខ្ញុំធ្លាប់ឃើញមនុស្សចាស់ ខ្ញុំក៏កើតសេចក្តីអាណិត ហើយបានយកបាយទៅប្រគេនលោក និងចែកទាន») ចិត្តរបស់គាត់នឹងប្រែជា សោមនស្សជ្រះថ្លាភ្លាមៗ។ មួយរំពេចនោះ កុសលកម្មដែលលេចឡើង នឹងរំដោះគាត់ចេញពីយមលោក ហើយនាំវិញ្ញាណទៅចាប់កំណើតនៅឋានសួគ៌ភ្លាមៗតែម្តង!\n\n— បើនៅតែនឹកមិនឃើញ -> ធ្លាក់នរកតាមកម្ម ៖\nប្រសិនបើសួររហូតដល់អស់ទេវទូតទាំង ៥ ហើយ បុគ្គលនោះនៅតែស្ងៀម ឆ្លើយថា «ខ្ញុំភ្លេចខ្លួន ខ្ញុំរវល់តែស្រវឹងនិងសប្បាយ មិនបានសាងបុណ្យទេ» ពេលនោះស្តេចយមរាជនឹងអស់លទ្ធភាពជួយ ហើយមានព្រះរាជឱង្ការដោយក្តីអាណិតថា ៖\n«អំពើបាបនេះ មិនមែនម្តាយឪពុក ទេវតា ឬញាតិមិត្តណាបង្ខំឱ្យអ្នកធ្វើឡើយ គឺអ្នកបានធ្វើវាដោយខ្លួនឯង ដូច្នេះមានតែខ្លួនអ្នកប៉ុណ្ណោះ ដែលត្រូវទទួលផលនៃកម្មនោះ»។\nបន្ទាប់មក ស្តេចយមរាជក៏នៅស្ងៀម ហើយពួកយមបាលក៏ចាប់អូសបុគ្គលនោះ យកទៅទម្លាក់ក្នុងរណ្តៅនរក ដើម្បីរងទុក្ខវេទនាតាមទំហំកម្មរៀងៗខ្លួន។',
+        contentEn: '— Recalling Merit -> Instant Liberation to Heaven:\nIf during Yama’s interrogation, the being suddenly recalls an act of generosity, compassion, or devotion performed in life (e.g., "Yes! Seeing that elder, I gave alms and revered the Dhamma"), wholesome joy (somanassa) instantly flashes across consciousness. That very moment, the wholesome karma seizes the mind, dissolving the hellish venue and precipitating immediate rebirth into a celestial plane!\n\n— Failing to Recall -> Plunging into Hell:\nIf through all five messengers the soul replies: "I was negligent, heedless, immersed in sensory pleasures; I made no merit," King Yama realizes he can assist no further. With heavy heart, Yama delivers the solemn truth:\n"This bad action was not committed by your mother, father, devas, or friends; you committed it yourself, and you alone must experience its fruit."\nKing Yama then falls silent, and the Yamapālas drag the being to the designated hell fire pit according to their own actions.'
+      },
+      {
+        titleKm: '៥. យមរាជជាអ្នកណាពិតប្រាកដក្នុងគម្ពីរអភិធម្ម? (Vemānika-peta)',
+        titleEn: '5. Who is King Yama in Reality? The Vemānika-peta Deity',
+        contentKm: 'យោងតាមអដ្ឋកថា អភិធម្ម និងវិមានវត្ថុ ស្តេចយមរាជមិនមែនជាយក្សកំណាច ឬបិសាចនរកឡើយ ប៉ុន្តែជា «វេមានិកប្រេត» (Vemānika-peta) ឬជាទេវតាក្នុងជាន់ចាតុម្មហារាជិកា ដែលមានបុណ្យផង និងបាបចម្រុះគ្នា ៖\n\n១. សោយសម្បត្តិទិព្វ ៖ ពេលខ្លះសោយសម្បត្តិទិព្វក្នុងវិមានកែវដូចទេវតា (ដោយសារបុណ្យដែលធ្លាប់ធ្វើ)។\n២. សោយទុក្ខវេទនា ៖ ពេលខ្លះត្រូវចុះមកអង្គុយស៊ើបសួរក្តី និងឃើញទុក្ខវេទនារបស់សត្វនរក (ជាផលវិបាកកម្ម)។\n៣. បំណងប្រាថ្នារបស់យមរាជ ៖ គម្ពីរបានបញ្ជាក់ថា ព្រះបាទយមរាជតែងតែមានព្រះទ័យនឿយណាយនឹងការងារនេះ ហើយតែងបួងសួងថា «សូមឱ្យអាត្មាអញរួចផុតពីភពនេះ បានទៅកើតជាមនុស្ស បានជួបព្រះពុទ្ធ និងបានស្តាប់ព្រះធម៌ដើម្បីរួចផុតចាកទុក្ខផងចុះ!»',
+        contentEn: 'According to Abhidhamma commentaries and the Vimānavatthu, King Yama is neither an evil demon nor a devil; he is a Vemānika-peta (mansion-dwelling spirit) or a deity in the Cātumahārājikā realm of mixed karma:\n\n1. Celestial Bliss: During certain periods, he enjoys divine pleasure in a crystal mansion like a Deva (fruits of generosity).\n2. Karmic Duty: During other periods, he must preside over the sorrowful tribunal, forced to witness the terrifying agony of hell realms (karmic retribution).\n3. King Yama’s Heartfelt Longing: The canon records that King Yama grows utterly weary of witnessing endless samsaric suffering and perpetually prays: "Oh, that I might attain human status, that a Tathāgata might appear in the world, and that I might sit at his feet to listen to the Dhamma and end all suffering!"'
       }
     ]
   }

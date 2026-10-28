@@ -1,6 +1,6 @@
 <template>
   <div class="fade-up">
-    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៥ — សួរតាមដែលអ្នកជួប', 'Q&A 35 — QUESTIONS PEOPLE REALLY ASK') }}</p>
+    <p class="chapter-label">{{ t('សំណួរ–ចម្លើយ ៣៦ — សួរតាមដែលអ្នកជួប', 'Q&A 36 — QUESTIONS PEOPLE REALLY ASK') }}</p>
     <h2 class="mt-3 font-display text-3xl md:text-4xl" :style="{ color: 'var(--ink)' }">
       {{ t('សំណួរ និង ចម្លើយ', 'Questions and Warm Answers') }}
     </h2>
@@ -10,7 +10,7 @@
     </p>
 
     <div class="mt-8">
-      <p class="chapter-label">{{ t('សំណួរ ៣៥ — ចុចដើម្បីបើកមើល', 'THIRTY-FIVE QUESTIONS — TAP TO OPEN') }}</p>
+      <p class="chapter-label">{{ t('សំណួរ ៣៦ — ចុចដើម្បីបើកមើល', 'THIRTY-SIX QUESTIONS — TAP TO OPEN') }}</p>
     </div>
     <div class="mt-4 space-y-4">
       <details v-for="(qa, i) in qas" :key="qa.en" class="card-paper p-6 md:p-8" :open="i === 0">
@@ -350,6 +350,16 @@ const qas = [
     mE: 'In sleep or coma, the mind executes the death-vīthi through the Mind Door; final impressions manifest via dream-visions or deep latent karmic currents, where soft Dhamma chanting can still pivot the final trajectory.',
     tie: 'ការស្លាប់ក្នុងដំណេក & អ្នកជំងឺ Coma · /my-gems#sleep-coma-death',
     to: '/my-gems#sleep-coma-death',
+  },
+  {
+    qK: 'យោងតាមគម្ពីរអភិធម្ម និងទេវទូតសូត្រ តើមនុស្សដែលធ្វើបាបស្លាប់ទៅ ត្រូវធ្លាក់នរកភ្លាមៗ ឬត្រូវឆ្លងកាត់ការសាកសួរ និងកាត់ក្តីពីស្តេចយមរាជជាមុនសិន?',
+    qE: 'According to Abhidhamma and the Devadūta Sutta (MN 130), do sinners plunge into hell immediately or undergo trial by King Yama first?',
+    aK: 'យោងតាមគម្ពីរព្រះអភិធម្ម និងទេវទូតសូត្រ (MN 130) ការធ្លាក់នរកចែកជា ២ ករណី ៖ (១) ធ្លាក់នរកភ្លាមៗដោយស្វ័យប្រវត្តិ មិនឆ្លងកាត់យមរាជឡើយ ចំពោះអ្នកធ្វើបាបធ្ងន់ធ្ងរបំផុត (គរុកម្ម ដូចជា អនន្តរិយកម្ម ៥ ឬនិយតមិច្ឆាទិដ្ឋិ) ដូចដុំដែកធ្ងន់ធ្លាក់ចុះដល់បាតទឹកជ្រៅ (២) ត្រូវនាំទៅជួបស្តេចយមរាជ ចំពោះអ្នកសាងកម្មចម្រុះ (ល្អខ្លះ អាក្រក់ខ្លះ)។ យមរាជមិនមែនជាចៅក្រមកាចសាហាវចាំដាក់ទោសទេ តែជា «អ្នកព្យាយាមជួយសង្គ្រោះ» ដោយសួរដាស់រំលឹក ទេវទូតទាំង ៥ (ទារក, មនុស្សចាស់, មនុស្សឈឺ, អ្នកទោស, និងសាកសព) ដើម្បីឱ្យនឹកឃើញបុណ្យ។ បើនឹកឃើញបុណ្យភ្លាម នឹងរួចផុតពីនរក ហើយកើតនៅឋានសួគ៌ភ្លាមៗ; បើនឹកមិនឃើញទាល់តែសោះ ទើបធ្លាក់នរកតាមកម្ម។ តាមពិត យមរាជជា វេមានិកប្រេត ដែលសូម្បីតែព្រះអង្គផ្ទាល់ ក៏បួងសួងចង់រួចផុតពីភពនេះ ដើម្បីបានកើតជាមនុស្ស និងស្តាប់ធម៌ព្រះពុទ្ធដែរ។',
+    aE: 'According to Abhidhamma and the Devadūta Sutta (MN 130), rebirth into hell falls into two categories: (1) Immediate Automatic Plunge into Hell (Bypassing Yama) for heinous sinners (Garuka-kamma / 5 Anantarika-kamma or fixed wrong views), sinking like an iron boulder to Avīci; (2) Escorted to King Yama for beings with mixed karma. Yama is a compassionate rescuer, not an executioner, interrogating them via the 5 Divine Messengers (infants, elders, sick, punished criminals, corpses) to awaken memories of merit. Recalling merit sparks instantaneous rebirth in heaven; only when unawakened do they descend to hell. Yama himself is a Vemānika-peta deity who longs to obtain human rebirth and attain liberation under a Buddha.',
+    mK: 'អ្នកធ្វើបាបធ្ងន់ (អនន្តរិយកម្ម) ធ្លាក់នរកភ្លាមៗ · អ្នកសាងកម្មចម្រុះ ត្រូវយមរាជសួរដាស់រំលឹកទេវទូតទាំង ៥ · បើនឹកឃើញបុណ្យ រួចផុតទៅសួគ៌ភ្លាម · យមរាជជាអ្នកជួយសង្គ្រោះ មិនមែនអ្នកកាត់ទោសទេ។',
+    mE: 'Heinous sinners plunge to hell immediately; those with mixed deeds are interrogated by King Yama via the 5 Divine Messengers; recalling merit sparks immediate ascension to heaven; Yama is a compassionate rescuer, not an executioner.',
+    tie: 'ស្តេចយមរាជ & ទេវទូតទាំង ៥ (MN 130) · /my-gems#king-yama-devaduta',
+    to: '/my-gems#king-yama-devaduta',
   },
 ]
 </script>

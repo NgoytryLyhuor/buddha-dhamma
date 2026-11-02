@@ -3,7 +3,7 @@
     <!-- 1. PIN Lock Screen (Shown when not logged in) -->
     <div v-if="!isAuthenticated" class="min-h-[70vh] flex items-center justify-center py-6">
       <div
-        class="w-full max-w-sm p-6 sm:p-8 rounded-3xl border shadow-2xl text-center space-y-5 transition-all"
+        class="w-full max-w-sm p-5 sm:p-8 rounded-3xl border shadow-2xl text-center space-y-5 transition-all"
         :class="{ 'animate-shake': isShaking }"
         :style="{ background: 'var(--bg-card)', borderColor: pinError ? 'var(--red)' : 'var(--border)' }"
       >
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Number Keypad Grid (3 columns x 4 rows) -->
-        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 max-w-[270px] mx-auto pt-1">
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-[260px] sm:max-w-[270px] mx-auto pt-1">
           <button
             v-for="num in [1, 2, 3, 4, 5, 6, 7, 8, 9]"
             :key="num"
@@ -113,7 +113,7 @@
             <span>•</span>
             <span>@escape_the_matrix</span>
           </div>
-          <h1 class="text-2xl sm:text-3xl font-display font-bold leading-tight" :style="{ color: 'var(--ink)' }">
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-display font-bold leading-tight" :style="{ color: 'var(--ink)' }">
             TikTok AI Content Studio
           </h1>
           <p class="text-sm mt-1" :style="{ color: 'var(--ink-muted)' }">
@@ -260,7 +260,7 @@
               <button
                 type="button"
                 @click="copyAllSlides(activePost)"
-                class="copy-pill font-bold col-span-2 sm:col-span-1"
+                class="copy-pill font-bold"
                 :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
               >
                 <span>📑 ចម្លងគ្រប់ Slide</span>
@@ -280,12 +280,22 @@
                 <span>🎨 Image Prompt</span>
               </button>
             </div>
+
+            <!-- Mobile Quick Jump to 9:16 Preview -->
+            <a
+              href="#preview-phone"
+              class="lg:hidden mt-3 w-full py-2 px-3 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition text-center"
+              :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+            >
+              <span>📱 មើល Slide Preview (9:16) ខាងក្រោម</span>
+              <span>↓</span>
+            </a>
           </div>
 
           <!-- Post Selection & Library Tabs -->
           <div class="p-5 rounded-2xl border shadow-sm" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
             <div class="flex items-center justify-between border-b pb-3 mb-4" :style="{ borderColor: 'var(--border)' }">
-              <div class="flex gap-2">
+              <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 <button
                   type="button"
                   @click="activeTab = 'curated'"
@@ -347,7 +357,7 @@
         </div>
 
         <!-- Right Column: 9:16 Interactive Mobile Carousel Preview (5 cols) -->
-        <div class="lg:col-span-5 sticky top-20">
+        <div id="preview-phone" class="lg:col-span-5 lg:sticky lg:top-20 space-y-2 scroll-mt-20">
           <div class="text-center mb-2 flex items-center justify-between">
             <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink-muted)' }">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -382,13 +392,13 @@
               background: '#0d0d0f',
               borderColor: '#2d2417',
               maxWidth: '340px',
-              minHeight: '600px'
+              width: '100%'
             }">
             <!-- Notch / Camera bar -->
             <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black/80 rounded-full z-20"></div>
 
             <!-- TikTok Screen Content -->
-            <div class="relative w-full h-[570px] rounded-[24px] overflow-hidden flex flex-col justify-between p-5 text-white"
+            <div class="relative w-full h-[540px] sm:h-[570px] rounded-[24px] overflow-hidden flex flex-col justify-between p-4 sm:p-5 text-white"
               :style="{
                 background: 'linear-gradient(180deg, #111116 0%, #1a1612 50%, #0d0a07 100%)'
               }">
@@ -439,12 +449,12 @@
               </div>
 
               <!-- Bottom Navigation Bar inside Phone -->
-              <div class="flex items-center justify-between text-xs pt-2 border-t border-white/10 z-10">
+              <div class="flex items-center justify-between gap-1 sm:gap-1.5 text-xs pt-2 border-t border-white/10 z-10">
                 <button
                   type="button"
                   @click="currentSlideIndex = Math.max(0, currentSlideIndex - 1)"
                   :disabled="currentSlideIndex === 0"
-                  class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer"
+                  class="px-2 sm:px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[9px] sm:text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
                 >
                   ← ថយក្រោយ
                 </button>
@@ -452,7 +462,7 @@
                 <button
                   type="button"
                   @click="copyCurrentSlide"
-                  class="px-3 py-1 rounded bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold cursor-pointer transition shadow"
+                  class="px-2.5 sm:px-3 py-1 rounded bg-amber-500 hover:bg-amber-400 text-black text-[9px] sm:text-[10px] font-bold cursor-pointer transition shadow shrink-0"
                 >
                   📋 ចម្លង Slide នេះ
                 </button>
@@ -461,7 +471,7 @@
                   type="button"
                   @click="currentSlideIndex = Math.min(2, currentSlideIndex + 1)"
                   :disabled="currentSlideIndex === 2"
-                  class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer"
+                  class="px-2 sm:px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[9px] sm:text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
                 >
                   បន្ទាប់ →
                 </button>
@@ -650,7 +660,8 @@ function copyAllSlides(post) {
 }
 
 .keypad-btn {
-  height: 54px;
+  height: 50px;
+  min-height: 50px;
   border-radius: 1rem;
   border: 1px solid var(--border);
   background: var(--bg-card-2);
@@ -662,6 +673,12 @@ function copyAllSlides(post) {
   user-select: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+@media (min-width: 640px) {
+  .keypad-btn {
+    height: 56px;
+    min-height: 56px;
+  }
 }
 
 .keypad-btn:hover {

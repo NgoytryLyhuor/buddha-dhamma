@@ -1,7 +1,17 @@
 import { ref } from 'vue'
 
+const getEmbeddedKey = () => {
+  try {
+    return atob('QVEuQWI4Uk42S0J0ZmF0TGJtMTkyMVlvc1FNOUJUNzBINFc1aWJPTF9KSExPcDZnSDBmM0E=')
+  } catch {
+    return ''
+  }
+}
+
 const STORAGE_KEY = 'buddha_gemini_api_key'
 const SAVED_POSTS_KEY = 'buddha_tiktok_saved_posts'
+const AUTH_KEY = 'buddha_studio_auth'
+const STUDIO_PIN = '5503'
 
 export const PRESET_QUESTIONS = [
   {
@@ -58,16 +68,42 @@ export function useGeminiTikTok() {
   const apiKey = ref(
     localStorage.getItem(STORAGE_KEY) ||
     import.meta.env.VITE_GEMINI_API_KEY ||
-    ''
+    getEmbeddedKey()
   )
   const isGenerating = ref(false)
   const errorMessage = ref('')
   const toastMessage = ref('')
 
+  // Authentication State with PIN 5503
+  const isAuthenticated = ref(
+    sessionStorage.getItem(AUTH_KEY) === STUDIO_PIN ||
+    localStorage.getItem(AUTH_KEY) === STUDIO_PIN
+  )
+
+  function verifyPin(inputPin, remember = true) {
+    if ((inputPin || '').trim() === STUDIO_PIN) {
+      isAuthenticated.value = true
+      sessionStorage.setItem(AUTH_KEY, STUDIO_PIN)
+      if (remember) {
+        localStorage.setItem(AUTH_KEY, STUDIO_PIN)
+      }
+      setApiKey(getEmbeddedKey())
+      return true
+    }
+    return false
+  }
+
+  function logout() {
+    isAuthenticated.value = false
+    sessionStorage.removeItem(AUTH_KEY)
+    localStorage.removeItem(AUTH_KEY)
+  }
+
   function setApiKey(key) {
-    apiKey.value = key ? key.trim() : ''
-    if (apiKey.value) {
-      localStorage.setItem(STORAGE_KEY, apiKey.value)
+    const k = key ? key.trim() : getEmbeddedKey()
+    apiKey.value = k
+    if (k && k !== getEmbeddedKey()) {
+      localStorage.setItem(STORAGE_KEY, k)
     } else {
       localStorage.removeItem(STORAGE_KEY)
     }
@@ -139,53 +175,56 @@ Formatting Rules for each slide:
     isGenerating.value = true
     errorMessage.value = ''
 
-    const keyToUse = apiKey.value || import.meta.env.VITE_GEMINI_API_KEY || ''
+    const keyToUse = apiKey.value || getEmbeddedKey()
 
-    // 1. First try direct client-side call if key is available
-    if (keyToUse) {
-      const candidateModels = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash']
-      for (const model of candidateModels) {
-        try {
-          const userPrompt = `Generate a 3-slide viral TikTok photo-carousel post for this question/topic:
+    // 1. Direct client-side call to Google Generative Language API
+    const candidateModels = [
+      'gemini-3.8-flash',
+      'gemini-3.5-flash',
+      'gemini-3.1-flash-lite'
+    ]
+
+    for (const model of candidateModels) {
+      try {
+        const userPrompt = `Generate a 3-slide viral TikTok photo-carousel post for this question/topic:
 "${questionText.trim()}"
 
 Make sure it matches the exact style and tone of @escape_the_matrix, written in beautiful, natural Khmer with authentic Pali terms. Return raw JSON only.`
 
-          const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${keyToUse}`,
-            {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-                systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                generationConfig: {
-                  temperature: 0.7,
-                  responseMimeType: 'application/json'
-                }
-              }),
-              signal: AbortSignal.timeout(25000)
-            }
-          )
-
-          if (response.ok) {
-            const data = await response.json()
-            const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
-            if (text) {
-              const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim()
-              const parsed = JSON.parse(cleaned)
-              isGenerating.value = false
-              saveToHistory(parsed, questionText)
-              return parsed
-            }
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${keyToUse}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
+              systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+              generationConfig: {
+                temperature: 0.7,
+                responseMimeType: 'application/json'
+              }
+            }),
+            signal: AbortSignal.timeout(25000)
           }
-        } catch (err) {
-          console.warn(`Direct call with ${model} failed:`, err)
+        )
+
+        if (response.ok) {
+          const data = await response.json()
+          const text = data?.candidates?.[0]?.content?.parts?.[0]?.text
+          if (text) {
+            const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim()
+            const parsed = JSON.parse(cleaned)
+            isGenerating.value = false
+            saveToHistory(parsed, questionText)
+            return parsed
+          }
         }
+      } catch (err) {
+        console.warn(`Direct call with ${model} failed:`, err)
       }
     }
 
-    // 2. Fallback to /api/generate (Vercel Serverless Function)
+    // 2. Fallback to /api/generate
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -209,7 +248,7 @@ Make sure it matches the exact style and tone of @escape_the_matrix, written in 
       console.error('All generation attempts failed:', err)
       errorMessage.value =
         err.message ||
-        'មិនអាចភ្ជាប់ទៅកាន់ Gemini API បានទេ។ សូមពិនិត្យមើល API Key របស់អ្នកនៅក្នុង Settings!'
+        'មិនអាចភ្ជាប់ទៅកាន់ Gemini API បានទេ។'
       isGenerating.value = false
       return null
     }
@@ -234,7 +273,6 @@ Make sure it matches the exact style and tone of @escape_the_matrix, written in 
         ...post
       }
       existing.unshift(newEntry)
-      // Keep up to 50 saved posts
       const trimmed = existing.slice(0, 50)
       localStorage.setItem(SAVED_POSTS_KEY, JSON.stringify(trimmed))
     } catch (e) {
@@ -251,6 +289,9 @@ Make sure it matches the exact style and tone of @escape_the_matrix, written in 
     showToast,
     copyToClipboard,
     generatePost,
-    getSavedPosts
+    getSavedPosts,
+    isAuthenticated,
+    verifyPin,
+    logout
   }
 }

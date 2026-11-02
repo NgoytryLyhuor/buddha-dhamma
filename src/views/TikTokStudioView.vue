@@ -1,56 +1,104 @@
 <template>
   <div class="max-w-6xl mx-auto px-4 py-8">
     <!-- 1. PIN Lock Screen (Shown when not logged in) -->
-    <div v-if="!isAuthenticated" class="min-h-[60vh] flex items-center justify-center">
-      <div class="w-full max-w-sm p-6 sm:p-8 rounded-3xl border shadow-2xl text-center space-y-5"
-        :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-        <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center text-2xl shadow-inner"
+    <div v-if="!isAuthenticated" class="min-h-[70vh] flex items-center justify-center py-6">
+      <div
+        class="w-full max-w-sm p-6 sm:p-8 rounded-3xl border shadow-2xl text-center space-y-5 transition-all"
+        :class="{ 'animate-shake': isShaking }"
+        :style="{ background: 'var(--bg-card)', borderColor: pinError ? 'var(--red)' : 'var(--border)' }"
+      >
+        <!-- Lock Icon Header -->
+        <div class="relative w-16 h-16 mx-auto rounded-2xl flex items-center justify-center text-3xl shadow-inner transition-transform duration-300 hover:scale-105"
           :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', border: '1px solid var(--accent)' }">
           🔒
         </div>
 
         <div>
-          <h2 class="text-xl font-bold font-display" :style="{ color: 'var(--ink)' }">
+          <h2 class="text-xl sm:text-2xl font-bold font-display" :style="{ color: 'var(--ink)' }">
             TikTok Studio Login
           </h2>
-          <p class="text-xs mt-1" :style="{ color: 'var(--ink-muted)' }">
+          <p class="text-xs mt-1 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
             តំបន់គ្រប់គ្រងផ្ទាល់ខ្លួនសម្រាប់ម្ចាស់ប៉ុស្តិ៍ @escape_the_matrix
           </p>
         </div>
 
-        <form @submit.prevent="handlePinSubmit" class="space-y-4">
-          <div>
-            <label class="block text-xs font-bold mb-2 text-left" :style="{ color: 'var(--ink-soft)' }">
-              លេខកូដសម្ងាត់ (PIN 4 ខ្ទង់) ៖
-            </label>
-            <input
-              ref="pinInputRef"
-              v-model="pinInput"
-              type="password"
-              maxlength="10"
-              placeholder="••••"
-              autofocus
-              class="w-full p-3.5 rounded-xl border text-center text-xl tracking-[0.4em] font-mono font-bold transition focus:outline-none"
-              :style="{
-                background: 'var(--bg-input)',
-                borderColor: pinError ? 'var(--red)' : 'var(--border-strong)',
-                color: 'var(--ink)'
-              }"
-            />
-          </div>
+        <!-- 4-Digit Indicator Dots -->
+        <div class="flex items-center justify-center gap-3.5 py-1">
+          <div
+            v-for="idx in 4"
+            :key="idx"
+            class="w-4 h-4 rounded-full border-2 transition-all duration-200"
+            :style="{
+              borderColor: pinError ? 'var(--red)' : (pinInput.length >= idx ? 'var(--accent)' : 'var(--border-strong)'),
+              background: pinError ? 'var(--red)' : (pinInput.length >= idx ? 'var(--accent-bright)' : 'transparent'),
+              transform: pinInput.length >= idx ? 'scale(1.2)' : 'scale(1)',
+              boxShadow: pinInput.length >= idx ? '0 0 10px var(--halo)' : 'none'
+            }"
+          ></div>
+        </div>
 
-          <div v-if="pinError" class="text-xs font-bold text-red-400">
-            ❌ លេខកូដសម្ងាត់មិនត្រឹមត្រូវទេ!
-          </div>
+        <!-- Error Message or Helper -->
+        <div v-if="pinError" class="text-xs font-bold text-red-500 animate-pulse">
+          ❌ លេខកូដសម្ងាត់មិនត្រឹមត្រូវទេ! សូមចុចម្ដងទៀត
+        </div>
+        <div v-else class="text-[11px] font-medium" :style="{ color: 'var(--ink-faint)' }">
+          ចុចប៊ូតុងលេខខាងក្រោម (PIN ៤ ខ្ទង់) ៖
+        </div>
+
+        <!-- Number Keypad Grid (3 columns x 4 rows) -->
+        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 max-w-[270px] mx-auto pt-1">
+          <button
+            v-for="num in [1, 2, 3, 4, 5, 6, 7, 8, 9]"
+            :key="num"
+            type="button"
+            @click="pressKey(String(num))"
+            class="keypad-btn"
+          >
+            <span class="text-xl font-bold font-mono">{{ num }}</span>
+          </button>
+
+          <!-- Bottom Row: Clear (C), 0, Backspace (⌫) -->
+          <button
+            type="button"
+            @click="clearPin"
+            class="keypad-btn text-xs font-bold"
+            :style="{ color: 'var(--ink-muted)' }"
+            title="សម្អាតទាំងអស់ (Clear)"
+          >
+            <span>C</span>
+          </button>
 
           <button
-            type="submit"
-            class="w-full py-3.5 rounded-xl font-bold text-sm text-white transition shadow-md cursor-pointer hover:opacity-95"
+            type="button"
+            @click="pressKey('0')"
+            class="keypad-btn"
+          >
+            <span class="text-xl font-bold font-mono">0</span>
+          </button>
+
+          <button
+            type="button"
+            @click="backspacePin"
+            class="keypad-btn text-lg"
+            :style="{ color: 'var(--ink-muted)' }"
+            title="លុបថយក្រោយ (Delete)"
+          >
+            <span>⌫</span>
+          </button>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button
+            type="button"
+            @click="handlePinSubmit"
+            :disabled="pinInput.length < 4"
+            class="w-full py-3.5 rounded-xl font-bold text-sm text-white transition shadow-md cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-95"
             :style="{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%)' }"
           >
-            🔓 បញ្ជាក់លេខកូដ & ចូលប្រើ
+            🔓 ចូលប្រើប្រាស់
           </button>
-        </form>
+        </div>
       </div>
     </div>
 
@@ -439,7 +487,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { PUBLISHED_AND_CURATED_POSTS } from '../data/tiktokPosts.js'
 import { PRESET_QUESTIONS, useGeminiTikTok } from '../composables/useGeminiTikTok.js'
 
@@ -458,7 +506,7 @@ const {
 
 const pinInput = ref('')
 const pinError = ref(false)
-const pinInputRef = ref(null)
+const isShaking = ref(false)
 
 const inputQuestion = ref('')
 const activeTab = ref('curated')
@@ -469,7 +517,35 @@ const savedHistory = ref([])
 
 onMounted(() => {
   savedHistory.value = getSavedPosts()
+  window.addEventListener('keydown', handleGlobalKeyDown)
 })
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleGlobalKeyDown)
+})
+
+function pressKey(digit) {
+  if (pinInput.value.length >= 4) return
+  pinError.value = false
+  pinInput.value += digit
+  if (pinInput.value.length === 4) {
+    setTimeout(() => {
+      handlePinSubmit()
+    }, 120)
+  }
+}
+
+function clearPin() {
+  pinInput.value = ''
+  pinError.value = false
+}
+
+function backspacePin() {
+  pinError.value = false
+  if (pinInput.value.length > 0) {
+    pinInput.value = pinInput.value.slice(0, -1)
+  }
+}
 
 function handlePinSubmit() {
   pinError.value = false
@@ -478,6 +554,24 @@ function handlePinSubmit() {
     pinInput.value = ''
   } else {
     pinError.value = true
+    isShaking.value = true
+    setTimeout(() => {
+      isShaking.value = false
+      pinInput.value = ''
+    }, 550)
+  }
+}
+
+function handleGlobalKeyDown(e) {
+  if (isAuthenticated.value) return
+  if (e.key >= '0' && e.key <= '9') {
+    pressKey(e.key)
+  } else if (e.key === 'Backspace') {
+    backspacePin()
+  } else if (e.key === 'Enter') {
+    handlePinSubmit()
+  } else if (e.key === 'Escape' || e.key === 'c' || e.key === 'C') {
+    clearPin()
   }
 }
 
@@ -554,4 +648,42 @@ function copyAllSlides(post) {
   opacity: 0;
   transform: translateY(10px);
 }
+
+.keypad-btn {
+  height: 54px;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card-2);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.keypad-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-bright);
+}
+
+.keypad-btn:active {
+  transform: scale(0.92);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
 </style>

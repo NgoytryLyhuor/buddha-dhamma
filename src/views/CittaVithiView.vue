@@ -306,7 +306,7 @@ watch(currentStepIndex, (newIdx) => {
       </div>
 
       <!-- 17 Moments Ribbon with smooth touch scrolling -->
-      <div class="overflow-x-auto pb-2 -mx-2 px-2 scrollbar-none touch-pan-x">
+      <div class="overflow-x-auto pb-2 w-full max-w-full scrollbar-none touch-pan-x">
         <div class="flex items-center gap-1.5 min-w-[640px]">
           <button
             v-for="(s, idx) in pancadvaraSteps"

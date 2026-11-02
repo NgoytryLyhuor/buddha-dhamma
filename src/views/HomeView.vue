@@ -45,18 +45,34 @@
     </div>
 
     <!-- Chart -->
-    <div class="card-paper p-6 md:p-8 mt-8">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-8">
       <p class="chapter-label">{{ t('ចិត្ត ៨៩', '89 CITTA') }}</p>
-      <h3 class="font-display text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ការចែកចិត្តជាបួនពួក', 'Consciousness in Four Classes') }}</h3>
+      <h3 class="font-display text-lg sm:text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ការចែកចិត្តជាបួនពួក', 'Consciousness in Four Classes') }}</h3>
       <div class="grid md:grid-cols-2 gap-6 mt-5 items-center">
         <div class="chart-box"><canvas ref="chartRef"></canvas></div>
-        <ul class="tick-list">
-          <li v-for="c in cittaGroups" :key="c.en">
-            <strong :style="{ color: 'var(--ink)' }">{{ t(c.km, c.en) }}</strong>
-            <span class="text-sm" :style="{ color: 'var(--ink-muted)' }"> — {{ t(c.kmBody, c.enBody) }}</span>
-            <span class="paali ml-1">{{ c.n }}</span>
-          </li>
-        </ul>
+        <div class="space-y-3 min-w-0">
+          <div
+            v-for="c in cittaGroups"
+            :key="c.en"
+            class="p-3 sm:p-3.5 rounded-xl border flex items-center justify-between gap-3 transition-all"
+            :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+          >
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="text-amber-500 text-xs shrink-0">☸</span>
+                <strong class="text-xs sm:text-sm font-bold leading-snug break-words" :style="{ color: 'var(--ink)' }">
+                  {{ t(c.km, c.en) }}
+                </strong>
+              </div>
+              <p class="text-[11px] sm:text-xs mt-1 leading-relaxed pl-5 break-words" :style="{ color: 'var(--ink-muted)' }">
+                {{ t(c.kmBody, c.enBody) }}
+              </p>
+            </div>
+            <span class="paali shrink-0 text-xs font-mono font-bold px-2.5 py-1 rounded-md" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', borderColor: 'var(--border)' }">
+              {{ c.n }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 

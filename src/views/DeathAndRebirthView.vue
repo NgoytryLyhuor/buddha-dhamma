@@ -20,7 +20,7 @@
     </p>
 
     <!-- Quick Jump Sub-Navigation (Uniform h-9, smooth touch scroll on mobile) -->
-    <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+    <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center w-full max-w-full">
       <a href="#causes-of-death" class="lang-pick px-3.5 py-2 text-xs font-semibold whitespace-nowrap shrink-0 h-9 inline-flex items-center justify-center gap-1.5">
         <span>🕯️</span>
         <span>{{ t('ហេតុនៃការស្លាប់ ៤', '4 Causes of Death') }}</span>
@@ -191,7 +191,7 @@
       </p>
 
       <!-- Section Tabs (Uniform h-9, smooth touch scroll on mobile) -->
-      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div class="flex items-center gap-2 mt-6 overflow-x-auto pb-2 pt-1 scrollbar-none touch-pan-x sm:flex-wrap sm:justify-center w-full max-w-full">
         <button
           type="button"
           @click="activeKammaTab = 'santana'"

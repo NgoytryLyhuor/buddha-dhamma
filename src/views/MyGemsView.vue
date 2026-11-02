@@ -162,7 +162,7 @@
             <span>⭐</span>
             <span>{{ t('រតនៈគ្រងកំពូល', 'CROWN GEM') }}</span>
           </span>
-          <span v-if="gem.ref" class="text-[11px] font-mono shrink-0" :style="{ color: 'var(--accent)' }">
+          <span v-if="gem.ref" class="text-[11px] font-mono break-words min-w-0" :style="{ color: 'var(--accent)' }">
             {{ gem.ref }}
           </span>
         </div>

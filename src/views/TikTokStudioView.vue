@@ -1,0 +1,532 @@
+<template>
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b pb-6" :style="{ borderColor: 'var(--border)' }">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-2"
+          :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', border: '1px solid var(--accent)' }">
+          <span>✨ Gemini AI Powered</span>
+          <span>•</span>
+          <span>@escape_the_matrix Format</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-display font-bold leading-tight" :style="{ color: 'var(--ink)' }">
+          TikTok AI Content Studio
+        </h1>
+        <p class="text-sm mt-1" :style="{ color: 'var(--ink-muted)' }">
+          បង្កើតកម្រង Slide TikTok ស្វ័យប្រវត្តិតាមទម្រង់ «វះកាត់ធម៌ពិត» ចម្លងយកទៅផុសបានភ្លាមៗ
+        </p>
+      </div>
+
+      <div class="flex items-center justify-center gap-2">
+        <button
+          type="button"
+          @click="showKeyModal = true"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition shadow-sm cursor-pointer"
+          :style="{
+            background: hasApiKey ? 'var(--bg-card)' : 'var(--accent)',
+            color: hasApiKey ? 'var(--ink)' : '#fff',
+            border: '1px solid var(--border-strong)'
+          }"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>{{ hasApiKey ? '🔑 API Key: រួចរាល់' : '🔑 កំណត់ Gemini API Key' }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Workspace (Grid 2 columns on Desktop) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Column: AI Prompt & Generator (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Generator Card -->
+        <div class="p-5 sm:p-6 rounded-2xl shadow-sm border" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+          <label class="block text-sm font-bold mb-2 flex items-center justify-between" :style="{ color: 'var(--ink)' }">
+            <span>បញ្ចូលសំណួរ ឬប្រធានបទធម៌ដែលចង់បង្កើត ៖</span>
+            <span class="text-xs font-normal" :style="{ color: 'var(--ink-faint)' }">អាចសួរជាភាសាខ្មែរ ឬអង់គ្លេស</span>
+          </label>
+
+          <textarea
+            v-model="inputQuestion"
+            rows="3"
+            class="w-full p-3.5 rounded-xl border text-sm transition focus:outline-none focus:ring-2 font-body"
+            :style="{
+              background: 'var(--bg-input)',
+              borderColor: 'var(--border-strong)',
+              color: 'var(--ink)',
+              '--tw-ring-color': 'var(--accent)'
+            }"
+            placeholder="ឧ. ហេតុអ្វីបានព្រះពុទ្ធសម្តែងថារូបនេះជា «អនត្តា - មិនមែនជារបស់ខ្លួន» ? យើងមកវះកាត់មើល..."
+          ></textarea>
+
+          <!-- Preset Question Pills -->
+          <div class="mt-4">
+            <p class="text-xs font-bold mb-2" :style="{ color: 'var(--ink-muted)' }">
+              💡 សំណួរគំរូដែលល្បីៗ (ចុចដើម្បីជ្រើសរើសភ្លាមៗ) ៖
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <button
+                v-for="preset in PRESET_QUESTIONS"
+                :key="preset.id"
+                type="button"
+                @click="selectPreset(preset)"
+                class="text-xs px-2.5 py-1.5 rounded-lg border transition text-left cursor-pointer hover:border-accent"
+                :style="{
+                  background: inputQuestion === preset.question ? 'var(--accent-soft)' : 'var(--bg-card-2)',
+                  borderColor: inputQuestion === preset.question ? 'var(--accent)' : 'var(--border)',
+                  color: inputQuestion === preset.question ? 'var(--accent-bright)' : 'var(--ink-soft)'
+                }"
+              >
+                {{ preset.title }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Generate Action Button -->
+          <div class="mt-6 flex flex-col sm:flex-row items-center gap-3">
+            <button
+              type="button"
+              @click="handleGenerate"
+              :disabled="isGenerating || !inputQuestion.trim()"
+              class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white transition shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              :style="{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%)' }"
+            >
+              <svg v-if="isGenerating" class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+              </svg>
+              <svg v-else width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+              <span>{{ isGenerating ? 'កំពុងគិត និងបង្កើតតាមទម្រង់... (Gemini)' : '✨ បង្កើត Slide ថ្មីដោយ AI' }}</span>
+            </button>
+
+            <button
+              v-if="inputQuestion"
+              type="button"
+              @click="inputQuestion = ''"
+              class="px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition"
+              :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)', background: 'var(--bg-card-2)' }"
+            >
+              សម្អាត
+            </button>
+          </div>
+
+          <!-- Error Alert -->
+          <div v-if="errorMessage" class="mt-4 p-3 rounded-xl text-xs flex items-start gap-2 bg-red-900/20 border border-red-500/40 text-red-300">
+            <span class="font-bold">⚠️ កំហុស ៖</span>
+            <span>{{ errorMessage }}</span>
+          </div>
+        </div>
+
+        <!-- 1-Click Copy Master Bar -->
+        <div v-if="activePost" class="p-5 rounded-2xl border shadow-sm" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-sm font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+              <span>🚀 ឧបករណ៍ចម្លងរហ័ស (1-Click Copy Tools)</span>
+            </h3>
+            <span class="text-xs px-2 py-0.5 rounded-full font-bold" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+              Ready to Paste
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <button
+              type="button"
+              @click="copyToClipboard(activePost.slide1, 'ចម្លង Slide 1 (Hook)')"
+              class="copy-pill"
+            >
+              <span>📋 Slide 1 (Hook)</span>
+            </button>
+            <button
+              type="button"
+              @click="copyToClipboard(activePost.slide2, 'ចម្លង Slide 2 (Dissection)')"
+              class="copy-pill"
+            >
+              <span>📋 Slide 2 (Dissection)</span>
+            </button>
+            <button
+              type="button"
+              @click="copyToClipboard(activePost.slide3, 'ចម្លង Slide 3 (Takeaway)')"
+              class="copy-pill"
+            >
+              <span>📋 Slide 3 (Takeaway)</span>
+            </button>
+            <button
+              type="button"
+              @click="copyAllSlides(activePost)"
+              class="copy-pill font-bold col-span-2 sm:col-span-1"
+              :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
+            >
+              <span>📑 ចម្លងគ្រប់ Slide</span>
+            </button>
+            <button
+              type="button"
+              @click="copyToClipboard(activePost.caption, 'ចម្លង Caption & Hashtags')"
+              class="copy-pill"
+            >
+              <span>🏷️ Caption & Tags</span>
+            </button>
+            <button
+              type="button"
+              @click="copyToClipboard(activePost.imagePrompt, 'ចម្លង Midjourney Prompt')"
+              class="copy-pill"
+            >
+              <span>🎨 Image Prompt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Post Selection & Library Tabs -->
+        <div class="p-5 rounded-2xl border shadow-sm" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+          <div class="flex items-center justify-between border-b pb-3 mb-4" :style="{ borderColor: 'var(--border)' }">
+            <div class="flex gap-2">
+              <button
+                type="button"
+                @click="activeTab = 'curated'"
+                class="px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer"
+                :style="{
+                  background: activeTab === 'curated' ? 'var(--accent-soft)' : 'transparent',
+                  color: activeTab === 'curated' ? 'var(--accent-bright)' : 'var(--ink-muted)'
+                }"
+              >
+                📚 កម្រងផុសគំរូ ({{ allPosts.length }})
+              </button>
+              <button
+                type="button"
+                @click="activeTab = 'history'"
+                class="px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer"
+                :style="{
+                  background: activeTab === 'history' ? 'var(--accent-soft)' : 'transparent',
+                  color: activeTab === 'history' ? 'var(--accent-bright)' : 'var(--ink-muted)'
+                }"
+              >
+                💾 ផុសដែលបង្កើតដោយ AI ({{ savedHistory.length }})
+              </button>
+            </div>
+          </div>
+
+          <!-- Post Cards List -->
+          <div class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+            <div
+              v-for="post in (activeTab === 'curated' ? allPosts : savedHistory)"
+              :key="post.id"
+              @click="activePost = post; currentSlideIndex = 0"
+              class="p-3.5 rounded-xl border transition cursor-pointer flex items-center justify-between gap-3 group"
+              :style="{
+                background: activePost?.id === post.id ? 'var(--bg-card-2)' : 'transparent',
+                borderColor: activePost?.id === post.id ? 'var(--accent)' : 'var(--border)'
+              }"
+            >
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <span v-if="post.isNew" class="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold">ថ្មី</span>
+                  <span v-if="post.views" class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-bold">{{ post.views }} views</span>
+                  <span class="text-[10px]" :style="{ color: 'var(--ink-faint)' }">{{ post.category || 'TikTok' }}</span>
+                </div>
+                <h4 class="text-xs font-bold truncate" :style="{ color: 'var(--ink)' }">
+                  {{ post.title }}
+                </h4>
+              </div>
+
+              <span class="text-xs font-bold shrink-0 opacity-60 group-hover:opacity-100" :style="{ color: 'var(--accent-bright)' }">
+                មើល & ចម្លង →
+              </span>
+            </div>
+
+            <div v-if="activeTab === 'history' && savedHistory.length === 0" class="text-center py-8 text-xs" :style="{ color: 'var(--ink-faint)' }">
+              មិនទាន់មានផុសដែលបានរក្សាទុកទេ។ វាយសំណួរខាងលើរួចចុច «បង្កើត Slide ថ្មីដោយ AI» ដើម្បីសាកល្បង!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: 9:16 Interactive Mobile Carousel Preview (5 cols) -->
+      <div class="lg:col-span-5 sticky top-20">
+        <div class="text-center mb-2 flex items-center justify-between">
+          <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink-muted)' }">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span>ទិដ្ឋភាពជាក់ស្តែងលើ TikTok (9:16 Preview)</span>
+          </span>
+
+          <!-- Slide Tabs Indicator -->
+          <div class="flex items-center gap-1">
+            <button
+              v-for="i in 3"
+              :key="i"
+              type="button"
+              @click="currentSlideIndex = i - 1"
+              class="w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center transition cursor-pointer"
+              :style="{
+                background: currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--bg-card)',
+                color: currentSlideIndex === (i - 1) ? '#fff' : 'var(--ink-muted)',
+                border: '1px solid ' + (currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--border)')
+              }"
+            >
+              {{ i }}
+            </button>
+          </div>
+        </div>
+
+        <!-- 9:16 Smartphone Frame -->
+        <div class="phone-frame relative mx-auto rounded-[32px] p-3 shadow-2xl border-4"
+          :style="{
+            background: '#0d0d0f',
+            borderColor: '#2d2417',
+            maxWidth: '340px',
+            minHeight: '600px'
+          }">
+          <!-- Notch / Camera bar -->
+          <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3 bg-black/80 rounded-full z-20"></div>
+
+          <!-- TikTok Screen Content -->
+          <div class="relative w-full h-[570px] rounded-[24px] overflow-hidden flex flex-col justify-between p-5 text-white"
+            :style="{
+              background: 'linear-gradient(180deg, #111116 0%, #1a1612 50%, #0d0a07 100%)'
+            }">
+            <!-- Top Bar: Channel Branding -->
+            <div class="flex items-center justify-between text-xs pt-1 z-10">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-[10px] font-bold text-black">☸</div>
+                <span class="font-bold text-amber-400 text-xs tracking-wide">@escape_the_matrix</span>
+              </div>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/80 font-mono">
+                {{ currentSlideIndex + 1 }} / 3
+              </span>
+            </div>
+
+            <!-- Slide Content Area (Center) -->
+            <div class="my-auto py-4 z-10">
+              <!-- Slide 1: Hook -->
+              <div v-if="currentSlideIndex === 0" class="text-center space-y-4">
+                <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
+                  Slide 1 : The Hook
+                </div>
+                <div class="font-display font-black text-lg sm:text-xl leading-relaxed text-amber-200 whitespace-pre-line drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  {{ activePost?.slide1 || 'សូមជ្រើសរើស ឬបង្កើត Post ជាមុនសិន' }}
+                </div>
+              </div>
+
+              <!-- Slide 2: Dissection -->
+              <div v-else-if="currentSlideIndex === 1" class="space-y-3">
+                <div class="text-center">
+                  <span class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
+                    Slide 2 : ការវះកាត់ធម៌ពិត
+                  </span>
+                </div>
+                <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  {{ activePost?.slide2 }}
+                </div>
+              </div>
+
+              <!-- Slide 3: Takeaway & CTA -->
+              <div v-else-if="currentSlideIndex === 2" class="space-y-3 text-center">
+                <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
+                  Slide 3 : មេរៀនជីវិត & CTA
+                </div>
+                <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  {{ activePost?.slide3 }}
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Navigation Bar inside Phone -->
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/10 z-10">
+              <button
+                type="button"
+                @click="currentSlideIndex = Math.max(0, currentSlideIndex - 1)"
+                :disabled="currentSlideIndex === 0"
+                class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer"
+              >
+                ← ថយក្រោយ
+              </button>
+
+              <button
+                type="button"
+                @click="copyCurrentSlide"
+                class="px-3 py-1 rounded bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold cursor-pointer transition shadow"
+              >
+                📋 ចម្លង Slide នេះ
+              </button>
+
+              <button
+                type="button"
+                @click="currentSlideIndex = Math.min(2, currentSlideIndex + 1)"
+                :disabled="currentSlideIndex === 2"
+                class="px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer"
+              >
+                បន្ទាប់ →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div v-if="showKeyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div class="w-full max-w-md p-6 rounded-2xl border shadow-2xl" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+        <h3 class="text-lg font-bold font-display mb-2" :style="{ color: 'var(--ink)' }">
+          🔑 កំណត់ Gemini API Key
+        </h3>
+        <p class="text-xs mb-4" :style="{ color: 'var(--ink-muted)' }">
+          API Key ត្រូវបានរក្សាទុកតែនៅក្នុង Browser (localStorage) របស់អ្នកប៉ុណ្ណោះ ធានាសុវត្ថិភាព ១០០%។
+        </p>
+
+        <input
+          v-model="tempApiKey"
+          type="password"
+          placeholder="AIzaSy..."
+          class="w-full p-3 rounded-xl border text-sm font-mono mb-4 focus:outline-none"
+          :style="{ background: 'var(--bg-input)', borderColor: 'var(--border-strong)', color: 'var(--ink)' }"
+        />
+
+        <div class="text-xs mb-5" :style="{ color: 'var(--ink-faint)' }">
+          💡 មិនទាន់មាន Key? អ្នកអាចបង្កើត Key ឥតគិតថ្លៃនៅ
+          <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="underline text-amber-500 font-bold">
+            Google AI Studio
+          </a>
+        </div>
+
+        <div class="flex items-center justify-end gap-2">
+          <button
+            type="button"
+            @click="showKeyModal = false"
+            class="px-4 py-2 rounded-xl text-xs font-bold border cursor-pointer"
+            :style="{ borderColor: 'var(--border)', color: 'var(--ink)' }"
+          >
+            បោះបង់
+          </button>
+          <button
+            type="button"
+            @click="saveApiKeyModal"
+            class="px-5 py-2 rounded-xl text-xs font-bold text-white bg-amber-600 hover:bg-amber-500 cursor-pointer transition shadow"
+          >
+            រក្សាទុក
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <transition name="toast">
+      <div v-if="toastMessage" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl shadow-lg border text-xs font-bold flex items-center gap-2 bg-emerald-900 border-emerald-500 text-emerald-100">
+        {{ toastMessage }}
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { PUBLISHED_AND_CURATED_POSTS } from '../data/tiktokPosts.js'
+import { PRESET_QUESTIONS, useGeminiTikTok } from '../composables/useGeminiTikTok.js'
+
+const {
+  apiKey,
+  setApiKey,
+  isGenerating,
+  errorMessage,
+  toastMessage,
+  showToast,
+  copyToClipboard,
+  generatePost,
+  getSavedPosts
+} = useGeminiTikTok()
+
+const inputQuestion = ref('')
+const activeTab = ref('curated')
+const allPosts = ref(PUBLISHED_AND_CURATED_POSTS)
+const activePost = ref(PUBLISHED_AND_CURATED_POSTS[0])
+const currentSlideIndex = ref(0)
+const savedHistory = ref([])
+
+const showKeyModal = ref(false)
+const tempApiKey = ref(apiKey.value)
+
+const hasApiKey = computed(() => !!apiKey.value)
+
+onMounted(() => {
+  savedHistory.value = getSavedPosts()
+})
+
+function selectPreset(preset) {
+  inputQuestion.value = preset.question
+}
+
+async function handleGenerate() {
+  if (!inputQuestion.value.trim()) return
+  const result = await generatePost(inputQuestion.value)
+  if (result) {
+    const formatted = {
+      id: 'ai-' + Date.now(),
+      title: result.title || inputQuestion.value.substring(0, 40),
+      category: 'AI Generated',
+      isNew: true,
+      ...result
+    }
+    activePost.value = formatted
+    currentSlideIndex.value = 0
+    savedHistory.value = getSavedPosts()
+    activeTab.value = 'history'
+    showToast('✨ បានបង្កើត Slide ដោយជោគជ័យ!')
+  }
+}
+
+function copyCurrentSlide() {
+  if (!activePost.value) return
+  const texts = [activePost.value.slide1, activePost.value.slide2, activePost.value.slide3]
+  copyToClipboard(texts[currentSlideIndex.value] || '', `ចម្លង Slide ${currentSlideIndex.value + 1}`)
+}
+
+function copyAllSlides(post) {
+  if (!post) return
+  const fullText = `=== SLIDE 1 ===\n${post.slide1}\n\n=== SLIDE 2 ===\n${post.slide2}\n\n=== SLIDE 3 ===\n${post.slide3}\n\n=== CAPTION ===\n${post.caption || ''}`
+  copyToClipboard(fullText, 'ចម្លងគ្រប់ Slide ទាំងអស់')
+}
+
+function saveApiKeyModal() {
+  setApiKey(tempApiKey.value)
+  showKeyModal.value = false
+  showToast('🔑 បានរក្សាទុក API Key')
+}
+</script>
+
+<style scoped>
+.copy-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--bg-card-2);
+  color: var(--ink);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.copy-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  transform: translateY(-1px);
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.25s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+</style>

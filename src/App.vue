@@ -533,7 +533,7 @@ const menuCategories = [
 ]
 
 const menuCategoryRoutes = {
-  gems: ['/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary'],
+  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary'],
   abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta'],
   sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga'],
@@ -625,6 +625,7 @@ const nav = [
   { to: '/cosmology', km: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', descKm: 'វដ្តនៃចក្រវាឡ & ដើមកំណើតមនុស្ស', kmShort: 'ចក្រវាឡ', en: 'Cosmology, Kalpas & Origins', num: '៤០' },
   { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', descKm: 'ការឧទ្ទិសបុណ្យ & បរទត្តូបជីវីប្រេត', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication & Pattidāna', num: '៤១' },
   { to: '/my-gems', km: 'កម្រងធម៌រតនៈ & សំណួរពិសេស', descKm: '២៤ ធម៌រតនៈកំពូល & សំណួរពិស្តារ', kmShort: 'ធម៌រតនៈ ២៤', en: '24 Dhamma Gems', num: '៤២' },
+  { to: '/tiktok-studio', km: 'TikTok AI Studio', descKm: 'បង្កើត Slide TikTok ស្វ័យប្រវត្តិតាមរយៈ Gemini AI', kmShort: 'TikTok Studio', en: 'TikTok AI Studio', num: '៤៣' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -641,7 +642,7 @@ const tabRoutes = {
   home: ['/'],
   dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer'],
-  learn: ['/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
+  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
 }
 
 const activeTab = computed(() => {

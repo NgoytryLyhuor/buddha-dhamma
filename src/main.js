@@ -64,6 +64,7 @@ const routes = [
   { path: '/cosmology', name: 'cosmology', component: lazyView(() => import('./views/CosmologyView.vue')), meta: { titleK: 'កប្ប ចក្រវាឡ & អគ្គញ្ញសូត្រ', titleE: 'Cosmology, Kalpas & Origin of Society' } },
   { path: '/merit-transfer', name: 'merit-transfer', component: lazyView(() => import('./views/MeritTransferView.vue')), meta: { titleK: 'យន្តការឧទ្ទិសកុសល & បរទត្តូបជីវីប្រេត', titleE: 'Merit Transference & Pattidāna' } },
   { path: '/my-gems', name: 'my-gems', component: lazyView(() => import('./views/MyGemsView.vue')), meta: { titleK: 'កម្រងសំណួរកំពូល & ធម៌រតនៈ', titleE: 'My Top Questions & Gems' } },
+  { path: '/tiktok-studio', name: 'tiktok-studio', component: lazyView(() => import('./views/TikTokStudioView.vue')), meta: { titleK: 'TikTok AI Studio', titleE: 'TikTok AI Studio' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

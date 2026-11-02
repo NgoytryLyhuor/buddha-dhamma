@@ -1,7 +1,7 @@
 export const PUBLISHED_AND_CURATED_POSTS = [
   {
-    id: 'anatta-surgery',
-    title: 'ការវះកាត់មើល «អនត្តា — មិនមែនជារបស់ខ្លួន»',
+    id: 'anatta-dissection',
+    title: 'ការពន្យល់មើល «អនត្តា — មិនមែនជារបស់ខ្លួន»',
     category: 'អនត្តា & ចិត្ត',
     publishedDate: '2026-11-02',
     isNew: true,
@@ -9,7 +9,7 @@ export const PUBLISHED_AND_CURATED_POSTS = [
     slide1: `ហេតុអ្វីបានព្រះពុទ្ធសម្តែងថារូបនេះជា
 «អនត្តា — មិនមែនជារបស់ខ្លួន» ?
 
-យើងមកវះកាត់មើល
+យើងមកពិចារណាមើល
 តើត្រឹមត្រូវ ឬមិនត្រឹមត្រូវ ?
 
 (យោងតាមគម្ពីរអនត្តលក្ខណសូត្រ និងវិសុទ្ធិមគ្គ)`,
@@ -20,7 +20,7 @@ export const PUBLISHED_AND_CURATED_POSTS = [
 • តើអ្នកបញ្ជាវាបានទេ? ចម្លើយគឺ «មិនបានឡើយ»។ រូបកាយដំណើរការទៅតាមច្បាប់ធម្មជាតិសុទ្ធសាធ។
 
 ២. កើតឡើងពីការប្រជុំគ្នានៃគ្រឿងបន្លាស់ (កោសិកា/ធាតុ ៤) ៖
-• បើយើងវះកាត់បកស្បែកចេញ គឺមានតែ សាច់ សរសៃ ឆ្អឹង ឈាម លាមក និងទឹកប្រមាត់ (ទ្វត្តិង្សាការ ៣២)។
+• បើយើងពិនិត្យបកស្បែកចេញ គឺមានតែ សាច់ សរសៃ ឆ្អឹង ឈាម លាមក និងទឹកប្រមាត់ (ទ្វត្តិង្សាការ ៣២)។
 • តើត្រង់ណាដែលហៅថា «អញ»? តើឆ្អឹងជាអញ? ឈាមជាអញ? ឬលាមកជាអញ? ដកគ្រឿងបន្លាស់ចេញអស់ គ្មានតួខ្លួនសូម្បីតែបន្តិច!
 
 ៣. បែកធ្លាយរលត់គ្រប់វិនាទី (ខណិកមរណៈ) ៖
@@ -35,7 +35,7 @@ export const PUBLISHED_AND_CURATED_POSTS = [
 «រូបកាយនេះគ្រាន់តែជាផ្ទះជួលបណ្ដោះអាសន្នប៉ុណ្ណោះ។ ពេលដល់ពេលត្រូវរើចេញ កុំយំសោកស្ដាយក្រោយ ពីព្រោះវាមិនដែលជារបស់យើងសូម្បីតែមួយវិនាទី!»
 
 រៀនធម៌ពិតរបស់ព្រះសម្មាសម្ពុទ្ធបន្ថែមលើ Bio : buddha-dhamma.vercel.app`,
-    caption: `ហេតុអ្វីបានព្រះពុទ្ធសម្តែងថារូបនេះជា «អនត្តា - មិនមែនជារបស់ខ្លួន» ? យើងមកវះកាត់មើល តើត្រឹមត្រូវ ឬមិនត្រឹមត្រូវ ? #buddhist #buddhism #facts #fyp #buddha`,
+    caption: `ហេតុអ្វីបានព្រះពុទ្ធសម្តែងថារូបនេះជា «អនត្តា - មិនមែនជារបស់ខ្លួន» ? យើងមកពិចារណាមើល តើត្រឹមត្រូវ ឬមិនត្រឹមត្រូវ ? #buddhist #buddhism #facts #fyp #buddha`,
     imagePrompt: `Cinematic ethereal visual of a serene Buddhist monk in meditation, golden translucent holographic anatomy showing subtle inner sacred light, dissolving into glowing stardust against a cosmic starry night background, dramatic spiritual lighting, 8k resolution.`
   },
   {

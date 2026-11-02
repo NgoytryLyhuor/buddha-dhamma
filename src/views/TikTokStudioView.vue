@@ -117,7 +117,7 @@
             TikTok AI Content Studio
           </h1>
           <p class="text-xs sm:text-sm mt-0.5" :style="{ color: 'var(--ink-muted)' }">
-            បង្កើតកម្រង Slide TikTok ស្វ័យប្រវត្តិតាមទម្រង់ «វះកាត់ធម៌ពិត» ចម្លងយកទៅផុសបានភ្លាមៗ
+            បង្កើតកម្រង Slide TikTok ស្វ័យប្រវត្តិតាមទម្រង់ «ពន្យល់ធម៌ពិតស៊ីជម្រៅ» ចម្លងយកទៅផុសបានភ្លាមៗ
           </p>
         </div>
 
@@ -225,7 +225,7 @@
             </div>
 
             <div class="text-xs leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំកម្រង Slide លម្អិតស៊ីជម្រៅ (៥ Slide) និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok វះកាត់ធម៌ពិត!
+              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំកម្រង Slide លម្អិតស៊ីជម្រៅ (៥ Slide) និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok ធម៌ពិតស៊ីជម្រៅ!
             </div>
 
             <!-- Generate Action Button (Big & Thumb-friendly for Mobile) -->
@@ -689,7 +689,7 @@ const currentSlides = computed(() => {
 function getSlideBadge(idx, total) {
   if (idx === 0) return 'Slide 1 : The Hook (សំណួរចាក់ដោត)'
   if (idx === total - 1) return `Slide ${idx + 1} : មេរៀនជីវិត & CTA`
-  return `Slide ${idx + 1} : ការវះកាត់ធម៌ពិត (ភាគ ${idx})`
+  return `Slide ${idx + 1} : ការពន្យល់ធម៌ពិត (ភាគ ${idx})`
 }
 
 const filteredPosts = computed(() => {

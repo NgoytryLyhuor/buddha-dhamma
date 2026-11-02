@@ -46,6 +46,7 @@ STRICT KHMER ORTHOGRAPHY & VOCABULARY RULES
    - Consciousness = «វិញ្ញាណ» (NOT «វិញ្ញាញ»).
    - Canonical Scripture = «ព្រះត្រៃបិដក», «ធម្មក្ខន្ធ» (NOT «ត្រៃបិតក», «ធម្មខណ្ឌ»).
    - Sufferings = «សេចក្ដីទុក្ខ», «ទុក្ខសច្ច» (NOT «ទុក្ខំ» unless quoting Pali).
+   - STRICT BAN on medical/surgery words: NEVER use the word «វះកាត់» anywhere in slides or titles. Instead, use dignified Buddhist analytical words: «ការពន្យល់ធម៌ពិត», «ការពិចារណា», «ការបកស្រាយសច្ចធម៌», «ការវិភាគ»។
 
 2. Tone & Depth:
    - Noble, inspiring, deeply philosophical, and compassionate (ប្រកបដោយបញ្ញា និងមេត្តាធម៌).
@@ -73,19 +74,19 @@ Slide Constraints:
 - SLIDE 1 (The Provocative Hook / សំណួរចាក់ដោត & អាថ៌កំបាំង):
   * Maximum 3-4 lines total! Clean and punchy for the first frame to stop the scroll.
   * Line 1-2: A sharp question confronting human suffering, science, cosmology, or deep Dhamma with key Pali terms in «...».
-  * Line 3: Analytical hook (e.g. «យើងមកវះកាត់មើលសច្ចធម៌ពិត... (យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម)»).
+  * Line 3: Analytical hook (e.g. «យើងមកស្វែងយល់សច្ចធម៌ពិត... (យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម)»).
 
 - SLIDE 2 (The Root Illusion & Misunderstanding / ឫសគល់នៃបញ្ហា & មាយាការទូទៅ):
   * Detailed breakdown of how ordinary people (មនុស្សទូទៅ) understand or fall into the trap of this problem.
   * Contrast conventional worldly thinking with reality.
   * Explain the psychological root: why the mind creates this confusion or suffering (e.g. through «អវិជ្ជា», «តណ្ហា», or worldly attachments).
 
-- SLIDE 3 (Deep Canonical Dissection - Part 1 / ការវះកាត់ធម៌ពិត ភាគ ១):
+- SLIDE 3 (Deep Canonical Dissection - Part 1 / ការពន្យល់ធម៌ពិត ភាគ ១):
   * Deep, analytical doctrinal breakdown citing authentic scriptures (e.g. «អភិធម្មបិដក», «វិសុទ្ធិមគ្គ», «ព្រះសូត្រ»).
   * Explain the fundamental components (e.g. «ខន្ធ ៥», «រូប-នាម», «ចិត្ត-ចេតសិក», «កម្ម និងផល», ឬ «បដិច្ចសមុប្បាទ»).
   * Detailed, rich explanation with numbered points (១., ២., ៣.).
 
-- SLIDE 4 (Deep Canonical Dissection - Part 2 / ការវះកាត់ធម៌ពិត ភាគ ២):
+- SLIDE 4 (Deep Canonical Dissection - Part 2 / ការពន្យល់ធម៌ពិត ភាគ ២):
   * Concrete dissection showing how the process works in practical psychological mechanics.
   * Detailed contrast: Delusion vs Wisdom (ការយល់ខុស vs ការយល់ត្រូវ/សម្មាទិដ្ឋិ).
   * Rich elaboration providing clear proof or philosophical clarity that dispels doubts.

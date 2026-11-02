@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto px-4 py-8">
+  <div class="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
     <!-- 1. PIN Lock Screen (Shown when not logged in) -->
     <div v-if="!isAuthenticated" class="min-h-[70vh] flex items-center justify-center py-6">
       <div
@@ -104,34 +104,34 @@
 
     <!-- 2. Authenticated Studio Workspace -->
     <div v-else>
-      <!-- Header -->
-      <div class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b pb-6" :style="{ borderColor: 'var(--border)' }">
+      <!-- Studio Header -->
+      <div class="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b pb-4 sm:pb-6" :style="{ borderColor: 'var(--border)' }">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-2"
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-1"
             :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', border: '1px solid var(--accent)' }">
-            <span>✨ Gemini 3.8 Flash Active</span>
+            <span>✨ Gemini 2.5 Flash</span>
             <span>•</span>
             <span>@escape_the_matrix</span>
           </div>
           <h1 class="text-xl sm:text-2xl md:text-3xl font-display font-bold leading-tight" :style="{ color: 'var(--ink)' }">
             TikTok AI Content Studio
           </h1>
-          <p class="text-sm mt-1" :style="{ color: 'var(--ink-muted)' }">
+          <p class="text-xs sm:text-sm mt-0.5" :style="{ color: 'var(--ink-muted)' }">
             បង្កើតកម្រង Slide TikTok ស្វ័យប្រវត្តិតាមទម្រង់ «វះកាត់ធម៌ពិត» ចម្លងយកទៅផុសបានភ្លាមៗ
           </p>
         </div>
 
-        <div class="flex items-center justify-center gap-2">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border"
+        <div class="flex items-center justify-between sm:justify-end gap-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border"
             :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Key រួចរាល់ស្វ័យប្រវត្តិ</span>
+            <span class="text-[11px]">Key រួចរាល់</span>
           </div>
 
           <button
             type="button"
             @click="handleLogout"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border transition cursor-pointer hover:bg-red-500/10 hover:text-red-400"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition cursor-pointer hover:bg-red-500/10 hover:text-red-400"
             :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink-muted)' }"
             title="ចាកចេញ / ចាក់សោ"
           >
@@ -140,161 +140,220 @@
         </div>
       </div>
 
-      <!-- Main Workspace (Grid 2 columns on Desktop) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <!-- Left Column: AI Prompt & Generator (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
-          <!-- Generator Card -->
-          <div class="p-5 sm:p-6 rounded-2xl shadow-sm border" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-            <label class="block text-sm font-bold mb-2 flex items-center justify-between" :style="{ color: 'var(--ink)' }">
-              <span>បញ្ចូលសំណួរ ឬប្រធានបទធម៌ដែលចង់បង្កើត ៖</span>
-              <span class="text-xs font-normal" :style="{ color: 'var(--ink-faint)' }">អាចសួរជាភាសាខ្មែរ ឬអង់គ្លេស</span>
-            </label>
+      <!-- Mobile Segmented Tabs Navigation (Visible ONLY on mobile screens < 1024px) -->
+      <div class="lg:hidden sticky top-14 z-30 mb-4 p-1 rounded-2xl border shadow-sm flex items-center justify-between gap-1 backdrop-blur-md"
+        :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+        <button
+          type="button"
+          @click="mobileTab = 'create'"
+          class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer"
+          :style="{
+            background: mobileTab === 'create' ? 'var(--accent)' : 'transparent',
+            color: mobileTab === 'create' ? '#ffffff' : 'var(--ink-muted)'
+          }"
+        >
+          <span>✍️ បង្កើត AI</span>
+        </button>
 
-            <textarea
-              v-model="inputQuestion"
-              rows="3"
-              class="w-full p-3.5 rounded-xl border text-sm transition focus:outline-none focus:ring-2 font-body"
-              :style="{
-                background: 'var(--bg-input)',
-                borderColor: 'var(--border-strong)',
-                color: 'var(--ink)',
-                '--tw-ring-color': 'var(--accent)'
-              }"
-              placeholder="ឧ. ហេតុអ្វីបានព្រះពុទ្ធសម្តែងថារូបនេះជា «អនត្តា - មិនមែនជារបស់ខ្លួន» ? យើងមកវះកាត់មើល..."
-            ></textarea>
+        <button
+          type="button"
+          @click="mobileTab = 'preview'"
+          class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer relative"
+          :style="{
+            background: mobileTab === 'preview' ? 'var(--accent)' : 'transparent',
+            color: mobileTab === 'preview' ? '#ffffff' : 'var(--ink-muted)'
+          }"
+        >
+          <span>📱 Slide (9:16)</span>
+          <span v-if="activePost?.isNew" class="w-2 h-2 rounded-full bg-emerald-400 absolute top-1.5 right-1.5 animate-ping"></span>
+        </button>
 
-            <!-- Preset Question Pills -->
-            <div class="mt-4">
-              <p class="text-xs font-bold mb-2" :style="{ color: 'var(--ink-muted)' }">
-                💡 សំណួរគំរូដែលល្បីៗ (ចុចដើម្បីជ្រើសរើសភ្លាមៗ) ៖
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  v-for="preset in PRESET_QUESTIONS"
-                  :key="preset.id"
-                  type="button"
-                  @click="selectPreset(preset)"
-                  class="text-xs px-2.5 py-1.5 rounded-lg border transition text-left cursor-pointer hover:border-accent"
-                  :style="{
-                    background: inputQuestion === preset.question ? 'var(--accent-soft)' : 'var(--bg-card-2)',
-                    borderColor: inputQuestion === preset.question ? 'var(--accent)' : 'var(--border)',
-                    color: inputQuestion === preset.question ? 'var(--accent-bright)' : 'var(--ink-soft)'
-                  }"
-                >
-                  {{ preset.title }}
-                </button>
-              </div>
-            </div>
+        <button
+          type="button"
+          @click="mobileTab = 'library'"
+          class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer"
+          :style="{
+            background: mobileTab === 'library' ? 'var(--accent)' : 'transparent',
+            color: mobileTab === 'library' ? '#ffffff' : 'var(--ink-muted)'
+          }"
+        >
+          <span>📚 បណ្ណាល័យ ({{ allPosts.length + savedHistory.length }})</span>
+        </button>
+      </div>
 
-            <!-- Generate Action Button -->
-            <div class="mt-6 flex flex-col sm:flex-row items-center gap-3">
-              <button
-                type="button"
-                @click="handleGenerate"
-                :disabled="isGenerating || !inputQuestion.trim()"
-                class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white transition shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-95"
-                :style="{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%)' }"
-              >
-                <svg v-if="isGenerating" class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24" fill="none">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                </svg>
-                <svg v-else width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-                </svg>
-                <span>{{ isGenerating ? 'កំពុងគិត និងបង្កើតតាមទម្រង់... (Gemini 3.8 Flash)' : '✨ បង្កើត Slide ថ្មីដោយ AI' }}</span>
-              </button>
+      <!-- Main Workspace (Grid 2 columns on Desktop, Tabbed on Mobile) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        
+        <!-- Left Column (Desktop 7 cols): Generator, 1-Click Tools, and Library -->
+        <div class="lg:col-span-7 space-y-5">
 
+          <!-- 1. Generator Card (Shown in 'create' tab on mobile, always on desktop) -->
+          <div
+            class="p-4 sm:p-6 rounded-2xl shadow-sm border space-y-4"
+            :class="{ 'hidden lg:block': mobileTab !== 'create' }"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <div class="flex items-center justify-between">
+              <label class="text-sm font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+                <span>✨ បញ្ចូលសំណួរ ឬប្រធានបទធម៌ ៖</span>
+              </label>
               <button
                 v-if="inputQuestion"
                 type="button"
                 @click="inputQuestion = ''"
-                class="px-4 py-3 rounded-xl border text-xs font-bold cursor-pointer transition"
-                :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)', background: 'var(--bg-card-2)' }"
+                class="text-xs font-bold px-2 py-0.5 rounded-md hover:text-red-400 transition cursor-pointer"
+                :style="{ color: 'var(--ink-muted)' }"
               >
-                សម្អាត
+                ✕ លុបអត្ថបទ
+              </button>
+            </div>
+
+            <!-- Main Input Textarea (Tailored for mobile typing) -->
+            <div class="relative">
+              <textarea
+                v-model="inputQuestion"
+                rows="4"
+                class="w-full p-3.5 rounded-xl border text-sm sm:text-base leading-relaxed transition focus:outline-none focus:ring-2 font-body"
+                :style="{
+                  background: 'var(--bg-input)',
+                  borderColor: 'var(--border-strong)',
+                  color: 'var(--ink)',
+                  '--tw-ring-color': 'var(--accent)'
+                }"
+                placeholder="ឧ. ហេតុអ្វីបានជាមនុស្សកាន់តែមានលុយ ឬជោគជ័យ កាន់តែមានអារម្មណ៍ថាឯកោ និងទទេស្អាត? (ឬវាយសំណួរធម៌ជីវិតផ្សេងៗ...)"
+              ></textarea>
+            </div>
+
+            <div class="text-xs leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
+              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំ Slide ទាំង ៣ និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok វះកាត់ធម៌ពិត!
+            </div>
+
+            <!-- Generate Action Button (Big & Thumb-friendly for Mobile) -->
+            <div class="pt-1">
+              <button
+                type="button"
+                @click="handleGenerate"
+                :disabled="isGenerating || !inputQuestion.trim()"
+                class="w-full min-h-[48px] sm:min-h-[50px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm sm:text-base text-white transition shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
+                :style="{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%)' }"
+              >
+                <svg v-if="isGenerating" class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                </svg>
+                <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+                <span>{{ isGenerating ? 'កំពុងគិត និងរៀបចំ Slide... (Gemini)' : '✨ បង្កើត Slide ថ្មីដោយ AI' }}</span>
               </button>
             </div>
 
             <!-- Error Alert -->
-            <div v-if="errorMessage" class="mt-4 p-3 rounded-xl text-xs flex items-start gap-2 bg-red-900/20 border border-red-500/40 text-red-300">
+            <div v-if="errorMessage" class="p-3 rounded-xl text-xs flex items-start gap-2 bg-red-900/20 border border-red-500/40 text-red-300">
               <span class="font-bold">⚠️ កំហុស ៖</span>
               <span>{{ errorMessage }}</span>
             </div>
+
+            <!-- Mobile Quick Banner to jump to active post preview -->
+            <div
+              v-if="activePost"
+              class="lg:hidden pt-2 border-t flex items-center justify-between gap-2"
+              :style="{ borderColor: 'var(--border)' }"
+            >
+              <div class="min-w-0">
+                <span class="text-[11px] block truncate" :style="{ color: 'var(--ink-muted)' }">
+                  ផុសបច្ចុប្បន្ន ៖ <strong :style="{ color: 'var(--ink)' }">{{ activePost.title }}</strong>
+                </span>
+              </div>
+              <button
+                type="button"
+                @click="mobileTab = 'preview'"
+                class="shrink-0 px-3 py-1.5 rounded-xl border text-xs font-bold cursor-pointer transition flex items-center gap-1"
+                :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
+              >
+                <span>📱 មើល Slide</span>
+                <span>→</span>
+              </button>
+            </div>
           </div>
 
-          <!-- 1-Click Copy Master Bar -->
-          <div v-if="activePost" class="p-5 rounded-2xl border shadow-sm" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+          <!-- 2. 1-Click Copy Master Bar (Shown in 'preview' tab on mobile, always on desktop) -->
+          <div
+            v-if="activePost"
+            class="p-4 sm:p-5 rounded-2xl border shadow-sm"
+            :class="{ 'hidden lg:block': mobileTab !== 'preview' }"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
             <div class="flex items-center justify-between mb-3">
               <h3 class="text-sm font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
-                <span>🚀 ឧបករណ៍ចម្លងរហ័ស (1-Click Copy Tools)</span>
+                <span>🚀 ឧបករណ៍ចម្លងរហ័ស (1-Click Copy)</span>
               </h3>
-              <span class="text-xs px-2 py-0.5 rounded-full font-bold" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
-                Ready to Paste
+              <span class="text-[11px] px-2 py-0.5 rounded-full font-bold" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+                ប៉ះដើម្បីចម្លងភ្លាមៗ
               </span>
             </div>
 
+            <!-- Responsive Copy Buttons Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               <button
                 type="button"
-                @click="copyToClipboard(activePost.slide1, 'ចម្លង Slide 1 (Hook)')"
+                @click="copyPill(activePost.slide1, 'ចម្លង Slide 1 (Hook)', 'slide1')"
                 class="copy-pill"
               >
-                <span>📋 Slide 1 (Hook)</span>
+                <span>{{ copiedKey === 'slide1' ? '✓ បានចម្លង!' : '📋 Slide 1 (Hook)' }}</span>
               </button>
+
               <button
                 type="button"
-                @click="copyToClipboard(activePost.slide2, 'ចម្លង Slide 2 (Dissection)')"
+                @click="copyPill(activePost.slide2, 'ចម្លង Slide 2 (Dissection)', 'slide2')"
                 class="copy-pill"
               >
-                <span>📋 Slide 2 (Dissection)</span>
+                <span>{{ copiedKey === 'slide2' ? '✓ បានចម្លង!' : '📋 Slide 2 (វះកាត់)' }}</span>
               </button>
+
               <button
                 type="button"
-                @click="copyToClipboard(activePost.slide3, 'ចម្លង Slide 3 (Takeaway)')"
+                @click="copyPill(activePost.slide3, 'ចម្លង Slide 3 (Takeaway)', 'slide3')"
                 class="copy-pill"
               >
-                <span>📋 Slide 3 (Takeaway)</span>
+                <span>{{ copiedKey === 'slide3' ? '✓ បានចម្លង!' : '📋 Slide 3 (សន្និដ្ឋាន)' }}</span>
               </button>
+
               <button
                 type="button"
-                @click="copyAllSlides(activePost)"
+                @click="copyPill(getAllSlidesText(activePost), 'ចម្លងគ្រប់ Slide', 'all')"
                 class="copy-pill font-bold"
                 :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
               >
-                <span>📑 ចម្លងគ្រប់ Slide</span>
+                <span>{{ copiedKey === 'all' ? '✓ ចម្លងគ្រប់ Slide!' : '📑 ចម្លងគ្រប់ Slide' }}</span>
               </button>
+
               <button
                 type="button"
-                @click="copyToClipboard(activePost.caption, 'ចម្លង Caption & Hashtags')"
+                @click="copyPill(activePost.caption, 'ចម្លង Caption & Hashtags', 'caption')"
                 class="copy-pill"
               >
-                <span>🏷️ Caption & Tags</span>
+                <span>{{ copiedKey === 'caption' ? '✓ បានចម្លង!' : '🏷️ Caption & Tags' }}</span>
               </button>
+
               <button
                 type="button"
-                @click="copyToClipboard(activePost.imagePrompt, 'ចម្លង Midjourney Prompt')"
+                @click="copyPill(activePost.imagePrompt, 'ចម្លង Midjourney Prompt', 'prompt')"
                 class="copy-pill"
               >
-                <span>🎨 Image Prompt</span>
+                <span>{{ copiedKey === 'prompt' ? '✓ បានចម្លង!' : '🎨 Image Prompt' }}</span>
               </button>
             </div>
-
-            <!-- Mobile Quick Jump to 9:16 Preview -->
-            <a
-              href="#preview-phone"
-              class="lg:hidden mt-3 w-full py-2 px-3 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition text-center"
-              :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
-            >
-              <span>📱 មើល Slide Preview (9:16) ខាងក្រោម</span>
-              <span>↓</span>
-            </a>
           </div>
 
-          <!-- Post Selection & Library Tabs -->
-          <div class="p-5 rounded-2xl border shadow-sm" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-            <div class="flex items-center justify-between border-b pb-3 mb-4" :style="{ borderColor: 'var(--border)' }">
+          <!-- 3. Post Selection & Library Card (Shown in 'library' tab on mobile, always on desktop) -->
+          <div
+            class="p-4 sm:p-5 rounded-2xl border shadow-sm"
+            :class="{ 'hidden lg:block': mobileTab !== 'library' }"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <!-- Sub-tabs: Curated vs AI History -->
+            <div class="flex items-center justify-between border-b pb-3 mb-3" :style="{ borderColor: 'var(--border)' }">
               <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                 <button
                   type="button"
@@ -305,7 +364,7 @@
                     color: activeTab === 'curated' ? 'var(--accent-bright)' : 'var(--ink-muted)'
                   }"
                 >
-                  📚 កម្រងផុសគំរូ ({{ allPosts.length }})
+                  📚 គំរូផ្សាយរួច ({{ allPosts.length }})
                 </button>
                 <button
                   type="button"
@@ -316,68 +375,102 @@
                     color: activeTab === 'history' ? 'var(--accent-bright)' : 'var(--ink-muted)'
                   }"
                 >
-                  💾 ផុសដែលបង្កើតដោយ AI ({{ savedHistory.length }})
+                  💾 ប្រវត្តិ AI ({{ savedHistory.length }})
                 </button>
               </div>
             </div>
 
-            <!-- Post Cards List -->
-            <div class="space-y-2.5 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Quick Search Input -->
+            <div class="mb-3">
+              <input
+                v-model="searchQuery"
+                type="text"
+                placeholder="🔍 ស្វែងរកតាមចំណងជើង ឬប្រធានបទ..."
+                class="w-full px-3 py-2 rounded-xl border text-xs transition focus:outline-none focus:ring-1"
+                :style="{
+                  background: 'var(--bg-input)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--ink)',
+                  '--tw-ring-color': 'var(--accent)'
+                }"
+              />
+            </div>
+
+            <!-- Post Cards List (Scrollable, tactile) -->
+            <div class="space-y-2 max-h-[420px] overflow-y-auto pr-1">
               <div
-                v-for="post in (activeTab === 'curated' ? allPosts : savedHistory)"
+                v-for="post in filteredPosts"
                 :key="post.id"
-                @click="activePost = post; currentSlideIndex = 0"
-                class="p-3.5 rounded-xl border transition cursor-pointer flex items-center justify-between gap-3 group"
+                @click="selectPost(post)"
+                class="p-3 rounded-xl border transition cursor-pointer flex items-center justify-between gap-3 group active:scale-[0.99]"
                 :style="{
                   background: activePost?.id === post.id ? 'var(--bg-card-2)' : 'transparent',
                   borderColor: activePost?.id === post.id ? 'var(--accent)' : 'var(--border)'
                 }"
               >
-                <div class="min-w-0">
-                  <div class="flex items-center gap-2 mb-1">
-                    <span v-if="post.isNew" class="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold">ថ្មី</span>
-                    <span v-if="post.views" class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-bold">{{ post.views }} views</span>
-                    <span class="text-[10px]" :style="{ color: 'var(--ink-faint)' }">{{ post.category || 'TikTok' }}</span>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span v-if="post.isNew" class="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold">ថ្មី</span>
+                    <span v-if="post.views" class="text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-bold">{{ post.views }}</span>
+                    <span class="text-[10px] truncate" :style="{ color: 'var(--ink-faint)' }">{{ post.category || 'TikTok' }}</span>
                   </div>
                   <h4 class="text-xs font-bold truncate" :style="{ color: 'var(--ink)' }">
                     {{ post.title }}
                   </h4>
                 </div>
 
-                <span class="text-xs font-bold shrink-0 opacity-60 group-hover:opacity-100" :style="{ color: 'var(--accent-bright)' }">
-                  មើល & ចម្លង →
-                </span>
+                <div class="flex items-center gap-2 shrink-0">
+                  <button
+                    v-if="activeTab === 'history'"
+                    type="button"
+                    @click="deleteSavedPost(post.id, $event)"
+                    class="p-1 text-xs text-red-400 hover:text-red-300 transition cursor-pointer"
+                    title="លុបចេញ"
+                  >
+                    🗑️
+                  </button>
+                  <span class="text-xs font-bold" :style="{ color: 'var(--accent-bright)' }">
+                    មើល →
+                  </span>
+                </div>
               </div>
 
-              <div v-if="activeTab === 'history' && savedHistory.length === 0" class="text-center py-8 text-xs" :style="{ color: 'var(--ink-faint)' }">
-                មិនទាន់មានផុសដែលបានរក្សាទុកទេ។ វាយសំណួរខាងលើរួចចុច «បង្កើត Slide ថ្មីដោយ AI» ដើម្បីសាកល្បង!
+              <div v-if="filteredPosts.length === 0" class="text-center py-8 text-xs" :style="{ color: 'var(--ink-faint)' }">
+                មិនមានទិន្នន័យត្រូវនឹងការស្វែងរកទេ។
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: 9:16 Interactive Mobile Carousel Preview (5 cols) -->
-        <div id="preview-phone" class="lg:col-span-5 lg:sticky lg:top-20 space-y-2 scroll-mt-20">
-          <div class="text-center mb-2 flex items-center justify-between">
-            <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink-muted)' }">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
-              <span>ទិដ្ឋភាពជាក់ស្តែងលើ TikTok (9:16 Preview)</span>
-            </span>
+        <!-- Right Column (Desktop 5 cols): 9:16 Smartphone Preview & Caption/Prompt details -->
+        <div
+          id="preview-phone"
+          class="lg:col-span-5 lg:sticky lg:top-20 space-y-4 scroll-mt-20"
+          :class="{ 'hidden lg:block': mobileTab !== 'preview' }"
+        >
+          <!-- Active Post Title & Slide Indicator -->
+          <div class="p-3 rounded-2xl border shadow-sm flex items-center justify-between"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+            <div class="min-w-0 flex-1 pr-2">
+              <div class="text-[10px] uppercase font-bold tracking-wider mb-0.5" :style="{ color: 'var(--accent-bright)' }">
+                {{ activePost?.category || 'TIKTOK SLIDE' }}
+              </div>
+              <h3 class="text-xs font-bold truncate" :style="{ color: 'var(--ink)' }">
+                {{ activePost?.title || 'Slide Preview' }}
+              </h3>
+            </div>
 
-            <!-- Slide Tabs Indicator -->
-            <div class="flex items-center gap-1">
+            <!-- Slide 1, 2, 3 Selector Pills -->
+            <div class="flex items-center gap-1 shrink-0">
               <button
                 v-for="i in 3"
                 :key="i"
                 type="button"
                 @click="currentSlideIndex = i - 1"
-                class="w-6 h-6 rounded-full text-[10px] font-bold flex items-center justify-center transition cursor-pointer"
+                class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition cursor-pointer"
                 :style="{
-                  background: currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--bg-card)',
-                  color: currentSlideIndex === (i - 1) ? '#fff' : 'var(--ink-muted)',
+                  background: currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--bg-card-2)',
+                  color: currentSlideIndex === (i - 1) ? '#ffffff' : 'var(--ink-muted)',
                   border: '1px solid ' + (currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--border)')
                 }"
               >
@@ -386,7 +479,7 @@
             </div>
           </div>
 
-          <!-- 9:16 Smartphone Frame -->
+          <!-- 9:16 Smartphone Mockup Frame -->
           <div class="phone-frame relative mx-auto rounded-[32px] p-3 shadow-2xl border-4"
             :style="{
               background: '#0d0d0f',
@@ -402,19 +495,19 @@
               :style="{
                 background: 'linear-gradient(180deg, #111116 0%, #1a1612 50%, #0d0a07 100%)'
               }">
-              <!-- Top Bar: Channel Branding -->
+              <!-- Top Bar: Channel Branding & Progress -->
               <div class="flex items-center justify-between text-xs pt-1 z-10">
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5">
                   <div class="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-[10px] font-bold text-black">☸</div>
                   <span class="font-bold text-amber-400 text-xs tracking-wide">@escape_the_matrix</span>
                 </div>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/80 font-mono">
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/90 font-mono font-bold">
                   {{ currentSlideIndex + 1 }} / 3
                 </span>
               </div>
 
               <!-- Slide Content Area (Center) -->
-              <div class="my-auto py-4 z-10">
+              <div class="my-auto py-3 z-10">
                 <!-- Slide 1: Hook -->
                 <div v-if="currentSlideIndex === 0" class="text-center space-y-4">
                   <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
@@ -422,6 +515,9 @@
                   </div>
                   <div class="font-display font-black text-lg sm:text-xl leading-relaxed text-amber-200 whitespace-pre-line break-words [overflow-wrap:anywhere] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                     {{ activePost?.slide1 || 'សូមជ្រើសរើស ឬបង្កើត Post ជាមុនសិន' }}
+                  </div>
+                  <div class="pt-2 text-[11px] text-amber-400/80 font-bold animate-pulse">
+                    អូសទៅ Slide បន្ទាប់ →
                   </div>
                 </div>
 
@@ -432,7 +528,7 @@
                       Slide 2 : ការវះកាត់ធម៌ពិត
                     </span>
                   </div>
-                  <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[380px] overflow-y-auto pr-1">
                     {{ activePost?.slide2 }}
                   </div>
                 </div>
@@ -442,47 +538,121 @@
                   <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
                     Slide 3 : មេរៀនជីវិត & CTA
                   </div>
-                  <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[380px] overflow-y-auto pr-1">
                     {{ activePost?.slide3 }}
+                  </div>
+                  <div class="pt-2 text-[10px] text-amber-300/80 font-bold">
+                    ចុច Follow & Save ដើម្បីរៀនធម៌ពិត
                   </div>
                 </div>
               </div>
 
               <!-- Bottom Navigation Bar inside Phone -->
-              <div class="flex items-center justify-between gap-1 sm:gap-1.5 text-xs pt-2 border-t border-white/10 z-10">
+              <div class="flex items-center justify-between gap-1.5 text-xs pt-2 border-t border-white/10 z-10">
                 <button
                   type="button"
                   @click="currentSlideIndex = Math.max(0, currentSlideIndex - 1)"
                   :disabled="currentSlideIndex === 0"
-                  class="px-2 sm:px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[9px] sm:text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
+                  class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
                 >
-                  ← ថយក្រោយ
+                  ← ថយ
                 </button>
 
                 <button
                   type="button"
                   @click="copyCurrentSlide"
-                  class="px-2.5 sm:px-3 py-1 rounded bg-amber-500 hover:bg-amber-400 text-black text-[9px] sm:text-[10px] font-bold cursor-pointer transition shadow shrink-0"
+                  class="flex-1 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold cursor-pointer transition shadow text-center"
                 >
-                  📋 ចម្លង Slide នេះ
+                  {{ copiedKey === 'current_slide' ? '✓ បានចម្លង!' : '📋 ចម្លង Slide នេះ' }}
                 </button>
 
                 <button
                   type="button"
                   @click="currentSlideIndex = Math.min(2, currentSlideIndex + 1)"
                   :disabled="currentSlideIndex === 2"
-                  class="px-2 sm:px-2.5 py-1 rounded bg-white/10 hover:bg-white/20 text-[9px] sm:text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
+                  class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
                 >
                   បន្ទាប់ →
                 </button>
               </div>
             </div>
           </div>
+
+          <!-- Caption & Hashtags Readable Card -->
+          <div
+            v-if="activePost?.caption"
+            class="p-4 rounded-2xl border shadow-sm space-y-2"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
+                <span>🏷️ Caption & Hashtags</span>
+              </span>
+              <button
+                type="button"
+                @click="copyPill(activePost.caption, 'ចម្លង Caption & Hashtags', 'caption_card')"
+                class="px-2.5 py-1 rounded-lg text-xs font-bold border transition cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+              >
+                <span>{{ copiedKey === 'caption_card' ? '✓ បានចម្លង!' : '📋 ចម្លង Caption' }}</span>
+              </button>
+            </div>
+            <p class="text-xs leading-relaxed whitespace-pre-line font-body p-3 rounded-xl border max-h-[140px] overflow-y-auto"
+              :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--ink-soft)' }">
+              {{ activePost.caption }}
+            </p>
+          </div>
+
+          <!-- Midjourney Image Prompt Card -->
+          <div
+            v-if="activePost?.imagePrompt"
+            class="p-4 rounded-2xl border shadow-sm space-y-2"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
+                <span>🎨 Midjourney Image Prompt</span>
+              </span>
+              <button
+                type="button"
+                @click="copyPill(activePost.imagePrompt, 'ចម្លង Image Prompt', 'prompt_card')"
+                class="px-2.5 py-1 rounded-lg text-xs font-bold border transition cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+              >
+                <span>{{ copiedKey === 'prompt_card' ? '✓ បានចម្លង!' : '🎨 ចម្លង Prompt' }}</span>
+              </button>
+            </div>
+            <p class="text-xs leading-relaxed font-mono p-3 rounded-xl border select-all max-h-[120px] overflow-y-auto"
+              :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--ink-soft)' }">
+              {{ activePost.imagePrompt }}
+            </p>
+          </div>
+
+          <!-- Mobile Bottom Switchers -->
+          <div class="lg:hidden flex items-center justify-between gap-2 pt-2 pb-6">
+            <button
+              type="button"
+              @click="mobileTab = 'create'"
+              class="flex-1 py-2.5 px-3 rounded-xl border text-xs font-bold text-center transition cursor-pointer"
+              :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink-muted)' }"
+            >
+              ✍️ បង្កើតសំណួរថ្មី
+            </button>
+            <button
+              type="button"
+              @click="mobileTab = 'library'"
+              class="flex-1 py-2.5 px-3 rounded-xl border text-xs font-bold text-center transition cursor-pointer"
+              :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+            >
+              📚 ប្តូរផុសផ្សេង →
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
 
-        <!-- Toast Notification -->
+    <!-- Toast Notification -->
     <Teleport to="body">
       <transition name="toast">
         <div
@@ -497,9 +667,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { PUBLISHED_AND_CURATED_POSTS } from '../data/tiktokPosts.js'
-import { PRESET_QUESTIONS, useGeminiTikTok } from '../composables/useGeminiTikTok.js'
+import { useGeminiTikTok } from '../composables/useGeminiTikTok.js'
 
 const {
   isGenerating,
@@ -514,16 +684,33 @@ const {
   logout
 } = useGeminiTikTok()
 
+// PIN Screen State
 const pinInput = ref('')
 const pinError = ref(false)
 const isShaking = ref(false)
 
+// Studio State
+const mobileTab = ref('create') // 'create' | 'preview' | 'library'
 const inputQuestion = ref('')
 const activeTab = ref('curated')
+const searchQuery = ref('')
+const copiedKey = ref('')
+
 const allPosts = ref(PUBLISHED_AND_CURATED_POSTS)
-const activePost = ref(PUBLISHED_AND_CURATED_POSTS[0])
+const activePost = ref(PUBLISHED_AND_CURATED_POSTS[0] || null)
 const currentSlideIndex = ref(0)
 const savedHistory = ref([])
+
+const filteredPosts = computed(() => {
+  const list = activeTab.value === 'curated' ? allPosts.value : savedHistory.value
+  if (!searchQuery.value.trim()) return list
+  const q = searchQuery.value.toLowerCase()
+  return list.filter(p =>
+    (p.title || '').toLowerCase().includes(q) ||
+    (p.category || '').toLowerCase().includes(q) ||
+    (p.slide1 || '').toLowerCase().includes(q)
+  )
+})
 
 onMounted(() => {
   savedHistory.value = getSavedPosts()
@@ -590,8 +777,31 @@ function handleLogout() {
   showToast('🔒 បានចាកចេញ')
 }
 
-function selectPreset(preset) {
-  inputQuestion.value = preset.question
+function copyPill(text, label, key) {
+  if (!text) return
+  copyToClipboard(text, label)
+  copiedKey.value = key
+  setTimeout(() => {
+    if (copiedKey.value === key) copiedKey.value = ''
+  }, 1400)
+}
+
+function selectPost(post) {
+  activePost.value = post
+  currentSlideIndex.value = 0
+  mobileTab.value = 'preview'
+  showToast('📱 បានជ្រើសរើស ៖ ' + post.title)
+}
+
+function deleteSavedPost(id, event) {
+  if (event) event.stopPropagation()
+  const saved = getSavedPosts().filter(p => p.id !== id)
+  localStorage.setItem('buddha_tiktok_saved_posts', JSON.stringify(saved))
+  savedHistory.value = saved
+  if (activePost.value?.id === id) {
+    activePost.value = allPosts.value[0] || null
+  }
+  showToast('🗑️ បានលុបផុសចេញពីប្រវត្តិ')
 }
 
 async function handleGenerate() {
@@ -600,7 +810,7 @@ async function handleGenerate() {
   if (result) {
     const formatted = {
       id: 'ai-' + Date.now(),
-      title: result.title || inputQuestion.value.substring(0, 40),
+      title: result.title || inputQuestion.value.substring(0, 45),
       category: 'AI Generated',
       isNew: true,
       ...result
@@ -609,6 +819,7 @@ async function handleGenerate() {
     currentSlideIndex.value = 0
     savedHistory.value = getSavedPosts()
     activeTab.value = 'history'
+    mobileTab.value = 'preview'
     showToast('✨ បានបង្កើត Slide ដោយជោគជ័យ!')
   }
 }
@@ -616,13 +827,12 @@ async function handleGenerate() {
 function copyCurrentSlide() {
   if (!activePost.value) return
   const texts = [activePost.value.slide1, activePost.value.slide2, activePost.value.slide3]
-  copyToClipboard(texts[currentSlideIndex.value] || '', `ចម្លង Slide ${currentSlideIndex.value + 1}`)
+  copyPill(texts[currentSlideIndex.value] || '', `ចម្លង Slide ${currentSlideIndex.value + 1}`, 'current_slide')
 }
 
-function copyAllSlides(post) {
-  if (!post) return
-  const fullText = `=== SLIDE 1 ===\n${post.slide1}\n\n=== SLIDE 2 ===\n${post.slide2}\n\n=== SLIDE 3 ===\n${post.slide3}\n\n=== CAPTION ===\n${post.caption || ''}`
-  copyToClipboard(fullText, 'ចម្លងគ្រប់ Slide ទាំងអស់')
+function getAllSlidesText(post) {
+  if (!post) return ''
+  return `=== SLIDE 1 ===\n${post.slide1}\n\n=== SLIDE 2 ===\n${post.slide2}\n\n=== SLIDE 3 ===\n${post.slide3}\n\n=== CAPTION ===\n${post.caption || ''}`
 }
 </script>
 
@@ -631,7 +841,8 @@ function copyAllSlides(post) {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 0.8rem;
+  padding: 0.65rem 0.8rem;
+  min-height: 44px;
   border-radius: 0.75rem;
   font-size: 0.75rem;
   font-weight: 700;
@@ -640,12 +851,19 @@ function copyAllSlides(post) {
   color: var(--ink);
   transition: all 0.15s ease;
   cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .copy-pill:hover {
   border-color: var(--accent);
   color: var(--accent-bright);
-  transform: translateY(-1px);
+}
+
+.copy-pill:active {
+  transform: scale(0.96);
+  background: var(--accent-soft);
 }
 
 .toast-enter-active,
@@ -672,8 +890,10 @@ function copyAllSlides(post) {
   transition: all 0.15s ease;
   user-select: none;
   cursor: pointer;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
+
 @media (min-width: 640px) {
   .keypad-btn {
     height: 56px;
@@ -702,5 +922,4 @@ function copyAllSlides(post) {
 .animate-shake {
   animation: shake 0.4s ease-in-out;
 }
-
 </style>

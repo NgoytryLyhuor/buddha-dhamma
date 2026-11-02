@@ -45,30 +45,64 @@
     </div>
 
     <!-- Chart -->
-    <div class="card-paper p-4 sm:p-6 md:p-8 mt-8">
-      <p class="chapter-label">{{ t('ចិត្ត ៨៩', '89 CITTA') }}</p>
-      <h3 class="font-display text-lg sm:text-xl mt-2" :style="{ color: 'var(--ink)' }">{{ t('ការចែកចិត្តជាបួនពួក', 'Consciousness in Four Classes') }}</h3>
-      <div class="grid md:grid-cols-2 gap-6 mt-5 items-center">
-        <div class="chart-box"><canvas ref="chartRef"></canvas></div>
-        <div class="space-y-3 min-w-0">
+    <div class="card-paper p-4 sm:p-6 md:p-8 mt-6 sm:mt-8">
+      <div class="text-center sm:text-left mb-4 sm:mb-6">
+        <p class="chapter-label">{{ t('ចិត្ត ៨៩', '89 CITTA') }}</p>
+        <h3 class="font-display text-lg sm:text-xl md:text-2xl mt-1.5" :style="{ color: 'var(--ink)' }">
+          {{ t('ការចែកចិត្តជាបួនពួក', 'Consciousness in Four Classes') }}
+        </h3>
+        <p class="text-xs sm:text-sm mt-1" :style="{ color: 'var(--ink-muted)' }">
+          {{ t('ចិត្តទាំងអស់មាន ៨៩ ដួង បែងចែកតាមជាន់ថ្នាក់ ឬភូមិទាំង ៤ នៃវដ្តសង្សារ', 'All 89 states of consciousness divided across the four planes of existence') }}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-center">
+        <!-- Donut Chart Container (Clean, compact, centered with 89 total badge in middle) -->
+        <div class="md:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative w-[210px] h-[210px] sm:w-[240px] sm:h-[240px] mx-auto my-1 flex items-center justify-center">
+            <canvas ref="chartRef"></canvas>
+            <!-- Center Doughnut Label -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
+              <span class="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ចិត្តសរុប', 'TOTAL') }}
+              </span>
+              <span class="font-display text-2xl sm:text-3xl font-black text-amber-500 leading-none my-0.5">
+                89
+              </span>
+              <span class="text-[9px] sm:text-[10px] font-bold" :style="{ color: 'var(--ink-faint)' }">
+                {{ t('ដួង', 'CITTA') }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Classes List (Structured cards with color dots & anchored number badges) -->
+        <div class="md:col-span-7 space-y-2.5 sm:space-y-3">
           <div
-            v-for="c in cittaGroups"
+            v-for="(c, idx) in cittaGroups"
             :key="c.en"
             class="p-3 sm:p-3.5 rounded-xl border flex items-center justify-between gap-3 transition-all"
             :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
           >
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-2">
-                <span class="text-amber-500 text-xs shrink-0">☸</span>
+                <span class="w-2.5 h-2.5 rounded-full shrink-0" :style="{ background: cittaColors[idx] }"></span>
                 <strong class="text-xs sm:text-sm font-bold leading-snug break-words" :style="{ color: 'var(--ink)' }">
                   {{ t(c.km, c.en) }}
                 </strong>
               </div>
-              <p class="text-[11px] sm:text-xs mt-1 leading-relaxed pl-5 break-words" :style="{ color: 'var(--ink-muted)' }">
+              <p class="text-[11px] sm:text-xs mt-1 leading-relaxed pl-4.5 break-words" :style="{ color: 'var(--ink-muted)' }">
                 {{ t(c.kmBody, c.enBody) }}
               </p>
             </div>
-            <span class="paali shrink-0 text-xs font-mono font-bold px-2.5 py-1 rounded-md" :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', borderColor: 'var(--border)' }">
+            <span
+              class="shrink-0 text-xs font-mono font-bold px-2.5 py-1 rounded-lg border text-center min-w-[38px] shadow-xs"
+              :style="{
+                background: 'var(--bg-card)',
+                borderColor: cittaColors[idx],
+                color: cittaColors[idx]
+              }"
+            >
               {{ c.n }}
             </span>
           </div>
@@ -160,6 +194,8 @@ const stats = [
   { n: '7', lbl: 'គម្ពីរអភិធម្ម', lblEn: 'Abhidhamma Books' },
 ]
 
+const cittaColors = ['#d98813', '#c99a2e', '#71539b', '#5f7d35']
+
 const cittaGroups = [
   { n: '54', km: 'កាមាវចរចិត្ត (ចិត្តក្នុងលោកអារម្មណ៍ ៥)', en: 'Sense-sphere', kmBody: 'ចិត្តលោកិយកើតក្នុងលោកនៃអារម្មណ៍ទាំងប្រាំ', enBody: 'worldly consciousness bound to the five senses' },
   { n: '15', km: 'រូបាវចរចិត្ត (ចិត្តក្នុងរូបឈាន)', en: 'Fine-material', kmBody: 'ចិត្តក្នុងឈានរូប', enBody: 'consciousness of the five fine-material jhānas' },
@@ -185,22 +221,38 @@ function renderChart() {
   if (chartInstance) chartInstance.destroy()
   if (!chartRef.value) return
   const cc = getChartColors()
-  const km = t('កាមាវចរ', 'Sense') + ' 54'
-  const en = t('រូបាវចរ', 'Fine') + ' 15'
-  const form = t('អរូបាវចរ', 'Formless') + ' 12'
-  const supra = t('លោកុត្តរ', 'Supra') + ' 8'
+  const km = t('កាមាវចរ', 'Sense')
+  const en = t('រូបាវចរ', 'Fine')
+  const form = t('អរូបាវចរ', 'Formless')
+  const supra = t('លោកុត្តរ', 'Supra')
   chartInstance = new Chart(chartRef.value, {
     type: 'doughnut',
     data: {
       labels: [km, en, form, supra],
-      datasets: [{ data: [54, 15, 12, 8], backgroundColor: ['#d98813', '#c99a2e', '#71539b', '#5f7d35'], borderColor: cc.border, borderWidth: 2 }]
+      datasets: [
+        {
+          data: [54, 15, 12, 8],
+          backgroundColor: cittaColors,
+          borderColor: cc.border,
+          borderWidth: 2,
+          hoverOffset: 6
+        }
+      ]
     },
     options: {
-      responsive: true, maintainAspectRatio: false, cutout: '62%',
+      responsive: true,
+      maintainAspectRatio: true,
+      cutout: '68%',
       plugins: {
         legend: {
-          position: window.innerWidth < 640 ? 'bottom' : 'right',
-          labels: { color: cc.legend, padding: 10, font: { size: 11 } }
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return ` ${context.label}: ${context.raw} ដួង`
+            }
+          }
         }
       }
     }

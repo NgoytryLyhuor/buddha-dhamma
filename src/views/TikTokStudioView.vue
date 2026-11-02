@@ -109,7 +109,7 @@
         <div>
           <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-[11px] font-bold mb-1"
             :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)', border: '1px solid var(--accent)' }">
-            <span>✨ Gemini 2.5 Flash</span>
+            <span>✨ Gemini 3.8 Flash</span>
             <span>•</span>
             <span>@escape_the_matrix</span>
           </div>
@@ -225,7 +225,7 @@
             </div>
 
             <div class="text-xs leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំ Slide ទាំង ៣ និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok វះកាត់ធម៌ពិត!
+              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំកម្រង Slide លម្អិតស៊ីជម្រៅ (៥ Slide) និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok វះកាត់ធម៌ពិត!
             </div>
 
             <!-- Generate Action Button (Big & Thumb-friendly for Mobile) -->
@@ -293,36 +293,22 @@
               </span>
             </div>
 
-            <!-- Responsive Copy Buttons Grid -->
+            <!-- Responsive Copy Buttons Grid (Dynamically adapts to 3 or 5+ slides) -->
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
               <button
+                v-for="(slide, idx) in currentSlides"
+                :key="idx"
                 type="button"
-                @click="copyPill(activePost.slide1, 'ចម្លង Slide 1 (Hook)', 'slide1')"
+                @click="copyPill(slide, `ចម្លង Slide ${idx + 1}`, `slide_${idx}`)"
                 class="copy-pill"
               >
-                <span>{{ copiedKey === 'slide1' ? '✓ បានចម្លង!' : '📋 Slide 1 (Hook)' }}</span>
-              </button>
-
-              <button
-                type="button"
-                @click="copyPill(activePost.slide2, 'ចម្លង Slide 2 (Dissection)', 'slide2')"
-                class="copy-pill"
-              >
-                <span>{{ copiedKey === 'slide2' ? '✓ បានចម្លង!' : '📋 Slide 2 (វះកាត់)' }}</span>
-              </button>
-
-              <button
-                type="button"
-                @click="copyPill(activePost.slide3, 'ចម្លង Slide 3 (Takeaway)', 'slide3')"
-                class="copy-pill"
-              >
-                <span>{{ copiedKey === 'slide3' ? '✓ បានចម្លង!' : '📋 Slide 3 (សន្និដ្ឋាន)' }}</span>
+                <span>{{ copiedKey === `slide_${idx}` ? '✓ បានចម្លង!' : `📋 Slide ${idx + 1}` }}</span>
               </button>
 
               <button
                 type="button"
                 @click="copyPill(getAllSlidesText(activePost), 'ចម្លងគ្រប់ Slide', 'all')"
-                class="copy-pill font-bold"
+                class="copy-pill font-bold col-span-2 sm:col-span-1"
                 :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
               >
                 <span>{{ copiedKey === 'all' ? '✓ ចម្លងគ្រប់ Slide!' : '📑 ចម្លងគ្រប់ Slide' }}</span>
@@ -460,21 +446,21 @@
               </h3>
             </div>
 
-            <!-- Slide 1, 2, 3 Selector Pills -->
-            <div class="flex items-center gap-1 shrink-0">
+            <!-- Slide Selector Pills (Dynamic for 1..N slides) -->
+            <div class="flex items-center gap-1 shrink-0 flex-wrap justify-end">
               <button
-                v-for="i in 3"
-                :key="i"
+                v-for="(slide, idx) in currentSlides"
+                :key="idx"
                 type="button"
-                @click="currentSlideIndex = i - 1"
+                @click="currentSlideIndex = idx"
                 class="w-7 h-7 rounded-full text-xs font-bold flex items-center justify-center transition cursor-pointer"
                 :style="{
-                  background: currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--bg-card-2)',
-                  color: currentSlideIndex === (i - 1) ? '#ffffff' : 'var(--ink-muted)',
-                  border: '1px solid ' + (currentSlideIndex === (i - 1) ? 'var(--accent)' : 'var(--border)')
+                  background: currentSlideIndex === idx ? 'var(--accent)' : 'var(--bg-card-2)',
+                  color: currentSlideIndex === idx ? '#ffffff' : 'var(--ink-muted)',
+                  border: '1px solid ' + (currentSlideIndex === idx ? 'var(--accent)' : 'var(--border)')
                 }"
               >
-                {{ i }}
+                {{ idx + 1 }}
               </button>
             </div>
           </div>
@@ -502,48 +488,33 @@
                   <span class="font-bold text-amber-400 text-xs tracking-wide">@escape_the_matrix</span>
                 </div>
                 <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/90 font-mono font-bold">
-                  {{ currentSlideIndex + 1 }} / 3
+                  {{ currentSlideIndex + 1 }} / {{ currentSlides.length || 1 }}
                 </span>
               </div>
 
               <!-- Slide Content Area (Center) -->
-              <div class="my-auto py-3 z-10">
-                <!-- Slide 1: Hook -->
-                <div v-if="currentSlideIndex === 0" class="text-center space-y-4">
-                  <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
-                    Slide 1 : The Hook
-                  </div>
-                  <div class="font-display font-black text-lg sm:text-xl leading-relaxed text-amber-200 whitespace-pre-line break-words [overflow-wrap:anywhere] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                    {{ activePost?.slide1 || 'សូមជ្រើសរើស ឬបង្កើត Post ជាមុនសិន' }}
-                  </div>
-                  <div class="pt-2 text-[11px] text-amber-400/80 font-bold animate-pulse">
-                    អូសទៅ Slide បន្ទាប់ →
-                  </div>
+              <div class="my-auto py-2 z-10 w-full flex-1 flex flex-col justify-center">
+                <!-- Slide Title Badge -->
+                <div class="text-center mb-2">
+                  <span class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider">
+                    {{ getSlideBadge(currentSlideIndex, currentSlides.length) }}
+                  </span>
                 </div>
 
-                <!-- Slide 2: Dissection -->
-                <div v-else-if="currentSlideIndex === 1" class="space-y-3">
-                  <div class="text-center">
-                    <span class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
-                      Slide 2 : ការវះកាត់ធម៌ពិត
-                    </span>
-                  </div>
-                  <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[380px] overflow-y-auto pr-1">
-                    {{ activePost?.slide2 }}
-                  </div>
+                <!-- Slide Text Content -->
+                <div
+                  class="leading-relaxed text-amber-50 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[380px] sm:max-h-[410px] overflow-y-auto pr-1"
+                  :class="currentSlideIndex === 0 ? 'font-display font-black text-lg sm:text-xl text-center text-amber-200' : 'text-xs sm:text-[13px] text-left'"
+                >
+                  {{ currentSlides[currentSlideIndex] || 'សូមជ្រើសរើស ឬបង្កើត Post ជាមុនសិន' }}
                 </div>
 
-                <!-- Slide 3: Takeaway & CTA -->
-                <div v-else-if="currentSlideIndex === 2" class="space-y-3 text-center">
-                  <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
-                    Slide 3 : មេរៀនជីវិត & CTA
-                  </div>
-                  <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[380px] overflow-y-auto pr-1">
-                    {{ activePost?.slide3 }}
-                  </div>
-                  <div class="pt-2 text-[10px] text-amber-300/80 font-bold">
-                    ចុច Follow & Save ដើម្បីរៀនធម៌ពិត
-                  </div>
+                <!-- Next Slide Hint or CTA -->
+                <div v-if="currentSlideIndex < currentSlides.length - 1" class="pt-2 text-[10px] text-amber-400/80 font-bold text-center animate-pulse">
+                  អូសទៅ Slide បន្ទាប់ ({{ currentSlideIndex + 2 }}/{{ currentSlides.length }}) →
+                </div>
+                <div v-else class="pt-2 text-[10px] text-amber-300/80 font-bold text-center">
+                  ចុច Follow & Save ដើម្បីរៀនធម៌ពិត
                 </div>
               </div>
 
@@ -563,13 +534,13 @@
                   @click="copyCurrentSlide"
                   class="flex-1 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-bold cursor-pointer transition shadow text-center"
                 >
-                  {{ copiedKey === 'current_slide' ? '✓ បានចម្លង!' : '📋 ចម្លង Slide នេះ' }}
+                  {{ copiedKey === 'current_slide' ? '✓ បានចម្លង!' : `📋 ចម្លង Slide ${currentSlideIndex + 1}` }}
                 </button>
 
                 <button
                   type="button"
-                  @click="currentSlideIndex = Math.min(2, currentSlideIndex + 1)"
-                  :disabled="currentSlideIndex === 2"
+                  @click="currentSlideIndex = Math.min(currentSlides.length - 1, currentSlideIndex + 1)"
+                  :disabled="currentSlideIndex >= currentSlides.length - 1"
                   class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[10px] font-bold disabled:opacity-30 cursor-pointer shrink-0"
                 >
                   បន្ទាប់ →
@@ -701,6 +672,26 @@ const activePost = ref(PUBLISHED_AND_CURATED_POSTS[0] || null)
 const currentSlideIndex = ref(0)
 const savedHistory = ref([])
 
+const currentSlides = computed(() => {
+  if (!activePost.value) return []
+  if (Array.isArray(activePost.value.slides) && activePost.value.slides.length > 0) {
+    return activePost.value.slides
+  }
+  return [
+    activePost.value.slide1,
+    activePost.value.slide2,
+    activePost.value.slide3,
+    activePost.value.slide4,
+    activePost.value.slide5
+  ].filter(Boolean)
+})
+
+function getSlideBadge(idx, total) {
+  if (idx === 0) return 'Slide 1 : The Hook (សំណួរចាក់ដោត)'
+  if (idx === total - 1) return `Slide ${idx + 1} : មេរៀនជីវិត & CTA`
+  return `Slide ${idx + 1} : ការវះកាត់ធម៌ពិត (ភាគ ${idx})`
+}
+
 const filteredPosts = computed(() => {
   const list = activeTab.value === 'curated' ? allPosts.value : savedHistory.value
   if (!searchQuery.value.trim()) return list
@@ -826,13 +817,17 @@ async function handleGenerate() {
 
 function copyCurrentSlide() {
   if (!activePost.value) return
-  const texts = [activePost.value.slide1, activePost.value.slide2, activePost.value.slide3]
-  copyPill(texts[currentSlideIndex.value] || '', `ចម្លង Slide ${currentSlideIndex.value + 1}`, 'current_slide')
+  const slideText = currentSlides.value[currentSlideIndex.value] || ''
+  copyPill(slideText, `ចម្លង Slide ${currentSlideIndex.value + 1}`, 'current_slide')
 }
 
 function getAllSlidesText(post) {
   if (!post) return ''
-  return `=== SLIDE 1 ===\n${post.slide1}\n\n=== SLIDE 2 ===\n${post.slide2}\n\n=== SLIDE 3 ===\n${post.slide3}\n\n=== CAPTION ===\n${post.caption || ''}`
+  const slides = Array.isArray(post.slides) && post.slides.length > 0
+    ? post.slides
+    : [post.slide1, post.slide2, post.slide3, post.slide4, post.slide5].filter(Boolean)
+  const slideParts = slides.map((s, idx) => `=== SLIDE ${idx + 1} ===\n${s}`).join('\n\n')
+  return `${slideParts}\n\n=== CAPTION ===\n${post.caption || ''}`
 }
 </script>
 

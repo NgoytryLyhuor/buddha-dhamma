@@ -478,9 +478,11 @@ function closeModal() {
 
     <!-- POP-UP MODAL: ÑĀṆA INSPECTOR -->
     <Teleport to="body">
-      <div
-        v-if="selectedNana"
-        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      <transition name="modal-pop">
+        <div
+          v-if="selectedNana"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
+        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
         @click.self="closeModal"
       >
         <div
@@ -586,13 +588,16 @@ function closeModal() {
           </div>
         </div>
       </div>
+      </transition>
     </Teleport>
 
     <!-- POP-UP MODAL: 10 VIPASSANŪPAKKILESA -->
     <Teleport to="body">
-      <div
-        v-if="showUpakkilesaModal"
-        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      <transition name="modal-pop">
+        <div
+          v-if="showUpakkilesaModal"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
+        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
         @click.self="showUpakkilesaModal = false"
       >
         <div
@@ -658,6 +663,7 @@ function closeModal() {
           </div>
         </div>
       </div>
+      </transition>
     </Teleport>
   </div>
 </template>

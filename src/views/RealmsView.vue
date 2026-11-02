@@ -130,7 +130,7 @@
             </div>
 
             <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
               <button
                 type="button"
                 class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
@@ -254,7 +254,7 @@
             </div>
 
             <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
               <button
                 type="button"
                 class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
@@ -306,7 +306,7 @@
             </div>
 
             <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate"><strong>{{ t('កម្រិតឈាន៖ ', 'Jhāna: ') }}</strong>{{ t(r.jhanaKm || r.spanKm, r.jhanaEn || r.spanEn) }}</span>
+              <span class="truncate min-w-0 flex-1"><strong>{{ t('កម្រិតឈាន៖ ', 'Jhāna: ') }}</strong>{{ t(r.jhanaKm || r.spanKm, r.jhanaEn || r.spanEn) }}</span>
               <button
                 type="button"
                 class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
@@ -358,7 +358,7 @@
             </div>
 
             <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
               <button
                 type="button"
                 class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"

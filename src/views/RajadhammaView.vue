@@ -237,9 +237,11 @@
 
     <!-- POP-UP MODAL -->
     <Teleport to="body">
-      <div
-        v-if="selectedItem"
-        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      <transition name="modal-pop">
+        <div
+          v-if="selectedItem"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
+        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
         @click.self="closeModal"
       >
         <div
@@ -308,6 +310,7 @@
           </div>
         </div>
       </div>
+      </transition>
     </Teleport>
   </div>
 </template>

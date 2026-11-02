@@ -1314,7 +1314,7 @@ function getJatiBadgeColor(jati) {
           </div>
 
           <div class="pt-3 flex items-center justify-between text-xs border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-            <span class="truncate max-w-[180px] text-[11px]">{{ cet.associatedCitta }}</span>
+            <span class="truncate min-w-0 flex-1 text-[11px]">{{ cet.associatedCitta }}</span>
             <span class="font-medium" :style="{ color: 'var(--accent)' }">
               {{ t('លម្អិត →', 'Details →') }}
             </span>

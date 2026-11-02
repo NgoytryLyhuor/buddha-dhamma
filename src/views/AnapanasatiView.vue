@@ -144,10 +144,10 @@
               </p>
             </div>
 
-            <div class="mt-3 pt-2 text-[11px] flex items-center justify-between border-t border-dashed"
+            <div class="mt-3 pt-2 text-[11px] flex items-center justify-between gap-2 border-t border-dashed"
               :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span>{{ t(step.focusKm, step.focusEn) }}</span>
-              <span class="font-bold text-amber-700">{{ t('ពិនិត្យលម្អិត', 'Details') }} →</span>
+              <span class="min-w-0 flex-1 truncate">{{ t(step.focusKm, step.focusEn) }}</span>
+              <span class="font-bold text-amber-700 shrink-0">{{ t('ពិនិត្យលម្អិត', 'Details') }} →</span>
             </div>
           </div>
         </div>

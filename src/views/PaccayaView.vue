@@ -135,7 +135,7 @@
 
           <div class="mt-3 pt-2 text-[11px] flex items-center justify-between border-t border-dashed"
             :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-            <span class="truncate">{{ t(link.vaṭṭaKm, link.vaṭṭaEn) }}</span>
+            <span class="truncate min-w-0 flex-1">{{ t(link.vaṭṭaKm, link.vaṭṭaEn) }}</span>
             <span class="font-bold text-amber-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
               {{ t('ពិស្ដារ', 'Details') }} →
             </span>
@@ -576,7 +576,7 @@
             <div>
               <div class="flex items-center justify-between gap-1 mb-1">
                 <span class="sutra-num font-bold text-[11px]" :style="{ color: 'var(--accent-bright)' }">#{{ khNum(p.no) }}</span>
-                <span class="paali text-[11px] truncate">{{ p.pali }}</span>
+                <span class="paali text-[11px] truncate min-w-0">{{ p.pali }}</span>
               </div>
               <h5 class="font-display font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
                 {{ t(p.km, p.en) }}

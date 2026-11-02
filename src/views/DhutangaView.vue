@@ -93,8 +93,8 @@
           </p>
         </div>
 
-        <div class="pt-2 flex items-center justify-between text-xs" :style="{ borderTop: '1px solid var(--border)' }">
-          <span class="text-[11px] truncate max-w-[170px]" :style="{ color: 'var(--ink-muted)' }">
+        <div class="pt-2 flex items-center justify-between gap-2 text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+          <span class="text-[11px] truncate min-w-0 flex-1" :style="{ color: 'var(--ink-muted)' }">
             {{ t('បំបាត់៖ ', 'Scours: ') }}{{ t(dhut.kilesaKm, dhut.kilesaEn) }}
           </span>
           <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
@@ -106,9 +106,11 @@
 
     <!-- POP-UP MODAL -->
     <Teleport to="body">
-      <div
-        v-if="selectedDhutanga"
-        class="menu-backdrop fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4"
+      <transition name="modal-pop">
+        <div
+          v-if="selectedDhutanga"
+        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
+        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
         @click.self="closeModal"
       >
         <div
@@ -233,6 +235,7 @@
           </div>
         </div>
       </div>
+      </transition>
     </Teleport>
   </div>
 </template>

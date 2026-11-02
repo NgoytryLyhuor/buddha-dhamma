@@ -362,7 +362,7 @@
                   <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
                     Slide 1 : The Hook
                   </div>
-                  <div class="font-display font-black text-lg sm:text-xl leading-relaxed text-amber-200 whitespace-pre-line drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  <div class="font-display font-black text-lg sm:text-xl leading-relaxed text-amber-200 whitespace-pre-line break-words [overflow-wrap:anywhere] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                     {{ activePost?.slide1 || 'សូមជ្រើសរើស ឬបង្កើត Post ជាមុនសិន' }}
                   </div>
                 </div>
@@ -374,7 +374,7 @@
                       Slide 2 : ការវះកាត់ធម៌ពិត
                     </span>
                   </div>
-                  <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  <div class="text-xs leading-relaxed text-amber-50 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
                     {{ activePost?.slide2 }}
                   </div>
                 </div>
@@ -384,7 +384,7 @@
                   <div class="inline-block px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider mb-1">
                     Slide 3 : មេរៀនជីវិត & CTA
                   </div>
-                  <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
+                  <div class="text-xs leading-relaxed text-amber-100 whitespace-pre-line break-words [overflow-wrap:anywhere] font-body drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] max-h-[420px] overflow-y-auto pr-1">
                     {{ activePost?.slide3 }}
                   </div>
                 </div>
@@ -424,12 +424,17 @@
       </div>
     </div>
 
-    <!-- Toast Notification -->
-    <transition name="toast">
-      <div v-if="toastMessage" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl shadow-lg border text-xs font-bold flex items-center gap-2 bg-emerald-900 border-emerald-500 text-emerald-100">
-        {{ toastMessage }}
-      </div>
-    </transition>
+        <!-- Toast Notification -->
+    <Teleport to="body">
+      <transition name="toast">
+        <div
+          v-if="toastMessage"
+          class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[150] px-4 py-2.5 rounded-xl shadow-2xl border text-xs font-bold flex items-center gap-2 bg-emerald-900/95 border-emerald-500 text-emerald-100 backdrop-blur max-w-[calc(100vw-2rem)]"
+        >
+          {{ toastMessage }}
+        </div>
+      </transition>
+    </Teleport>
   </div>
 </template>
 

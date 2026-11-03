@@ -24,7 +24,7 @@
                 color: menuOpen ? 'var(--accent)' : 'var(--ink)',
                 border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
               }"
-              :title="t('ម៉ឺនុយទាំងអស់ (៨៤)', 'All Pages (84)')"
+              :title="t('ម៉ឺនុយទាំងអស់ (១០៤)', 'All Pages (104)')"
               :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -304,7 +304,7 @@
                 ref="menuSearchInputRef"
                 v-model="menuSearchQuery"
                 type="text"
-                :placeholder="t('ស្វែងរកក្នុងចំណោម ៨៤ ម៉ឺនុយ (ឧ. សមាធិ, ទ្រព្យធម៌, កម្មដ្ឋាន)...', 'Search 84 pages (e.g. meditation, wealth, kammatthana)...')"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ១០៤ ម៉ឺនុយ (ឧ. សមាធិ, ទ្រព្យធម៌, កម្មដ្ឋាន)...', 'Search 104 pages (e.g. meditation, wealth, kammatthana)...')"
                 class="w-full bg-transparent border-none text-xs sm:text-sm focus:outline-none"
                 :style="{ color: 'var(--ink)' }"
               />
@@ -382,7 +382,7 @@
             <!-- Footer indicator -->
             <div v-if="filteredMenuNav.length > 0" class="col-span-full py-6 text-center text-xs opacity-80">
               <p class="font-medium" :style="{ color: 'var(--ink)' }">
-                {{ t('☸️ ព្រះធម៌ ៨៤ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 84 Pages — Ordered systematically for study & practice') }}
+                {{ t('☸️ ព្រះធម៌ ១០៤ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 104 Pages — Ordered systematically for study & practice') }}
               </p>
               <p v-if="selectedMenuCategory !== 'all' || menuSearchQuery" class="mt-2 text-xs">
                 <button
@@ -391,7 +391,7 @@
                   class="font-bold underline cursor-pointer"
                   :style="{ color: 'var(--accent-bright)' }"
                 >
-                  {{ t('បង្ហាញទំព័រទាំង ៨៤ ឡើងវិញ (ទំព័រ ០១ ដល់ ៨៤)', 'Show all 84 pages (Pages 01 to 84)') }}
+                  {{ t('បង្ហាញទំព័រទាំង ១០៤ ឡើងវិញ (ទំព័រ ០១ ដល់ ១០៤)', 'Show all 104 pages (Pages 01 to 104)') }}
                 </button>
               </p>
             </div>
@@ -406,7 +406,7 @@
               :aria-label="t('បិទម៉ឺនុយ', 'Close Menu')"
             >
               <span>✕</span>
-              <span>{{ t('បិទម៉ឺនុយ (៨៤ ទំព័រ)', 'Close Menu (84 Pages)') }}</span>
+              <span>{{ t('បិទម៉ឺនុយ (១០៤ ទំព័រ)', 'Close Menu (104 Pages)') }}</span>
             </button>
           </div>
         </div>
@@ -533,11 +533,11 @@ const menuCategories = [
 ]
 
 const menuCategoryRoutes = {
-  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka', '/wealth', '/apayamukha', '/similes', '/lay-disciples', '/buddha-guna', '/punnakiriya', '/ariyadhana', '/tilakkhana', '/kalyanamitta', '/triple-gem-guna'],
-  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/tilakkhana', '/khandha', '/jhana'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna'],
-  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka', '/barami', '/sangayana', '/mangala', '/ariyadhana', '/kammpatha', '/similes', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/bojjhanga', '/kalyanamitta', '/abhinha'],
-  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family', '/ceremonies', '/wealth', '/lokadhamma', '/apayamukha', '/brahmavihara', '/mangala', '/sangahavatthu', '/agati', '/mindful-work', '/katannu', '/lay-disciples', '/appamada', '/kalyanamitta', '/abhinha'],
+  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka', '/wealth', '/apayamukha', '/similes', '/lay-disciples', '/buddha-guna', '/punnakiriya', '/ariyadhana', '/tilakkhana', '/kalyanamitta', '/triple-gem-guna', '/vessantara', '/kalama-sutta', '/six-speeches', '/dhamma-hearing', '/gahi-sukha', '/sappurisa'],
+  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/tilakkhana', '/khandha', '/jhana', '/arupa-jhana', '/vipassanupakkilesa', '/asava', '/anusaya', '/upadana', '/anattalakkhana'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/visuddhi', '/sammappadhana', '/iddhipada', '/metta-sutta'],
+  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka', '/barami', '/sangayana', '/mangala', '/ariyadhana', '/kammpatha', '/similes', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/bojjhanga', '/kalyanamitta', '/abhinha', '/kalama-sutta', '/six-speeches', '/dhammacakka', '/anattalakkhana', '/sanghadana', '/metta-sutta', '/visuddhi', '/vessantara'],
+  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family', '/ceremonies', '/wealth', '/lokadhamma', '/apayamukha', '/brahmavihara', '/mangala', '/sangahavatthu', '/agati', '/mindful-work', '/katannu', '/lay-disciples', '/appamada', '/kalyanamitta', '/abhinha', '/uposatha-types', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/six-speeches', '/iddhipada'],
 }
 
 function getCategoryCount(catId) {
@@ -667,6 +667,26 @@ const nav = [
   { to: '/jhana', km: 'រូបឈាន ៤ ពិស្តារ & ឧបមា ៤', descKm: 'កម្រិតសមាធិកំពូល ឈានង្គ ៥ ឧបមាសាប៊ូ បឹងទឹក ផ្កាឈូក & សំពត់ស', kmShort: 'រូបឈាន ៤', en: '4 Rupa Jhanas', num: '៨២' },
   { to: '/triple-gem-guna', km: 'ធម្មគុណ ៦ & សង្ឃគុណ ៩', descKm: 'បំពេញកម្រងរតនត្រ័យគុណ ស្វាក្ខាតោ សន្ទិដ្ឋិកោ & សុបដិបន្នោ', kmShort: 'ធម្មគុណ & សង្ឃគុណ', en: 'Dhamma & Sangha Virtues', num: '៨៣' },
   { to: '/abhinha', km: 'អភិណ្ហបច្ចវេក្ខណៈ ៥ យ៉ាង', descKm: 'ធម៌ពិចារណារាល់ថ្ងៃដើម្បីកម្ចាត់ការស្រវឹងវ័យ សុខភាព ជីវិត & កម្មសកតា', kmShort: 'អភិណ្ហបច្ចវេក្ខណៈ', en: '5 Daily Contemplations', num: '៨៤' },
+  { to: '/arupa-jhana', km: 'អរូបឈាន ៤ & និរោធសមាបត្តិ', descKm: 'កម្រិតសមាធិអរូបី ៤ & ការរំលត់វេទនានិងសញ្ញា ៧ ថ្ងៃ', kmShort: 'អរូបឈាន', en: '4 Formless Absorptions & Nirodha', num: '៨៥' },
+  { to: '/vipassanupakkilesa', km: 'វិបស្សនូបកិលេស ១០ យ៉ាង', descKm: 'ឧបសគ្គបញ្ឆោតភ្នែកក្នុងវិបស្សនា ឱភាស ញាណ បីតិ ឧបេក្ខា & និកន្តិ', kmShort: 'វិបស្សនូបកិលេស', en: '10 Corruptions of Insight', num: '៨៦' },
+  { to: '/asava', km: 'អាសវធម៌ ៤ & មាគ៌ាខីណាស្រព', descKm: 'កិលេសជ្រាបស្រពូនចិត្ត កាមាសវៈ ភវាសវៈ & វិធីកម្ចាត់ ៧ យ៉ាង', kmShort: 'អាសវធម៌ ៤', en: '4 Cankers & Khīṇāsava', num: '៨៧' },
+  { to: '/uposatha-types', km: 'ឧបោសថ ៣ ប្រភេទ (អរិយឧបោសថ)', descKm: 'គោបាលក និគ្គន្ថ & អរិយឧបោសថ លាងចិត្តដោយអនុស្សតិ ៥', kmShort: 'ឧបោសថ ៣ ប្រភេទ', en: '3 Types of Uposatha', num: '៨៨' },
+  { to: '/anusaya', km: 'អនុសយធម៌ ៧ (កិលេសដេកសម្ងំ)', descKm: 'កិលេសដេកសម្ងំក្នុងជម្រៅចិត្ត & ការកម្ចាត់ឫសគល់ដោយអរិយមគ្គ', kmShort: 'អនុសយធម៌ ៧', en: '7 Latent Tendencies', num: '៨៩' },
+  { to: '/visuddhi', km: 'វិសុទ្ធិ ៧ ប្រការ (រថ ៧ ផ្លាស់)', descKm: 'ដំណើរនៃរថទាំង ៧ ផ្លាស់ ពីសីលវិសុទ្ធិ ដល់ អនុបាទាបរិនិព្វាន', kmShort: 'វិសុទ្ធិ ៧', en: '7 Stages of Purification', num: '៩០' },
+  { to: '/vessantara', km: 'ព្រះវេស្សន្តរ & មហាទាន ៥ យ៉ាង', descKm: 'កំពូលទានបារមី ទ្រព្យ អវយវៈ ជីវិត បុត្រ & ភរិយាបរិច្ចាគ', kmShort: 'ព្រះវេស្សន្តរ & មហាទាន', en: 'Vessantara & 5 Great Gifts', num: '៩១' },
+  { to: '/kalama-sutta', km: 'កាលាមសូត្រ & ជំនឿ ១០ យ៉ាង', descKm: 'ធម្មនុញ្ញនៃសេរីភាពបញ្ញា & ជំនឿ ១០ យ៉ាងដែលកុំទាន់អាលជឿ', kmShort: 'កាលាមសូត្រ', en: 'Kālāma Sutta & Free Inquiry', num: '៩២' },
+  { to: '/sammappadhana', km: 'សម្មប្បធាន ៤ (ព្យាយាមត្រូវ ៤)', descKm: 'កម្លាំងព្យាយាមត្រូវទាំង ៤ ការពារ លះបង់ បណ្តុះ & ថែរក្សាកុសល', kmShort: 'សម្មប្បធាន ៤', en: '4 Right Strivings', num: '៩៣' },
+  { to: '/iddhipada', km: 'ឥទ្ធិបាទ ៤ (ក្បួនសម្រេចជោគជ័យ)', descKm: 'មាគ៌ាសម្រេចជោគជ័យដ៏អស្ចារ្យ ឆន្ទៈ វីរិយៈ ចិត្តៈ & វិមំសា', kmShort: 'ឥទ្ធិបាទ ៤', en: '4 Bases of Success', num: '៩៤' },
+  { to: '/metta-sutta', km: 'មេត្តាសូត្រ & អានិសង្ស ១១ យ៉ាង', descKm: 'ស្រឡាញ់សត្វលោកដូចម្តាយថ្នាក់ថ្នមកូន & អានិសង្សមេត្តា ១១ យ៉ាង', kmShort: 'មេត្តាសូត្រ & អានិសង្ស', en: 'Mettā Sutta & 11 Blessings', num: '៩៥' },
+  { to: '/six-speeches', km: 'វាចា ៦ ប្រភេទរបស់ព្រះពុទ្ធ', descKm: 'សិល្បៈនៃការជ្រើសរើសពាក្យសំដី & ឧបមាទារកស្លាក់គ្រួស', kmShort: 'វាចា ៦ ប្រភេទ', en: '6 Classes of Speech', num: '៩៦' },
+  { to: '/dhammacakka', km: 'ធម្មចក្កប្បវត្តនសូត្រ (បឋមទេសនា)', descKm: 'បង្វិលកង់ធម៌ កម្ចាត់ផ្លូវជ្រុល ២ មាគ៌ាកណ្តាល & សច្ចៈ ១២ អាការៈ', kmShort: 'ធម្មចក្កប្បវត្តនសូត្រ', en: 'First Discourse (Dhammacakka)', num: '៩៧' },
+  { to: '/anattalakkhana', km: 'អនត្តលក្ខណសូត្រ (អរហន្ត ៦ អង្គ)', descKm: 'ធម្មទេសនារំលាយអត្តា ខន្ធ ៥ អនត្តា & ព្រះអរហន្ត ៦ អង្គដំបូង', kmShort: 'អនត្តលក្ខណសូត្រ', en: 'Anattalakkhaṇa Sutta (Non-Self)', num: '៩៨' },
+  { to: '/sanghadana', km: 'សង្ឃទាន vs បុគ្គលិកទាន', descKm: 'ទក្ខិណវិភង្គសូត្រ សង្ឃទាន ៧ ប្រភេទ & អានិសង្សលើសលប់', kmShort: 'សង្ឃទាន & បុគ្គលិកទាន', en: 'Saṅghadāna & Individual Offerings', num: '៩៩' },
+  { to: '/upadana', km: 'ឧបាទាន ៤ យ៉ាង (ចំណងតោងទាម)', descKm: 'ចំណងតោងទាម ៤ ជាន់ក្នុងសង្សារវដ្ត កាម ទិដ្ឋិ សីលព្វត & អត្តវាទ', kmShort: 'ឧបាទាន ៤', en: '4 Clingings (Upādāna)', num: '១០០' },
+  { to: '/dhamma-hearing', km: 'អានិសង្សនៃការស្តាប់ធម៌ ៥ យ៉ាង', descKm: 'ធម្មស្សវនសូត្រ សិល្បៈស្តាប់ឱ្យភ្លឺបញ្ញា & ឧបមាឆ្នាំង ៣ ប្រភេទ', kmShort: 'អានិសង្សស្តាប់ធម៌ ៥', en: '5 Blessings of Hearing Dhamma', num: '១០១' },
+  { to: '/gahi-sukha', km: 'សុខ ៤ យ៉ាងរបស់គ្រហស្ថ', descKm: 'អត្ថិសុខ ភោគសុខ អនណសុខ & អនវជ្ជសុខ (សុខឥតទោស)', kmShort: 'សុខ ៤ គ្រហស្ថ', en: '4 Happinesses of Householders', num: '១០២' },
+  { to: '/macchariya', km: 'មច្ឆរិយៈ ៥ យ៉ាង (ភាពកំណាញ់ ៥)', descKm: 'ភាពកំណាញ់ស្វិតស្វាញ ៥ បែប អាវាស កុល លាភ វណ្ណ & ធម្មមច្ឆរិយៈ', kmShort: 'មច្ឆរិយៈ ៥', en: '5 Kinds of Stinginess', num: '១០៣' },
+  { to: '/sappurisa', km: 'សប្បុរិសធម៌ ៧ (មនុស្សថ្លៃថ្នូរ)', descKm: 'គុណធម៌នៃមនុស្សថ្លៃថ្នូរ ស្គាល់ហេតុ ផល ខ្លួន ប្រមាណ កាល សង្គម & មនុស្ស', kmShort: 'សប្បុរិសធម៌ ៧', en: '7 Qualities of a Noble Person', num: '១០៤' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -681,9 +701,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/triple-gem-guna'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna'],
-  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka', '/wealth', '/apayamukha', '/ayatana', '/ariyadhana', '/similes', '/lay-disciples', '/tilakkhana', '/khandha', '/kalyanamitta'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/triple-gem-guna', '/asava', '/anusaya', '/upadana', '/visuddhi', '/dhammacakka', '/anattalakkhana', '/vessantara'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/sammappadhana', '/iddhipada', '/metta-sutta', '/dhamma-hearing'],
+  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka', '/wealth', '/apayamukha', '/ayatana', '/ariyadhana', '/similes', '/lay-disciples', '/tilakkhana', '/khandha', '/kalyanamitta', '/kalama-sutta', '/six-speeches', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa'],
 }
 
 const activeTab = computed(() => {
@@ -812,6 +832,26 @@ const related = {
   '/jhana': ['/meditation', '/anapanasati', '/kammatthana'],
   '/triple-gem-guna': ['/buddha-guna', '/chanting', '/recollections'],
   '/abhinha': ['/death-and-rebirth', '/kamma', '/recollections'],
+  '/arupa-jhana': ['/jhana', '/meditation', '/vipassana-nana'],
+  '/vipassanupakkilesa': ['/vipassana-nana', '/visuddhi', '/kammatthana'],
+  '/asava': ['/anusaya', '/upadana', '/core'],
+  '/uposatha-types': ['/uposatha', '/ceremonies', '/daily'],
+  '/anusaya': ['/asava', '/cetasika-qa', '/core'],
+  '/visuddhi': ['/vipassanupakkilesa', '/vipassana-nana', '/magga'],
+  '/vessantara': ['/jataka', '/barami', '/stories'],
+  '/kalama-sutta': ['/suttas', '/core', '/questions'],
+  '/sammappadhana': ['/bodhipakkhiya', '/magga', '/appamada'],
+  '/iddhipada': ['/bodhipakkhiya', '/sammappadhana', '/indriya'],
+  '/metta-sutta': ['/metta', '/brahmavihara', '/chanting'],
+  '/six-speeches': ['/suttas', '/kalyanamitta', '/mindful-work'],
+  '/dhammacakka': ['/suttas', '/core', '/sacca-kicca'],
+  '/anattalakkhana': ['/suttas', '/tilakkhana', '/khandha'],
+  '/sanghadana': ['/ceremonies', '/sangha', '/merit-transfer'],
+  '/upadana': ['/paccaya', '/khandha', '/core'],
+  '/dhamma-hearing': ['/suttas', '/chanting', '/punnakiriya'],
+  '/gahi-sukha': ['/wealth', '/family', '/ethics'],
+  '/macchariya': ['/cetasika-qa', '/punnakiriya', '/brahmavihara'],
+  '/sappurisa': ['/rajadhamma', '/mindful-work', '/kalyanamitta'],
 }
 
 const relatedList = computed(() => {

@@ -96,6 +96,16 @@ const routes = [
   { path: '/kammpatha', name: 'kammpatha', component: lazyView(() => import('./views/KammpathaView.vue')), meta: { titleK: 'កុសលកម្មបថ ១០ & អកុសលកម្មបថ ១០', titleE: '10 Wholesome & Unwholesome Courses' } },
   { path: '/similes', name: 'similes', component: lazyView(() => import('./views/SimilesView.vue')), meta: { titleK: 'កំពូលឧបមាធម៌ទាំង ៦ ក្នុងព្រះត្រៃបិដក', titleE: '6 Master Similes in Tipitaka' } },
   { path: '/lay-disciples', name: 'lay-disciples', component: lazyView(() => import('./views/GreatLayDisciplesView.vue')), meta: { titleK: 'ឧបាសក-ឧបាសិកាឆ្នើមសម័យពុទ្ធកាល', titleE: 'Great Lay Disciples' } },
+  { path: '/tilakkhana', name: 'tilakkhana', component: lazyView(() => import('./views/TilakkhanaView.vue')), meta: { titleK: 'ទិលក្ខណៈ ៣ (អនិច្ចំ ទុក្ខំ អនត្តា)', titleE: '3 Universal Characteristics' } },
+  { path: '/khandha', name: 'khandha', component: lazyView(() => import('./views/KhandhaView.vue')), meta: { titleK: 'បញ្ចក្ខន្ធ ៥ & ឧបមាដុំពពុះទឹក', titleE: '5 Aggregates (Khandha)' } },
+  { path: '/appamada', name: 'appamada', component: lazyView(() => import('./views/AppamadaView.vue')), meta: { titleK: 'អប្បមាទធម៌ & ព្រះបច្ឆិមវាចា', titleE: 'Appamada & Buddha Final Words' } },
+  { path: '/sacca-kicca', name: 'sacca-kicca', component: lazyView(() => import('./views/SaccaKiccaView.vue')), meta: { titleK: 'អរិយសច្ច ៤ & កិច្ច ១២ ប្រការ', titleE: '4 Truths & 12 Tasks' } },
+  { path: '/satipatthana', name: 'satipatthana', component: lazyView(() => import('./views/SatipatthanaView.vue')), meta: { titleK: 'មហាសតិបដ្ឋាន ៤ (ឯកាយនោ មគ្គោ)', titleE: '4 Foundations of Mindfulness' } },
+  { path: '/bojjhanga', name: 'bojjhanga', component: lazyView(() => import('./views/BojjhangaView.vue')), meta: { titleK: 'ពោជ្ឈង្គ ៧ & ឱសថព្យាបាលរោគ', titleE: '7 Factors of Awakening' } },
+  { path: '/kalyanamitta', name: 'kalyanamitta', component: lazyView(() => import('./views/KalyanamittaView.vue')), meta: { titleK: 'កល្យាណមិត្ត (មិត្តពិត ៤ vs ក្លែង ៤)', titleE: 'True vs False Friends' } },
+  { path: '/jhana', name: 'jhana', component: lazyView(() => import('./views/JhanaView.vue')), meta: { titleK: 'រូបឈាន ៤ ពិស្តារ & ឧបមា ៤', titleE: '4 Rupa Jhanas' } },
+  { path: '/triple-gem-guna', name: 'triple-gem-guna', component: lazyView(() => import('./views/DhammaSanghaGunaView.vue')), meta: { titleK: 'ធម្មគុណ ៦ & សង្ឃគុណ ៩', titleE: 'Virtues of Dhamma & Sangha' } },
+  { path: '/abhinha', name: 'abhinha', component: lazyView(() => import('./views/AbhinhaView.vue')), meta: { titleK: 'អភិណ្ហបច្ចវេក្ខណៈ ៥ យ៉ាង', titleE: '5 Daily Contemplations' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

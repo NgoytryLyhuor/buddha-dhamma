@@ -84,6 +84,18 @@ const routes = [
   { path: '/ayatana', name: 'ayatana', component: lazyView(() => import('./views/AyatanaView.vue')), meta: { titleK: 'អាយតនៈ ១២ & ធាតុ ១៨', titleE: '12 Sense Bases & 18 Elements' } },
   { path: '/sangayana', name: 'sangayana', component: lazyView(() => import('./views/SangayanaView.vue')), meta: { titleK: 'កិច្ចសង្គាយនាទាំង ៦ លើក', titleE: '6 Buddhist Councils (Saṅgāyanā)' } },
   { path: '/uposatha', name: 'uposatha', component: lazyView(() => import('./views/UposathaView.vue')), meta: { titleK: 'ឧបោសថសីល (សីល ៨) & សីល ១០', titleE: 'Uposatha 8 Precepts & 10 Precepts' } },
+  { path: '/nivarana', name: 'nivarana', component: lazyView(() => import('./views/NivaranaView.vue')), meta: { titleK: 'នីវរណធម៌ ៥ យ៉ាង & វិធីកម្ចាត់', titleE: '5 Hindrances & Antidotes' } },
+  { path: '/buddha-guna', name: 'buddha-guna', component: lazyView(() => import('./views/BuddhaGunaView.vue')), meta: { titleK: 'ពុទ្ធគុណ ៩ ប្រការ (ឥតិបិសោ)', titleE: '9 Qualities of the Buddha' } },
+  { path: '/mangala', name: 'mangala', component: lazyView(() => import('./views/MangalaView.vue')), meta: { titleK: 'មង្គល ៣៨ ប្រការ (មង្គលសូត្រ)', titleE: '38 Blessings (Mangala Sutta)' } },
+  { path: '/sangahavatthu', name: 'sangahavatthu', component: lazyView(() => import('./views/SangahavatthuView.vue')), meta: { titleK: 'សង្គហវត្ថុ ៤ ប្រការ (ធម៌ចងចិត្ត)', titleE: '4 Bases of Solidarity' } },
+  { path: '/agati', name: 'agati', component: lazyView(() => import('./views/AgatiView.vue')), meta: { titleK: 'អគតិ ៤ យ៉ាង (មាគ៌ាលម្អៀង)', titleE: '4 Corrupt Biases (Agati)' } },
+  { path: '/mindful-work', name: 'mindful-work', component: lazyView(() => import('./views/MindfulWorkView.vue')), meta: { titleK: 'ធម៌នៅកន្លែងធ្វើការ & មនុស្សពុល', titleE: 'Mindful Work & Toxic Colleagues' } },
+  { path: '/punnakiriya', name: 'punnakiriya', component: lazyView(() => import('./views/PunnakiriyaView.vue')), meta: { titleK: 'បុណ្យកិរិយាវត្ថុ ១០ ប្រការ', titleE: '10 Bases of Merit Action' } },
+  { path: '/ariyadhana', name: 'ariyadhana', component: lazyView(() => import('./views/AriyadhanaView.vue')), meta: { titleK: 'អរិយទ្រព្យ ៧ ប្រការ (ទ្រព្យឆ្លងភព)', titleE: '7 Noble Treasures' } },
+  { path: '/katannu', name: 'katannu', component: lazyView(() => import('./views/KatannuView.vue')), meta: { titleK: 'កតញ្ញូតាធម៌ & គុណមាតាបិតា', titleE: 'Filial Piety & Parents' } },
+  { path: '/kammpatha', name: 'kammpatha', component: lazyView(() => import('./views/KammpathaView.vue')), meta: { titleK: 'កុសលកម្មបថ ១០ & អកុសលកម្មបថ ១០', titleE: '10 Wholesome & Unwholesome Courses' } },
+  { path: '/similes', name: 'similes', component: lazyView(() => import('./views/SimilesView.vue')), meta: { titleK: 'កំពូលឧបមាធម៌ទាំង ៦ ក្នុងព្រះត្រៃបិដក', titleE: '6 Master Similes in Tipitaka' } },
+  { path: '/lay-disciples', name: 'lay-disciples', component: lazyView(() => import('./views/GreatLayDisciplesView.vue')), meta: { titleK: 'ឧបាសក-ឧបាសិកាឆ្នើមសម័យពុទ្ធកាល', titleE: 'Great Lay Disciples' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

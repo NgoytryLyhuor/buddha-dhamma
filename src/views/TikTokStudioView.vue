@@ -514,7 +514,7 @@
                   អូសទៅ Slide បន្ទាប់ ({{ currentSlideIndex + 2 }}/{{ currentSlides.length }}) →
                 </div>
                 <div v-else class="pt-2 text-[10px] text-amber-300/80 font-bold text-center">
-                  ចុច Follow & Save ដើម្បីរៀនធម៌ពិត
+                  រៀនធម៌ពិតបន្ថែមលើ Bio : buddha-dhamma.vercel.app
                 </div>
               </div>
 

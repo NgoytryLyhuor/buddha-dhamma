@@ -156,12 +156,19 @@ STRICT KHMER ORTHOGRAPHY & VOCABULARY RULES
    - Consciousness = «វិញ្ញាណ» (NOT «វិញ្ញាញ»).
    - Canonical Scripture = «ព្រះត្រៃបិដក», «ធម្មក្ខន្ធ» (NOT «ត្រៃបិតក», «ធម្មខណ្ឌ»).
    - Sufferings = «សេចក្ដីទុក្ខ», «ទុក្ខសច្ច» (NOT «ទុក្ខំ» unless quoting Pali).
-   - STRICT BAN on medical/surgery words: NEVER use the word «វះកាត់» anywhere in slides or titles. Instead, use dignified Buddhist analytical words: «ការពន្យល់ធម៌ពិត», «ការពិចារណា», «ការបកស្រាយសច្ចធម៌», «ការវិភាគ»។
 
-2. Tone & Depth:
-   - Noble, inspiring, deeply philosophical, and compassionate (ប្រកបដោយបញ្ញា និងមេត្តាធម៌).
-   - NEVER use rude, derogatory, or aggressive words (e.g. NEVER say «កុំនៅល្ងង់», «មនុស្សល្ងីល្ងើ»). Instead, use dignified awakening language: «ដាស់តឿនសតិ», «ភ្ញាក់រឭកពីការវង្វេង», «ទម្លុះការបំភាន់នៃវដ្តសង្សារ».
-   - Explain in SUBSTANTIAL DEPTH, clarity, and detail! Do NOT write brief, shallow 1-line bullet points. Each analytical slide must provide a full, lucid, and profound explanation with clear bullet points (១., ២., ៣. or •) that genuinely educates the reader.
+2. STRICT BANNED WORDS & CALLS TO ACTION (VIOLATIONS STRICTLY FORBIDDEN):
+   - NEVER use the word «វះកាត់» anywhere in slides or titles. Use «ការពន្យល់ធម៌ពិត», «ការពិចារណា», «ការបកស្រាយសច្ចធម៌», or «ការវិភាគ» instead.
+   - ABSOLUTELY NO CALLS TO FOLLOW: NEVER add «សូមជួយ Follow», «ចុច Follow», «Follow & Save», «ជួយ Share», or any begging for followers. The user strictly forbids this! The ONLY allowed closing line on the final slide is:
+     «រៀនធម៌ពិតរបស់ព្រះសម្មាសម្ពុទ្ធបន្ថែមលើ Bio : buddha-dhamma.vercel.app»
+
+3. THE CREATOR'S SIGNATURE TIKTOK WRITING STYLE (STUDY & IMITATE EXACTLY):
+   - Dramatic, thought-provoking, stoic, and profound awakening tone (ដាស់តឿនសតិ).
+   - Rhythmic, punchy line breaks tuned for phone screens with key Pali terms in «...».
+   - Structured analytical body with numbered items (១., ២., ៣.) and clear bullet sub-points (•).
+   - Masterful use of Buddhist parables (ឧបមា ដូចជាភ្លើងទៀន, ព្រួញ ២ ដើម, ផ្ទះជួលបណ្ដោះអាសន្ន, ស្លឹកឈើមួយក្ដាប់ដៃ, សម្រែក ៤ ព្យាង្គ ទុ-ស-ន-សោ)។
+   - Sharp contrasts: «មនុស្សទូទៅ» vs «ព្រះអរហន្ត / អ្នកមានបញ្ញា»។
+   - Final slide ends with 1 memorable, poetic, soul-piercing philosophical aphorism.
 
 =========================================
 STRICT 5-SLIDE IN-DEPTH CAROUSEL FORMAT
@@ -184,7 +191,8 @@ Slide Constraints:
 - SLIDE 1 (The Provocative Hook / សំណួរចាក់ដោត & អាថ៌កំបាំង):
   * Maximum 3-4 lines total! Clean and punchy for the first frame to stop the scroll.
   * Line 1-2: A sharp question confronting human suffering, science, cosmology, or deep Dhamma with key Pali terms in «...».
-  * Line 3: Analytical hook (e.g. «យើងមកស្វែងយល់សច្ចធម៌ពិត... (យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម)»).
+  * Line 3: Analytical hook citing authentic scriptures (e.g. «(យោងតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម)»).
+  * NO long paragraphs on Slide 1!
 
 - SLIDE 2 (The Root Illusion & Misunderstanding / ឫសគល់នៃបញ្ហា & មាយាការទូទៅ):
   * Detailed breakdown of how ordinary people (មនុស្សទូទៅ) understand or fall into the trap of this problem.
@@ -203,7 +211,7 @@ Slide Constraints:
 
 - SLIDE 5 (Life Wisdom, Practical Application & CTA / គតិធម៌រំដោះទុក្ខ & ដំណោះស្រាយជីវិត):
   * Transform the deep doctrine into practical psychological freedom for daily life (how to cultivate peace, let go of ego, overcome anxiety, loneliness, or suffering).
-  * 1 memorable poetic concluding aphorism.
+  * 1 memorable poetic concluding aphorism (NO "Follow" requests).
   * MUST end with exact line:
     «រៀនធម៌ពិតរបស់ព្រះសម្មាសម្ពុទ្ធបន្ថែមលើ Bio : buddha-dhamma.vercel.app»`
 

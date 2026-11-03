@@ -71,6 +71,7 @@ const routes = [
   { path: '/family', name: 'family', component: lazyView(() => import('./views/FamilyView.vue')), meta: { titleK: 'គ្រួសារធម៌ & ទិសទាំង ៦', titleE: 'Family Dhamma & 6 Directions' } },
   { path: '/sangaha', name: 'sangaha', component: lazyView(() => import('./views/SangahaView.vue')), meta: { titleK: 'អភិធម្មត្ថសង្គហៈ ៩ បរិច្ឆេទ', titleE: 'Abhidhammattha Saṅgaha' } },
   { path: '/asubha', name: 'asubha', component: lazyView(() => import('./views/AsubhaView.vue')), meta: { titleK: 'អាការៈ ៣២ & អសុភ ១០', titleE: '32 Body Parts & 10 Asubha' } },
+  { path: '/ceremonies', name: 'ceremonies', component: lazyView(() => import('./views/CeremoniesView.vue')), meta: { titleK: 'ពិធីបុណ្យខ្មែរ & ក្បួនប្រគេនទាន', titleE: 'Khmer Ceremonies & Offering Protocols' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

@@ -7,7 +7,7 @@
     <div class="ornament mt-4">&#9784;</div>
 
     <p class="mt-5 text-[15px] md:text-base drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-      {{ t('«អបាយមុខ» មានន័យថា មាត់ច្រក ឬទ្វារដែលនាំទៅកាន់សេចក្តីវិនាសទ្រព្យសម្បត្តិ កិត្តិយស និងអនាគត។ ក្នុងគម្ពីរសិង្គាលកសូត្រ (DN 31) ព្រះសម្មាសម្ពុទ្ធបានដាស់តឿនសិង្គាលកមាណព កុំឱ្យធ្លាក់ចូលទៅក្នុងអបាយមុខទាំង ៦ នេះ ព្រោះទោះបីជាបុគ្គលនោះមានទ្រព្យស្មើនឹងស្តេច ឬមហាសេដ្ឋីយ៉ាងណាក្តី ក៏គង់នឹងរលាយអស់គ្មានសល់ឡើយ ប្រៀបដូចជាអាងទឹកធំមួយដែលមានទ្វារធ្លាយ ៦ ទិស។', 'Apāyamukha signifies the "mouth of destruction" or the six systemic gateways that drain wealth, ruin family reputation, and dismantle a human being’s future. In the Sigālovāda Sutta (DN 31), the Buddha warned the young Sigāla that indulging in these six vices will drain even a kingdom’s treasury, like an enormous reservoir leaking through six open drainage gates.') }}
+      {{ t('អបាយមុខ មានន័យថា មាត់ច្រក ឬទ្វារដែលនាំទៅកាន់សេចក្តីវិនាសទ្រព្យសម្បត្តិ កិត្តិយស និងអនាគត។ ក្នុងគម្ពីរសិង្គាលកសូត្រ (DN 31) ព្រះសម្មាសម្ពុទ្ធបានដាស់តឿនសិង្គាលកមាណព កុំឱ្យធ្លាក់ចូលទៅក្នុងអបាយមុខទាំង ៦ នេះ ព្រោះទោះបីជាបុគ្គលនោះមានទ្រព្យស្មើនឹងស្តេច ឬមហាសេដ្ឋីយ៉ាងណាក្តី ក៏គង់នឹងរលាយអស់គ្មានសល់ឡើយ ប្រៀបដូចជាអាងទឹកធំមួយដែលមានទ្វារធ្លាយ ៦ ទិស។', 'Apāyamukha signifies the "mouth of destruction" or the six systemic gateways that drain wealth, ruin family reputation, and dismantle a human being’s future. In the Sigālovāda Sutta (DN 31), the Buddha warned the young Sigāla that indulging in these six vices will drain even a kingdom’s treasury, like an enormous reservoir leaking through six open drainage gates.') }}
     </p>
 
     <!-- 6 Portals Grid Cards -->

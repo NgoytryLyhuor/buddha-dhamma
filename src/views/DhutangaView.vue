@@ -8,7 +8,7 @@
       </h2>
       <div class="ornament mt-4">&#9784;</div>
       <p class="mt-5 drop-cap leading-loose" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('«ធុតង្គ» (ធុត = កម្ចាត់/រលាស់ចោល + អង្គ = គុណធម៌) គឺជាក្បួនបដិបត្តិដុសខាត់កម្ចាត់កិលេស ភាពលោភលន់ និងការជាប់ជំពាក់ក្នុងផាសុកភាពខាងសាច់ឈាម ដែលព្រះអរហន្តខ្សែព្រៃតែងសមាទានដើម្បីឈានទៅដល់ការត្រាស់ដឹង។', 'Dhutaṅga means practices that shake off and scour away defilements of craving, luxury, and indolence. Explore the 13 classical ascetic rules recorded in the Visuddhimagga.') }}
+        {{ t('ធុតង្គ (ធុត = កម្ចាត់/រលាស់ចោល + អង្គ = គុណធម៌) គឺជាក្បួនបដិបត្តិដុសខាត់កម្ចាត់កិលេស ភាពលោភលន់ និងការជាប់ជំពាក់ក្នុងផាសុកភាពខាងសាច់ឈាម ដែលព្រះអរហន្តខ្សែព្រៃតែងសមាទានដើម្បីឈានទៅដល់ការត្រាស់ដឹង។', 'Dhutaṅga means practices that shake off and scour away defilements of craving, luxury, and indolence. Explore the 13 classical ascetic rules recorded in the Visuddhimagga.') }}
       </p>
 
       <!-- Group Filter Tabs (Uniform height, touch scroll) -->

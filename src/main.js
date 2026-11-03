@@ -72,6 +72,18 @@ const routes = [
   { path: '/sangaha', name: 'sangaha', component: lazyView(() => import('./views/SangahaView.vue')), meta: { titleK: 'អភិធម្មត្ថសង្គហៈ ៩ បរិច្ឆេទ', titleE: 'Abhidhammattha Saṅgaha' } },
   { path: '/asubha', name: 'asubha', component: lazyView(() => import('./views/AsubhaView.vue')), meta: { titleK: 'អាការៈ ៣២ & អសុភ ១០', titleE: '32 Body Parts & 10 Asubha' } },
   { path: '/ceremonies', name: 'ceremonies', component: lazyView(() => import('./views/CeremoniesView.vue')), meta: { titleK: 'ពិធីបុណ្យខ្មែរ & ក្បួនប្រគេនទាន', titleE: 'Khmer Ceremonies & Offering Protocols' } },
+  { path: '/wealth', name: 'wealth', component: lazyView(() => import('./views/WealthView.vue')), meta: { titleK: 'ទ្រព្យសម្បត្តិធម៌ & ទិដ្ឋធម្មិកត្ថ ៤', titleE: 'Buddhist Wealth & Success Dhamma' } },
+  { path: '/lokadhamma', name: 'lokadhamma', component: lazyView(() => import('./views/LokadhammaView.vue')), meta: { titleK: 'លោកធម៌ ៨ ប្រការ', titleE: '8 Worldly Winds (Lokadhamma)' } },
+  { path: '/apayamukha', name: 'apayamukha', component: lazyView(() => import('./views/ApayamukhaView.vue')), meta: { titleK: 'អបាយមុខ ៦ ប្រការ', titleE: '6 Paths to Ruin (Apāyamukha)' } },
+  { path: '/kammatthana', name: 'kammatthana', component: lazyView(() => import('./views/KammatthanaView.vue')), meta: { titleK: 'កម្មដ្ឋាន ៤០ & ចរិត ៦', titleE: '40 Meditation Subjects & 6 Temperaments' } },
+  { path: '/indriya', name: 'indriya', component: lazyView(() => import('./views/IndriyaView.vue')), meta: { titleK: 'ឥន្ទ្រិយ ៥ & ពល ៥', titleE: '5 Spiritual Faculties & 5 Powers' } },
+  { path: '/walking-meditation', name: 'walking-meditation', component: lazyView(() => import('./views/WalkingMeditationView.vue')), meta: { titleK: 'ការដើរចង្ក្រម & ឥរិយាបថ ៤', titleE: 'Walking Meditation & 4 Postures' } },
+  { path: '/brahmavihara', name: 'brahmavihara', component: lazyView(() => import('./views/BrahmaviharaView.vue')), meta: { titleK: 'ព្រហ្មវិហារធម៌ ៤ & សត្រូវជិត-ឆ្ងាយ', titleE: '4 Sublime States (Brahmavihāra)' } },
+  { path: '/bedtime-dhamma', name: 'bedtime-dhamma', component: lazyView(() => import('./views/BedtimeDhammaView.vue')), meta: { titleK: 'ធម៌មុនចូលគេង & សមាធិលើគ្រែ', titleE: 'Bedtime Dhamma & Mindful Sleep' } },
+  { path: '/barami', name: 'barami', component: lazyView(() => import('./views/BaramiView.vue')), meta: { titleK: 'ព្រះបារមី ៣០ ទស្ស', titleE: '30 Perfections (Pāramī)' } },
+  { path: '/ayatana', name: 'ayatana', component: lazyView(() => import('./views/AyatanaView.vue')), meta: { titleK: 'អាយតនៈ ១២ & ធាតុ ១៨', titleE: '12 Sense Bases & 18 Elements' } },
+  { path: '/sangayana', name: 'sangayana', component: lazyView(() => import('./views/SangayanaView.vue')), meta: { titleK: 'កិច្ចសង្គាយនាទាំង ៦ លើក', titleE: '6 Buddhist Councils (Saṅgāyanā)' } },
+  { path: '/uposatha', name: 'uposatha', component: lazyView(() => import('./views/UposathaView.vue')), meta: { titleK: 'ឧបោសថសីល (សីល ៨) & សីល ១០', titleE: 'Uposatha 8 Precepts & 10 Precepts' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

@@ -24,7 +24,7 @@
                 color: menuOpen ? 'var(--accent)' : 'var(--ink)',
                 border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
               }"
-              :title="t('ម៉ឺនុយទាំងអស់ (៤២)', 'All Pages (42)')"
+              :title="t('ម៉ឺនុយទាំងអស់ (៤៩)', 'All Pages (49)')"
               :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -304,7 +304,7 @@
                 ref="menuSearchInputRef"
                 v-model="menuSearchQuery"
                 type="text"
-                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤២ ម៉ឺនុយ (ឧ. សមាធិ, នរក, ចិត្ត)...', 'Search 42 pages (e.g. meditation, hell, citta)...')"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ៤៩ ម៉ឺនុយ (ឧ. សមាធិ, និព្វាន, ជាតក)...', 'Search 49 pages (e.g. meditation, nibbana, jataka)...')"
                 class="w-full bg-transparent border-none text-xs sm:text-sm focus:outline-none"
                 :style="{ color: 'var(--ink)' }"
               />
@@ -382,7 +382,7 @@
             <!-- Footer indicator -->
             <div v-if="filteredMenuNav.length > 0" class="col-span-full py-6 text-center text-xs opacity-80">
               <p class="font-medium" :style="{ color: 'var(--ink)' }">
-                {{ t('☸️ ព្រះធម៌ ៤២ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 42 Pages — Ordered systematically for study & practice') }}
+                {{ t('☸️ ព្រះធម៌ ៤៩ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 49 Pages — Ordered systematically for study & practice') }}
               </p>
               <p v-if="selectedMenuCategory !== 'all' || menuSearchQuery" class="mt-2 text-xs">
                 <button
@@ -391,7 +391,7 @@
                   class="font-bold underline cursor-pointer"
                   :style="{ color: 'var(--accent-bright)' }"
                 >
-                  {{ t('បង្ហាញទំព័រទាំង ៤២ ឡើងវិញ (ទំព័រ ០១ ដល់ ៤២)', 'Show all 42 pages (Pages 01 to 42)') }}
+                  {{ t('បង្ហាញទំព័រទាំង ៤៩ ឡើងវិញ (ទំព័រ ០១ ដល់ ៤៩)', 'Show all 49 pages (Pages 01 to 49)') }}
                 </button>
               </p>
             </div>
@@ -406,7 +406,7 @@
               :aria-label="t('បិទម៉ឺនុយ', 'Close Menu')"
             >
               <span>✕</span>
-              <span>{{ t('បិទម៉ឺនុយ (៤២ ទំព័រ)', 'Close Menu (42 Pages)') }}</span>
+              <span>{{ t('បិទម៉ឺនុយ (៤៩ ទំព័រ)', 'Close Menu (49 Pages)') }}</span>
             </button>
           </div>
         </div>
@@ -533,11 +533,11 @@ const menuCategories = [
 ]
 
 const menuCategoryRoutes = {
-  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary'],
-  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta'],
-  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga'],
-  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma'],
+  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka'],
+  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha'],
+  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka'],
+  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family'],
 }
 
 function getCategoryCount(catId) {
@@ -626,6 +626,12 @@ const nav = [
   { to: '/merit-transfer', km: 'យន្តការឧទ្ទិសកុសល', descKm: 'ការឧទ្ទិសបុណ្យ & បរទត្តូបជីវីប្រេត', kmShort: 'ឧទ្ទិសបុណ្យ', en: 'Merit Dedication & Pattidāna', num: '៤១' },
   { to: '/my-gems', km: 'កម្រងធម៌រតនៈ & សំណួរពិសេស', descKm: '២៤ ធម៌រតនៈកំពូល & សំណួរពិស្តារ', kmShort: 'ធម៌រតនៈ ២៤', en: '24 Dhamma Gems', num: '៤២' },
   { to: '/tiktok-studio', km: 'TikTok AI Studio', descKm: 'បង្កើត Slide TikTok ស្វ័យប្រវត្តិតាមរយៈ Gemini AI', kmShort: 'TikTok Studio', en: 'TikTok AI Studio', num: '៤៣' },
+  { to: '/nibbana', km: 'ព្រះនិព្វានបរមត្ថ', descKm: 'បរមត្ថទី ៤ ទីរំលត់ទុក្ខ & អសង្ខតធម៌', kmShort: 'និព្វាន', en: 'Nibbāna Paramattha', num: '៤៤' },
+  { to: '/tipitaka', km: 'ព្រះត្រៃបិដក ១១០ ភាគ', descKm: 'រចនាសម្ព័ន្ធបិដកខ្មែរ វិន័យ សូត្រ អភិធម្ម', kmShort: 'ត្រៃបិដក ១១០', en: '110 Tipitaka Volumes', num: '៤៥' },
+  { to: '/jataka', km: 'ទសជាតក (មហាជាតក ១០)', descKm: 'តែ-ជ-សុ-នេ-ម-ភូ-ច-នា-វិ-វេ & បារមី ១០', kmShort: 'ទសជាតក', en: '10 Great Jātakas', num: '៤៦' },
+  { to: '/family', km: 'គ្រួសារធម៌ & ទិស ៦', descKm: 'សិង្គាលកសូត្រ ទិស ៦ & សមជីវីធម៌ ៤', kmShort: 'គ្រួសារធម៌', en: 'Family Dhamma & 6 Directions', num: '៤៧' },
+  { to: '/sangaha', km: 'អភិធម្មត្ថសង្គហៈ ៩ បរិច្ឆេទ', descKm: 'ក្បួនរៀនអភិធម្មសង្ខេប ៩ ជំពូក ព្រះអនុរុទ្ធ', kmShort: 'សង្គហៈ ៩ បរិច្ឆេទ', en: 'Abhidhammattha Saṅgaha', num: '៤៨' },
+  { to: '/asubha', km: 'អាការៈ ៣២ & អសុភ ១០', descKm: 'កាយគតាសតិ តចបញ្ចកៈ & សាកសព ១០', kmShort: 'អាការៈ ៣២', en: '32 Body Parts & 10 Asubha', num: '៤៩' },
 ]
 
 const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
@@ -640,9 +646,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer'],
-  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer', '/asubha'],
+  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka'],
 }
 
 const activeTab = computed(() => {
@@ -730,6 +736,12 @@ const related = {
   '/cosmology': ['/realms', '/prophecy', '/kamma', '/suttas'],
   '/merit-transfer': ['/kamma', '/realms', '/daily', '/ethics'],
   '/my-gems': ['/questions', '/suttas', '/core', '/abhidhamma'],
+  '/nibbana': ['/abhidhamma', '/core', '/vipassana-nana'],
+  '/tipitaka': ['/suttas', '/abhidhamma', '/sangha'],
+  '/jataka': ['/stories', '/ethics', '/life'],
+  '/family': ['/daily', '/ethics', '/rajadhamma'],
+  '/sangaha': ['/abhidhamma', '/citta-matrix', '/paccaya'],
+  '/asubha': ['/anapanasati', '/meditation', '/vipassana-nana'],
 }
 
 const relatedList = computed(() => {

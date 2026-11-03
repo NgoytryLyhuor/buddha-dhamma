@@ -65,6 +65,12 @@ const routes = [
   { path: '/merit-transfer', name: 'merit-transfer', component: lazyView(() => import('./views/MeritTransferView.vue')), meta: { titleK: 'យន្តការឧទ្ទិសកុសល & បរទត្តូបជីវីប្រេត', titleE: 'Merit Transference & Pattidāna' } },
   { path: '/my-gems', name: 'my-gems', component: lazyView(() => import('./views/MyGemsView.vue')), meta: { titleK: 'កម្រងសំណួរកំពូល & ធម៌រតនៈ', titleE: 'My Top Questions & Gems' } },
   { path: '/tiktok-studio', name: 'tiktok-studio', component: lazyView(() => import('./views/TikTokStudioView.vue')), meta: { titleK: 'TikTok AI Studio', titleE: 'TikTok AI Studio' } },
+  { path: '/nibbana', name: 'nibbana', component: lazyView(() => import('./views/NibbanaView.vue')), meta: { titleK: 'ព្រះនិព្វានបរមត្ថ', titleE: 'Nibbāna Paramattha' } },
+  { path: '/tipitaka', name: 'tipitaka', component: lazyView(() => import('./views/TipitakaView.vue')), meta: { titleK: 'រចនាសម្ព័ន្ធព្រះត្រៃបិដក ១១០ ភាគ', titleE: 'The 110-Volume Tipitaka' } },
+  { path: '/jataka', name: 'jataka', component: lazyView(() => import('./views/JatakaView.vue')), meta: { titleK: 'ទសជាតក ព្រះមហាជាតកទាំង ១០', titleE: 'The 10 Great Jātakas' } },
+  { path: '/family', name: 'family', component: lazyView(() => import('./views/FamilyView.vue')), meta: { titleK: 'គ្រួសារធម៌ & ទិសទាំង ៦', titleE: 'Family Dhamma & 6 Directions' } },
+  { path: '/sangaha', name: 'sangaha', component: lazyView(() => import('./views/SangahaView.vue')), meta: { titleK: 'អភិធម្មត្ថសង្គហៈ ៩ បរិច្ឆេទ', titleE: 'Abhidhammattha Saṅgaha' } },
+  { path: '/asubha', name: 'asubha', component: lazyView(() => import('./views/AsubhaView.vue')), meta: { titleK: 'អាការៈ ៣២ & អសុភ ១០', titleE: '32 Body Parts & 10 Asubha' } },
   { path: '/:pathMatch(.*)*', name: 'notfound', component: lazyView(() => import('./views/NotFoundView.vue')), meta: { titleK: '404', titleE: '404' } },
 ]
 

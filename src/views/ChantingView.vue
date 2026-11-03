@@ -18,6 +18,66 @@
       </ul>
     </div>
 
+    <!-- Audio Chanting & Temple Bell Companion -->
+    <div class="card-paper p-5 sm:p-6 md:p-8 mt-8 border-l-4" :style="{ borderLeftColor: 'var(--accent)' }">
+      <div class="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <span class="px-2.5 py-0.5 rounded text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider" :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
+            🎵 AUDIO COMPANION
+          </span>
+          <h3 class="font-display text-lg sm:text-xl md:text-2xl font-bold mt-1.5" :style="{ color: 'var(--ink)' }">
+            {{ t('ឧបករណ៍ជំនួយការសូត្រធម៌ & សំឡេងជួងអារាម', 'Audio Chanting & Temple Singing Bowl') }}
+          </h3>
+          <p class="text-xs sm:text-sm mt-1" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ទូងជួងស្ងប់ចិត្តមុនសូត្រ ឬបើកសំឡេងរលកស្ងប់ (Drone) ដើម្បីផ្ចង់អារម្មណ៍សូត្រតាម', 'Ring the calming temple bowl or toggle meditative ambient drone to chant along') }}
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            @click="playTempleBell(3.8)"
+            class="h-10 px-3.5 rounded-xl border text-xs font-bold inline-flex items-center gap-2 shadow-xs transition hover:scale-105 cursor-pointer"
+            :style="{ background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }"
+            :title="t('ទូងជួងអារាម', 'Ring Temple Bell')"
+          >
+            <span>🔔</span>
+            <span>{{ t('ទូងជួងស្ងប់ចិត្ត', 'Ring Temple Bell') }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chanting Audio Session Bar -->
+      <div class="mt-5 p-4 rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button
+            type="button"
+            @click="toggleDrone"
+            class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 transition shadow-sm cursor-pointer"
+            :style="isDronePlaying
+              ? { background: 'var(--accent)', color: '#fff' }
+              : { background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
+          >
+            <span v-if="isDronePlaying">⏸</span>
+            <span v-else>▶</span>
+          </button>
+          <div class="min-w-0">
+            <p class="font-bold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+              {{ isDronePlaying ? t('កំពុងចាក់សំឡេងស្ងប់ស្ងាត់ (Om Drone Resonance)', 'Playing Meditative Drone Resonance') : t('សំឡេងរលកស្ងប់ស្ងាត់ សម្រាប់សូត្រធម៌', 'Meditative Ambient Tone for Chanting') }}
+            </p>
+            <p class="text-[11px] text-stone-500 mt-0.5">
+              {{ t('កម្រិតប្រេកង់ C3 (130.8Hz) ជួយតម្កល់សតិ និងរំងាប់អារម្មណ៍រវើរវាយ', '130.8Hz harmonic frequency calming restlessness and focusing the mind') }}
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end flex-wrap">
+          <span class="text-xs font-mono font-bold opacity-70">
+            {{ isDronePlaying ? '🔊 ' + t('កំពុងដំណើរការ...', 'Active') : '🔇 ' + t('បិទ', 'Muted') }}
+          </span>
+        </div>
+      </div>
+    </div>
+
     <!-- the chants -->
     <div class="mt-8">
       <p class="chapter-label">{{ t('បន្ទូលជម្រើស ១២ — សូត្ររាល់ថ្ងៃ និងថ្ងៃសីល', 'TWELVE ESSENTIAL RECITALS — CHANT WITH THE HEART') }}</p>
@@ -40,7 +100,17 @@
         </summary>
 
         <div class="mt-6">
-          <div class="flex items-center justify-end gap-2 mb-2">
+          <div class="flex items-center justify-end gap-2 mb-2 flex-wrap">
+            <button
+              type="button"
+              @click="playTempleBell(3.2)"
+              class="h-8 px-2.5 rounded-lg border text-[11px] font-bold inline-flex items-center gap-1 cursor-pointer transition hover:border-amber-500"
+              :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
+              :title="t('ទូងជួងមុនសូត្រ', 'Ring Bell Before Chanting')"
+            >
+              <span>🔔</span>
+              <span>{{ t('ទូងជួង', 'Ring Bell') }}</span>
+            </button>
             <CopyButton :text="chantTexts[i]" />
           </div>
           <div class="verse-box p-4 md:p-5">
@@ -70,11 +140,126 @@
 <script setup>
 import { useLanguage } from '../composables/useLanguage'
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { ref, computed, onBeforeUnmount } from 'vue'
 import CopyButton from '../components/CopyButton.vue'
 const { t } = useLanguage()
 const route = useRoute()
 const isTarget = (prefix, idx) => route.hash === '#' + prefix + idx
+
+// Audio Engine for Chanting & Singing Bowl
+const isDronePlaying = ref(false)
+let audioCtx = null
+let droneNodes = null
+
+function getAudioContext() {
+  if (!audioCtx) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext
+    if (AudioCtx) audioCtx = new AudioCtx()
+  }
+  if (audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume()
+  }
+  return audioCtx
+}
+
+function playTempleBell(durationSec = 3.8) {
+  try {
+    const ctx = getAudioContext()
+    if (!ctx) return
+    const now = ctx.currentTime
+    const masterGain = ctx.createGain()
+    masterGain.gain.setValueAtTime(0.75, now)
+    masterGain.gain.exponentialRampToValueAtTime(0.0001, now + durationSec)
+    masterGain.connect(ctx.destination)
+
+    // Harmonics of authentic Buddhist singing bowl (fundamental 216Hz + shimmering overtones)
+    const partials = [
+      { f: 216.0, g: 0.5 },
+      { f: 432.0, g: 0.3 },
+      { f: 648.0, g: 0.18 },
+      { f: 1080.0, g: 0.08 }
+    ]
+
+    partials.forEach(p => {
+      const osc = ctx.createOscillator()
+      const gain = ctx.createGain()
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(p.f, now)
+      gain.gain.setValueAtTime(p.g, now)
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + durationSec)
+      osc.connect(gain)
+      gain.connect(masterGain)
+      osc.start(now)
+      osc.stop(now + durationSec)
+    })
+  } catch (e) {
+    console.warn('Audio playback failed', e)
+  }
+}
+
+function startDrone() {
+  try {
+    const ctx = getAudioContext()
+    if (!ctx) return
+    stopDrone()
+
+    const now = ctx.currentTime
+    const masterGain = ctx.createGain()
+    masterGain.gain.setValueAtTime(0.01, now)
+    masterGain.gain.linearRampToValueAtTime(0.25, now + 1.5)
+    masterGain.connect(ctx.destination)
+
+    // Deep warm chanting drone harmonic cluster (C3: 130.81Hz, G3: 196.0Hz, C4: 261.63Hz)
+    const freqs = [130.81, 131.2, 196.0, 261.63]
+    const oscs = freqs.map((f, i) => {
+      const osc = ctx.createOscillator()
+      const g = ctx.createGain()
+      osc.type = i === 0 ? 'triangle' : 'sine'
+      osc.frequency.setValueAtTime(f, now)
+      g.gain.setValueAtTime(0.2 / (i + 1), now)
+      osc.connect(g)
+      g.connect(masterGain)
+      osc.start(now)
+      return osc
+    })
+
+    droneNodes = { masterGain, oscs }
+    isDronePlaying.value = true
+  } catch (e) {
+    console.warn('Drone start failed', e)
+  }
+}
+
+function stopDrone() {
+  if (droneNodes && audioCtx) {
+    try {
+      const now = audioCtx.currentTime
+      droneNodes.masterGain.gain.linearRampToValueAtTime(0.0001, now + 0.8)
+      setTimeout(() => {
+        if (droneNodes && droneNodes.oscs) {
+          droneNodes.oscs.forEach(o => { try { o.stop() } catch {} })
+        }
+        droneNodes = null
+      }, 900)
+    } catch {}
+  }
+  isDronePlaying.value = false
+}
+
+function toggleDrone() {
+  if (isDronePlaying.value) {
+    stopDrone()
+  } else {
+    startDrone()
+  }
+}
+
+onBeforeUnmount(() => {
+  stopDrone()
+  if (audioCtx) {
+    try { audioCtx.close() } catch {}
+  }
+})
 
 const chantTexts = computed(() => chants.map(c => c.lines.join('\n') + '\n' + c.roman))
 

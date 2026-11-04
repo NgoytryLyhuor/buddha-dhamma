@@ -1,156 +1,191 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
 
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  if (n === null || n === undefined) return ''
+  return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
+}
+
 const activeTab = ref('compass') // 'compass' | 'sequence' | 'benefits'
-const selectedDirection = ref(0)
+const selectedDirection = ref('east')
 const isPulsing = ref(false)
 
 const directions = [
   {
+    id: 'east',
+    icon: '🌅',
     nameKm: 'ទិសបូព៌ា (ខាងកើត)',
-    namePali: 'Puratthimāya disāya',
+    pali: 'Puratthimāya disāya',
     short: 'កើត',
     angle: 0,
-    gatha: 'Sabbe sattā puratthimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងកើត កុំមានពៀរនឹងគ្នា កុំមានសេចក្តីបៀតបៀនគ្នា កុំមានសេចក្តីទុក្ខកាយទុក្ខចិត្ត សូមបានដល់នូវសេចក្តីសុខ ថែរក្សាខ្លួនឱ្យបានសុខរៀងៗខ្លួនចុះ។',
+    gathaPali: 'Sabbe sattā puratthimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងកើត កុំមានពៀរនឹងគ្នា កុំមានសេចក្តីបៀតបៀនគ្នា កុំមានសេចក្តីទុក្ខកាយទុក្ខចិត្ត សូមបានដល់នូវសេចក្តីសុខ ថែរក្សាខ្លួនឱ្យបានសុខរៀងៗខ្លួនចុះ។',
     beings: 'មនុស្ស ទេវតា ព្រាហ្មណ៍ និងសព្វសត្វក្នុងទិសបូព៌ា'
   },
   {
+    id: 'southeast',
+    icon: '🧭',
     nameKm: 'ទិសអាគ្នេយ៍ (កើតត្បូង)',
-    namePali: 'Puratthimāya anudisāya',
+    pali: 'Puratthimāya anudisāya',
     short: 'អាគ្នេយ៍',
     angle: 45,
-    gatha: 'Sabbe sattā puratthimāya anudisāya averā hontu, abyāpajjhā hontu...',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងអស់ក្នុងទិសអាគ្នេយ៍ បានរួចផុតចាកទុក្ខភ័យទាំងពួង និងមានសន្តិភាពក្នុងចិត្ត។',
+    gathaPali: 'Sabbe sattā puratthimāya anudisāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងអស់ក្នុងទិសអាគ្នេយ៍ បានរួចផុតចាកទុក្ខភ័យទាំងពួង និងមានសន្តិភាពក្នុងចិត្ត។',
     beings: 'សត្វលោកតូចធំក្នុងទិសអាគ្នេយ៍'
   },
   {
+    id: 'south',
+    icon: '☀️',
     nameKm: 'ទិសទក្ខិណ (ខាងត្បូង)',
-    namePali: 'Dakkhiṇāya disāya',
+    pali: 'Dakkhiṇāya disāya',
     short: 'ត្បូង',
     angle: 90,
-    gatha: 'Sabbe sattā dakkhiṇāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងត្បូង កុំមានសត្រូវ កុំមានកំហឹងក្រោធ មានក្តីស្រឡាញ់រាប់អានគ្នាទៅវិញទៅមក។',
+    gathaPali: 'Sabbe sattā dakkhiṇāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងត្បូង កុំមានសត្រូវ កុំមានកំហឹងក្រោធ មានក្តីស្រឡាញ់រាប់អានគ្នាទៅវិញទៅមក។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសខាងត្បូង'
   },
   {
+    id: 'southwest',
+    icon: '🌾',
     nameKm: 'ទិសនិរតី (លិចត្បូង)',
-    namePali: 'Dakkhiṇāya anudisāya',
+    pali: 'Dakkhiṇāya anudisāya',
     short: 'និរតី',
     angle: 135,
-    gatha: 'Sabbe sattā dakkhiṇāya anudisāya averā hontu...',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសនិរតី បានជួបប្រទះនូវសេចក្តីសុខស្ងប់ គ្មានការរំខានបៀតបៀន។',
+    gathaPali: 'Sabbe sattā dakkhiṇāya anudisāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសនិរតី បានជួបប្រទះនូវសេចក្តីសុខស្ងប់ គ្មានការរំខានបៀតបៀន។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសនិរតី'
   },
   {
+    id: 'west',
+    icon: '🌇',
     nameKm: 'ទិសបស្ចិម (ខាងលិច)',
-    namePali: 'Pacchimāya disāya',
+    pali: 'Pacchimāya disāya',
     short: 'លិច',
     angle: 180,
-    gatha: 'Sabbe sattā pacchimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងលិច មានចិត្តជ្រះថ្លា ផុតចាកទុក្ខសោក រួចផុតពីគ្រោះកាចទាំងពួង។',
+    gathaPali: 'Sabbe sattā pacchimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងលិច មានចិត្តជ្រះថ្លា ផុតចាកទុក្ខសោក រួចផុតពីគ្រោះកាចទាំងពួង។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសខាងលិច'
   },
   {
+    id: 'northwest',
+    icon: '🌲',
     nameKm: 'ទិសពាយព្យ (លិចជើង)',
-    namePali: 'Pacchimāya anudisāya',
+    pali: 'Pacchimāya anudisāya',
     short: 'ពាយព្យ',
     angle: 225,
-    gatha: 'Sabbe sattā pacchimāya anudisāya averā hontu...',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសពាយព្យ មានសុខភាពល្អបរិបូរណ៍ មានសេចក្តីក្សេមក្សាន្ត។',
+    gathaPali: 'Sabbe sattā pacchimāya anudisāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសពាយព្យ មានសុខភាពល្អបរិបូរណ៍ មានសេចក្តីក្សេមក្សាន្ត។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសពាយព្យ'
   },
   {
+    id: 'north',
+    icon: '🏔️',
     nameKm: 'ទិសឧត្តរ (ខាងជើង)',
-    namePali: 'Uttarāya disāya',
+    pali: 'Uttarāya disāya',
     short: 'ជើង',
     angle: 270,
-    gatha: 'Sabbe sattā uttarāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងជើង បានជួបតែសេចក្តីចម្រើន ផុតចាកការចងពៀរវេរា។',
+    gathaPali: 'Sabbe sattā uttarāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសខាងជើង បានជួបតែសេចក្តីចម្រើន ផុតចាកការចងពៀរវេរា។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសខាងជើង'
   },
   {
+    id: 'northeast',
+    icon: '✨',
     nameKm: 'ទិសឦសាន (កើតជើង)',
-    namePali: 'Uttarāya anudisāya',
+    pali: 'Uttarāya anudisāya',
     short: 'ឦសាន',
     angle: 315,
-    gatha: 'Sabbe sattā uttarāya anudisāya averā hontu...',
-    kmTranslation: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសឦសាន មានចិត្តត្រជាក់ដូចទឹកអម្រឹត រួមរស់ដោយសុខសាន្ត។',
+    gathaPali: 'Sabbe sattā uttarāya anudisāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសព្វសត្វទាំងឡាយក្នុងទិសឦសាន មានចិត្តត្រជាក់ដូចទឹកអម្រឹត រួមរស់ដោយសុខសាន្ត។',
     beings: 'សត្វលោកទាំងអស់ក្នុងទិសឦសាន'
   },
   {
+    id: 'zenith',
+    icon: '🌌',
     nameKm: 'ទិសខាងលើ (អាកាស)',
-    namePali: 'Uparimāya disāya',
+    pali: 'Uparimāya disāya',
     short: 'លើ',
     angle: null,
-    gatha: 'Sabbe sattā uparimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យទេវតា ព្រហ្ម និងសត្វទាំងឡាយដែលឋិតនៅនាទីខាងលើ អាកាស និងស្ថានសួគ៌ បានដល់នូវបរមសុខជានិច្ចនិរន្តរ៍។',
+    gathaPali: 'Sabbe sattā uparimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យទេវតា ព្រហ្ម និងសត្វទាំងឡាយដែលឋិតនៅនាទីខាងលើ អាកាស និងស្ថានសួគ៌ បានដល់នូវបរមសុខជានិច្ចនិរន្តរ៍។',
     beings: 'ទេវតា ៦ ជាន់, រូបព្រហ្ម ១៦ ជាន់, អរូបព្រហ្ម ៤ ជាន់'
   },
   {
+    id: 'nadir',
+    icon: '🌍',
     nameKm: 'ទិសខាងក្រោម (បឋវី/ក្រោមដី)',
-    namePali: 'Heṭṭhimāya disāya',
+    pali: 'Heṭṭhimāya disāya',
     short: 'ក្រោម',
     angle: null,
-    gatha: 'Sabbe sattā heṭṭhimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
-    kmTranslation: 'សូមឱ្យសត្វទាំងឡាយដែលកំពុងរងទុក្ខក្នុងអបាយភូមិ នរក ប្រេត តិរច្ឆាន អសុរកាយ បានធូរស្រាលចាកទុក្ខវេទនា និងបានសុខ។',
+    gathaPali: 'Sabbe sattā heṭṭhimāya disāya averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    gathaKm: 'សូមឱ្យសត្វទាំងឡាយដែលកំពុងរងទុក្ខក្នុងអបាយភូមិ នរក ប្រេត តិរច្ឆាន អសុរកាយ បានធូរស្រាលចាកទុក្ខវេទនា និងបានសុខ។',
     beings: 'សត្វនរក ប្រេត អសុរកាយ នាគ គ្រុឌ និងសត្វក្រោមដី'
   }
 ]
 
-const sequenceSteps = [
+const currentDirectionData = computed(() => {
+  return directions.find(d => d.id === selectedDirection.value) || directions[0]
+})
+
+const sequenceStages = [
   {
-    step: 1,
+    step: '១',
     titleKm: '១. ផ្សាយដល់ខ្លួនឯងជាមុន (Attā)',
-    pali: 'Ahaṁ sukhito homi, niddukkho homi, avero homi...',
-    desc: 'មុននឹងស្រឡាញ់អ្នកដទៃ យើងត្រូវចេះស្រឡាញ់ និងអភ័យទោសឱ្យខ្លួនឯងជាមុនសិន។ បើខ្លួនឯងនៅតែក្តៅក្រហាយ មិនអាចចែករំលែកសេចក្តីសុខដល់អ្នកណាបានឡើយ។',
-    phrase: '«សូមឱ្យខ្ញុំបានដល់នូវសេចក្តីសុខ ផុតចាកទុក្ខភ័យ កុំឱ្យមានពៀរ កុំឱ្យមានទុក្ខកាយទុក្ខចិត្ត សូមថែរក្សាខ្លួនឱ្យបានសុខជានិច្ច។»'
+    target: 'ខ្លួនឯង',
+    desc: 'មុននឹងស្រឡាញ់អ្នកដទៃ យើងត្រូវចេះស្រឡាញ់ និងអភ័យទោសឱ្យខ្លួនឯងជាមុនសិន។ បើចិត្តខ្លួនឯងនៅតែក្តៅក្រហាយ មិនអាចចែករំលែកសេចក្តីស្ងប់សុខដល់អ្នកដទៃបានឡើយ។',
+    formulaPali: 'Ahaṁ sukhito homi, niddukkho homi, avero homi, abyāpajjho homi, anīgho homi, sukhī attānaṁ pariharāmi.',
+    formulaKm: '«សូមឱ្យខ្ញុំបានដល់នូវសេចក្តីសុខ ផុតចាកទុក្ខភ័យ កុំឱ្យមានពៀរ កុំឱ្យមានទុក្ខកាយទុក្ខចិត្ត សូមថែរក្សាខ្លួនឱ្យបានសុខជានិច្ច។»'
   },
   {
-    step: 2,
+    step: '២',
     titleKm: '២. ផ្សាយដល់មនុស្សជាទីស្រឡាញ់ (Piya)',
-    pali: 'Mātāpitu, ācariya, mitta...',
+    target: 'មាតាបិតា & គ្រូ',
     desc: 'ផ្សាយដល់មាតាបិតា គ្រូឧបជ្ឈាយ៍ ញាតិសន្តាន និងមិត្តសម្លាញ់ដែលតែងតែជួយយកអាសា និងមានគុណបំណាច់ចំពោះយើង។',
-    phrase: '«សូមឱ្យមាតាបិតា គ្រូបាអាចារ្យ និងមនុស្សជាទីស្រឡាញ់របស់ខ្ញុំ បានជួបប្រទះនូវសេចក្តីសុខ សុខភាពល្អ អាយុយឺនយូរ។»'
+    formulaPali: 'Sabbe piyā me averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    formulaKm: '«សូមឱ្យមាតាបិតា គ្រូបាអាចារ្យ និងមនុស្សជាទីស្រឡាញ់របស់ខ្ញុំ បានជួបប្រទះនូវសេចក្តីសុខ សុខភាពល្អ អាយុយឺនយូរ។»'
   },
   {
-    step: 3,
+    step: '៣',
     titleKm: '៣. ផ្សាយដល់មនុស្សកណ្តាលៗ (Majjhatta)',
-    pali: 'Majjhatta puggala',
-    desc: 'មនុស្សដែលយើងមិនស្គាល់ មិនស្រឡាញ់ ហើយក៏មិនស្អប់ (ដូចជាអ្នកដើរកាត់ផ្លូវ មនុស្សជុំវិញ)។ បណ្តុះចិត្តស្មើគ្នាចំពោះសត្វលោក។',
-    phrase: '«សូមឱ្យមនុស្សទាំងអស់ដែលខ្ញុំបានជួបប្រទះ ទោះស្គាល់ក្តី មិនស្គាល់ក្តី បានជួបតែសេចក្តីសុខក្សេមក្សាន្ត។»'
+    target: 'មនុស្សមិនស្គាល់មុខ',
+    desc: 'មនុស្សដែលយើងមិនស្គាល់ មិនស្រឡាញ់ ហើយក៏មិនស្អប់ (ដូចជាអ្នកដំណើរ មនុស្សជុំវិញសង្គម) ដើម្បីបណ្តុះចិត្តស្មើគ្នាចំពោះសត្វលោក។',
+    formulaPali: 'Sabbe majjhattā averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    formulaKm: '«សូមឱ្យមនុស្សទាំងអស់ដែលខ្ញុំបានជួបប្រទះ ទោះស្គាល់ក្តី មិនស្គាល់ក្តី បានជួបតែសេចក្តីសុខក្សេមក្សាន្ត។»'
   },
   {
-    step: 4,
-    titleKm: '៤. ផ្សាយដល់សត្រូវ ឬអ្នកដែលយើងធ្លាប់ខឹង (Verī - បំបែករបងចិត្ត!)',
-    pali: 'Verī puggala / Sīmasambheda',
-    desc: '⚠️ ចំណុចរបត់ធំបំផុតនៃមេត្តា! អភ័យទោសឱ្យអ្នកដែលធ្លាប់ធ្វើបាបយើង ធ្លាប់កុហក ឬប្រមាថយើង ដោយពិចារណាថាគេក៏ជាជនរងគ្រោះនៃកិលេសដែរ។',
-    phrase: '«ខ្ញុំសូមអភ័យទោសចំពោះរាល់កំហុសទាំងអស់។ សូមឱ្យអ្នកដែលធ្លាប់មានពៀរនឹងខ្ញុំ បានរួចចាកសេចក្តីវង្វេង និងមានសេចក្តីសុខ។»'
+    step: '៤',
+    titleKm: '៤. ផ្សាយដល់សត្រូវ ឬអ្នកដែលធ្លាប់ខឹង (Verī - បំបែករបងចិត្ត!)',
+    target: 'សត្រូវ & អ្នកប្រឆាំង',
+    desc: '⚠️ ចំណុចរបត់ធំបំផុតនៃមេត្តា! អភ័យទោសឱ្យអ្នកដែលធ្លាប់ធ្វើបាបយើង ដោយពិចារណាថាគេក៏ជាជនរងគ្រោះនៃកិលេស និងកម្មរបស់គេដែរ។',
+    formulaPali: 'Sabbe verī averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    formulaKm: '«ខ្ញុំសូមអភ័យទោសចំពោះរាល់កំហុសទាំងអស់។ សូមឱ្យអ្នកដែលធ្លាប់មានពៀរនឹងខ្ញុំ បានរួចចាកសេចក្តីវង្វេង និងមានសេចក្តីសុខ។»'
   },
   {
-    step: 5,
+    step: '៥',
     titleKm: '៥. ផ្សាយដល់សព្វសត្វទាំងអស់គ្មានព្រំដែន (Sabbe Sattā)',
-    pali: 'Sabbe sattā averā hontu...',
+    target: 'សត្វលោកក្នុងត្រៃភព',
     desc: 'បំបែករបងចិត្ត (សីមាសម្ភេទ) ស្រឡាញ់សព្វសត្វទាំងអស់ក្នុងត្រៃភពស្មើៗគ្នា ដូចមាតាថែរក្សាកូនបង្កើតតែមួយគត់របស់ខ្លួន។',
-    phrase: '«សូមឱ្យសព្វសត្វទាំងពួង គ្មានការបៀតបៀនគ្នា គ្មានការរើសអើង បានសេចក្តីស្ងប់សុខគ្រប់ៗគ្នា។»'
+    formulaPali: 'Sabbe sattā averā hontu, abyāpajjhā hontu, anīghā hontu, sukhī attānaṁ pariharantu.',
+    formulaKm: '«សូមឱ្យសព្វសត្វទាំងពួង គ្មានការបៀតបៀនគ្នា គ្មានការរើសអើង បានសេចក្តីស្ងប់សុខគ្រប់ៗគ្នា។»'
   }
 ]
 
-const blessings = [
-  { no: 1, pali: 'Sukhaṁ supati', km: 'ដេកលក់ជាសុខ', desc: 'គេងលក់ស្រួល គ្មានការរវើរវាយ គ្មានការតានតឹងក្នុងខួរក្បាល។' },
-  { no: 2, pali: 'Sukhaṁ paṭibujjhati', km: 'ភ្ញាក់ឡើងជាសុខ', desc: 'ភ្ញាក់ឡើងដោយស្រស់ស្រាយ រីករាយ មិនមួម៉ៅ ឬធុញថប់។' },
-  { no: 3, pali: 'Na pāpakaṁ supinaṁ passati', km: 'មិនយល់សប្តិអាក្រក់', desc: 'មិនដែលយល់សប្តិឃើញខ្មោចព្រាយ ឬការកាប់សម្លាប់ភ័យតក់ស្លុតឡើយ។' },
-  { no: 4, pali: 'Manussānaṁ piyo hoti', km: 'ជាទីស្រឡាញ់នៃមនុស្សទាំងឡាយ', desc: 'មនុស្សជុំវិញខ្លួនតែងតែអាណិត ស្រឡាញ់ រាប់អាន និងចង់នៅក្បែរ។' },
-  { no: 5, pali: 'Amanussānaṁ piyo hoti', km: 'ជាទីស្រឡាញ់នៃពួកអមនុស្ស', desc: 'ទេវតា ខ្មោច ព្រាយ បិសាច តែងតែជ្រះថ្លា មិនហ៊ានបៀតបៀនឡើយ។' },
-  { no: 6, pali: 'Devatā rakkhanti', km: 'ទេវតាតែងតែតាមថែរក្សា', desc: 'មានទេវតាការពារដូចម្តាយថែរក្សាកូន ទៅណាមកណាមានសុវត្ថិភាព។' },
-  { no: 7, pali: 'Nāsso aggi vā visaṁ vā satthaṁ vā kamati', km: 'ភ្លើង ពិស និងអាវុធមិនអាចបៀតបៀន', desc: 'កម្លាំងមេត្តាការពារមិនឱ្យគ្រោះថ្នាក់ពីភ្លើង ថ្នាំពុល ឬអាវុធមកប៉ះពាល់បាន។' },
-  { no: 8, pali: 'Tuvaṭaṁ cittaṁ samādhiyati', km: 'ចិត្តឆាប់បានតម្កល់មាំក្នុងសមាធិ', desc: 'ពេលអង្គុយសមាធិ ចិត្តឆាប់ស្ងប់មូល មិនរាយមាយ។' },
-  { no: 9, pali: 'Mukhavaṇṇo vippasīdati', km: 'សម្បុរមុខស្រស់ថ្លា ស្អាតបរិសុទ្ធ', desc: 'ទឹកមុខមានសិរីសួស្តី ភ្លឺថ្លាចេញពីខាងក្នុង មិនបាច់តុបតែងច្រើន។' },
-  { no: 10, pali: 'Asammūḷho kālaṁ karoti', km: 'មិនវង្វេងស្មារតីពេលស្លាប់', desc: 'ពេលជិតផុតដង្ហើម មានសតិដឹងខ្លួនច្បាស់ មិនស្លន់ស្លោ ទៅកាន់សុគតិភព។' },
-  { no: 11, pali: 'Brahmalokūpago hoti', km: 'កើតក្នុងព្រហ្មលោក', desc: 'បើមិនទាន់សម្រេចមគ្គផលទេ អានុភាពមេត្តានឹងនាំបដិសន្ធិទៅកើតក្នុងព្រហ្មលោក។' }
+const benefits = [
+  { no: '១', pali: 'Sukhaṁ supati', km: 'ដេកលក់ជាសុខ', desc: 'គេងលក់ស្រួល គ្មានការរវើរវាយ គ្មានការតានតឹងក្នុងខួរក្បាល។' },
+  { no: '២', pali: 'Sukhaṁ paṭibujjhati', km: 'ភ្ញាក់ឡើងជាសុខ', desc: 'ភ្ញាក់ឡើងដោយស្រស់ស្រាយ រីករាយ មិនមួម៉ៅ ឬធុញថប់។' },
+  { no: '៣', pali: 'Na pāpakaṁ supinaṁ passati', km: 'មិនយល់សប្តិអាក្រក់', desc: 'មិនដែលយល់សប្តិឃើញខ្មោចព្រាយ ឬការកាប់សម្លាប់ភ័យតក់ស្លុតឡើយ។' },
+  { no: '៤', pali: 'Manussānaṁ piyo hoti', km: 'ជាទីស្រឡាញ់នៃមនុស្សទាំងឡាយ', desc: 'មនុស្សជុំវិញខ្លួនតែងតែអាណិត ស្រឡាញ់ រាប់អាន និងចង់នៅក្បែរ។' },
+  { no: '៥', pali: 'Amanussānaṁ piyo hoti', km: 'ជាទីស្រឡាញ់នៃពួកអមនុស្ស', desc: 'ទេវតា ខ្មោច ព្រាយ បិសាច តែងតែជ្រះថ្លា មិនហ៊ានបៀតបៀនឡើយ។' },
+  { no: '៦', pali: 'Devatā rakkhanti', km: 'ទេវតាតែងតែតាមថែរក្សា', desc: 'មានទេវតាការពារដូចម្តាយថែរក្សាកូន ទៅណាមកណាមានសុវត្ថិភាព។' },
+  { no: '៧', pali: 'Nāsso aggi vā visaṁ vā satthaṁ vā kamati', km: 'ភ្លើង ពិស និងអាវុធមិនអាចបៀតបៀន', desc: 'កម្លាំងមេត្តាការពារមិនឱ្យគ្រោះថ្នាក់ពីភ្លើង ថ្នាំពុល ឬអាវុធមកប៉ះពាល់បាន។' },
+  { no: '៨', pali: 'Tuvaṭaṁ cittaṁ samādhiyati', km: 'ចិត្តឆាប់បានតម្កល់មាំក្នុងសមាធិ', desc: 'ពេលអង្គុយសមាធិ ចិត្តឆាប់ស្ងប់មូល មិនរាយមាយ។' },
+  { no: '៩', pali: 'Mukhavaṇṇo vippasīdati', km: 'សម្បុរមុខស្រស់ថ្លា ស្អាតបរិសុទ្ធ', desc: 'ទឹកមុខមានសិរីសួស្តី ភ្លឺថ្លាចេញពីខាងក្នុង មិនបាច់តុបតែងច្រើន។' },
+  { no: '១០', pali: 'Asammūḷho kālaṁ karoti', km: 'មិនវង្វេងស្មារតីពេលស្លាប់', desc: 'ពេលជិតផុតដង្ហើម មានសតិដឹងខ្លួនច្បាស់ មិនស្លន់ស្លោ ទៅកាន់សុគតិភព។' },
+  { no: '១១', pali: 'Brahmalokūpago hoti', km: 'កើតក្នុងព្រហ្មលោក', desc: 'បើមិនទាន់សម្រេចមគ្គផលទេ អានុភាពមេត្តានឹងនាំបដិសន្ធិទៅកើតក្នុងព្រហ្មលោក។' }
 ]
 
 function triggerRadiate() {

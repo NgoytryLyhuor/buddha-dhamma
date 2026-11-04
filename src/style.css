@@ -162,9 +162,23 @@ h1, h2, h3, h4, h5, h6 {
   overflow-wrap: anywhere;
 }
 
-.lang-pick {
+/* Anti-squishing safeguards for buttons, pills, filter tabs across all mobile devices */
+.lang-pick,
+.related-pill,
+.menu-cat-pill,
+.copy-pill,
+.sutra-num,
+.font-btn,
+.theme-btn,
+.copy-btn,
+.footer-tile,
+[class*="overflow-x-auto"] button,
+[class*="touch-pan-x"] button {
   white-space: nowrap !important;
   flex-shrink: 0 !important;
+  min-width: max-content !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
 }
 
 /* Global Modal Pop Transition */
@@ -208,7 +222,7 @@ body {
   transition: background 0.35s, color 0.35s;
   min-height: 100vh;
   overflow-x: clip;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   background-image: radial-gradient(rgba(168,100,0,0.035) 0.5px, transparent 0.5px);
   background-size: 12px 12px;
 }
@@ -1363,7 +1377,6 @@ html.high-contrast.dark [style*="background-color: var(--accent)"],
 html.high-contrast.dark [style*="background-color:var(--accent)"],
 html.high-contrast.dark [style*="background: var(--accent-bright)"],
 html.high-contrast.dark [style*="background:var(--accent-bright)"],
-html.high-contrast.dark [style*="linear-gradient"],
 html.high-contrast.dark .menu-cat-pill.active,
 html.high-contrast.dark .menu-sheet-card.active .menu-card-num,
 html.high-contrast.dark .menu-card-current,
@@ -1385,7 +1398,6 @@ html.high-contrast:not(.dark) [style*="background-color: var(--accent)"],
 html.high-contrast:not(.dark) [style*="background-color:var(--accent)"],
 html.high-contrast:not(.dark) [style*="background: var(--accent-bright)"],
 html.high-contrast:not(.dark) [style*="background:var(--accent-bright)"],
-html.high-contrast:not(.dark) [style*="linear-gradient"],
 html.high-contrast:not(.dark) .menu-cat-pill.active,
 html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-num,
 html.high-contrast:not(.dark) .menu-card-current,
@@ -1486,4 +1498,17 @@ html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-badge {
 }
 .menu-floating-close-btn:active {
   transform: scale(0.95);
+}
+
+/* Modern Footer Tile Styles */
+.footer-tile {
+  text-decoration: none;
+  min-height: 68px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.footer-tile:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px var(--halo);
 }

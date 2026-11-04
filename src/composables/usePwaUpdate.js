@@ -12,43 +12,71 @@ function checkForUpdate() {
   }
 }
 
+function attachWorkerListeners(registration) {
+  if (!registration) return
+
+  // 1. If an update is already waiting, trigger immediately!
+  if (registration.waiting) {
+    needRefresh.value = true
+    return
+  }
+
+  // 2. If a worker is currently installing, wait for installed state
+  if (registration.installing) {
+    trackInstalling(registration.installing)
+  }
+
+  // 3. Listen for future updates
+  registration.addEventListener('updatefound', () => {
+    if (registration.installing) {
+      trackInstalling(registration.installing)
+    }
+  })
+}
+
+function trackInstalling(worker) {
+  if (!worker) return
+  worker.addEventListener('statechange', () => {
+    if (worker.state === 'installed') {
+      if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        needRefresh.value = true
+      }
+    }
+  })
+}
+
 function usePwaUpdate() {
-  if (!started) {
+  if (!started && typeof window !== 'undefined' && 'serviceWorker' in navigator) {
     started = true
     updateSW = registerSW({
       immediate: true,
       onRegisteredSW(swUrl, registration) {
         swRegistration = registration
         if (registration) {
-          // 1. If an update is already waiting to activate, trigger toast immediately!
-          if (registration.waiting) {
-            needRefresh.value = true
-          }
+          attachWorkerListeners(registration)
 
-          // 2. Check for update immediately upon registration
+          // Instant check upon registration
           registration.update().catch(() => {})
 
-          // 3. Fast periodic check every 10 seconds while the website is active
+          // Ultra-responsive check interval (every 4 seconds)
           setInterval(() => {
             registration.update().catch(() => {})
-          }, 10000)
+          }, 4000)
 
-          // 4. Instant check when tab regains focus or visibility
-          if (typeof document !== 'undefined') {
-            document.addEventListener('visibilitychange', () => {
-              if (document.visibilityState === 'visible') {
-                registration.update().catch(() => {})
-              }
-            })
-          }
-          if (typeof window !== 'undefined') {
-            window.addEventListener('focus', () => {
+          // Instant check on tab visibility change
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
               registration.update().catch(() => {})
-            })
-            window.addEventListener('online', () => {
-              registration.update().catch(() => {})
-            })
-          }
+            }
+          })
+
+          // Instant check on focus and online
+          window.addEventListener('focus', () => {
+            registration.update().catch(() => {})
+          })
+          window.addEventListener('online', () => {
+            registration.update().catch(() => {})
+          })
         }
       },
       onNeedRefresh() {

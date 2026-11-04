@@ -1,44 +1,44 @@
 <template>
   <div>
     <!-- Header (logo + settings only; navigation lives in bottom bar) -->
-    <header class="sticky top-0 z-50" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
-      <div class="max-w-4xl mx-auto px-4 py-2 sm:py-2.5">
-        <div class="flex items-center justify-between gap-3">
-          <router-link to="/" class="flex items-center gap-2 group min-w-0" style="color: var(--ink)">
-            <span class="logo-ico leading-none shrink-0" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
-            <span class="block min-w-0">
-              <span class="block truncate font-display logo-title leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
-              <span class="hidden sm:block logo-sub tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
+    <header class="sticky top-0 z-50 h-14 sm:h-16" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
+      <div class="w-full max-w-4xl mx-auto px-4 h-full flex flex-col justify-center relative">
+        <div class="flex items-center justify-between gap-3 h-full">
+        <router-link to="/" class="flex items-center gap-2 sm:gap-2.5 group min-w-0 my-auto" style="color: var(--ink)">
+          <span class="logo-ico leading-none shrink-0 flex items-center" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
+          <span class="block min-w-0">
+            <span class="block truncate font-display logo-title leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
+            <span class="hidden sm:block logo-sub tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
+          </span>
+        </router-link>
+
+        <div class="flex items-center gap-2 my-auto">
+          <!-- Desktop only: clean button to open all pages -->
+          <button
+            type="button"
+            class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-bold transition cursor-pointer my-auto"
+            @click="openMenu"
+            :class="menuOpen ? 'active' : ''"
+            :style="{
+              background: menuOpen ? 'var(--accent-soft)' : 'var(--bg-card)',
+              color: menuOpen ? 'var(--accent)' : 'var(--ink)',
+              border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
+            }"
+            :title="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
+            :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <span>{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
+              :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
+              {{ nav.length }}
             </span>
-          </router-link>
+          </button>
 
-          <div class="flex items-center gap-2">
-            <!-- Desktop only: clean button to open all 41 pages (Hidden on mobile where bottom nav is used) -->
-            <button
-              type="button"
-              class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-bold transition cursor-pointer"
-              @click="openMenu"
-              :class="menuOpen ? 'active' : ''"
-              :style="{
-                background: menuOpen ? 'var(--accent-soft)' : 'var(--bg-card)',
-                color: menuOpen ? 'var(--accent)' : 'var(--ink)',
-                border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
-              }"
-              :title="t('ម៉ឺនុយទាំងអស់ (១០៤)', 'All Pages (104)')"
-              :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-              <span>{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
-              <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
-                :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
-                {{ nav.length }}
-              </span>
-            </button>
-
-            <!-- Settings icon button (square icon button) -->
-            <button ref="settingsBtnRef" class="theme-btn shrink-0" @click="settingsOpen = !settingsOpen"
-              :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
-              :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
+          <!-- Settings icon button (perfectly centered on mobile and desktop) -->
+          <button ref="settingsBtnRef" class="theme-btn shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl my-auto flex items-center justify-center cursor-pointer" @click="settingsOpen = !settingsOpen"
+            :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
+            :title="t('ការកំណត់', 'Settings')" :aria-label="t('ការកំណត់', 'Settings')">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </button>
           </div>
@@ -216,128 +216,100 @@
     </main>
 
     <!-- Redesigned Modern Buddhist Footer -->
-    <footer class="max-w-4xl mx-auto px-4 pb-12 text-center">
-      <div class="card-paper p-5 sm:p-7 rounded-2xl border" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }">
-        <!-- Top header of footer -->
+    <footer class="max-w-4xl mx-auto px-4 pb-14 text-center">
+      <div class="card-paper p-4 sm:p-6 rounded-2xl border shadow-sm relative overflow-hidden" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }">
+        <!-- Decorative Gold Hairline -->
+        <div class="absolute top-0 left-0 right-0 h-[2px]" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.7;"></div>
+
+        <!-- Top Header & Sacred Verse -->
         <div class="flex flex-col items-center">
-          <span class="w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-xs"
-            :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }" aria-hidden="true">
+          <span class="w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-xs border"
+            :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent)' }" aria-hidden="true">
             ☸️
           </span>
-          <h3 class="font-display text-base sm:text-lg font-bold mt-2.5" :style="{ color: 'var(--ink)' }">
+          <h3 class="font-display text-base sm:text-lg font-bold mt-2" :style="{ color: 'var(--ink)' }">
             {{ t('ចែករំលែក និង ចូលរួមចំណែក', 'Share and Contribute') }}
           </h3>
-          <p class="text-xs mt-1 max-w-md mx-auto" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('ជួយផ្សព្វផ្សាយពាក្យព្រះ ឬជួយកែពាក្យខ្មែរឱ្យកាន់តែត្រឹមត្រូវ', 'Help share the Dhamma or report a spelling mistake') }}
+          <p class="text-[11px] sm:text-xs mt-0.5 paali font-serif italic" :style="{ color: 'var(--accent)' }">
+            « សព្វទានំ ធម្មទានំ ជិនាតិ — ការឱ្យធម្មទាន ឈ្នះអស់ទានទាំងពួង »
           </p>
         </div>
 
-        <!-- 3 Interactive Cards (1 column on mobile, 3 columns on tablet/desktop) -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+        <!-- 3 Modern Action Cards: 3 compact columns on mobile, beautiful tiles on tablet/desktop -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 mt-4">
           <!-- Button 1: Telegram Share -->
           <a
             :href="shareTelegram"
             target="_blank"
             rel="noopener"
-            class="footer-action-card group"
+            class="footer-tile group flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-xl border transition active:scale-95"
             :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+            :title="t('ចែករំលែកតាម Telegram', 'Share on Telegram')"
           >
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 group-hover:scale-105 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
               </svg>
             </div>
-            <div class="flex-1 min-w-0 text-left">
-              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" :style="{ color: 'var(--ink)' }">
-                Telegram
-              </div>
-              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
-                {{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}
-              </div>
-            </div>
-            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
+            <span class="font-bold text-[11px] sm:text-xs mt-1.5 truncate group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" :style="{ color: 'var(--ink)' }">
+              Telegram
+            </span>
+            <span class="text-[10px] hidden sm:block truncate mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+              {{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}
+            </span>
           </a>
 
-          <!-- Button 2: Report Khmer Spelling -->
+          <!-- Button 2: Report Spelling -->
           <a
             :href="reportUrl"
             target="_blank"
             rel="noopener"
-            class="footer-action-card group"
+            class="footer-tile group flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-xl border transition active:scale-95"
             :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+            :title="t('ចង្អុលពាក្យខុស', 'Report Spelling')"
           >
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 20h9"></path>
                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
               </svg>
             </div>
-            <div class="flex-1 min-w-0 text-left">
-              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" :style="{ color: 'var(--ink)' }">
-                {{ t('ចង្អុលពាក្យខុស', 'Report Spelling') }}
-              </div>
-              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
-                {{ t('ជួយកែពាក្យឱ្យត្រឹមត្រូវ', 'Help fix a typo') }}
-              </div>
-            </div>
-            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
+            <span class="font-bold text-[11px] sm:text-xs mt-1.5 truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" :style="{ color: 'var(--ink)' }">
+              {{ t('កែពាក្យខុស', 'Typo Report') }}
+            </span>
+            <span class="text-[10px] hidden sm:block truncate mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+              {{ t('ជួយកែឱ្យត្រឹមត្រូវ', 'Help fix spelling') }}
+            </span>
           </a>
 
           <!-- Button 3: Send Feedback -->
           <button
             type="button"
             @click="openFeedback"
-            class="footer-action-card group text-left cursor-pointer"
+            class="footer-tile group flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-xl border transition active:scale-95 cursor-pointer"
             :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+            :title="t('ផ្តល់យោបល់', 'Send Feedback')"
           >
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 group-hover:scale-105 transition-transform">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shrink-0 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
             </div>
-            <div class="flex-1 min-w-0 text-left">
-              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" :style="{ color: 'var(--ink)' }">
-                {{ t('ផ្តល់យោបល់', 'Send Feedback') }}
-              </div>
-              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
-                {{ t('ផ្ញើសារទៅអ្នកអភិវឌ្ឍ', 'Message developer') }}
-              </div>
-            </div>
-            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
+            <span class="font-bold text-[11px] sm:text-xs mt-1.5 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" :style="{ color: 'var(--ink)' }">
+              {{ t('ផ្តល់យោបល់', 'Feedback') }}
+            </span>
+            <span class="text-[10px] hidden sm:block truncate mt-0.5" :style="{ color: 'var(--ink-muted)' }">
+              {{ t('ផ្ញើសារទៅអ្នកអភិវឌ្ឍ', 'Message developer') }}
+            </span>
           </button>
         </div>
 
-        <!-- Scripture quote divider & text -->
-        <div class="mt-6 pt-5 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
-          <p class="font-serif italic text-xs sm:text-sm leading-relaxed max-w-xl mx-auto" :style="{ color: 'var(--ink-soft)' }">
-            {{ t('«សទ្ធា និងបញ្ញា គឺជាគូគ្មានពីរ — សិក្សាដោយគោរព បដិបត្តិដោយពិចារណា»', '“Faith and wisdom go together — study with respect, practise with reflection.”') }}
-          </p>
-          <p class="text-[11px] font-semibold mt-1.5" :style="{ color: 'var(--accent)' }">
-            {{ t('☸️ សព្វទានំ ធម្មទានំ ជិនាតិ — ការឱ្យនូវធម៌ ឈ្នះអស់ទានទាំងពួង', 'Sabba dānaṁ dhamma dānaṁ jināti — The gift of Dhamma excels all gifts.') }}
-          </p>
+        <!-- Footer Bottom Note -->
+        <div class="mt-4 pt-3 border-t flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-[11px]" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+          <span>{{ t('បោះពុម្ពផ្សាយជាធម្មទាន ដើម្បីសេចក្តីស្ងប់សុខនៃមនុស្សជាតិ', 'Published as Dhamma Dana for the peace of humanity') }}</span>
+          <span class="paali font-semibold" :style="{ color: 'var(--accent)' }">សព្វេ សត្តា សុខិតា ហោន្តុ</span>
         </div>
-      </div>
-
-      <!-- Developer tribute & version info -->
-      <div class="mt-5 space-y-1.5">
-        <p class="text-xs flex items-center justify-center gap-1.5 flex-wrap" :style="{ color: 'var(--ink-muted)' }">
-          <span>{{ t('បង្កើតឡើងដោយសទ្ធាជ្រះថ្លា ៖', 'Created with devotion by:') }}</span>
-          <a
-            href="https://t.me/ngoytrylyhuor"
-            target="_blank"
-            rel="noopener"
-            class="inline-flex items-center gap-1 font-bold px-2.5 py-0.5 rounded-full border transition hover:opacity-85"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent)' }"
-          >
-            <span>{{ t('ឧបាសកង៉ុយទ្រី លីហួរ', 'Upāsaka NGOYTRY LYHUOR') }}</span>
-            <span class="text-[10px] opacity-75">(NGOYTRY LYHUOR)</span>
-            <span class="text-sky-500 text-xs">↗</span>
-          </a>
-        </p>
-        <p class="text-[10px] tracking-wider uppercase opacity-70" :style="{ color: 'var(--ink-faint)' }">
-          Buddha Dhamma &#183; 2026 &#183; v1.0.2 &#183; {{ t('ធម្មទានឥតគិតថ្លៃ', 'Free Dhamma Gift') }}
-        </p>
       </div>
     </footer>
 

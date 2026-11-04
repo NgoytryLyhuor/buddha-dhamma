@@ -250,6 +250,12 @@ import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
 
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  if (n === null || n === undefined) return ''
+  return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
+}
+
 const activeSection = ref('mechanism')
 
 const sections = [
@@ -259,5 +265,62 @@ const sections = [
   { id: 'cetana', icon: '✨', km: 'ចេតនា ៣ កាល', en: '3 Pure Volitions' },
   { id: 'guide', icon: '📜', km: 'វិធីឧទ្ទិសជាក់ស្តែង & បាលី', en: 'Dedication Guide & Pali' },
   { id: 'all', icon: '📜', km: 'បង្ហាញទាំងអស់', en: 'Show All' }
+]
+
+const threeConditions = [
+  {
+    num: '១',
+    titleKm: '១. ទាយកស្ស បត្តិទានំ (ម្ចាស់ទានឧទ្ទិសចំឈ្មោះ)',
+    titleEn: '1. Conscious Dedication by the Giver',
+    descKm: 'ម្ចាស់ទាន (ទាយក) ត្រូវតាំងចិត្តជ្រះថ្លា ធ្វើទានប្រកបដោយចេតនាបរិសុទ្ធ ៣ កាល ហើយច្រូចទឹក ឬតាំងចិត្តឧទ្ទិសចំឈ្មោះញាតិដែលចែកឋានទៅ ដោយមិនមែនធ្វើទានលេងៗឡើយ។',
+    descEn: 'The donor performs authentic charity with pure volition across the three periods and explicitly directs the spiritual merit to the departed kin.'
+  },
+  {
+    num: '២',
+    titleKm: '២. បដិគ្គាហកស្ស គុណវន្តតា (អ្នកទទួលទានមានគុណធម៌)',
+    titleEn: '2. Virtue of the Alms Recipient',
+    descKm: 'អ្នកទទួលទាន ដូចជាព្រះសង្ឃ ឬអ្នកមានសីលបរិសុទ្ធ ត្រូវជាស្រែបុណ្យដ៏ប្រសើរ (បុញ្ញក្ខេត្ត)។ កាលបើស្រែបុណ្យល្អ ទាននោះរមែងផ្តល់ផលធំទូលាយ បង្កើតរស្មីកុសលយ៉ាងខ្លាំងក្លា។',
+    descEn: 'The recipient of the physical gift must be virtuous (such as the noble Sangha), providing a fertile field of merit that maximizes the karmic yield.'
+  },
+  {
+    num: '៣',
+    titleKm: '៣. បេតស្ស អនុមោទនា (ប្រេតដឹងឮ និងត្រេកអរ «សាធុ!»)',
+    titleEn: '3. Joyful Rejoicing of the Departed (Sādhu)',
+    descKm: 'ប្រេតដែលជាបរទត្តូបជីវី ត្រូវដឹងឮការឧទ្ទិស ហើយបន្លឺវាចា ឬតាំងចិត្តជ្រះថ្លាអនុមោទនា «សាធុ!»។ បើគេមិនអនុមោទនាទេ បុណ្យមិនអាចជ្រាបចូលបានឡើយ តែនឹងត្រឡប់មកម្ចាស់ទានវិញ ១០០%។',
+    descEn: 'The departed being (specifically Paradattūpajīvī Peta) must become aware of the offering and generate joyous appreciation (Anumodanā) by saying "Sādhu!".'
+  }
+]
+
+const tirokuddaVerses = [
+  {
+    verse: '១',
+    pali: 'Tirokuḍḍesu tiṭṭhanti, sandhisiṅghāṭakesu ca; Dvārabāhāsu tiṭṭhanti, āgantvāna sakaṁ gharaṁ.',
+    km: 'ពួកប្រេតញាតិដែលចែកឋានទៅ បានវិលត្រឡប់មកកាន់ផ្ទះចាស់របស់ខ្លួន ឈរនៅក្រៅជញ្ជាំង ឈរនៅផ្លូវបំបែក ផ្លូវប្រសព្វ ឈរក្បែរទ្វារផ្ទះ រង់ចាំមើលថាតើញាតិនឹងធ្វើបុណ្យឧទ្ទិសមកឱ្យខ្លួនដែរឬទេ។',
+    en: 'They stand outside the walls, at crossroads and junctions; they linger near doorposts, returning to their former homes waiting for merits.'
+  },
+  {
+    verse: '២',
+    pali: 'Pahūte annapānamhi, khajjabhojje upaṭṭhite; Na tesaṁ koci sarati, sattānaṁ kammapaccayā.',
+    km: 'កាលបើញាតិដែលនៅរស់ រៀបចំម្ហូបអាហារ បាយ ទឹក នំចំណីដ៏ច្រើនបរិបូរណ៍ តែគ្មានញាតិណាម្នាក់នឹកឃើញដល់ប្រេតទាំងនោះឡើយ នេះមកពីអកុសលកម្មរបស់សត្វទាំងនោះជាឧបសគ្គរារាំង។',
+    en: 'Even when abundant food, drink, and savory dishes are prepared, no one remembers them, hindered by their own past unwholesome karma.'
+  },
+  {
+    verse: '៣',
+    pali: 'Evaṁ dadanti ñātīnaṁ, ye honti anukampakā; Suciṁ paṇីtaṁ kālena, kappiyaṁ pānabhojanaṁ; Idaṁ vo ñātīnaṁ hotu, sukhitā hontu ñātayo.',
+    km: 'រីឯជនទាំងឡាយណាដែលមានសេចក្តីអាណិតអាសូរ រមែងធ្វើទាននូវបាយ ទឹក និងភោជនាហារដ៏ស្អាត ដ៏ផ្អែមពិសា តាមកាលវេលាដ៏សមគួរ ហើយឧទ្ទិសថា៖ «សូមទាននេះសម្រេចដល់ញាតិទាំងឡាយរបស់ខ្ញុំ សូមឱ្យញាតិទាំងឡាយបានដល់នូវសេចក្តីសុខចុះ!»។',
+    en: 'Therefore the compassionate offer clean, refined, timely nourishment: "May this be for our relatives; may our relatives be well and happy!"'
+  },
+  {
+    verse: '៤',
+    pali: 'Te ca tattha samāgantvā, ñātipetā samāgatā; Pahūte annapānamhi, sakkaccaṁ anumodare; Ciraṁ jīvantu no ñātī, yesaṁ hetu labhāmase; Amhākañca katā pūjā, dāyakā ca anipphalā.',
+    km: 'ពួកប្រេតញាតិទាំងឡាយដែលបានមកជួបជុំគ្នាក្នុងទីនោះ កាលបើឃើញបាយទឹកដ៏ច្រើន ក៏អនុមោទនាដោយគោរពថា៖ «សូមញាតិទាំងឡាយរបស់យើង ដែលធ្វើឱ្យយើងបានទទួលអាហារនេះ មានអាយុយឺនយូរ! ការបូជាដែលញាតិធ្វើហើយចំពោះយើង មិនមែនជាទានឥតផលឡើយ!»។',
+    en: 'Gathering there, the departed spirits respectfully rejoice in the feast: "May our relatives live long, through whom we have received this blessing! Honor has been paid to us, and the donors shall not lack reward!"'
+  },
+  {
+    verse: '៥',
+    pali: 'Yathā vārivahā pūrā, paripūrenti sāgaraṁ; Evameva ito dinnaṁ, petānaṁ upakappati.',
+    km: 'ដូចជាទឹកស្ទឹងទន្លេដែលពេញ រមែងហូរបំពេញមហាសមុទ្រឱ្យពេញប្រៀបយ៉ាងណា ទានដែលម្ចាស់ទានឧទ្ទិសពីលោកនេះ រមែងជ្រាបដល់ពួកប្រេតយ៉ាងនោះឯង។',
+    en: 'Just as swollen rivers fill up the ocean, even so what is dedicated here from this world benefits those in the spirit realm.'
+  }
 ]
 </script>

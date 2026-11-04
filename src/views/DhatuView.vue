@@ -43,7 +43,7 @@
       <div
         v-for="(d, idx) in filteredDhatu"
         :key="d.pali"
-        @click="openModal(d, idx)"
+        
         class="card-paper card-paper-hover p-4 sm:p-5 rounded-2xl cursor-pointer flex flex-col justify-between space-y-3 border transition-all duration-200 hover:-translate-y-0.5"
       >
         <div class="space-y-2">
@@ -68,11 +68,62 @@
           </p>
         </div>
 
-        <div class="pt-2 flex items-center justify-between gap-2 text-xs border-t" :style="{ borderColor: 'var(--border)' }">
-          <span class="text-[11px] font-mono" :style="{ color: 'var(--ink-muted)' }">#{{ khNum(d.id) }} / ១៨</span>
-          <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
-            {{ t('ពិស្តារ', 'Details') }} →
-          </span>
+        <div>
+          <div class="pt-2 flex items-center justify-between gap-2 text-xs border-t" :style="{ borderColor: 'var(--border)' }">
+            <span class="text-[11px] font-mono" :style="{ color: 'var(--ink-muted)' }">#{{ khNum(d.id) }} / ១៨</span>
+            <button
+              type="button"
+              @click="toggleExpand(d.id)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === d.id ? 'on' : ''"
+            >
+              <span>{{ expandedId === d.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
+          </div>
+
+          <!-- Slide-down Inline Expansion -->
+          <transition name="slide-down">
+            <div v-if="expandedId === d.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Type & Role pills -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ប្រភេទធាតុ', 'Element Type') }}</span>
+                  <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(d.typeKm, d.typeEn) }}</p>
+                </div>
+                <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('តួនាទីក្នុងវិញ្ញាណ', 'Perceptual Role') }}</span>
+                  <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(d.roleKm, d.roleEn) }}</p>
+                </div>
+              </div>
+
+              <!-- Deep Explanation -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                  <span>📖</span>
+                  <span>{{ t('អត្ថន័យតាមគម្ពីរអភិធម្ម', 'Abhidhamma Analysis') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(d.detailKm, d.detailEn) }}</p>
+              </div>
+
+              <!-- Meditative Insight -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                  <span>🧘</span>
+                  <span>{{ t('ការពិចារណាក្នុងវិបស្សនា (អនត្តា)', 'Insight Contemplation (Anattā)') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(d.insightKm, d.insightEn) }}</p>
+              </div>
+
+              <button
+                type="button"
+                @click="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+              >
+                {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+              </button>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -102,142 +153,7 @@
       </div>
     </div>
 
-    <!-- DETAIL POP-UP MODAL -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeDhatu"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-3 min-w-0 flex-1">
-                <span class="text-3xl sm:text-4xl p-2 rounded-2xl border shrink-0" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-                  {{ activeDhatu.icon }}
-                </span>
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                      #{{ khNum(activeDhatu.id) }} / ១៨
-                    </span>
-                    <h3 class="font-display text-base sm:text-xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                      {{ t(activeDhatu.nameKm, activeDhatu.nameEn) }}
-                    </h3>
-                  </div>
-                  <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
-                    {{ activeDhatu.pali }}
-                  </p>
-                </div>
-              </div>
-
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Line -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Classification Box -->
-              <div class="verse-box p-4 rounded-xl space-y-1">
-                <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
-                  🧬 {{ t('ការចាត់ថ្នាក់ក្នុងបរមត្ថធម៌', 'Ultimate Classification') }}
-                </span>
-                <p class="font-semibold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeDhatu.typeKm, activeDhatu.typeEn) }}
-                </p>
-                <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeDhatu.roleKm, activeDhatu.roleEn) }}
-                </p>
-              </div>
-
-              <!-- Full Definition -->
-              <div class="p-4 rounded-xl space-y-1.5 border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  📖 {{ t('និយមន័យ និងមុខងារធម្មជាតិ', 'Definition & Function') }}
-                </span>
-                <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeDhatu.detailKm, activeDhatu.detailEn) }}
-                </p>
-              </div>
-
-              <!-- Contemplation to Dispel Self Illusion -->
-              <div class="p-4 rounded-xl space-y-1.5 border" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--border-strong)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  💡 {{ t('ការពិចារណាវិបស្សនាដើម្បីរំលត់អត្តានុទិដ្ឋិ', 'Insight Meditation Reflection') }}
-                </span>
-                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeDhatu.insightKm, activeDhatu.insightEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Sticky Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <button
-                type="button"
-                @click="prevDhatu"
-                :disabled="activeDhatuIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-              >
-                ← {{ t('មុន', 'Previous') }}
-              </button>
-
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                #{{ khNum(activeDhatuIndex + 1) }} / {{ khNum(filteredDhatu.length) }}
-              </span>
-
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextDhatu"
-                  :disabled="activeDhatuIndex >= filteredDhatu.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('បន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -254,7 +170,8 @@ function khNum(n) {
 }
 
 const activeCat = ref('all')
-const activeDhatu = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const categories = [
   { id: 'all', km: 'ធាតុទាំង ១៨', en: 'All 18 Elements', icon: '☸', count: 18 },
@@ -321,45 +238,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(d, idx) {
-  activeDhatu.value = d
-  lockBodyScroll()
-}
-
-function closeModal() {
-  activeDhatu.value = null
-  unlockBodyScroll()
-}
-
-function prevDhatu() {
-  const idx = activeDhatuIndex.value
-  if (idx > 0) {
-    activeDhatu.value = filteredDhatu.value[idx - 1]
-  }
-}
-
-function nextDhatu() {
-  const idx = activeDhatuIndex.value
-  if (idx < filteredDhatu.value.length - 1) {
-    activeDhatu.value = filteredDhatu.value[idx + 1]
-  }
-}
-
-function handleKeydown(e) {
-  if (!activeDhatu.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevDhatu()
-  else if (e.key === 'ArrowRight') nextDhatu()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

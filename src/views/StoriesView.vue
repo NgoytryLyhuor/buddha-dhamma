@@ -40,11 +40,11 @@
         v-for="(s, i) in filteredStories"
         :key="s.en"
         :id="s.slug || ('story-' + i)"
-        @click="openModal(s, i)"
+        
         class="card-paper card-paper-hover p-5 sm:p-6 cursor-pointer flex flex-col justify-between space-y-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5 scroll-mt-24"
         role="button"
         tabindex="0"
-        @keydown.enter="openModal(s, i)"
+        @keydown.enter="toggleExpand(s.slug || ('story-' + i))"
         :aria-label="t('អានរឿង ' + s.km, 'Read story ' + s.en)"
       >
         <div class="space-y-3">
@@ -86,14 +86,56 @@
         </div>
 
         <!-- Card Footer Action -->
-        <div class="pt-3 flex items-center justify-between gap-2 text-xs border-t" :style="{ borderColor: 'var(--border)' }">
-          <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded shrink-0" :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
-            💡 {{ t('មេរៀនជីវិត', 'Life Lesson') }}
-          </span>
-          <span class="font-bold flex items-center gap-1 transition-transform group-hover:translate-x-1" :style="{ color: 'var(--accent-bright)' }">
-            {{ t('អានរឿងពិស្តារ', 'Read Full Story') }}
-            <span class="text-sm">→</span>
-          </span>
+        <div>
+          <div class="pt-3 flex items-center justify-between gap-2 text-xs border-t" :style="{ borderColor: 'var(--border)' }">
+            <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded shrink-0" :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
+              💡 {{ t('មេរៀនជីវិត', 'Life Lesson') }}
+            </span>
+            <button
+              type="button"
+              @click.stop="toggleExpand(s.slug || ('story-' + i))"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+              :class="expandedId === (s.slug || ('story-' + i)) ? 'on' : ''"
+            >
+              <span>{{ expandedId === (s.slug || ('story-' + i)) ? t('បិទ ▲', 'Hide ▲') : t('អានរឿងពិស្តារ ▼', 'Read Story ▼') }}</span>
+            </button>
+          </div>
+
+          <!-- Slide-down Inline Expansion -->
+          <transition name="slide-down">
+            <div v-if="expandedId === (s.slug || ('story-' + i))" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Full Story Paragraphs -->
+              <div class="space-y-3 font-serif" :style="{ color: 'var(--ink)' }">
+                <p v-for="(p, pIdx) in s.paras" :key="pIdx" class="leading-relaxed indent-4">
+                  {{ p }}
+                </p>
+              </div>
+
+              <!-- Essence Verse -->
+              <div class="p-3.5 rounded-xl border-l-4 font-serif text-center space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent)' }">{{ t('គតិធម៌សង្ខេប', 'Core Essence') }}</span>
+                <p class="italic font-bold">«{{ s.essenceK }}»</p>
+                <p v-if="s.essenceE" class="text-xs opacity-80">{{ s.essenceE }}</p>
+              </div>
+
+              <!-- Life Lesson -->
+              <div class="p-3.5 rounded-xl border space-y-1.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <span class="font-bold text-[11px] uppercase tracking-wider block text-emerald-600">
+                  💡 {{ t('មេរៀនជីវិត និងការអនុវត្តប្រចាំថ្ងៃ', 'Key Life Lesson') }}
+                </span>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(s.lessonK, s.lessonE) }}</p>
+              </div>
+
+              <button
+                type="button"
+                @click.stop="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+              >
+                {{ t('បិទរឿង ▲', 'Close Story ▲') }}
+              </button>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -106,174 +148,7 @@
     </div>
 
     <!-- REDESIGNED DETAIL POP-UP MODAL -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeModalStory"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-          :aria-label="t(activeModalStory.km, activeModalStory.en)"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Pull / Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="min-w-0 flex-1 space-y-1">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span
-                    class="text-[10px] sm:text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border truncate"
-                    :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent)' }"
-                  >
-                    {{ activeModalStory.src }}
-                  </span>
-                  <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                    #{{ khNum(activeStoryIndex + 1) }}
-                  </span>
-                </div>
-
-                <h3 class="font-display text-base sm:text-xl md:text-2xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalStory.km, activeModalStory.en) }}
-                </h3>
-
-                <p v-if="activeModalStory.en" class="text-xs italic" :style="{ color: 'var(--ink-muted)' }">
-                  {{ activeModalStory.en }}
-                </p>
-              </div>
-
-              <!-- Close Button (40px touch friendly) -->
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Hairline -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Scrollable Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-5 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Context / Background Alert Box -->
-              <div
-                class="p-3.5 sm:p-4 rounded-xl flex items-start gap-3 border"
-                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
-              >
-                <span class="text-2xl shrink-0">📜</span>
-                <div class="space-y-0.5">
-                  <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent)' }">
-                    {{ t('បរិបទនៃរឿង (Story Context)', 'Context & Origin') }}
-                  </span>
-                  <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                    {{ t(activeModalStory.noteK, activeModalStory.noteE) }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Story Narrative Paragraphs -->
-              <div class="space-y-4">
-                <p
-                  v-for="(p, pIdx) in activeModalStory.paras"
-                  :key="pIdx"
-                  class="leading-loose text-sm sm:text-base text-justify"
-                  :style="{ color: 'var(--ink)' }"
-                >
-                  {{ t(p.km, p.en) }}
-                </p>
-              </div>
-
-              <!-- Essence / Verse Box -->
-              <div
-                class="verse-box p-4 sm:p-6 rounded-2xl text-center space-y-2 border shadow-xs"
-                :style="{ borderColor: 'var(--border-strong)' }"
-              >
-                <span class="text-2xl block">☸</span>
-                <p class="text-base sm:text-lg md:text-xl font-bold leading-relaxed" :style="{ color: 'var(--ink)' }">
-                  «{{ activeModalStory.essenceK }}»
-                </p>
-                <p class="text-xs sm:text-sm italic leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ activeModalStory.essenceE }}
-                </p>
-              </div>
-
-              <!-- Moral Lesson Card -->
-              <div
-                class="p-4 sm:p-5 rounded-2xl border space-y-1.5"
-                :style="{ background: 'var(--accent-soft)', borderColor: 'var(--border-strong)' }"
-              >
-                <div class="flex items-center gap-2">
-                  <span class="text-lg">💡</span>
-                  <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest" :style="{ color: 'var(--accent)' }">
-                    {{ t('មេរៀនសំខាន់សម្រាប់ជីវិត (Life Lesson)', 'Practical Life Lesson') }}
-                  </span>
-                </div>
-                <p class="text-xs sm:text-sm leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalStory.lessonK, activeModalStory.lessonE) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Sticky Modal Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <!-- Previous Story Button -->
-              <button
-                type="button"
-                @click="prevStory"
-                :disabled="activeStoryIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-              >
-                ← {{ t('រឿងមុន', 'Previous') }}
-              </button>
-
-              <!-- Story Counter -->
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                {{ t('រឿងទី', 'Story') }} {{ khNum(activeStoryIndex + 1) }} / {{ khNum(stories.length) }}
-              </span>
-
-              <!-- Next Story & Close Actions -->
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextStory"
-                  :disabled="activeStoryIndex >= stories.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('រឿងបន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -292,7 +167,8 @@ function khNum(n) {
 }
 
 const searchQuery = ref('')
-const activeModalStory = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 const activeStoryIndex = ref(0)
 
 const stories = [
@@ -480,63 +356,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(story, idx) {
-  activeModalStory.value = story
-  activeStoryIndex.value = typeof story.originalIndex === 'number' ? story.originalIndex : idx
-  lockBodyScroll()
-  if (story.slug) {
-    history.replaceState(null, '', '#' + story.slug)
-  } else {
-    history.replaceState(null, '', '#story-' + activeStoryIndex.value)
-  }
-}
-
-function closeModal() {
-  activeModalStory.value = null
-  unlockBodyScroll()
-  if (route.hash) {
-    history.replaceState(null, '', window.location.pathname + window.location.search)
-  }
-}
-
-function prevStory() {
-  if (activeStoryIndex.value > 0) {
-    activeStoryIndex.value--
-    activeModalStory.value = stories[activeStoryIndex.value]
-  }
-}
-
-function nextStory() {
-  if (activeStoryIndex.value < stories.length - 1) {
-    activeStoryIndex.value++
-    activeModalStory.value = stories[activeStoryIndex.value]
-  }
-}
-
-function handleKeydown(e) {
-  if (!activeModalStory.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevStory()
-  else if (e.key === 'ArrowRight') nextStory()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-
-  // Support direct deep link
-  if (route.hash) {
-    const raw = route.hash.replace('#', '')
-    const idx = stories.findIndex((s, i) => s.slug === raw || ('story-' + i) === raw)
-    if (idx !== -1) {
-      openModal(stories[idx], idx)
-    }
-  }
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

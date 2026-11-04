@@ -69,7 +69,7 @@
         <div
           v-for="item in rajadhammaList"
           :key="item.id"
-          @click="openModal(item)"
+          
           class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between h-full"
         >
           <div>
@@ -93,14 +93,62 @@
             </p>
           </div>
 
-          <div class="pt-3 mt-3 flex items-center justify-between text-[11px]" :style="{ borderTop: '1px solid var(--border)' }">
-            <span class="flex items-center gap-1" :style="{ color: 'var(--ink-muted)' }">
-              <span>💼</span>
-              <span>{{ t(item.modernShortKm, item.modernShortEn) }}</span>
-            </span>
-            <span class="font-medium" :style="{ color: 'var(--accent-bright)' }">
-              {{ t('មើលលម្អិត →', 'Details →') }}
-            </span>
+          <div>
+            <div class="pt-3 mt-3 flex items-center justify-between text-[11px]" :style="{ borderTop: '1px solid var(--border)' }">
+              <span class="flex items-center gap-1" :style="{ color: 'var(--ink-muted)' }">
+                <span>💼</span>
+                <span>{{ t(item.modernShortKm, item.modernShortEn) }}</span>
+              </span>
+              <button
+                type="button"
+                @click="toggleExpand(item.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                :class="expandedId === item.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === item.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Expansion -->
+            <transition name="slide-down">
+              <div v-if="expandedId === item.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- Meaning -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                    <span>📖</span>
+                    <span>{{ t('អត្ថន័យ និងគោលការណ៍គ្រឹះ', 'Doctrinal Foundation') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(item.meaningKm, item.meaningEn) }}</p>
+                </div>
+
+                <!-- Modern Leadership Application -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-blue-600">
+                    <span>💼</span>
+                    <span>{{ t('ការអនុវត្តក្នុងការដឹកនាំសម័យថ្មី', 'Modern Leadership Application') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(item.modernDetailKm, item.modernDetailEn) }}</p>
+                </div>
+
+                <!-- Danger if Neglected -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: '#dc2626' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-red-500">
+                    <span>⚠️</span>
+                    <span>{{ t('គ្រោះថ្នាក់ប្រសិនបើអ្នកដឹកនាំខ្វះធម៌នេះ', 'Risk if Neglected') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(item.dangerKm, item.dangerEn) }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -235,144 +283,7 @@
       </div>
     </section>
 
-    <!-- POP-UP MODAL: REDESIGNED WITH FULL RESPONSIVENESS & QUICK READER -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedItem"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-          :aria-label="t(selectedItem.nameKm, selectedItem.nameEn)"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Pull / Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-3 min-w-0 flex-1">
-                <span class="text-3xl sm:text-4xl p-2 rounded-2xl border shrink-0" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-                  {{ selectedItem.icon }}
-                </span>
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                      #{{ selectedItem.num }}
-                    </span>
-                    <h3 class="font-display text-base sm:text-xl md:text-2xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                      {{ t(selectedItem.nameKm, selectedItem.nameEn) }}
-                    </h3>
-                  </div>
-                  <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
-                    {{ selectedItem.pali }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Close Button (40px touch friendly) -->
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Hairline -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Classical Meaning -->
-              <div class="verse-box p-4 rounded-xl space-y-1">
-                <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
-                  📜 {{ t('អត្ថន័យតាមក្បួនធម៌បុរាណ', 'Classical Buddhist Meaning') }}
-                </span>
-                <p class="font-medium text-sm sm:text-base leading-relaxed" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedItem.meaningKm, selectedItem.meaningEn) }}
-                </p>
-              </div>
-
-              <!-- Modern Leadership Application -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
-                  💼 {{ t('ការអនុវត្តក្នុងការដឹកនាំស្ថាប័នសម័យថ្មី', 'Modern Leadership & Governance') }}
-                </span>
-                <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(selectedItem.modernDetailKm, selectedItem.modernDetailEn) }}
-                </p>
-              </div>
-
-              <!-- Consequences / Danger -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--accent-soft)', border: '1px solid var(--border-strong)' }">
-                <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
-                  ⚠️ {{ t('គ្រោះថ្នាក់នៃការខ្វះគុណធម៌នេះ (Consequences of Lack):', 'Consequences of Failure:') }}
-                </span>
-                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedItem.dangerKm, selectedItem.dangerEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Sticky Modal Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <!-- Previous Item Button -->
-              <button
-                type="button"
-                @click="prevItem"
-                :disabled="currentRajadhammaIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-              >
-                ← {{ t('មុន', 'Previous') }}
-              </button>
-
-              <!-- Counter -->
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                #{{ khNum(currentRajadhammaIndex + 1) }} / {{ khNum(rajadhammaList.length) }}
-              </span>
-
-              <!-- Next Item & Close Actions -->
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextItem"
-                  :disabled="currentRajadhammaIndex >= rajadhammaList.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('បន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -388,7 +299,8 @@ function khNum(n) {
 }
 
 const activeSection = ref('rajadhamma')
-const selectedItem = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const sections = [
   { id: 'rajadhamma', icon: '👑', km: 'ទសពិធរាជធម៌ ១០', en: '10 Royal Virtues' },
@@ -773,45 +685,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(item) {
-  selectedItem.value = item
-  lockBodyScroll()
-}
-
-function closeModal() {
-  selectedItem.value = null
-  unlockBodyScroll()
-}
-
-function prevItem() {
-  const idx = currentRajadhammaIndex.value
-  if (idx > 0) {
-    selectedItem.value = rajadhammaList[idx - 1]
-  }
-}
-
-function nextItem() {
-  const idx = currentRajadhammaIndex.value
-  if (idx < rajadhammaList.length - 1) {
-    selectedItem.value = rajadhammaList[idx + 1]
-  }
-}
-
-function handleKeydown(e) {
-  if (!selectedItem.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevItem()
-  else if (e.key === 'ArrowRight') nextItem()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

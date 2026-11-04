@@ -87,9 +87,8 @@
         <div
           v-for="(c, idx) in anantariyaList"
           :key="c.id"
-          class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+          class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
           :style="{ borderColor: '#dc2626', background: 'var(--bg-card)' }"
-          @click="openModal(c)"
         >
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
@@ -119,10 +118,63 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold text-red-500"
-               :style="{ borderColor: 'var(--border)' }">
-            <span>{{ t('អានការវិភាគគម្ពីរពិស្តារ', 'Read Scriptural Analysis →') }}</span>
-            <span>→</span>
+          <div>
+            <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold text-red-500"
+                 :style="{ borderColor: 'var(--border)' }">
+              <span>{{ t('អានការវិភាគគម្ពីរពិស្តារ', 'Read Scriptural Analysis') }}</span>
+              <button
+                type="button"
+                @click="toggleExpand(c.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+                :class="expandedId === c.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === c.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Expansion -->
+            <transition name="slide-down">
+              <div v-if="expandedId === c.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- Sutta / Vinaya Reference -->
+                <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                     :style="{ background: 'var(--accent-soft)', borderColor: '#dc2626' }">
+                  <p class="italic mb-1 font-bold">« {{ c.canonicalPali }} »</p>
+                  <p class="text-xs opacity-80">— {{ t(c.canonicalK, c.canonicalE) }}</p>
+                </div>
+
+                <!-- Detailed Exposition -->
+                <div class="space-y-1.5">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 text-red-500">
+                    <span>📖</span>
+                    <span>{{ t('មូលហេតុដែលកម្មនេះមានទោសធ្ងន់ធ្ងរបំផុត', 'Why This Crime is Irrevocably Severe') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(c.fullExplanationK, c.fullExplanationE) }}
+                  </p>
+                </div>
+
+                <!-- Spiritual Consequences -->
+                <div class="p-3.5 rounded-xl border space-y-1.5"
+                     :style="{ background: 'var(--bg-card-2)', borderColor: '#dc2626' }">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 text-red-500">
+                    <span>🛑</span>
+                    <span>{{ t('ផលវិបាកផ្លូវវិញ្ញាណ (បិទមគ្គផល)', 'Spiritual Obstruction (Magga-Phala Blocked)') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
+                    {{ t(c.obstructionK, c.obstructionE) }}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -159,114 +211,7 @@
       </div>
     </section>
 
-    <!-- Detail Drawer Modal -->
-    <Transition name="modal-pop">
-      <div
-        v-if="selectedCrime"
-        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
-          :style="{ background: 'var(--bg-card)' }"
-        >
-          <!-- Drawer handle for mobile -->
-          <div class="sm:hidden flex justify-center pt-3 pb-1">
-            <div class="w-12 h-1.5 rounded-full" :style="{ background: 'var(--border-strong)' }"></div>
-          </div>
-
-          <!-- Modal Header -->
-          <div class="px-5 py-4 border-b flex items-start justify-between gap-3 shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <div class="flex items-center gap-3">
-              <span class="text-3xl p-2.5 rounded-xl flex items-center justify-center shrink-0"
-                    :style="{ background: 'var(--bg-card-2)' }">
-                {{ selectedCrime.icon }}
-              </span>
-              <div>
-                <span class="text-xs px-2 py-0.5 rounded-full font-mono font-medium text-red-500 bg-red-100 dark:bg-red-950/40">
-                  {{ selectedCrime.pali }}
-                </span>
-                <h3 class="font-bold text-base sm:text-lg mt-0.5" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedCrime.titleK, selectedCrime.titleE) }}
-                </h3>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button
-                @click="toggleReaderFontSize"
-                class="lang-pick px-2 py-1 text-xs shrink-0 whitespace-nowrap"
-                :title="t('ប្តូរទំហំអក្សរ', 'Change font size')"
-              >
-                {{ readerFontSizes[readerFontSizeIdx].label }}
-              </button>
-              <button
-                @click="closeModal"
-                class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-transform active:scale-90"
-                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
-                :aria-label="t('បិទ', 'Close')"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <!-- Modal Body -->
-          <div
-            class="p-5 sm:p-6 overflow-y-auto space-y-5 leading-relaxed"
-            :class="readerFontSizes[readerFontSizeIdx].class"
-            :style="{ color: 'var(--ink)' }"
-          >
-            <!-- Sutta / Vinaya Reference -->
-            <div class="p-4 rounded-xl border-l-4 font-serif text-xs sm:text-sm"
-                 :style="{ background: 'var(--accent-soft)', borderColor: '#dc2626' }">
-              <p class="italic mb-1 font-bold">« {{ selectedCrime.canonicalPali }} »</p>
-              <p class="text-xs opacity-80">— {{ t(selectedCrime.canonicalK, selectedCrime.canonicalE) }}</p>
-            </div>
-
-            <!-- Detailed Exposition -->
-            <div class="space-y-2">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2 text-red-500">
-                <span>📖</span>
-                <span>{{ t('មូលហេតុដែលកម្មនេះមានទោសធ្ងន់ធ្ងរបំផុត', 'Why This Crime is Irrevocably Severe') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedCrime.fullExplanationK, selectedCrime.fullExplanationE) }}
-              </p>
-            </div>
-
-            <!-- Spiritual Consequences -->
-            <div class="p-4 rounded-xl border space-y-2"
-                 :style="{ background: 'var(--bg-card-2)', borderColor: '#dc2626' }">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2 text-red-500">
-                <span>🛑</span>
-                <span>{{ t('ផលវិបាកផ្លូវវិញ្ញាណ (បិទមគ្គផល)', 'Spiritual Obstruction (Magga-Phala Blocked)') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
-                {{ t(selectedCrime.obstructionK, selectedCrime.obstructionE) }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Modal Footer -->
-          <div class="px-5 py-3 border-t flex items-center justify-between shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <span class="text-xs font-mono" :style="{ color: 'var(--ink-faint)' }">
-              Vinaya Piṭaka & Abhidhammattha Saṅgaha
-            </span>
-            <button
-              @click="closeModal"
-              class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </Transition>
-  </div>
+    </div>
 </template>
 
 <script setup>
@@ -282,7 +227,8 @@ function khNum(n) {
 }
 
 const activeTab = ref('anantariya')
-const selectedCrime = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const tabs = [
   { id: 'anantariya', icon: '⚠️', titleK: 'បញ្ចអនន្តរិយកម្ម ៥', titleE: '5 Heinous Crimes' },
@@ -456,23 +402,7 @@ const karmicTiers = [
   }
 ]
 
-function openModal(item) {
-  selectedCrime.value = item
-  lockBodyScroll()
-}
 
-function closeModal() {
-  selectedCrime.value = null
-  unlockBodyScroll()
-}
-
-function lockBodyScroll() {
-  document.body.style.overflow = 'hidden'
-}
-
-function unlockBodyScroll() {
-  document.body.style.overflow = ''
-}
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedCrime.value) {

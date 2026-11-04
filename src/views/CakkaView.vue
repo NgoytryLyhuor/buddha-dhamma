@@ -38,7 +38,7 @@
                class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm border-2 cursor-pointer transition-transform hover:scale-110"
                :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)', color: 'var(--accent)' }"
                :title="t(c.titleK, c.titleE)"
-               @click="openModal(c)">
+               @click="toggleExpand(c.id)">
             {{ khNum(cIdx + 1) }}
           </div>
         </div>
@@ -64,9 +64,8 @@
       <div
         v-for="(item, idx) in cakkaList"
         :key="item.id"
-        class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+        class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
         :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }"
-        @click="openModal(item)"
       >
         <div>
           <div class="flex items-start justify-between gap-3 mb-3">
@@ -176,132 +175,7 @@
       </div>
     </section>
 
-    <!-- Detail Drawer Modal -->
-    <Transition name="modal-pop">
-      <div
-        v-if="selectedCakka"
-        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
-          :style="{ background: 'var(--bg-card)' }"
-        >
-          <!-- Drawer handle for mobile -->
-          <div class="sm:hidden flex justify-center pt-3 pb-1">
-            <div class="w-12 h-1.5 rounded-full" :style="{ background: 'var(--border-strong)' }"></div>
-          </div>
-
-          <!-- Modal Header -->
-          <div class="px-5 py-4 border-b flex items-start justify-between gap-3 shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <div class="flex items-center gap-3">
-              <span class="text-3xl p-2.5 rounded-xl flex items-center justify-center shrink-0"
-                    :style="{ background: 'var(--bg-card-2)' }">
-                {{ selectedCakka.icon }}
-              </span>
-              <div>
-                <span class="text-xs px-2 py-0.5 rounded-full font-mono font-medium"
-                      :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
-                  {{ selectedCakka.pali }}
-                </span>
-                <h3 class="font-bold text-base sm:text-lg mt-0.5" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedCakka.titleK, selectedCakka.titleE) }}
-                </h3>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button
-                @click="toggleReaderFontSize"
-                class="lang-pick px-2 py-1 text-xs shrink-0 whitespace-nowrap"
-                :title="t('ប្តូរទំហំអក្សរ', 'Change font size')"
-              >
-                {{ readerFontSizes[readerFontSizeIdx].label }}
-              </button>
-              <button
-                @click="closeModal"
-                class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-transform active:scale-90"
-                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
-                :aria-label="t('បិទ', 'Close')"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <!-- Modal Body -->
-          <div
-            class="p-5 sm:p-6 overflow-y-auto space-y-5 leading-relaxed"
-            :class="readerFontSizes[readerFontSizeIdx].class"
-            :style="{ color: 'var(--ink)' }"
-          >
-            <!-- Canonical Sutta Verse -->
-            <div class="p-4 rounded-xl border-l-4 font-serif text-xs sm:text-sm"
-                 :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
-              <p class="italic mb-1 font-bold">« {{ selectedCakka.suttaVersePali }} »</p>
-              <p class="text-xs opacity-80">— {{ t(selectedCakka.suttaVerseK, selectedCakka.suttaVerseE) }}</p>
-            </div>
-
-            <!-- Deep Definition & Commentary -->
-            <div class="space-y-2">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>📖</span>
-                <span>{{ t('អត្ថន័យតាមគម្ពីរអដ្ឋកថា', 'Commentarial Exposition') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedCakka.commentaryK, selectedCakka.commentaryE) }}
-              </p>
-            </div>
-
-            <!-- Practical Pillars -->
-            <div class="space-y-2 p-4 rounded-xl border"
-                 :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>🛡️</span>
-                <span>{{ t('សសរស្តម្ភអនុវត្តជាក់ស្ដែង', 'Practical Pillars') }}</span>
-              </h4>
-              <ul class="text-xs sm:text-sm space-y-2 list-disc pl-5" :style="{ color: 'var(--ink)' }">
-                <li v-for="(p, pIdx) in selectedCakka.pillars" :key="pIdx">
-                  <strong :style="{ color: 'var(--accent)' }">{{ t(p.titleK, p.titleE) }}៖</strong>
-                  <span class="ml-1" :style="{ color: 'var(--ink-muted)' }">{{ t(p.descK, p.descE) }}</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Danger of Lacking this Wheel -->
-            <div class="space-y-2 p-4 rounded-xl" :style="{ background: 'var(--bg-card-2)' }">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: '#dc2626' }">
-                <span>⚠️</span>
-                <span>{{ t('គ្រោះថ្នាក់ប្រសិនបើខ្វះកង់នេះ', 'Risk if this Wheel is Missing') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm" :style="{ color: 'var(--ink-muted)' }">
-                {{ t(selectedCakka.riskK, selectedCakka.riskE) }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Modal Footer -->
-          <div class="px-5 py-3 border-t flex items-center justify-between shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <span class="text-xs font-mono" :style="{ color: 'var(--ink-faint)' }">
-              Aṅguttara Nikāya 4.31 · Cakka Sutta
-            </span>
-            <button
-              @click="closeModal"
-              class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </Transition>
-  </div>
+    </div>
 </template>
 
 <script setup>
@@ -317,7 +191,8 @@ function khNum(n) {
 }
 
 const activeTab = ref('wheels')
-const selectedCakka = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const tabs = [
   { id: 'wheels', icon: '☸️', titleK: 'កង់ទាំង ៤', titleE: 'The 4 Wheels' },
@@ -460,23 +335,7 @@ const auditEvaluation = computed(() => {
   }
 })
 
-function openModal(item) {
-  selectedCakka.value = item
-  lockBodyScroll()
-}
 
-function closeModal() {
-  selectedCakka.value = null
-  unlockBodyScroll()
-}
-
-function lockBodyScroll() {
-  document.body.style.overflow = 'hidden'
-}
-
-function unlockBodyScroll() {
-  document.body.style.overflow = ''
-}
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedCakka.value) {

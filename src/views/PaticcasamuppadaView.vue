@@ -58,7 +58,7 @@
       <div
         v-for="(link, idx) in links"
         :key="link.pali"
-        @click="openModal(link, idx)"
+        
         class="card-paper card-paper-hover p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-200 hover:-translate-y-0.5 border"
       >
         <div class="flex items-start justify-between gap-3">
@@ -91,11 +91,58 @@
             </div>
           </div>
 
-          <div class="shrink-0 flex items-center gap-2 text-xs font-bold mt-1" :style="{ color: 'var(--accent-bright)' }">
-            <span class="hidden sm:inline">{{ t('ពិស្តារ', 'Details') }}</span>
-            <span>→</span>
+          <div class="shrink-0 flex items-center gap-2 text-xs font-bold mt-1">
+            <button
+              type="button"
+              @click="toggleExpand(idx)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === idx ? 'on' : ''"
+            >
+              <span>{{ expandedId === idx ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
           </div>
         </div>
+
+        <!-- Slide-down Inline Expansion -->
+        <transition name="slide-down">
+          <div v-if="expandedId === idx" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+            <!-- Formula -->
+            <div class="p-3.5 rounded-xl border-l-4 font-serif space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+              <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent)' }">
+                📖 {{ t('ពុទ្ធវចនៈបាលី (Pāli Formula)', 'Canonical Pāli Formula') }}
+              </span>
+              <p class="font-bold leading-relaxed">«{{ link.formulaPali }}»</p>
+              <p class="text-xs opacity-80">{{ link.conditionKm }}</p>
+            </div>
+
+            <!-- Deep detail -->
+            <div class="p-3.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+              <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                <span>🔍</span>
+                <span>{{ t('អត្ថន័យ និងយន្តការនៃហេតុបច្ច័យ', 'Detailed Cause & Effect Mechanism') }}</span>
+              </h5>
+              <p :style="{ color: 'var(--ink-soft)' }">{{ t(link.detailKm, link.detailEn) }}</p>
+            </div>
+
+            <!-- Practical Daily Life Reflection -->
+            <div class="p-3.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+              <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                <span>🧘</span>
+                <span>{{ t('ការពិចារណាក្នុងជីវិតប្រចាំថ្ងៃ (ការកាត់ផ្តាច់ខ្សែសង្វាក់)', 'Mindful Practical Application') }}</span>
+              </h5>
+              <p :style="{ color: 'var(--ink-soft)' }">{{ t(link.practicalKm, link.practicalEn) }}</p>
+            </div>
+
+            <button
+              type="button"
+              @click="expandedId = null"
+              class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+              :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+            >
+              {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+            </button>
+          </div>
+        </transition>
       </div>
     </div>
 
@@ -121,140 +168,7 @@
       </div>
     </div>
 
-    <!-- DETAIL POP-UP MODAL -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeLink"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Pull / Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="min-w-0 flex-1 space-y-1">
-                <div class="flex items-center gap-2 flex-wrap">
-                  <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                    #{{ khNum(activeLinkIndex + 1) }} / {{ khNum(links.length) }}
-                  </span>
-                  <span class="paali text-xs font-semibold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card)', color: 'var(--accent)' }">
-                    {{ activeLink.pali }}
-                  </span>
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded uppercase" :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)' }">
-                    {{ t(activeLink.periodKm, activeLink.periodEn) }}
-                  </span>
-                </div>
-                <h3 class="font-display text-base sm:text-xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeLink.nameKm, activeLink.nameEn) }}
-                </h3>
-              </div>
-
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Line -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Causality Statement Box -->
-              <div class="verse-box p-4 rounded-xl space-y-1">
-                <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
-                  🔗 {{ t('រូបមន្តនៃហេតុ និងផល', 'Causal Link Formula') }}
-                </span>
-                <p class="font-semibold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">
-                  {{ activeLink.conditionKm }}
-                </p>
-                <p class="paali text-xs mt-1" :style="{ color: 'var(--accent)' }">
-                  «{{ activeLink.formulaPali }}»
-                </p>
-              </div>
-
-              <!-- Comprehensive Definition -->
-              <div class="p-4 rounded-xl space-y-1.5 border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  📖 {{ t('អត្ថន័យ និងសេចក្តីពន្យល់តាមគម្ពីរ', 'Doctrinal Explanation') }}
-                </span>
-                <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeLink.detailKm, activeLink.detailEn) }}
-                </p>
-              </div>
-
-              <!-- Practical Everyday Lesson -->
-              <div class="p-4 rounded-xl space-y-1.5 border" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--border-strong)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  💡 {{ t('ការអនុវត្តជាក់ស្តែងក្នុងចិត្តយើងរាល់ថ្ងៃ', 'Daily Practical Insight') }}
-                </span>
-                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeLink.practicalKm, activeLink.practicalEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Sticky Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <button
-                type="button"
-                @click="prevLink"
-                :disabled="activeLinkIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-              >
-                ← {{ t('មុន', 'Previous') }}
-              </button>
-
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                {{ khNum(activeLinkIndex + 1) }} / {{ khNum(links.length) }}
-              </span>
-
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextLink"
-                  :disabled="activeLinkIndex >= links.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('បន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -271,8 +185,9 @@ function khNum(n) {
 }
 
 const activeMode = ref('arising')
-const activeLink = ref(null)
-const activeLinkIndex = ref(0)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
+
 
 const links = [
   {
@@ -457,46 +372,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(link, idx) {
-  activeLink.value = link
-  activeLinkIndex.value = idx
-  lockBodyScroll()
-}
-
-function closeModal() {
-  activeLink.value = null
-  unlockBodyScroll()
-}
-
-function prevLink() {
-  if (activeLinkIndex.value > 0) {
-    activeLinkIndex.value--
-    activeLink.value = links[activeLinkIndex.value]
-  }
-}
-
-function nextLink() {
-  if (activeLinkIndex.value < links.length - 1) {
-    activeLinkIndex.value++
-    activeLink.value = links[activeLinkIndex.value]
-  }
-}
-
-function handleKeydown(e) {
-  if (!activeLink.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevLink()
-  else if (e.key === 'ArrowRight') nextLink()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

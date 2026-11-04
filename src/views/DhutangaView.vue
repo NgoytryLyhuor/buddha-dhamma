@@ -63,7 +63,7 @@
       <div
         v-for="dhut in filteredDhutangas"
         :key="dhut.id"
-        @click="openModal(dhut)"
+        
         class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3 h-full"
       >
         <div class="space-y-2">
@@ -93,197 +93,85 @@
           </p>
         </div>
 
-        <div class="pt-2 flex items-center justify-between gap-2 text-xs" :style="{ borderTop: '1px solid var(--border)' }">
-          <span class="text-[11px] truncate min-w-0 flex-1" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('បំបាត់៖ ', 'Scours: ') }}{{ t(dhut.kilesaKm, dhut.kilesaEn) }}
-          </span>
-          <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
-            {{ t('លម្អិត', 'Details') }} →
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- POP-UP MODAL: REDESIGNED WITH FULL RESPONSIVENESS & QUICK READER -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedDhutanga"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-          :aria-label="t(selectedDhutanga.nameKm, selectedDhutanga.nameEn)"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Pull / Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+        <div>
+          <div class="pt-2 flex items-center justify-between gap-2 text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+            <span class="text-[11px] truncate min-w-0 flex-1" :style="{ color: 'var(--ink-muted)' }">
+              {{ t('បំបាត់៖ ', 'Scours: ') }}{{ t(dhut.kilesaKm, dhut.kilesaEn) }}
+            </span>
+            <button
+              type="button"
+              @click="toggleExpand(dhut.id)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === dhut.id ? 'on' : ''"
             >
-              <div class="flex items-center gap-3 min-w-0 flex-1">
-                <span class="text-3xl sm:text-4xl p-2 rounded-2xl border shrink-0" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-                  {{ selectedDhutanga.icon }}
-                </span>
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                      #{{ selectedDhutanga.num }}
-                    </span>
-                    <h3 class="font-display text-base sm:text-xl md:text-2xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                      {{ t(selectedDhutanga.nameKm, selectedDhutanga.nameEn) }}
-                    </h3>
-                  </div>
-                  <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
-                    {{ selectedDhutanga.pali }}
-                  </p>
-                </div>
+              <span>{{ expandedId === dhut.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
+          </div>
+
+          <!-- Slide-down Inline Expansion -->
+          <transition name="slide-down">
+            <div v-if="expandedId === dhut.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Full detail -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                  <span>📖</span>
+                  <span>{{ t('អត្ថន័យ និងគោលបំណង', 'Meaning & Purpose') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(dhut.detailKm, dhut.detailEn) }}</p>
               </div>
 
-              <!-- Close Button (40px touch friendly) -->
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Hairline -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Classical Definition -->
-              <div class="verse-box p-4 rounded-xl space-y-1">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent-bright)' }">
-                  📖 {{ t('អត្ថន័យ និងនិយមន័យក្បួនធម៌', 'Definition & Core Principle') }}
-                </span>
-                <p class="font-medium text-sm sm:text-base leading-relaxed" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedDhutanga.detailKm, selectedDhutanga.detailEn) }}
-                </p>
+              <!-- Undertaking formula -->
+              <div class="p-3 rounded-xl border-l-4 font-serif space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                <span class="font-bold block text-[11px]" :style="{ color: 'var(--accent)' }">{{ t('ពាក្យសមាទាន (Pāli Undertaking)', 'Pāli Undertaking Formula') }}</span>
+                <p class="italic font-bold">«{{ dhut.undertakingPali }}»</p>
+                <p class="text-xs opacity-80">{{ t(dhut.undertakingKm, dhut.undertakingEn) }}</p>
               </div>
 
-              <!-- Undertaking Formula / Pali Vow -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  🙏 {{ t('ពាក្យសមាទាន (Pāli Aspiration / Undertaking)', 'Undertaking Formula') }}
+              <!-- 3 Grades -->
+              <div class="space-y-1.5">
+                <span class="font-bold text-[11px] uppercase tracking-wider block" :style="{ color: 'var(--accent)' }">
+                  ⚖️ {{ t('កម្រិតប្រតិបត្តិ ៣ ថ្នាក់', '3 Grades of Practice') }}
                 </span>
-                <p class="paali text-xs sm:text-sm font-semibold" :style="{ color: 'var(--accent)' }">
-                  «{{ selectedDhutanga.undertakingPali }}»
-                </p>
-                <p class="text-xs sm:text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(selectedDhutanga.undertakingKm, selectedDhutanga.undertakingEn) }}
-                </p>
-              </div>
-
-              <!-- 3 Tiers of Practice -->
-              <div class="space-y-2">
-                <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent)' }">
-                  ⚡ {{ t('កម្រិតនៃការប្រតិបត្តិ ៣ ថ្នាក់ (Three Grades of Strictness)', '3 Tiers of Strictness') }}
-                </span>
-
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <!-- Strict -->
-                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-                    <span class="text-[11px] font-bold text-red-600 dark:text-red-400 block">
-                      🔥 {{ t('ថ្នាក់ឧក្រិដ្ឋ (Strict)', 'Strict Grade') }}
-                    </span>
-                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                      {{ t(selectedDhutanga.strictKm, selectedDhutanga.strictEn) }}
-                    </p>
+                  <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="font-bold text-[10px] uppercase text-emerald-600 block">★ {{ t('យ៉ាងឧក្រិដ្ឋ', 'Strict') }}</span>
+                    <p class="text-[11px]" :style="{ color: 'var(--ink-soft)' }">{{ t(dhut.strictKm, dhut.strictEn) }}</p>
                   </div>
-
-                  <!-- Medium -->
-                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-                    <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block">
-                      ⚖️ {{ t('ថ្នាក់មធ្យម (Medium)', 'Medium Grade') }}
-                    </span>
-                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                      {{ t(selectedDhutanga.mediumKm, selectedDhutanga.mediumEn) }}
-                    </p>
+                  <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="font-bold text-[10px] uppercase text-amber-600 block">★★ {{ t('យ៉ាងមធ្យម', 'Medium') }}</span>
+                    <p class="text-[11px]" :style="{ color: 'var(--ink-soft)' }">{{ t(dhut.mediumKm, dhut.mediumEn) }}</p>
                   </div>
-
-                  <!-- Mild -->
-                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-                    <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 block">
-                      🌱 {{ t('ថ្នាក់ស្រាល (Mild)', 'Mild Grade') }}
-                    </span>
-                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                      {{ t(selectedDhutanga.mildKm, selectedDhutanga.mildEn) }}
-                    </p>
+                  <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="font-bold text-[10px] uppercase text-blue-600 block">★★★ {{ t('យ៉ាងស្រាល', 'Mild') }}</span>
+                    <p class="text-[11px]" :style="{ color: 'var(--ink-soft)' }">{{ t(dhut.mildKm, dhut.mildEn) }}</p>
                   </div>
                 </div>
               </div>
 
               <!-- Benefits -->
-              <div class="p-3.5 sm:p-4 rounded-xl border space-y-1" :style="{ background: 'var(--accent-soft)', border: '1px solid var(--border-strong)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  💎 {{ t('អានិសង្ស និងផលប្រយោជន៍ (Spiritual Benefits):', 'Spiritual Benefits:') }}
-                </span>
-                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedDhutanga.benefitsKm, selectedDhutanga.benefitsEn) }}
-                </p>
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                  <span>✨</span>
+                  <span>{{ t('អានិសង្សនៃការប្រតិបត្តិ', 'Benefits of Cultivation') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(dhut.benefitsKm, dhut.benefitsEn) }}</p>
               </div>
-            </div>
 
-            <!-- Sticky Modal Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <!-- Previous Dhutanga Button -->
               <button
                 type="button"
-                @click="prevDhutanga"
-                :disabled="currentDhutangaIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
+                @click="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
               >
-                ← {{ t('មុន', 'Previous') }}
+                {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
               </button>
-
-              <!-- Dhutanga Counter -->
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                #{{ khNum(currentDhutangaIndex + 1) }} / {{ khNum(filteredDhutangas.length) }}
-              </span>
-
-              <!-- Next Dhutanga & Close Actions -->
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextDhutanga"
-                  :disabled="currentDhutangaIndex >= filteredDhutangas.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('បន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
             </div>
-          </div>
+          </transition>
         </div>
-      </transition>
-    </Teleport>
+      </div>
+    </div>
+
+    
   </div>
 </template>
 
@@ -299,7 +187,8 @@ function khNum(n) {
 }
 
 const activeGroup = ref('all')
-const selectedDhutanga = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const groups = [
   { id: 'all', km: 'ទាំងអស់ ១៣', en: 'All 13', icon: '☸' },
@@ -729,45 +618,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(dh) {
-  selectedDhutanga.value = dh
-  lockBodyScroll()
-}
-
-function closeModal() {
-  selectedDhutanga.value = null
-  unlockBodyScroll()
-}
-
-function prevDhutanga() {
-  const idx = currentDhutangaIndex.value
-  if (idx > 0) {
-    selectedDhutanga.value = filteredDhutangas.value[idx - 1]
-  }
-}
-
-function nextDhutanga() {
-  const idx = currentDhutangaIndex.value
-  if (idx < filteredDhutangas.value.length - 1) {
-    selectedDhutanga.value = filteredDhutangas.value[idx + 1]
-  }
-}
-
-function handleKeydown(e) {
-  if (!selectedDhutanga.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevDhutanga()
-  else if (e.key === 'ArrowRight') nextDhutanga()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

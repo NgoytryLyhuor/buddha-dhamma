@@ -67,9 +67,8 @@
         <div
           v-for="(sign, sIdx) in signsList"
           :key="sign.id"
-          class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+          class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
           :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }"
-          @click="openModal(sign)"
         >
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
@@ -100,10 +99,89 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
-               :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('អានការពន្យល់លម្អិត', 'Read In-Depth Explanation →') }}</span>
-            <span>→</span>
+          <div>
+            <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
+                 :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
+              <span>{{ t('អានការពន្យល់លម្អិត', 'Read In-Depth Explanation') }}</span>
+              <button
+                type="button"
+                @click="toggleExpand(sign.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+                :class="expandedId === sign.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === sign.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Expansion -->
+            <transition name="slide-down">
+              <div v-if="expandedId === sign.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- Sutta/Abhidhamma Quote -->
+                <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                     :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                  <p class="italic mb-1 font-bold">« {{ sign.quotePali }} »</p>
+                  <p class="text-xs opacity-80">— {{ t(sign.quoteK, sign.quoteE) }}</p>
+                </div>
+
+                <!-- Detailed Explanation -->
+                <div class="space-y-1.5">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                      :style="{ color: 'var(--accent)' }">
+                    <span>📖</span>
+                    <span>{{ t('ការពន្យល់តាមគម្ពីរអភិធម្មត្ថសង្គហៈ', 'Abhidhammattha Saṅgaha Exposition') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(sign.fullDescK, sign.fullDescE) }}
+                  </p>
+                </div>
+
+                <!-- Two Variations: Wholesome vs Unwholesome Signs -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div class="p-3 rounded-xl border space-y-1"
+                       :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--accent)' }">
+                    <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                      <span>✨</span>
+                      <span>{{ t('ករណីជាកុសល (ទៅកាន់សុគតិ)', 'Wholesome Sign (Higher Realms)') }}</span>
+                    </span>
+                    <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">
+                      {{ t(sign.wholesomeK, sign.wholesomeE) }}
+                    </p>
+                  </div>
+
+                  <div class="p-3 rounded-xl border space-y-1"
+                       :style="{ background: 'var(--bg-card-2)', borderColor: '#dc2626' }">
+                    <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: '#dc2626' }">
+                      <span>⚠️</span>
+                      <span>{{ t('ករណីជាអកុសល (ធ្លាក់ទុគ្គតិ)', 'Unwholesome Sign (Lower Realms)') }}</span>
+                    </span>
+                    <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">
+                      {{ t(sign.unwholesomeK, sign.unwholesomeE) }}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Attendant Intervention Method -->
+                <div class="p-3.5 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)' }">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                      :style="{ color: 'var(--accent)' }">
+                    <span>💡</span>
+                    <span>{{ t('វិធីជួយកែខៃអារម្មណ៍អ្នកជម្ងឺពេលឃើញនិមិត្តអាក្រក់', 'Remedial Action for Unwholesome Signs') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(sign.remedyK, sign.remedyE) }}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -170,141 +248,7 @@
       </div>
     </section>
 
-    <!-- Detail Drawer Modal -->
-    <Transition name="modal-pop">
-      <div
-        v-if="selectedSign"
-        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
-          :style="{ background: 'var(--bg-card)' }"
-        >
-          <!-- Drawer handle for mobile -->
-          <div class="sm:hidden flex justify-center pt-3 pb-1">
-            <div class="w-12 h-1.5 rounded-full" :style="{ background: 'var(--border-strong)' }"></div>
-          </div>
-
-          <!-- Modal Header -->
-          <div class="px-5 py-4 border-b flex items-start justify-between gap-3 shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <div class="flex items-center gap-3">
-              <span class="text-3xl p-2.5 rounded-xl flex items-center justify-center shrink-0"
-                    :style="{ background: 'var(--bg-card-2)' }">
-                {{ selectedSign.icon }}
-              </span>
-              <div>
-                <span class="text-xs px-2 py-0.5 rounded-full font-mono font-medium"
-                      :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
-                  {{ selectedSign.pali }}
-                </span>
-                <h3 class="font-bold text-base sm:text-lg mt-0.5" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedSign.titleK, selectedSign.titleE) }}
-                </h3>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button
-                @click="toggleReaderFontSize"
-                class="lang-pick px-2 py-1 text-xs shrink-0 whitespace-nowrap"
-                :title="t('ប្តូរទំហំអក្សរ', 'Change font size')"
-              >
-                {{ readerFontSizes[readerFontSizeIdx].label }}
-              </button>
-              <button
-                @click="closeModal"
-                class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-transform active:scale-90"
-                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
-                :aria-label="t('បិទ', 'Close')"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <!-- Modal Body -->
-          <div
-            class="p-5 sm:p-6 overflow-y-auto space-y-5 leading-relaxed"
-            :class="readerFontSizes[readerFontSizeIdx].class"
-            :style="{ color: 'var(--ink)' }"
-          >
-            <!-- Sutta/Abhidhamma Quote -->
-            <div class="p-4 rounded-xl border-l-4 font-serif text-xs sm:text-sm"
-                 :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
-              <p class="italic mb-1 font-bold">« {{ selectedSign.quotePali }} »</p>
-              <p class="text-xs opacity-80">— {{ t(selectedSign.quoteK, selectedSign.quoteE) }}</p>
-            </div>
-
-            <!-- Detailed Explanation -->
-            <div class="space-y-2">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>📖</span>
-                <span>{{ t('ការពន្យល់តាមគម្ពីរអភិធម្មត្ថសង្គហៈ', 'Abhidhammattha Saṅgaha Exposition') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedSign.fullDescK, selectedSign.fullDescE) }}
-              </p>
-            </div>
-
-            <!-- Two Variations: Wholesome vs Unwholesome Signs -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div class="p-3.5 rounded-xl border space-y-1.5"
-                   :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--accent)' }">
-                <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
-                  <span>✨</span>
-                  <span>{{ t('ករណីជាកុសល (ទៅកាន់សុគតិ)', 'Wholesome Sign (Higher Realms)') }}</span>
-                </span>
-                <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">
-                  {{ t(selectedSign.wholesomeK, selectedSign.wholesomeE) }}
-                </p>
-              </div>
-
-              <div class="p-3.5 rounded-xl border space-y-1.5"
-                   :style="{ background: 'var(--bg-card-2)', borderColor: '#dc2626' }">
-                <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: '#dc2626' }">
-                  <span>⚠️</span>
-                  <span>{{ t('ករណីជាអកុសល (ធ្លាក់ទុគ្គតិ)', 'Unwholesome Sign (Lower Realms)') }}</span>
-                </span>
-                <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">
-                  {{ t(selectedSign.unwholesomeK, selectedSign.unwholesomeE) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Attendant Intervention Method -->
-            <div class="p-4 rounded-xl space-y-2" :style="{ background: 'var(--bg-card-2)' }">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>💡</span>
-                <span>{{ t('វិធីជួយកែខៃអារម្មណ៍អ្នកជម្ងឺពេលឃើញនិមិត្តអាក្រក់', 'Remedial Action for Unwholesome Signs') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedSign.remedyK, selectedSign.remedyE) }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Modal Footer -->
-          <div class="px-5 py-3 border-t flex items-center justify-between shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <span class="text-xs font-mono" :style="{ color: 'var(--ink-faint)' }">
-              Abhidhammattha Saṅgaha · Vīthi Pariccheda
-            </span>
-            <button
-              @click="closeModal"
-              class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </Transition>
-  </div>
+    </div>
 </template>
 
 <script setup>
@@ -320,7 +264,8 @@ function khNum(n) {
 }
 
 const activeTab = ref('signs')
-const selectedSign = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const tabs = [
   { id: 'signs', icon: '🕯️', titleK: 'និមិត្តទាំង ៣', titleE: '3 Karmic Signs' },
@@ -498,23 +443,7 @@ const prepPillars = [
   }
 ]
 
-function openModal(item) {
-  selectedSign.value = item
-  lockBodyScroll()
-}
 
-function closeModal() {
-  selectedSign.value = null
-  unlockBodyScroll()
-}
-
-function lockBodyScroll() {
-  document.body.style.overflow = 'hidden'
-}
-
-function unlockBodyScroll() {
-  document.body.style.overflow = ''
-}
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedSign.value) {

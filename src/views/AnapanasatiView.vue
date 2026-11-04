@@ -125,7 +125,7 @@
             :key="step.num"
             class="p-4 rounded-lg cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between"
             :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }"
-            @click="openModal(step)"
+            
           >
             <div>
               <div class="flex items-baseline justify-between gap-2">
@@ -144,10 +144,68 @@
               </p>
             </div>
 
-            <div class="mt-3 pt-2 text-[11px] flex items-center justify-between gap-2 border-t border-dashed"
-              :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="min-w-0 flex-1 truncate">{{ t(step.focusKm, step.focusEn) }}</span>
-              <span class="font-bold text-amber-700 shrink-0">{{ t('ពិនិត្យលម្អិត', 'Details') }} →</span>
+            <div>
+              <div class="mt-3 pt-2 text-[11px] flex items-center justify-between gap-2 border-t border-dashed"
+                :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+                <span class="min-w-0 flex-1 truncate">{{ t(step.focusKm, step.focusEn) }}</span>
+                <button
+                  type="button"
+                  @click.stop="toggleExpand(step.num)"
+                  class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                  :class="expandedId === step.num ? 'on' : ''"
+                >
+                  <span>{{ expandedId === step.num ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+                </button>
+              </div>
+
+              <!-- Slide-down Inline Expansion -->
+              <transition name="slide-down">
+                <div v-if="expandedId === step.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                  <!-- Pāli Formula -->
+                  <div class="p-3.5 rounded-xl border-l-4 font-serif space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                    <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent)' }">
+                      📖 {{ t('ពាក្យភាវនាបាលី (Pāli Formula)', 'Canonical Pāli Formula') }}
+                    </span>
+                    <p class="font-bold leading-relaxed">«{{ step.paliFormula }}»</p>
+                  </div>
+
+                  <!-- Deep Sutta Commentary -->
+                  <div class="p-3.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                      <span>🧘</span>
+                      <span>{{ t('អត្ថន័យ និងការពន្យល់តាមព្រះសូត្រ', 'Sutta & Commentary Exposition') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(step.longKm, step.longEn) }}</p>
+                  </div>
+
+                  <!-- Practical instructions -->
+                  <div class="p-3.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                      <span>💡</span>
+                      <span>{{ t('ការណែនាំអនុវត្តជាក់ស្តែង', 'Practical Contemplation Steps') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(step.instructionKm, step.instructionEn) }}</p>
+                  </div>
+
+                  <!-- Shift to next step -->
+                  <div class="p-3.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-blue-600">
+                      <span>🔄</span>
+                      <span>{{ t('ការផ្លាស់ប្តូរចិត្តទៅកាន់ជំហានបន្ទាប់', 'Shift to Subsequent Stage') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(step.shiftKm, step.shiftEn) }}</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    @click.stop="expandedId = null"
+                    class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                    :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                  >
+                    {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                  </button>
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -187,139 +245,7 @@
       </div>
     </div>
 
-    <!-- Modal Pop-up for Detailed Step Inspection -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeModalStep"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
-          style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
-          >
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-2 flex-wrap">
-                <span
-                  class="sutra-num font-bold text-base px-2.5 py-0.5 rounded-full"
-                  :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }"
-                >
-                  #{{ khNum(activeModalStep.num) }}
-                </span>
-                <span class="paali text-sm font-serif">{{ activeModalStep.plShort }}</span>
-                <span
-                  class="text-[11px] px-2.5 py-0.5 rounded-full font-medium"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)', border: '1px solid var(--border)' }"
-                >
-                  {{ t(activeModalStep.tetradKm, activeModalStep.tetradEn) }}
-                </span>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)' }">
-                  {{ activeModalStep.num }} / 16
-                </span>
-                <button
-                  type="button"
-                  class="w-8 h-8 rounded-full flex items-center justify-center transition text-base"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-                  @click="closeModal"
-                  :aria-label="t('បិទ', 'Close')"
-                >
-                  &#10005;
-                </button>
-              </div>
-            </div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-4">
-              <div>
-                <h3 class="font-display text-2xl sm:text-3xl" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalStep.km, activeModalStep.en) }}
-                </h3>
-                <p class="paali text-sm mt-1" :style="{ color: 'var(--accent)' }">
-                  «{{ activeModalStep.paliFormula }}»
-                </p>
-              </div>
-
-              <!-- Explanation & Meaning -->
-              <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-1" :style="{ color: 'var(--accent)' }">
-                  {{ t('អត្ថន័យ និងគោលបំណង (Meaning & Purpose)', 'Explanation & Sutta Meaning') }}
-                </p>
-                <p class="text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalStep.longKm, activeModalStep.longEn) }}
-                </p>
-              </div>
-
-              <!-- Practical Meditation Instruction -->
-              <div class="p-4 rounded-lg" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--accent)' }">
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-1.5" :style="{ color: 'var(--accent-bright)' }">
-                  🧘 {{ t('របៀបអនុវត្តជាក់ស្តែងក្នុងចិត្ត (Practical Mental Instruction)', 'Practical Meditation Guide') }}
-                </p>
-                <p class="text-xs leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalStep.instructionKm, activeModalStep.instructionEn) }}
-                </p>
-              </div>
-
-              <!-- Samatha vs Vipassana Shift -->
-              <div class="p-3.5 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <p class="text-[10px] font-bold uppercase tracking-wider mb-1" :style="{ color: 'var(--ink-muted)' }">
-                  ⚖️ {{ t('ការផ្លាស់ប្តូរពីសមថៈ ទៅវិបស្សនា (Samatha to Vipassanā)', 'Samatha & Vipassanā Aspect') }}
-                </p>
-                <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalStep.shiftKm, activeModalStep.shiftEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Modal Footer Navigation -->
-            <div
-              class="p-3 sm:p-4 flex items-center justify-between gap-3 border-t shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="prevStep"
-              >
-                <span>‹</span>
-                <span>{{ t('ដំណាក់កាលមុន', 'Previous') }}</span>
-              </button>
-
-              <button
-                type="button"
-                class="px-4 py-1.5 text-xs font-bold rounded-lg transition hover:opacity-90"
-                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
-                @click="closeModal"
-              >
-                {{ t('បិទផ្ទាំងនេះ', 'Close') }}
-              </button>
-
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="nextStep"
-              >
-                <span>{{ t('ដំណាក់កាលបន្ទាប់', 'Next') }}</span>
-                <span>›</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -492,65 +418,15 @@ function advanceBreathPhase() {
 }
 
 // Modal Inspector State
-const activeModalStep = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
 function khNum(n) {
   return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
 }
 
-function openModal(step) {
-  activeModalStep.value = step
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = 'hidden'
-  }
-}
 
-function closeModal() {
-  activeModalStep.value = null
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-}
-
-const allSteps = computed(() => tetrads.flatMap(t => t.steps))
-
-function nextStep() {
-  if (!activeModalStep.value) return
-  const list = allSteps.value
-  const idx = list.findIndex(s => s.num === activeModalStep.value.num)
-  if (idx !== -1) {
-    activeModalStep.value = list[(idx + 1) % list.length]
-  }
-}
-
-function prevStep() {
-  if (!activeModalStep.value) return
-  const list = allSteps.value
-  const idx = list.findIndex(s => s.num === activeModalStep.value.num)
-  if (idx !== -1) {
-    activeModalStep.value = list[(idx - 1 + list.length) % list.length]
-  }
-}
-
-function handleKeyDown(e) {
-  if (!activeModalStep.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowRight') nextStep()
-  else if (e.key === 'ArrowLeft') prevStep()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeyDown)
-})
-
-onBeforeUnmount(() => {
-  if (pacerTimer) clearInterval(pacerTimer)
-  window.removeEventListener('keydown', handleKeyDown)
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-})
 
 // 16 Stages Master Dataset
 const tetrads = [

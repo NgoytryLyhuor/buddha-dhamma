@@ -76,7 +76,7 @@
       <div
         v-for="disciple in filteredDisciples"
         :key="disciple.id"
-        @click="openModal(disciple)"
+        
         class="card-paper card-paper-hover p-4 sm:p-5 cursor-pointer flex flex-col justify-between space-y-3 h-full"
       >
         <div class="space-y-2">
@@ -110,11 +110,73 @@
           </p>
         </div>
 
-        <div class="pt-2 flex items-center justify-between gap-2 text-xs" :style="{ borderTop: '1px solid var(--border)' }">
-          <span class="text-[11px] truncate min-w-0 flex-1" :style="{ color: 'var(--ink-muted)' }">{{ disciple.symbolKey }}</span>
-          <span class="font-bold" :style="{ color: 'var(--accent-bright)' }">
-            {{ t('មើលប្រវត្តិ', 'Details') }} →
-          </span>
+        <div>
+          <div class="pt-2 flex items-center justify-between gap-2 text-xs" :style="{ borderTop: '1px solid var(--border)' }">
+            <span class="text-[11px] truncate min-w-0 flex-1" :style="{ color: 'var(--ink-muted)' }">{{ disciple.symbolKey }}</span>
+            <button
+              type="button"
+              @click="toggleExpand(disciple.id)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === disciple.id ? 'on' : ''"
+            >
+              <span>{{ expandedId === disciple.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
+          </div>
+
+          <!-- Slide-down Inline Expansion -->
+          <transition name="slide-down">
+            <div v-if="expandedId === disciple.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Title Detail -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <span class="font-bold text-[11px] uppercase tracking-wider block" :style="{ color: 'var(--accent)' }">
+                  🏆 {{ t(disciple.titleKm, disciple.titleEn) }}
+                </span>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(disciple.titleDetailKm, disciple.titleDetailEn) }}</p>
+              </div>
+
+              <!-- Past Life Vow -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                  <span>📜</span>
+                  <span>{{ t('ដំណើរដើមទង និងសច្ចាប្រណិធានក្នុងអតីតជាតិ', 'Past Vow & Aspiration') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(disciple.pastVowKm, disciple.pastVowEn) }}</p>
+              </div>
+
+              <!-- Path to Awakening -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                  <span>🧘</span>
+                  <span>{{ t('ដំណើរជីវិត និងការសម្រេចព្រះអរហត្ត', 'Path to Enlightenment') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(disciple.awakeningKm, disciple.awakeningEn) }}</p>
+              </div>
+
+              <!-- Thera/Therigatha Verse if present -->
+              <div v-if="disciple.verseKm" class="p-3 rounded-xl border-l-4 font-serif text-center space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent)' }">{{ t('គាថាសម្តែង (Thera/Therī Gāthā)', 'Inspired Verse') }}</span>
+                <p class="italic font-bold">«{{ t(disciple.verseKm, disciple.verseEn) }}»</p>
+              </div>
+
+              <!-- Practical Life Lesson -->
+              <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-blue-600">
+                  <span>💡</span>
+                  <span>{{ t('មេរៀនជីវិតសម្រាប់មនុស្សសម័យថ្មី', 'Inspiring Lesson for Today') }}</span>
+                </h5>
+                <p :style="{ color: 'var(--ink-soft)' }">{{ t(disciple.lessonKm, disciple.lessonEn) }}</p>
+              </div>
+
+              <button
+                type="button"
+                @click="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+              >
+                {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+              </button>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -126,167 +188,7 @@
       <p class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('សូមព្យាយាមវាយពាក្យស្វែងរកផ្សេង ឬជ្រើសរើសប្រភេទ «ទាំងអស់»', 'Try another search keyword or select "All"') }}</p>
     </div>
 
-    <!-- POP-UP MODAL: REDESIGNED WITH FULL RESPONSIVENESS & QUICK READER -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedDisciple"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
-          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-          :aria-label="t(selectedDisciple.nameKm, selectedDisciple.nameEn)"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
-          >
-            <!-- Mobile Pull / Grab Handle -->
-            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
-              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
-            </div>
-
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-3 min-w-0 flex-1">
-                <span class="text-3xl sm:text-4xl p-2 rounded-2xl border shrink-0" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
-                  {{ selectedDisciple.icon }}
-                </span>
-                <div class="min-w-0 flex-1">
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <h3 class="font-display text-base sm:text-xl md:text-2xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
-                      {{ t(selectedDisciple.nameKm, selectedDisciple.nameEn) }}
-                    </h3>
-                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider" :style="{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--accent)' }">
-                      {{ t(selectedDisciple.categoryKm, selectedDisciple.categoryEn) }}
-                    </span>
-                  </div>
-                  <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
-                    {{ selectedDisciple.pali }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Close Button (40px touch friendly) -->
-              <button
-                @click="closeModal"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
-              >
-                ✕
-              </button>
-            </div>
-
-            <!-- Decorative Gold Hairline -->
-            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
-
-            <!-- Modal Content -->
-            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
-              <!-- Title Badge Box -->
-              <div class="verse-box p-4 rounded-xl space-y-1">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent-bright)' }">
-                  🏆 {{ t('តំណែងឯតទគ្គៈកំពូលក្នុងសាសនា (The Foremost Title)', 'Supreme Foremost Title') }}
-                </span>
-                <p class="text-sm sm:text-base font-bold" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedDisciple.titleKm, selectedDisciple.titleEn) }}
-                </p>
-                <p class="text-xs mt-1 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(selectedDisciple.titleDetailKm, selectedDisciple.titleDetailEn) }}
-                </p>
-              </div>
-
-              <!-- Past Life Aspiration -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  ⏳ {{ t('បុព្វប្រណិធាន (Past Life Aspiration & Karmic Cause)', 'Past Life Vow') }}
-                </span>
-                <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(selectedDisciple.pastVowKm, selectedDisciple.pastVowEn) }}
-                </p>
-              </div>
-
-              <!-- Key Enlightenment & Life Story -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  ⚡ {{ t('ដំណើរជីវិត និងការសម្រេចព្រះអរហត្តផល (Enlightenment Story)', 'Life & Awakening') }}
-                </span>
-                <p class="leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(selectedDisciple.awakeningKm, selectedDisciple.awakeningEn) }}
-                </p>
-              </div>
-
-              <!-- Famous Verse / Gāthā -->
-              <div v-if="selectedDisciple.verseKm" class="verse-box p-4 sm:p-5 rounded-xl text-center space-y-1">
-                <span class="text-xs font-bold block uppercase tracking-wider" :style="{ color: 'var(--accent-bright)' }">
-                  📜 {{ t('គាថាបំផុសស្មារតី (Theragāthā / Inspired Verse)', 'Inspired Verse') }}
-                </span>
-                <p class="paali italic text-sm sm:text-base font-semibold mt-1" :style="{ color: 'var(--ink)' }">
-                  «{{ t(selectedDisciple.verseKm, selectedDisciple.verseEn) }}»
-                </p>
-              </div>
-
-              <!-- Practical Lesson for Laypeople -->
-              <div class="p-3.5 sm:p-4 rounded-xl space-y-1.5" :style="{ background: 'var(--accent-soft)', border: '1px solid var(--border-strong)' }">
-                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
-                  💡 {{ t('មេរៀន និងគំរូជីវិតសម្រាប់យើងអនុវត្តតាម (Life Lessons):', 'Practical Life Lessons:') }}
-                </span>
-                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedDisciple.lessonKm, selectedDisciple.lessonEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Sticky Modal Footer with Reader Controls -->
-            <div
-              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <!-- Previous Disciple Button -->
-              <button
-                type="button"
-                @click="prevDisciple"
-                :disabled="currentDiscipleIndex <= 0"
-                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-              >
-                ← {{ t('មុន', 'Previous') }}
-              </button>
-
-              <!-- Disciple Counter -->
-              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
-                {{ khNum(currentDiscipleIndex + 1) }} / {{ khNum(filteredDisciples.length) }}
-              </span>
-
-              <!-- Next Disciple & Close Actions -->
-              <div class="flex items-center gap-2 order-2 sm:order-3">
-                <button
-                  type="button"
-                  @click="nextDisciple"
-                  :disabled="currentDiscipleIndex >= filteredDisciples.length - 1"
-                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
-                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
-                >
-                  {{ t('បន្ទាប់', 'Next') }} →
-                </button>
-
-                <button
-                  type="button"
-                  @click="closeModal"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
-                >
-                  {{ t('បិទ', 'Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -303,7 +205,8 @@ function khNum(n) {
 
 const activeCategory = ref('all')
 const searchQuery = ref('')
-const selectedDisciple = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const categories = [
   { id: 'all', km: 'ទាំងអស់', en: 'All', icon: '☸' },
@@ -640,45 +543,6 @@ function unlockBodyScroll() {
   }
 }
 
-function openModal(disciple) {
-  selectedDisciple.value = disciple
-  lockBodyScroll()
-}
-
-function closeModal() {
-  selectedDisciple.value = null
-  unlockBodyScroll()
-}
-
-function prevDisciple() {
-  const idx = currentDiscipleIndex.value
-  if (idx > 0) {
-    selectedDisciple.value = filteredDisciples.value[idx - 1]
-  }
-}
-
-function nextDisciple() {
-  const idx = currentDiscipleIndex.value
-  if (idx < filteredDisciples.value.length - 1) {
-    selectedDisciple.value = filteredDisciples.value[idx + 1]
-  }
-}
-
-function handleKeydown(e) {
-  if (!selectedDisciple.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowLeft') prevDisciple()
-  else if (e.key === 'ArrowRight') nextDisciple()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-  unlockBodyScroll()
-})
 </script>
 
 <style scoped>

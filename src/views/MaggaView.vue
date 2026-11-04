@@ -7,7 +7,8 @@ function t(km, en) {
 }
 
 const activeGroup = ref('all') // 'all', 'panna', 'sila', 'samadhi'
-const selectedFactor = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 
 const completedTasks = ref({})
 
@@ -222,13 +223,7 @@ const filteredFactors = computed(() => {
   return maggaFactors.filter(f => f.group === activeGroup.value)
 })
 
-function openFactorModal(f) {
-  selectedFactor.value = f
-}
 
-function closeModal() {
-  selectedFactor.value = null
-}
 </script>
 
 <template>
@@ -340,10 +335,12 @@ function closeModal() {
             </div>
 
             <button
-              @click="openFactorModal(factor)"
-              class="lang-pick px-2.5 py-1 text-[11px] font-medium shrink-0 whitespace-nowrap"
+              type="button"
+              @click="toggleExpand(factor.step)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0 whitespace-nowrap"
+              :class="expandedId === factor.step ? 'on' : ''"
             >
-              {{ t('ពុទ្ធវចនៈ 📖', 'Sutta 📖') }}
+              <span>{{ expandedId === factor.step ? t('បិទ ▲', 'Hide ▲') : t('ពុទ្ធវចនៈ ▼', 'Sutta ▼') }}</span>
             </button>
           </div>
 
@@ -403,79 +400,6 @@ function closeModal() {
     </div>
 
     <!-- POP-UP MODAL: SUTTA DEFINITION -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedFactor"
-        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
-        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
-          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
-        >
-          <!-- Header -->
-          <div class="p-4 sm:p-5 flex items-center justify-between border-b shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
-            <div>
-              <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                {{ t('អង្គទី ' + selectedFactor.step + ' នៃអរិយមគ្គ', 'Factor ' + selectedFactor.step + ' of Eightfold Path') }}
-              </span>
-              <h3 class="font-display text-lg sm:text-xl font-bold mt-0.5" :style="{ color: 'var(--ink)' }">
-                {{ selectedFactor.km }}
-              </h3>
-              <p class="paali text-xs" :style="{ color: 'var(--accent)' }">{{ selectedFactor.pali }}</p>
-            </div>
-            <button
-              @click="closeModal"
-              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
-              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-            >
-              ✕
-            </button>
-          </div>
-
-          <!-- Content -->
-          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm">
-            <div class="verse-box p-4 rounded-xl space-y-1.5">
-              <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent-bright)' }">
-                📜 {{ t('ពុទ្ធវចនៈពីព្រះត្រៃបិដក៖', 'Canonical Sutta Definition:') }}
-              </span>
-              <p class="italic font-serif leading-relaxed" :style="{ color: 'var(--ink)' }">
-                {{ selectedFactor.canonicalDefinition }}
-              </p>
-            </div>
-
-            <div class="space-y-2">
-              <h4 class="font-display font-bold text-sm" :style="{ color: 'var(--ink)' }">
-                {{ t('ការអនុវត្តលម្អិតក្នុងសម័យបច្ចុប្បន្ន៖', 'Detailed Practice in Daily Life:') }}
-              </h4>
-              <ul class="space-y-1.5 pl-1">
-                <li
-                  v-for="(tip, idx) in selectedFactor.modernApplication"
-                  :key="idx"
-                  class="flex items-start gap-2 text-xs leading-relaxed"
-                  :style="{ color: 'var(--ink-soft)' }"
-                >
-                  <span class="sutra-num font-bold mt-0.5" :style="{ color: 'var(--accent-bright)' }">✦</span>
-                  <span>{{ tip }}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
-            <button
-              @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('យល់ហើយ (បិទ)', 'Understood (Close)') }}
-            </button>
-          </div>
-        </div>
-      </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>

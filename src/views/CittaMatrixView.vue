@@ -11,7 +11,10 @@ const selectedCittaFilter = ref('all') // 'all', 'akusala', 'ahetuka', 'kamavaca
 const selectedJatiFilter = ref('all') // 'all', 'kusala', 'akusala', 'vipaka', 'kiriya'
 const selectedCetasikaGroup = ref('all') // 'all', 'sabbacitta', 'pakinna', 'akusala', 'sobhana-sadharana', 'virati', 'appamanna', 'panna'
 const searchQuery = ref('')
-const selectedItem = ref(null) // For modal inspector (either citta or cetasika)
+const expandedCittaId = ref(null)
+const expandedCetId = ref(null)
+function toggleExpandCitta(id) { expandedCittaId.value = expandedCittaId.value === id ? null : id }
+function toggleExpandCet(id) { expandedCetId.value = expandedCetId.value === id ? null : id }
 const modalType = ref('citta') // 'citta' | 'cetasika'
 
 // --- 89/121 Citta Master Data ---
@@ -1083,14 +1086,7 @@ const filteredCetasikas = computed(() => {
   })
 })
 
-function openInspector(item, type) {
-  selectedItem.value = item
-  modalType.value = type
-}
 
-function closeModal() {
-  selectedItem.value = null
-}
 
 function getJatiBadgeColor(jati) {
   switch (jati) {
@@ -1243,7 +1239,7 @@ function getJatiBadgeColor(jati) {
         <div
           v-for="citta in filteredCittas"
           :key="citta.id"
-          @click="openInspector(citta, 'citta')"
+          
           class="card-paper card-paper-hover p-5 cursor-pointer flex flex-col justify-between space-y-3"
         >
           <div class="space-y-2">
@@ -1265,14 +1261,56 @@ function getJatiBadgeColor(jati) {
             </p>
           </div>
 
-          <div class="pt-3 flex items-center justify-between text-xs border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-            <div class="flex items-center gap-1.5">
-              <span>{{ t('វេទនា៖ ', 'Feeling: ') }}</span>
-              <strong :style="{ color: 'var(--ink)' }">{{ citta.feelingKm }}</strong>
+          <div>
+            <div class="pt-3 flex items-center justify-between text-xs border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+              <div class="flex items-center gap-1.5">
+                <span>{{ t('វេទនា៖ ', 'Feeling: ') }}</span>
+                <strong :style="{ color: 'var(--ink)' }">{{ citta.feelingKm }}</strong>
+              </div>
+              <button
+                type="button"
+                @click.stop="toggleExpandCitta(citta.code)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                :class="expandedCittaId === citta.code ? 'on' : ''"
+              >
+                <span>{{ expandedCittaId === citta.code ? t('បិទ ▲', 'Hide ▲') : t('ពិនិត្យ ▼', 'Inspect ▼') }}</span>
+              </button>
             </div>
-            <span class="font-medium" :style="{ color: 'var(--accent)' }">
-              {{ t('ពិនិត្យ →', 'Inspect →') }}
-            </span>
+
+            <!-- Slide-down Inline Inspection -->
+            <transition name="slide-down">
+              <div v-if="expandedCittaId === citta.code" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="p-2 rounded-lg border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold" :style="{ color: 'var(--ink-muted)' }">{{ t('ជាតិ (Jāti)', 'Root Class') }}</span>
+                    <strong class="block" :style="{ color: 'var(--ink)' }">{{ citta.jatiKm }}</strong>
+                  </div>
+                  <div class="p-2 rounded-lg border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold" :style="{ color: 'var(--ink-muted)' }">{{ t('ភូមិ (Plane)', 'Plane') }}</span>
+                    <strong class="block" :style="{ color: 'var(--ink)' }">{{ citta.planeKm }}</strong>
+                  </div>
+                </div>
+
+                <div v-if="citta.practicalNote" class="p-2.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <span class="text-[10px] font-bold uppercase block" :style="{ color: 'var(--accent)' }">💡 {{ t('ការសម្គាល់ក្នុងជីវិត', 'Daily Life Note') }}</span>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ citta.practicalNote }}</p>
+                </div>
+
+                <div v-if="citta.cure" class="p-2.5 rounded-xl border space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                  <span class="text-[10px] font-bold uppercase block" :style="{ color: 'var(--accent)' }">🛡️ {{ t('ឱសថព្យាបាល', 'Antidote') }}</span>
+                  <p :style="{ color: 'var(--ink)' }">{{ citta.cure }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click.stop="expandedCittaId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មាន ▲', 'Close ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -1291,7 +1329,7 @@ function getJatiBadgeColor(jati) {
         <div
           v-for="cet in filteredCetasikas"
           :key="cet.id"
-          @click="openInspector(cet, 'cetasika')"
+          
           class="card-paper card-paper-hover p-5 cursor-pointer flex flex-col justify-between space-y-3"
         >
           <div class="space-y-2">
@@ -1313,11 +1351,50 @@ function getJatiBadgeColor(jati) {
             </p>
           </div>
 
-          <div class="pt-3 flex items-center justify-between text-xs border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-            <span class="truncate min-w-0 flex-1 text-[11px]">{{ cet.associatedCitta }}</span>
-            <span class="font-medium" :style="{ color: 'var(--accent)' }">
-              {{ t('លម្អិត →', 'Details →') }}
-            </span>
+          <div>
+            <div class="pt-3 flex items-center justify-between text-xs border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+              <span class="truncate min-w-0 flex-1 text-[11px]">{{ cet.associatedCitta }}</span>
+              <button
+                type="button"
+                @click.stop="toggleExpandCet(cet.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                :class="expandedCetId === cet.id ? 'on' : ''"
+              >
+                <span>{{ expandedCetId === cet.id ? t('បិទ ▲', 'Hide ▲') : t('លម្អិត ▼', 'Details ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Inspection -->
+            <transition name="slide-down">
+              <div v-if="expandedCetId === cet.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- 4 Characteristics (Lakkhaṇādi Catukka) -->
+                <div class="space-y-1.5 p-2.5 rounded-xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <span class="text-[10px] uppercase font-bold tracking-wider block" :style="{ color: 'var(--accent)' }">
+                    ⚖️ {{ t('លក្ខណាទិចតុក្កៈ ៤ ប្រការ', 'The 4 Salient Characteristics') }}
+                  </span>
+                  <div class="space-y-1 text-[11px]" :style="{ color: 'var(--ink-soft)' }">
+                    <p><strong :style="{ color: 'var(--ink)' }">{{ t('១. លក្ខណៈ៖ ', '1. Characteristic: ') }}</strong>{{ cet.lakkhana }}</p>
+                    <p><strong :style="{ color: 'var(--ink)' }">{{ t('២. រស (កិច្ច)៖ ', '2. Function: ') }}</strong>{{ cet.rasa }}</p>
+                    <p><strong :style="{ color: 'var(--ink)' }">{{ t('៣. បច្ចុបដ្ឋាន (អាការបង្ហាញ)៖ ', '3. Manifestation: ') }}</strong>{{ cet.paccupatthana }}</p>
+                    <p><strong :style="{ color: 'var(--ink)' }">{{ t('៤. បទដ្ឋាន (ហេតុជិត)៖ ', '4. Proximate Cause: ') }}</strong>{{ cet.padatthana }}</p>
+                  </div>
+                </div>
+
+                <div v-if="cet.practicalApplication" class="p-2.5 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <span class="text-[10px] font-bold uppercase block text-emerald-600">💡 {{ t('ការបដិបត្តិ និងការសង្កេតចិត្ត', 'Practical Observation') }}</span>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ cet.practicalApplication }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click.stop="expandedCetId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មាន ▲', 'Close ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -1376,130 +1453,7 @@ function getJatiBadgeColor(jati) {
       </div>
     </section>
 
-    <!-- Modal Inspector (Dialog / Bottom Sheet) -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="selectedItem"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
-          style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
-          >
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-2 flex-wrap">
-                <span
-                  class="sutra-num font-bold text-sm px-2.5 py-0.5 rounded-full"
-                  :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }"
-                >
-                  {{ modalType === 'citta' ? '#' + selectedItem.code : 'CETASIKA' }}
-                </span>
-                <span class="paali text-sm font-serif">{{ selectedItem.pali }}</span>
-              </div>
-              <button
-                type="button"
-                class="menu-sheet-close"
-                @click="closeModal"
-                :aria-label="t('បិទ', 'Close')"
-              >
-                &#10005;
-              </button>
-            </div>
-
-            <!-- Modal Content Body -->
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
-              <h3 class="font-display text-lg sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
-                {{ selectedItem.km }}
-              </h3>
-
-              <!-- CITTA MODAL BODY -->
-              <div v-if="modalType === 'citta'" class="space-y-4">
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <span class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ជាតិ (Jāti)៖', 'Type:') }}</span>
-                    <strong class="block mt-0.5" :style="{ color: 'var(--ink)' }">{{ selectedItem.jatiKm }}</strong>
-                  </div>
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <span class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('ភូមិ (Plane)៖', 'Plane:') }}</span>
-                    <strong class="block mt-0.5" :style="{ color: 'var(--ink)' }">{{ selectedItem.planeKm }}</strong>
-                  </div>
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <span class="text-xs" :style="{ color: 'var(--ink-muted)' }">{{ t('វេទនា (Feeling)៖', 'Feeling:') }}</span>
-                    <strong class="block mt-0.5" :style="{ color: 'var(--ink)' }">{{ selectedItem.feelingKm }}</strong>
-                  </div>
-                </div>
-
-                <div class="space-y-1">
-                  <h4 class="font-bold text-xs" :style="{ color: 'var(--ink)' }">
-                    💡 {{ t('ការកើតឡើងជាក់ស្តែងក្នុងជីវិត៖', 'Practical Manifestation in Life:') }}
-                  </h4>
-                  <p class="leading-relaxed text-xs sm:text-sm" :style="{ color: 'var(--ink-soft)' }">
-                    {{ selectedItem.practicalNote }}
-                  </p>
-                </div>
-
-                <div class="verse-box p-3.5 space-y-1">
-                  <h4 class="font-bold text-xs" :style="{ color: 'var(--accent)' }">
-                    🛡️ {{ t('វិធីដោះស្រាយ / ការបណ្តុះចម្រើន៖', 'Remedy & Cultivation:') }}
-                  </h4>
-                  <p class="leading-relaxed text-xs" :style="{ color: 'var(--ink-soft)' }">
-                    {{ selectedItem.cure }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- CETASIKA MODAL BODY -->
-              <div v-if="modalType === 'cetasika'" class="space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <strong :style="{ color: 'var(--accent)' }">{{ t('១. លក្ខណៈ (Characteristic)៖', '1. Characteristic:') }}</strong>
-                    <p class="mt-1" :style="{ color: 'var(--ink-soft)' }">{{ selectedItem.lakkhana }}</p>
-                  </div>
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <strong :style="{ color: 'var(--accent)' }">{{ t('២. រស (Function)៖', '2. Function:') }}</strong>
-                    <p class="mt-1" :style="{ color: 'var(--ink-soft)' }">{{ selectedItem.rasa }}</p>
-                  </div>
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <strong :style="{ color: 'var(--accent)' }">{{ t('៣. បច្ចុបដ្ឋាន (Manifestation)៖', '3. Manifestation:') }}</strong>
-                    <p class="mt-1" :style="{ color: 'var(--ink-soft)' }">{{ selectedItem.paccupatthana }}</p>
-                  </div>
-                  <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                    <strong :style="{ color: 'var(--accent)' }">{{ t('៤. បទដ្ឋាន (Proximate Cause)៖', '4. Proximate Cause:') }}</strong>
-                    <p class="mt-1" :style="{ color: 'var(--ink-soft)' }">{{ selectedItem.padatthana }}</p>
-                  </div>
-                </div>
-
-                <div class="verse-box p-3.5 space-y-1">
-                  <strong class="text-xs" :style="{ color: 'var(--accent)' }">🧘 {{ t('ការអនុវត្តក្នុងការបដិបត្តិ និងជីវិតប្រចាំថ្ងៃ៖', 'Practical Application in Daily Life:') }}</strong>
-                  <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">{{ selectedItem.practicalApplication }}</p>
-                </div>
-              </div>
-
-              <!-- Close Button -->
-              <div class="pt-3 border-t flex justify-end" :style="{ borderColor: 'var(--border)' }">
-                <button
-                  type="button"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-                  @click="closeModal"
-                >
-                  {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 

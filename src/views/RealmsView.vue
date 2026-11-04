@@ -106,8 +106,7 @@
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div v-for="r in filteredApaya" :key="r.num"
-            class="card-paper p-5 cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between"
-            @click="openModal(r)">
+            class="card-paper p-5 transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between">
             <div>
               <div class="flex items-baseline justify-between gap-2">
                 <div class="flex items-center gap-2">
@@ -129,16 +128,70 @@
               </p>
             </div>
 
-            <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
-              <button
-                type="button"
-                class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
-                :style="{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent)' }"
-                @click.stop="openModal(r)">
-                <span>{{ t('មើលលម្អិត', 'Details') }}</span>
-                <span>→</span>
-              </button>
+            <div>
+              <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+                <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+                <button
+                  type="button"
+                  class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                  :class="expandedId === r.num ? 'on' : ''"
+                  @click.stop="toggleExpand(r.num)">
+                  <span>{{ expandedId === r.num ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+                </button>
+              </div>
+
+              <!-- Slide-down Inline Expansion -->
+              <transition name="slide-down">
+                <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                  <!-- Aggregates / Citta stats -->
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ខន្ធ (Aggregates)', 'Aggregates') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.aggregatesKm, r.aggregatesEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ចិត្តដែលកើតបាន', 'Possible Citta') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.cittaKm, r.cittaEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5 col-span-2 sm:col-span-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('អរិយបុគ្គល', 'Noble Ones') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.ariyaKm, r.ariyaEn) }}</p>
+                    </div>
+                  </div>
+
+                  <div v-if="r.jhanaKm" class="p-2.5 rounded-xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold tracking-wider block" :style="{ color: 'var(--accent)' }">{{ t('កម្រិតឈានតម្រូវ', 'Required Jhana') }}</span>
+                    <p class="font-semibold mt-0.5" :style="{ color: 'var(--ink)' }">{{ t(r.jhanaKm, r.jhanaEn) }}</p>
+                  </div>
+
+                  <!-- Long description -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                      <span>📖</span>
+                      <span>{{ t('ពិពណ៌នាលម្អិតអំពីភពនេះ', 'Detailed Plane Description') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.longDescKm, r.longDescEn) }}</p>
+                  </div>
+
+                  <!-- Kamma cause -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                      <span>⚖️</span>
+                      <span>{{ t('កម្មដែលនាំឱ្យបដិសន្ធិក្នុងភពនេះ', 'Kamma Leading to Birth Here') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.kammaDetailKm, r.kammaDetailEn) }}</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    @click.stop="expandedId = null"
+                    class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                    :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                  >
+                    {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                  </button>
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -230,8 +283,7 @@
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div v-for="r in filteredSugati" :key="r.num"
-            class="card-paper p-5 cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between"
-            @click="openModal(r)">
+            class="card-paper p-5 transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between">
             <div>
               <div class="flex items-baseline justify-between gap-2">
                 <div class="flex items-center gap-2">
@@ -253,16 +305,70 @@
               </p>
             </div>
 
-            <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
-              <button
-                type="button"
-                class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
-                :style="{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent)' }"
-                @click.stop="openModal(r)">
-                <span>{{ t('មើលលម្អិត', 'Details') }}</span>
-                <span>→</span>
-              </button>
+            <div>
+              <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+                <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+                <button
+                  type="button"
+                  class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                  :class="expandedId === r.num ? 'on' : ''"
+                  @click.stop="toggleExpand(r.num)">
+                  <span>{{ expandedId === r.num ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+                </button>
+              </div>
+
+              <!-- Slide-down Inline Expansion -->
+              <transition name="slide-down">
+                <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                  <!-- Aggregates / Citta stats -->
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ខន្ធ (Aggregates)', 'Aggregates') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.aggregatesKm, r.aggregatesEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ចិត្តដែលកើតបាន', 'Possible Citta') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.cittaKm, r.cittaEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5 col-span-2 sm:col-span-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('អរិយបុគ្គល', 'Noble Ones') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.ariyaKm, r.ariyaEn) }}</p>
+                    </div>
+                  </div>
+
+                  <div v-if="r.jhanaKm" class="p-2.5 rounded-xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold tracking-wider block" :style="{ color: 'var(--accent)' }">{{ t('កម្រិតឈានតម្រូវ', 'Required Jhana') }}</span>
+                    <p class="font-semibold mt-0.5" :style="{ color: 'var(--ink)' }">{{ t(r.jhanaKm, r.jhanaEn) }}</p>
+                  </div>
+
+                  <!-- Long description -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                      <span>📖</span>
+                      <span>{{ t('ពិពណ៌នាលម្អិតអំពីភពនេះ', 'Detailed Plane Description') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.longDescKm, r.longDescEn) }}</p>
+                  </div>
+
+                  <!-- Kamma cause -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                      <span>⚖️</span>
+                      <span>{{ t('កម្មដែលនាំឱ្យបដិសន្ធិក្នុងភពនេះ', 'Kamma Leading to Birth Here') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.kammaDetailKm, r.kammaDetailEn) }}</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    @click.stop="expandedId = null"
+                    class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                    :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                  >
+                    {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                  </button>
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -282,8 +388,7 @@
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div v-for="r in filteredRupa" :key="r.num"
-            class="card-paper p-5 cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between"
-            @click="openModal(r)">
+            class="card-paper p-5 transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between">
             <div>
               <div class="flex items-baseline justify-between gap-2">
                 <div class="flex items-center gap-2">
@@ -311,7 +416,7 @@
                 type="button"
                 class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
                 :style="{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent)' }"
-                @click.stop="openModal(r)">
+                @click.stop="toggleExpand(r.num)">
                 <span>{{ t('មើលលម្អិត', 'Details') }}</span>
                 <span>→</span>
               </button>
@@ -334,8 +439,7 @@
 
         <div class="grid sm:grid-cols-2 gap-4">
           <div v-for="r in filteredArupa" :key="r.num"
-            class="card-paper p-5 cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between"
-            @click="openModal(r)">
+            class="card-paper p-5 transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between">
             <div>
               <div class="flex items-baseline justify-between gap-2">
                 <div class="flex items-center gap-2">
@@ -357,16 +461,70 @@
               </p>
             </div>
 
-            <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-              <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
-              <button
-                type="button"
-                class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full shrink-0 transition"
-                :style="{ background: 'var(--accent-soft)', color: 'var(--accent)', border: '1px solid var(--accent)' }"
-                @click.stop="openModal(r)">
-                <span>{{ t('មើលលម្អិត', 'Details') }}</span>
-                <span>→</span>
-              </button>
+            <div>
+              <div class="mt-4 pt-3 text-xs flex items-center justify-between gap-2 border-t border-dashed" :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+                <span class="truncate min-w-0 flex-1"><strong>{{ t('អាយុ៖ ', 'Span: ') }}</strong>{{ t(r.spanKm, r.spanEn) }}</span>
+                <button
+                  type="button"
+                  class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                  :class="expandedId === r.num ? 'on' : ''"
+                  @click.stop="toggleExpand(r.num)">
+                  <span>{{ expandedId === r.num ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+                </button>
+              </div>
+
+              <!-- Slide-down Inline Expansion -->
+              <transition name="slide-down">
+                <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                  <!-- Aggregates / Citta stats -->
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ខន្ធ (Aggregates)', 'Aggregates') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.aggregatesKm, r.aggregatesEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ចិត្តដែលកើតបាន', 'Possible Citta') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.cittaKm, r.cittaEn) }}</p>
+                    </div>
+                    <div class="p-2.5 rounded-xl border space-y-0.5 col-span-2 sm:col-span-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                      <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('អរិយបុគ្គល', 'Noble Ones') }}</span>
+                      <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(r.ariyaKm, r.ariyaEn) }}</p>
+                    </div>
+                  </div>
+
+                  <div v-if="r.jhanaKm" class="p-2.5 rounded-xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold tracking-wider block" :style="{ color: 'var(--accent)' }">{{ t('កម្រិតឈានតម្រូវ', 'Required Jhana') }}</span>
+                    <p class="font-semibold mt-0.5" :style="{ color: 'var(--ink)' }">{{ t(r.jhanaKm, r.jhanaEn) }}</p>
+                  </div>
+
+                  <!-- Long description -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                      <span>📖</span>
+                      <span>{{ t('ពិពណ៌នាលម្អិតអំពីភពនេះ', 'Detailed Plane Description') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.longDescKm, r.longDescEn) }}</p>
+                  </div>
+
+                  <!-- Kamma cause -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                      <span>⚖️</span>
+                      <span>{{ t('កម្មដែលនាំឱ្យបដិសន្ធិក្នុងភពនេះ', 'Kamma Leading to Birth Here') }}</span>
+                    </h5>
+                    <p :style="{ color: 'var(--ink-soft)' }">{{ t(r.kammaDetailKm, r.kammaDetailEn) }}</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    @click.stop="expandedId = null"
+                    class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                    :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                  >
+                    {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                  </button>
+                </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -374,185 +532,7 @@
     </div>
 
     <!-- Modal Pop-up (Dialog) for Detailed Inspection -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeModalRealm"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
-          style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
-          >
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-2 flex-wrap">
-                <span
-                  class="sutra-num font-bold text-base px-2.5 py-0.5 rounded-full"
-                  :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }"
-                >
-                  #{{ khNum(activeModalRealm.num) }}
-                </span>
-                <span class="paali text-sm font-serif">{{ activeModalRealm.pl }}</span>
-                <span
-                  class="text-[11px] px-2.5 py-0.5 rounded-full font-medium"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)', border: '1px solid var(--border)' }"
-                >
-                  {{ t(activeModalRealm.planeKm, activeModalRealm.planeEn) }}
-                </span>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)', border: '1px solid var(--border)' }">
-                  {{ activeModalRealm.num }} / 31
-                </span>
-                <button
-                  type="button"
-                  class="w-8 h-8 rounded-full flex items-center justify-center transition text-base"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-                  @click="closeModal"
-                  :aria-label="t('បិទ', 'Close')"
-                >
-                  &#10005;
-                </button>
-              </div>
-            </div>
-
-            <!-- Modal Scrollable Content -->
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-4">
-              <div>
-                <h3 class="font-display text-2xl sm:text-3xl" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalRealm.km, activeModalRealm.en) }}
-                </h3>
-                <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalRealm.shortDescKm, activeModalRealm.shortDescEn) }}
-                </p>
-              </div>
-
-              <!-- 4 Attributes Grid -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-                <div class="p-3 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    ⏳ {{ t('អាយុកាល', 'Lifespan') }}
-                  </p>
-                  <p class="font-bold text-xs mt-1" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalRealm.spanKm, activeModalRealm.spanEn) }}
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    🧩 {{ t('ខន្ធដែលមាន', 'Aggregates') }}
-                  </p>
-                  <p class="font-bold text-xs mt-1" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalRealm.aggregatesKm, activeModalRealm.aggregatesEn) }}
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    🧠 {{ t('ចិត្តបដិសន្ធិ', 'Rebirth Mind') }}
-                  </p>
-                  <p class="font-bold text-xs mt-1 leading-snug" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalRealm.cittaKm, activeModalRealm.cittaEn) }}
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    ☸️ {{ t('ព្រះអរិយបុគ្គល', 'Ariya Presence') }}
-                  </p>
-                  <p class="font-bold text-xs mt-1" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalRealm.ariyaKm, activeModalRealm.ariyaEn) }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Jhāna Level if exists -->
-              <div
-                v-if="activeModalRealm.jhanaKm"
-                class="p-3 rounded-lg text-xs flex items-center gap-2"
-                :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }"
-              >
-                <span class="text-base">🧘</span>
-                <div>
-                  <strong :style="{ color: 'var(--accent)' }">{{ t('កម្រិតឈាន៖ ', 'Jhāna Level: ') }}</strong>
-                  <span :style="{ color: 'var(--ink)' }">{{ t(activeModalRealm.jhanaKm, activeModalRealm.jhanaEn) }}</span>
-                </div>
-              </div>
-
-              <!-- Long Description -->
-              <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
-                  <span>🏛️</span>
-                  <span>{{ t('សភាពនៃជីវិត និងបរិស្ថានក្នុងភពនេះ', 'Realm Life & Environment') }}</span>
-                </p>
-                <p class="text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalRealm.longDescKm, activeModalRealm.longDescEn) }}
-                </p>
-              </div>
-
-              <!-- Specific Kamma Cause -->
-              <div
-                class="p-4 rounded-lg"
-                :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--accent)' }"
-              >
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5" :style="{ color: 'var(--accent-bright)' }">
-                  <span>⚖️</span>
-                  <span>{{ t('ហេតុនៃកម្មជាក់លាក់ដែលនាំឱ្យទៅកើត (Specific Kamma Cause)', 'Specific Kamma Cause') }}</span>
-                </p>
-                <p class="text-sm leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalRealm.kammaDetailKm, activeModalRealm.kammaDetailEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Modal Footer Navigation -->
-            <div
-              class="p-3 sm:p-4 flex items-center justify-between gap-3 border-t shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="prevRealm"
-              >
-                <span>‹</span>
-                <span>{{ t('ភូមិមុន', 'Previous') }}</span>
-              </button>
-
-              <button
-                type="button"
-                class="px-4 py-1.5 text-xs font-bold rounded-lg transition hover:opacity-90"
-                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
-                @click="closeModal"
-              >
-                {{ t('បិទផ្ទាំងនេះ', 'Close') }}
-              </button>
-
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="nextRealm"
-              >
-                <span>{{ t('ភូមិបន្ទាប់', 'Next') }}</span>
-                <span>›</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -564,7 +544,8 @@ const { t } = useLanguage()
 
 const activeCategory = ref('all')
 const searchQuery = ref('')
-const activeModalRealm = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 const showEightHells = ref(false)
 const showPretasInfo = ref(false)
 
@@ -573,53 +554,7 @@ function khNum(n) {
   return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
 }
 
-function openModal(realm) {
-  activeModalRealm.value = realm
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = 'hidden'
-  }
-}
 
-function closeModal() {
-  activeModalRealm.value = null
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-}
-
-function nextRealm() {
-  if (!activeModalRealm.value) return
-  const idx = allRealms.findIndex(r => r.num === activeModalRealm.value.num)
-  if (idx !== -1) {
-    activeModalRealm.value = allRealms[(idx + 1) % allRealms.length]
-  }
-}
-
-function prevRealm() {
-  if (!activeModalRealm.value) return
-  const idx = allRealms.findIndex(r => r.num === activeModalRealm.value.num)
-  if (idx !== -1) {
-    activeModalRealm.value = allRealms[(idx - 1 + allRealms.length) % allRealms.length]
-  }
-}
-
-function handleKeyDown(e) {
-  if (!activeModalRealm.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowRight') nextRealm()
-  else if (e.key === 'ArrowLeft') prevRealm()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeyDown)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('keydown', handleKeyDown)
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-})
 
 const categories = [
   { id: 'all', km: 'ទាំងអស់ (៣១ ភព)', en: 'All 31 Realms' },

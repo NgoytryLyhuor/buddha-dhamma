@@ -45,9 +45,8 @@
         <div
           v-for="root in akusalaRoots"
           :key="root.id"
-          class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+          class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
           :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }"
-          @click="openModal(root)"
         >
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
@@ -80,10 +79,46 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
-               :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('ឱសថព្យាបាល', 'Antidote & Remedy') }}</span>
-            <span>{{ root.antidoteK }} →</span>
+          <div>
+            <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
+                 :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
+              <span>{{ t('ឱសថ៖ ', 'Antidote: ') }}{{ root.antidoteK }}</span>
+              <button
+                type="button"
+                @click="toggleExpand(root.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+                :class="expandedId === root.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === root.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <transition name="slide-down">
+              <div v-if="expandedId === root.id" class="pt-3 border-t mt-3 space-y-2.5 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h4 class="font-bold text-[11px] uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
+                    {{ t('លក្ខណៈសម្គាល់តាមគម្ពីរអភិធម្ម', 'Abhidhamma Characteristic') }}
+                  </h4>
+                  <p :style="{ color: 'var(--ink)' }">{{ t(root.deepK, root.deepE) }}</p>
+                </div>
+
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h4 class="font-bold text-[11px] uppercase tracking-wider text-emerald-600">
+                    {{ t('ការអនុវត្តជាក់ស្ដែងក្នុងជីវិត', 'Practical Application') }}
+                  </h4>
+                  <p :style="{ color: 'var(--ink)' }">{{ t(root.practiceK, root.practiceE) }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -101,9 +136,8 @@
         <div
           v-for="root in kusalaRoots"
           :key="root.id"
-          class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+          class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
           :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }"
-          @click="openModal(root)"
         >
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
@@ -136,10 +170,46 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
-               :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('វិធីចម្រើនក្នុងជីវិត', 'Daily Cultivation') }}</span>
-            <span>→</span>
+          <div>
+            <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
+                 :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
+              <span>{{ t('ការអនុវត្តជាក់ស្ដែង', 'Daily Practice') }}</span>
+              <button
+                type="button"
+                @click="toggleExpand(root.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+                :class="expandedId === root.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === root.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <transition name="slide-down">
+              <div v-if="expandedId === root.id" class="pt-3 border-t mt-3 space-y-2.5 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h4 class="font-bold text-[11px] uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
+                    {{ t('លក្ខណៈសម្គាល់តាមគម្ពីរអភិធម្ម', 'Abhidhamma Characteristic') }}
+                  </h4>
+                  <p :style="{ color: 'var(--ink)' }">{{ t(root.deepK, root.deepE) }}</p>
+                </div>
+
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h4 class="font-bold text-[11px] uppercase tracking-wider text-emerald-600">
+                    {{ t('ការអនុវត្តជាក់ស្ដែងក្នុងជីវិត', 'Practical Application') }}
+                  </h4>
+                  <p :style="{ color: 'var(--ink)' }">{{ t(root.practiceK, root.practiceE) }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -194,64 +264,7 @@
       </div>
     </section>
 
-    <!-- Modal for Deep Reading -->
-    <div
-      v-if="activeModal"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-      @click.self="activeModal = null"
-    >
-      <div
-        class="card-paper p-6 sm:p-8 max-w-lg w-full max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl space-y-4"
-        :style="{ background: 'var(--bg-card)' }"
-      >
-        <div class="flex items-start justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <span class="text-3xl p-3 rounded-2xl" :style="{ background: 'var(--bg-card-2)' }">
-              {{ activeModal.icon }}
-            </span>
-            <div>
-              <h3 class="text-lg font-bold font-serif" :style="{ color: 'var(--ink)' }">
-                {{ t(activeModal.titleK, activeModal.titleE) }}
-              </h3>
-              <p class="text-xs font-mono font-medium" :style="{ color: 'var(--accent)' }">
-                {{ activeModal.pali }}
-              </p>
-            </div>
-          </div>
-          <button
-            @click="activeModal = null"
-            class="w-8 h-8 rounded-full flex items-center justify-center text-sm opacity-60 hover:opacity-100"
-            :style="{ background: 'var(--bg-card-2)' }"
-          >
-            ✕
-          </button>
-        </div>
-
-        <div class="space-y-3 text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-          <div class="p-4 rounded-2xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-            <h4 class="font-bold text-xs uppercase tracking-wider mb-1" :style="{ color: 'var(--accent)' }">
-              {{ t('លក្ខណៈសម្គាល់តាមគម្ពីរអភិធម្ម', 'Abhidhamma Characteristic') }}
-            </h4>
-            <p>{{ t(activeModal.deepK, activeModal.deepE) }}</p>
-          </div>
-
-          <div class="p-4 rounded-2xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-            <h4 class="font-bold text-xs uppercase tracking-wider mb-1 text-emerald-600">
-              {{ t('ការអនុវត្តជាក់ស្ដែងក្នុងជីវិត', 'Practical Application') }}
-            </h4>
-            <p>{{ t(activeModal.practiceK, activeModal.practiceE) }}</p>
-          </div>
-        </div>
-
-        <button
-          @click="activeModal = null"
-          class="w-full py-2.5 rounded-xl font-semibold text-xs"
-          :style="{ background: 'var(--accent)', color: 'var(--bg-card)' }"
-        >
-          {{ t('យល់ព្រម និងបិទ', 'Understood & Close') }}
-        </button>
-      </div>
-    </div>
+    <!-- Antidotes Tab also cleaned -->
   </div>
 </template>
 
@@ -261,7 +274,11 @@ import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
 const activeTab = ref('akusala')
-const activeModal = ref(null)
+const expandedId = ref(null)
+
+function toggleExpand(id) {
+  expandedId.value = expandedId.value === id ? null : id
+}
 
 const tabs = [
   { id: 'akusala', icon: '🔥', titleK: 'ឫសអកុសល ៣ (Poison Roots)', titleE: '3 Unwholesome Roots' },
@@ -367,8 +384,5 @@ const kusalaRoots = [
     practiceE: 'Practice mindfulness and vipassanā meditation daily to directly witness the arising and passing of phenomena.'
   }
 ]
-
-function openModal(item) {
-  activeModal.value = item
-}
 </script>
+

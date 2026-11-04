@@ -1540,4 +1540,24 @@ html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-badge {
   box-shadow: 0 4px 14px var(--halo);
 }
 
+/* Smooth Accordion / Slide-Down Transition for Inline Card Details */
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+.slide-down-enter-from,
+.slide-down-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-6px);
+}
+.slide-down-enter-to,
+.slide-down-leave-from {
+  opacity: 1;
+  max-height: 3500px;
+  transform: translateY(0);
+}
+
+
 

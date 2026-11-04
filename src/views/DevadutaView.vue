@@ -39,9 +39,8 @@
         <div
           v-for="(m, mIdx) in messengerList"
           :key="m.id"
-          class="card-paper p-5 transition-all duration-200 hover:shadow-md cursor-pointer border flex flex-col justify-between"
+          class="card-paper p-5 transition-all duration-200 hover:shadow-md border flex flex-col justify-between"
           :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }"
-          @click="openModal(m)"
         >
           <div>
             <div class="flex items-start justify-between gap-3 mb-3">
@@ -76,10 +75,65 @@
             </div>
           </div>
 
-          <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
-               :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('អានកិច្ចសួរដេញដោលរបស់ព្រះយមរាជ', 'Yama’s Inquiry Sutta →') }}</span>
-            <span>→</span>
+          <div>
+            <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
+                 :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
+              <span>{{ t('អានកិច្ចសួរដេញដោលរបស់ព្រះយមរាជ', 'Yama’s Inquiry Sutta') }}</span>
+              <button
+                type="button"
+                @click="toggleExpand(m.id)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+                :class="expandedId === m.id ? 'on' : ''"
+              >
+                <span>{{ expandedId === m.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Expansion -->
+            <transition name="slide-down">
+              <div v-if="expandedId === m.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- Canonical Sutta Passage -->
+                <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                     :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                  <p class="italic mb-1 font-bold">« {{ m.canonicalPali }} »</p>
+                  <p class="text-xs opacity-80">— {{ t(m.canonicalK, m.canonicalE) }}</p>
+                </div>
+
+                <!-- Detailed Sutta Analysis -->
+                <div class="space-y-1.5">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                      :style="{ color: 'var(--accent)' }">
+                    <span>📖</span>
+                    <span>{{ t('ការពន្យល់តាមព្រះសូត្រ', 'Sutta Exposition') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                    {{ t(m.fullTextK, m.fullTextE) }}
+                  </p>
+                </div>
+
+                <!-- Contemplative Reflection -->
+                <div class="p-3.5 rounded-xl border space-y-1.5"
+                     :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                      :style="{ color: 'var(--accent)' }">
+                    <span>🧘</span>
+                    <span>{{ t('អារម្មណ៍ពិចារណាដាស់សតិ', 'Contemplation Mantra') }}</span>
+                  </h4>
+                  <p class="text-xs sm:text-sm font-serif italic" :style="{ color: 'var(--ink)' }">
+                    {{ t(m.mantraK, m.mantraE) }}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  @click="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -190,117 +244,7 @@
       </div>
     </section>
 
-    <!-- Detail Drawer Modal -->
-    <Transition name="modal-pop">
-      <div
-        v-if="selectedMessenger"
-        class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-sm"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] flex flex-col rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
-          :style="{ background: 'var(--bg-card)' }"
-        >
-          <!-- Drawer handle for mobile -->
-          <div class="sm:hidden flex justify-center pt-3 pb-1">
-            <div class="w-12 h-1.5 rounded-full" :style="{ background: 'var(--border-strong)' }"></div>
-          </div>
-
-          <!-- Modal Header -->
-          <div class="px-5 py-4 border-b flex items-start justify-between gap-3 shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <div class="flex items-center gap-3">
-              <span class="text-3xl p-2.5 rounded-xl flex items-center justify-center shrink-0"
-                    :style="{ background: 'var(--bg-card-2)' }">
-                {{ selectedMessenger.icon }}
-              </span>
-              <div>
-                <span class="text-xs px-2 py-0.5 rounded-full font-mono font-medium"
-                      :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }">
-                  {{ selectedMessenger.pali }}
-                </span>
-                <h3 class="font-bold text-base sm:text-lg mt-0.5" :style="{ color: 'var(--ink)' }">
-                  {{ t(selectedMessenger.titleK, selectedMessenger.titleE) }}
-                </h3>
-              </div>
-            </div>
-
-            <!-- Controls -->
-            <div class="flex items-center gap-1.5 shrink-0">
-              <button
-                @click="toggleReaderFontSize"
-                class="lang-pick px-2 py-1 text-xs shrink-0 whitespace-nowrap"
-                :title="t('ប្តូរទំហំអក្សរ', 'Change font size')"
-              >
-                {{ readerFontSizes[readerFontSizeIdx].label }}
-              </button>
-              <button
-                @click="closeModal"
-                class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-transform active:scale-90"
-                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
-                :aria-label="t('បិទ', 'Close')"
-              >
-                ✕
-              </button>
-            </div>
-          </div>
-
-          <!-- Modal Body -->
-          <div
-            class="p-5 sm:p-6 overflow-y-auto space-y-5 leading-relaxed"
-            :class="readerFontSizes[readerFontSizeIdx].class"
-            :style="{ color: 'var(--ink)' }"
-          >
-            <!-- Canonical Sutta Passage -->
-            <div class="p-4 rounded-xl border-l-4 font-serif text-xs sm:text-sm"
-                 :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
-              <p class="italic mb-1 font-bold">« {{ selectedMessenger.canonicalPali }} »</p>
-              <p class="text-xs opacity-80">— {{ t(selectedMessenger.canonicalK, selectedMessenger.canonicalE) }}</p>
-            </div>
-
-            <!-- Detailed Sutta Analysis -->
-            <div class="space-y-2">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>📖</span>
-                <span>{{ t('ការពន្យល់តាមព្រះសូត្រ', 'Sutta Exposition') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedMessenger.fullTextK, selectedMessenger.fullTextE) }}
-              </p>
-            </div>
-
-            <!-- Contemplative Reflection -->
-            <div class="p-4 rounded-xl border space-y-2"
-                 :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
-              <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-2"
-                  :style="{ color: 'var(--accent)' }">
-                <span>🧘</span>
-                <span>{{ t('អារម្មណ៍ពិចារណាដាស់សតិ', 'Contemplation Mantra') }}</span>
-              </h4>
-              <p class="text-xs sm:text-sm font-serif italic" :style="{ color: 'var(--ink)' }">
-                {{ t(selectedMessenger.mantraK, selectedMessenger.mantraE) }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Modal Footer -->
-          <div class="px-5 py-3 border-t flex items-center justify-between shrink-0"
-               :style="{ borderColor: 'var(--border)' }">
-            <span class="text-xs font-mono" :style="{ color: 'var(--ink-faint)' }">
-              Majjhima Nikāya 130 · Devadūta Sutta
-            </span>
-            <button
-              @click="closeModal"
-              class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </Transition>
-  </div>
+    </div>
 </template>
 
 <script setup>
@@ -316,7 +260,8 @@ function khNum(n) {
 }
 
 const activeTab = ref('messengers')
-const selectedMessenger = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 const selectedCourtIdx = ref(0)
 
 const tabs = [
@@ -474,23 +419,7 @@ const practicalReflections = [
   }
 ]
 
-function openModal(item) {
-  selectedMessenger.value = item
-  lockBodyScroll()
-}
 
-function closeModal() {
-  selectedMessenger.value = null
-  unlockBodyScroll()
-}
-
-function lockBodyScroll() {
-  document.body.style.overflow = 'hidden'
-}
-
-function unlockBodyScroll() {
-  document.body.style.overflow = ''
-}
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedMessenger.value) {

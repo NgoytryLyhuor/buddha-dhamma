@@ -103,9 +103,7 @@
         <div
           v-for="(link, i) in links"
           :key="link.pl"
-          class="card-paper p-4 cursor-pointer transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between relative group"
-          :style="{ borderColor: activeModalLink?.num === link.num ? 'var(--accent-bright)' : 'var(--border)' }"
-          @click="openModal(link)"
+          class="card-paper p-4 transition hover:border-amber-600 hover:shadow-md flex flex-col justify-between relative group" :style="{ borderColor: 'var(--border)' }"
         >
           <div>
             <div class="flex items-center justify-between gap-2">
@@ -133,12 +131,72 @@
             </p>
           </div>
 
-          <div class="mt-3 pt-2 text-[11px] flex items-center justify-between border-t border-dashed"
-            :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
-            <span class="truncate min-w-0 flex-1">{{ t(link.vaṭṭaKm, link.vaṭṭaEn) }}</span>
-            <span class="font-bold text-amber-700 inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-              {{ t('ពិស្ដារ', 'Details') }} →
-            </span>
+          <div>
+            <div class="mt-3 pt-2 text-[11px] flex items-center justify-between border-t border-dashed"
+              :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }">
+              <span class="truncate min-w-0 flex-1">{{ t(link.vaṭṭaKm, link.vaṭṭaEn) }}</span>
+              <button
+                type="button"
+                @click.stop="toggleExpand(link.num)"
+                class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1 shrink-0"
+                :class="expandedId === link.num ? 'on' : ''"
+              >
+                <span>{{ expandedId === link.num ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+              </button>
+            </div>
+
+            <!-- Slide-down Inline Expansion -->
+            <transition name="slide-down">
+              <div v-if="expandedId === link.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+                <!-- Conditioned By & Conditions -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('កើតឡើងដោយសារបច្ច័យ', 'Conditioned by') }}</span>
+                    <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(link.conditionedByKm, link.conditionedByEn) }}</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-muted)' }">{{ t('ធ្វើជាបច្ច័យឱ្យកើតបន្ត', 'In turn conditions') }}</span>
+                    <p class="font-semibold" :style="{ color: 'var(--ink)' }">{{ t(link.conditionsKm, link.conditionsEn) }}</p>
+                  </div>
+                </div>
+
+                <!-- Deep Detail -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                    <span>📖</span>
+                    <span>{{ t('អត្ថន័យ និងយន្តការពិស្ដារ', 'Detailed Exposition') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(link.detailKm, link.detailEn) }}</p>
+                </div>
+
+                <!-- Abhidhamma Analysis -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-blue-600">
+                    <span>🔬</span>
+                    <span>{{ t('វិភាគតាមអភិធម្ម និងបច្ចយសភាវៈ', 'Abhidhamma & Paṭṭhāna Matrix') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(link.abhidhammaKm, link.abhidhammaEn) }}</p>
+                </div>
+
+                <!-- Practice Reflection -->
+                <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                  <h5 class="font-bold text-[11px] uppercase tracking-wider flex items-center gap-1.5 text-emerald-600">
+                    <span>🧘</span>
+                    <span>{{ t('ការពិចារណាក្នុងជីវិត (របៀបកាត់ខ្សែបច្ច័យ)', 'Practical Contemplation') }}</span>
+                  </h5>
+                  <p :style="{ color: 'var(--ink-soft)' }">{{ t(link.practiceKm, link.practiceEn) }}</p>
+                </div>
+
+                <button
+                  type="button"
+                  @click.stop="expandedId = null"
+                  class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+                >
+                  {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+                </button>
+              </div>
+            </transition>
           </div>
         </div>
       </div>
@@ -590,160 +648,7 @@
       </div>
     </section>
 
-    <!-- Modal Pop-up (Dialog) for Individual Link Inspection -->
-    <Teleport to="body">
-      <transition name="modal-pop">
-        <div
-          v-if="activeModalLink"
-          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-5"
-          style="background: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
-          @click.self="closeModal"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
-            :style="{ borderColor: 'var(--accent)', background: 'var(--bg-card)' }"
-            @click.stop
-          >
-            <!-- Modal Header -->
-            <div
-              class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <div class="flex items-center gap-2 flex-wrap">
-                <span
-                  class="sutra-num font-bold text-base px-2.5 py-0.5 rounded-full"
-                  :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }"
-                >
-                  #{{ khNum(activeModalLink.num) }}
-                </span>
-                <span class="paali text-sm font-serif">{{ activeModalLink.pl }}</span>
-                <span
-                  class="text-[11px] px-2.5 py-0.5 rounded-full font-medium"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)', border: '1px solid var(--border)' }"
-                >
-                  {{ t(activeModalLink.periodKm, activeModalLink.periodEn) }}
-                </span>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded" :style="{ background: 'var(--bg-card)', color: 'var(--ink-muted)', border: '1px solid var(--border)' }">
-                  {{ activeModalLink.num }} / 12
-                </span>
-                <button
-                  type="button"
-                  class="w-8 h-8 rounded-full flex items-center justify-center transition text-base"
-                  :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
-                  @click="closeModal"
-                  :aria-label="t('បិទ', 'Close')"
-                >
-                  &#10005;
-                </button>
-              </div>
-            </div>
-
-            <!-- Modal Scrollable Content -->
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-4">
-              <div class="flex items-center gap-3">
-                <span class="text-4xl">{{ activeModalLink.icon }}</span>
-                <div>
-                  <h3 class="font-display text-2xl sm:text-3xl" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalLink.km, activeModalLink.en) }}
-                  </h3>
-                  <p class="paali text-sm" :style="{ color: 'var(--accent)' }">{{ activeModalLink.pl }}</p>
-                </div>
-              </div>
-
-              <!-- Meaning & Sutta Definition -->
-              <div class="p-4 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-1" :style="{ color: 'var(--accent)' }">
-                  {{ t('និយមន័យ និងខ្លឹមសារពិត (Definition & Meaning)', 'Definition & Sutta Meaning') }}
-                </p>
-                <p class="text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalLink.detailKm, activeModalLink.detailEn) }}
-                </p>
-              </div>
-
-              <!-- Cause & Effect Linkage -->
-              <div class="grid sm:grid-cols-2 gap-3">
-                <div class="p-3.5 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    ⬅️ {{ t('កើតឡើងដោយសារបច្ច័យ (Conditioned by)', 'Conditioned by') }}
-                  </p>
-                  <p class="text-xs font-bold mt-1.5" :style="{ color: 'var(--ink)' }">
-                    {{ t(activeModalLink.conditionedByKm, activeModalLink.conditionedByEn) }}
-                  </p>
-                </div>
-                <div class="p-3.5 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <p class="text-[10px] uppercase font-bold tracking-wider" :style="{ color: 'var(--ink-faint)' }">
-                    ➡️ {{ t('ជាបច្ច័យឱ្យកើតបន្ត (Conditions next)', 'Conditions in turn') }}
-                  </p>
-                  <p class="text-xs font-bold mt-1.5" :style="{ color: 'var(--accent)' }">
-                    {{ t(activeModalLink.conditionsKm, activeModalLink.conditionsEn) }}
-                  </p>
-                </div>
-              </div>
-
-              <!-- Abhidhamma Specifics -->
-              <div class="p-3.5 rounded-lg" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                <p class="text-[10px] font-bold uppercase tracking-wider mb-1" :style="{ color: 'var(--ink-muted)' }">
-                  🧠 {{ t('ចំណាត់ថ្នាក់តាមអភិធម្ម (Abhidhamma Classification)', 'Abhidhamma Analysis') }}
-                </p>
-                <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-                  {{ t(activeModalLink.abhidhammaKm, activeModalLink.abhidhammaEn) }}
-                </p>
-              </div>
-
-              <!-- How to Practice / Break this link -->
-              <div class="p-4 rounded-lg" :style="{ background: 'var(--accent-soft)', border: '1px dashed var(--accent)' }">
-                <p class="text-[11px] font-bold uppercase tracking-wider mb-1" :style="{ color: 'var(--accent-bright)' }">
-                  🕊️ {{ t('ការអនុវត្តវិបស្សនាជាក់ស្តែង (Practical Insight Contemplation)', 'Vipassanā Practice') }}
-                </p>
-                <p class="text-xs leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
-                  {{ t(activeModalLink.practiceKm, activeModalLink.practiceEn) }}
-                </p>
-              </div>
-            </div>
-
-            <!-- Modal Footer Navigation -->
-            <div
-              class="p-3 sm:p-4 flex items-center justify-between gap-3 border-t shrink-0"
-              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-            >
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="prevLink"
-              >
-                <span>‹</span>
-                <span>{{ t('អង្គមុន', 'Previous') }}</span>
-              </button>
-
-              <button
-                type="button"
-                class="px-4 py-1.5 text-xs font-bold rounded-lg transition hover:opacity-90"
-                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
-                @click="closeModal"
-              >
-                {{ t('បិទផ្ទាំងនេះ', 'Close') }}
-              </button>
-
-              <button
-                type="button"
-                class="px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition hover:opacity-85"
-                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
-                @click="nextLink"
-              >
-                <span>{{ t('អង្គបន្ទាប់', 'Next') }}</span>
-                <span>›</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </Teleport>
+    
   </div>
 </template>
 
@@ -754,7 +659,8 @@ import { useLanguage } from '../composables/useLanguage'
 const { t } = useLanguage()
 
 const viewMode = ref('anuloma')
-const activeModalLink = ref(null)
+const expandedId = ref(null)
+function toggleExpand(id) { expandedId.value = expandedId.value === id ? null : id }
 const activePatthanaTab = ref('directions') // 'directions', 'key_paccaya', 'blind_lame', 'catalog'
 
 const patthana24List = [
@@ -789,53 +695,7 @@ function khNum(n) {
   return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
 }
 
-function openModal(link) {
-  activeModalLink.value = link
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = 'hidden'
-  }
-}
 
-function closeModal() {
-  activeModalLink.value = null
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-}
-
-function nextLink() {
-  if (!activeModalLink.value) return
-  const idx = links.findIndex(l => l.num === activeModalLink.value.num)
-  if (idx !== -1) {
-    activeModalLink.value = links[(idx + 1) % links.length]
-  }
-}
-
-function prevLink() {
-  if (!activeModalLink.value) return
-  const idx = links.findIndex(l => l.num === activeModalLink.value.num)
-  if (idx !== -1) {
-    activeModalLink.value = links[(idx - 1 + links.length) % links.length]
-  }
-}
-
-function handleKeyDown(e) {
-  if (!activeModalLink.value) return
-  if (e.key === 'Escape') closeModal()
-  else if (e.key === 'ArrowRight') nextLink()
-  else if (e.key === 'ArrowLeft') prevLink()
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeyDown)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('keydown', handleKeyDown)
-  if (typeof document !== 'undefined') {
-    document.body.style.overflow = ''
-  }
-})
 
 // Master dataset for 12 Links of Paṭiccasamuppāda
 const links = [

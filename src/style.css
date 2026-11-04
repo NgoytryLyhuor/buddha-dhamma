@@ -156,11 +156,15 @@ h1, h2, h3, h4, h5, h6 {
 .paali,
 .sutra-num,
 .related-pill,
-.lang-pick,
 .menu-cat-pill,
 .copy-pill {
   line-height: 1.4;
   overflow-wrap: anywhere;
+}
+
+.lang-pick {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
 }
 
 /* Global Modal Pop Transition */

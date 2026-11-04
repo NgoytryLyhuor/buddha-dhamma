@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useLanguage } from '../composables/useLanguage'
+
+const { t } = useLanguage()
 
 const activeTab = ref('compass') // 'compass' | 'sequence' | 'benefits'
 const selectedDirection = ref(0)

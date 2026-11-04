@@ -575,12 +575,15 @@ function onNavigationDone(to, from) {
     })
   }
 }
-router.afterEach(onNavigationDone)
-
 const { theme, toggleTheme } = useTheme()
 const { lang, t, setLang } = useLanguage()
-const { needRefresh, reload } = usePwaUpdate()
+const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
+
+router.afterEach((to, from) => {
+  onNavigationDone(to, from)
+  checkForUpdate()
+})
 const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif, refresh: refreshNotif } = useNotifications(ONESIGNAL_APP_ID)
 
 function retryNotif() {

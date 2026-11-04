@@ -215,42 +215,130 @@
       </div>
     </main>
 
-    <footer class="max-w-4xl mx-auto px-4 pb-10 text-center">
-      <div class="footer-share">
-        <p class="share-title">{{ t('ចែករំលែក និង ផ្តល់យោបល់', 'Share and Give Feedback') }}</p>
-        <div class="share-row">
-          <a class="share-btn" :href="shareTelegram" target="_blank" rel="noopener">
-            <span class="share-ico" aria-hidden="true">&#9992;</span>
-            <span class="share-txt">
-              <span class="share-name">Telegram</span>
-              <span class="share-sub km">{{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}</span>
-            </span>
+    <!-- Redesigned Modern Buddhist Footer -->
+    <footer class="max-w-4xl mx-auto px-4 pb-12 text-center">
+      <div class="card-paper p-5 sm:p-7 rounded-2xl border" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card)' }">
+        <!-- Top header of footer -->
+        <div class="flex flex-col items-center">
+          <span class="w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-xs"
+            :style="{ background: 'var(--accent-soft)', color: 'var(--accent)' }" aria-hidden="true">
+            ☸️
+          </span>
+          <h3 class="font-display text-base sm:text-lg font-bold mt-2.5" :style="{ color: 'var(--ink)' }">
+            {{ t('ចែករំលែក និង ចូលរួមចំណែក', 'Share and Contribute') }}
+          </h3>
+          <p class="text-xs mt-1 max-w-md mx-auto" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('ជួយផ្សព្វផ្សាយពាក្យព្រះ ឬជួយកែពាក្យខ្មែរឱ្យកាន់តែត្រឹមត្រូវ', 'Help share the Dhamma or report a spelling mistake') }}
+          </p>
+        </div>
+
+        <!-- 3 Interactive Cards (1 column on mobile, 3 columns on tablet/desktop) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+          <!-- Button 1: Telegram Share -->
+          <a
+            :href="shareTelegram"
+            target="_blank"
+            rel="noopener"
+            class="footer-action-card group"
+            :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+          >
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 group-hover:scale-105 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0 text-left">
+              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors" :style="{ color: 'var(--ink)' }">
+                Telegram
+              </div>
+              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ចែករំលែកឱ្យមិត្ត', 'Share with friends') }}
+              </div>
+            </div>
+            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
           </a>
-          <a class="share-btn report" :href="reportUrl" target="_blank" rel="noopener">
-            <span class="share-ico" aria-hidden="true">&#9998;</span>
-            <span class="share-txt">
-              <span class="share-name">{{ t('ចង្អុលពាក្យខ្មែរខុស', 'Report a Khmer Spelling') }}</span>
-              <span class="share-sub km">{{ t('ជួយកែពាក្យឱ្យត្រឹមត្រូវ', 'Help fix a mistake') }}</span>
-            </span>
+
+          <!-- Button 2: Report Khmer Spelling -->
+          <a
+            :href="reportUrl"
+            target="_blank"
+            rel="noopener"
+            class="footer-action-card group"
+            :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+          >
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 group-hover:scale-105 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0 text-left">
+              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors" :style="{ color: 'var(--ink)' }">
+                {{ t('ចង្អុលពាក្យខុស', 'Report Spelling') }}
+              </div>
+              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ជួយកែពាក្យឱ្យត្រឹមត្រូវ', 'Help fix a typo') }}
+              </div>
+            </div>
+            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
           </a>
-          <button class="share-btn report" @click="openFeedback">
-            <span class="share-ico" aria-hidden="true">&#9993;</span>
-            <span class="share-txt">
-              <span class="share-name">{{ t('ផ្តល់យោបល់', 'Send Feedback') }}</span>
-              <span class="share-sub km">{{ t('ផ្ញើសារទៅអ្នកអភិវឌ្ឍ', 'Send a message to the developer') }}</span>
-            </span>
+
+          <!-- Button 3: Send Feedback -->
+          <button
+            type="button"
+            @click="openFeedback"
+            class="footer-action-card group text-left cursor-pointer"
+            :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+          >
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 group-hover:scale-105 transition-transform">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0 text-left">
+              <div class="font-bold text-xs sm:text-sm truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" :style="{ color: 'var(--ink)' }">
+                {{ t('ផ្តល់យោបល់', 'Send Feedback') }}
+              </div>
+              <div class="text-[11px] truncate" :style="{ color: 'var(--ink-muted)' }">
+                {{ t('ផ្ញើសារទៅអ្នកអភិវឌ្ឍ', 'Message developer') }}
+              </div>
+            </div>
+            <span class="text-stone-400 group-hover:translate-x-0.5 transition-transform text-sm shrink-0">›</span>
           </button>
         </div>
+
+        <!-- Scripture quote divider & text -->
+        <div class="mt-6 pt-5 border-t border-dashed" :style="{ borderColor: 'var(--border)' }">
+          <p class="font-serif italic text-xs sm:text-sm leading-relaxed max-w-xl mx-auto" :style="{ color: 'var(--ink-soft)' }">
+            {{ t('«សទ្ធា និងបញ្ញា គឺជាគូគ្មានពីរ — សិក្សាដោយគោរព បដិបត្តិដោយពិចារណា»', '“Faith and wisdom go together — study with respect, practise with reflection.”') }}
+          </p>
+          <p class="text-[11px] font-semibold mt-1.5" :style="{ color: 'var(--accent)' }">
+            {{ t('☸️ សព្វទានំ ធម្មទានំ ជិនាតិ — ការឱ្យនូវធម៌ ឈ្នះអស់ទានទាំងពួង', 'Sabba dānaṁ dhamma dānaṁ jināti — The gift of Dhamma excels all gifts.') }}
+          </p>
+        </div>
       </div>
-      <div class="ornament mt-8">&#9784;</div>
-      <p class="text-xs mt-3" :style="{ color: 'var(--ink-faint)' }">
-        {{ t('សទ្ធា និងបញ្ញា គឺជាគូគ្មានពីរ — សិក្សាដោយគោរព បដិបត្តិដោយពិចារណា', 'Faith and wisdom go together — study with respect, practise with reflection.') }}
-      </p>
-      <p class="text-[10px] mt-1 tracking-widest uppercase" :style="{ color: 'var(--ink-faint)' }">Buddha Dhamma &#183; 2026 &#183; v1.0.1</p>
-      <p class="text-[10px] mt-3" :style="{ color: 'var(--ink-faint)' }">
-        {{ t('បង្កើតឡើងដោយ', 'Developed by') }}
-        <a href="https://t.me/ngoytrylyhuor" target="_blank" rel="noopener" style="color: var(--accent)">{{ t('ឧបាសកង៉ុយទ្រី លីហួរ', 'NGOYTRY LYHUOR') }}</a>
-      </p>
+
+      <!-- Developer tribute & version info -->
+      <div class="mt-5 space-y-1.5">
+        <p class="text-xs flex items-center justify-center gap-1.5 flex-wrap" :style="{ color: 'var(--ink-muted)' }">
+          <span>{{ t('បង្កើតឡើងដោយសទ្ធាជ្រះថ្លា ៖', 'Created with devotion by:') }}</span>
+          <a
+            href="https://t.me/ngoytrylyhuor"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1 font-bold px-2.5 py-0.5 rounded-full border transition hover:opacity-85"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent)' }"
+          >
+            <span>{{ t('ឧបាសកង៉ុយទ្រី លីហួរ', 'Upāsaka NGOYTRY LYHUOR') }}</span>
+            <span class="text-[10px] opacity-75">(NGOYTRY LYHUOR)</span>
+            <span class="text-sky-500 text-xs">↗</span>
+          </a>
+        </p>
+        <p class="text-[10px] tracking-wider uppercase opacity-70" :style="{ color: 'var(--ink-faint)' }">
+          Buddha Dhamma &#183; 2026 &#183; v1.0.2 &#183; {{ t('ធម្មទានឥតគិតថ្លៃ', 'Free Dhamma Gift') }}
+        </p>
+      </div>
     </footer>
 
     <!-- Facebook-style bottom navigation -->

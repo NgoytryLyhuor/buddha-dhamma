@@ -133,55 +133,6 @@
               </button>
             </div>
 
-            <!-- Feature 4: Mindfulness Bell -->
-            <p class="settings-label mt-4">{{ t('ជួងរំឭកសតិ', 'Mindfulness Bell') }}</p>
-            <div class="space-y-2">
-              <div class="grid grid-cols-4 gap-1">
-                <button
-                  type="button"
-                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
-                  :class="bellInterval === 'off' ? 'on' : ''"
-                  @click="setBellInterval('off')"
-                >
-                  {{ t('បិទ', 'Off') }}
-                </button>
-                <button
-                  type="button"
-                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
-                  :class="bellInterval === '15m' ? 'on' : ''"
-                  @click="setBellInterval('15m')"
-                >
-                  {{ t('១៥ នាទី', '15m') }}
-                </button>
-                <button
-                  type="button"
-                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
-                  :class="bellInterval === '30m' ? 'on' : ''"
-                  @click="setBellInterval('30m')"
-                >
-                  {{ t('៣០ នាទី', '30m') }}
-                </button>
-                <button
-                  type="button"
-                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
-                  :class="bellInterval === '60m' ? 'on' : ''"
-                  @click="setBellInterval('60m')"
-                >
-                  {{ t('១ ម៉ោង', '1h') }}
-                </button>
-              </div>
-
-              <button
-                type="button"
-                class="setting-row text-xs cursor-pointer"
-                @click="testChime"
-                :title="t('សាកល្បងសម្លេងជួង', 'Test Sound')"
-              >
-                <span>🔔</span>
-                <span class="flex-1 text-left">{{ t('សាកល្បងសម្លេងជួងវត្ត (Test Sound)', 'Test Singing Bowl Chime') }}</span>
-                <span class="text-xs opacity-60">▶</span>
-              </button>
-            </div>
 
             <p class="settings-label mt-4">{{ t('ទំហំអក្សរ', 'Font size') }}</p>
             <div class="flex items-center justify-between gap-2">
@@ -615,40 +566,6 @@
       </div>
     </transition>
 
-    <!-- Floating Mindfulness Bell Toast (6-second Breathing Reminder) -->
-    <transition name="toast-down">
-      <div
-        v-if="showMindfulToast"
-        class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-md p-3.5 sm:p-4 rounded-2xl shadow-2xl border flex items-center gap-3 backdrop-blur-md"
-        :style="{ background: 'var(--bg-card)', borderColor: 'var(--accent)' }"
-        role="status"
-        aria-live="polite"
-      >
-        <span
-          class="text-2xl sm:text-3xl shrink-0 w-11 h-11 rounded-xl border flex items-center justify-center animate-pulse"
-          :style="{ background: 'var(--accent-soft)', borderColor: 'var(--border)', color: 'var(--accent)' }"
-        >
-          🔔
-        </span>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center justify-between gap-1">
-            <span class="text-[10px] font-bold uppercase tracking-wider paali" :style="{ color: 'var(--accent)' }">
-              ☸️ {{ t('រំឭកសតិ • MINDFULNESS MOMENT', 'Mindfulness Moment') }}
-            </span>
-            <button
-              @click="dismissToast"
-              class="w-5 h-5 rounded flex items-center justify-center text-xs opacity-60 hover:opacity-100 cursor-pointer"
-              :aria-label="t('បិទ', 'Close')"
-            >
-              ✕
-            </button>
-          </div>
-          <p class="text-xs sm:text-sm font-semibold mt-0.5 leading-snug" :style="{ color: 'var(--ink)' }">
-            {{ t(currentQuote.km, currentQuote.en) }}
-          </p>
-        </div>
-      </div>
-    </transition>
 
     <!-- Floating Zen Mode Indicator Pill -->
     <transition name="fade">
@@ -677,7 +594,6 @@ import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { useWakeLock } from './composables/useWakeLock'
 import { useZenMode } from './composables/useZenMode'
-import { useMindfulnessBell } from './composables/useMindfulnessBell'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
 import { BASE_URL } from './config'
 
@@ -699,7 +615,6 @@ function onNavigationDone(to, from) {
 const { theme, setTheme, toggleTheme } = useTheme()
 const { wakeLockEnabled, isSupported: wakeLockSupported, toggleWakeLock } = useWakeLock()
 const { zenMode, isChromeHidden, toggleZenMode, revealChrome } = useZenMode()
-const { bellInterval, showMindfulToast, currentQuote, setBellInterval, testChime, dismissToast } = useMindfulnessBell()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()

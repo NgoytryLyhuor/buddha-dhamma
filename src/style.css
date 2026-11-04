@@ -1540,13 +1540,4 @@ html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-badge {
   box-shadow: 0 4px 14px var(--halo);
 }
 
-/* Toast Down Transition for Mindfulness Bell Banner */
-.toast-down-enter-active,
-.toast-down-leave-active {
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.26s ease;
-}
-.toast-down-enter-from,
-.toast-down-leave-to {
-  transform: translate(-50%, -28px) scale(0.95);
-  opacity: 0;
-}
+

@@ -115,7 +115,7 @@
                 <span class="dot" :class="wakeLockEnabled ? 'on' : ''"></span>
               </button>
 
-              <!-- Feature 3: Zen Mode -->
+              <!-- Feature 2: Zen Mode -->
               <button
                 type="button"
                 class="setting-row"
@@ -413,7 +413,7 @@
                 ref="menuSearchInputRef"
                 v-model="menuSearchQuery"
                 type="text"
-                :placeholder="t('ស្វែងរកក្នុងចំណោម ១០៤ ម៉ឺនុយ (ឧ. សមាធិ, ទ្រព្យធម៌, កម្មដ្ឋាន)...', 'Search 104 pages (e.g. meditation, wealth, kammatthana)...')"
+                :placeholder="t('ស្វែងរកក្នុងចំណោម ' + khNum(nav.length) + ' ម៉ឺនុយ (ឧ. សមាធិ, ទ្រព្យធម៌, កម្មដ្ឋាន)...', 'Search ' + nav.length + ' pages (e.g. meditation, wealth, kammatthana)...')"
                 class="w-full bg-transparent border-none text-xs sm:text-sm focus:outline-none"
                 :style="{ color: 'var(--ink)' }"
               />
@@ -491,7 +491,7 @@
             <!-- Footer indicator -->
             <div v-if="filteredMenuNav.length > 0" class="col-span-full py-6 text-center text-xs opacity-80">
               <p class="font-medium" :style="{ color: 'var(--ink)' }">
-                {{ t('☸️ ព្រះធម៌ ១០៤ ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma 104 Pages — Ordered systematically for study & practice') }}
+                {{ t('☸️ ព្រះធម៌ ' + khNum(nav.length) + ' ទំព័រ — រៀបចំតាមលំដាប់លំដោយ សម្រាប់សិក្សា និងបដិបត្តិ', '☸️ Buddha Dhamma ' + nav.length + ' Pages — Ordered systematically for study & practice') }}
               </p>
               <p v-if="selectedMenuCategory !== 'all' || menuSearchQuery" class="mt-2 text-xs">
                 <button
@@ -500,7 +500,7 @@
                   class="font-bold underline cursor-pointer"
                   :style="{ color: 'var(--accent-bright)' }"
                 >
-                  {{ t('បង្ហាញទំព័រទាំង ១០៤ ឡើងវិញ (ទំព័រ ០១ ដល់ ១០៤)', 'Show all 104 pages (Pages 01 to 104)') }}
+                  {{ t('បង្ហាញទំព័រទាំង ' + khNum(nav.length) + ' ឡើងវិញ (ទំព័រ ០១ ដល់ ' + khNum(nav.length) + ')', 'Show all ' + nav.length + ' pages (Pages 01 to ' + nav.length + ')') }}
                 </button>
               </p>
             </div>
@@ -515,7 +515,7 @@
               :aria-label="t('បិទម៉ឺនុយ', 'Close Menu')"
             >
               <span>✕</span>
-              <span>{{ t('បិទម៉ឺនុយ (១០៤ ទំព័រ)', 'Close Menu (104 Pages)') }}</span>
+              <span>{{ t('បិទម៉ឺនុយ (' + khNum(nav.length) + ' ទំព័រ)', 'Close Menu (' + nav.length + ' Pages)') }}</span>
             </button>
           </div>
         </div>
@@ -659,7 +659,7 @@ const menuCategories = [
 
 const menuCategoryRoutes = {
   gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka', '/wealth', '/apayamukha', '/similes', '/lay-disciples', '/buddha-guna', '/punnakiriya', '/ariyadhana', '/tilakkhana', '/kalyanamitta', '/triple-gem-guna', '/vessantara', '/kalama-sutta', '/six-speeches', '/dhamma-hearing', '/gahi-sukha', '/sappurisa', '/paticcasamuppada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/mitta', '/samyojana'],
-  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/tilakkhana', '/khandha', '/jhana', '/arupa-jhana', '/vipassanupakkilesa', '/asava', '/anusaya', '/upadana', '/anattalakkhana', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/vipassana-bhumi', '/samyojana'],
+  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/jhana', '/arupa-jhana', '/vipassanupakkilesa', '/asava', '/anusaya', '/upadana', '/anattalakkhana', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/vipassana-bhumi', '/samyojana'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/visuddhi', '/sammappadhana', '/iddhipada', '/metta-sutta', '/carita', '/caturarakkha', '/vimokkha', '/ariyavamsa', '/yonisomanasikara', '/paccaya-requisites'],
   sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka', '/barami', '/sangayana', '/mangala', '/ariyadhana', '/kammpatha', '/similes', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/bojjhanga', '/kalyanamitta', '/abhinha', '/kalama-sutta', '/six-speeches', '/dhammacakka', '/anattalakkhana', '/sanghadana', '/metta-sutta', '/visuddhi', '/vessantara', '/cakka', '/devaduta', '/abhinna', '/dasabala', '/vuddhi', '/ditthi', '/garuka-kamma', '/mitta'],
   life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family', '/ceremonies', '/wealth', '/lokadhamma', '/apayamukha', '/brahmavihara', '/mangala', '/sangahavatthu', '/agati', '/mindful-work', '/katannu', '/lay-disciples', '/appamada', '/kalyanamitta', '/abhinha', '/uposatha-types', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/six-speeches', '/iddhipada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/ariyavamsa', '/vuddhi', '/yonisomanasikara', '/ditthi', '/garuka-kamma', '/mitta', '/paccaya-requisites', '/samyojana'],
@@ -866,9 +866,9 @@ const bottomTabs = [
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/triple-gem-guna', '/asava', '/anusaya', '/upadana', '/visuddhi', '/dhammacakka', '/anattalakkhana', '/vessantara', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/abhinna', '/dasabala', '/vimokkha', '/vipassana-bhumi', '/ditthi', '/garuka-kamma', '/samyojana', '/akusala-mula', '/ahara', '/paramattha-sacca', '/puggala-4', '/kusala-kammapatha', '/vipallasa', '/ariya-vinaya', '/asoka-history', '/sukha-levels', '/saupadisesa-nibbana', '/catummaharajika'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/asava', '/anusaya', '/upadana', '/visuddhi', '/dhammacakka', '/anattalakkhana', '/vessantara', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/abhinna', '/dasabala', '/vimokkha', '/vipassana-bhumi', '/ditthi', '/garuka-kamma', '/samyojana', '/akusala-mula', '/ahara', '/paramattha-sacca', '/puggala-4', '/kusala-kammapatha', '/vipallasa', '/ariya-vinaya', '/asoka-history', '/sukha-levels', '/saupadisesa-nibbana', '/catummaharajika'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/sammappadhana', '/iddhipada', '/metta-sutta', '/dhamma-hearing', '/carita', '/caturarakkha', '/ariyavamsa', '/paccaya-requisites', '/aghatapativinaya', '/vitakkasanthana', '/natha-dhamma', '/sangha-vinaya-lay', '/sampajanna', '/dana-types', '/puja-symbolism', '/vedana', '/citta-daily'],
-  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka', '/wealth', '/apayamukha', '/ayatana', '/ariyadhana', '/similes', '/lay-disciples', '/tilakkhana', '/khandha', '/kalyanamitta', '/kalama-sutta', '/six-speeches', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/cakka', '/devaduta', '/vuddhi', '/yonisomanasikara', '/mitta'],
+  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka', '/wealth', '/apayamukha', '/ayatana', '/ariyadhana', '/similes', '/lay-disciples', '/kalyanamitta', '/kalama-sutta', '/six-speeches', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/cakka', '/devaduta', '/vuddhi', '/yonisomanasikara', '/mitta'],
 }
 
 const activeTab = computed(() => {
@@ -1066,6 +1066,36 @@ const related = {
   '/mitta': ['/kalyanamitta', '/sappurisa', '/family'],
   '/paccaya-requisites': ['/ariyavamsa', '/dhutanga', '/ceremonies'],
   '/samyojana': ['/ariya', '/magga', '/nibbana'],
+  '/death-and-rebirth': ['/maranasanna', '/citta-vithi', '/merit-transfer'],
+  '/anapanasati': ['/meditation', '/satipatthana', '/walking-meditation'],
+  '/citta-matrix': ['/abhidhamma', '/cetasika-qa', '/citta-vithi'],
+  '/vipassana-nana': ['/vipassana-bhumi', '/vimokkha', '/tilakkhana'],
+  '/dhamma-aid': ['/questions', '/kamma', '/daily'],
+  '/metta': ['/metta-sutta', '/caturarakkha', '/brahmavihara'],
+  '/citta-vithi': ['/citta-matrix', '/abhidhamma', '/maranasanna'],
+  '/magga': ['/core', '/bodhipakkhiya', '/visuddhi'],
+  '/holy-sites': ['/life', '/asoka-history', '/ceremonies'],
+  '/tiktok-studio': ['/my-gems', '/stories', '/gathas'],
+  '/akusala-mula': ['/lobha-mula-citta', '/kamma', '/anusaya'],
+  '/aghatapativinaya': ['/vitakkasanthana', '/metta', '/brahmavihara'],
+  '/ahara': ['/paccaya', '/khandha', '/vedana'],
+  '/paramattha-sacca': ['/abhidhamma', '/core', '/vipallasa'],
+  '/puggala-4': ['/ariya', '/sappurisa', '/kamma'],
+  '/vitakkasanthana': ['/aghatapativinaya', '/anapanasati', '/meditation'],
+  '/natha-dhamma': ['/appamada', '/ariyadhana', '/core'],
+  '/kusala-kammapatha': ['/kamma', '/ethics', '/sampajanna'],
+  '/vipallasa': ['/paramattha-sacca', '/tilakkhana', '/ditthi'],
+  '/sangha-vinaya-lay': ['/sangha', '/ariya-vinaya', '/ethics'],
+  '/sampajanna': ['/satipatthana', '/mindful-work', '/kusala-kammapatha'],
+  '/dana-types': ['/sanghadana', '/punnakiriya', '/barami'],
+  '/puja-symbolism': ['/chanting', '/ceremonies', '/dana-types'],
+  '/vedana': ['/khandha', '/satipatthana', '/sukha-levels'],
+  '/ariya-vinaya': ['/sangha-vinaya-lay', '/ethics', '/rajadhamma'],
+  '/asoka-history': ['/holy-sites', '/sangayana', '/tipitaka'],
+  '/sukha-levels': ['/gahi-sukha', '/vedana', '/jhana'],
+  '/saupadisesa-nibbana': ['/nibbana', '/ariya', '/core'],
+  '/catummaharajika': ['/realms', '/cosmology', '/devaduta'],
+  '/citta-daily': ['/citta-matrix', '/daily', '/akusala-mula'],
 }
 
 const relatedList = computed(() => {
@@ -1087,17 +1117,6 @@ const onScroll = () => {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
-onMounted(() => {
-  clearSavedScroll()
-  window.addEventListener('scroll', onScroll, { passive: true })
-  document.addEventListener('click', onSettingsGlobalClick)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-  document.removeEventListener('click', onSettingsGlobalClick)
-})
-
 const printOpenStates = []
 function beforePrint() {
   document.querySelectorAll('main details').forEach(d => {
@@ -1109,14 +1128,6 @@ function afterPrint() {
   printOpenStates.forEach(([d, was]) => { d.open = was })
   printOpenStates.length = 0
 }
-onMounted(() => {
-  window.addEventListener('beforeprint', beforePrint)
-  window.addEventListener('afterprint', afterPrint)
-})
-onBeforeUnmount(() => {
-  window.removeEventListener('beforeprint', beforePrint)
-  window.removeEventListener('afterprint', afterPrint)
-})
 
 const online = ref(typeof navigator !== 'undefined' ? navigator.onLine !== false : true)
 function updateOnline() { online.value = navigator.onLine !== false }
@@ -1157,22 +1168,40 @@ function closeInstallPrompt() {
   showInstallPrompt.value = false
   installHelp.value = false
 }
+
+const onBeforeInstall = (e) => {
+  e.preventDefault()
+  installPrompt.value = e
+}
+const onAppInstalled = () => {
+  installPrompt.value = null
+  installChecked.value = true
+  closeInstallPrompt()
+}
+
+// Consolidated Lifecycle Hooks
 onMounted(() => {
+  clearSavedScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+  document.addEventListener('click', onSettingsGlobalClick)
+  window.addEventListener('beforeprint', beforePrint)
+  window.addEventListener('afterprint', afterPrint)
   window.addEventListener('online', updateOnline)
   window.addEventListener('offline', updateOnline)
-  const onBeforeInstall = (e) => {
-    e.preventDefault()
-    installPrompt.value = e
-  }
   window.addEventListener('beforeinstallprompt', onBeforeInstall)
-  window.addEventListener('appinstalled', () => {
-    installPrompt.value = null
-    installChecked.value = true
-    closeInstallPrompt()
-  })
+  window.addEventListener('appinstalled', onAppInstalled)
   installTimer = setTimeout(openInstallPrompt, 1500)
 })
+
 onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  document.removeEventListener('click', onSettingsGlobalClick)
+  window.removeEventListener('beforeprint', beforePrint)
+  window.removeEventListener('afterprint', afterPrint)
+  window.removeEventListener('online', updateOnline)
+  window.removeEventListener('offline', updateOnline)
+  window.removeEventListener('beforeinstallprompt', onBeforeInstall)
+  window.removeEventListener('appinstalled', onAppInstalled)
   if (installTimer) clearTimeout(installTimer)
 })
 
@@ -1210,6 +1239,127 @@ const descrMap = {
   recollections: ['អនុស្សតិ ១០ និងពិចារណាប្រចាំថ្ងៃ។', 'The ten recollections and daily reflections.'],
   ariya: ['អរិយបុគ្គល ៨ ពួក សោតាបន្ន ដល់ អរហន្ត។', 'The eight noble persons, from stream-enterer to arahant.'],
   'death-and-rebirth': ['ដំណើរនៃការស្លាប់ និងការបដិសន្ធិ យន្តការបញ្ជូនកម្មឆ្លងជាតិ។', 'The death and rebirth process, mechanism of karmic transference across lifetimes.'],
+  calendar: ['បដិទិនពុទ្ធសាសនា គណនាថ្ងៃសីល ឧបោសថ និងបុណ្យប្រពៃណីខ្មែរ។', 'Buddhist calendar, calculating lunar Uposatha observance days and holy festivals.'],
+  realms: ['ស្ថានទាំង ៣១ ភព អបាយភូមិ ៤ មនុស្សលោក សួគ៌ ៦ ជាន់ និងព្រហ្មលោក ២០ ជាន់។', 'The 31 realms of existence: 4 woeful states, human realm, 6 heavenly deva realms, and 20 brahma worlds.'],
+  bodhipakkhiya: ['ពោធិបក្ខិយធម៌ ៣៧ ប្រការ ធម៌ជាជំនួយដល់ការត្រាស់ដឹង និងការសម្រេចព្រះនិព្វាន។', 'The 37 factors of awakening leading to spiritual enlightenment and liberation.'],
+  timer: ['នាឡិកាកំណត់ពេលសមាធិ និងសំឡេងកណ្ដឹងរំឭកសតិ។', 'Meditation timer with mindfulness bell sounds and peaceful interval alerts.'],
+  quiz: ['ល្បងប្រាជ្ញាធម៌ សំណួរពហុជ្រើសរើសវាស់កម្រិតចំណេះដឹងព្រះពុទ្ធសាសនា។', 'Dhamma Quiz Challenge — interactive tests to evaluate your knowledge of Buddhist teachings.'],
+  anapanasati: ['អានាបានសតិ ១៦ ដំណាក់កាល វិធីចម្រើនសមាធិតាមដង្ហើមចេញចូលតាមពុទ្ធវចនៈ។', 'The 16 steps of Ānāpānasati: breath mindfulness meditation according to the suttas.'],
+  'citta-matrix': ['តារាងផែនទីចិត្ត ៨៩/១២១ និងចេតសិក ៥២ ក្នុងអភិធម្មបិដក។', 'Interactive Citta & Cetasika Matrix: 89/121 consciousnesses and 52 mental factors.'],
+  'vipassana-nana': ['វិបស្សនាញាណ ១៦ ដំណាក់កាល ដំណើរនៃការចម្រើនបញ្ញាឃើញសច្ចធម៌។', 'The 16 stages of Vipassanā-ñāṇa insight knowledge leading to enlightenment.'],
+  'dhamma-aid': ['ជំនួយសង្គ្រោះផ្លូវចិត្តតាមធម៌ ឱសថព្យាបាលទុក្ខព្រួយ វិបត្តិ និងការបាក់ទឹកចិត្ត។', 'Dhamma First Aid — Buddhist psychological guidance for emotional crisis, grief, and anxiety.'],
+  metta: ['មេត្តាភាវនា វិធីផ្សាយសេចក្តីស្រឡាញ់រាប់អានដល់សត្វលោកឥតព្រំដែន។', 'Mettā-bhāvanā: Cultivating and radiating unconditional loving-kindness to all beings.'],
+  'citta-vithi': ['ចិត្តវិថី ដំណើរនៃការកើតឡើងនៃចិត្តតាមទ្វារទាំង ៦ ក្នុងអភិធម្ម។', 'Citta Vīthi: The cognitive series and mental process through the 6 sense doors.'],
+  magga: ['អរិយអដ្ឋង្គិកមគ្គ មគ្គ ៨ ជាក់ស្តែងក្នុងជីវិតសម័យថ្មី និងតារាងតាមដានការបដិបត្តិ។', 'The Practical Noble Eightfold Path in modern daily life with a habit tracker.'],
+  'holy-sites': ['ពុទ្ធស្ថានសំខាន់ៗ ទីកន្លែងប្រសូត ត្រាស់ដឹង បឋមទេសនា និងបរិនិព្វាន។', 'Sacred Buddhist pilgrimage sites: Lumbini, Bodh Gaya, Sarnath, and Kusinara.'],
+  prophecy: ['ពុទ្ធទំនាយ និងអនាគតកាលនៃព្រះពុទ្ធសាសនា ៥០០០ ព្រះវស្សា។', 'Buddhist prophecies and the 5,000-year dispensation of the Sasana.'],
+  rajadhamma: ['រាជធម៌ ១០ ប្រការ គុណធម៌ និងក្បួនដឹកនាំសម្រាប់មេដឹកនាំប្រកបដោយទសពិធរាជធម៌។', 'Dasa Rājadhamma: The 10 virtues of righteous leadership and ethical governance.'],
+  dhutanga: ['ធុតង្គ ១៣ ប្រការ វត្ថុបដិបត្តិដើម្បីកម្ចាត់កិលេស និងភាពសាមញ្ញនៃជីវិតបព្វជិត។', 'The 13 Dhutaṅga ascetic practices for purifying defilements and cultivating contentment.'],
+  disciples: ['ព្រះអសីតិមហាសាវក ៨០ អង្គ កំពូលសាវកឆ្នើមផ្នែកនានារបស់ព្រះសម្មាសម្ពុទ្ធ។', 'The Great Disciples of the Buddha: 80 foremost Arahants and their spiritual masteries.'],
+  cosmology: ['ចក្រវាឡវិទ្យាពុទ្ធសាសនា រចនាសម្ព័ន្ធភពផែនដី ភ្នំព្រះសុមេរុ និងមហាកប្ប។', 'Buddhist cosmology: Structure of universes, Mount Sumeru, and cycles of cosmic aeons (kappa).'],
+  nibbana: ['ព្រះនិព្វាន សច្ចធម៌កំពូល ភាពរលត់ទុក្ខ និងកិលេសទាំងពួង។', 'Nibbāna: The ultimate reality, unconditioned peace, and complete cessation of suffering.'],
+  'merit-transfer': ['ការឧទ្ទិសកុសល បុណ្យទានដល់ញាតិដែលចែកឋាន និងយន្តការទទួលបុណ្យក្នុងបរលោក។', 'Pattidāna: Dedication of merits to deceased relatives and karmic receptivity in the afterlife.'],
+  tipitaka: ['ព្រះត្រៃបិដក រចនាសម្ព័ន្ធគម្ពីរវិន័យ សុត្តន្ត និងអភិធម្ម ៤៥ ០០០ ធម្មក្ខន្ធ។', 'The Pāli Tipiṭaka: Structure of Vinaya, Sutta, and Abhidhamma Pitakas (45,000 teachings).'],
+  asubha: ['អសុភកម្មដ្ឋាន ១០ វិធីពិចារណារូបរាងកាយដើម្បីរំលត់កាមរាគៈ។', 'Asubha-kammatthāna: 10 foulness contemplations for dismantling sensual lust.'],
+  sangaha: ['អភិធម្មត្ថសង្គហៈ សេចក្តីសង្ខេបបរមត្ថធម៌ ៤ យ៉ាងងាយយល់។', 'Abhidhammattha Saṅgaha: Concise compendium of the 4 ultimate realities.'],
+  family: ['ធម៌សម្រាប់គ្រួសារ កាតព្វកិច្ចឪពុកម្តាយ កូន ស្វាមី ភរិយា និងសុភមង្គលក្នុងផ្ទះ។', 'Dhamma for family life: Duties of parents, children, spouses, and domestic harmony.'],
+  ceremonies: ['ពិធីបុណ្យ និងទំនៀមទម្លាប់ព្រះពុទ្ធសាសនាខ្មែរ ពិសាខបូជា មាឃបូជា ភ្ជុំបិណ្ឌ។', 'Buddhist rituals and traditional Cambodian ceremonies: Visak Bochea, Meak Bochea, Pchum Ben.'],
+  lokadhamma: ['លោកធម៌ ៨ ប្រការ ធម៌ប្រចាំលោក ធម៌ឡើងនិងធម៌ចុះក្នុងជីវិត។', 'Aṭṭha Lokadhamma: The 8 worldly conditions (gain/loss, status/disgrace, praise/blame, pleasure/pain).'],
+  brahmavihara: ['ព្រហ្មវិហារធម៌ ៤ មេត្តា ករុណា មុទិតា ឧបេក្ខា ធម៌របស់ព្រហ្ម។', 'Brahmavihāra: The 4 sublime abodes (loving-kindness, compassion, sympathetic joy, equanimity).'],
+  barami: ['បារមី ១០ ប្រការ គុណធម៌ដ៏ឧត្តមសម្រាប់បំពេញឆ្ពោះទៅកាន់ការត្រាស់ដឹង។', 'The 10 Pāramīs: Perfections cultivated by Bodhisattas on the path to awakening.'],
+  kammatthana: ['កម្មដ្ឋាន ៤០ ប្រការ វិធានការហ្វឹកហាត់ចិត្តក្នុងគម្ពីរវិសុទ្ធិមគ្គ។', 'The 40 Kammatthāna meditation subjects from the Visuddhimagga.'],
+  indriya: ['ឥន្ទ្រិយ ៥ ប្រការ សទ្ធា វីរិយៈ សតិ សមាធិ បញ្ញា និងការរក្សាតុល្យភាព។', 'The 5 Spiritual Faculties (Indriya): Faith, energy, mindfulness, concentration, and wisdom.'],
+  sangayana: ['ការសង្គាយនាព្រះត្រៃបិដកទាំង ៦ លើក ប្រវត្តិការពារ និងផ្ទៀងផ្ទាត់ពុទ្ធវចនៈ។', 'The 6 Buddhist Councils: Historical preservation and recitation of the Tipiṭaka.'],
+  jataka: ['ជាតក ៥៥០ រឿង រឿងរ៉ាវអតីតជាតិរបស់ព្រះពោធិសត្វសន្សំបារមី។', 'Jātaka Tales: 550 stories of the Bodhisatta\'s past lives cultivating perfections.'],
+  wealth: ['ទ្រព្យសម្បត្តិ និងធម៌រក្សាទ្រព្យ វិធីរកស៊ី និងគ្រប់គ្រងហិរញ្ញវត្ថុតាមផ្លូវធម៌។', 'Right Wealth: Buddhist principles of righteous livelihood, savings, and financial mastery.'],
+  apayamukha: ['អបាយមុខ ៦ ប្រការ ផ្លូវនៃសេចក្តីវិនាស និងការខាតបង់ទ្រព្យសម្បត្តិ។', 'Apāyamukha: The 6 causes of ruin and financial dissipation.'],
+  ayatana: ['អាយតនៈ ១២ ប្រការ ទ្វារទទួលអារម្មណ៍ខាងក្នុង និងអារម្មណ៍ខាងក្រៅ។', 'The 12 Āyatanas: Internal and external sense bases shaping perception.'],
+  ariyadhana: ['អរិយទ្រព្យ ៧ ប្រការ ទ្រព្យដ៏ប្រសើរជាប់តាមខ្លួនឆ្លងភពឆ្លងជាតិ។', 'Ariya Dhana: The 7 Noble Treasures that accompany consciousness across lifetimes.'],
+  similes: ['ឧបមាក្នុងព្រះពុទ្ធសាសនា ពាក្យប្រៀបធៀបដាស់សតិក្នុងព្រះត្រៃបិដក។', 'Famous Buddhist Similes: Powerful metaphors and parables from the suttas.'],
+  'lay-disciples': ['ឧបាសក និងឧបាសិកាគំរូ កំពូលឧបាសកឧបាសិកាក្នុងសម័យពុទ្ធកាល។', 'Foremost Lay Disciples: Eminent upasakas and upasikas of the Buddha’s time.'],
+  'walking-meditation': ['ចង្ក្រមភាវនា វិធីដើរសមាធិ និងអត្ថប្រយោជន៍ដល់សុខភាពផ្លូវចិត្តនិងកាយ។', 'Walking Meditation (Caṅkama): Technique, mindfulness in motion, and health benefits.'],
+  'bedtime-dhamma': ['ធម៌រំឭកមុនចូលគេង វិធីរៀបចំចិត្តឱ្យស្ងប់គេងលក់ស្រួលគ្មានសុបិន្តអាក្រក់។', 'Bedtime Dhamma: Mindful reflections and chants for peaceful sleep and relaxation.'],
+  uposatha: ['ឧបោសថសីល សីល ៨ វិធីសមាទាន និងអានិសង្សនៃថ្ងៃសីល។', 'Uposatha Sīla: The Eight Precepts observance, rituals, and spiritual blessings.'],
+  nivarana: ['នីវរណធម៌ ៥ ប្រការ គ្រឿងរារាំងចិត្តមិនឱ្យកើតសមាធិ និងបញ្ញា។', 'Nīvaraṇa: The 5 mental hindrances obstructing calm and meditative absorption.'],
+  mangala: ['មង្គល ៣៨ ប្រការ មង្គលសូត្រ ធម៌នាំមកនូវសិរីសួស្តី និងសេចក្តីចម្រើនក្នុងជីវិត។', 'The 38 Blessings (Maṅgala Sutta): Timeless principles for worldly prosperity and peace.'],
+  sangahavatthu: ['សង្គហវត្ថុ ៤ ប្រការ ធម៌សម្រាប់ចងចិត្តមនុស្ស និងសាមគ្គីភាពក្នុងសង្គម។', 'Saṅgahavatthu: The 4 bases of social harmony, generosity, and community cohesion.'],
+  agati: ['អគតិ ៤ ប្រការ ផ្លូវលំអៀងដែលនាំឱ្យបាត់បង់យុត្តិធម៌ និងកិត្តិយស។', 'The 4 Agatis: Unjust biases (desire, hatred, delusion, fear) compromising integrity.'],
+  katannu: ['កតញ្ញូតាធម៌ គុណធម៌ដឹងគុណ និងតបស្នងសងគុណមាតាបិតា និងអ្នកមានគុណ។', 'Kataññū: The virtue of gratitude and honoring parents, teachers, and benefactors.'],
+  kammpatha: ['កម្មបថ ១០ ប្រការ ផ្លូវនៃការសាងអំពើល្អនិងអាក្រក់តាមកាយ វាចា ចិត្ត។', 'Kammapatha: The 10 wholesome and unwholesome courses of action in deed, word, and thought.'],
+  'buddha-guna': ['ព្រះពុទ្ធគុណ ៩ ប្រការ ឥតិបិ សោ ភគវា អត្ថន័យ និងការរឭកគុណ។', 'The 9 Supreme Virtues of the Buddha (Iti pi so Bhagavā) and their meditative contemplation.'],
+  punnakiriya: ['បុញ្ញកិរិយាវត្ថុ ១០ ប្រការ មូលដ្ឋាននៃការធ្វើបុណ្យ និងសន្សំពូជកុសល។', 'Puññakiriyavatthu: The 10 grounds for making merit in daily life.'],
+  'mindful-work': ['ធម៌ក្នុងការងារ ការចម្រើនសតិ និងភាពស្មោះត្រង់ក្នុងអាជីពការងារ។', 'Mindfulness at Work: Cultivating focus, ethics, and emotional balance in the workplace.'],
+  satipatthana: ['មហាសតិបដ្ឋានសូត្រ សតិបដ្ឋាន ៤ កាយ វេទនា ចិត្ត ធម៌ មាគ៌ាតែមួយគត់។', 'Mahāsatipaṭṭhāna Sutta: The 4 foundations of mindfulness—the direct path to liberation.'],
+  bojjhanga: ['ពោជ្ឈង្គ ៧ ប្រការ អង្គនៃការត្រាស់ដឹង និងធម៌ព្យាបាលរោគផ្លូវចិត្ត។', 'Bojjhaṅga: The 7 factors of enlightenment that purify the mind and dispel afflictions.'],
+  tilakkhana: ['ត្រៃលក្ខណ៍ ៣ ប្រការ អនិច្ចំ ទុក្ខំ អនត្តា សច្ចធម៌ធម្មជាតិនៃសង្ខារលោក។', 'Tilakkhaṇa: The 3 universal characteristics of all phenomena—impermanence, suffering, and non-self.'],
+  khandha: ['បញ្ចក្ខន្ធ ខន្ធ ៥ រូប វេទនា សញ្ញា សង្ខារ វិញ្ញាណ ធាតុផ្សំនៃជីវិត។', 'The 5 Aggregates (Pañcakkhandha): Form, feeling, perception, mental formations, and consciousness.'],
+  appamada: ['អប្បមាទធម៌ សេចក្តីមិនធ្វេសប្រហែស បណ្តាំចុងក្រោយរបស់ព្រះសម្មាសម្ពុទ្ធ។', 'Appamāda: Non-negligence, heedfulness—the Buddha’s final parting advice to humanity.'],
+  'sacca-kicca': ['កិច្ចក្នុងអរិយសច្ច ៤ បរិញ្ញេយ្យ បហាតព្វ សច្ឆិកាតព្វ ភាវេតព្វ។', 'The 12 Tasks of the Four Noble Truths: What must be understood, abandoned, realized, and cultivated.'],
+  'triple-gem-guna': ['គុណនៃព្រះរតនត្រ័យ ព្រះពុទ្ធគុណ ព្រះធម្មគុណ ព្រះសង្ឃគុណ ទីពឹងកំពូល។', 'The Virtues of the Triple Gem: The supreme refuge of the Buddha, Dhamma, and Sangha.'],
+  jhana: ['រូបឈានទាំង ៤ វិតក្ក វិចារ បីតិ សុខ ឯកគ្គតា ថ្នាក់នៃសមាធិកំពូល។', 'The 4 Rūpa-Jhānas: Meditative absorptions, jhanic factors, and emotional bliss.'],
+  abhinha: ['អភិណ្ហបច្ចវេក្ខណៈ ៥ ប្រការ ការពិចារណាជាប្រចាំអំពីជរា ព្យាធិ មរណៈ ព្រាត់ប្រាស និងកម្ម។', 'Abhiṇha-paccavekkhana: The 5 daily contemplations on aging, illness, death, separation, and kamma.'],
+  asava: ['អាសវធម៌ ៤ ប្រការ គ្រឿងត្រាំងំកិលេសដែលជ្រាបចូលក្នុងចិត្តសត្វលោក។', 'Āsava: The 4 mental taints and intoxicating pollutions of the defiled mind.'],
+  anusaya: ['អនុសយធម៌ ៧ ប្រការ កិលេសដែលដេកសម្ងំក្នុងសន្តានចិត្តរង់ចាំឱកាសរើឡើង។', 'Anusaya: The 7 latent tendencies and deep subconscious roots of unwholesome behavior.'],
+  upadana: ['ឧបាទាន ៤ ប្រការ ការតោងស្អិតជាប់ជំពាក់ដែលនាំឱ្យកើតទុក្ខក្នុងវដ្តសង្សារ។', 'Upādāna: The 4 clingings and attachments fueling rebirth and suffering.'],
+  visuddhi: ['វិសុទ្ធិ ៧ ប្រការ ដំណាក់កាលបរិសុទ្ធទាំង ៧ ឆ្ពោះទៅកាន់ព្រះនិព្វាន។', 'Visuddhi: The 7 stages of purification leading systematically to final release.'],
+  dhammacakka: ['ធម្មចក្កប្បវត្តនសូត្រ ព្រះធម្មទេសនាដំបូងបង្អស់របស់ព្រះសម្មាសម្ពុទ្ធ។', 'Dhammacakkappavattana Sutta: The Buddha\'s first sermon setting in motion the Wheel of Dhamma.'],
+  anattalakkhana: ['អនត្តលក្ខណសូត្រ ព្រះសូត្រស្តីពីភាពមិនមែនជារបស់ខ្លួន នាំឱ្យបញ្ចវគ្គីយ៍សម្រេចអរហត្ត។', 'Anattalakkhaṇa Sutta: The discourse on non-self that awakened the first five disciples to Arahantship.'],
+  'arupa-jhana': ['អរូបឈាន ៤ កម្រិត អាកាសានញ្ចាយតនៈ វិញ្ញាណញ្ចាយតនៈ អាកិញ្ចញ្ញាយតនៈ នេវសញ្ញានាសញ្ញាយតនៈ។', 'The 4 Arūpa-Jhānas: Formless meditative absorptions beyond physical matter.'],
+  vipassanupakkilesa: ['ឧបក្កិលេសនៃវិបស្សនា ១០ ប្រការ គ្រឿងសៅហ្មងដែលបំភាន់ចិត្តអ្នកចម្រើនភាវនា។', 'Vipassanūpakkilesa: The 10 corruptions of insight that deceive meditators on the path.'],
+  'uposatha-types': ['ឧបោសថ ៣ បែប គោបាលកុបោសថ និគណ្ឋុបោសថ និងអរិយុបោសថ។', 'The 3 types of Uposatha: The cowherd\'s, the Nigaṇṭha\'s, and the Noble Disciple’s observance.'],
+  sammappadhana: ['សម្មប្បធាន ៤ ប្រការ ព្យាយាមប្រុងប្រយ័ត្ន លះបង់ ចម្រើន និងរក្សាកុសលធម៌។', 'Sammappadhāna: The 4 supreme efforts to prevent, abandon, cultivate, and maintain wholesome states.'],
+  iddhipada: ['ឥទ្ធិបាទ ៤ ប្រការ ឆន្ទ វីរិយៈ ចិត្ត វីមំសា មូលដ្ឋាននៃភាពជោគជ័យគ្រប់កិច្ចការ។', 'Iddhipāda: The 4 bases of spiritual power and accomplishment in all endeavors.'],
+  vessantara: ['វេស្សន្តរជាតក មហាជាតកចុងក្រោយរបស់ព្រះពោធិសត្វ បំពេញទានបារមីកំពូល។', 'Vessantara Jātaka: The epic final lifetime of the Bodhisatta perfecting supreme generosity.'],
+  'metta-sutta': ['ករណីយមេត្តសូត្រ ព្រះសូត្រស្តីពីការផ្សាយមេត្តា និងការរស់នៅដោយសុខសាន្ត។', 'Karaṇīyametta Sutta: The discourse on universal loving-kindness and fearlessness.'],
+  'kalama-sutta': ['កាឡាមសូត្រ ធម្មនុញ្ញនៃសេរីភាពនៃការគិត និងការពិចារណាដោយបញ្ញាផ្ទាល់ខ្លួន។', 'Kālāma Sutta: The Buddha\'s charter on critical thinking and empirical verification.'],
+  'six-speeches': ['វាចា ៦ យ៉ាង លក្ខណៈនៃពាក្យសម្តីដែលព្រះពុទ្ធជ្រើសរើសមានបន្ទូល និងមិនមានបន្ទូល។', 'The 6 types of speech: The Buddha’s criteria for truthful, beneficial, and timely words.'],
+  sanghadana: ['សង្ឃទាន របៀបវារៈ និងអានិសង្សដ៏ធំធេងនៃការថ្វាយទានដល់ព្រះសង្ឃ។', 'Saṅghadāna: The rituals, spirit, and boundless spiritual fruition of offerings to the community of monks.'],
+  'dhamma-hearing': ['អានិសង្សនៃការស្តាប់ធម៌ ៥ ប្រការ ការស្ដាប់ដើម្បីកើតបញ្ញា និងជ្រះថ្លាក្នុងចិត្ត។', 'The 5 blessings of listening to the Dhamma: Gaining new knowledge, clarifying doubts, and uplifting the heart.'],
+  'gahi-sukha': ['ឃហដ្ឋសុខ សុខ ៤ យ៉ាងរបស់គ្រហស្ថ អត្ថិសុខ ភោគសុខ អនណសុខ អនវជ្ជសុខ។', 'Gahi-sukha: The 4 kinds of worldly happiness available to laypeople (possession, wealth, debtlessness, blamelessness).'],
+  macchariya: ['មច្ឆរិយៈ ៥ ប្រការ សេចក្តីកំណាញ់ស្វិតស្វាញដែលបិទបាំងចិត្តមិនឱ្យរីកចម្រើន។', 'Macchariya: The 5 stinginesses (dwellings, families, gains, beauty, Dhamma) that contract the human heart.'],
+  sappurisa: ['សប្បុរិសធម៌ ៧ ប្រការ គុណធម៌នៃមនុស្សថ្លៃថ្នូរ ស្គាល់ហេតុ ផល ខ្លួន ប្រមាណ កាល សង្គម និងបុគ្គល។', 'Sappurisa-dhamma: The 7 qualities of a genuinely noble and wise person.'],
+  paticcasamuppada: ['បដិច្ចសមុប្បាទ ១២ អង្គ យន្តការនៃហេតុនិងផលដែលបង្វិលសត្វលោកក្នុងវដ្តសង្សារ។', 'Paṭiccasamuppāda: The 12 links of dependent origination sustaining the wheel of rebirth.'],
+  dhatu: ['ធាតុ ១៨ ប្រការ ធាតុវិភាគដើម្បីបំបែកជំនឿលើ «តួខ្លួន» ឬ «អត្តា»។', 'Dhātu 18: Analysis of the 18 sensory elements dispelling the illusion of a permanent self.'],
+  niyama: ['និយាម ៥ ប្រការ ច្បាប់ធម្មជាតិនៃចក្រវាឡ ឧតុ ពីជ ចិត្ត កម្ម និងធម្មនិយាម។', 'Niyāma: The 5 natural cosmic laws governing temperature, genetics, mind, kamma, and phenomena.'],
+  carita: ['ចរិត ៦ ប្រការ រាគ ទោស មោហ សទ្ធា ពុទ្ធិ វិតក្ក និងកម្មដ្ឋានព្យាបាល។', 'Carita: The 6 psychological temperaments and their tailored meditation remedies.'],
+  cakka: ['ចក្ក ៤ ប្រការ កង់នៃភាពចម្រើនរុងរឿង និងជោគជ័យក្នុងជីវិតទាំងផ្លូវលោកនិងផ្លូវធម៌។', 'Cakka 4: The four wheels of prosperity driving sustainable success in mundane and spiritual life.'],
+  maranasanna: ['មរណាសន្នវិថី ដំណើរផ្លូវចិត្តពេលជិតស្លាប់ កម្ម និមិត្ត និងគតិនិមិត្ត។', 'Maraṇāsanna-vīthi: Mind at the threshold of death, karmic visions, and rebirth destinations.'],
+  devaduta: ['ទេវទូត ៥ ព្រះអង្គ ក្មេងទារក មនុស្សចាស់ មនុស្សឈឺ អ្នកទោស និងសាកសព។', 'The 5 Devadūtas: Divine messengers of mortality awakening beings to spiritual urgency.'],
+  abhinna: ['អភិញ្ញា ៦ ប្រការ អភិនិហារផ្លូវចិត្ត និងវិជ្ជា ៣ របស់ព្រះអរហន្ត។', 'Abhiññā: The 6 supernormal knowledges and transcendental masteries attained through meditation.'],
+  dasabala: ['ទសពលញាណ ញាណដឹងកំពូលទាំង ១០ របស់ព្រះសម្មាសម្ពុទ្ធ។', 'Dasabala-ñāṇa: The 10 supreme intellectual powers unique to a Fully Awakened Buddha.'],
+  caturarakkha: ['ចតុរារក្ខធម៌ ធម៌ការពារចិត្តទាំង ៤ ពុទ្ធានុស្សតិ មេត្តា អសុភ និងមរណានុស្សតិ។', 'Caturārakkha: The 4 Guardian Meditations shielding the mind from mental defilements.'],
+  vimokkha: ['វិមោក្ខ ៣ ប្រការ ទ្វាររំដោះទុក្ខ សុញ្ញត អនិមិត្ត និងអប្បណិហិត។', 'Vimokkha: The 3 doors of liberation—emptiness, signlessness, and desirelessness.'],
+  'vipassana-bhumi': ['វិបស្សនាភូមិ ៦ មូលដ្ឋានដីសម្រាប់ចម្រើនបញ្ញាវិបស្សនា។', 'Vipassanā-bhūmi: The 6 fertile domains for cultivating genuine insight wisdom.'],
+  ariyavamsa: ['អរិយវង្ស ៤ ប្រការ ប្រពៃណីរបស់ព្រះអរិយៈ ការសន្តោសក្នុងបច្ច័យ ៤ និងសេចក្តីរីករាយក្នុងការភាវនា។', 'Ariyavaṁsa: The 4 noble traditions—contentment with requisites and delight in meditation.'],
+  vuddhi: ['វុឌ្ឍិធម៌ ៤ ប្រការ ធម៌នាំមកនូវការចម្រើនប្រាជ្ញា សេពគប់សប្បុរស ស្ដាប់ធម៌ ពិចារណា និងបដិបត្តិតាម។', 'Vuḍḍhi-dhamma: The 4 factors fostering spiritual and intellectual wisdom.'],
+  yonisomanasikara: ['យោនិសោមនសិការ ការធ្វើទុកក្នុងចិត្តដោយឧបាយប្រាជ្ញាត្រឹមត្រូវ។', 'Yonisomanasikāra: Wise attention—the root conditioning factor for liberating wisdom.'],
+  ditthi: ['ទិដ្ឋិ ៦២ ប្រការ ការយល់ឃើញខុសដែលចងសត្វក្នុងសង្សារវដ្ត។', 'Diṭṭhi 62: The net of 62 wrong views examined in the Brahmajāla Sutta.'],
+  'garuka-kamma': ['គរុកម្ម កម្មធ្ងន់បំផុតទាំងអនន្តរិយកម្ម និងមហគ្គតកុសល។', 'Garuka Kamma: Weighty karmic actions dictating immediate next-life rebirth.'],
+  mitta: ['មិត្តពិត និងមិត្តក្លែងក្លាយ ៤ ពួក ការរាប់អានមនុស្សតាមពុទ្ធោវាទសិង្គាលកសូត្រ។', 'True and False Friends: The Buddha\'s guidance on relationships from the Sigālovāda Sutta.'],
+  'paccaya-requisites': ['បច្ច័យ ៤ របស់បព្វជិត ជីវរ បិណ្ឌបាត សេនាសនៈ និងគិលានភេសជ្ជៈ។', 'The 4 Monastic Requisites: Robes, almsfood, dwelling, and medical medicines.'],
+  samyojana: ['សំយោជនៈ ១០ ប្រការ ចំណងទាំង ១០ ដែលចងសត្វលោកមិនឱ្យរួចផុតពីវដ្តទុក្ខ។', 'Saṁyojana: The 10 spiritual fetters binding consciousness to cyclical rebirth.'],
+  'akusala-mula': ['អកុសលមូល ៣ ឫសគល់បាប លោភៈ ទោសៈ មោហៈ និងវិធីផ្តាច់ឫស។', 'Akusala Mūla: The 3 unwholesome roots—greed, hatred, and delusion—and how to eradicate them.'],
+  aghatapativinaya: ['វិធីរម្ងាប់កំហឹង ៥ យ៉ាង យន្តការផ្លូវចិត្តរំលត់គំនុំ និងការចងពៀរ។', '5 Ways of Subduing Resentment (Āghātapaṭivinaya): Techniques for dissolving inner bitterness.'],
+  ahara: ['អាហារ ៤ យ៉ាងដែលចិញ្ចឹមសត្វលោក កវឡិង្ការាហារ ផស្សាហារ មនោសញ្ចេតនាហារ និងវិញ្ញាណាហារ។', 'The 4 Nutriments sustaining all sentient life: Physical food, contact, mental volition, and consciousness.'],
+  'paramattha-sacca': ['សម្មុតិសច្ចៈ & បរមត្ថសច្ចៈ សច្ចធម៌នៃពាក្យសន្មត និងសច្ចធម៌ពិតនៃធម្មជាតិ។', 'Conventional vs Ultimate Truth: Distinguishing language conventions from ultimate experiential realities.'],
+  'puggala-4': ['បុគ្គល ៤ ជំពូកក្នុងលោក ងងឹតមកងងឹតទៅ ងងឹតមកភ្លឺទៅ ភ្លឺមកងងឹតទៅ និងភ្លឺមកភ្លឺទៅ។', '4 Types of Persons: Traversing darkness to darkness, darkness to light, light to darkness, and light to light.'],
+  vitakkasanthana: ['វិធីរម្ងាប់គំនិតអាក្រក់ ៥ យ៉ាង ជំហានបណ្តេញគំនិតរំខាន និងអវិជ្ជាតាមព្រះសូត្រ។', 'Vitakkasaṇṭhāna: 5 steps to halt intrusive negative thoughts from the Majjhima Nikāya.'],
+  'natha-dhamma': ['ធម៌ជាទីពឹង ១០ ប្រការ គុណធម៌សម្រាប់ពឹងពាក់ខ្លួនឯងជាទីពឹងពិតប្រាកដ។', 'Nāthakaraṇa-dhamma: 10 virtues of genuine self-reliance taught by the Buddha.'],
+  'kusala-kammapatha': ['កុសលកម្មបថ ១០ ប្រការ ផ្លូវនៃការសាងអំពើល្អបរិសុទ្ធ នាំឱ្យកើតក្នុងសុគតិភព។', '10 Wholesome Courses of Action: Ethical deeds in body, speech, and mind ensuring peaceful rebirth.'],
+  vipallasa: ['វិបល្លាស ១២ ការភ័ន្តច្រឡំក្នុងការសម្គាល់ ការគិត និងការយល់ឃើញ។', 'Vipallāsa: 12 cognitive distortions mistaking impermanent, painful, non-self, and impure phenomena.'],
+  'sangha-vinaya-lay': ['វិន័យសង្ឃបឋមសម្រាប់គ្រហស្ថ ការស្វែងយល់ដើម្បីជៀសវាងការធ្វើឱ្យព្រះសង្ឃដាច់វិន័យ។', 'Lay Guide to Monastic Vinaya: Understanding rules to protect monastics and offer proper support.'],
+  sampajanna: ['សម្បជញ្ញៈ ៤ ប្រការ សេចក្តីដឹងខ្លួនច្បាស់ក្នុងការងារ និងការរស់នៅប្រចាំថ្ងៃ។', 'Sampajañña: 4 types of clear comprehension in daily actions, purposeful work, and reflection.'],
+  'dana-types': ['ទាន ៣ ជំពូក អាមិសទាន អភយទាន ធម្មទាន និងបុណ្យ ៣ ជាន់។', '3 Forms of Giving: Material charity, gift of fearlessness, and the supreme gift of truth (Dhamma).'],
+  'puja-symbolism': ['អត្ថន័យគ្រឿងសក្ការៈបូជា ផ្កា ធូប ទៀន និងទឹកបូជាចំពោះព្រះរតនត្រ័យ។', 'Symbolism of Buddhist Offerings: Profound meanings of flowers, incense, candles, and water.'],
+  vedana: ['វេទនា ៥ ប្រការ សុខ ទុក្ខ សោមនស្ស ទោមនស្ស ឧបេក្ខា និងវិជ្ជាគ្រប់គ្រងអារម្មណ៍។', 'Vedanā 5: Sensory and emotional feelings, psychological mastery, and emotional regulation.'],
+  'ariya-vinaya': ['អរិយវិន័យ vs ច្បាប់លោកីយ ភាពខុសគ្នារវាងការគ្រប់គ្រងកាយវាចាខាងក្រៅ និងការលាងជម្រះចិត្តខាងក្នុង។', 'Noble Discipline vs Worldly Law: Outer legal coercion vs inner voluntary transformation.'],
+  'asoka-history': ['ព្រះបាទធម្មាសោក & ដែនដីសុវណ្ណភូមិ ប្រវត្តិផ្សព្វផ្សាយព្រះពុទ្ធសាសនាមកកាន់អាស៊ីអាគ្នេយ៍។', 'Emperor Asoka & Mission to Suvaṇṇabhūmi: Historic spread of Theravāda Buddhism to Southeast Asia.'],
+  'sukha-levels': ['សុខ ៤ ថ្នាក់ក្នុងព្រះពុទ្ធសាសនា កាមសុខ ឈានសុខ វិបស្សនាសុខ និងនិព្វានសុខ។', '4 Ascending Stages of Happiness: Sensory delight, meditative absorption, insight joy, and Nibbānic bliss.'],
+  'saupadisesa-nibbana': ['ព្រះនិព្វាន ២ យ៉ាង សឧបាទិសេសនិព្វាន និងអនុបាទិសេសនិព្វាន។', 'Two Nibbāna Realities: Liberation with residue (living Arahant) and liberation without residue (Parinibbāna).'],
+  catummaharajika: ['ចាតុម្មហារាជិកា & មហារាជ ៤ ទិស ភពសួគ៌ជាន់ទី ១ និងទេវរាជការពារលោក។', 'Cātummahārājikā: The realm of the Four Heavenly Kings protecting the cardinal directions.'],
+  'citta-daily': ['កុសលចិត្ត & អកុសលចិត្តប្រចាំថ្ងៃ ការសង្កេតចិត្តល្អ និងចិត្តអាក្រក់ក្នុងសកម្មភាពរស់នៅ។', 'Daily Mind States: Distinguishing wholesome vs unwholesome consciousness in everyday life.'],
+  kalyanamitta: ['កល្យាណមិត្ត មិត្តល្អ ៤ ពួក និងមិត្តបាប ៤ ពួក តាមគម្ពីរសិង្គាលកសូត្រ។', 'Kalyāṇamitta: The 4 true noble friends vs 4 false deceptive friends in the Sigālovāda Sutta.'],
+  'tiktok-studio': ['TikTok AI Studio ឧបករណ៍បង្កើតស្លាយវីដេអូព្រះធម៌សម្រាប់បណ្តាញសង្គម។', 'TikTok AI Studio: AI-powered Buddhist wisdom slide generator for video creators.'],
   notfound: ['រកមិនឃើញទំព័រ', 'Page not found'],
 }
 function syncPageMeta() {

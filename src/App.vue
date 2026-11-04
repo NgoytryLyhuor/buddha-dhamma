@@ -1,7 +1,11 @@
 <template>
   <div>
     <!-- Header (logo + settings only; navigation lives in bottom bar) -->
-    <header class="sticky top-0 z-50 h-14 sm:h-16" :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }">
+    <header
+      class="sticky top-0 z-50 h-14 sm:h-16 transition-transform duration-300 ease-out"
+      :class="{ '-translate-y-full': zenMode && isChromeHidden }"
+      :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }"
+    >
       <div class="w-full max-w-4xl mx-auto px-4 h-full flex flex-col justify-center relative">
         <div class="flex items-center justify-between gap-3 h-full">
         <router-link to="/" class="flex items-center gap-2 sm:gap-2.5 group min-w-0 my-auto" style="color: var(--ink)">
@@ -55,14 +59,129 @@
             </div>
 
             <p class="settings-label mt-4">{{ t('ផ្ទៃមុខ', 'Appearance') }}</p>
-            <button class="setting-row" @click="toggleTheme">
-              <span>{{ theme === 'dark' ? '☽' : '☼' }}</span>
-              <span>{{ t(theme === 'dark' ? 'ប្តូរទៅភ្លឺ' : 'ប្តូរទៅងងឹត', theme === 'dark' ? 'Switch to light' : 'Switch to dark') }}</span>
-            </button>
-            <button class="setting-row" @click="toggleContrast">
+            <div class="grid grid-cols-3 gap-1.5">
+              <button
+                type="button"
+                class="lang-pick text-xs px-2 py-2 inline-flex items-center justify-center gap-1 shrink-0"
+                :class="theme === 'light' ? 'on' : ''"
+                @click="setTheme('light')"
+              >
+                <span>☼</span>
+                <span>{{ t('ពន្លឺថ្ងៃ', 'Light') }}</span>
+              </button>
+              <button
+                type="button"
+                class="lang-pick text-xs px-2 py-2 inline-flex items-center justify-center gap-1 shrink-0"
+                :class="theme === 'sepia' ? 'on' : ''"
+                @click="setTheme('sepia')"
+              >
+                <span>📜</span>
+                <span>{{ t('ស្លឹករឹត', 'Sepia') }}</span>
+              </button>
+              <button
+                type="button"
+                class="lang-pick text-xs px-2 py-2 inline-flex items-center justify-center gap-1 shrink-0"
+                :class="theme === 'dark' ? 'on' : ''"
+                @click="setTheme('dark')"
+              >
+                <span>☽</span>
+                <span>{{ t('រាត្រី', 'Dark') }}</span>
+              </button>
+            </div>
+
+            <button class="setting-row mt-2" @click="toggleContrast">
               <span>AA</span>
               <span>{{ t(contrast ? 'ប្តូរទៅពណ៌ធម្មតា' : 'ប្តូរទៅពណ៌ខ្លាំង (ផ្ទុយខ្ពស់)', contrast ? 'Switch to normal contrast' : 'Switch to high contrast') }}</span>
             </button>
+
+            <!-- READING EXPERIENCE: WAKE LOCK & ZEN FOCUS MODE -->
+            <p class="settings-label mt-4">{{ t('បទពិសោធន៍អាន', 'Reading Experience') }}</p>
+            <div class="space-y-1.5">
+              <!-- Feature 1: Wake Lock -->
+              <button
+                type="button"
+                class="setting-row"
+                @click="toggleWakeLock"
+                :disabled="!wakeLockSupported"
+                :title="t('រក្សាអេក្រង់ភ្លឺពេលអាន', 'Keep Screen Awake')"
+              >
+                <span :style="wakeLockEnabled ? { color: 'var(--accent)' } : {}">💡</span>
+                <span class="flex-1 min-w-0 text-left">
+                  <span class="block">{{ t('រក្សាអេក្រង់ភ្លឺពេលអាន', 'Keep Screen Awake') }}</span>
+                  <span class="block text-[10px] opacity-75 font-normal" :style="{ color: 'var(--ink-muted)' }">
+                    {{ wakeLockSupported ? (wakeLockEnabled ? t('បើក — អេក្រង់មិនរលត់ឡើយ', 'Enabled — screen stays on') : t('បិទ — រលត់តាមទូរស័ព្ទ', 'Disabled — normal screen timeout')) : t('មិនគាំទ្រលើ Browser នេះ', 'Not supported') }}
+                  </span>
+                </span>
+                <span class="dot" :class="wakeLockEnabled ? 'on' : ''"></span>
+              </button>
+
+              <!-- Feature 3: Zen Mode -->
+              <button
+                type="button"
+                class="setting-row"
+                @click="toggleZenMode"
+                :title="t('របៀបស្ងប់ចិត្ត', 'Zen Focus Mode')"
+              >
+                <span :style="zenMode ? { color: 'var(--accent)' } : {}">🧘</span>
+                <span class="flex-1 min-w-0 text-left">
+                  <span class="block">{{ t('របៀបស្ងប់ចិត្ត (Zen Mode)', 'Zen Focus Mode') }}</span>
+                  <span class="block text-[10px] opacity-75 font-normal" :style="{ color: 'var(--ink-muted)' }">
+                    {{ zenMode ? t('បើក — លាក់របារបញ្ជាពេល Scroll អាន', 'Enabled — auto-hides navigation on scroll') : t('បិទ — បង្ហាញរបារបញ្ជាជាប់', 'Disabled — bars always visible') }}
+                  </span>
+                </span>
+                <span class="dot" :class="zenMode ? 'on' : ''"></span>
+              </button>
+            </div>
+
+            <!-- Feature 4: Mindfulness Bell -->
+            <p class="settings-label mt-4">{{ t('ជួងរំឭកសតិ', 'Mindfulness Bell') }}</p>
+            <div class="space-y-2">
+              <div class="grid grid-cols-4 gap-1">
+                <button
+                  type="button"
+                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
+                  :class="bellInterval === 'off' ? 'on' : ''"
+                  @click="setBellInterval('off')"
+                >
+                  {{ t('បិទ', 'Off') }}
+                </button>
+                <button
+                  type="button"
+                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
+                  :class="bellInterval === '15m' ? 'on' : ''"
+                  @click="setBellInterval('15m')"
+                >
+                  {{ t('១៥ នាទី', '15m') }}
+                </button>
+                <button
+                  type="button"
+                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
+                  :class="bellInterval === '30m' ? 'on' : ''"
+                  @click="setBellInterval('30m')"
+                >
+                  {{ t('៣០ នាទី', '30m') }}
+                </button>
+                <button
+                  type="button"
+                  class="lang-pick text-[11px] px-1 py-1.5 shrink-0 whitespace-nowrap"
+                  :class="bellInterval === '60m' ? 'on' : ''"
+                  @click="setBellInterval('60m')"
+                >
+                  {{ t('១ ម៉ោង', '1h') }}
+                </button>
+              </div>
+
+              <button
+                type="button"
+                class="setting-row text-xs cursor-pointer"
+                @click="testChime"
+                :title="t('សាកល្បងសម្លេងជួង', 'Test Sound')"
+              >
+                <span>🔔</span>
+                <span class="flex-1 text-left">{{ t('សាកល្បងសម្លេងជួងវត្ត (Test Sound)', 'Test Singing Bowl Chime') }}</span>
+                <span class="text-xs opacity-60">▶</span>
+              </button>
+            </div>
 
             <p class="settings-label mt-4">{{ t('ទំហំអក្សរ', 'Font size') }}</p>
             <div class="flex items-center justify-between gap-2">
@@ -495,6 +614,55 @@
         </div>
       </div>
     </transition>
+
+    <!-- Floating Mindfulness Bell Toast (6-second Breathing Reminder) -->
+    <transition name="toast-down">
+      <div
+        v-if="showMindfulToast"
+        class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-md p-3.5 sm:p-4 rounded-2xl shadow-2xl border flex items-center gap-3 backdrop-blur-md"
+        :style="{ background: 'var(--bg-card)', borderColor: 'var(--accent)' }"
+        role="status"
+        aria-live="polite"
+      >
+        <span
+          class="text-2xl sm:text-3xl shrink-0 w-11 h-11 rounded-xl border flex items-center justify-center animate-pulse"
+          :style="{ background: 'var(--accent-soft)', borderColor: 'var(--border)', color: 'var(--accent)' }"
+        >
+          🔔
+        </span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-1">
+            <span class="text-[10px] font-bold uppercase tracking-wider paali" :style="{ color: 'var(--accent)' }">
+              ☸️ {{ t('រំឭកសតិ • MINDFULNESS MOMENT', 'Mindfulness Moment') }}
+            </span>
+            <button
+              @click="dismissToast"
+              class="w-5 h-5 rounded flex items-center justify-center text-xs opacity-60 hover:opacity-100 cursor-pointer"
+              :aria-label="t('បិទ', 'Close')"
+            >
+              ✕
+            </button>
+          </div>
+          <p class="text-xs sm:text-sm font-semibold mt-0.5 leading-snug" :style="{ color: 'var(--ink)' }">
+            {{ t(currentQuote.km, currentQuote.en) }}
+          </p>
+        </div>
+      </div>
+    </transition>
+
+    <!-- Floating Zen Mode Indicator Pill -->
+    <transition name="fade">
+      <button
+        v-if="zenMode && isChromeHidden"
+        @click="revealChrome"
+        class="fixed top-3 right-3 z-40 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg backdrop-blur-md border inline-flex items-center gap-1.5 transition active:scale-95 cursor-pointer"
+        :style="{ background: 'var(--bg-card)', borderColor: 'var(--accent)', color: 'var(--accent)' }"
+        :title="t('ចុចដើម្បីបង្ហាញរបារបញ្ជា', 'Tap to reveal navigation')"
+      >
+        <span>🧘</span>
+        <span class="text-[11px]">{{ t('ស្ងប់ចិត្ត', 'Zen') }}</span>
+      </button>
+    </transition>
   </div>
 </template>
 
@@ -507,6 +675,9 @@ import { useFontSize } from './composables/useFontSize'
 import { useFont } from './composables/useFont'
 import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
+import { useWakeLock } from './composables/useWakeLock'
+import { useZenMode } from './composables/useZenMode'
+import { useMindfulnessBell } from './composables/useMindfulnessBell'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
 import { BASE_URL } from './config'
 
@@ -525,7 +696,10 @@ function onNavigationDone(to, from) {
     })
   }
 }
-const { theme, toggleTheme } = useTheme()
+const { theme, setTheme, toggleTheme } = useTheme()
+const { wakeLockEnabled, isSupported: wakeLockSupported, toggleWakeLock } = useWakeLock()
+const { zenMode, isChromeHidden, toggleZenMode, revealChrome } = useZenMode()
+const { bellInterval, showMindfulToast, currentQuote, setBellInterval, testChime, dismissToast } = useMindfulnessBell()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
@@ -545,7 +719,7 @@ const { fontSizeIndex, SIZES, increaseFontSize, decreaseFontSize, spacing, setSp
 const { font, setFont } = useFont()
 
 function resetSettings() {
-  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_contrast', 'bd_install_dismissed']
+  ;['bd_lang', 'bd_dhamma_theme', 'bd_font_size', 'bd_font_family', 'bd_spacing', 'bd_contrast', 'bd_install_dismissed', 'bd_wake_lock', 'bd_zen_mode', 'bd_mindfulness_bell']
     .forEach(k => localStorage.removeItem(k))
   clearSavedScroll()
   location.reload()

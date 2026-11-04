@@ -2,34 +2,54 @@ import { ref } from 'vue'
 
 const theme = ref('light')
 
-const savedTheme = localStorage.getItem('bd_dhamma_theme')
-if (savedTheme === 'dark' || savedTheme === 'light') {
-  theme.value = savedTheme
-} else if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  theme.value = 'dark'
+if (typeof window !== 'undefined') {
+  const savedTheme = localStorage.getItem('bd_dhamma_theme')
+  if (savedTheme === 'dark' || savedTheme === 'light' || savedTheme === 'sepia') {
+    theme.value = savedTheme
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    theme.value = 'dark'
+  }
 }
 
 function applyTheme(t) {
+  if (typeof document === 'undefined') return
   const html = document.documentElement
+  html.classList.remove('dark', 'sepia')
   if (t === 'dark') html.classList.add('dark')
-  else html.classList.remove('dark')
-  html.style.colorScheme = t
+  else if (t === 'sepia') html.classList.add('sepia')
+
+  html.style.colorScheme = t === 'dark' ? 'dark' : 'light'
   const tc = document.querySelector('meta[name="theme-color"]')
-  if (tc) tc.setAttribute('content', t === 'dark' ? '#1a140b' : '#f5efe0')
+  if (tc) {
+    let color = '#f5efe0'
+    if (t === 'dark') color = '#1a140b'
+    else if (t === 'sepia') color = '#ebdcb9'
+    tc.setAttribute('content', color)
+  }
 }
 
 applyTheme(theme.value)
 
+function setTheme(t) {
+  if (t !== 'light' && t !== 'sepia' && t !== 'dark') return
+  theme.value = t
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('bd_dhamma_theme', t)
+  }
+  applyTheme(t)
+}
+
 function toggleTheme() {
-  theme.value = theme.value === 'light' ? 'dark' : 'light'
-  localStorage.setItem('bd_dhamma_theme', theme.value)
-  applyTheme(theme.value)
+  if (theme.value === 'light') setTheme('sepia')
+  else if (theme.value === 'sepia') setTheme('dark')
+  else setTheme('light')
 }
 
 if (typeof window !== 'undefined' && window.matchMedia) {
   const mq = window.matchMedia('(prefers-color-scheme: dark)')
   const onChange = (e) => {
-    if (localStorage.getItem('bd_dhamma_theme') === 'dark' || localStorage.getItem('bd_dhamma_theme') === 'light') return
+    const s = localStorage.getItem('bd_dhamma_theme')
+    if (s === 'dark' || s === 'light' || s === 'sepia') return
     theme.value = e.matches ? 'dark' : 'light'
     applyTheme(theme.value)
   }
@@ -38,13 +58,14 @@ if (typeof window !== 'undefined' && window.matchMedia) {
 }
 
 export function getChartColors() {
-  const dark = document.documentElement.classList.contains('dark')
-  return {
-    legend: dark ? '#d8c9a3' : '#5d4c30',
-    border: dark ? '#251f16' : '#fdf7e7',
-  }
+  if (typeof document === 'undefined') return { legend: '#5d4c30', border: '#fdf7e7' }
+  const isDark = document.documentElement.classList.contains('dark')
+  const isSepia = document.documentElement.classList.contains('sepia')
+  if (isDark) return { legend: '#d8c9a3', border: '#251f16' }
+  if (isSepia) return { legend: '#4b3619', border: '#f4e8cc' }
+  return { legend: '#5d4c30', border: '#fdf7e7' }
 }
 
 export function useTheme() {
-  return { theme, toggleTheme, getChartColors }
+  return { theme, setTheme, toggleTheme, getChartColors }
 }

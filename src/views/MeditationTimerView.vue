@@ -76,7 +76,7 @@
         </p>
         <div class="flex items-center justify-center gap-2 flex-wrap">
           <button v-for="preset in presets" :key="preset.mins"
-            class="lang-pick px-3 py-1 text-xs"
+            class="lang-pick px-3 py-1 text-xs shrink-0 whitespace-nowrap"
             :class="selectedMins === preset.mins ? 'on' : ''"
             @click="setDuration(preset.mins)">
             {{ preset.mins }} {{ t('នាទី', 'min') }}

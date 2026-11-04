@@ -228,7 +228,7 @@
           >
             <button
               @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on"
+              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('បិទផ្ទាំង', 'Close') }}
             </button>

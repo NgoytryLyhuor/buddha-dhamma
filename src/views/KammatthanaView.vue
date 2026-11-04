@@ -17,7 +17,7 @@
         @click="activeTab = 'carita'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeTab === 'carita'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>🎯</span>
@@ -29,7 +29,7 @@
         @click="activeTab = 'forty'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeTab === 'forty'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>🧘</span>

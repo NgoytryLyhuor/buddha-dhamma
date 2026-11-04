@@ -283,7 +283,7 @@ function playMettaBell() {
             <!-- Action Button -->
             <button
               @click="triggerRadiate"
-              class="lang-pick px-6 py-2.5 text-xs sm:text-sm font-semibold on shadow-md inline-flex items-center gap-2"
+              class="lang-pick px-6 py-2.5 text-xs sm:text-sm font-semibold on shadow-md inline-flex items-center gap-2 shrink-0 whitespace-nowrap"
             >
               <span>🔔</span>
               <span>{{ isPulsing ? t('កំពុងផ្សាយរលកមេត្តា...', 'Radiating Metta Pulse...') : t('បញ្ជូនរលកមេត្តា & វាយជួង', 'Send Metta Pulse & Bell') }}</span>

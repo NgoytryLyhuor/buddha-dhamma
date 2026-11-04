@@ -26,10 +26,10 @@
         <span>👥</span>
         <span>{{ t('ក្បួនពិនិត្យមនុស្ស ៨ ពួក ក្នុងសង្គម', 'The 8 Archetypes of Companionship') }}</span>
       </h3>
-      <div class="flex items-center gap-1.5 text-xs">
+      <div class="flex items-center gap-1.5 text-xs overflow-x-auto max-w-full pb-1 scrollbar-none touch-pan-x sm:flex-wrap">
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="friendTab === 'all' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="friendTab = 'all'"
         >
@@ -37,7 +37,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="friendTab === 'fake' ? 'bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="friendTab = 'fake'"
         >
@@ -45,7 +45,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="friendTab === 'true' ? 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="friendTab = 'true'"
         >

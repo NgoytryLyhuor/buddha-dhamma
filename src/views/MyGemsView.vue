@@ -72,7 +72,7 @@
           class="h-8 px-3 rounded-full font-semibold whitespace-nowrap transition cursor-pointer shrink-0 inline-flex items-center justify-center"
           :style="{
             background: activeCategory === cat.id ? 'var(--accent)' : 'var(--bg-card)',
-            color: activeCategory === cat.id ? '#ffffff' : 'var(--ink-muted)',
+            color: activeCategory === cat.id ? 'var(--accent-ink, #ffffff)' : 'var(--ink-muted)',
             border: '1px solid ' + (activeCategory === cat.id ? 'var(--accent)' : 'var(--border)')
           }"
         >
@@ -158,7 +158,7 @@
         <!-- Sub-header Row (Featured badge + Canonical Reference) -->
         <div v-if="gem.featured || gem.ref" class="mt-2.5 flex items-center gap-2 flex-wrap text-xs">
           <span v-if="gem.featured" class="h-5 px-2 rounded text-[10px] font-bold uppercase tracking-widest inline-flex items-center gap-1 shrink-0"
-            :style="{ background: 'var(--accent)', color: '#fff' }">
+            :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }">
             <span>⭐</span>
             <span>{{ t('រតនៈគ្រងកំពូល', 'CROWN GEM') }}</span>
           </span>
@@ -275,7 +275,7 @@
         <button
           type="button"
           class="h-9 px-4 mt-4 rounded-lg text-xs font-bold inline-flex items-center justify-center transition cursor-pointer"
-          :style="{ background: 'var(--accent)', color: '#fff' }"
+          :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
           @click="searchQuery = ''; activeCategory = 'all'"
         >
           {{ t('សម្អាតការស្វែងរក', 'Reset Search') }}

@@ -124,7 +124,7 @@
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-2 flex-wrap">
             <span class="h-6 px-2.5 rounded-full text-[10px] font-bold uppercase tracking-wider inline-flex items-center gap-1 shrink-0"
-              :style="{ background: 'var(--accent)', color: '#fff' }">
+              :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }">
               <span>👑</span>
               <span>{{ t('ទំព័រពិសេសផ្ទាល់ខ្លួន', 'PERSONAL SANCTUARY') }}</span>
             </span>

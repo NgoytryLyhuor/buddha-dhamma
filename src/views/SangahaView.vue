@@ -21,7 +21,7 @@
           @click="selectedIdx = idx"
           class="p-2 sm:p-2.5 rounded-xl border text-center transition-all cursor-pointer shadow-xs"
           :style="selectedIdx === idx
-            ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)', transform: 'scale(1.05)' }
+            ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)', transform: 'scale(1.05)' }
             : { background: 'var(--bg-card-2)', color: 'var(--ink)', borderColor: 'var(--border)' }"
         >
           <span class="block font-display text-sm sm:text-base font-bold">{{ p.numKh }}</span>

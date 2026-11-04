@@ -49,7 +49,7 @@
           <div class="flex items-center gap-2 mt-2 flex-wrap">
             <button
               type="button"
-              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
+              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap"
               :class="viewMode === 'anuloma' ? 'on' : ''"
               @click="viewMode = 'anuloma'"
             >
@@ -58,7 +58,7 @@
             </button>
             <button
               type="button"
-              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5"
+              class="lang-pick px-3 py-1.5 text-xs font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap"
               :class="viewMode === 'patiloma' ? 'on' : ''"
               @click="viewMode = 'patiloma'"
             >
@@ -724,7 +724,7 @@
               <button
                 type="button"
                 class="px-4 py-1.5 text-xs font-bold rounded-lg transition hover:opacity-90"
-                :style="{ background: 'var(--accent)', color: '#ffffff' }"
+                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
                 @click="closeModal"
               >
                 {{ t('បិទផ្ទាំងនេះ', 'Close') }}

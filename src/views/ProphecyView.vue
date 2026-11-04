@@ -62,7 +62,7 @@
               </span>
               <span
                 v-if="era.isCurrent"
-                class="lang-pick px-2 py-0.5 text-[10px] font-bold on"
+                class="lang-pick px-2 py-0.5 text-[10px] font-bold on shrink-0 whitespace-nowrap"
               >
                 ★ {{ t('សម័យបច្ចុប្បន្នយើង (Current Era)', 'Our Present Era') }}
               </span>

@@ -387,7 +387,7 @@ function closeModal() {
       <div class="mt-5 flex justify-center">
         <button
           @click="showUpakkilesaModal = true"
-          class="lang-pick px-4 py-2 text-xs font-semibold"
+          class="lang-pick px-4 py-2 text-xs font-semibold shrink-0 whitespace-nowrap"
         >
           ⚠️ {{ t('អន្ទាក់វិបស្សនូបក្កិលេស ១០ យ៉ាង', '10 Vipassanūpakkilesa Traps') }}
         </button>
@@ -581,7 +581,7 @@ function closeModal() {
           <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on"
+              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('យល់ហើយ (បិទ)', 'Understood (Close)') }}
             </button>
@@ -656,7 +656,7 @@ function closeModal() {
           <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="showUpakkilesaModal = false"
-              class="lang-pick px-5 py-2 text-xs font-semibold on"
+              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('បិទផ្ទាំង', 'Close') }}
             </button>

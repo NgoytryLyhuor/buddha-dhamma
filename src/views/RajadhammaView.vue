@@ -303,7 +303,7 @@
           <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on"
+              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('បិទផ្ទាំង', 'Close') }}
             </button>

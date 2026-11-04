@@ -149,7 +149,7 @@
           class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer"
           :style="{
             background: mobileTab === 'create' ? 'var(--accent)' : 'transparent',
-            color: mobileTab === 'create' ? '#ffffff' : 'var(--ink-muted)'
+            color: mobileTab === 'create' ? 'var(--accent-ink, #ffffff)' : 'var(--ink-muted)'
           }"
         >
           <span>✍️ បង្កើត AI</span>
@@ -161,7 +161,7 @@
           class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer relative"
           :style="{
             background: mobileTab === 'preview' ? 'var(--accent)' : 'transparent',
-            color: mobileTab === 'preview' ? '#ffffff' : 'var(--ink-muted)'
+            color: mobileTab === 'preview' ? 'var(--accent-ink, #ffffff)' : 'var(--ink-muted)'
           }"
         >
           <span>📱 Slide (9:16)</span>
@@ -174,7 +174,7 @@
           class="flex-1 py-2 px-1.5 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer"
           :style="{
             background: mobileTab === 'library' ? 'var(--accent)' : 'transparent',
-            color: mobileTab === 'library' ? '#ffffff' : 'var(--ink-muted)'
+            color: mobileTab === 'library' ? 'var(--accent-ink, #ffffff)' : 'var(--ink-muted)'
           }"
         >
           <span>📚 បណ្ណាល័យ ({{ allPosts.length + savedHistory.length }})</span>

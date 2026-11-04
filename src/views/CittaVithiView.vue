@@ -273,31 +273,31 @@ watch(currentStepIndex, (newIdx) => {
         </div>
 
         <!-- Controls -->
-        <div class="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-between sm:justify-end">
+        <div class="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-between sm:justify-end overflow-x-auto pb-1 scrollbar-none touch-pan-x">
           <button
             @click="prevStep"
-            class="lang-pick px-3 py-1.5 text-xs font-semibold"
+            class="lang-pick px-3 py-1.5 text-xs font-semibold shrink-0 whitespace-nowrap"
           >
             ← {{ t('មុន', 'Prev') }}
           </button>
 
           <button
             @click="toggleAutoPlay"
-            class="lang-pick px-4 py-1.5 text-xs font-semibold on"
+            class="lang-pick px-4 py-1.5 text-xs font-semibold on shrink-0 whitespace-nowrap"
           >
             {{ isAutoPlaying ? t('⏸️ ផ្អាក', '⏸️ Pause') : t('▶️ លេងស្វ័យប្រវត្ត', '▶️ Auto-Play') }}
           </button>
 
           <button
             @click="nextStep"
-            class="lang-pick px-3 py-1.5 text-xs font-semibold"
+            class="lang-pick px-3 py-1.5 text-xs font-semibold shrink-0 whitespace-nowrap"
           >
             {{ t('បន្ទាប់', 'Next') }} →
           </button>
 
           <button
             @click="resetSimulation"
-            class="lang-pick px-2.5 py-1.5 text-xs font-semibold"
+            class="lang-pick px-2.5 py-1.5 text-xs font-semibold shrink-0 whitespace-nowrap"
             title="Reset"
           >
             ↺
@@ -314,7 +314,7 @@ watch(currentStepIndex, (newIdx) => {
             @click="currentStepIndex = idx; stopAutoPlay()"
             class="flex-1 py-2 px-1 rounded-xl text-center transition border"
             :style="currentStepIndex === idx 
-              ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+              ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }
               : (idx >= 8 && idx <= 14)
                 ? { background: 'var(--bg-card-2)', borderColor: 'var(--accent-bright)', color: 'var(--ink)' }
                 : { background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink-muted)' }"

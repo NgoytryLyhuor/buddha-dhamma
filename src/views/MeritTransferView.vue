@@ -157,7 +157,7 @@
         <div class="card-paper p-4 sm:p-5 sm:col-span-2 space-y-2" :style="{ borderColor: 'var(--accent)' }">
           <div class="flex items-center justify-between">
             <h4 class="font-display font-bold text-sm sm:text-base" :style="{ color: 'var(--ink)' }">👑 {{ t('បរទត្តូបជីវីប្រេត (Paradattūpajīvī Peta)', 'Paradattūpajīvī Petas') }}</h4>
-            <span class="lang-pick px-2.5 py-0.5 text-xs font-bold on">
+            <span class="lang-pick px-2.5 py-0.5 text-xs font-bold on shrink-0 whitespace-nowrap">
               {{ t('ទទួលបុណ្យបាន ១០០%', 'Direct 100% Recipient') }}
             </span>
           </div>

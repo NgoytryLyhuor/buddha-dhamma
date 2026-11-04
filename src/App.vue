@@ -373,7 +373,7 @@
                 type="button"
                 @click="menuSearchQuery = ''; selectedMenuCategory = 'all'"
                 class="px-4 py-2 rounded-lg text-xs font-bold cursor-pointer"
-                :style="{ background: 'var(--accent)', color: '#fff' }"
+                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
               >
                 {{ t('បង្ហាញទំព័រទាំងអស់ឡើងវិញ', 'Show all pages') }}
               </button>

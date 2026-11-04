@@ -26,10 +26,10 @@
         <span>🪜</span>
         <span>{{ t('ជណ្តើរមង្គលទាំង ១០ ថ្នាក់ (៣៨ ប្រការ)', 'The 10 Ascending Tiers of 38 Blessings') }}</span>
       </h3>
-      <div class="flex items-center gap-1.5 text-xs">
+      <div class="flex items-center gap-1.5 text-xs overflow-x-auto max-w-full pb-1 scrollbar-none touch-pan-x sm:flex-wrap">
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="activeTier === 'all' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="activeTier = 'all'"
         >
@@ -37,7 +37,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="activeTier === 'foundation' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="activeTier = 'foundation'"
         >
@@ -45,7 +45,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="activeTier === 'spiritual' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="activeTier = 'spiritual'"
         >

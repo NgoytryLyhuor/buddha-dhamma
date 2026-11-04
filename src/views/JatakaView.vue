@@ -21,7 +21,7 @@
           @click="selectJataka(idx)"
           class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl font-display font-black text-sm sm:text-base border transition-all flex items-center justify-center cursor-pointer shadow-xs"
           :style="selectedIndex === idx
-            ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)', transform: 'scale(1.1)' }
+            ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)', transform: 'scale(1.1)' }
             : { background: 'var(--bg-card-2)', color: 'var(--ink)', borderColor: 'var(--border)' }"
         >
           {{ j.code }}

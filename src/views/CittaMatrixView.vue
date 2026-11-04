@@ -1158,16 +1158,16 @@ function getJatiBadgeColor(jati) {
         </div>
 
         <!-- 89 vs 121 toggle for Citta -->
-        <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 p-1 rounded-xl shrink-0" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+        <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 p-1 rounded-xl shrink-0 whitespace-nowrap" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
           <button
             @click="isExpanded121 = false"
-            class="lang-pick px-3 py-1 text-xs"
+            class="lang-pick px-3 py-1.5 text-xs shrink-0 whitespace-nowrap"
             :class="!isExpanded121 ? 'on' : ''">
             {{ t('៨៩ ដួង (សង្ខេប)', '89 Citta (Compact)') }}
           </button>
           <button
             @click="isExpanded121 = true"
-            class="lang-pick px-3 py-1 text-xs"
+            class="lang-pick px-3 py-1.5 text-xs shrink-0 whitespace-nowrap"
             :class="isExpanded121 ? 'on' : ''">
             {{ t('១២១ ដួង (ពិស្តារ)', '121 Citta (Expanded)') }}
           </button>
@@ -1175,56 +1175,56 @@ function getJatiBadgeColor(jati) {
       </div>
 
       <!-- Citta Sub-Filters -->
-      <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 overflow-x-auto pb-1 pt-2 border-t text-xs scrollbar-none touch-pan-x sm:flex-wrap" :style="{ borderColor: 'var(--border)' }">
-        <span class="text-xs font-semibold mr-1" :style="{ color: 'var(--ink-muted)' }">{{ t('ប្រភេទភូមិ៖', 'Plane:') }}</span>
-        <button @click="selectedCittaFilter = 'all'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'all' ? 'on' : ''">
+      <div v-if="activeTab === 'citta'" class="flex items-center gap-1.5 overflow-x-auto pb-2 pt-2 border-t text-xs scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap" :style="{ borderColor: 'var(--border)' }">
+        <span class="text-xs font-semibold mr-1 shrink-0 whitespace-nowrap" :style="{ color: 'var(--ink-muted)' }">{{ t('ប្រភេទភូមិ៖', 'Plane:') }}</span>
+        <button @click="selectedCittaFilter = 'all'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'all' ? 'on' : ''">
           {{ t('ទាំងអស់', 'All') }}
         </button>
-        <button @click="selectedCittaFilter = 'akusala'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'akusala' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'akusala'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'akusala' ? 'on' : ''">
           {{ t('អកុសល ១២', 'Akusala 12') }}
         </button>
-        <button @click="selectedCittaFilter = 'ahetuka'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'ahetuka' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'ahetuka'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'ahetuka' ? 'on' : ''">
           {{ t('អហេតុក ១៨', 'Ahetuka 18') }}
         </button>
-        <button @click="selectedCittaFilter = 'kamavacara-sobhana'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'kamavacara-sobhana' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'kamavacara-sobhana'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'kamavacara-sobhana' ? 'on' : ''">
           {{ t('កាមាវចរសោភណៈ ២៤', 'Kāmāvacara Sobhana 24') }}
         </button>
-        <button @click="selectedCittaFilter = 'rupavacara'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'rupavacara' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'rupavacara'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'rupavacara' ? 'on' : ''">
           {{ t('រូបាវចរ ១៥', 'Rūpāvacara 15') }}
         </button>
-        <button @click="selectedCittaFilter = 'arupavacara'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'arupavacara' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'arupavacara'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'arupavacara' ? 'on' : ''">
           {{ t('អរូបាវចរ ១២', 'Arūpāvacara 12') }}
         </button>
-        <button @click="selectedCittaFilter = 'lokuttara'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCittaFilter === 'lokuttara' ? 'on' : ''">
+        <button @click="selectedCittaFilter = 'lokuttara'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCittaFilter === 'lokuttara' ? 'on' : ''">
           {{ t('លោកុត្តរ ៨/៤០', 'Lokuttara 8/40') }}
         </button>
       </div>
 
       <!-- Cetasika Sub-Filters -->
-      <div v-if="activeTab === 'cetasika'" class="flex items-center gap-1.5 overflow-x-auto pb-1 pt-2 border-t text-xs scrollbar-none touch-pan-x sm:flex-wrap" :style="{ borderColor: 'var(--border)' }">
-        <span class="text-xs font-semibold mr-1" :style="{ color: 'var(--ink-muted)' }">{{ t('ក្រុមចេតសិក៖', 'Group:') }}</span>
-        <button @click="selectedCetasikaGroup = 'all'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'all' ? 'on' : ''">
+      <div v-if="activeTab === 'cetasika'" class="flex items-center gap-1.5 overflow-x-auto pb-2 pt-2 border-t text-xs scrollbar-none touch-pan-x -mx-2 px-2 sm:mx-0 sm:px-0 sm:flex-wrap" :style="{ borderColor: 'var(--border)' }">
+        <span class="text-xs font-semibold mr-1 shrink-0 whitespace-nowrap" :style="{ color: 'var(--ink-muted)' }">{{ t('ក្រុមចេតសិក៖', 'Group:') }}</span>
+        <button @click="selectedCetasikaGroup = 'all'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'all' ? 'on' : ''">
           {{ t('ទាំងអស់ ៥២', 'All 52') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'sabbacitta'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'sabbacitta' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'sabbacitta'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'sabbacitta' ? 'on' : ''">
           {{ t('សព្វចិត្តសាធារណៈ ៧', 'Sabbacitta 7') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'pakinna'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'pakinna' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'pakinna'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'pakinna' ? 'on' : ''">
           {{ t('បកិណ្ណកៈ ៦', 'Pakiṇṇaka 6') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'akusala'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'akusala' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'akusala'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'akusala' ? 'on' : ''">
           {{ t('អកុសល ១៤', 'Akusala 14') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'sobhana-sadharana'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'sobhana-sadharana' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'sobhana-sadharana'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'sobhana-sadharana' ? 'on' : ''">
           {{ t('សោភណសាធារណៈ ១៩', 'Sobhana 19') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'virati'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'virati' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'virati'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'virati' ? 'on' : ''">
           {{ t('វិរតី ៣', 'Virati 3') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'appamanna'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'appamanna' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'appamanna'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'appamanna' ? 'on' : ''">
           {{ t('អប្បមញ្ញា ២', 'Appamaññā 2') }}
         </button>
-        <button @click="selectedCetasikaGroup = 'panna'" class="lang-pick px-2.5 py-1 text-xs" :class="selectedCetasikaGroup === 'panna' ? 'on' : ''">
+        <button @click="selectedCetasikaGroup = 'panna'" class="lang-pick px-2.5 py-1 text-xs shrink-0 whitespace-nowrap" :class="selectedCetasikaGroup === 'panna' ? 'on' : ''">
           {{ t('បញ្ញិន្ទ្រិយ ១', 'Paññindriya 1') }}
         </button>
       </div>
@@ -1489,7 +1489,7 @@ function getJatiBadgeColor(jati) {
               <div class="pt-3 border-t flex justify-end" :style="{ borderColor: 'var(--border)' }">
                 <button
                   type="button"
-                  class="lang-pick px-4 py-2 text-xs font-semibold on"
+                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
                   @click="closeModal"
                 >
                   {{ t('យល់ព្រម / បិទ', 'Understood / Close') }}

@@ -17,7 +17,7 @@
         @click="mainTab = 'style'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2 shadow-xs"
         :style="mainTab === 'style'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>✍️</span>
@@ -29,7 +29,7 @@
         @click="mainTab = 'matrix'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2 shadow-xs"
         :style="mainTab === 'matrix'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>⚖️</span>
@@ -41,7 +41,7 @@
         @click="mainTab = 'volumes'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2 shadow-xs"
         :style="mainTab === 'volumes'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>📚</span>
@@ -290,7 +290,7 @@
             @click="activeBasket = b.id"
             class="h-8 px-3 rounded-lg text-xs font-bold border transition cursor-pointer"
             :style="activeBasket === b.id
-              ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+              ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
               : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
           >
             {{ t(b.km, b.en) }}

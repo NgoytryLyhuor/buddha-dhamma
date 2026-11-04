@@ -17,7 +17,7 @@
         @click="activeSection = 'festivals'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeSection === 'festivals'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>🏮</span>
@@ -29,7 +29,7 @@
         @click="activeSection = 'protocols'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeSection === 'protocols'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>🙏</span>

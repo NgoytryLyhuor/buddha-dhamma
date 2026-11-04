@@ -318,20 +318,20 @@ function playChime() {
             <button
               v-if="!isTimerRunning"
               @click="startTimer"
-              class="lang-pick px-3.5 py-1.5 text-xs font-semibold on"
+              class="lang-pick px-3.5 py-1.5 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('ចាប់ផ្តើម', 'Start') }}
             </button>
             <button
               v-else
               @click="pauseTimer"
-              class="lang-pick px-3.5 py-1.5 text-xs font-semibold"
+              class="lang-pick px-3.5 py-1.5 text-xs font-semibold shrink-0 whitespace-nowrap"
             >
               {{ t('ផ្អាក', 'Pause') }}
             </button>
             <button
               @click="resetTimer"
-              class="lang-pick px-2.5 py-1.5 text-xs font-semibold"
+              class="lang-pick px-2.5 py-1.5 text-xs font-semibold shrink-0 whitespace-nowrap"
               title="Reset"
             >
               ↺

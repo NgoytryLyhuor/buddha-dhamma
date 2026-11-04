@@ -37,7 +37,7 @@
             type="button"
             @click="playTempleBell(3.8)"
             class="h-10 px-3.5 rounded-xl border text-xs font-bold inline-flex items-center gap-2 shadow-xs transition hover:scale-105 cursor-pointer"
-            :style="{ background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }"
+            :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }"
             :title="t('ទូងជួងអារាម', 'Ring Temple Bell')"
           >
             <span>🔔</span>
@@ -54,7 +54,7 @@
             @click="toggleDrone"
             class="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg shrink-0 transition shadow-sm cursor-pointer"
             :style="isDronePlaying
-              ? { background: 'var(--accent)', color: '#fff' }
+              ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }
               : { background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
           >
             <span v-if="isDronePlaying">⏸</span>

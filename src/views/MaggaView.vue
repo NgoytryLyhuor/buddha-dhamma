@@ -341,7 +341,7 @@ function closeModal() {
 
             <button
               @click="openFactorModal(factor)"
-              class="lang-pick px-2.5 py-1 text-[11px] font-medium shrink-0"
+              class="lang-pick px-2.5 py-1 text-[11px] font-medium shrink-0 whitespace-nowrap"
             >
               {{ t('ពុទ្ធវចនៈ 📖', 'Sutta 📖') }}
             </button>
@@ -384,7 +384,7 @@ function closeModal() {
             <div
               class="w-4 h-4 rounded border mt-0.5 flex items-center justify-center transition shrink-0"
               :style="completedTasks[task.id] 
-                ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+                ? { background: 'var(--accent)', borderColor: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }
                 : { borderColor: 'var(--border)' }"
             >
               <span v-if="completedTasks[task.id]" class="text-[10px] leading-none">✓</span>
@@ -468,7 +468,7 @@ function closeModal() {
           <div class="p-4 border-t flex justify-end shrink-0" :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }">
             <button
               @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on"
+              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
             >
               {{ t('យល់ហើយ (បិទ)', 'Understood (Close)') }}
             </button>

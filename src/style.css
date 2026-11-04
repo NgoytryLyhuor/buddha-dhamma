@@ -11,6 +11,7 @@
   --accent: #a86400;
   --accent-bright: #d98813;
   --accent-soft: rgba(168,100,0,0.1);
+  --accent-ink: #ffffff;
   --gold: #c99a2e;
   --sage: #5f7d35;
   --red: #a03a28;
@@ -35,6 +36,7 @@ html.dark {
   --accent: #e2962e;
   --accent-bright: #f0b055;
   --accent-soft: rgba(226,150,46,0.12);
+  --accent-ink: #ffffff;
   --gold: #d9ac44;
   --sage: #93a96b;
   --red: #e06a52;
@@ -60,6 +62,7 @@ html.high-contrast {
   --accent: #000000;
   --accent-bright: #000000;
   --accent-soft: rgba(0,0,0,0.06);
+  --accent-ink: #ffffff;
   --gold: #000000;
   --sage: #000000;
   --red: #8b0000;
@@ -82,11 +85,12 @@ html.high-contrast.dark {
   --ink-soft: #ffffff;
   --ink-muted: #ffffff;
   --ink-faint: #dddddd;
-  --accent: #ffffff;
-  --accent-bright: #ffffff;
-  --accent-soft: rgba(255,255,255,0.08);
-  --gold: #ffffff;
-  --sage: #ffffff;
+  --accent: #ffd700;
+  --accent-bright: #ffe066;
+  --accent-soft: rgba(255,215,0,0.22);
+  --accent-ink: #000000;
+  --gold: #ffd700;
+  --sage: #a3e635;
   --red: #ff6666;
   --blue: #7fb3ff;
   --purple: #d3b0ff;
@@ -94,7 +98,7 @@ html.high-contrast.dark {
   --border-strong: #ffffff;
   --shadow: none;
   --halo: transparent;
-  outline-color: #ffffff;
+  outline-color: #ffd700;
 }
 
 * { scrollbar-width: thin; scrollbar-color: var(--border-strong) var(--bg-card-2); }
@@ -390,7 +394,26 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .settings-panel { position: absolute; right: 0; top: calc(100% + 8px); width: min(300px, calc(100vw - 2rem)); z-index: 60; padding: 18px 18px 16px; border: 1px solid var(--border-strong); border-radius: 4px; background: var(--bg-card); box-shadow: var(--shadow); max-height: calc(100vh - 120px); overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 @media (max-width: 640px) { .settings-panel { right: 0; left: 0; margin-left: auto; margin-right: 0; max-width: calc(100vw - 2rem); } }
 .settings-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
-.lang-pick { flex: 1; padding: 9px 8px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-muted); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.lang-pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: initial;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-card-2);
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.settings-panel .lang-pick { flex: 1; }
 .lang-pick.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 .setting-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 3px; background: var(--bg-card-2); color: var(--ink-soft); font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
 .setting-row:hover { border-color: var(--accent); color: var(--accent); }
@@ -629,7 +652,7 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .menu-cat-pill.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #ffffff;
+  color: var(--accent-ink, #ffffff);
   box-shadow: 0 2px 8px var(--accent-soft);
 }
 .menu-cat-pill .count {
@@ -703,7 +726,7 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   line-height: 1;
 }
 .menu-sheet-card.active .menu-card-num {
-  color: #ffffff;
+  color: var(--accent-ink, #ffffff);
 }
 .menu-card-body {
   flex: 1;
@@ -744,7 +767,7 @@ header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   padding: 3px 8px;
   border-radius: 9999px;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--accent-ink, #ffffff);
   white-space: nowrap;
 }
 .menu-card-arrow {
@@ -1353,6 +1376,56 @@ html.dark .offline-banner {
 }
 .feedback-area:focus { outline: none; border-color: var(--accent) !important; box-shadow: 0 0 0 2px var(--halo); }
 .install-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* ============================================================
+   HIGH-CONTRAST LEGIBILITY SAFEGUARDS
+   Guarantees that no button, badge, chip, or active tab ever
+   renders with unreadable low contrast or invisible text.
+   ============================================================ */
+
+/* In dark high-contrast mode: on top of brilliant gold (--accent: #ffd700), text MUST be pure bold black */
+html.high-contrast.dark [style*="background: var(--accent)"],
+html.high-contrast.dark [style*="background:var(--accent)"],
+html.high-contrast.dark [style*="background: 'var(--accent)'"],
+html.high-contrast.dark [style*="background: \"var(--accent)\""],
+html.high-contrast.dark [style*="background-color: var(--accent)"],
+html.high-contrast.dark [style*="background-color:var(--accent)"],
+html.high-contrast.dark [style*="background: var(--accent-bright)"],
+html.high-contrast.dark [style*="background:var(--accent-bright)"],
+html.high-contrast.dark [style*="linear-gradient"],
+html.high-contrast.dark .menu-cat-pill.active,
+html.high-contrast.dark .menu-sheet-card.active .menu-card-num,
+html.high-contrast.dark .menu-card-current,
+html.high-contrast.dark .update-toast-btn,
+html.high-contrast.dark .install-btn {
+  color: #000000 !important;
+}
+
+html.high-contrast.dark .menu-sheet-card.active .menu-card-badge {
+  background: var(--accent) !important;
+}
+
+/* In light high-contrast mode: on top of pure black (--accent: #000000), text MUST be pure bold white */
+html.high-contrast:not(.dark) [style*="background: var(--accent)"],
+html.high-contrast:not(.dark) [style*="background:var(--accent)"],
+html.high-contrast:not(.dark) [style*="background: 'var(--accent)'"],
+html.high-contrast:not(.dark) [style*="background: \"var(--accent)\""],
+html.high-contrast:not(.dark) [style*="background-color: var(--accent)"],
+html.high-contrast:not(.dark) [style*="background-color:var(--accent)"],
+html.high-contrast:not(.dark) [style*="background: var(--accent-bright)"],
+html.high-contrast:not(.dark) [style*="background:var(--accent-bright)"],
+html.high-contrast:not(.dark) [style*="linear-gradient"],
+html.high-contrast:not(.dark) .menu-cat-pill.active,
+html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-num,
+html.high-contrast:not(.dark) .menu-card-current,
+html.high-contrast:not(.dark) .update-toast-btn,
+html.high-contrast:not(.dark) .install-btn {
+  color: #ffffff !important;
+}
+
+html.high-contrast:not(.dark) .menu-sheet-card.active .menu-card-badge {
+  background: var(--accent) !important;
+}
 
 /* Print: show only the reading content, black-on-white, all details open */
 @media print {

@@ -17,7 +17,7 @@
         @click="activeTab = 'dighajanu'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeTab === 'dighajanu'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>🌟</span>
@@ -29,7 +29,7 @@
         @click="activeTab = 'allocation'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeTab === 'allocation'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>📊</span>
@@ -41,7 +41,7 @@
         @click="activeTab = 'sukha'"
         class="h-10 px-4 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer flex items-center gap-2"
         :style="activeTab === 'sukha'
-          ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)' }
+          ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)' }
           : { background: 'var(--bg-card)', color: 'var(--ink-muted)', borderColor: 'var(--border)' }"
       >
         <span>😊</span>

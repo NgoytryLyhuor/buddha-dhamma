@@ -21,7 +21,7 @@
           @click="selectedDir = idx"
           class="p-3 rounded-xl border text-center transition-all cursor-pointer"
           :style="selectedDir === idx
-            ? { background: 'var(--accent)', color: '#fff', borderColor: 'var(--accent)', transform: 'translateY(-2px)' }
+            ? { background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)', borderColor: 'var(--accent)', transform: 'translateY(-2px)' }
             : { background: 'var(--bg-card-2)', color: 'var(--ink)', borderColor: 'var(--border)' }"
         >
           <div class="text-xl sm:text-2xl mb-1">{{ d.icon }}</div>

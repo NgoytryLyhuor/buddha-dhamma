@@ -26,10 +26,10 @@
         <span>⚖️</span>
         <span>{{ t('កម្មបថទាំង ១០ តាមទ្វារទាំង ៣', 'The 10 Pathways Across 3 Doors') }}</span>
       </h3>
-      <div class="flex items-center gap-1.5 text-xs">
+      <div class="flex items-center gap-1.5 text-xs overflow-x-auto max-w-full pb-1 scrollbar-none touch-pan-x sm:flex-wrap">
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="doorFilter === 'all' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="doorFilter = 'all'"
         >
@@ -37,7 +37,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="doorFilter === 'body' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="doorFilter = 'body'"
         >
@@ -45,7 +45,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="doorFilter === 'speech' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="doorFilter = 'speech'"
         >
@@ -53,7 +53,7 @@
         </button>
         <button
           type="button"
-          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition"
+          class="px-2.5 py-1 rounded-lg border font-bold cursor-pointer transition shrink-0 whitespace-nowrap"
           :class="doorFilter === 'mind' ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/30' : 'border-stone-300 dark:border-stone-700'"
           @click="doorFilter = 'mind'"
         >

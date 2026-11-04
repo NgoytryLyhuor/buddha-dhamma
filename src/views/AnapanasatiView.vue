@@ -76,7 +76,7 @@
           <button
             v-for="preset in presets"
             :key="preset.id"
-            class="lang-pick px-2.5 sm:px-3 py-1 text-xs"
+            class="lang-pick px-2.5 sm:px-3 py-1 text-xs shrink-0 whitespace-nowrap"
             :class="selectedPresetId === preset.id ? 'on' : ''"
             @click="selectPreset(preset)"
           >
@@ -180,7 +180,7 @@
           <p class="text-xs font-bold" :style="{ color: 'var(--accent)' }">៣. ពោជ្ឈង្គ ៧</p>
           <p class="text-[10px] sm:text-[11px] mt-1" :style="{ color: 'var(--ink-muted)' }">អង្គនៃការត្រាស់ដឹង</p>
         </div>
-        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--accent-bright)', color: '#ffffff' }">
+        <div class="p-3 sm:p-3.5 rounded-lg text-center" :style="{ background: 'var(--accent-bright)', color: 'var(--accent-ink, #ffffff)' }">
           <p class="text-xs font-bold">៤. វិជ្ជា និងវិមុត្តិ</p>
           <p class="text-[10px] sm:text-[11px] mt-1 opacity-90">ព្រះនិព្វានបរមសុខ</p>
         </div>
@@ -300,7 +300,7 @@
               <button
                 type="button"
                 class="px-4 py-1.5 text-xs font-bold rounded-lg transition hover:opacity-90"
-                :style="{ background: 'var(--accent)', color: '#ffffff' }"
+                :style="{ background: 'var(--accent)', color: 'var(--accent-ink, #ffffff)' }"
                 @click="closeModal"
               >
                 {{ t('បិទផ្ទាំងនេះ', 'Close') }}

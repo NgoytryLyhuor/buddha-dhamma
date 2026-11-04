@@ -104,144 +104,191 @@
       </div>
     </div>
 
-    <!-- POP-UP MODAL -->
+    <!-- POP-UP MODAL: REDESIGNED WITH FULL RESPONSIVENESS & QUICK READER -->
     <Teleport to="body">
       <transition name="modal-pop">
         <div
           v-if="selectedDhutanga"
-        class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4"
-        style="background: rgba(10, 8, 5, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);"
-        @click.self="closeModal"
-      >
-        <div
-          class="card-paper relative w-full max-w-2xl max-h-[88vh] sm:max-h-[90vh] flex flex-col rounded-t-2xl sm:rounded-2xl overflow-hidden shadow-2xl"
-          :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          class="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6"
+          style="background: rgba(12, 10, 7, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+          @click.self="closeModal"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="t(selectedDhutanga.nameKm, selectedDhutanga.nameEn)"
         >
-          <!-- Header -->
           <div
-            class="p-4 sm:p-5 flex items-center justify-between gap-3 border-b shrink-0"
-            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+            class="card-paper relative w-full max-w-2xl lg:max-w-3xl max-h-[92dvh] sm:max-h-[88dvh] flex flex-col rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl border-t-2 sm:border-2"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border-strong)' }"
           >
-            <div class="flex items-center gap-2.5">
-              <span class="text-3xl">{{ selectedDhutanga.icon }}</span>
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
-                    #{{ selectedDhutanga.num }}
-                  </span>
-                  <h3 class="font-display text-base sm:text-xl font-bold" :style="{ color: 'var(--ink)' }">
-                    {{ t(selectedDhutanga.nameKm, selectedDhutanga.nameEn) }}
-                  </h3>
+            <!-- Mobile Pull / Grab Handle -->
+            <div class="sm:hidden pt-2.5 pb-1 flex justify-center shrink-0">
+              <div class="w-12 h-1.5 rounded-full" style="background: var(--ink-muted); opacity: 0.35;"></div>
+            </div>
+
+            <!-- Modal Header -->
+            <div
+              class="p-4 sm:p-5 flex items-start justify-between gap-3 border-b shrink-0"
+              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
+            >
+              <div class="flex items-center gap-3 min-w-0 flex-1">
+                <span class="text-3xl sm:text-4xl p-2 rounded-2xl border shrink-0" :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }">
+                  {{ selectedDhutanga.icon }}
+                </span>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="sutra-num font-bold text-xs" :style="{ color: 'var(--accent-bright)' }">
+                      #{{ selectedDhutanga.num }}
+                    </span>
+                    <h3 class="font-display text-base sm:text-xl md:text-2xl font-bold leading-snug" :style="{ color: 'var(--ink)' }">
+                      {{ t(selectedDhutanga.nameKm, selectedDhutanga.nameEn) }}
+                    </h3>
+                  </div>
+                  <p class="paali text-xs mt-0.5" :style="{ color: 'var(--accent)' }">
+                    {{ selectedDhutanga.pali }}
+                  </p>
                 </div>
-                <p class="paali text-xs" :style="{ color: 'var(--accent)' }">
-                  {{ selectedDhutanga.pali }}
+              </div>
+
+              <!-- Close Button (40px touch friendly) -->
+              <button
+                @click="closeModal"
+                class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-base shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                :style="{ background: 'var(--bg-card)', color: 'var(--ink)', border: '1px solid var(--border)' }"
+                :aria-label="t('បិទផ្ទាំង', 'Close modal')"
+              >
+                ✕
+              </button>
+            </div>
+
+            <!-- Decorative Gold Hairline -->
+            <div class="h-[2px] w-full shrink-0" style="background: linear-gradient(90deg, transparent, var(--accent) 30%, var(--gold) 50%, var(--accent) 70%, transparent); opacity: 0.6;"></div>
+
+            <!-- Modal Content -->
+            <div class="p-5 sm:p-7 overflow-y-auto space-y-4 text-xs sm:text-sm md:text-base leading-relaxed overscroll-contain">
+              <!-- Classical Definition -->
+              <div class="verse-box p-4 rounded-xl space-y-1">
+                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent-bright)' }">
+                  📖 {{ t('អត្ថន័យ និងនិយមន័យក្បួនធម៌', 'Definition & Core Principle') }}
+                </span>
+                <p class="font-medium text-sm sm:text-base leading-relaxed" :style="{ color: 'var(--ink)' }">
+                  {{ t(selectedDhutanga.detailKm, selectedDhutanga.detailEn) }}
+                </p>
+              </div>
+
+              <!-- Undertaking Formula / Pali Vow -->
+              <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
+                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
+                  🙏 {{ t('ពាក្យសមាទាន (Pāli Aspiration / Undertaking)', 'Undertaking Formula') }}
+                </span>
+                <p class="paali text-xs sm:text-sm font-semibold" :style="{ color: 'var(--accent)' }">
+                  «{{ selectedDhutanga.undertakingPali }}»
+                </p>
+                <p class="text-xs sm:text-sm mt-1" :style="{ color: 'var(--ink-soft)' }">
+                  {{ t(selectedDhutanga.undertakingKm, selectedDhutanga.undertakingEn) }}
+                </p>
+              </div>
+
+              <!-- 3 Tiers of Practice -->
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider block" :style="{ color: 'var(--accent)' }">
+                  ⚡ {{ t('កម្រិតនៃការប្រតិបត្តិ ៣ ថ្នាក់ (Three Grades of Strictness)', '3 Tiers of Strictness') }}
+                </span>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <!-- Strict -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[11px] font-bold text-red-600 dark:text-red-400 block">
+                      🔥 {{ t('ថ្នាក់ឧក្រិដ្ឋ (Strict)', 'Strict Grade') }}
+                    </span>
+                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                      {{ t(selectedDhutanga.strictKm, selectedDhutanga.strictEn) }}
+                    </p>
+                  </div>
+
+                  <!-- Medium -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[11px] font-bold text-amber-600 dark:text-amber-400 block">
+                      ⚖️ {{ t('ថ្នាក់មធ្យម (Medium)', 'Medium Grade') }}
+                    </span>
+                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                      {{ t(selectedDhutanga.mediumKm, selectedDhutanga.mediumEn) }}
+                    </p>
+                  </div>
+
+                  <!-- Mild -->
+                  <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 block">
+                      🌱 {{ t('ថ្នាក់ស្រាល (Mild)', 'Mild Grade') }}
+                    </span>
+                    <p class="text-xs leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                      {{ t(selectedDhutanga.mildKm, selectedDhutanga.mildEn) }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Benefits -->
+              <div class="p-3.5 sm:p-4 rounded-xl border space-y-1" :style="{ background: 'var(--accent-soft)', border: '1px solid var(--border-strong)' }">
+                <span class="text-xs font-bold uppercase tracking-wide block" :style="{ color: 'var(--accent)' }">
+                  💎 {{ t('អានិសង្ស និងផលប្រយោជន៍ (Spiritual Benefits):', 'Spiritual Benefits:') }}
+                </span>
+                <p class="leading-relaxed font-medium" :style="{ color: 'var(--ink)' }">
+                  {{ t(selectedDhutanga.benefitsKm, selectedDhutanga.benefitsEn) }}
                 </p>
               </div>
             </div>
 
-            <button
-              @click="closeModal"
-              class="w-8 h-8 rounded-full flex items-center justify-center transition text-sm"
-              :style="{ background: 'var(--bg-card)', color: 'var(--ink-soft)', border: '1px solid var(--border)' }"
+            <!-- Sticky Modal Footer with Reader Controls -->
+            <div
+              class="p-3 sm:p-4 border-t flex items-center justify-between gap-2 shrink-0 flex-wrap sm:flex-nowrap"
+              :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
             >
-              ✕
-            </button>
-          </div>
+              <!-- Previous Dhutanga Button -->
+              <button
+                type="button"
+                @click="prevDhutanga"
+                :disabled="currentDhutangaIndex <= 0"
+                class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+                :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
+              >
+                ← {{ t('មុន', 'Previous') }}
+              </button>
 
-          <!-- Content -->
-          <div class="p-5 sm:p-6 overflow-y-auto space-y-4 text-xs sm:text-sm leading-relaxed">
-            <!-- Definition Box -->
-            <div class="verse-box p-4 rounded-xl space-y-1">
-              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent-bright)' }">
-                📜 {{ t('និយមន័យ និងខ្លឹមសារក្បួនធុតង្គ', 'Definition & Vinaya Rule') }}
+              <!-- Dhutanga Counter -->
+              <span class="text-xs font-mono font-bold order-3 sm:order-2 w-full sm:w-auto text-center py-1 sm:py-0" :style="{ color: 'var(--ink-muted)' }">
+                #{{ khNum(currentDhutangaIndex + 1) }} / {{ khNum(filteredDhutangas.length) }}
               </span>
-              <p class="font-medium" :style="{ color: 'var(--ink)' }">
-                {{ t(selectedDhutanga.detailKm, selectedDhutanga.detailEn) }}
-              </p>
-            </div>
 
-            <!-- Pali Vow of Determination -->
-            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
-                🗣️ {{ t('ពាក្យសច្ចាសមាទានជាបាលី (Pāli Undertaking Vow)', 'Undertaking Formula') }}
-              </span>
-              <p class="paali font-semibold text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
-                «{{ selectedDhutanga.undertakingPali }}»
-              </p>
-              <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedDhutanga.undertakingKm, selectedDhutanga.undertakingEn) }}
-              </p>
-            </div>
+              <!-- Next Dhutanga & Close Actions -->
+              <div class="flex items-center gap-2 order-2 sm:order-3">
+                <button
+                  type="button"
+                  @click="nextDhutanga"
+                  :disabled="currentDhutangaIndex >= filteredDhutangas.length - 1"
+                  class="px-3 sm:px-4 py-2 rounded-xl border text-xs font-bold inline-flex items-center gap-1.5 transition cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed hover:bg-black/5 dark:hover:bg-white/5 active:scale-95"
+                  :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--ink)' }"
+                >
+                  {{ t('បន្ទាប់', 'Next') }} →
+                </button>
 
-            <!-- 3 Levels of Practice -->
-            <div class="space-y-2">
-              <h4 class="font-display font-bold flex items-center gap-2 text-xs sm:text-sm" :style="{ color: 'var(--ink)' }">
-                <span>⚖️</span>
-                <span>{{ t('កម្រិតបដិបត្តិទាំង ៣ ថ្នាក់ (3 Grades of Practice):', 'The 3 Grades of Observance:') }}</span>
-              </h4>
-
-              <div class="grid grid-cols-1 gap-2">
-                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <span class="text-xs font-bold block" :style="{ color: 'var(--accent-bright)' }">
-                    🔥 ១. ថ្នាក់ឧក្រឹដ្ឋ (Strict / Superior):
-                  </span>
-                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
-                    {{ t(selectedDhutanga.strictKm, selectedDhutanga.strictEn) }}
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <span class="text-xs font-bold block" :style="{ color: 'var(--accent)' }">
-                    ⚡ ២. ថ្នាក់មធ្យម (Medium):
-                  </span>
-                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
-                    {{ t(selectedDhutanga.mediumKm, selectedDhutanga.mediumEn) }}
-                  </p>
-                </div>
-
-                <div class="p-3 rounded-xl" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-                  <span class="text-xs font-bold block" :style="{ color: 'var(--ink-muted)' }">
-                    🌿 ៣. ថ្នាក់ស្រាល (Mild / Permissible):
-                  </span>
-                  <p class="text-xs mt-0.5" :style="{ color: 'var(--ink-soft)' }">
-                    {{ t(selectedDhutanga.mildKm, selectedDhutanga.mildEn) }}
-                  </p>
-                </div>
+                <button
+                  type="button"
+                  @click="closeModal"
+                  class="lang-pick px-4 py-2 text-xs font-semibold on shrink-0"
+                >
+                  {{ t('បិទ', 'Close') }}
+                </button>
               </div>
             </div>
-
-            <!-- Defilements Eliminated & Spiritual Benefits -->
-            <div class="p-3.5 sm:p-4 rounded-xl space-y-1" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
-              <span class="text-xs font-bold uppercase block" :style="{ color: 'var(--accent)' }">
-                ✨ {{ t('អានិសង្ស និងកិលេសដែលត្រូវកម្ចាត់ចេញ (Spiritual Benefits):', 'Benefits & Purification:') }}
-              </span>
-              <p :style="{ color: 'var(--ink-soft)' }">
-                {{ t(selectedDhutanga.benefitsKm, selectedDhutanga.benefitsEn) }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div
-            class="p-4 border-t flex justify-end shrink-0"
-            :style="{ borderColor: 'var(--border)', background: 'var(--bg-card-2)' }"
-          >
-            <button
-              @click="closeModal"
-              class="lang-pick px-5 py-2 text-xs font-semibold on shrink-0 whitespace-nowrap"
-            >
-              {{ t('បិទផ្ទាំង', 'Close') }}
-            </button>
           </div>
         </div>
-      </div>
       </transition>
     </Teleport>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
@@ -659,13 +706,62 @@ const filteredDhutangas = computed(() => {
   return dhutangas.filter(d => d.group === activeGroup.value)
 })
 
+const currentDhutangaIndex = computed(() => {
+  if (!selectedDhutanga.value) return 0
+  return filteredDhutangas.value.findIndex(d => d.num === selectedDhutanga.value.num)
+})
+
+function lockBodyScroll() {
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = 'hidden'
+  }
+}
+
+function unlockBodyScroll() {
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
+}
+
 function openModal(dh) {
   selectedDhutanga.value = dh
+  lockBodyScroll()
 }
 
 function closeModal() {
   selectedDhutanga.value = null
+  unlockBodyScroll()
 }
+
+function prevDhutanga() {
+  const idx = currentDhutangaIndex.value
+  if (idx > 0) {
+    selectedDhutanga.value = filteredDhutangas.value[idx - 1]
+  }
+}
+
+function nextDhutanga() {
+  const idx = currentDhutangaIndex.value
+  if (idx < filteredDhutangas.value.length - 1) {
+    selectedDhutanga.value = filteredDhutangas.value[idx + 1]
+  }
+}
+
+function handleKeydown(e) {
+  if (!selectedDhutanga.value) return
+  if (e.key === 'Escape') closeModal()
+  else if (e.key === 'ArrowLeft') prevDhutanga()
+  else if (e.key === 'ArrowRight') nextDhutanga()
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  unlockBodyScroll()
+})
 </script>
 
 <style scoped>
@@ -684,10 +780,21 @@ function closeModal() {
   transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
 }
 
-.modal-pop-enter-from .card-paper,
+.modal-pop-enter-from .card-paper {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+}
+
 .modal-pop-leave-to .card-paper {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) scale(0.98);
+}
+
+@media (max-width: 639px) {
+  .modal-pop-enter-from .card-paper,
+  .modal-pop-leave-to .card-paper {
+    transform: translateY(100%);
+  }
 }
 
 .modal-pop-enter-to .card-paper,

@@ -178,11 +178,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .modal-pop-enter-from .card-paper {
   opacity: 0;
-  transform: translateY(20px) scale(0.97);
+  transform: translateY(28px) scale(0.97);
 }
 .modal-pop-leave-to .card-paper {
   opacity: 0;
-  transform: translateY(14px) scale(0.98);
+  transform: translateY(18px) scale(0.98);
+}
+
+@media (max-width: 639px) {
+  .modal-pop-enter-from .card-paper {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .modal-pop-leave-to .card-paper {
+    opacity: 0;
+    transform: translateY(100%);
+  }
 }
 
 body {

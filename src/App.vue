@@ -90,27 +90,6 @@
               <span>{{ t('ដំឡើងកម្មវិធីលើទូរស័ព្ទ', 'Install this app') }}</span>
             </button>
 
-            <p class="settings-label mt-4">{{ t('ជូនដំណឹង', 'Notifications') }}</p>
-            <button class="setting-row" @click="notifEnabled ? disableNotif() : enableNotif()"
-              :disabled="!notifSupported || !notifConfigured">
-              <span :style="notifEnabled ? { color: 'var(--accent)' } : {}">&#128276;</span>
-              <span class="flex-1 min-w-0">
-                <span class="block">{{ t(notifEnabled ? 'បានបើកជូនដំណឹង' : 'បើកជូនដំណឹងព្រះធម៌', notifEnabled ? 'Notifications on' : 'Turn on Dhamma notifications') }}</span>
-                <span v-if="notifDenied" class="block text-[11px] font-normal" :style="{ color: 'var(--ink-faint)' }">
-                  {{ t('គ្មានសិទ្ធិ — បើកក្នុងការកំណត់នៃអ្នករុករក', 'Permission blocked — enable in browser settings') }}
-                </span>
-              </span>
-            </button>
-            <p v-if="notifDenied" class="mt-2 text-[11px] leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-              {{ t('បើកវានៅក្នុងការកំណត់ការជូនដំណឹងរបស់កម្មវិធីរុករក (រូបសោ/ខែលនៅខាងដើមអាសយដ្ឋាន) ហើយត្រលប់មកវិញ។', 'Enable it in your browser\u2019s notification settings (the lock/shield icon by the address bar), then come back here.') }}
-            </p>
-            <button v-if="notifDenied" class="share-btn report mt-2" @click="retryNotif" style="color: var(--accent)">
-              {{ t('ខ្ញុំបានកែរួច — ពិនិត្យម្តងទៀត', 'I fixed it — check again') }}
-            </button>
-            <p class="text-[11px] mt-2 leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-              {{ t('ទទួលសម្ដីព្រះធម៌ប្រចាំថ្ងៃ និងការជូនដំណឹងថ្ងៃបុណ្យ សីល និងការរំឭកថ្ងៃសំខាន់ៗ។ នៅលើ iPhone ត្រូវបន្ថែមទៅអេក្រង់ដើមជាមុនសិន។', 'Daily Dhamma quotes and alerts for festivals, sīl days, and special days. On iPhone, add the app to your Home Screen first.') }}
-            </p>
-
             <button class="setting-row reset-btn mt-4" @click="resetSettings">
               <span>&#8634;</span>
               <span>{{ t('កំណត់ឡើងវិញទាំងអស់', 'Reset all settings') }}</span>
@@ -396,7 +375,7 @@
           </div>
 
           <!-- Card list -->
-          <div class="menu-sheet-list">
+          <div ref="menuSheetListRef" class="menu-sheet-list">
             <router-link
               v-for="n in filteredMenuNav"
               :key="n.to"
@@ -529,8 +508,7 @@ import { useFont } from './composables/useFont'
 import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
-import { BASE_URL, ONESIGNAL_APP_ID } from './config'
-import { useNotifications } from './composables/useNotifications'
+import { BASE_URL } from './config'
 
 const route = useRoute()
 const router = useRouter()
@@ -556,11 +534,6 @@ router.afterEach((to, from) => {
   onNavigationDone(to, from)
   checkForUpdate()
 })
-const { enabled: notifEnabled, supported: notifSupported, configured: notifConfigured, permissionDenied: notifDenied, enable: enableNotif, disable: disableNotif, refresh: refreshNotif } = useNotifications(ONESIGNAL_APP_ID)
-
-function retryNotif() {
-  refreshNotif()
-}
 
 const hasError = ref(false)
 onErrorCaptured((err) => {
@@ -796,14 +769,41 @@ const activeTab = computed(() => {
 })
 
 const menuOpen = ref(false)
+const menuSheetListRef = ref(null)
+
+function scrollToActiveMenuItem() {
+  nextTick(() => {
+    const doScroll = () => {
+      const listEl = menuSheetListRef.value
+      if (!listEl) return
+      const activeEl = listEl.querySelector('.menu-sheet-card.active')
+      if (activeEl) {
+        if (typeof activeEl.scrollIntoView === 'function') {
+          activeEl.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' })
+        } else {
+          const listRect = listEl.getBoundingClientRect()
+          const activeRect = activeEl.getBoundingClientRect()
+          const offset = (activeRect.top - listRect.top) + listEl.scrollTop - (listRect.height / 2) + (activeRect.height / 2)
+          listEl.scrollTo({ top: Math.max(0, offset), behavior: 'smooth' })
+        }
+      }
+    }
+    doScroll()
+    requestAnimationFrame(doScroll)
+    setTimeout(doScroll, 120)
+    setTimeout(doScroll, 260)
+  })
+}
+
 function openMenu() {
   menuOpen.value = !menuOpen.value
   menuSearchQuery.value = ''
   selectedMenuCategory.value = 'all'
   if (menuOpen.value) {
+    scrollToActiveMenuItem()
     if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
       nextTick(() => {
-        menuSearchInputRef.value?.focus()
+        menuSearchInputRef.value?.focus({ preventScroll: true })
       })
     }
   } else {
@@ -812,6 +812,7 @@ function openMenu() {
     }
   }
 }
+
 function closeMenu() {
   menuOpen.value = false
   if (typeof document !== 'undefined') {
@@ -823,6 +824,7 @@ watch(menuOpen, (val) => {
   if (typeof document !== 'undefined') {
     if (val) {
       document.body.style.overflow = 'hidden'
+      scrollToActiveMenuItem()
     } else {
       document.body.style.overflow = ''
     }

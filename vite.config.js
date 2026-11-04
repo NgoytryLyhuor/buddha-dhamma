@@ -26,7 +26,8 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,jpg,svg,ico,woff2,ttf}'],
+        globPatterns: ['**/*.{css,html,png,jpg,svg,ico,woff2,ttf}', 'assets/index-*.js', 'assets/_plugin-vue_*.js'],
+        globIgnores: ['**/assets/*View-*.js', '**/assets/*QaView-*.js'],
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/api\//],
         runtimeCaching: [
@@ -40,6 +41,14 @@ export default defineConfig({
             handler: 'CacheFirst',
             options: { cacheName: 'google-fonts-webfonts', expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 } },
           },
+          {
+            urlPattern: /\/assets\/.*(?:View|QaView)-.*\.js$/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'dhamma-views-cache',
+              expiration: { maxEntries: 150, maxAgeSeconds: 60 * 60 * 24 * 30 }
+            }
+          }
         ],
       },
     }),

@@ -594,24 +594,12 @@ import { useContrast } from './composables/useContrast'
 import { usePwaUpdate } from './composables/usePwaUpdate'
 import { useWakeLock } from './composables/useWakeLock'
 import { useZenMode } from './composables/useZenMode'
-import { saveScroll, clearSavedScroll } from './composables/useReadingProgress'
+import { clearSavedScroll } from './composables/useReadingProgress'
 import { BASE_URL } from './config'
 
 const route = useRoute()
 const router = useRouter()
 
-function onNavigationDone(to, from) {
-  if (!to.hash) {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-    document.documentElement.scrollTop = 0
-    document.body.scrollTop = 0
-    nextTick(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
-    })
-  }
-}
 const { theme, setTheme, toggleTheme } = useTheme()
 const { wakeLockEnabled, isSupported: wakeLockSupported, toggleWakeLock } = useWakeLock()
 const { zenMode, isChromeHidden, toggleZenMode, revealChrome } = useZenMode()
@@ -619,8 +607,7 @@ const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
 
-router.afterEach((to, from) => {
-  onNavigationDone(to, from)
+router.afterEach(() => {
   checkForUpdate()
 })
 
@@ -658,11 +645,11 @@ const menuCategories = [
 ]
 
 const menuCategoryRoutes = {
-  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka', '/wealth', '/apayamukha', '/similes', '/lay-disciples', '/buddha-guna', '/punnakiriya', '/ariyadhana', '/tilakkhana', '/kalyanamitta', '/triple-gem-guna', '/vessantara', '/kalama-sutta', '/six-speeches', '/dhamma-hearing', '/gahi-sukha', '/sappurisa', '/paticcasamuppada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/mitta', '/samyojana'],
-  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/jhana', '/arupa-jhana', '/vipassanupakkilesa', '/asava', '/anusaya', '/upadana', '/anattalakkhana', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/vipassana-bhumi', '/samyojana'],
-  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/visuddhi', '/sammappadhana', '/iddhipada', '/metta-sutta', '/carita', '/caturarakkha', '/vimokkha', '/ariyavamsa', '/yonisomanasikara', '/paccaya-requisites'],
-  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka', '/barami', '/sangayana', '/mangala', '/ariyadhana', '/kammpatha', '/similes', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/bojjhanga', '/kalyanamitta', '/abhinha', '/kalama-sutta', '/six-speeches', '/dhammacakka', '/anattalakkhana', '/sanghadana', '/metta-sutta', '/visuddhi', '/vessantara', '/cakka', '/devaduta', '/abhinna', '/dasabala', '/vuddhi', '/ditthi', '/garuka-kamma', '/mitta'],
-  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family', '/ceremonies', '/wealth', '/lokadhamma', '/apayamukha', '/brahmavihara', '/mangala', '/sangahavatthu', '/agati', '/mindful-work', '/katannu', '/lay-disciples', '/appamada', '/kalyanamitta', '/abhinha', '/uposatha-types', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/six-speeches', '/iddhipada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/ariyavamsa', '/vuddhi', '/yonisomanasikara', '/ditthi', '/garuka-kamma', '/mitta', '/paccaya-requisites', '/samyojana'],
+  gems: ['/tiktok-studio', '/my-gems', '/questions', '/rupa-qa', '/cetasika-qa', '/stories', '/quiz', '/glossary', '/jataka', '/wealth', '/apayamukha', '/similes', '/lay-disciples', '/buddha-guna', '/punnakiriya', '/ariyadhana', '/tilakkhana', '/kalyanamitta', '/triple-gem-guna', '/vessantara', '/kalama-sutta', '/six-speeches', '/dhamma-hearing', '/gahi-sukha', '/sappurisa', '/paticcasamuppada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/mitta', '/samyojana', '/paramattha-sacca', '/vipallasa', '/dana-types', '/puja-symbolism', '/catummaharajika'],
+  abhidhamma: ['/abhidhamma', '/lobha-mula-citta', '/paccaya', '/death-and-rebirth', '/citta-matrix', '/citta-vithi', '/merit-transfer', '/cosmology', '/nibbana', '/sangaha', '/ayatana', '/kammpatha', '/jhana', '/arupa-jhana', '/vipassanupakkilesa', '/asava', '/anusaya', '/upadana', '/anattalakkhana', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/vipassana-bhumi', '/samyojana', '/akusala-mula', '/ahara', '/paramattha-sacca', '/vipallasa', '/vedana', '/saupadisesa-nibbana', '/citta-daily'],
+  practice: ['/meditation', '/chanting', '/daily', '/recollections', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/visuddhi', '/sammappadhana', '/iddhipada', '/metta-sutta', '/carita', '/caturarakkha', '/vimokkha', '/ariyavamsa', '/yonisomanasikara', '/paccaya-requisites', '/aghatapativinaya', '/vitakkasanthana', '/sangha-vinaya-lay', '/sampajanna', '/vedana', '/sukha-levels', '/citta-daily'],
+  sutta: ['/core', '/kamma', '/ethics', '/suttas', '/gathas', '/ariya', '/realms', '/bodhipakkhiya', '/magga', '/dhutanga', '/tipitaka', '/barami', '/sangayana', '/mangala', '/ariyadhana', '/kammpatha', '/similes', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/satipatthana', '/bojjhanga', '/kalyanamitta', '/abhinha', '/kalama-sutta', '/six-speeches', '/dhammacakka', '/anattalakkhana', '/sanghadana', '/metta-sutta', '/visuddhi', '/vessantara', '/cakka', '/devaduta', '/abhinna', '/dasabala', '/vuddhi', '/ditthi', '/garuka-kamma', '/mitta', '/akusala-mula', '/aghatapativinaya', '/ahara', '/puggala-4', '/vitakkasanthana', '/natha-dhamma', '/kusala-kammapatha', '/dana-types', '/ariya-vinaya', '/asoka-history', '/sukha-levels', '/saupadisesa-nibbana', '/catummaharajika'],
+  life: ['/', '/life', '/sangha', '/calendar', '/dhamma-aid', '/holy-sites', '/disciples', '/prophecy', '/rajadhamma', '/family', '/ceremonies', '/wealth', '/lokadhamma', '/apayamukha', '/brahmavihara', '/mangala', '/sangahavatthu', '/agati', '/mindful-work', '/katannu', '/lay-disciples', '/appamada', '/kalyanamitta', '/abhinha', '/uposatha-types', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/six-speeches', '/iddhipada', '/carita', '/cakka', '/devaduta', '/caturarakkha', '/ariyavamsa', '/vuddhi', '/yonisomanasikara', '/ditthi', '/garuka-kamma', '/mitta', '/paccaya-requisites', '/samyojana', '/puggala-4', '/natha-dhamma', '/kusala-kammapatha', '/sangha-vinaya-lay', '/sampajanna', '/dana-types', '/puja-symbolism', '/ariya-vinaya', '/asoka-history', '/catummaharajika'],
 }
 
 function getCategoryCount(catId) {
@@ -670,20 +657,31 @@ function getCategoryCount(catId) {
   return (menuCategoryRoutes[catId] || []).length
 }
 
+const khDigitList = '០១២៣៤៥៦៧៨៩'
+const khToAr = s => (s || '').replace(/[០-៩]/g, d => khDigitList.indexOf(d))
+const arToKh = s => (s || '').replace(/[0-9]/g, d => khDigitList[d])
+
 const filteredMenuNav = computed(() => {
   let list = nav
   if (selectedMenuCategory.value !== 'all') {
     const allowed = menuCategoryRoutes[selectedMenuCategory.value] || []
     list = list.filter(n => allowed.includes(n.to))
   }
-  const q = menuSearchQuery.value.trim().toLowerCase()
-  if (!q) return list
+  const rawQ = menuSearchQuery.value.trim().toLowerCase()
+  if (!rawQ) return list
+  const qKh = arToKh(rawQ)
+  const qAr = khToAr(rawQ)
   return list.filter(n => {
-    return n.km.toLowerCase().includes(q) ||
-      (n.descKm && n.descKm.toLowerCase().includes(q)) ||
-      n.kmShort.toLowerCase().includes(q) ||
-      n.en.toLowerCase().includes(q) ||
-      n.num.toLowerCase().includes(q)
+    const numAr = khToAr(n.num)
+    const slug = n.to.replace(/^\//, '').toLowerCase()
+    return n.km.toLowerCase().includes(rawQ) ||
+      (n.descKm && n.descKm.toLowerCase().includes(rawQ)) ||
+      n.kmShort.toLowerCase().includes(rawQ) ||
+      n.en.toLowerCase().includes(rawQ) ||
+      n.num.toLowerCase().includes(qKh) ||
+      numAr.includes(qAr) ||
+      n.to.toLowerCase().includes(rawQ) ||
+      slug.includes(rawQ)
   })
 })
 const desktopNavRef = ref(null)
@@ -698,6 +696,13 @@ function scrollActiveTabIntoView() {
   const currentLeft = el.scrollLeft
   const desiredLeft = currentLeft + (aRect.left - cRect.left) - (cRect.width / 2) + (aRect.width / 2)
   el.scrollTo({ left: desiredLeft, behavior: 'smooth' })
+}
+
+function onGlobalKeydown(e) {
+  if (e.key === 'Escape') {
+    if (menuOpen.value) menuOpen.value = false
+    if (settingsOpen.value) settingsOpen.value = false
+  }
 }
 
 function onSettingsGlobalClick(e) {
@@ -1188,6 +1193,7 @@ onMounted(() => {
   window.addEventListener('afterprint', afterPrint)
   window.addEventListener('online', updateOnline)
   window.addEventListener('offline', updateOnline)
+  window.addEventListener('keydown', onGlobalKeydown)
   window.addEventListener('beforeinstallprompt', onBeforeInstall)
   window.addEventListener('appinstalled', onAppInstalled)
   installTimer = setTimeout(openInstallPrompt, 1500)
@@ -1200,6 +1206,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('afterprint', afterPrint)
   window.removeEventListener('online', updateOnline)
   window.removeEventListener('offline', updateOnline)
+  window.removeEventListener('keydown', onGlobalKeydown)
   window.removeEventListener('beforeinstallprompt', onBeforeInstall)
   window.removeEventListener('appinstalled', onAppInstalled)
   if (installTimer) clearTimeout(installTimer)

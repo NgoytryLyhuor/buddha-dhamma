@@ -384,7 +384,11 @@ input[type="number"] { -moz-appearance: textfield; min-width: 0; }
 }
 
 /* Header / top nav responsiveness */
-header { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding-top: env(safe-area-inset-top, 0px);
+}
 
 
 .font-btn { display: flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 3px; border: 1px solid var(--border); background: var(--bg-card); color: var(--ink-muted); font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s; }

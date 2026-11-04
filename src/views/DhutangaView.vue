@@ -292,6 +292,11 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  if (n === null || n === undefined) return ''
+  return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
+}
 
 const activeGroup = ref('all')
 const selectedDhutanga = ref(null)
@@ -708,7 +713,8 @@ const filteredDhutangas = computed(() => {
 
 const currentDhutangaIndex = computed(() => {
   if (!selectedDhutanga.value) return 0
-  return filteredDhutangas.value.findIndex(d => d.num === selectedDhutanga.value.num)
+  const idx = filteredDhutangas.value.findIndex(d => d.num === selectedDhutanga.value.num)
+  return idx !== -1 ? idx : 0
 })
 
 function lockBodyScroll() {

@@ -381,6 +381,11 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 
 const { t } = useLanguage()
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  if (n === null || n === undefined) return ''
+  return String(n).split('').map(d => khDigits[Number(d)] ?? d).join('')
+}
 
 const activeSection = ref('rajadhamma')
 const selectedItem = ref(null)
@@ -752,7 +757,8 @@ function resetChecklist() {
 
 const currentRajadhammaIndex = computed(() => {
   if (!selectedItem.value) return 0
-  return rajadhammaList.findIndex(item => item.id === selectedItem.value.id)
+  const idx = rajadhammaList.findIndex(item => item.id === selectedItem.value.id)
+  return idx !== -1 ? idx : 0
 })
 
 function lockBodyScroll() {

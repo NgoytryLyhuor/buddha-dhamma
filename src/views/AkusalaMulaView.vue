@@ -93,7 +93,7 @@
               </button>
             </div>
 
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === root.id" class="pt-3 border-t mt-3 space-y-2.5 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
                   <h4 class="font-bold text-[11px] uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
@@ -118,7 +118,7 @@
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>
@@ -184,7 +184,7 @@
               </button>
             </div>
 
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === root.id" class="pt-3 border-t mt-3 space-y-2.5 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
                   <h4 class="font-bold text-[11px] uppercase tracking-wider" :style="{ color: 'var(--accent)' }">
@@ -209,7 +209,7 @@
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>

@@ -111,7 +111,7 @@
             </div>
 
             <!-- Slide-down Inline Expansion -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === item.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <!-- Canonical Sutta Verse -->
                 <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
@@ -166,7 +166,7 @@
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>
@@ -474,7 +474,7 @@ const vinayaRules = [
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedAbhinna.value) {
-    closeModal()
+    expandedId.value = null
   }
 }
 

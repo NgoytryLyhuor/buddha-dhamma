@@ -392,7 +392,7 @@ const filteredNanas = computed(() => {
         </button>
 
         <!-- Inline Upakkilesa Box -->
-        <transition name="slide-down">
+        <SlideDown>
           <div v-if="showUpakkilesa" class="card-paper p-5 sm:p-6 w-full max-w-3xl text-left border space-y-4" :style="{ borderColor: '#f59e0b', background: 'var(--bg-card)' }">
             <div class="border-b pb-3 flex items-start justify-between gap-3" :style="{ borderColor: 'var(--border)' }">
               <div>
@@ -437,7 +437,7 @@ const filteredNanas = computed(() => {
               {{ t('បិទព័ត៌មានវិបស្សនូបក្កិលេស ▲', 'Close Corruptions Details ▲') }}
             </button>
           </div>
-        </transition>
+        </SlideDown>
       </div>
     </header>
 
@@ -526,7 +526,7 @@ const filteredNanas = computed(() => {
             </div>
 
             <!-- Slide-down Inline Expansion -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === nana.step" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <!-- Characteristics -->
                 <div class="p-3 rounded-xl border space-y-1.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
@@ -575,7 +575,7 @@ const filteredNanas = computed(() => {
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>

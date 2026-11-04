@@ -109,7 +109,7 @@
           </div>
 
           <!-- Slide-down Inline Expansion -->
-          <transition name="slide-down">
+          <SlideDown>
             <div v-if="expandedId === dhut.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
               <!-- Full detail -->
               <div class="p-3 rounded-xl border space-y-1" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
@@ -166,7 +166,7 @@
                 {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
               </button>
             </div>
-          </transition>
+          </SlideDown>
         </div>
       </div>
     </div>

@@ -112,9 +112,75 @@
 
           <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
                :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('អានបាលី និងវិធីបដិបត្តិលម្អិត', 'View Pāli Formula & Practice →') }}</span>
-            <span>→</span>
+            <span>{{ t('អានបាលី និងវិធីបដិបត្តិលម្អិត', 'View Pāli Formula & Practice') }}</span>
+            <button
+              type="button"
+              @click="toggleExpand(g.id)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === g.id ? 'on' : ''"
+            >
+              <span>{{ expandedId === g.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
           </div>
+
+          <!-- SlideDown Inline Expansion -->
+          <SlideDown>
+            <div v-if="expandedId === g.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Pāli Formula -->
+              <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                   :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                <p class="italic mb-1 font-bold">« {{ g.formulaPali }} »</p>
+                <p class="text-xs opacity-80">— {{ t(g.formulaK, g.formulaE) }}</p>
+              </div>
+
+              <!-- Full Description -->
+              <div class="space-y-1.5">
+                <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                    :style="{ color: 'var(--accent)' }">
+                  <span>🛡️</span>
+                  <span>{{ t('ការពន្យល់អត្ថន័យ និងក្បួនការពារ', 'Protective Exposition') }}</span>
+                </h4>
+                <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                  {{ t(g.fullDescK, g.fullDescE) }}
+                </p>
+              </div>
+
+              <!-- Practice Steps -->
+              <div class="space-y-2">
+                <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                    :style="{ color: 'var(--accent)' }">
+                  <span>👣</span>
+                  <span>{{ t('ជំហាននៃការបដិបត្តិ', 'Practice Steps') }}</span>
+                </h4>
+                <div class="grid grid-cols-1 gap-2">
+                  <div v-for="(st, stIdx) in g.steps" :key="stIdx"
+                       class="p-2.5 rounded-lg border text-xs space-y-1"
+                       :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <p :style="{ color: 'var(--ink)' }">{{ khNum(stIdx + 1) }}. {{ t(st.k, st.e) }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scientific & Psychological Benefits -->
+              <div class="p-3 rounded-xl border text-xs space-y-1"
+                   :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <div class="font-bold flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                  <span>✨</span>
+                  <span>{{ t('អានិសង្សផ្លូវចិត្ត និងសុខភាព៖', 'Mental & Health Benefits:') }}</span>
+                </div>
+                <p :style="{ color: 'var(--ink-muted)' }">{{ t(g.benefitsK, g.benefitsE) }}</p>
+              </div>
+
+              <button
+                type="button"
+                @click="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+              >
+                {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+              </button>
+            </div>
+          </SlideDown>
         </div>
       </div>
     </section>
@@ -346,7 +412,7 @@ const routineSteps = [
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedGuardian.value) {
-    closeModal()
+    expandedId.value = null
   }
 }
 

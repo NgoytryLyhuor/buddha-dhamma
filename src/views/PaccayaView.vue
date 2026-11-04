@@ -146,7 +146,7 @@
             </div>
 
             <!-- Slide-down Inline Expansion -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === link.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <!-- Conditioned By & Conditions -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -196,7 +196,7 @@
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>

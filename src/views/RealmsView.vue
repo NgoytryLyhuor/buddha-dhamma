@@ -84,7 +84,7 @@
 
         <div class="text-xs flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
           <span>💡</span>
-          <span>{{ t('ចុចលើកាតភូមិណាមួយ ដើម្បីបើកផ្ទាំងពិស្ដារ (Pop-up Modal)', 'Tap any realm card to open the detailed pop-up') }}</span>
+          <span>{{ t('ចុចប៊ូតុង «អានលម្អិត» លើកាតនីមួយៗ ដើម្បីមើលព័ត៌មានពិស្ដារ', 'Tap "Read More" on any card to view detailed insights') }}</span>
         </div>
       </div>
     </div>
@@ -141,7 +141,7 @@
               </div>
 
               <!-- Slide-down Inline Expansion -->
-              <transition name="slide-down">
+              <SlideDown>
                 <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                   <!-- Aggregates / Citta stats -->
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -191,7 +191,7 @@
                     {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                   </button>
                 </div>
-              </transition>
+              </SlideDown>
             </div>
           </div>
         </div>
@@ -217,7 +217,7 @@
             </span>
           </button>
           
-          <transition name="slide-down">
+          <SlideDown>
             <div v-if="showEightHells" class="grid md:grid-cols-2 gap-3 mt-4 pt-4" :style="{ borderTop: '1px solid var(--border)' }">
               <div v-for="h in eightHells" :key="h.name" class="p-3.5 rounded-sm" :style="{ background: 'var(--bg-card-2)', border: '1px solid var(--border)' }">
                 <div class="flex items-baseline justify-between">
@@ -230,7 +230,7 @@
                 </p>
               </div>
             </div>
-          </transition>
+          </SlideDown>
         </div>
 
         <!-- Detail of Pretas and Paradattūpajīvī Peta Reactive Accordion -->
@@ -254,7 +254,7 @@
             </span>
           </button>
 
-          <transition name="slide-down">
+          <SlideDown>
             <div v-if="showPretasInfo" class="mt-4 pt-3 text-sm leading-relaxed" :style="{ borderTop: '1px solid var(--border)', color: 'var(--ink-soft)' }">
               <p>
                 {{ t('ក្នុងចំណោមប្រេតទាំងអស់ មានតែប្រេតប្រភេទមួយគត់ គឺ «បរទត្តូបជីវីប្រេត» (ប្រេតដែលរស់នៅដោយសារផលបុណ្យដែលអ្នកដទៃឧទ្ទិសឱ្យ) ទើបអាចទទួលផលបុណ្យកុសលពីញាតិបាន ក្នុងលក្ខខណ្ឌ ៣ ប្រការ៖', 'Among all types of pretas, ONLY ONE type — the Paradattūpajīvī Peta (beings living off gifts dedicated by others) — can partake of merits transferred by living relatives, provided three conditions are met:') }}
@@ -265,7 +265,7 @@
                 <li><strong>{{ t('៣. ប្រេតនោះបានដឹង និងបានលើកដៃអនុមោទនា «សាធុ!» ដោយខ្លួនឯង', '3. The peta is aware and rejoices with "Sādhu!"') }}</strong></li>
               </ul>
             </div>
-          </transition>
+          </SlideDown>
         </div>
       </div>
 
@@ -318,7 +318,7 @@
               </div>
 
               <!-- Slide-down Inline Expansion -->
-              <transition name="slide-down">
+              <SlideDown>
                 <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                   <!-- Aggregates / Citta stats -->
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -368,7 +368,7 @@
                     {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                   </button>
                 </div>
-              </transition>
+              </SlideDown>
             </div>
           </div>
         </div>
@@ -474,7 +474,7 @@
               </div>
 
               <!-- Slide-down Inline Expansion -->
-              <transition name="slide-down">
+              <SlideDown>
                 <div v-if="expandedId === r.num" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                   <!-- Aggregates / Citta stats -->
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -524,7 +524,7 @@
                     {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                   </button>
                 </div>
-              </transition>
+              </SlideDown>
             </div>
           </div>
         </div>
@@ -1264,25 +1264,7 @@ const filteredArupa = computed(() => filteredRealms.value.filter(r => r.cat === 
 </script>
 
 <style scoped>
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: all 0.32s cubic-bezier(0.25, 1, 0.5, 1);
-  overflow: hidden;
-}
 
-.slide-down-enter-from,
-.slide-down-leave-to {
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(-8px);
-}
-
-.slide-down-enter-to,
-.slide-down-leave-from {
-  opacity: 1;
-  max-height: 2500px;
-  transform: translateY(0);
-}
 
 /* Modal Pop-up Animation */
 .modal-pop-enter-active,

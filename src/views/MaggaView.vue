@@ -348,6 +348,18 @@ const filteredFactors = computed(() => {
             {{ factor.summary }}
           </p>
 
+          <!-- SlideDown Inline Sutta Definition -->
+          <SlideDown>
+            <div v-if="expandedId === factor.step" class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                 :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)', color: 'var(--ink)' }">
+              <div class="font-bold mb-1 flex items-center gap-1.5" :style="{ color: 'var(--accent)' }">
+                <span>📖</span>
+                <span>{{ t('និយមន័យក្នុងព្រះត្រៃបិដក', 'Canonical Sutta Definition') }}</span>
+              </div>
+              <p class="leading-relaxed italic">{{ factor.canonicalDefinition }}</p>
+            </div>
+          </SlideDown>
+
           <!-- Modern Life Tips -->
           <div class="space-y-1.5 pt-2" :style="{ borderTop: '1px solid var(--border)' }">
             <span class="text-[11px] font-bold block uppercase tracking-wider" :style="{ color: 'var(--ink-muted)' }">

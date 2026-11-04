@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import App from './App.vue'
+import SlideDown from './components/SlideDown.vue'
 import './style.css'
 
 inject()
@@ -182,5 +183,6 @@ const router = createRouter({
 })
 
 const app = createApp(App)
+app.component('SlideDown', SlideDown)
 app.use(router)
 app.mount('#app')

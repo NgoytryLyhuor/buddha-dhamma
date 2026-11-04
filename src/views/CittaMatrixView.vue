@@ -1278,7 +1278,7 @@ function getJatiBadgeColor(jati) {
             </div>
 
             <!-- Slide-down Inline Inspection -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedCittaId === citta.code" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <div class="grid grid-cols-2 gap-2">
                   <div class="p-2 rounded-lg border space-y-0.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
@@ -1310,7 +1310,7 @@ function getJatiBadgeColor(jati) {
                   {{ t('បិទព័ត៌មាន ▲', 'Close ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>
@@ -1365,7 +1365,7 @@ function getJatiBadgeColor(jati) {
             </div>
 
             <!-- Slide-down Inline Inspection -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedCetId === cet.id" class="pt-3 border-t mt-3 space-y-3 text-xs leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <!-- 4 Characteristics (Lakkhaṇādi Catukka) -->
                 <div class="space-y-1.5 p-2.5 rounded-xl border" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
@@ -1394,7 +1394,7 @@ function getJatiBadgeColor(jati) {
                   {{ t('បិទព័ត៌មាន ▲', 'Close ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>

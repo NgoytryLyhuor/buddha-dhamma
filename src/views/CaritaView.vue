@@ -103,9 +103,87 @@
           <!-- Bottom bar -->
           <div class="pt-3 border-t flex items-center justify-between text-xs font-semibold"
                :style="{ borderColor: 'var(--border)', color: 'var(--accent)' }">
-            <span>{{ t('មើលការវិភាគពិស្តារ និងសប្បាយ ៧', 'View Deep Analysis & 7 Sappāya →') }}</span>
-            <span class="text-base">→</span>
+            <span>{{ t('មើលការវិភាគពិស្តារ និងសប្បាយ ៧', 'View Deep Analysis & 7 Sappāya') }}</span>
+            <button
+              type="button"
+              @click="toggleExpand(item.id)"
+              class="lang-pick px-2.5 py-1 text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1"
+              :class="expandedId === item.id ? 'on' : ''"
+            >
+              <span>{{ expandedId === item.id ? t('បិទ ▲', 'Hide ▲') : t('អានលម្អិត ▼', 'Read More ▼') }}</span>
+            </button>
           </div>
+
+          <!-- SlideDown Inline Expansion -->
+          <SlideDown>
+            <div v-if="expandedId === item.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
+              <!-- Sutta Quote -->
+              <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
+                   :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
+                <p class="italic mb-1 font-bold">« {{ item.quotePali }} »</p>
+                <p class="text-xs opacity-80">— {{ t(item.quoteK, item.quoteE) }}</p>
+              </div>
+
+              <!-- Habits & Behavioral Signs -->
+              <div class="space-y-1.5">
+                <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                    :style="{ color: 'var(--accent)' }">
+                  <span>👣</span>
+                  <span>{{ t('កិរិយា និងចរិតលក្ខណៈប្រចាំថ្ងៃ', 'Daily Behavioral Manifestation') }}</span>
+                </h4>
+                <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                  {{ t(item.habitsK, item.habitsE) }}
+                </p>
+              </div>
+
+              <!-- Meditation Details -->
+              <div class="space-y-1.5">
+                <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                    :style="{ color: 'var(--accent)' }">
+                  <span>🧘</span>
+                  <span>{{ t('វិធីចម្រើនកម្មដ្ឋានបំបាត់ចរិតនេះ', 'Curative Meditation Practice') }}</span>
+                </h4>
+                <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
+                  {{ t(item.meditationDetailK, item.meditationDetailE) }}
+                </p>
+              </div>
+
+              <!-- Suitable Environment (Sappaya) -->
+              <div class="space-y-2">
+                <h4 class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5"
+                    :style="{ color: 'var(--accent)' }">
+                  <span>🏡</span>
+                  <span>{{ t('បរិស្ថានសប្បាយសមស្រប', 'Suitable Sappāya Environment') }}</span>
+                </h4>
+                <div class="grid grid-cols-1 gap-2">
+                  <div v-for="(env, envIdx) in item.environment" :key="envIdx"
+                       class="p-2.5 rounded-lg border text-xs space-y-1"
+                       :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                    <p :style="{ color: 'var(--ink)' }">{{ t(env.k, env.e) }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modern Practical Application -->
+              <div class="p-3 rounded-xl border text-xs space-y-1"
+                   :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+                <div class="font-bold flex items-center gap-1" :style="{ color: 'var(--accent)' }">
+                  <span>💡</span>
+                  <span>{{ t('ការអនុវត្តក្នុងជីវិតបច្ចុប្បន្ន៖', 'Modern Practical Takeaway:') }}</span>
+                </div>
+                <p :style="{ color: 'var(--ink-muted)' }">{{ t(item.practicalK, item.practicalE) }}</p>
+              </div>
+
+              <button
+                type="button"
+                @click="expandedId = null"
+                class="w-full py-1.5 rounded-lg text-center text-xs opacity-70 hover:opacity-100 cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', color: 'var(--ink-muted)' }"
+              >
+                {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
+              </button>
+            </div>
+          </SlideDown>
         </div>
       </div>
     </section>
@@ -578,7 +656,7 @@ const sappayaList = [
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedCarita.value) {
-    closeModal()
+    expandedId.value = null
   }
 }
 

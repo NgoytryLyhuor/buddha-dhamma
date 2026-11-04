@@ -102,7 +102,7 @@
           </div>
 
           <!-- Slide-down Inline Expansion -->
-          <transition name="slide-down">
+          <SlideDown>
             <div v-if="expandedId === (s.slug || ('story-' + i))" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
               <!-- Full Story Paragraphs -->
               <div class="space-y-3 font-serif" :style="{ color: 'var(--ink)' }">
@@ -135,7 +135,7 @@
                 {{ t('បិទរឿង ▲', 'Close Story ▲') }}
               </button>
             </div>
-          </transition>
+          </SlideDown>
         </div>
       </div>
     </div>

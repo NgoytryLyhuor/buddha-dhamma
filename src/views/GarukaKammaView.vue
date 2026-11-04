@@ -133,7 +133,7 @@
             </div>
 
             <!-- Slide-down Inline Expansion -->
-            <transition name="slide-down">
+            <SlideDown>
               <div v-if="expandedId === c.id" class="pt-4 border-t mt-3 space-y-4 text-xs sm:text-sm leading-relaxed" :style="{ borderColor: 'var(--border)' }">
                 <!-- Sutta / Vinaya Reference -->
                 <div class="p-3.5 rounded-xl border-l-4 font-serif text-xs leading-relaxed"
@@ -174,7 +174,7 @@
                   {{ t('បិទព័ត៌មានលម្អិត ▲', 'Close Details ▲') }}
                 </button>
               </div>
-            </transition>
+            </SlideDown>
           </div>
         </div>
       </div>
@@ -406,7 +406,7 @@ const karmicTiers = [
 
 function handleKeydown(e) {
   if (e.key === 'Escape' && selectedCrime.value) {
-    closeModal()
+    expandedId.value = null
   }
 }
 

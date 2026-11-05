@@ -348,6 +348,12 @@ const upakkilesas = [
   { no: 10, pali: 'Nikanti', km: 'និកន្តិ', desc: '⚠️ មេគ្រោះថ្នាក់បំផុត! សេចក្តីត្រេកអរស្រឡាញ់ជាប់ចិត្តស្ងាត់ៗលើអារម្មណ៍ទាំង ៩ ខាងលើ ដោយយល់ច្រឡំថាខ្លួនត្រាស់ដឹងហើយ' }
 ]
 
+const upakkilesaList = upakkilesas
+const khDigits = ['០', '១', '២', '៣', '៤', '៥', '៦', '៧', '៨', '៩']
+function khNum(n) {
+  return String(n ?? '').replace(/[0-9]/g, d => khDigits[d] || d)
+}
+
 const filteredNanas = computed(() => {
   return nanas.filter(n => {
     if (activeFilter.value !== 'all' && n.visuddhi !== activeFilter.value) {

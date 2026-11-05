@@ -608,6 +608,7 @@ const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
 
 router.afterEach(() => {
+  if (hasError.value) hasError.value = false
   checkForUpdate()
 })
 
@@ -660,6 +661,9 @@ function getCategoryCount(catId) {
 const khDigitList = '០១២៣៤៥៦៧៨៩'
 const khToAr = s => (s || '').replace(/[០-៩]/g, d => khDigitList.indexOf(d))
 const arToKh = s => (s || '').replace(/[0-9]/g, d => khDigitList[d])
+function khNum(n) {
+  return String(n ?? '').replace(/[0-9]/g, d => khDigitList[d] || d)
+}
 
 const filteredMenuNav = computed(() => {
   let list = nav

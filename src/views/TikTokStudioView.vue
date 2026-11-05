@@ -220,12 +220,35 @@
                   color: 'var(--ink)',
                   '--tw-ring-color': 'var(--accent)'
                 }"
-                placeholder="ឧ. ហេតុអ្វីបានជាមនុស្សកាន់តែមានលុយ ឬជោគជ័យ កាន់តែមានអារម្មណ៍ថាឯកោ និងទទេស្អាត? (ឬវាយសំណួរធម៌ជីវិតផ្សេងៗ...)"
+                placeholder="ឧ. តានតឹងចិត្តដោយសារអ្វី? ឬ ដើម្បីក្លាយជា «អរិយបុគ្គល»... តើត្រូវកាត់ផ្ដាច់កិលេសអ្វីខ្លះ?..."
               ></textarea>
             </div>
 
+            <!-- Quick Suggestion Pills from Creator's TikTok -->
+            <div class="space-y-1.5">
+              <span class="text-[11px] font-bold block" :style="{ color: 'var(--ink-muted)' }">
+                🔥 សំណួរពេញនិយមលើ TikTok @_prove_them_wrong_ ៖
+              </span>
+              <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+                <button
+                  v-for="preset in PRESET_QUESTIONS"
+                  :key="preset.id"
+                  type="button"
+                  @click="inputQuestion = preset.question"
+                  class="shrink-0 text-[11px] px-2.5 py-1 rounded-lg border transition cursor-pointer hover:border-amber-500 hover:text-amber-300"
+                  :style="{
+                    background: inputQuestion === preset.question ? 'var(--accent-soft)' : 'var(--bg-card-2)',
+                    borderColor: inputQuestion === preset.question ? 'var(--accent)' : 'var(--border)',
+                    color: inputQuestion === preset.question ? 'var(--accent-bright)' : 'var(--ink-muted)'
+                  }"
+                >
+                  {{ preset.title }}
+                </button>
+              </div>
+            </div>
+
             <div class="text-xs leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
-              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំកម្រង Slide លម្អិតស៊ីជម្រៅ (៥ Slide) និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok ធម៌ពិតស៊ីជម្រៅ!
+              💡 វាយសំណួរធម៌ ជីវិត ឬចិត្តសាស្ត្រណាមួយរួចចុច «បង្កើត Slide ថ្មីដោយ AI»។ ប្រព័ន្ធនឹងរៀបចំកម្រង Slide លម្អិតស៊ីជម្រៅ (៣-៤ Slide តាមចរិត TikTok) និង Caption ស្វ័យប្រវត្តិតាមទម្រង់ TikTok ធម៌ពិតស៊ីជម្រៅ!
             </div>
 
             <!-- Generate Action Button (Big & Thumb-friendly for Mobile) -->
@@ -640,7 +663,7 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { PUBLISHED_AND_CURATED_POSTS } from '../data/tiktokPosts.js'
-import { useGeminiTikTok } from '../composables/useGeminiTikTok.js'
+import { useGeminiTikTok, PRESET_QUESTIONS } from '../composables/useGeminiTikTok.js'
 
 const {
   isGenerating,

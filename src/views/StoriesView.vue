@@ -107,15 +107,15 @@
               <!-- Full Story Paragraphs -->
               <div class="space-y-3 font-serif" :style="{ color: 'var(--ink)' }">
                 <p v-for="(p, pIdx) in s.paras" :key="pIdx" class="leading-relaxed indent-4">
-                  {{ p }}
+                  {{ typeof p === 'object' && p !== null ? t(p.km, p.en) : p }}
                 </p>
               </div>
 
               <!-- Essence Verse -->
               <div class="p-3.5 rounded-xl border-l-4 font-serif text-center space-y-1" :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }">
                 <span class="text-[10px] uppercase font-bold block" :style="{ color: 'var(--accent)' }">{{ t('គតិធម៌សង្ខេប', 'Core Essence') }}</span>
-                <p class="italic font-bold">«{{ s.essenceK }}»</p>
-                <p v-if="s.essenceE" class="text-xs opacity-80">{{ s.essenceE }}</p>
+                <p class="italic font-bold">«{{ t(s.essenceK, s.essenceE) }}»</p>
+                <p v-if="s.essenceE && lang === 'km'" class="text-xs opacity-80">{{ s.essenceE }}</p>
               </div>
 
               <!-- Life Lesson -->
@@ -157,7 +157,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useLanguage } from '../composables/useLanguage'
 import { useRoute, useRouter } from 'vue-router'
 
-const { t } = useLanguage()
+const { lang, t } = useLanguage()
 const route = useRoute()
 const router = useRouter()
 

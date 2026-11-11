@@ -315,7 +315,7 @@ const dhutangas = [
     mediumEn: 'May skip houses posing danger such as fierce hounds or intoxicated people.',
     mildKm: 'អាចរំលងផ្ទះដែលធ្លាប់ដឹងច្បាស់ថាមិនដែលធ្វើបុណ្យ។',
     mildEn: 'May bypass houses known never to offer alms.',
-    benefitsKm: 'មានមេត្តាចិត្តស្មើគ្នាចំពោះសត្វលោកទាំងពួង បំបាត់មានះ និងមិនលម្អៀង។',
+    benefitsKm: 'មានមេត្តាចិត្តស្មើគ្នាចំពោះសត្វលោកទាំងពួង បំបាត់មានៈ និងមិនលម្អៀង។',
     benefitsEn: 'Unconditioned loving-kindness toward all societal strata, eradicating vanity.'
   },
   {

@@ -169,7 +169,7 @@ const stages = [
     pl: 'ARAHANT', km: 'អរហន្ត', en: 'Arahant',
     kmBody: 'អ្នកអស់កិលេស អស់អាសវៈ អស់សញ្ញយោជនៈ ១០ ប្រការ; បានសម្រេចកិច្ចផង ខ្លួន ឥតកើតទៀត ជាទីបំផុតនៃផ្លូវ។', enBody: 'One who has exhausted all defilements, the taints, and the ten fetters; the task is done, there is no more rebirth, the end of the path.',
     fetters: [
-      { km: 'រូបរាគៈ អរូបរាគៈ មានះ ឧទ្ធច្ចៈ អវិជ្ជា — រលត់ទាំងអស់', en: 'craving for form, craving for the formless, conceit, restlessness, ignorance — all ceased' },
+      { km: 'រូបរាគៈ អរូបរាគៈ មានៈ ឧទ្ធច្ចៈ អវិជ្ជា — រលត់ទាំងអស់', en: 'craving for form, craving for the formless, conceit, restlessness, ignorance — all ceased' },
     ],
   },
 ]
@@ -182,7 +182,7 @@ const fetters10 = [
   { pl: 'PAṬIGHA', km: 'បដិឃៈ', en: 'Ill will', kmBody: 'សេចក្តីខឹងក្រោធ ក្រៀកក្រញាំ បៀតបៀន។', enBody: 'Anger, aversion, and resentment.' },
   { pl: 'RŪPA-RĀGA', km: 'រូបរាគៈ', en: 'Craving for form', kmBody: 'សេចក្តីត្រេកត្រអាល ក្នុងរូបឈាន និងរូបភព។', enBody: 'Attachment to the fine-material realms and jhānas.' },
   { pl: 'ARŪPA-RĀGA', km: 'អរូបរាគៈ', en: 'Craving for the formless', kmBody: 'សេចក្តីត្រេកត្រអាល ក្នុងអរូបឈាន និងអរូបភព។', enBody: 'Attachment to the formless realms and jhānas.' },
-  { pl: 'MĀNA', km: 'មានះ', en: 'Conceit', kmBody: 'សេចក្តីប្រកាន់ថា ខ្លួនប្រសើរ ស្មើ ឬថយជាងអ្នកដទៃ។', enBody: 'Esteeming oneself as better, equal, or worse than others.' },
+  { pl: 'MĀNA', km: 'មានៈ', en: 'Conceit', kmBody: 'សេចក្តីប្រកាន់ថា ខ្លួនប្រសើរ ស្មើ ឬថយជាងអ្នកដទៃ។', enBody: 'Esteeming oneself as better, equal, or worse than others.' },
   { pl: 'UDDHACCA', km: 'ឧទ្ធច្ចៈ', en: 'Restlessness', kmBody: 'សេចក្តីវិលវល់ នៃចិត្ត មិនស្ងប់ ក្នុងអារម្មណ៍។', enBody: 'Mental agitation and lack of calm.' },
   { pl: 'AVIJJĀ', km: 'អវិជ្ជា', en: 'Ignorance', kmBody: 'សេចក្តីមិនដឹងច្បាស់ នូវអរិយសច្ច ៤ ជាឫសគល់នៃចំណងទាំងអស់។', enBody: 'Not knowing the four noble truths — the root of all fetters.' },
 ]

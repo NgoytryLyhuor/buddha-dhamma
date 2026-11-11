@@ -144,7 +144,7 @@ const archetypes = [
     num: '៣',
     titleKm: 'អ្នកចូលចិត្តបន្ទាបបន្ថោក & ជាន់ពន្លិច (The Belittler)',
     titleEn: 'The Constant Critic & Micromanager',
-    tag: 'មានះ & ទោសាគតិ',
+    tag: 'មានៈ & ទោសាគតិ',
     icon: '🔨',
     behaviorKm: 'ចូលចិត្តរិះគន់ដៀមដាម មើលងាយសមត្ថភាព និយាយបំផ្លាញទំនុកចិត្តរបស់អ្នកដទៃ ដើម្បីលើកកម្ពស់អំនួតរបស់ខ្លួនឯង។',
     behaviorEn: 'Undermines confidence with condescending sarcasm, dismissive remarks, and relentless fault-finding to inflate their own fragile ego.',

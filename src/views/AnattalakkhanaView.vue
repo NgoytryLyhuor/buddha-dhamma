@@ -57,7 +57,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4 text-xs">
         <div class="p-3.5 rounded-xl border bg-stone-500/5" :style="{ borderColor: 'var(--border)' }">
           <span class="font-mono font-bold text-amber-700 dark:text-amber-300 block mb-1">១. នេតំ មម (Netam mama)</span>
-          <p class="text-stone-600 dark:text-stone-400"><strong>នុ៎ះមិនមែនជារបស់យើង ៖</strong> {{ t('កម្ចាត់ «តណ្ហា» និងការតោងទាមកម្មសិទ្ធិ។', 'Uproots craving (Taṇhā) and the illusion of ownership.') }}</p>
+          <p class="text-stone-600 dark:text-stone-400"><strong>នុ៎ះមិនមែនជារបស់យើង ៖</strong> {{ t('កម្ចាត់ «តណ្ហា» និងការប្រកាន់កម្មសិទ្ធិ។', 'Uproots craving (Taṇhā) and the illusion of ownership.') }}</p>
         </div>
         <div class="p-3.5 rounded-xl border bg-stone-500/5" :style="{ borderColor: 'var(--border)' }">
           <span class="font-mono font-bold text-amber-700 dark:text-amber-300 block mb-1">២. នេសោហមស្មិ (Nesohamasmi)</span>

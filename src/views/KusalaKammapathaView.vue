@@ -189,7 +189,7 @@ const vaciItems = [
     titleK: '៧. វៀរចាកពាក្យឥតប្រយោជន៍ + និយាយពាក្យមានន័យ',
     titleE: '7. Abstaining from Idle Chatter & Meaningful Speech',
     pali: 'Samphappalāpā veramaṇī',
-    descK: 'មិននិយាយរឿងអត់ប្រយោជន៍ ចចាមអារ៉ាម និយាយតែពាក្យត្រូវកាល ត្រូវការពិត មានហេតុផល និងមានប្រយោជន៍ដល់ជីវិត។',
+    descK: 'មិននិយាយរឿងអត់ប្រយោជន៍ ចចាមអារាម និយាយតែពាក្យត្រូវកាល ត្រូវការពិត មានហេតុផល និងមានប្រយោជន៍ដល់ជីវិត។',
     descE: 'Speaking at the right time, in accordance with fact, speaking what is useful, reasoned, and well-grounded.',
     positiveK: 'និយាយអំពីរឿងការងារ ធម៌ និងចំណេះដឹងដែលបង្កើនគុណភាពជីវិត។',
     positiveE: 'Engaging in discussions on constructive work, Dhamma, and knowledge.',

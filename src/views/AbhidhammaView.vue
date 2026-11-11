@@ -170,7 +170,7 @@
               <li>• <strong>{{ t('បឋវីធាតុ (ដី)៖', 'Pathavī (Earth):') }}</strong> {{ t('គុណសម្បត្តិរឹង ឬទន់ — ផ្តល់ទីតាំង និងទម្ងន់', 'Solid/soft — provides mass, inertia, and location') }}</li>
               <li>• <strong>{{ t('អាបោធាតុ (ទឹក)៖', 'Āpo (Water):') }}</strong> {{ t('គុណសម្បត្តិស្អិត ឬស្រូបទាញគ្នា (Cohesion / Binding Force)', 'Fluidity/bonding — the attractive cohesive force holding matter') }}</li>
               <li>• <strong>{{ t('តេជោធាតុ (ភ្លើង)៖', 'Tejo (Fire):') }}</strong> {{ t('គុណសម្បត្តិកម្ដៅ ត្រជាក់ ឬថាមពល (Energy / Temperature)', 'Temperature — thermal energy sustaining maturation') }}</li>
-              <li>• <strong>{{ t('វាโยធាតុ (ខ្យល់)៖', 'Vāyo (Air):') }}</strong> {{ t('គុណសម្បត្តិចលនា រំញ័រ ឬសម្ពាធ (Oscillation / Pressure)', 'Motion/pressure — kinetic momentum and vibration') }}</li>
+              <li>• <strong>{{ t('វាយោធាតុ (ខ្យល់)៖', 'Vāyo (Air):') }}</strong> {{ t('គុណសម្បត្តិចលនា រំញ័រ ឬសម្ពាធ (Oscillation / Pressure)', 'Motion/pressure — kinetic momentum and vibration') }}</li>
             </ul>
           </div>
 
@@ -228,7 +228,7 @@
               <p class="font-bold text-xs" :style="{ color: 'var(--ink)' }">{{ t('ថាមពល និងកម្លាំងទាញ (Energy & Forces)', 'Energy & Forces') }}</p>
             </div>
             <p class="text-xs mt-1.5 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('អាបោ (កម្លាំងស្រូបទាញស្អិត), តេជោ (ថាមពលកម្ដៅ/វិទ្យុសកម្ម), វាโย (ចលនារំញ័រ និងសម្ពាធ)។', 'Āpo provides attractive cohesion; Tejo governs thermal energy; Vāyo manifests as kinetic momentum and vibration.') }}<br/>
+              <strong>{{ t('អភិធម្ម៖', 'Abhidhamma:') }}</strong> {{ t('អាបោ (កម្លាំងស្រូបទាញស្អិត), តេជោ (ថាមពលកម្ដៅ/វិទ្យុសកម្ម), វាយោ (ចលនារំញ័រ និងសម្ពាធ)។', 'Āpo provides attractive cohesion; Tejo governs thermal energy; Vāyo manifests as kinetic momentum and vibration.') }}<br/>
               <strong>{{ t('រូបវិទ្យា៖', 'Quantum:') }}</strong> {{ t('Strong Nuclear Force & Electromagnetic force (ទាញភាគល្អិតឱ្យនៅជាប់គ្នា), Thermal Energy, និង Kinetic Momentum (ចលនារំញ័រ)។', 'Strong nuclear force binds subatomic particles; thermodynamics dictates energy states; kinetic energy drives oscillatory motion.') }}
             </p>
           </div>

@@ -122,7 +122,7 @@ const scenarios = [
     icon: '💼',
     titleK: '៣. ពេលត្រូវមេ ឬមិត្តរួមការងាររិះគន់',
     titleE: '3. Receiving Harsh Criticism at Work',
-    badK: 'មុខក្រញូវ អន់ចិត្ត គិតចង់ឈប់ធ្វើការ ឬចងគំនុំរកវិធីសងសឹកវិញ (មានះ & ទោសៈ)។',
+    badK: 'មុខក្រញូវ អន់ចិត្ត គិតចង់ឈប់ធ្វើការ ឬចងគំនុំរកវិធីសងសឹកវិញ (មានៈ & ទោសៈ)។',
     badE: 'Pouting, wounded ego, plotting passive-aggressive retaliation or brooding over resignation.',
     goodK: 'ស្ដាប់ដោយស្ងប់ស្ងៀម ញែកមើលចំណុចត្រូវដើម្បីកែប្រែ «អរគុណដែលបានប្រាប់ចំណុចខ្វះខាត» (សុវចោ & បញ្ញា)។',
     goodE: 'Listen with calm humility: extract the actionable truth to improve, thanking them for revealing your blind spots.'

@@ -150,7 +150,7 @@ const dhammaQualities = [
     pali: 'សន្ទិដ្ឋិកោ (Sandiṭṭhiko)',
     enTitle: 'Directly Visible Here and Now',
     icon: '👁️',
-    descKm: 'អ្នកបដិបត្តិតាមព្រះធម៌ អាចឃើញលទ្ធផលជាក់ស្តែងដោយខ្លួនឯងក្នុងជាតិនេះ ពេលនេះ មិនបាច់រង់ចាំដល់ជាតិក្រោយ ឬជឿតាមតែពាក្យចចាមអារ៉ាមឡើយ។',
+    descKm: 'អ្នកបដិបត្តិតាមព្រះធម៌ អាចឃើញលទ្ធផលជាក់ស្តែងដោយខ្លួនឯងក្នុងជាតិនេះ ពេលនេះ មិនបាច់រង់ចាំដល់ជាតិក្រោយ ឬជឿតាមតែពាក្យចចាមអារាមឡើយ។',
     descEn: 'Directly verifiable in one\'s own immediate experience here and now; empirical and self-evident rather than speculative belief.',
     insightKm: 'ពេលរំលត់កំហឹងបានមួយវិនាទី ចិត្តត្រជាក់ភ្លាមៗក្នុងវិនាទីនោះឯង។',
     insightEn: 'When anger is relinquished, serene coolness is experienced instantaneously.',

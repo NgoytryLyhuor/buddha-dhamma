@@ -353,7 +353,7 @@ const abhinnaList = [
     suttaPali: 'So anekavihitaṁ pubbenivāsaṁ anussarati, seyyathidaṁ ekam pi jātiṁ...',
     suttaK: 'រមែងរឭកនូវជាតិដែលធ្លាប់នៅអាស្រ័យក្នុងកាលមុនជាច្រើនប្រការ គឺមួយជាតិក៏បាន ពីរជាតិក៏បាន រយជាតិក៏បាន...',
     suttaE: 'He recollects his manifold past lives: one birth, two births, hundreds of births, with their modes and details.',
-    fullDescK: 'ញាណនេះបានបង្ហាញការពិតនៃសង្សារវដ្ត ថាសត្វលោកមិនមែនកើតមកតែមួយជាតិនោះទេ គឺធ្លាប់កើតជាសត្វតិរច្ឆាន ជាទេវតា ជាមនុស្សរាប់មិនអស់ដង។ ការដឹងច្បាស់បែបនេះ ជួយកម្ចាត់សេចក្ដីសង្ស័យលើអតីតកាល (វិចិកិច្ឆា)។',
+    fullDescK: 'ញាណនេះបានបង្ហាញការពិតនៃវដ្តសង្សារ ថាសត្វលោកមិនមែនកើតមកតែមួយជាតិនោះទេ គឺធ្លាប់កើតជាសត្វតិរច្ឆាន ជាទេវតា ជាមនុស្សរាប់មិនអស់ដង។ ការដឹងច្បាស់បែបនេះ ជួយកម្ចាត់សេចក្ដីសង្ស័យលើអតីតកាល (វិចិកិច្ឆា)។',
     fullDescE: 'This knowledge shatters the annihilationist delusion that life ends at the grave, exposing endless rebirth across heavens, hells, and human realms.',
     foundationK: 'ការដកថយខ្សែចងចាំថយក្រោយមួយជំហានម្តងៗ ពីបច្ចុប្បន្ន ទៅកុមារភាព ទៅក្នុងផ្ទៃ រហូតឆ្លងទៅជាតិមុន ក្នុងចតុត្ថជ្ឈាន។',
     foundationE: 'Tracing memories systematically backwards through childhood, womb state, and crossing the death-proxy threshold of previous lives.',
@@ -408,7 +408,7 @@ const vijjaList = [
     titleK: 'បុព្វេនិវាសានុស្សតិញាណ',
     titleE: 'Knowledge of Past Lives',
     pali: 'Pubbenivāsānussati',
-    descK: 'ព្រះពុទ្ធបានរឭកឃើញជាតិកំណើតរាប់សែនកប្បក្នុងអតីតកាល បញ្ជាក់ច្បាស់នូវសង្សារវដ្ត។',
+    descK: 'ព្រះពុទ្ធបានរឭកឃើញជាតិកំណើតរាប់សែនកប្បក្នុងអតីតកាល បញ្ជាក់ច្បាស់នូវវដ្តសង្សារ។',
     descE: 'Recollected countless previous lives, validating the reality of Saṃsāra.',
     breakthroughK: 'ទម្លាយសេចក្ដីសង្ស័យចំពោះអតីតកាល (លះសស្សតទិដ្ឋិ និងឧច្ឆេទទិដ្ឋិ)។',
     breakthroughE: 'Shattered doubts regarding the past, breaking eternalism and nihilism.'

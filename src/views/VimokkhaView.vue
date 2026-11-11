@@ -309,7 +309,7 @@ const vimokkhaList = [
     canonicalE: 'The destruction of craving, dispassion, cessation—this is Nibbāna (Itivuttaka).',
     fullDescK: 'អប្បណិហិតវិមោក្ខ កើតឡើងនៅពេលចិត្តយល់ច្បាស់ថា សូម្បីសុខក្នុងឋានសួគ៌ ឬសុខក្នុងឈាន ក៏នៅតែស្ថិតក្នុងច្បាប់នៃសេចក្ដីទុក្ខ ព្រោះត្រូវប្រែប្រួល។ នៅពេលឃើញទោសនៃភពទាំងពួង ចិត្តក៏ឈប់ប្រាថ្នា (អប្បណិហិត) រលាស់ចោលតណ្ហា ហើយងាកទៅចាប់យកព្រះនិព្វានជាទីស្ងប់ដ៏ពិតប្រាកដ។',
     fullDescE: 'Realized when the seeker recognizes that even celestial or meditative bliss is intrinsically fraught with suffering because of instability. Viewing all realms as burning embers, the heart abandons all striving and craving, resting in the unconditioned calm of Nibbāna.',
-    methodK: 'ពិចារណាលើភាពនឿយហត់នៃការដេញតាមចំណង់ និងការកើតទុក្ខដដែលៗក្នុងសង្សារវដ្ត រហូតដល់ចិត្តទម្លាក់បន្ទុកចោល។',
+    methodK: 'ពិចារណាលើភាពនឿយហត់នៃការដេញតាមចំណង់ និងការកើតទុក្ខដដែលៗក្នុងវដ្តសង្សារ រហូតដល់ចិត្តទម្លាក់បន្ទុកចោល។',
     methodE: 'Contemplate the endless exhaustion of pursuing worldly desires, permitting the mind to lay down all burdens in deep surrender.',
     practicalK: 'ឈប់រំពឹងថាមនុស្សជុំវិញខ្លួន ឬកាលៈទេសៈខាងក្រៅត្រូវតែល្អឥតខ្ចោះដើម្បីឱ្យយើងមានក្ដីសុខ ចូររកសេចក្ដីសុខពីការអស់តម្រូវការ។',
     practicalE: 'Relinquish the demand that external circumstances must be flawless for you to be at peace; discover joy in wanting nothing.'

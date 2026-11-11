@@ -116,7 +116,7 @@ const apayamukhaList = [
       { km: 'ប្រពន្ធកូននៅផ្ទះគ្មានការការពារ មានការភ័យខ្លាច', en: 'Spouse and children at home left unprotected and anxious' },
       { km: 'ទ្រព្យសម្បត្តិក្នុងផ្ទះគ្មានការថែរក្សា ងាយចោរគាស់', en: 'Household property unguarded and susceptible to burglary' },
       { km: 'តែងត្រូវគេសង្ស័យមុនគេពេលមានបទល្មើសកើតឡើង', en: 'Becoming the primary suspect whenever local crimes occur' },
-      { km: 'ជួបប្រទះពាក្យចចាមអារ៉ាមមិនល្អ និងការបង្ខូចកេរ្តិ៍ឈ្មោះ', en: 'Target of malicious rumors and neighborhood gossip' },
+      { km: 'ជួបប្រទះពាក្យចចាមអារាមមិនល្អ និងការបង្ខូចកេរ្តិ៍ឈ្មោះ', en: 'Target of malicious rumors and neighborhood gossip' },
       { km: 'នាំឱ្យកើតទុក្ខទោស និងបញ្ហាស្មុគស្មាញជាច្រើនជំពូក', en: 'Entangled in endless trouble, fatigue, and disputes' }
     ]
   },

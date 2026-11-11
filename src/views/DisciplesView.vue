@@ -356,7 +356,7 @@ const disciples = [
     titleEn: 'Foremost Master of the Vinaya (Vinayadhara)',
     titleDetailKm: 'ពីដើមជាជាងកាត់សក់របស់រាជកុមារសក្យវង្ស តែបានបួសមុនគេ និងជាអ្នកឆ្លើយវិនិច្ឆ័យព្រះវិន័យបិដកក្នុងសង្គាយនាលើកទី ១។',
     titleDetailEn: 'Former court barber who became the supreme authority on monastic law and discipline.',
-    shortKm: 'ព្រះរាជកុមារទាំង ៦ អង្គ (រួមទាំងព្រះអនុរុទ្ធ និងព្រះអានន្ទ) បានឱ្យព្រះឧបាលិបួសមុន ដើម្បីបន្ទាបមានះរាជវង្សក្រាបថ្វាយបង្គំអតីតអ្នកបម្រើ។',
+    shortKm: 'ព្រះរាជកុមារទាំង ៦ អង្គ (រួមទាំងព្រះអនុរុទ្ធ និងព្រះអានន្ទ) បានឱ្យព្រះឧបាលិបួសមុន ដើម្បីបន្ទាបមានៈរាជវង្សក្រាបថ្វាយបង្គំអតីតអ្នកបម្រើ។',
     shortEn: 'The Sakyan princes insisted he be ordained first so they could bow to him and crush their royal pride.',
     pastVowKm: 'សម័យព្រះពុទ្ធបទុមុត្តរ លោកកើតជាកុដុម្ពិកៈឈ្មោះ សុជាត បានឃើញព្រះពុទ្ធទ្រង់តាំងភិក្ខុជាកំពូលខាងវិន័យ ក៏បានប្រគេនទានធំតាំងសច្ចា។',
     pastVowEn: 'Aspirated to become the master of Vinaya under Buddha Padumuttara.',

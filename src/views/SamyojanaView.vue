@@ -295,7 +295,7 @@ const fettersList = [
     canonicalPali: 'Dasayimāni bhikkhave saṁyojanāni... sakkāyadiṭṭhi vicikicchā...',
     canonicalK: 'ម្នាលភិក្ខុទាំងឡាយ សំយោជនៈនេះមាន ១០ ប្រការ គឺ សក្កាយទិដ្ឋិ វិចិកិច្ឆា...',
     canonicalE: 'Monks, there are these 10 fetters: identity view, skeptical doubt, clinging to rites...',
-    fullDescK: 'សក្កាយទិដ្ឋិ គឺជាឬសគល់នៃសង្សារវដ្ត។ ដរាបណានៅគិតថាមាន «អញ» ដរាបនោះនៅតែមានការឈឺចាប់ ពេលត្រូវគេជេរ ឬមានការភ័យខ្លាចពេលជិតស្លាប់។ ព្រះសោតាបន្នបានទម្លាយទិដ្ឋិនេះ ដោយឃើញថាខន្ធ ៥ គ្រាន់តែជារូប និងនាមដែលកើតរលត់ គ្មាន «អញ» ក្នុងនោះឡើយ។',
+    fullDescK: 'សក្កាយទិដ្ឋិ គឺជាឬសគល់នៃវដ្តសង្សារ។ ដរាបណានៅគិតថាមាន «អញ» ដរាបនោះនៅតែមានការឈឺចាប់ ពេលត្រូវគេជេរ ឬមានការភ័យខ្លាចពេលជិតស្លាប់។ ព្រះសោតាបន្នបានទម្លាយទិដ្ឋិនេះ ដោយឃើញថាខន្ធ ៥ គ្រាន់តែជារូប និងនាមដែលកើតរលត់ គ្មាន «អញ» ក្នុងនោះឡើយ។',
     fullDescE: 'Identity View is the root pivot of Samsara. As long as “I” is presumed, pain from insult and terror of death are inevitable. A Stream-Enterer pierces this by perceiving the 5 Aggregates as empty impersonal processes.',
     eradicationK: 'ចម្រើនវិបស្សនាបំបែករូបកាយ និងចិត្តជាធាតុតូចៗ ឃើញការកើតរលត់រហូតរលាយសញ្ញាថាជាខ្លួនឯង។',
     eradicationE: 'Dissect bodily and mental phenomena through Vipassanā until the perception of a unified entity collapses.'

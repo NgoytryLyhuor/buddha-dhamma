@@ -104,7 +104,7 @@ const corruptions = [
     icon: '🧠',
     descKm: 'បញ្ញាយល់ដឹងធម៌អាថ៌យ៉ាងមុតស្រួច រហ័សរហួន អាចបកស្រាយធម៌ ឬយល់រឿងពិបាកៗបានយ៉ាងងាយស្រួលអស្ចារ្យ។',
     descEn: 'Exceptionally sharp, effortless understanding of dhamma concepts, doctrine, and conditional relations.',
-    pitfallKm: 'ជាប់ជំពាក់នឹងចំណេះដឹងរបស់ខ្លួន ក្លាយជាមានះ កើតមោទនភាពថាខ្លួនជាបណ្ឌិតកំពូល។',
+    pitfallKm: 'ជាប់ជំពាក់នឹងចំណេះដឹងរបស់ខ្លួន ក្លាយជាមានៈ កើតមោទនភាពថាខ្លួនជាបណ្ឌិតកំពូល។',
     pitfallEn: 'Becoming intoxicated with intellectual clarity, developing subtle conceit as a great scholar.',
   },
   {
@@ -200,7 +200,7 @@ const corruptions = [
     icon: '🕸️',
     descKm: 'សេចក្តីតណ្ហាស្តើងល្អិត ដែលពេញចិត្ត ជាប់ចិត្ត និងស្រឡាញ់នូវឱភាស ញាណ បីតិ ជាដើមខាងលើនោះ។ នេះជាមេក្លោងពិតប្រាកដនៃឧបកិលេស! ',
     descEn: 'Subtle craving and delight clinging quietly to the radiance, joy, or tranquility above. This is the master coordinator of all corruptions!',
-    pitfallKm: 'ការតោងទាមដ៏ស្ងប់ស្ងាត់នេះហើយ ដែលចងជើងអ្នកបដិបត្តិមិនឱ្យទៅមុខរួច។',
+    pitfallKm: 'ការជាប់ជំពាក់ដ៏ស្ងប់ស្ងាត់នេះហើយ ដែលចងជើងអ្នកបដិបត្តិមិនឱ្យទៅមុខរួច។',
     pitfallEn: 'This silent clinging anchors the mind in delusion, effectively freezing spiritual awakening.',
   },
 ]

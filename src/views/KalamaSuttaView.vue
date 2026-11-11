@@ -85,7 +85,7 @@ const criteria = [
     titleKm: 'កុំទាន់ជឿព្រោះឮតៗគ្នា',
     titleEn: 'Not by Oral Tradition',
     pali: 'Mā anussavena',
-    descKm: 'កុំអាលជឿដោយសារតែឮពាក្យប្រាប់តៗគ្នាពីមាត់មួយទៅមាត់មួយ ព្រោះពាក្យចចាមអារ៉ាមងាយនឹងក្លែងបន្លំ។',
+    descKm: 'កុំអាលជឿដោយសារតែឮពាក្យប្រាប់តៗគ្នាពីមាត់មួយទៅមាត់មួយ ព្រោះពាក្យចចាមអារាមងាយនឹងក្លែងបន្លំ។',
     descEn: 'Do not accept something merely because it has been passed down orally from generation to generation.',
   },
   {
@@ -100,7 +100,7 @@ const criteria = [
   {
     id: 3,
     num: '៣',
-    titleKm: 'កុំទាន់ជឿព្រោះការផ្សាយចចាមអារ៉ាម',
+    titleKm: 'កុំទាន់ជឿព្រោះការផ្សាយចចាមអារាម',
     titleEn: 'Not by Rumor / Hearsay',
     pali: 'Mā itikirāya',
     descKm: 'កុំអាលជឿតាមការភ្ញាក់ផ្អើល ឬពាក្យពោលអះអាងថាស័ក្តិសិទ្ធិដោយគ្មានប្រភពច្បាស់លាស់។',

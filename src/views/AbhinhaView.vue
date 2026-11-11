@@ -146,7 +146,7 @@ const contemplations = [
     descEn: '"I will grow different and separate from all that is dear and appealing to me." Parents, spouses, children, homes, and accomplishments must inevitably be parted from.',
     cureKm: 'បន្សាប «សេចក្តីជាប់ជំពាក់ងប់ងុល» (ឆន្ទរាគៈ) ៖ ការពារចិត្តកុំឱ្យបែកបាក់ ឬធ្វើអត្តឃាតពេលជួបវិបត្តិព្រាត់ប្រាសស្នេហា ឬបាត់បង់ទ្រព្យ។',
     cureEn: 'Cures obsessive clinging and possessiveness; insulates against devastating despair when tragic parting occurs.',
-    practiceKm: 'ស្រឡាញ់មនុស្សជុំវិញខ្លួនដោយក្តីមេត្តា ថែរក្សាគ្នាឱ្យបានល្អក្នុងពេលបច្ចុប្បន្ន តែមិនតោងទាមដោយសេចក្តីលោភលន់ឡើយ។',
+    practiceKm: 'ស្រឡាញ់មនុស្សជុំវិញខ្លួនដោយក្តីមេត្តា ថែរក្សាគ្នាឱ្យបានល្អក្នុងពេលបច្ចុប្បន្ន តែមិនជាប់ជំពាក់ដោយសេចក្តីលោភលន់ឡើយ។',
     practiceEn: 'Love people around you with tender devotion right now while holding worldly attachments lightly in your palms.',
   },
   {

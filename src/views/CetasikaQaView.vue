@@ -1705,7 +1705,7 @@ const phassaQas = [
   {
     qK: 'តើអាយតនៈមានន័យដូចម្តេច?',
     qE: 'What does āyatana mean?',
-    aK: 'អាយតនៈ មានន័យថា អណ្តូង លំនៅ គ្រឿងតភ្ជាប់ គ្រឿងដែលធ្វើឱ្យសង្សារវដ្តយូរ។',
+    aK: 'អាយតនៈ មានន័យថា អណ្តូង លំនៅ គ្រឿងតភ្ជាប់ គ្រឿងដែលធ្វើឱ្យវដ្តសង្សារយូរ។',
     aE: 'Āyatana means "well", "abode", "connecting link" — that which keeps the round of saṃsāra long.',
   },
   {
@@ -7280,9 +7280,9 @@ const part8Qas = [
     aE: 'The cetasikas also have jāti just like the mind, because the cetasikas arise together with the mind and have the same jāti as the mind with which they arise.',
   },
   {
-    qK: 'តើចិត្ត៨៩ដួង ចែកជាប៉ុន្មានវិញ្ញាណខណ្ឌ? អ្វីខ្លះ?',
+    qK: 'តើចិត្ត៨៩ដួង ចែកជាប៉ុន្មានវិញ្ញាណក្ខន្ធ? អ្វីខ្លះ?',
     qE: 'Into how many classes of consciousness (viññāṇa-khandha) are the 89 cittas divided? Which are they?',
-    aK: 'ចិត្ត៨៩ដួង ចែកជា ២ វិញ្ញាណខណ្ឌ គឺ កាមាវចរវិញ្ញាណខណ្ឌ (នឹកដល់លោកសម្មតិដោយមានកាមត្រេកត្រអាល) និងមហគ្គតវិញ្ញាណខណ្ឌ (នឹកដល់លោក ដោយបំផុតចិត្តងឿងឆ្ងល់) និងលោកុត្តរវិញ្ញាណខណ្ឌ (នឹកដល់លោកខាងលើ)។',
+    aK: 'ចិត្ត៨៩ដួង ចែកជា ២ វិញ្ញាណក្ខន្ធ គឺ កាមាវចរវិញ្ញាណក្ខន្ធ (នឹកដល់លោកសម្មតិដោយមានកាមត្រេកត្រអាល) និងមហគ្គតវិញ្ញាណក្ខន្ធ (នឹកដល់លោក ដោយបំផុតចិត្តងឿងឆ្ងល់) និងលោកុត្តរវិញ្ញាណក្ខន្ធ (នឹកដល់លោកខាងលើ)។',
     aE: 'The 89 cittas are divided into two classes of consciousness: the kāmāvacara viññāṇa-khandha (mind ageing in the sense-sphere with sensual delight) and the mahaggata together with lokuttara (the lofty and transcendent).',
   },
   {

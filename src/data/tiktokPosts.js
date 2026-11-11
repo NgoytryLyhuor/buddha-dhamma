@@ -148,7 +148,7 @@ export const PUBLISHED_AND_CURATED_POSTS = [
   {
     id: 'rare-human-birth',
     title: 'តើការបានកើតមកជាមនុស្ស និងជួបព្រះពុទ្ធសាសនា កម្រយ៉ាងណា?',
-    category: 'សង្សារវដ្ត & ជីវិត',
+    category: 'វដ្តសង្សារ & ជីវិត',
     publishedDate: '2026-11-03',
     views: '1,066+',
     tags: '#buddhist #buddhism #facts #fyp #buddha',

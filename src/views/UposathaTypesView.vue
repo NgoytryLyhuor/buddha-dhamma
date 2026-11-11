@@ -118,7 +118,7 @@ const uposathas = [
     descEn: 'The outward observance practiced by Jain sectarians: imposing artificial geographical limits on harmlessness while mind remains entangled in conceit, sectarian bias, and false views.',
     resultLabelKm: '⚠️ ផលវិបាក ៖',
     resultLabelEn: '⚠️ Outcome:',
-    resultKm: 'ជាការក្លែងបន្លំ និងជាសីលបាតផ្កាប់មុខ មិនអាចរំដោះចិត្តចេញពីទុក្ខសង្សារវដ្តបានឡើយ។',
+    resultKm: 'ជាការក្លែងបន្លំ និងជាសីលបាតផ្កាប់មុខ មិនអាចរំដោះចិត្តចេញពីទុក្ខវដ្តសង្សារបានឡើយ។',
     resultEn: 'A mere superficial performance that fails to deliver true inner liberation.',
     resultClass: 'bg-amber-500/5 border border-amber-500/20 text-amber-700 dark:text-amber-300',
     highlight: false,

@@ -144,7 +144,7 @@ const biases = [
     nameEn: 'Bias through Delusion (Mohāgati)',
     pali: 'Mohāgati — ការលម្អៀងដោយសារភាពវង្វេង ឆោតល្ងង់ និងការមិនយល់ច្បាស់',
     icon: '🌫️',
-    descKm: 'ការសម្រេចចិត្តខុសព្រោះមិនបានស្រាវជ្រាវការពិតឱ្យបានច្បាស់ ឆាប់ជឿពាក្យចចាមអារ៉ាម មិនចេះវិភាគទិន្នន័យ ឬខ្វះចំណេះដឹងក្នុងកិច្ចការនោះ។',
+    descKm: 'ការសម្រេចចិត្តខុសព្រោះមិនបានស្រាវជ្រាវការពិតឱ្យបានច្បាស់ ឆាប់ជឿពាក្យចចាមអារាម មិនចេះវិភាគទិន្នន័យ ឬខ្វះចំណេះដឹងក្នុងកិច្ចការនោះ។',
     descEn: 'Making erroneous verdicts through gullibility, failing to investigate facts, rushing to premature judgment on baseless rumors.',
     dangerKm: 'ធ្វើឱ្យជនស្លូតត្រង់ត្រូវរងគ្រោះដោយអយុត្តិធម៌ ខណៈដែលជនខិលខូចរួចខ្លួន។',
     dangerEn: 'Allows malicious actors to exploit misinformation while the innocent suffer wrongful harm.',

@@ -66,7 +66,7 @@
         <span>{{ t('គោលដៅចុងក្រោយ ៖ អនុបាទាបរិនិព្វាន (ការរលត់ទុក្ខដោយមិនប្រកាន់មាំ)', 'The Ultimate Goal: Anupādā Parinibbāna') }}</span>
       </h3>
       <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('ព្រះបុណ្ណបានសង្ខេបយ៉ាងច្បាស់ថា ការប្រតិបត្តិព្រហ្មចរិយធម៌ក្នុងសំណាក់ព្រះសម្មាសម្ពុទ្ធ មិនមែនដើម្បីសីល មិនមែនដើម្បីសមាធិ និងមិនមែនដើម្បីចំណេះដឹងនោះឡើយ គឺដើម្បី «អនុបាទាបរិនិព្វាន» គឺការរលត់ទុក្ខទាំងស្រុងដោយចិត្តមិនតោងទាមជាប់ជំពាក់នឹងអ្វីទាំងអស់ក្នុងលោក។', 'Ven. Puṇṇa concluded masterfully: the holy life under the Blessed One is not lived merely for virtue, concentration, or theoretical knowledge, but solely for Anupādā Parinibbāna—total, unshakeable unbinding of mind free from every vestige of clinging.') }}
+        {{ t('ព្រះបុណ្ណបានសង្ខេបយ៉ាងច្បាស់ថា ការប្រតិបត្តិព្រហ្មចរិយធម៌ក្នុងសំណាក់ព្រះសម្មាសម្ពុទ្ធ មិនមែនដើម្បីសីល មិនមែនដើម្បីសមាធិ និងមិនមែនដើម្បីចំណេះដឹងនោះឡើយ គឺដើម្បី «អនុបាទាបរិនិព្វាន» គឺការរលត់ទុក្ខទាំងស្រុងដោយចិត្តមិនប្រកាន់មាំជាប់ជំពាក់នឹងអ្វីទាំងអស់ក្នុងលោក។', 'Ven. Puṇṇa concluded masterfully: the holy life under the Blessed One is not lived merely for virtue, concentration, or theoretical knowledge, but solely for Anupādā Parinibbāna—total, unshakeable unbinding of mind free from every vestige of clinging.') }}
       </p>
     </div>
   </div>
@@ -152,7 +152,7 @@ const stages = [
     pali: 'Ñāṇadassana-visuddhi',
     descKm: 'ការសម្រេចលោកុត្តរមគ្គទាំង ៤ (សោតាបត្តិមគ្គ សកទាគាមិមគ្គ អនាគាមិមគ្គ និងអរហត្តមគ្គ) ឃើញព្រះនិព្វានជាអារម្មណ៍ផ្ទាល់។',
     descEn: 'The direct transcendent breakthrough of the Four Noble Paths, directly experiencing Nibbāna and uprooting taints.',
-    purposeKm: 'សម្រេចព្រះនិព្វាន រំលត់ទុក្ខក្នុងសង្សារវដ្តទាំងស្រុង។',
+    purposeKm: 'សម្រេចព្រះនិព្វាន រំលត់ទុក្ខក្នុងវដ្តសង្សារទាំងស្រុង។',
     purposeEn: 'Attainment of supreme Nibbāna, ending all rebirth and suffering.',
   },
 ]

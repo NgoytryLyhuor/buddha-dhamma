@@ -93,7 +93,7 @@ const characteristics = [
     icon: '🌊',
     descKm: 'អ្វីៗទាំងអស់ដែលកើតចេញពីការផ្សំផ្គុំ (សង្ខារ) គ្មានអ្វីមួយស្ថិតស្ថេររហូតឡើយ។ អារម្មណ៍សប្បាយ ទុក្ខព្រួយ កោសិកា រាងកាយ ទ្រព្យសម្បត្តិ សុទ្ធតែកើតឡើងហើយរលត់ទៅវិញរាល់វិនាទី។',
     descEn: 'All compounded phenomena arise, persist momentarily, and dissolve. Pleasant emotions, grief, biological cells, and empires are in a ceaseless flux of perpetual arising and vanishing.',
-    insightKm: 'ពេលដកដង្ហើមចូលហើយដកដង្ហើមចេញ ចូរមើលការកើតរលត់នៃអារម្មណ៍ មិនតោងទាមសូម្បីតែសេចក្តីស្ងប់។',
+    insightKm: 'ពេលដកដង្ហើមចូលហើយដកដង្ហើមចេញ ចូរមើលការកើតរលត់នៃអារម្មណ៍ មិនជាប់ជំពាក់សូម្បីតែសេចក្តីស្ងប់។',
     insightEn: 'In meditation, observe the swift arising and passing away of bodily sensations and thoughts without holding on.',
   },
   {
@@ -103,7 +103,7 @@ const characteristics = [
     titleEn: 'Unsatisfactoriness / Stress (Dukkha)',
     pali: 'Dukkha — ការត្រូវកិលេសនិងធម្មជាតិបៀតបៀនជានិច្ច',
     icon: '🔥',
-    descKm: 'ដោយសារតែអ្វីៗមិនទៀង ទើបយើងមិនអាចបង្ខំវាឱ្យនៅតែល្អដដែលបានឡើយ។ ការប្រឹងតោងទាមរបស់ដែលត្រូវបែកបាក់ គឺជាប្រភពនៃសេចក្តីទុក្ខ ដូចជាជរា ព្យាធិ មរណៈ និងការព្រាត់ប្រាស។',
+    descKm: 'ដោយសារតែអ្វីៗមិនទៀង ទើបយើងមិនអាចបង្ខំវាឱ្យនៅតែល្អដដែលបានឡើយ។ ការប្រឹងប្រកាន់មាំរបស់ដែលត្រូវបែកបាក់ គឺជាប្រភពនៃសេចក្តីទុក្ខ ដូចជាជរា ព្យាធិ មរណៈ និងការព្រាត់ប្រាស។',
     descEn: 'Because conditioned things are impermanent, they cannot provide lasting security. Clinging to unstable phenomena inevitably breeds distress, grief, decay, and disappointment.',
     insightKm: 'មើលឃើញថា រូបកាយ និងចិត្ត មិនមែនជាកន្លែងសុខស្ងប់ដាច់ខាតទេ វាជាដុំទុក្ខដែលផ្លាស់ប្តូរឥតឈប់។',
     insightEn: 'Realize that clinging to feelings as "me" or "mine" creates strain; letting go reveals immediate release.',

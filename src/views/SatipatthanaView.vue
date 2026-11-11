@@ -127,7 +127,7 @@ const foundations = [
       { km: 'ទុក្ខវេទនា ៖ ការឈឺចុកចាប់ តឹងណែន ក្តៅក្រហាយ', en: 'Dukkha Vedanā: Physical aches, soreness, mental agitation' },
       { km: 'អទុក្ខមសុខវេទនា ៖ អារម្មណ៍កណ្តាល មិនសុខ មិនទុក្ខ', en: 'Neutral: Neither-painful-nor-pleasant baseline sensations' },
     ],
-    resultKm: 'កាត់ផ្តាច់នូវតណ្ហា ព្រោះតណ្ហាតែងតោងទាមលើវេទនា។',
+    resultKm: 'កាត់ផ្តាច់នូវតណ្ហា ព្រោះតណ្ហាតែងជាប់ជំពាក់លើវេទនា។',
     resultEn: 'Cuts craving at its root, since craving feeds directly upon feeling tones.',
   },
   {

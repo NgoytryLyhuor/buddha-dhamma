@@ -28,7 +28,7 @@ export const PRESET_QUESTIONS = [
   },
   {
     id: 'rare-human-birth',
-    category: 'សង្សារវដ្ត & ជីវិត',
+    category: 'វដ្តសង្សារ & ជីវិត',
     title: 'កើតជាមនុស្ស និងជួបព្រះពុទ្ធសាសនា',
     question: 'តើការបានកើតមកជាមនុស្ស និងបានជួបព្រះពុទ្ធសាសនា កម្រយ៉ាងណា?'
   },

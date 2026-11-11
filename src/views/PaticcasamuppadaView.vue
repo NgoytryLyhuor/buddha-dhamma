@@ -151,7 +151,7 @@
       <div class="flex items-center gap-2">
         <span class="text-2xl">🔄</span>
         <h3 class="font-display font-bold text-lg sm:text-xl" :style="{ color: 'var(--ink)' }">
-          {{ t('វដ្ត ៣ និងកន្លែងដែលយើងអាចកាត់ផ្តាច់ខ្សែសង្វាក់សង្សារវដ្ត', 'The 3 Rounds & How to Sever the Cycle') }}
+          {{ t('វដ្ត ៣ និងកន្លែងដែលយើងអាចកាត់ផ្តាច់ខ្សែសង្វាក់វដ្តសង្សារ', 'The 3 Rounds & How to Sever the Cycle') }}
         </h3>
       </div>
       <p class="text-xs sm:text-sm leading-relaxed" :style="{ color: 'var(--ink-soft)' }">

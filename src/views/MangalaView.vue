@@ -292,7 +292,7 @@ const tiers = [
       { num: '៣៤', km: 'ចិត្តមិនញាប់ញ័រដោយលោកធម៌', en: 'Mind unshaken by worldly winds', pali: 'Phuṭṭhassa lokadhammehi cittaṃ yassa na kampati', descKm: 'ត្រូវលាភ យស សរសើរ សុខ ឬបាត់បង់ទៅវិញ ក៏ចិត្តនៅតែរឹងមាំដូចថ្មភ្នំ។', descEn: 'Remaining completely balanced through gain and loss, praise and blame.' },
       { num: '៣៥', km: 'ចិត្តមិនមានសេចក្តីសោក', en: 'A mind free from sorrow', pali: 'Asokaṃ', descKm: 'ផុតស្រឡះពីទុក្ខសោក ការយំសោក និងការព្រួយបារម្ភចំពោះការព្រាត់ប្រាស។', descEn: 'Liberated from grief, sorrow, and lamentation when encountering parting.' },
       { num: '៣៦', km: 'ចិត្តគ្មានធូលីកិលេស', en: 'Stainless and unstained mind', pali: 'Virajaṃ', descKm: 'ចិត្តបរិសុទ្ធស្អាត គ្មានធូលីរាគៈ ទោសៈ មោហៈ ជាប់នៅឡើយ។', descEn: 'Free from the subtlest dust of lust, hostility, and delusion.' },
-      { num: '៣៧', km: 'ចិត្តក្សេមក្សាន្ត (សន្តិភាពកំពូល)', en: 'Utter security and supreme peace', pali: 'Khemaṃ', descKm: 'សុវត្ថិភាពខ្ពស់បំផុត គ្មានភ័យខ្លាចចំពោះសង្សារវដ្តទៀតឡើយ។', descEn: 'Absolute spiritual immunity and safe harbor beyond all mundane rebirths.' },
+      { num: '៣៧', km: 'ចិត្តក្សេមក្សាន្ត (សន្តិភាពកំពូល)', en: 'Utter security and supreme peace', pali: 'Khemaṃ', descKm: 'សុវត្ថិភាពខ្ពស់បំផុត គ្មានភ័យខ្លាចចំពោះវដ្តសង្សារទៀតឡើយ។', descEn: 'Absolute spiritual immunity and safe harbor beyond all mundane rebirths.' },
       { num: '៣៨', km: 'មង្គលដ៏ឧត្តមទាំងពួង (សរុប)', en: 'The Supreme Blessing Fulfillment', pali: 'Etam-maṅgalam-uttamaṃ', descKm: 'ការប្រមូលផ្តុំនៃគុណធម៌ទាំងអស់ ដែលជាជ័យជម្នះខ្ពស់បំផុតនៃជីវិត។', descEn: 'The full culimination of spiritual triumph and universal auspiciousness.' },
     ],
   },

@@ -139,7 +139,7 @@
           <span class="text-xs font-mono font-bold text-emerald-500 uppercase">ទ្វារទី ៣ (ទុក្ខំ)</span>
           <h4 class="font-display text-base font-bold mt-1" :style="{ color: 'var(--ink)' }">{{ t('អប្បណិហិតវិមោក្ខ', 'Appaṇihita Vimokkha') }}</h4>
           <p class="text-xs mt-2 leading-relaxed" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('ការរួចចាកទុក្ខ ដោយឃើញថាសង្ខារជា «ទុក្ខ» លែងមានការប្រាថ្នាតោងទាមក្នុងភពណាមួយទៀតឡើយ។', 'Liberation through seeing phenomena as suffering (Dukkha), abandoning all longing for worldly existence.') }}
+            {{ t('ការរួចចាកទុក្ខ ដោយឃើញថាសង្ខារជា «ទុក្ខ» លែងមានការប្រាថ្នាជាប់ជំពាក់ក្នុងភពណាមួយទៀតឡើយ។', 'Liberation through seeing phenomena as suffering (Dukkha), abandoning all longing for worldly existence.') }}
           </p>
         </div>
       </div>

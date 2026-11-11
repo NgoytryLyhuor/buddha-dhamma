@@ -327,7 +327,7 @@ const akusalaRoots = [
     pali: 'Moha-akusalamūla',
     descK: 'សភាពចិត្តងងឹតស្លុប មិនដឹងខុសមិនដឹងត្រូវ មិនស្គាល់កម្មផល ប្រៀបដូចមនុស្សដើរក្នុងព្រៃអ័ព្ទក្រាស់កណ្ដាលរាត្រី។',
     descE: 'Spiritual blindness and delusion that obscures cause, effect, and reality like dense fog at midnight.',
-    symptomK: 'ជឿពាក្យចចាមអារ៉ាមងាយៗ ធ្វើបាបដោយមិនដឹងថាជាបាប ស្ទាក់ស្ទើរក្នុងការធ្វើអំពើល្អ គិតថាស្លាប់ទៅសូន្យ។',
+    symptomK: 'ជឿពាក្យចចាមអារាមងាយៗ ធ្វើបាបដោយមិនដឹងថាជាបាប ស្ទាក់ស្ទើរក្នុងការធ្វើអំពើល្អ គិតថាស្លាប់ទៅសូន្យ។',
     symptomE: 'Falling for scams and superstition, engaging in harmful actions unawares, chronic indecision.',
     antidoteK: 'បញ្ញា (ការយល់ដឹង)',
     deepK: 'លក្ខណៈរបស់មោហៈគឺការងងឹតភ្នែកនៃចិត្ត (អវិញ្ញាណលក្ខណោ), កិច្ចរបស់វាគឺការបិទបាំងសច្ចធម៌ (ឆាទនរសោ), ហេតុជិតគឺអយោនិសោមនសិការ (ការគិតមិនត្រឹមត្រូវ)។',

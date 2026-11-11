@@ -350,7 +350,7 @@ const bhumiList = [
     titleK: '៦. បដិច្ចសមុប្បាទ ១២',
     titleE: '6. Dependent Origination (12 Links)',
     pali: 'Paṭiccasamuppāda',
-    shortDescK: 'ច្បាប់នៃបុព្វហេតុ និងបច្ច័យ ១២ តំណាក់កាល ដែលបង្វិលខ្សែជីវិតក្នុងសង្សារវដ្ត តាំងពីអវិជ្ជា ដល់ជរាមរណៈ។',
+    shortDescK: 'ច្បាប់នៃបុព្វហេតុ និងបច្ច័យ ១២ តំណាក់កាល ដែលបង្វិលខ្សែជីវិតក្នុងវដ្តសង្សារ តាំងពីអវិជ្ជា ដល់ជរាមរណៈ។',
     shortDescE: 'The 12-linked cosmic chain of interdependent conditioning that drives the wheel of cyclic wandering: Avijjā to Jarāmaraṇa.',
     componentsK: 'អវិជ្ជា → សង្ខារ → វិញ្ញាណ → នាមរូប → សឡាយតនៈ → ផស្សៈ → វេទនា → តណ្ហា → ឧបាទាន → ភព → ជាតិ → ជរាមរណៈ។',
     componentsE: 'Ignorance → Formations → Consciousness → Name-and-Form → 6 Senses → Contact → Feeling → Craving → Clinging → Existence → Birth → Aging-and-Death.',

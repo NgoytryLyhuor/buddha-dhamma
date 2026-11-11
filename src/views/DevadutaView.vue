@@ -295,7 +295,7 @@ const messengerList = [
     canonicalPali: 'Na tvaṁ addasa manussesu paṭhamaṁ devadūtaṁ pātubhūtaṁ...',
     canonicalK: 'តើអ្នកមិនដែលឃើញទេវទូតទី ១ ដែលលេចឡើងក្នុងចំណោមមនុស្សលោក គឺទារកដេកផ្ងារននៀលក្នុងលាមកមូត្រខ្លួនឯងទេឬ?',
     canonicalE: 'Did you not see the first divine messenger appearing among humans: a tender infant lying on its back in its own mess?',
-    fullTextK: 'ទារកតូចជាសញ្ញាដាស់តឿនឱ្យឃើញថា ដំណើរជីវិតមិនមែនចាប់ផ្តើមដោយភាពរុងរឿងនោះទេ គឺចាប់ផ្តើមដោយទុក្ខនៃការប្រសូត ការភ័យខ្លាច និងភាពទន់ខ្សោយ។ យើងធ្លាប់ជាទារកបែបនេះ ហើយបើនៅតែវិលវល់ក្នុងសង្សារវដ្ត យើងនឹងត្រូវកើតបែបនេះរាប់មិនអស់ដងទៀត។',
+    fullTextK: 'ទារកតូចជាសញ្ញាដាស់តឿនឱ្យឃើញថា ដំណើរជីវិតមិនមែនចាប់ផ្តើមដោយភាពរុងរឿងនោះទេ គឺចាប់ផ្តើមដោយទុក្ខនៃការប្រសូត ការភ័យខ្លាច និងភាពទន់ខ្សោយ។ យើងធ្លាប់ជាទារកបែបនេះ ហើយបើនៅតែវិលវល់ក្នុងវដ្តសង្សារ យើងនឹងត្រូវកើតបែបនេះរាប់មិនអស់ដងទៀត។',
     fullTextE: 'The infant represents the harsh vulnerability of Jāti (birth). We entered this world weeping and helpless. Until Saṃsāra is broken, this frail beginning repeats endlessly.',
     mantraK: '«សូម្បីរូបកាយយើង ក៏ធ្លាប់ទន់ខ្សោយ និងដេកននៀលក្នុងទុក្ខយ៉ាងនេះដែរ កុំភ្លេចខ្លួនឡើយ»',
     mantraE: '“Even this body of mine began in absolute frailty and dependence; let me not be intoxicated with pride.”',

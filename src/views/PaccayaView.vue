@@ -82,7 +82,7 @@
         </strong>
         <p class="mt-1" :style="{ color: 'var(--ink-soft)' }">
           {{ viewMode === 'anuloma'
-            ? t('អវិជ្ជាជាបច្ច័យនាំឱ្យកើតសង្ខារ -> សង្ខារនាំឱ្យកើតវិញ្ញាណ -> ... -> ជាតិ ជរា មរណៈ នាំឱ្យកើតគំនរទុក្ខទាំងមូលក្នុងសង្សារវដ្ត។', 'Conditioned by ignorance arise volitional formations -> conditioned by formations arises consciousness -> ... -> birth, aging and death lead to the entire mass of suffering.')
+            ? t('អវិជ្ជាជាបច្ច័យនាំឱ្យកើតសង្ខារ -> សង្ខារនាំឱ្យកើតវិញ្ញាណ -> ... -> ជាតិ ជរា មរណៈ នាំឱ្យកើតគំនរទុក្ខទាំងមូលក្នុងវដ្តសង្សារ។', 'Conditioned by ignorance arise volitional formations -> conditioned by formations arises consciousness -> ... -> birth, aging and death lead to the entire mass of suffering.')
             : t('ការរលត់ទៅដោយមិនសេសសល់នៃអវិជ្ជា រមែងរលត់សង្ខារ -> រលត់វិញ្ញាណ -> ... -> រលត់តណ្ហា ឧបាទាន -> ការរលត់នៃគំនរទុក្ខទាំងមូល! នេះជាមាគ៌ានៃវិបស្សនា។', 'With the complete fading and cessation of ignorance, volitional formations cease -> consciousness ceases -> craving and clinging cease -> the whole mass of suffering ceases!') }}
         </p>
       </div>
@@ -482,7 +482,7 @@
           <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
             <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
               <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('លក្ខណៈនៃបច្ច័យ (Nature)', 'Nature of Condition') }}</strong>
-              <span>{{ t('ដូចជា ឈើច្រត់សម្រាប់មនុស្សទន់ខ្សោយ ឬខ្សែពួរសម្រាប់មនុស្សឡើងភ្នំ។ ចិត្តមិនអាចកើតឡើងទទេៗក្នុងភាពអត់ន័យបានឡើយ គឺត្រូវតែមាន «អារម្មណ៍» (Object) ណាមួយឱ្យតោងទាមជានិច្ច។', 'Like a walking stick for the infirm or a rope for a climber. Consciousness cannot arise in an experiential vacuum; it must invariably cling to a cognitive object.') }}</span>
+              <span>{{ t('ដូចជា ឈើច្រត់សម្រាប់មនុស្សទន់ខ្សោយ ឬខ្សែពួរសម្រាប់មនុស្សឡើងភ្នំ។ ចិត្តមិនអាចកើតឡើងទទេៗក្នុងភាពអត់ន័យបានឡើយ គឺត្រូវតែមាន «អារម្មណ៍» (Object) ណាមួយជាទីប្រកាន់ជានិច្ច។', 'Like a walking stick for the infirm or a rope for a climber. Consciousness cannot arise in an experiential vacuum; it must invariably cling to a cognitive object.') }}</span>
             </div>
             <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
               <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ការតភ្ជាប់ជាមួយរូប (Connection with Matter)', 'Connection with Matter') }}</strong>
@@ -548,7 +548,7 @@
           <div class="grid sm:grid-cols-2 gap-3 text-xs mt-3">
             <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
               <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('ចេតនាបង្កើតថាមពលកម្ម (Volition → Kamma)', 'Volition Stores Kamma') }}</strong>
-              <span>{{ t('ចេតនា (នាម) ពេលធ្វើសកម្មភាព បានបន្សល់ទុកជាថាមពលកម្មដ៏មានអានុភាព ឆ្លងកាត់ការកើតស្លាប់ក្នុងសង្សារវដ្ត។', 'Volitional intentions (cetanā) generate indelible karmic momentum carried across life and death in the samsaric flow.') }}</span>
+              <span>{{ t('ចេតនា (នាម) ពេលធ្វើសកម្មភាព បានបន្សល់ទុកជាថាមពលកម្មដ៏មានអានុភាព ឆ្លងកាត់ការកើតស្លាប់ក្នុងវដ្តសង្សារ។', 'Volitional intentions (cetanā) generate indelible karmic momentum carried across life and death in the samsaric flow.') }}</span>
             </div>
             <div class="p-3 rounded" :style="{ background: 'var(--bg-card-2)' }">
               <strong class="block mb-1" :style="{ color: 'var(--accent)' }">{{ t('បង្កើតកម្មជរូប (Produces Kammaja-rūpa)', 'Generates Karmic Matter') }}</strong>
@@ -893,7 +893,7 @@ const links = [
     periodEn: 'Present Cause',
     vaṭṭaKm: 'កិលេសវដ្ត',
     vaṭṭaEn: 'Kilesa Cycle',
-    shortKm: 'ការតោងទាមប្រកាន់យ៉ាងរឹងមាំ ៤ យ៉ាង (កាម ទិដ្ឋិ សីលព្វត អត្តវាទ)។',
+    shortKm: 'ការប្រកាន់យ៉ាងមាំ ៤ យ៉ាង (កាម ទិដ្ឋិ សីលព្វត អត្តវាទ)។',
     shortEn: 'Intense grasping/clinging: sensuality, false views, rites and rituals, and identity-view.',
     detailKm: 'ឧបាទាន គឺជាតណ្ហាដែលវិវត្តទៅជាកម្លាំងតោងស្អិតយ៉ាងរឹងមាំ។ ចែកជា ៤ ប្រការ៖ ១. កាមុបាទាន (ប្រកាន់កាមគុណ ៥), ២. ទិដ្ឋុបាទាន (ប្រកាន់ទស្សនៈខុស មិច្ឆាទិដ្ឋិ), ៣. សីលព្វតុបាទាន (ប្រកាន់ពិធីសក្ការៈ ធ្វើវត្តដូចឆ្កែគោ ដើម្បីឡើងសួគ៌), ៤. អត្តវាទុបាទាន (ប្រកាន់ថាមាន «ខ្លួនអញ» ក្នុងខន្ធ ៥)។',
     detailEn: 'The solidified, compulsive crystallization of craving into fourfold grasping: 1. Sensual clinging, 2. View clinging, 3. Clinging to rules and superstitious rites, 4. Identity clinging (clinging to a permanent "I" within the five aggregates).',
@@ -968,7 +968,7 @@ const links = [
     detailEn: 'Aging (decay of organs, faculties, and vitality) and death (dissolution of aggregates and death consciousness). Followed by sorrow, lamentation, pain, grief, and despair — the culmination of the entire mass of suffering.',
     conditionedByKm: 'អាស្រ័យលើ «ជាតិ» (ការបានកើតមក)',
     conditionedByEn: 'Conditioned by Birth (Jāti)',
-    conditionsKm: 'នាំឱ្យវិលត្រឡប់ទៅរក «អវិជ្ជា» វិលវល់ក្នុងសង្សារវដ្តឥតទីបញ្ចប់',
+    conditionsKm: 'នាំឱ្យវិលត្រឡប់ទៅរក «អវិជ្ជា» វិលវល់ក្នុងវដ្តសង្សារឥតទីបញ្ចប់',
     conditionsEn: 'Fuels ignorance, restarting the wheel of Samsāra eternally until awakened',
     abhidhammaKm: 'ជរតារូប, អនិច្ចតារូប, និងចុតិចិត្ត នៃភពថ្មី។',
     abhidhammaEn: 'Decay, dissolution of matter, and the death consciousness (Cuti Citta).',

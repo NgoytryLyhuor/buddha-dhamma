@@ -108,7 +108,7 @@ const similes = [
     icon: '🛶',
     storyKm: 'បុរសម្នាក់ធ្វើដំណើរកាត់ស្ទឹងធំមួយដែលទឹកហូរកួចខ្លាំង ដោយគ្មានស្ពាន គ្មានទូកចម្លង។ គាត់បានប្រមូលមែកឈើ ស្មៅ និងវល្លិ ចងធ្វើជាក្បូនមួយ រួចអុំឆ្លងទៅដល់ត្រើយម្ខាងដោយសុវត្ថិភាព។ ពេលដល់ត្រើយហើយ គាត់គិតថា «ក្បូននេះមានគុណលើខ្ញុំខ្លាំងណាស់ ខ្ញុំត្រូវតែលើកលីក្បូននេះលើក្បាលដើរទៅមុខទៀត»។ ព្រះពុទ្ធសួរថា «តើបុរសនោះធ្វើបែបនេះត្រឹមត្រូវទេ?» ច្បាស់ជាមិនត្រូវឡើយ គាត់គួរតែចតក្បូនទុកនៅមាត់ច្រាំង ហើយដើរទៅមុខដោយខ្លួនទទេ!',
     storyEn: 'A traveler reaches a turbulent river with dangerous currents. Gathering branches and reeds, he fashions a raft to paddle safely across to the safe shore. Once across, he thinks: "This raft was so useful, I will hoist it onto my head and carry it with me forever!" The Buddha asked: Would that be wise? Clearly not! The raft should be left at the shore so he continues unburdened.',
-    meaningKm: 'ព្រះធម៌ប្រៀបដូចជា «ក្បូនសម្រាប់ឆ្លង» មិនមែនសម្រាប់តោងទាម ឬយកមកប្រកាន់ខ្ជាប់ដើម្បីប្រកែកឈ្លោះជាមួយអ្នកដទៃឡើយ (កុល្លូបមំ វោ ភិក្ខវេ ធម្មំ ទេសិស្សាមិ និត storeណត្ថាយ ន គហណត្ថាយ)។',
+    meaningKm: 'ព្រះធម៌ប្រៀបដូចជា «ក្បូនសម្រាប់ឆ្លង» មិនមែនសម្រាប់ជាប់ជំពាក់ ឬយកមកប្រកាន់ខ្ជាប់ដើម្បីប្រកែកឈ្លោះជាមួយអ្នកដទៃឡើយ (កុល្លូបមំ វោ ភិក្ខវេ ធម្មំ ទេសិស្សាមិ និត storeណត្ថាយ ន គហណត្ថាយ)។',
     meaningEn: 'The Dhamma is a practical vehicle for crossing over to freedom, not a doctrine to be dogmatically grasped, debated aggressively, or worshipped as an identity ornament.',
     takeawayKm: 'កុំយកព្រះធម៌ទៅជជែកឈ្នះចាញ់ ឬវាយប្រហារសាសនាដទៃ។ ត្រូវយកធម៌មកអនុវត្តដើម្បីរំដោះចិត្តខ្លួនឯងចេញពីទុក្ខ ហើយចេះលះបង់ការប្រកាន់តឹងតែង។',
     takeawayEn: 'Never weaponize spiritual knowledge to posture superiority or attack others. Use it as medicine to cross over suffering, then dwell in effortless freedom.',

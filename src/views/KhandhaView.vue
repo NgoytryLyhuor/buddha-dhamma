@@ -83,7 +83,7 @@
         <span>{{ t('ឧបាទានក្ខន្ធ ៥ ៖ ឫសគល់នៃសេចក្តីទុក្ខទាំងអស់', 'Upādānakkhandha: The 5 Clinging-Aggregates') }}</span>
       </h3>
       <p class="text-xs sm:text-sm mt-2 leading-relaxed" :style="{ color: 'var(--ink-soft)' }">
-        {{ t('ខន្ធទាំង ៥ ដោយខ្លួនឯងគ្រាន់តែជាបាតុភូតធម្មជាតិប៉ុណ្ណោះ វាមិនមែនជាទុក្ខដោយផ្ទាល់ឡើយ។ ប៉ុន្តែ «ការចូលទៅតោងទាមខន្ធ ៥» (ឧបាទានក្ខន្ធ ៥) ដោយគិតថា «រូបជារបស់ខ្ញុំ, វេទនាជារបស់ខ្ញុំ, គំនិតជារបស់ខ្ញុំ» នេះហើយជាឫសគល់នៃទុក្ខពិតប្រាកដ។ ដូចពាក្យក្នុងធម្មចក្កប្បវត្តនសូត្រថា «សំខិត្តេន បញ្ចុបាទានក្ខន្ធា ទុក្ខា» — សង្ខេបមក ឧបាទានក្ខន្ធទាំង ៥ គឺជាតួទុក្ខ!', 'The five aggregates in themselves are merely natural flowing phenomena. The real agony arises from CLINGING to them (Upādāna)—grasping them with craving and delusion as "This is mine, this I am, this is my permanent self". As the Buddha summarized in the first discourse: "In brief, the five clinging-aggregates are suffering!" Letting go of ownership dissolves the weight of world.') }}
+        {{ t('ខន្ធទាំង ៥ ដោយខ្លួនឯងគ្រាន់តែជាបាតុភូតធម្មជាតិប៉ុណ្ណោះ វាមិនមែនជាទុក្ខដោយផ្ទាល់ឡើយ។ ប៉ុន្តែ «ការចូលទៅប្រកាន់មាំក្នុងខន្ធ ៥» (ឧបាទានក្ខន្ធ ៥) ដោយគិតថា «រូបជារបស់ខ្ញុំ, វេទនាជារបស់ខ្ញុំ, គំនិតជារបស់ខ្ញុំ» នេះហើយជាឫសគល់នៃទុក្ខពិតប្រាកដ។ ដូចពាក្យក្នុងធម្មចក្កប្បវត្តនសូត្រថា «សំខិត្តេន បញ្ចុបាទានក្ខន្ធា ទុក្ខា» — សង្ខេបមក ឧបាទានក្ខន្ធទាំង ៥ គឺជាតួទុក្ខ!', 'The five aggregates in themselves are merely natural flowing phenomena. The real agony arises from CLINGING to them (Upādāna)—grasping them with craving and delusion as "This is mine, this I am, this is my permanent self". As the Buddha summarized in the first discourse: "In brief, the five clinging-aggregates are suffering!" Letting go of ownership dissolves the weight of world.') }}
       </p>
     </div>
   </div>

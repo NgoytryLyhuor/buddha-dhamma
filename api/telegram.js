@@ -17,9 +17,40 @@ function getGeminiModel() {
   return process.env.GEMINI_MODEL || DEFAULT_MODEL
 }
 
+function sanitizeKhmerText(text) {
+  if (!text) return ''
+  const replacements = [
+    [/ทำหน้าที่/g, 'បំពេញកិច្ច'],
+    [/หน้าที่/g, 'តួនាទី'],
+    [/เก่ง/g, 'ពូកែ'],
+    [/มาก/g, 'ណាស់'],
+    [/ใช่/g, 'មែន'],
+    [/ไม่ใช่/g, 'មិនមែន'],
+    [/ปฏิบัติ/g, 'បដិបត្តិ'],
+    [/สมาธิ/g, 'សមាធិ'],
+    [/วิปัสสนา/g, 'វិបស្សនា'],
+    [/พระ/g, 'ព្រះ'],
+    [/จิต/g, 'ចិត្ត'],
+    [/ธรรม/g, 'ធម៌'],
+    [/อภิธรรม/g, 'អភិធម្ម'],
+    [/เกิด/g, 'កើត'],
+    [/ดับ/g, 'រលត់'],
+    [/คือ/g, 'គឺ'],
+    [/เป็น/g, 'ជា'],
+    [/มี/g, 'មាន']
+  ]
+  let clean = text
+  for (const [pattern, rep] of replacements) {
+    clean = clean.replace(pattern, rep)
+  }
+  // Strip any remaining Thai Unicode characters (\u0E00-\u0E7F)
+  return clean.replace(/[\u0E00-\u0E7F]+/g, '').trim()
+}
+
 async function sendTelegramMessage(token, chatId, text) {
   const url = `https://api.telegram.org/bot${token}/sendMessage`
-  const chunks = splitText(text, 3800)
+  const cleanText = sanitizeKhmerText(text)
+  const chunks = splitText(cleanText, 3800)
 
   for (const chunk of chunks) {
     try {
@@ -138,7 +169,9 @@ async function askGemini(apiKey, preferredModel, userQuestion, chatId) {
      «ចម្លើយនេះពិតជាត្រឹមត្រូវហើយ! ចំណុចគួរកត់សម្គាល់ទាំង ៤ នោះគឺ៖ ...»
 ៤. ការឆ្លើយសំណួរធម៌ត្រង់ៗ (CATECHISM QUIZ):
    - បើគេសួរសំណួរធម៌ត្រង់ៗ (ដូចជា៖ «តើ... មានប៉ុន្មាន?», «ដួងណាខ្លះ?», «មានជាតិជាអ្វី?»...) សូមឆ្លើយ «ខ្លី ខ្លឹម ចំសំណួរ» ភ្លាមៗ មិនបាច់រៀបរាប់វែងឆ្ងាយឡើយ។
-៥. ភាសា៖ ភាសាខ្មែរ ១០០% គ្មានពាក្យថៃ ឬអក្សរថៃ និងគ្មានភាសាអង់គ្លេសឡើយ។
+៥. ភាសា និងអក្ខរាវិរុទ្ធខ្មែរ ១០០% សុទ្ធសាធ (ZERO THAI TOLERANCE):
+   - ដាច់ខាត ១០០% ហាមមិនឱ្យមានតួអក្សរថៃ ឬពាក្យថៃសូម្បីតែ ១ តួអក្សរឡើយ (ដូចជា៖ ทำหน้าที่, หน้าที่, เก่ง ជាដើម)!
+   - ត្រូវប្រើពាក្យខ្មែរ៖ «បំពេញកិច្ច / ធ្វើកិច្ច / តួនាទី» មិនមែនពាក្យថៃឡើយ! គ្មានភាសាអង់គ្លេស និងគ្មានភាសាថៃឡើយ។
 
 គំរូនីតិវិធីនៃការឆ្លើយ (FEW-SHOT EXAMPLES):
 • សំណួរជជែក៖ «sos did this answer wrong ? ៣- តេីមហាវិបាកចិត្តដួងទី៧ មានប៉ុន្មានចំនុច គួរកត់សម្គាល់? ចំនុចណាខ្លះ? ចម្លេីយ៖ ...»

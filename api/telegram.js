@@ -2,7 +2,7 @@ import { DHAMMA_KNOWLEDGE_BASE } from './dhammaKnowledge.js'
 
 const DEFAULT_BOT_TOKEN = Buffer.from('OTE4MzYyNzgxNzpBQUhOcUg2M3A3dzdZZk43TzVDeXM1ZndFeUtrcFNmcV9KMA==', 'base64').toString('utf-8')
 const DEFAULT_GEMINI_KEY = Buffer.from('QVEuQWI4Uk42SlVtN0hsN3pDdzRKbFAxR1IxbVZ3UWhpZXYwTUFtRGpFcFBvckpod3huTkE=', 'base64').toString('utf-8')
-const DEFAULT_MODEL = 'gemini-3.8-flash'
+const DEFAULT_MODEL = 'gemini-3.5-flash-lite'
 const PRODUCTION_WEBHOOK_URL = 'https://buddha-dhamma.vercel.app/api/telegram'
 
 function getBotToken() {
@@ -17,33 +17,48 @@ function getGeminiModel() {
   return process.env.GEMINI_MODEL || DEFAULT_MODEL
 }
 
-async function sendTelegramMessage(token, chatId, text, extra = {}) {
+async function sendTelegramMessage(token, chatId, text) {
   const url = `https://api.telegram.org/bot${token}/sendMessage`
-  const chunks = splitText(text, 4000)
+  const chunks = splitText(text, 3800)
 
   for (const chunk of chunks) {
     try {
-      await fetch(url, {
+      // First try sending with Markdown
+      const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: chatId,
           text: chunk,
-          parse_mode: 'Markdown',
-          ...extra
+          parse_mode: 'Markdown'
         })
       })
+
+      // If Telegram rejects due to markdown entity parsing error, send as plain text
+      if (!res.ok) {
+        await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: chunk
+          })
+        })
+      }
     } catch {
-      // Fallback without parse_mode if markdown fails
-      await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: chunk,
-          ...extra
+      // Fallback plain text send
+      try {
+        await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: chunk
+          })
         })
-      })
+      } catch (e) {
+        console.error('Failed to send Telegram message:', e)
+      }
     }
   }
 }
@@ -60,7 +75,7 @@ async function sendChatAction(token, chatId, action = 'typing') {
   }
 }
 
-function splitText(str, maxLen = 4000) {
+function splitText(str, maxLen = 3800) {
   if (!str || str.length <= maxLen) return [str || '']
   const chunks = []
   let current = ''
@@ -79,25 +94,25 @@ function splitText(str, maxLen = 4000) {
 }
 
 async function askGemini(apiKey, preferredModel, userQuestion) {
+  // Ordered by stability, speed, and active quota (avoids 503 high demand spikes)
   const modelsToTry = [
     preferredModel,
-    'gemini-3.8-flash',
-    'gemini-3.5-flash',
-    'gemini-flash-latest'
+    'gemini-3.5-flash-lite',
+    'gemini-3.1-flash-lite',
+    'gemini-flash-lite-latest',
+    'gemini-3-flash-preview',
+    'gemini-3.6-flash',
+    'gemini-3.5-flash'
   ].filter((m, idx, arr) => m && arr.indexOf(m) === idx)
 
   const systemInstruction = `
-អ្នកគឺជា «បណ្ឌិតព្រះធម៌ថេរវាទ» (Buddha Dhamma Companion) ប្រចាំគេហទំព័រ buddha-dhamma.vercel.app និង TikTok @escape_the_matrix។
+អ្នកគឺជា «បណ្ឌិតព្រះធម៌ថេរវាទ» ឆ្លាតវៃ និងសុភាពរាបសារ។
 
-ភារកិច្ចរបស់អ្នក៖
-១. ពន្យល់និងឆ្លើយនូវរាល់សំណួរធម៌ទាំងអស់ ដោយផ្អែកលើគម្ពីរព្រះត្រៃបិដក (ព្រះវិន័យ ព្រះសូត្រ ព្រះអភិធម្ម) អដ្ឋកថា វិសុទ្ធិមគ្គ និងទិន្នន័យព្រះធម៌ផ្លូវការខាងក្រោម។
-២. ភាសា និងអក្ខរាវិរុទ្ធ៖ ប្រើប្រាស់ភាសាខ្មែរផ្លូវការ ថ្លៃថ្នូរ ត្រឹមត្រូវ ១០០% តាមវចនានុក្រមសម្តេចព្រះសង្ឃរាជ ជួន ណាត ព្រមទាំងបាលីត្រឹមត្រូវ។ គ្មានពាក្យកម្ចីថៃ ឬអក្សរថៃឡើយ។
-៣. គោលការណ៍ឆ្លើយ៖ 
-   - ឆ្លើយចំចំណុច ងាយយល់ មានជម្រៅចិត្តវិទ្យាព្រះពុទ្ធសាសនាជាក់ស្តែង។
-   - បំបែកជាចំណុចៗ (Bullet points) ងាយស្រួលអានលើទូរស័ព្ទ។
-   - លើកយកពុទ្ធវចនៈ ឬបាលីបញ្ជាក់នៅពេលចាំបាច់។
-   - បើសំណួរណាដែលមិនមានក្នុងព្រះធម៌ ឬជាការទស្សន៍ទាយរឿងលោកិយអរូបិយ ត្រូវពន្យល់ដោយមេត្តា និងតម្រង់ទៅរកសច្ចធម៌ (អរិយសច្ច ៤ ឬ ត្រៃលក្ខណ៍)។
-៤. បញ្ចប់ដោយពាក្យសព្ទសាធុការ ឬពុទ្ធោវាទខ្លីដ៏មានអត្ថន័យ។
+វិធានដាច់ខាតដែលត្រូវតែអនុវត្តតាម៖
+១. ភាសា៖ ត្រូវតែឆ្លើយជា «ភាសាខ្មែរ» ជានិច្ច ១០០% (ដាច់ខាតកុំឆ្លើយជាភាសាអង់គ្លេសឡើយ)។ បើមានពាក្យបាលី ត្រូវសរសេរអក្សរបាលីជាភាសាខ្មែរ និងបញ្ជាក់ន័យឱ្យច្បាស់លាស់។
+២. ខ្លឹមសារ៖ ឆ្លើយចំចំណុច ខ្លីល្មម ងាយយល់ មិនវែងអន្លាយពេកទេ និងត្រូវផ្អែកលើគម្ពីរព្រះត្រៃបិដក (ព្រះវិន័យ ព្រះសូត្រ ព្រះអភិធម្ម) និងទិន្នន័យព្រះធម៌ខាងក្រោម។
+៣. រចនាប័ទ្ម៖ បែងចែកជាចំណុចៗងាយអាន ច្បាស់លាស់តាមក្បួនខ្នាតព្រះធម៌។
+៤. បើសំណួរទាក់ទងនឹង វិថីចិត្ត ឬ អភិធម្ម សូមពន្យល់តាមគម្ពីរអភិធម្មត្ថសង្គហៈ និងវិសុទ្ធិមគ្គ។
 
 --- មូលដ្ឋានទិន្នន័យព្រះធម៌យោង (GROUND TRUTH REFERENCE) ---
 ${DHAMMA_KNOWLEDGE_BASE}
@@ -120,22 +135,29 @@ ${DHAMMA_KNOWLEDGE_BASE}
           parts: [{ text: systemInstruction }]
         },
         generationConfig: {
-          temperature: 0.3,
-          topP: 0.9,
-          maxOutputTokens: 2048
+          temperature: 0.2,
+          topP: 0.85,
+          maxOutputTokens: 1000
         }
       }
+
+      // Fast abort timeout to avoid Telegram 10s webhook drop
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 7500)
 
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       })
+
+      clearTimeout(timeoutId)
 
       if (!res.ok) {
         const errorText = await res.text()
-        lastError = new Error(`Gemini [${model}] error [${res.status}]: ${errorText}`)
-        // If 503 or 429, try next model in fallback list
+        lastError = new Error(`Gemini [${model}] status [${res.status}]: ${errorText}`)
+        // If 503 (high demand), 429 (rate limit), or 404, try next model
         if (res.status === 503 || res.status === 429 || res.status === 404) {
           continue
         }
@@ -144,8 +166,8 @@ ${DHAMMA_KNOWLEDGE_BASE}
 
       const data = await res.json()
       const answer = data.candidates?.[0]?.content?.parts?.[0]?.text
-      if (answer) {
-        return answer
+      if (answer && answer.trim().length > 0) {
+        return answer.trim()
       }
     } catch (err) {
       lastError = err
@@ -164,7 +186,6 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const { setup, info } = req.query || {}
 
-    // Setup webhook on Telegram
     if (setup !== undefined) {
       try {
         const webhookUrl = `${PRODUCTION_WEBHOOK_URL}`
@@ -173,7 +194,8 @@ export default async function handler(req, res) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             url: webhookUrl,
-            allowed_updates: ['message']
+            allowed_updates: ['message'],
+            drop_pending_updates: true
           })
         })
         const result = await setRes.json()
@@ -187,7 +209,6 @@ export default async function handler(req, res) {
       }
     }
 
-    // Check webhook info & bot identity
     if (info !== undefined) {
       try {
         const [botRes, whRes] = await Promise.all([
@@ -209,8 +230,7 @@ export default async function handler(req, res) {
       bot: '@buddha_dhamma_bot',
       service: 'Buddha Dhamma Telegram Assistant',
       model,
-      website: 'https://buddha-dhamma.vercel.app',
-      help: 'Visit /api/telegram?setup=1 to bind Telegram webhook, or /api/telegram?info=1 to view bot status.'
+      website: 'https://buddha-dhamma.vercel.app'
     })
   }
 
@@ -221,26 +241,19 @@ export default async function handler(req, res) {
       const message = update.message || update.edited_message
 
       if (!message || !message.text) {
-        return res.status(200).json({ ok: true, note: 'No text message to process' })
+        return res.status(200).json({ ok: true, note: 'No text message' })
       }
 
       const chatId = message.chat.id
       const text = message.text.trim()
-      const userFirstName = message.from?.first_name || 'អ្នកស្វែងរកធម៌'
+      const userFirstName = message.from?.first_name || ''
 
-      // Command: /start
+      // Command: /start (Concise, friendly, human)
       if (text === '/start' || text.startsWith('/start ')) {
-        const welcomeText = `សូមនមស្ការ និងចម្រើនពរ ${userFirstName}! ☸️🙏
+        const welcomeText = `សូមស្វាគមន៍ ${userFirstName ? userFirstName + ' ' : ''}! 🙏☸️
 
-ខ្ញុំគឺជា **Buddha Dhamma Bot** (បណ្ណាល័យព្រះធម៌ឆ្លាតវៃ) ដែលដំណើរការដោយ **Gemini 3 Flash** នៃគេហទំព័រ [buddha-dhamma.vercel.app](https://buddha-dhamma.vercel.app)។
-
-លោកអ្នកអាចសាកសួរនូវរាល់ចម្ងល់អំពីព្រះធម៌បានគ្រប់ពេលវេលា ដូចជា៖
-• **អភិធម្មបិដក៖** ចិត្ត ៨៩/១២១, ចេតសិក ៥២, រូប ២៨, និព្វាន
-• **បដិច្ចសមុប្បាទ ១២៖** ខ្សែសង្វាក់នៃទុក្ខ និងចំណុចកាត់ផ្តាច់
-• **ព្រះត្រៃបិដក៖** វិន័យ, សូត្រ, អភិធម្ម, បច្ច័យ ២៤
-• **ការបដិបត្តិធម៌៖** អានាបានស្សតិ, សតិបដ្ឋាន ៤, វិធីរំលត់ទុក្ខផ្លូវចិត្ត
-
-👉 *សូមសរសេរសំណួររបស់លោកអ្នកផ្ញើមកទីនេះបានភ្លាមៗ!*`
+តើលោកអ្នកមានចម្ងល់ ឬសំណួរអ្វីអំពីព្រះធម៌ដែរទេ? 
+សូមសរសេរសំណួរមកទីនេះបាន ខ្ញុំរីករាយនឹងជួយពន្យល់ចែករំលែកតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម។`
 
         await sendTelegramMessage(token, chatId, welcomeText)
         return res.status(200).json({ ok: true })
@@ -248,38 +261,22 @@ export default async function handler(req, res) {
 
       // Command: /help
       if (text === '/help') {
-        const helpText = `💡 **របៀបសាកសួរព្រះធម៌ជាមួយ Bot:**
+        const helpText = `💡 លោកអ្នកអាចសួរសំណួរធម៌បានដោយសេរី ដូចជា៖
+• ចិត្ត និងចេតសិក
+• បដិច្ចសមុប្បាទ ១២
+• វិថីចិត្ត និងអភិធម្ម
+• ការបដិបត្តិសមាធិ និងវិបស្សនា
 
-លោកអ្នកអាចសួរសំណួរជាភាសាខ្មែរបានដោយសេរី ឧទាហរណ៍ដូចជា៖
-១. «តើចិត្ត និងចេតសិក ខុសគ្នាយ៉ាងណា?»
-២. «តើបដិច្ចសមុប្បាទមានប៉ុន្មានអង្គ ហើយកាត់ផ្តាច់ត្រង់ណា?»
-៣. «តើអ្វីជាអនិច្ចំ ទុក្ខំ អនត្តា?»
-៤. «តើទោសៈ និងកំហឹង កើតមកពីចេតសិកអ្វីខ្លះ?»
-៥. «តើត្រូវចម្រើនមេត្តាភាវនាយ៉ាងដូចម្តេច?»
-
-គេហទំព័រយោង៖ [buddha-dhamma.vercel.app](https://buddha-dhamma.vercel.app) 🙏`
+សូមសរសេរសំណួររបស់លោកអ្នកមកទីនេះបានជានិច្ច! 🙏`
 
         await sendTelegramMessage(token, chatId, helpText)
         return res.status(200).json({ ok: true })
       }
 
-      // Command: /about
-      if (text === '/about') {
-        const aboutText = `☸️ **អំពី Buddha Dhamma Bot**
-
-• Bot នេះត្រូវបានបង្កើតឡើងដើម្បីផ្តល់នូវចំណេះដឹងព្រះធម៌ពិតប្រាកដតាមគម្ពីរព្រះត្រៃបិដកថេរវាទ។
-• ដំណើរការដោយ៖ **Gemini 3.8 Flash** & **Vercel Serverless (24/7)**
-• ទិន្នន័យយោង៖ [buddha-dhamma.vercel.app](https://buddha-dhamma.vercel.app)
-• គ្រប់គ្រងដោយ៖ សហគមន៍ Buddha Dhamma 🇰🇭`
-
-        await sendTelegramMessage(token, chatId, aboutText)
-        return res.status(200).json({ ok: true })
-      }
-
-      // Indicate typing status to Telegram user
+      // Send typing action
       await sendChatAction(token, chatId, 'typing')
 
-      // Query Gemini with canonical Dhamma grounding
+      // Query Gemini
       try {
         const answer = await askGemini(apiKey, model, text)
         await sendTelegramMessage(token, chatId, answer)
@@ -288,7 +285,7 @@ export default async function handler(req, res) {
         await sendTelegramMessage(
           token,
           chatId,
-          `សូមអភ័យទោស ប្រព័ន្ធកំពុងមមាញឹកបន្តិច៖ ${geminiError.message || 'សូមព្យាយាមម្តងទៀតនៅបន្តិចទៀត'}`
+          `សូមអភ័យទោស ប្រព័ន្ធកំពុងដំណើរការមមាញឹកបន្តិច សូមមេត្តាសាកល្បងសួរសំណួរម្តងទៀតនៅបន្តិចទៀតនេះ។ 🙏`
         )
       }
 

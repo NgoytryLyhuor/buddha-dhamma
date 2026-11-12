@@ -16,11 +16,39 @@
           </span>
         </router-link>
 
-        <div class="flex items-center gap-2 my-auto">
-          <!-- Desktop only: clean button to open all pages -->
+        <!-- Desktop Navigation Bar (Sleek, minimal, direct access) -->
+        <nav class="hidden md:flex items-center gap-1 my-auto">
+          <router-link to="/" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="route.path === '/' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            {{ t('ទំព័រដើម', 'Home') }}
+          </router-link>
+          <router-link to="/meditation" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="activeTab === 'practice' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            {{ t('បដិបត្តិ', 'Practice') }}
+          </router-link>
+          <router-link to="/core" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="activeTab === 'dhamma' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            {{ t('ធម៌គ្រឹះ', 'Dhamma') }}
+          </router-link>
+          <router-link to="/abhidhamma" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="route.path.includes('abhidhamma') || route.path.includes('paccaya') ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            {{ t('អភិធម្ម', 'Abhidhamma') }}
+          </router-link>
+          <router-link to="/my-gems" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="route.path === '/my-gems' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            💎 {{ t('រតនៈ', 'Gems') }}
+          </router-link>
+          <router-link to="/tiktok-studio" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+            :class="route.path === '/tiktok-studio' ? 'text-rose-600 dark:text-rose-400 font-extrabold bg-rose-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-rose-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
+            🎬 Studio
+          </router-link>
+        </nav>
+
+        <div class="flex items-center gap-2 my-auto shrink-0">
+          <!-- Button to open Search & All Pages Drawer -->
           <button
             type="button"
-            class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded text-xs font-bold transition cursor-pointer my-auto"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer my-auto"
             @click="openMenu"
             :class="menuOpen ? 'active' : ''"
             :style="{
@@ -28,11 +56,11 @@
               color: menuOpen ? 'var(--accent)' : 'var(--ink)',
               border: '1px solid ' + (menuOpen ? 'var(--accent)' : 'var(--border)')
             }"
-            :title="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
-            :aria-label="t('ម៉ឺនុយទាំងអស់', 'All Pages')"
+            :title="t('ស្វែងរក & ម៉ឺនុយទំព័រទាំងអស់', 'Search & All Pages')"
+            :aria-label="t('ស្វែងរក & ម៉ឺនុយទំព័រទាំងអស់', 'Search & All Pages')"
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            <span>{{ t('ម៉ឺនុយទាំងអស់', 'All Pages') }}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span class="hidden sm:inline">{{ t('ស្វែងរក & ម៉ឺនុយ', 'Explore') }}</span>
             <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
               :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
               {{ nav.length }}
@@ -638,11 +666,11 @@ const menuSearchInputRef = ref(null)
 const selectedMenuCategory = ref('all')
 const menuCategories = [
   { id: 'all', km: 'ទាំងអស់', en: 'All' },
-  { id: 'gems', km: '💎 រតនៈ & សំណួរ', en: '💎 Gems & Q&A' },
-  { id: 'abhidhamma', km: '🧠 អភិធម្ម', en: '🧠 Abhidhamma' },
   { id: 'practice', km: '🧘 បដិបត្តិ & សមាធិ', en: '🧘 Practice' },
-  { id: 'sutta', km: '📜 ព្រះសូត្រ & ធម៌', en: '📜 Suttas' },
-  { id: 'life', km: '🪷 ជីវិត & សង្គម', en: '🪷 Life' },
+  { id: 'sutta', km: '🪷 ធម៌គ្រឹះ & ព្រះសូត្រ', en: '🪷 Core & Suttas' },
+  { id: 'abhidhamma', km: '🧠 ព្រះអភិធម្ម', en: '🧠 Abhidhamma' },
+  { id: 'life', km: '💎 ជីវិត & សង្គម', en: '💎 Life & Wisdom' },
+  { id: 'gems', km: '🛠️ រតនៈ & Studio', en: '🛠️ Gems & Tools' },
 ]
 
 const menuCategoryRoutes = {
@@ -867,17 +895,15 @@ const routeMeta = computed(() => route.name === 'home' ? '/' : route.path)
 
 const bottomTabs = [
   { id: 'home', to: '/', km: 'ដើម', en: 'Home', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg>' },
-  { id: 'dhamma', to: '/core', km: 'ធម៌', en: 'Dhamma', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 4.8 8 4.5 5 4.8c-.8.1-1.2.9-1 1.8v11c-.2.9.2 1.7 1 1.8 3 .3 5.5 0 7-1.8m0-12.1c1.5-1.7 4-2 7-1.7.8.1 1.2.9 1 1.8v11c.2.9-.2 1.7-1 1.8-3 .3-5.5 0-7-1.8m0-12.1v12"/></svg>' },
   { id: 'practice', to: '/meditation', km: 'បដិបត្តិ', en: 'Practice', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.5 0-4 1.6-4 3.8 0 1.2.5 2.1 1.2 2.8C6.5 10.3 5 12.4 5 15c0 3 3 5.5 7 5.5s7-2.5 7-5.5c0-2.6-1.5-4.7-4.2-5.4.7-.7 1.2-1.6 1.2-2.8C16 4.6 14.5 3 12 3z"/></svg>' },
-  { id: 'learn', to: '/glossary', km: 'សិក្សា', en: 'Learn', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' },
-  { id: 'more', km: 'បន្ថែម', en: 'More', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>' },
+  { id: 'dhamma', to: '/core', km: 'ធម៌គ្រឹះ', en: 'Dhamma', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 4.8 8 4.5 5 4.8c-.8.1-1.2.9-1 1.8v11c-.2.9.2 1.7 1 1.8 3 .3 5.5 0 7-1.8m0-12.1c1.5-1.7 4-2 7-1.7.8.1 1.2.9 1 1.8v11c.2.9-.2 1.7-1 1.8-3 .3-5.5 0-7-1.8m0-12.1v12"/></svg>' },
+  { id: 'more', km: 'ម៉ឺនុយ', en: 'Menu', icon: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' },
 ]
 
 const tabRoutes = {
   home: ['/'],
-  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/asava', '/anusaya', '/upadana', '/visuddhi', '/dhammacakka', '/anattalakkhana', '/vessantara', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/abhinna', '/dasabala', '/vimokkha', '/vipassana-bhumi', '/ditthi', '/garuka-kamma', '/samyojana', '/akusala-mula', '/ahara', '/paramattha-sacca', '/puggala-4', '/kusala-kammapatha', '/vipallasa', '/ariya-vinaya', '/asoka-history', '/sukha-levels', '/saupadisesa-nibbana', '/catummaharajika'],
   practice: ['/meditation', '/chanting', '/daily', '/recollections', '/sangha', '/calendar', '/timer', '/anapanasati', '/vipassana-nana', '/metta', '/dhutanga', '/merit-transfer', '/asubha', '/kammatthana', '/indriya', '/walking-meditation', '/bedtime-dhamma', '/uposatha', '/nivarana', '/buddha-guna', '/punnakiriya', '/mindful-work', '/satipatthana', '/bojjhanga', '/jhana', '/abhinha', '/triple-gem-guna', '/arupa-jhana', '/vipassanupakkilesa', '/uposatha-types', '/sammappadhana', '/iddhipada', '/metta-sutta', '/dhamma-hearing', '/carita', '/caturarakkha', '/ariyavamsa', '/paccaya-requisites', '/aghatapativinaya', '/vitakkasanthana', '/natha-dhamma', '/sangha-vinaya-lay', '/sampajanna', '/dana-types', '/puja-symbolism', '/vedana', '/citta-daily'],
-  learn: ['/tiktok-studio', '/my-gems', '/glossary', '/stories', '/questions', '/life', '/rupa-qa', '/cetasika-qa', '/lobha-mula-citta', '/quiz', '/citta-matrix', '/dhamma-aid', '/holy-sites', '/disciples', '/jataka', '/wealth', '/apayamukha', '/ayatana', '/ariyadhana', '/similes', '/lay-disciples', '/kalyanamitta', '/kalama-sutta', '/six-speeches', '/sanghadana', '/gahi-sukha', '/macchariya', '/sappurisa', '/cakka', '/devaduta', '/vuddhi', '/yonisomanasikara', '/mitta'],
+  dhamma: ['/core', '/abhidhamma', '/kamma', '/ethics', '/suttas', '/gathas', '/paccaya', '/ariya', '/realms', '/bodhipakkhiya', '/death-and-rebirth', '/citta-vithi', '/magga', '/prophecy', '/rajadhamma', '/cosmology', '/nibbana', '/tipitaka', '/sangaha', '/family', '/ceremonies', '/lokadhamma', '/brahmavihara', '/barami', '/sangayana', '/mangala', '/sangahavatthu', '/agati', '/katannu', '/kammpatha', '/tilakkhana', '/khandha', '/appamada', '/sacca-kicca', '/asava', '/anusaya', '/upadana', '/visuddhi', '/dhammacakka', '/anattalakkhana', '/vessantara', '/paticcasamuppada', '/dhatu', '/niyama', '/maranasanna', '/abhinna', '/dasabala', '/vimokkha', '/vipassana-bhumi', '/ditthi', '/garuka-kamma', '/samyojana', '/akusala-mula', '/ahara', '/paramattha-sacca', '/puggala-4', '/kusala-kammapatha', '/vipallasa', '/ariya-vinaya', '/asoka-history', '/sukha-levels', '/saupadisesa-nibbana', '/catummaharajika'],
 }
 
 const activeTab = computed(() => {

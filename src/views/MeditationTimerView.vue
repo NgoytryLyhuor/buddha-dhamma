@@ -161,13 +161,26 @@ const breathPhaseIndex = ref(0) // 0: inhale (4s), 1: hold (2s), 2: exhale (5s)
 const breathSeconds = ref(4)
 
 // Singing Bowl Bell Synthesizer via Web Audio API (Zero external audio files needed)
+let sharedAudioCtx = null
+
+function getAudioContext() {
+  if (typeof window === 'undefined') return null
+  const AudioCtx = window.AudioContext || window.webkitAudioContext
+  if (!AudioCtx) return null
+  if (!sharedAudioCtx || sharedAudioCtx.state === 'closed') {
+    sharedAudioCtx = new AudioCtx()
+  }
+  if (sharedAudioCtx.state === 'suspended') {
+    sharedAudioCtx.resume().catch(() => {})
+  }
+  return sharedAudioCtx
+}
+
 function playSingingBowl(durationSec = 3.5) {
   if (!soundEnabled.value) return
   try {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext
-    if (!AudioCtx) return
-    const ctx = new AudioCtx()
-    if (ctx.state === 'suspended') ctx.resume()
+    const ctx = getAudioContext()
+    if (!ctx) return
 
     const now = ctx.currentTime
     const masterGain = ctx.createGain()

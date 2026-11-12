@@ -67,6 +67,19 @@
             </span>
           </button>
 
+          <!-- Bookmark toggle button for active page -->
+          <button
+            v-if="route.path !== '/'"
+            type="button"
+            class="theme-btn shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl my-auto flex items-center justify-center cursor-pointer transition-all"
+            :style="isCurrentPageBookmarked ? { color: '#f59e0b', borderColor: '#f59e0b', background: 'rgba(245, 158, 11, 0.12)' } : {}"
+            @click="toggleCurrentBookmark"
+            :title="t(isCurrentPageBookmarked ? 'ដកចេញពីសៀវភៅចំណាំ' : 'រក្សាទុកក្នុងសៀវភៅចំណាំ', isCurrentPageBookmarked ? 'Remove Bookmark' : 'Bookmark this page')"
+            :aria-label="t('សៀវភៅចំណាំ', 'Bookmark')"
+          >
+            <span class="text-base leading-none">{{ isCurrentPageBookmarked ? '★' : '☆' }}</span>
+          </button>
+
           <!-- Settings icon button (perfectly centered on mobile and desktop) -->
           <button ref="settingsBtnRef" class="theme-btn shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl my-auto flex items-center justify-center cursor-pointer" @click="settingsOpen = !settingsOpen"
             :style="settingsOpen ? { borderColor: 'var(--accent)', color: 'var(--accent)' } : {}"
@@ -236,7 +249,27 @@
     </transition>
 
     <!-- Main reading column -->
-    <main v-if="!hasError" class="max-w-4xl mx-auto px-4 py-8 md:py-12">
+    <main v-if="!hasError" class="max-w-4xl mx-auto px-4 py-6 md:py-10">
+      <!-- Elegant Breadcrumb for deep pages -->
+      <nav v-if="currentCategoryInfo && route.path !== '/'" class="flex items-center gap-2 text-xs mb-5 text-stone-500 dark:text-stone-400 select-none overflow-x-auto whitespace-nowrap" aria-label="Breadcrumb">
+        <router-link to="/" class="hover:text-amber-600 transition-colors flex items-center gap-1 shrink-0">
+          <span>🏠</span>
+          <span>{{ t('ទំព័រដើម', 'Home') }}</span>
+        </router-link>
+        <span class="opacity-40">/</span>
+        <button
+          type="button"
+          @click="selectedMenuCategory = currentCategoryInfo.id; openMenu()"
+          class="hover:text-amber-600 transition-colors font-medium shrink-0 cursor-pointer"
+        >
+          {{ t(currentCategoryInfo.km, currentCategoryInfo.en) }}
+        </button>
+        <span class="opacity-40">/</span>
+        <span class="font-bold truncate text-stone-700 dark:text-stone-200" :style="{ color: 'var(--ink)' }">
+          {{ t(route.meta?.titleK || '', route.meta?.titleE || '') }}
+        </span>
+      </nav>
+
       <router-view v-slot="{ Component }">
         <transition name="page">
           <component :is="Component" :key="route.path" />
@@ -623,6 +656,8 @@ import { usePwaUpdate } from './composables/usePwaUpdate'
 import { useWakeLock } from './composables/useWakeLock'
 import { useZenMode } from './composables/useZenMode'
 import { clearSavedScroll } from './composables/useReadingProgress'
+import { useBookmarks } from './composables/useBookmarks'
+import { searchKeywords } from './data/searchKeywords'
 import { BASE_URL } from './config'
 
 const route = useRoute()
@@ -634,6 +669,20 @@ const { zenMode, isChromeHidden, toggleZenMode, revealChrome } = useZenMode()
 const { lang, t, setLang } = useLanguage()
 const { needRefresh, reload, checkForUpdate } = usePwaUpdate()
 const { contrast, toggleContrast } = useContrast()
+const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks()
+
+const isCurrentPageBookmarked = computed(() => isBookmarked(route.path))
+
+function toggleCurrentBookmark() {
+  const cur = route.path
+  const currentNav = nav.find(n => n.to === cur)
+  toggleBookmark({
+    path: cur,
+    titleK: route.meta?.titleK || currentNav?.km || cur,
+    titleE: route.meta?.titleE || currentNav?.en || cur,
+    num: currentNav?.num || ''
+  })
+}
 
 router.afterEach(() => {
   if (hasError.value) hasError.value = false
@@ -666,6 +715,7 @@ const menuSearchInputRef = ref(null)
 const selectedMenuCategory = ref('all')
 const menuCategories = [
   { id: 'all', km: 'ទាំងអស់', en: 'All' },
+  { id: 'bookmarks', km: '⭐ សៀវភៅចំណាំ', en: '⭐ Bookmarks' },
   { id: 'practice', km: '🧘 បដិបត្តិ & សមាធិ', en: '🧘 Practice' },
   { id: 'sutta', km: '🪷 ធម៌គ្រឹះ & ព្រះសូត្រ', en: '🪷 Core & Suttas' },
   { id: 'abhidhamma', km: '🧠 ព្រះអភិធម្ម', en: '🧠 Abhidhamma' },
@@ -683,6 +733,7 @@ const menuCategoryRoutes = {
 
 function getCategoryCount(catId) {
   if (catId === 'all') return nav.length
+  if (catId === 'bookmarks') return bookmarks.value.length
   return (menuCategoryRoutes[catId] || []).length
 }
 
@@ -695,7 +746,10 @@ function khNum(n) {
 
 const filteredMenuNav = computed(() => {
   let list = nav
-  if (selectedMenuCategory.value !== 'all') {
+  if (selectedMenuCategory.value === 'bookmarks') {
+    const bookmarkedPaths = bookmarks.value.map(b => b.path)
+    list = list.filter(n => bookmarkedPaths.includes(n.to))
+  } else if (selectedMenuCategory.value !== 'all') {
     const allowed = menuCategoryRoutes[selectedMenuCategory.value] || []
     list = list.filter(n => allowed.includes(n.to))
   }
@@ -706,7 +760,11 @@ const filteredMenuNav = computed(() => {
   return list.filter(n => {
     const numAr = khToAr(n.num)
     const slug = n.to.replace(/^\//, '').toLowerCase()
-    return n.km.toLowerCase().includes(rawQ) ||
+    const kwList = searchKeywords[n.to] || []
+    const kwMatch = kwList.some(kw => kw.toLowerCase().includes(rawQ) || rawQ.includes(kw.toLowerCase()))
+
+    return kwMatch ||
+      n.km.toLowerCase().includes(rawQ) ||
       (n.descKm && n.descKm.toLowerCase().includes(rawQ)) ||
       n.kmShort.toLowerCase().includes(rawQ) ||
       n.en.toLowerCase().includes(rawQ) ||
@@ -715,6 +773,19 @@ const filteredMenuNav = computed(() => {
       n.to.toLowerCase().includes(rawQ) ||
       slug.includes(rawQ)
   })
+})
+
+const currentCategoryInfo = computed(() => {
+  const cur = route.name === 'home' ? '/' : route.path
+  if (cur === '/') return null
+  for (const catId of ['practice', 'sutta', 'abhidhamma', 'life', 'gems']) {
+    const routes = menuCategoryRoutes[catId] || []
+    if (routes.includes(cur)) {
+      const cat = menuCategories.find(c => c.id === catId)
+      return cat ? { id: cat.id, km: cat.km, en: cat.en } : null
+    }
+  }
+  return null
 })
 const desktopNavRef = ref(null)
 
@@ -1135,8 +1206,17 @@ const related = {
 
 const relatedList = computed(() => {
   const cur = route.name === 'home' ? '/' : route.path
-  const paths = (related[cur] || []).slice(0, 4)
-  return paths.map(p => nav.find(n => n.to === p)).filter(Boolean)
+  let paths = [...(related[cur] || [])]
+  if (paths.length < 4 && currentCategoryInfo.value) {
+    const catRoutes = menuCategoryRoutes[currentCategoryInfo.value.id] || []
+    for (const r of catRoutes) {
+      if (r !== cur && !paths.includes(r)) {
+        paths.push(r)
+        if (paths.length >= 4) break
+      }
+    }
+  }
+  return paths.slice(0, 4).map(p => nav.find(n => n.to === p)).filter(Boolean)
 })
 
 const showScrollTop = ref(false)

@@ -352,25 +352,6 @@
               >
                 <span>{{ copiedKey === 'prompt' ? '✓ បានចម្លង!' : '🎨 Image Prompt' }}</span>
               </button>
-
-              <button
-                type="button"
-                @click="copyForCanva"
-                class="copy-pill"
-                title="ចម្លងទម្រង់ Canva / CapCut Bulk Create"
-              >
-                <span>{{ copiedKey === 'canva' ? '✓ បានចម្លង Canva!' : '✨ Canva / CapCut' }}</span>
-              </button>
-
-              <button
-                type="button"
-                @click="downloadScript"
-                class="copy-pill font-bold"
-                :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
-                title="ទាញយកអត្ថបទជា File .txt លើទូរស័ព្ទ ឬកុំព្យូទ័រ"
-              >
-                <span>📥 ទាញយក .txt</span>
-              </button>
             </div>
           </div>
 
@@ -870,31 +851,6 @@ function getAllSlidesText(post) {
     : [post.slide1, post.slide2, post.slide3, post.slide4, post.slide5].filter(Boolean)
   const slideParts = slides.map((s, idx) => `=== SLIDE ${idx + 1} ===\n${s}`).join('\n\n')
   return `${slideParts}\n\n=== CAPTION ===\n${post.caption || ''}`
-}
-
-function downloadScript() {
-  if (!activePost.value) return
-  const fullText = getAllSlidesText(activePost.value)
-  const blob = new Blob([fullText], { type: 'text/plain;charset=utf-8' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  const safeTitle = (activePost.value.title || 'tiktok-carousel').replace(/[^\w\u1780-\u17FF]+/g, '_')
-  a.download = `${safeTitle}.txt`
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  URL.revokeObjectURL(url)
-  showToast('📥 បានទាញយក File អត្ថបទដោយជោគជ័យ!')
-}
-
-function copyForCanva() {
-  if (!activePost.value) return
-  const slides = Array.isArray(activePost.value.slides) && activePost.value.slides.length > 0
-    ? activePost.value.slides
-    : [activePost.value.slide1, activePost.value.slide2, activePost.value.slide3, activePost.value.slide4, activePost.value.slide5].filter(Boolean)
-  const tsv = slides.map((s, idx) => `Slide ${idx + 1}\t${s.replace(/\r?\n/g, ' ')}`).join('\n')
-  copyPill(tsv, 'ចម្លងសម្រាប់ Canva Bulk Create', 'canva')
 }
 </script>
 

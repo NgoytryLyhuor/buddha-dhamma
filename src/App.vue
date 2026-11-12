@@ -832,7 +832,7 @@ const nav = [
   { to: '/rupa-qa', km: 'សំណួររូបបរមត្ថ', descKm: 'រូបបរមត្ថ ២៨ & រូបកលាប', kmShort: 'រូបបរមត្ថ', en: 'Rūpa Paramattha Q&A', num: '១៤' },
   { to: '/cetasika-qa', km: 'សំណួរចេតសិកបរមត្ថ', descKm: 'ចេតសិក ៥២ & ដំណើរផ្លូវចិត្ត', kmShort: 'ចេតសិក', en: 'Cetasika Paramattha Q&A', num: '១៥' },
   { to: '/lobha-mula-citta', km: 'លោភមូលចិត្ត ៨ ដួង', descKm: '១០៩ សំណួរ–ចម្លើយចិត្តបាបលោភៈ', kmShort: 'លោភមូលចិត្ត', en: '8 Lobha Mūla Citta', num: '១៦' },
-  { to: '/paccaya', km: 'បដិច្ចសមុប្បាទ', descKm: 'បដិច្ចសមុប្បាទ ១២ & បច្ច័យ ២៤', kmShort: 'បដិច្ចសមុប្បាទ', en: 'Dependent Origination', num: '១៧' },
+  { to: '/paccaya', km: 'បច្ច័យ ២៤ (គម្ពីរបដ្ឋាន)', descKm: 'បច្ច័យ ២៤ ប្រការ ហេតុបច្ច័យ អារម្មណបច្ច័យ ដល់ អវិគតបច្ច័យ នៃគម្ពីរបដ្ឋាន', kmShort: 'បច្ច័យ ២៤', en: '24 Conditions (Paṭṭhāna)', num: '១៧' },
   { to: '/sangha', km: 'ជីវិតព្រះសង្ឃ', descKm: 'វិន័យសង្ឃ ជីវិតបព្វជិត & បុណ្យទាន', kmShort: 'ព្រះសង្ឃ', en: 'Monastic Life & Sangha', num: '១៨' },
   { to: '/daily', km: 'បដិបត្តិប្រចាំថ្ងៃ', descKm: 'បដិបត្តិធម៌ប្រចាំថ្ងៃ & ពិធីបុណ្យ', kmShort: 'ប្រចាំថ្ងៃ', en: 'Daily Practice', num: '១៩' },
   { to: '/recollections', km: 'អនុស្សតិ', descKm: 'អនុស្សតិ ១០ & ពិចារណាប្រចាំថ្ងៃ', kmShort: 'អនុស្សតិ', en: '10 Recollections', num: '២០' },

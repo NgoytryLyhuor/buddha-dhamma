@@ -52,7 +52,11 @@ async function sendTelegramMessage(token, chatId, text) {
   const cleanText = sanitizeKhmerText(text)
   const chunks = splitText(cleanText, 3800)
 
-  for (const chunk of chunks) {
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i]
+    if (i > 0) {
+      await new Promise(r => setTimeout(r, 200))
+    }
     try {
       // First try sending with Markdown
       const res = await fetch(url, {
@@ -107,13 +111,25 @@ async function sendChatAction(token, chatId, action = 'typing') {
 }
 
 function splitText(str, maxLen = 3800) {
-  if (!str || str.length <= maxLen) return [str || '']
+  if (!str) return []
+  if (str.length <= maxLen) return [str]
   const chunks = []
   let current = ''
   const lines = str.split('\n')
 
   for (const line of lines) {
-    if ((current + '\n' + line).length > maxLen) {
+    if (line.length > maxLen) {
+      if (current) {
+        chunks.push(current)
+        current = ''
+      }
+      for (let i = 0; i < line.length; i += maxLen) {
+        chunks.push(line.slice(i, i + maxLen))
+      }
+      continue
+    }
+
+    if ((current ? current.length + 1 + line.length : line.length) > maxLen) {
       if (current) chunks.push(current)
       current = line
     } else {
@@ -122,6 +138,22 @@ function splitText(str, maxLen = 3800) {
   }
   if (current) chunks.push(current)
   return chunks
+}
+
+function getCambodiaDateTime() {
+  const now = new Date()
+  const time12 = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Phnom_Penh', hour: '2-digit', minute: '2-digit', hour12: true })
+  const time24 = now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Phnom_Penh', hour12: false })
+  const dateFull = new Intl.DateTimeFormat('km-KH', { timeZone: 'Asia/Phnom_Penh', dateStyle: 'full' }).format(now)
+  return { time12, time24, dateFull, now }
+}
+
+function isDirectTimeQuery(text) {
+  if (!text) return false
+  const t = text.trim().toLowerCase().replace(/[?!.,។]/g, '').trim()
+  if (/^(ម៉ោងប៉ុន្មាន|ម៉ោងប៉ុន្មានហើយ|ឥឡូវម៉ោងប៉ុន្មាន|ឥឡូវម៉ោងប៉ុន្មានហើយ|ថ្ងៃនេះថ្ងៃអ្វី|ថ្ងៃនេះជាថ្ងៃអ្វី)$/.test(t)) return true
+  if (/^(what time|what time is it|what time now|time now|time|tell time|current time|what day is today|what date is today)$/.test(t)) return true
+  return false
 }
 
 // In-memory conversation memory cache (stores last 6 messages per chat)
@@ -153,8 +185,15 @@ async function askGemini(apiKey, preferredModel, userQuestion, chatId) {
     'gemini-3.5-flash'
   ].filter((m, idx, arr) => m && arr.indexOf(m) === idx)
 
+  const { time12, time24, dateFull } = getCambodiaDateTime()
+
   const systemInstruction = `
 អ្នកគឺជាអ្នកឆ្លើយឆ្លង និងជួយពន្យល់ព្រះធម៌ដ៏រួសរាយម្នាក់ ដូចមនុស្សធម្មតានិយាយគ្នា។
+
+ពេលវេលា និងកាលបរិច្ឆេទបច្ចុប្បន្ននៅប្រទេសកម្ពុជា (CAMBODIA TIME UTC+7):
+- ម៉ោងបច្ចុប្បន្ន៖ ${time12} (ម៉ោង ២៤៖ ${time24})
+- ថ្ងៃខែឆ្នាំបច្ចុប្បន្ន៖ ${dateFull}
+- បើគេសួរអំពីម៉ោង ឬកាលបរិច្ឆេទ សូមប្រាប់ពេលវេលា និងថ្ងៃខែនៅប្រទេសកម្ពុជានេះដោយត្រឹមត្រូវ និងច្បាស់លាស់។
 
 វិធានដាច់ខាតដែលត្រូវតែអនុវត្តតាម (STRICT RULES):
 ១. ការជំនួសខ្លួនឯង៖
@@ -162,13 +201,14 @@ async function askGemini(apiKey, preferredModel, userQuestion, chatId) {
    - ដាច់ខាតហាមនិយាយថា៖ «ខ្ញុំព្រះករុណាជាបណ្ឌិតព្រះធម៌...», «ប្រចាំនៅគេហទំព័រ...», «ឯកទេសខាង...» ឡើយ! ហាមរៀបរាប់តួនាទីខ្លួនឯងវែងឆ្ងាយ។
 ២. ហាមនិយាយឈ្មោះបុគ្គល ឬឈ្មោះវត្តអារាមណាទាំងអស់៖
    - ដាច់ខាតហាមនិយាយឈ្មោះ «លោកគ្រូ ធី ណារ៉ូន», «វត្តសមណគោត្តមារាម», ឬឈ្មោះបុគ្គល ឬឈ្មោះវេបសាយណាមួយក្នុងចម្លើយឡើយ!
-៣. ការជជែកសន្ទនាបែបមនុស្សធម្មតា (CONVERSATIONAL):
-   - ពេលគេសួរសុខទុក្ខ ជជែកលេង ឬបើកការសន្ទនា សូមឆ្លើយតបយ៉ាងធម្មជាតិរួសរាយដូចមនុស្សធម្មតា ហើយអាចសួរថា៖
-     «តើថ្ងៃនេះសុខសប្បាយជាទេ? មានបញ្ហា ឬសេចក្តីសង្ស័យអ្វីទាក់ទងនឹងគម្ពីរព្រះអភិធម្ម ព្រះត្រៃបិដក ព្រះបរមត្ថធម៌ (ចិត្ត ចេតសិក រូប និព្វាន) ឬសំណួរពិភាក្សាផ្សេងៗ ដែលចង់ឱ្យខ្ញុំជួយពន្យល់ដែរទេ?»
-   - បើគេសួរនាំពីចម្លើយ (ឧ. "sos did this answer wrong?", "តើចម្លើយនេះត្រូវឬខុស?") សូមឆ្លើយតបធម្មជាតិ៖
-     «ចម្លើយនេះពិតជាត្រឹមត្រូវហើយ! ចំណុចគួរកត់សម្គាល់ទាំង ៤ នោះគឺ៖ ...»
-៤. ការឆ្លើយសំណួរធម៌ត្រង់ៗ (CATECHISM QUIZ):
-   - បើគេសួរសំណួរធម៌ត្រង់ៗ (ដូចជា៖ «តើ... មានប៉ុន្មាន?», «ដួងណាខ្លះ?», «មានជាតិជាអ្វី?»...) សូមឆ្លើយ «ខ្លី ខ្លឹម ចំសំណួរ» ភ្លាមៗ មិនបាច់រៀបរាប់វែងឆ្ងាយឡើយ។
+៣. ហាមសរសេរប្រយោគសួរសុខទុក្ខដដែលៗ (NO REPETITIVE GREETINGS):
+   - ដាច់ខាតហាមសរសេរប្រយោគវែងៗដដែលៗដូចជា «តើថ្ងៃនេះសុខសប្បាយជាទេ? មានបញ្ហា ឬសេចក្តីសង្ស័យអ្វីទាក់ទងនឹងគម្ពីរព្រះអភិធម្ម...» នៅចុងបញ្ចប់នៃរាល់ចម្លើយឡើយ!
+   - ឆ្លើយតែអ្វីដែលគេសួរឱ្យចប់សព្វគ្រប់ គឺចប់ត្រឹមហ្នឹង (ហាមបន្ថែមប្រយោគសួរដដែលៗនៅខាងចុង)។
+   - ពេលគេសួរសុខទុក្ខធម្មតា (ដូចជា «សុខសប្បាយទេ?», «how are you?») សូមឆ្លើយតបខ្លីៗរួសរាយដូចមនុស្សធម្មតា (ឧ. «ខ្ញុំសុខសប្បាយធម្មតាទេ អរគុណច្រើន!»)។
+៤. ការឆ្លើយសំណួរច្រើនក្នុងពេលតែមួយ (FULL ANSWERS - NO TRUNCATION):
+   - ប្រសិនបើគេសួរច្រើនសំណួរក្នុងពេលតែមួយ (ដូចជា សំណួរ ១ ដល់ ៣១ ឬច្រើនជាងនេះ) ត្រូវតែឆ្លើយឱ្យគ្រប់ចំនួនសំណួរទាំងអស់ដែលគេបានសួរ មិនត្រូវរំលង ឬកាត់ផ្តាច់ពាក់កណ្តាលឡើយ!
+   - ឆ្លើយតាមលំដាប់លេខរៀង ១-, ២-, ៣-... ដោយខ្លី ខ្លឹម ត្រឹមត្រូវ ចំសំណួរ តាមគម្ពីរព្រះអភិធម្ម និងព្រះត្រៃបិដក។
+   - ប្រសិនបើគេសួរតែមួយសំណួរ សូមឆ្លើយខ្លី ខ្លឹម ចំសំណួរភ្លាមៗ មិនបាច់រៀបរាប់វែងឆ្ងាយហួសហេតុឡើយ។
 ៥. ភាសា និងអក្ខរាវិរុទ្ធខ្មែរ ១០០% សុទ្ធសាធ (ZERO THAI TOLERANCE):
    - ដាច់ខាត ១០០% ហាមមិនឱ្យមានតួអក្សរថៃ ឬពាក្យថៃសូម្បីតែ ១ តួអក្សរឡើយ (ដូចជា៖ ทำหน้าที่, หน้าที่, เก่ง ជាដើម)!
    - ត្រូវប្រើពាក្យខ្មែរ៖ «បំពេញកិច្ច / ធ្វើកិច្ច / តួនាទី» មិនមែនពាក្យថៃឡើយ! គ្មានភាសាអង់គ្លេស និងគ្មានភាសាថៃឡើយ។
@@ -218,13 +258,13 @@ ${DHAMMA_KNOWLEDGE_BASE}
         generationConfig: {
           temperature: 0.1,
           topP: 0.8,
-          maxOutputTokens: 600
+          maxOutputTokens: 4096
         }
       }
 
-      // Fast abort timeout to avoid Telegram 10s webhook drop
+      // 25s timeout for complete multi-question answers
       const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 7500)
+      const timeoutId = setTimeout(() => controller.abort(), 25000)
 
       const res = await fetch(endpoint, {
         method: 'POST',
@@ -349,6 +389,14 @@ export default async function handler(req, res) {
 សូមសរសេរសំណួររបស់លោកអ្នកមកទីនេះបានជានិច្ច! 🙏`
 
         await sendTelegramMessage(token, chatId, helpText)
+        return res.status(200).json({ ok: true })
+      }
+
+      // Direct Time or Date query (Instant Cambodia Time response)
+      if (isDirectTimeQuery(text)) {
+        const { time12, time24, dateFull } = getCambodiaDateTime()
+        const timeMsg = `ពេលនេះនៅប្រទេសកម្ពុជាគឺ ម៉ោង ${time12} (${time24}) ថ្ងៃ${dateFull}។ 🙏`
+        await sendTelegramMessage(token, chatId, timeMsg)
         return res.status(200).json({ ok: true })
       }
 

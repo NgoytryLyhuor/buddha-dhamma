@@ -248,9 +248,9 @@ export default async function handler(req, res) {
       const text = message.text.trim()
       const userFirstName = message.from?.first_name || ''
 
-      // Command: /start (Concise, friendly, human)
+      // Command: /start (Universal, warm, polite for everyone)
       if (text === '/start' || text.startsWith('/start ')) {
-        const welcomeText = `សូមស្វាគមន៍ ${userFirstName ? userFirstName + ' ' : ''}! 🙏☸️
+        const welcomeText = `សូមស្វាគមន៍មកកាន់ Buddha Dhamma Bot! 🙏☸️
 
 តើលោកអ្នកមានចម្ងល់ ឬសំណួរអ្វីអំពីព្រះធម៌ដែរទេ? 
 សូមសរសេរសំណួរមកទីនេះបាន ខ្ញុំរីករាយនឹងជួយពន្យល់ចែករំលែកតាមគម្ពីរព្រះត្រៃបិដក និងអភិធម្ម។`

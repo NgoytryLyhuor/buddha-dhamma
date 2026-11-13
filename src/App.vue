@@ -6,53 +6,53 @@
       :class="{ '-translate-y-full': zenMode && isChromeHidden }"
       :style="{ background: 'var(--bg-nav)', borderBottom: '1px solid var(--border)' }"
     >
-      <div class="w-full max-w-4xl mx-auto px-4 h-full flex flex-col justify-center relative">
-        <div class="flex items-center justify-between gap-3 h-full">
-        <router-link to="/" class="flex items-center gap-2 sm:gap-2.5 group min-w-0 my-auto" style="color: var(--ink)">
+      <div class="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 h-full flex flex-col justify-center relative">
+        <div class="flex items-center justify-between gap-2 lg:gap-4 h-full">
+        <router-link to="/" class="flex items-center gap-2 sm:gap-2.5 group shrink-0 my-auto" style="color: var(--ink)">
           <span class="logo-ico leading-none shrink-0 flex items-center" :style="{ color: 'var(--accent-bright)' }">&#9784;</span>
-          <span class="block min-w-0">
-            <span class="block truncate font-display logo-title leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
-            <span class="hidden sm:block logo-sub tracking-[0.3em] uppercase truncate" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
+          <span class="block shrink-0">
+            <span class="block whitespace-nowrap font-display logo-title leading-tight">{{ t('ព្រះធម៌', 'Buddha Dhamma') }}</span>
+            <span class="hidden xl:block logo-sub tracking-[0.25em] uppercase whitespace-nowrap" :style="{ color: 'var(--ink-faint)' }">{{ t('ពន្យល់ពាក្យព្រះសម្មាសម្ពុទ្ធ', 'The Words of the Buddha') }}</span>
           </span>
         </router-link>
 
-        <!-- Desktop Navigation Bar (Sleek, minimal, direct access) -->
-        <nav class="hidden md:flex items-center gap-1 my-auto">
-          <router-link to="/" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+        <!-- Desktop Navigation Bar (Sleek, minimal, single-line direct access) -->
+        <nav class="hidden md:flex items-center gap-0.5 lg:gap-1.5 my-auto shrink-0">
+          <router-link to="/" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="route.path === '/' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             {{ t('ទំព័រដើម', 'Home') }}
           </router-link>
-          <router-link to="/meditation" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/meditation" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="activeTab === 'practice' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             {{ t('បដិបត្តិ', 'Practice') }}
           </router-link>
-          <router-link to="/core" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/core" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="activeTab === 'dhamma' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             {{ t('ធម៌គ្រឹះ', 'Dhamma') }}
           </router-link>
-          <router-link to="/abhidhamma" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/abhidhamma" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="route.path.includes('abhidhamma') || route.path.includes('paccaya') ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             {{ t('អភិធម្ម', 'Abhidhamma') }}
           </router-link>
-          <router-link to="/milinda-qa" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/milinda-qa" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="route.path === '/milinda-qa' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             📜 {{ t('មិលិន្ទ ២៤៥', 'Milinda 245') }}
           </router-link>
-          <router-link to="/my-gems" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/my-gems" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="route.path === '/my-gems' ? 'text-amber-600 dark:text-amber-400 font-extrabold bg-amber-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-amber-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             💎 {{ t('រតនៈ', 'Gems') }}
           </router-link>
-          <router-link to="/tiktok-studio" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all"
+          <router-link to="/tiktok-studio" class="px-2 lg:px-2.5 py-1 lg:py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0"
             :class="route.path === '/tiktok-studio' ? 'text-rose-600 dark:text-rose-400 font-extrabold bg-rose-500/10' : 'text-stone-600 dark:text-stone-300 hover:text-rose-600 hover:bg-stone-100 dark:hover:bg-stone-800/50'">
             🎬 Studio
           </router-link>
         </nav>
 
-        <div class="flex items-center gap-2 my-auto shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 my-auto shrink-0">
           <!-- Button to open Search & All Pages Drawer -->
           <button
             type="button"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer my-auto"
+            class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer my-auto whitespace-nowrap shrink-0"
             @click="openMenu"
             :class="menuOpen ? 'active' : ''"
             :style="{
@@ -64,7 +64,7 @@
             :aria-label="t('ស្វែងរក & ម៉ឺនុយទំព័រទាំងអស់', 'Search & All Pages')"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <span class="hidden sm:inline">{{ t('ស្វែងរក & ម៉ឺនុយ', 'Explore') }}</span>
+            <span class="hidden lg:inline">{{ t('ស្វែងរក & ម៉ឺនុយ', 'Explore') }}</span>
             <span class="text-[10px] px-1.5 py-0.5 rounded-full font-mono font-bold"
               :style="{ background: 'var(--accent-soft)', color: 'var(--accent-bright)' }">
               {{ nav.length }}

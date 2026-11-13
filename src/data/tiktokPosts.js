@@ -1,10 +1,346 @@
 export const PUBLISHED_AND_CURATED_POSTS = [
   {
+    id: 'sin-100-years-boat-stone',
+    title: 'ធ្វើបាប ១០០ ឆ្នាំ តែនឹកឃើញបុណ្យមុនស្លាប់បានទៅឋានសួគ៌... តើច្បាប់កម្មផលយុត្តិធម៌ត្រង់ណា?',
+    category: 'កម្មផល & មិលិន្ទប្បញ្ហា #៦៥',
+    publishedDate: '2026-11-13',
+    isNew: true,
+    views: '12.6K',
+    likes: 'Top',
+    tags: '#ព្រះពុទ្ធសាសនា #ច្បាប់កម្មផល #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #ចំណេះដឹងទូទៅ #buddhism #karma #philosophy #khmercontent #fyp',
+    slides: [
+      `ធ្វើបាប ១០០ ឆ្នាំ តែនឹកឃើញបុណ្យមុនស្លាប់បានទៅឋានសួគ៌...
+
+រីឯអ្នកធ្វើបាបតែម្តង បែរជាធ្លាក់នរក!
+
+តើច្បាប់កម្មផល យុត្តិធម៌ត្រង់ណា?
+
+(ចម្លើយពីគម្ពីរមិលិន្ទប្បញ្ហា ដែលបំបែករាល់ចម្ងល់!)`,
+      `ព្រះបាទមិលិន្ទ ទូលសួរព្រះនាគសេនថា៖
+
+«បពិត្រព្រះនាគសេន! អ្នកខ្លះសម្លាប់សត្វ ធ្វើបាបអស់ ១០០ ឆ្នាំ តែពេលជិតដាច់ខ្យល់ គ្រាន់តែនឹកឃើញគុណព្រះពុទ្ធ បែរជាបានទៅកើតនៅឋានសួគ៌។
+
+ចំណែកអ្នកខ្លះ ធ្វើបាបធ្ងន់តែម្តង បែរជាធ្លាក់នរក!
+
+តើរឿងនេះ សមហេតុផលដែរឬទេ?»`,
+      `ព្រះនាគសេន ត្រាស់តបដោយឧបមាថា៖
+
+ដុំថ្មតូច ១ ដុំ： បើបោះចូលទៅក្នុងទឹកទទេ វានឹង លិចទៅបាតទឹកភ្លាម (ប្រៀបដូចបាបកម្មតែម្តង ដែលគ្មានបុណ្យជួយទ្រ)។
+
+ដុំថ្មធំៗ ១០០ ដុំ： បើគេយកទៅដាក់នៅលើ «ទូក» មួយ... ទូកនោះអាចដឹកដុំថ្មទាំង ១០០ ឆ្លងទន្លេបាន ដោយមិនលិចឡើយ!`,
+      `តើ «ទូក» និង «ដុំថ្ម» តំណាងឱ្យអ្វី?
+
+ទូក = អាសន្នកម្ម (កុសលចិត្តចុងក្រោយមុនស្លាប់) ដែលជួយទ្រទ្រង់ចិត្តឱ្យទៅសោយសុខនៅឋានសួគ៌សិន។
+
+ដុំថ្មទាំង ១០០ = បាបកម្មចាស់ ដែល មិនបានរលាយបាត់ទៅណាឡើយ!
+
+នៅពេលណាដែល «ទូក» (បុណ្យ) អស់កម្លាំងដល់ត្រើយ... ដុំថ្មទាំង ១០០ នោះ នឹងធ្លាក់ចុះមកឱ្យសងកម្មវិញគ្រប់ចំនួន!`,
+      `ច្បាប់កម្មផល យុត្តិធម៌ ១០០% គ្រាន់តែហុចផល «តាមលំដាប់មុនក្រោយ»!
+
+ការសន្សំកុសល និងការហ្វឹកហាត់ចិត្តឱ្យស្ងប់រាល់ថ្ងៃ គឺជាការសង់ «ទូកដ៏រឹងមាំ» សម្រាប់គ្រាចុងក្រោយនៃជីវិត។
+
+កុំចាំដល់ជិតដាច់ខ្យល់ ទើបចាប់ផ្តើមនឹករកបុណ្យ!
+
+តើអ្នកយល់យ៉ាងណាដែរចំពោះការបកស្រាយរបស់ព្រះនាគសេន? 👇`
+    ],
+    slide1: `ធ្វើបាប ១០០ ឆ្នាំ តែនឹកឃើញបុណ្យមុនស្លាប់បានទៅឋានសួគ៌...
+
+រីឯអ្នកធ្វើបាបតែម្តង បែរជាធ្លាក់នរក!
+
+តើច្បាប់កម្មផល យុត្តិធម៌ត្រង់ណា?
+
+(ចម្លើយពីគម្ពីរមិលិន្ទប្បញ្ហា ដែលបំបែករាល់ចម្ងល់!)`,
+    slide2: `ព្រះបាទមិលិន្ទ ទូលសួរព្រះនាគសេនថា៖
+
+«បពិត្រព្រះនាគសេន! អ្នកខ្លះសម្លាប់សត្វ ធ្វើបាបអស់ ១០០ ឆ្នាំ តែពេលជិតដាច់ខ្យល់ គ្រាន់តែនឹកឃើញគុណព្រះពុទ្ធ បែរជាបានទៅកើតនៅឋានសួគ៌។
+
+ចំណែកអ្នកខ្លះ ធ្វើបាបធ្ងន់តែម្តង បែរជាធ្លាក់នរក!
+
+តើរឿងនេះ សមហេតុផលដែរឬទេ?»`,
+    slide3: `ព្រះនាគសេន ត្រាស់តបដោយឧបមាថា៖
+
+ដុំថ្មតូច ១ ដុំ： បើបោះចូលទៅក្នុងទឹកទទេ វានឹង លិចទៅបាតទឹកភ្លាម (ប្រៀបដូចបាបកម្មតែម្តង ដែលគ្មានបុណ្យជួយទ្រ)។
+
+ដុំថ្មធំៗ ១០០ ដុំ： បើគេយកទៅដាក់នៅលើ «ទូក» មួយ... ទូកនោះអាចដឹកដុំថ្មទាំង ១០០ ឆ្លងទន្លេបាន ដោយមិនលិចឡើយ!`,
+    slide4: `តើ «ទូក» និង «ដុំថ្ម» តំណាងឱ្យអ្វី?
+
+ទូក = អាសន្នកម្ម (កុសលចិត្តចុងក្រោយមុនស្លាប់) ដែលជួយទ្រទ្រង់ចិត្តឱ្យទៅសោយសុខនៅឋានសួគ៌សិន។
+
+ដុំថ្មទាំង ១០០ = បាបកម្មចាស់ ដែល មិនបានរលាយបាត់ទៅណាឡើយ!
+
+នៅពេលណាដែល «ទូក» (បុណ្យ) អស់កម្លាំងដល់ត្រើយ... ដុំថ្មទាំង ១០០ នោះ នឹងធ្លាក់ចុះមកឱ្យសងកម្មវិញគ្រប់ចំនួន!`,
+    slide5: `ច្បាប់កម្មផល យុត្តិធម៌ ១០០% គ្រាន់តែហុចផល «តាមលំដាប់មុនក្រោយ»!
+
+ការសន្សំកុសល និងការហ្វឹកហាត់ចិត្តឱ្យស្ងប់រាល់ថ្ងៃ គឺជាការសង់ «ទូកដ៏រឹងមាំ» សម្រាប់គ្រាចុងក្រោយនៃជីវិត។
+
+កុំចាំដល់ជិតដាច់ខ្យល់ ទើបចាប់ផ្តើមនឹករកបុណ្យ!
+
+តើអ្នកយល់យ៉ាងណាដែរចំពោះការបកស្រាយរបស់ព្រះនាគសេន? 👇`,
+    imagePrompts: [
+      `Cinematic ancient Buddhist philosophical art, a wise Greek king questioning a serene Theravada Buddhist monk in saffron robes beside a mystical glowing golden balance scale suspended between heavenly light and fiery dark shadows, dramatic warm amber light beams, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+      `Dramatic cinematic portrait of an ancient Greek-Bactrian king in ornate golden robes looking deeply skeptical and puzzled inside a grand stone palace at night, warm candlelight casting deep chiaroscuro shadows, photorealistic, 8k resolution, vertical 3:4 aspect ratio, open dark space at top and bottom for typography, no text`,
+      `Symbolic cinematic art of a sturdy wooden boat glowing with warm golden aura floating across a vast dark river while carrying a hundred heavy dark boulders safely above the water, while a single small stone sinks into the deep water nearby, mystical golden moonlight, 8k photorealistic, vertical 3:4 aspect ratio, clean space for text, no text`,
+      `Mystical Buddhist conceptual illustration, a glowing golden boat fading away as it reaches a misty celestial shore, revealing heavy dark stones beneath the calm water waiting in silence, symbolizing karmic debt and sequence, warm gold and deep indigo tones, 8k resolution, vertical 3:4 aspect ratio, space for typography, no text`,
+      `Serene golden sunrise illuminating a peaceful river with a lone glowing lotus flower floating on tranquil water, symbolizing pure mindfulness, merit, and spiritual readiness, warm golden rays piercing morning mist, uplifting atmosphere, 8k photorealistic, vertical 3:4 aspect ratio, clean space for text, no text`
+    ],
+    imagePrompt: `Cinematic ancient Buddhist philosophical art, a wise Greek king questioning a serene Theravada Buddhist monk in saffron robes beside a mystical glowing golden balance scale suspended between heavenly light and fiery dark shadows, dramatic warm amber light beams, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+    caption: `ធ្វើបាប ១០០ ឆ្នាំ តែនឹកឃើញបុណ្យមុនស្លាប់បានទៅឋានសួគ៌... តើច្បាប់កម្មផលយុត្តិធម៌ត្រង់ណា? 🚣‍♂️🪨 ចម្លើយដ៏ស៊ីជម្រៅពីឧបមា «ទូក និងដុំថ្ម ១០០ ដុំ» របស់ព្រះនាគសេន ដែលបង្ហាញថា គ្មានបាបកម្មណាអាចរួចខ្លួនឡើយ គ្រាន់តែដល់វេនមុនឬក្រោយប៉ុណ្ណោះ! អូសមើលដល់ចប់ 👉 #ព្រះពុទ្ធសាសនា #ច្បាប់កម្មផល #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #ចំណេះដឹងទូទៅ #buddhism #karma #philosophy #khmercontent #fyp`
+  },
+  {
+    id: 'sin-known-vs-unknown',
+    title: 'រវាងអ្នកធ្វើបាបដោយ «ដឹង» និងអ្នកធ្វើបាបដោយ «មិនដឹង» តើមួយណាទទួលទោសបាបធ្ងន់ជាង?',
+    category: 'កម្មផល & មិលិន្ទប្បញ្ហា #៦៦',
+    publishedDate: '2026-11-12',
+    isNew: true,
+    views: '10.5K',
+    likes: 'Top',
+    tags: '#ព្រះពុទ្ធសាសនា #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #ចំណេះដឹងទូទៅ #អប់រំចិត្ត #buddhism #philosophy #khmercontent #fyp',
+    slides: [
+      `រវាងអ្នកធ្វើបាបដោយ «ដឹង»
+
+និងអ្នកធ្វើបាបដោយ «មិនដឹង»
+
+តើមួយណាទទួលទោសបាបធ្ងន់ជាង?
+
+(ចម្លើយពីគម្ពីរមិលិន្ទប្បញ្ហា ដែលមនុស្ស ៩៩% គិតខុស!)`,
+      `តាមច្បាប់មនុស្សលោក យើងតែងគិតថា៖
+
+«អ្នកមិនដឹង រមែងមិនមានទោស ឬទោសស្រាលជាងអ្នកដឹង»។
+
+ព្រះបាទមិលិន្ទ ក៏ធ្លាប់សួរសំណួរនេះទៅកាន់ ព្រះនាគសេន ដែរ...
+
+តែចម្លើយរបស់ព្រះអង្គ បែរជាផ្ទុយស្រឡះពីការគិតរបស់មនុស្សទូទៅ!`,
+      `ព្រះនាគសេន ត្រាស់តបថា៖
+
+«អ្នកធ្វើបាបដោយ "មិនដឹង" ទទួលទោសធ្ងន់ជាង!»
+
+ឧបមាដុំដែកភ្លើង៖
+មានដុំដែកដុតក្រហមឆ្អៅមួយដុំ...
+
+អ្នកដឹងថាក្តៅ៖ នឹងស្ទាបថ្នមៗ ឬប្រញាប់ដកដៃចេញ (រលាកតិច)។
+អ្នកមិនដឹងថាក្តៅ៖ នឹងចាប់ក្តាប់ពេញទំហឹង (រលាកខ្លោចដៃធ្ងន់ធ្ងរ!)។`,
+      `ហេតុផលតាមក្បួនអភិធម្ម៖
+
+១. អ្នកដឹងថាជាបាប៖ ពេលធ្វើ រមែងមានចិត្តរួញរា ខ្លាចបាប ធ្វើមិនអស់ពីចិត្ត និងឆាប់ភ្ញាក់ខ្លួនកែប្រែ។
+
+២. អ្នកមិនដឹង (មោហៈបាំងមុខ)៖ គិតថាអំពើបាបជារឿងត្រូវ ឬជារឿងសប្បាយ ទើបធ្វើដោយពេញទំហឹង ឥតសំចៃដៃ និងធ្វើដដែលៗគ្មានថ្ងៃឈប់!`,
+      `ច្បាប់ធម្មជាតិ មិនលើកលែងឱ្យភាពល្ងង់ខ្លៅឡើយ!
+
+ភ្លើងមិនដែលបន្ថយកម្តៅ ដោយសារតែយើងមិនស្គាល់ថាវាជាភ្លើងនោះទេ។
+
+ការសិក្សាព្រះធម៌ និងការបង្កើនបញ្ញា គឺជាការការពារខ្លួនឯងដ៏ល្អបំផុត។
+
+ចុះអ្នកទាំងអស់គ្នាយល់យ៉ាងណាដែរចំពោះចំណុចនេះ? 👇`
+    ],
+    slide1: `រវាងអ្នកធ្វើបាបដោយ «ដឹង»
+
+និងអ្នកធ្វើបាបដោយ «មិនដឹង»
+
+តើមួយណាទទួលទោសបាបធ្ងន់ជាង?
+
+(ចម្លើយពីគម្ពីរមិលិន្ទប្បញ្ហា ដែលមនុស្ស ៩៩% គិតខុស!)`,
+    slide2: `តាមច្បាប់មនុស្សលោក យើងតែងគិតថា៖
+
+«អ្នកមិនដឹង រមែងមិនមានទោស ឬទោសស្រាលជាងអ្នកដឹង»។
+
+ព្រះបាទមិលិន្ទ ក៏ធ្លាប់សួរសំណួរនេះទៅកាន់ ព្រះនាគសេន ដែរ...
+
+តែចម្លើយរបស់ព្រះអង្គ បែរជាផ្ទុយស្រឡះពីការគិតរបស់មនុស្សទូទៅ!`,
+    slide3: `ព្រះនាគសេន ត្រាស់តបថា៖
+
+«អ្នកធ្វើបាបដោយ "មិនដឹង" ទទួលទោសធ្ងន់ជាង!»
+
+ឧបមាដុំដែកភ្លើង៖
+មានដុំដែកដុតក្រហមឆ្អៅមួយដុំ...
+
+អ្នកដឹងថាក្តៅ៖ នឹងស្ទាបថ្នមៗ ឬប្រញាប់ដកដៃចេញ (រលាកតិច)។
+អ្នកមិនដឹងថាក្តៅ៖ នឹងចាប់ក្តាប់ពេញទំហឹង (រលាកខ្លោចដៃធ្ងន់ធ្ងរ!)។`,
+    slide4: `ហេតុផលតាមក្បួនអភិធម្ម៖
+
+១. អ្នកដឹងថាជាបាប៖ ពេលធ្វើ រមែងមានចិត្តរួញរា ខ្លាចបាប ធ្វើមិនអស់ពីចិត្ត និងឆាប់ភ្ញាក់ខ្លួនកែប្រែ។
+
+២. អ្នកមិនដឹង (មោហៈបាំងមុខ)៖ គិតថាអំពើបាបជារឿងត្រូវ ឬជារឿងសប្បាយ ទើបធ្វើដោយពេញទំហឹង ឥតសំចៃដៃ និងធ្វើដដែលៗគ្មានថ្ងៃឈប់!`,
+    slide5: `ច្បាប់ធម្មជាតិ មិនលើកលែងឱ្យភាពល្ងង់ខ្លៅឡើយ!
+
+ភ្លើងមិនដែលបន្ថយកម្តៅ ដោយសារតែយើងមិនស្គាល់ថាវាជាភ្លើងនោះទេ។
+
+ការសិក្សាព្រះធម៌ និងការបង្កើនបញ្ញា គឺជាការការពារខ្លួនឯងដ៏ល្អបំផុត។
+
+ចុះអ្នកទាំងអស់គ្នាយល់យ៉ាងណាដែរចំពោះចំណុចនេះ? 👇`,
+    imagePrompts: [
+      `Cinematic ancient Buddhist philosophical art, a wise Greek king in golden royal robes standing before a serene Theravada Buddhist monk in saffron robes inside a grand ancient stone temple, dramatic warm golden sunlight beams piercing through dark atmospheric dust, mysterious glowing scales of justice in the background, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+      `Close-up cinematic portrait of an ancient Greek-Bactrian king looking deeply thoughtful and questioning, dramatic chiaroscuro lighting, warm amber and deep shadow tones, ancient Indian palace pillars blurred in background, photorealistic, 8k, vertical 3:4 aspect ratio, space at top and bottom for text, no text`,
+      `Dramatic macro cinematic shot of two human hands reaching toward a glowing red-hot molten iron sphere radiating intense orange sparks and heat waves in a dark ancient forge, symbolizing ignorance versus awareness, high contrast, golden embers floating in dark air, photorealistic, 8k, vertical 3:4 aspect ratio, clean dark space for typography, no text`,
+      `Surreal Buddhist philosophical illustration, a meditating monk glowing with calm golden aura on one side representing wisdom and awareness, contrasted against dark swirling smoke and blindfolded shadows on the other side representing delusion (Moha), mystical cosmic lighting, 8k resolution, vertical 3:4 aspect ratio, clean composition for text, no text`,
+      `Serene Buddha statue bathed in warm sunrise golden light on a peaceful mountain peak overlooking misty clouds, symbolizing enlightenment, wisdom, and clarity, uplifting spiritual atmosphere, warm gold and deep blue sky tones, 8k photorealistic, vertical 3:4 aspect ratio, open space for text, no text`
+    ],
+    imagePrompt: `Cinematic ancient Buddhist philosophical art, a wise Greek king in golden royal robes standing before a serene Theravada Buddhist monk in saffron robes inside a grand ancient stone temple, dramatic warm golden sunlight beams piercing through dark atmospheric dust, mysterious glowing scales of justice in the background, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+    caption: `តើពាក្យថា «ខ្ញុំមិនដឹងទេ» អាចជួយឱ្យយើងរួចផុតពីផលកម្មបានដែរឬទេ? 🔥⚖️ ចម្លើយដ៏ស៊ីជម្រៅពីការជជែកតទល់គ្នារវាងព្រះបាទមិលិន្ទ និងព្រះនាគសេន ក្នុងគម្ពីរមិលិន្ទប្បញ្ហា។ អូសមើលដល់ចប់ដើម្បីយល់ពីអាថ៌កំបាំងនៃ «មោហៈ»! #ព្រះពុទ្ធសាសនា #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #ចំណេះដឹងទូទៅ #អប់រំចិត្ត #buddhism #philosophy #khmercontent #fyp`
+  },
+  {
+    id: 'two-arrows-arahant-pain',
+    title: 'ហេតុអ្វីមនុស្សទូទៅត្រូវ «ព្រួញ ២ ដើម» ពេលជួបទុក្ខ... តែព្រះអរហន្តត្រូវព្រួញតែ «១ ដើម»?',
+    category: 'ចិត្តវិទ្យា & មិលិន្ទប្បញ្ហា #៤៣',
+    publishedDate: '2026-11-11',
+    isNew: true,
+    views: '12.6K',
+    likes: 'Top',
+    tags: '#ព្រះពុទ្ធសាសនា #សុខភាពផ្លូវចិត្ត #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #អប់រំចិត្ត #buddhism #mentalpeace #philosophy #khmercontent #fyp',
+    slides: [
+      `ហេតុអ្វីមនុស្សទូទៅត្រូវ «ព្រួញ ២ ដើម» ពេលជួបទុក្ខ...
+
+តែព្រះអរហន្តត្រូវព្រួញតែ «១ ដើម»?
+
+(អាថ៌កំបាំងនៃការឈឺចាប់ ពីគម្ពីរមិលិន្ទប្បញ្ហា)`,
+      `ព្រះបាទមិលិន្ទ ទូលសួរព្រះនាគសេនថា៖
+
+«បើព្រះអរហន្តអស់កិលេសហើយ តើលោកនៅមានអារម្មណ៍ឈឺចាប់ពេលឈឺថ្កាត់ ឬត្រូវគេវាយធ្វើបាបដែរឬទេ?»
+
+ព្រះនាគសេន ត្រាស់តបថា៖
+«លោកនៅមាន ទុក្ខផ្លូវកាយ... តែលោកគ្មាន ទុក្ខផ្លូវចិត្ត សូម្បីតែបន្តិច!»`,
+      `ឧបមា «ព្រួញ ២ ដើម» របស់ព្រះនាគសេន៖
+
+ព្រួញទី ១ (ទុក្ខផ្លូវកាយ)៖ គឺការឈឺចាប់តាមធម្មជាតិ ដូចជា ជំងឺ ភាពចាស់ ឬការបាត់បង់ (ទាំងមនុស្សទូទៅ និងព្រះអរហន្ត សុទ្ធតែត្រូវព្រួញនេះដូចគ្នា)។
+
+ព្រួញទី ២ (ទុក្ខផ្លូវចិត្ត)៖ គឺការយំសោក ភ័យខ្លាច ក្តៅក្រហាយ និងការបន្ទោសខ្លួនឯង... ដែលយើងបាញ់ថែមលើខ្លួនឯង!`,
+      `មនុស្សទូទៅ៖ ឈឺកាយ ១ ដង តែឈឺចិត្ត ១០០ ដង!
+
+ពេលជួបបញ្ហា យើងតែងគិតបន្ថែមថា «ហេតុអ្វីជារឿងខ្ញុំ? តើថ្ងៃមុខទៅជាយ៉ាងណា?» ធ្វើឱ្យព្រួញទី ២ ចាក់ទម្លុះបេះដូងកាន់តែជ្រៅ។
+
+រីឯព្រះអរហន្ត៖ លោកដឹងច្បាស់ថា រាងកាយគ្រាន់តែជាធាតុធម្មជាតិ ទើបលោកទទួលដឹងត្រឹមការឈឺចាប់លើរាងកាយ តែ ចិត្តមិនញាប់ញ័រ ឡើយ។`,
+      `យើងមិនអាចហាម «ព្រួញទី ១» មិនឱ្យហោះមកប៉ះជីវិតបានទេ...
+
+តែយើងអាចហ្វឹកហាត់សតិ ដើម្បី ឈប់បាញ់ «ព្រួញទី ២» ចាក់សម្លាប់ចិត្តខ្លួនឯង!
+
+ពេលឈឺចាប់ ចូរដឹងត្រឹមថា «កំពុងឈឺ» កុំថែមការភ័យខ្លាចចូលទៅទៀត។
+
+តើអ្នកធ្លាប់បាញ់ «ព្រួញទី ២» ដាក់ខ្លួនឯងញឹកញាប់ប៉ុណ្ណាដែរ? 👇`
+    ],
+    slide1: `ហេតុអ្វីមនុស្សទូទៅត្រូវ «ព្រួញ ២ ដើម» ពេលជួបទុក្ខ...
+
+តែព្រះអរហន្តត្រូវព្រួញតែ «១ ដើម»?
+
+(អាថ៌កំបាំងនៃការឈឺចាប់ ពីគម្ពីរមិលិន្ទប្បញ្ហា)`,
+    slide2: `ព្រះបាទមិលិន្ទ ទូលសួរព្រះនាគសេនថា៖
+
+«បើព្រះអរហន្តអស់កិលេសហើយ តើលោកនៅមានអារម្មណ៍ឈឺចាប់ពេលឈឺថ្កាត់ ឬត្រូវគេវាយធ្វើបាបដែរឬទេ?»
+
+ព្រះនាគសេន ត្រាស់តបថា៖
+«លោកនៅមាន ទុក្ខផ្លូវកាយ... តែលោកគ្មាន ទុក្ខផ្លូវចិត្ត សូម្បីតែបន្តិច!»`,
+    slide3: `ឧបមា «ព្រួញ ២ ដើម» របស់ព្រះនាគសេន៖
+
+ព្រួញទី ១ (ទុក្ខផ្លូវកាយ)៖ គឺការឈឺចាប់តាមធម្មជាតិ ដូចជា ជំងឺ ភាពចាស់ ឬការបាត់បង់ (ទាំងមនុស្សទូទៅ និងព្រះអរហន្ត សុទ្ធតែត្រូវព្រួញនេះដូចគ្នា)។
+
+ព្រួញទី ២ (ទុក្ខផ្លូវចិត្ត)៖ គឺការយំសោក ភ័យខ្លាច ក្តៅក្រហាយ និងការបន្ទោសខ្លួនឯង... ដែលយើងបាញ់ថែមលើខ្លួនឯង!`,
+    slide4: `មនុស្សទូទៅ៖ ឈឺកាយ ១ ដង តែឈឺចិត្ត ១០០ ដង!
+
+ពេលជួបបញ្ហា យើងតែងគិតបន្ថែមថា «ហេតុអ្វីជារឿងខ្ញុំ? តើថ្ងៃមុខទៅជាយ៉ាងណា?» ធ្វើឱ្យព្រួញទី ២ ចាក់ទម្លុះបេះដូងកាន់តែជ្រៅ។
+
+រីឯព្រះអរហន្ត៖ លោកដឹងច្បាស់ថា រាងកាយគ្រាន់តែជាធាតុធម្មជាតិ ទើបលោកទទួលដឹងត្រឹមការឈឺចាប់លើរាងកាយ តែ ចិត្តមិនញាប់ញ័រ ឡើយ។`,
+    slide5: `យើងមិនអាចហាម «ព្រួញទី ១» មិនឱ្យហោះមកប៉ះជីវិតបានទេ...
+
+តែយើងអាចហ្វឹកហាត់សតិ ដើម្បី ឈប់បាញ់ «ព្រួញទី ២» ចាក់សម្លាប់ចិត្តខ្លួនឯង!
+
+ពេលឈឺចាប់ ចូរដឹងត្រឹមថា «កំពុងឈឺ» កុំថែមការភ័យខ្លាចចូលទៅទៀត។
+
+តើអ្នកធ្លាប់បាញ់ «ព្រួញទី ២» ដាក់ខ្លួនឯងញឹកញាប់ប៉ុណ្ណាដែរ? 👇`,
+    imagePrompts: [
+      `Cinematic ancient Buddhist philosophical art, a serene Theravada Buddhist monk in glowing saffron robes meditating calmly while two glowing golden energy arrows approach—one touching his shoulder and the second vanishing into golden light before reaching his heart, dramatic warm amber light beams in a dark temple atmosphere, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space at the top and bottom for text overlay, no text`,
+      `Dramatic cinematic scene inside an ancient Indian royal hall, a wise Greek king in golden armor and robes leaning forward asking a question to a calm, radiant Buddhist monk seated on a stone pedestal, warm golden candlelight and chiaroscuro shadows, photorealistic, 8k, vertical 3:4 aspect ratio, clean space for typography, no text`,
+      `Symbolic dark-and-gold conceptual art, a human silhouette with a glowing golden lotus in the chest, showing one physical arrow hitting the body while a second dark smoky arrow of anxiety and sorrow tries to pierce the mind, high contrast, mystical embers, 8k resolution, vertical 3:4 aspect ratio, clean negative space for text, no text`,
+      `Close-up cinematic portrait of a tranquil Buddhist monk meditating under a giant Bodhi tree at night, a turbulent storm of dark wind swirling around him while a sphere of calm golden light protects his mind completely undisturbed, photorealistic, 8k, vertical 3:4 aspect ratio, open space for text, no text`,
+      `Peaceful golden sunrise breaking over a calm, mirror-like mountain lake, soft golden light rays illuminating the mist, symbolizing mental clarity, peace, and freedom from emotional suffering, uplifting atmosphere, 8k photorealistic, vertical 3:4 aspect ratio, clean space for typography, no text`
+    ],
+    imagePrompt: `Cinematic ancient Buddhist philosophical art, a serene Theravada Buddhist monk in glowing saffron robes meditating calmly while two glowing golden energy arrows approach—one touching his shoulder and the second vanishing into golden light before reaching his heart, dramatic warm amber light beams in a dark temple atmosphere, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space at the top and bottom for text overlay, no text`,
+    caption: `ពេលជួបបញ្ហា មនុស្សភាគច្រើនមិនមែនស្លាប់ដោយសារបញ្ហាទេ តែឈឺចាប់ដោយសារ «ព្រួញទី ២» ដែលខ្លួនឯងបាញ់ថែម! 🏹💔 ស្វែងយល់ពីចម្លើយដ៏ស៊ីជម្រៅរបស់ព្រះនាគសេន អំពីរបៀបដែលព្រះអរហន្តគ្រប់គ្រងការឈឺចាប់។ អូសមើលដល់ចប់ 👉 #ព្រះពុទ្ធសាសនា #សុខភាពផ្លូវចិត្ត #ទស្សនវិជ្ជាជីវិត #មិលិន្ទប្បញ្ហា #អប់រំចិត្ត #buddhism #mentalpeace #philosophy #khmercontent #fyp`
+  },
+  {
+    id: 'sunnakappa-alien-civilization',
+    title: 'តើអាចមានអារ្យធម៌ដែលមានបច្ចេកវិទ្យាទំនើបជាងផែនដី... តែមិនដែលស្គាល់ពាក្យថា «ព្រះពុទ្ធ» ដែរឬទេ?',
+    category: 'ចក្រវាឡ & សុញ្ញកប្ប',
+    publishedDate: '2026-11-10',
+    isNew: true,
+    views: '10.1K',
+    likes: 'Top',
+    tags: '#ព្រះពុទ្ធសាសនា #ចក្រវាឡ #ទស្សនវិជ្ជាជីវិត #ចំណេះដឹងទូទៅ #សុញ្ញកប្ប #buddhism #universe #philosophy #khmercontent #fyp',
+    slides: [
+      `តើអាចមានអារ្យធម៌ដែលមានបច្ចេកវិទ្យាទំនើបជាងផែនដី...
+
+តែមិនដែលស្គាល់ពាក្យថា «ព្រះពុទ្ធ» ដែរឬទេ?
+
+(អាថ៌កំបាំងនៃ «សុញ្ញកប្ប» ក្នុងចក្រវាឡ)`,
+      `ចម្លើយតាមគម្ពីរពុទ្ធសាសនា គឺ «ពិតជាមានមែន!»
+
+ក្នុងវដ្តនៃចក្រវាឡ មានយុគសម័យដ៏យូរអង្វែងរាប់អសង្ខេយ្យឆ្នាំ ដែលហៅថា «សុញ្ញកប្ប» (កប្បទទេចាកព្រះពុទ្ធ)។
+
+ក្នុងយុគសម័យនោះ ពិភពលោកកកើតឡើង និងរីកចម្រើនធម្មតា ប៉ុន្តែ គ្មានព្រះពុទ្ធ ឬព្រះបច្ចេកពុទ្ធ ណាមួយត្រាស់ដឹងឡើយ។`,
+      `តើមនុស្សក្នុង «សុញ្ញកប្ប» រស់នៅបែបណា?
+
+ពួកគេអាចមានអាយុវែងរាប់ម៉ឺនឆ្នាំ និងមានរូបសម្បត្តិស្អាតបាត។
+ពួកគេអាចអភិវឌ្ឍវិទ្យាសាស្ត្រ យានជំនិះហោះហើរ និងបច្ចេកវិទ្យាទំនើបហួសការស្មាន។
+
+ប៉ុន្តែ... ពួកគេមិនដែលឮពាក្យថា «អរិយសច្ច ៤» ឬ «ព្រះនិព្វាន» សូម្បីតែមួយម៉ាត់!`,
+      `ទោះជឿនលឿនប៉ុណ្ណា ក៏នៅតែជាប់ក្នុងវាលវដ្តសង្សារ!
+
+វិទ្យាសាស្ត្រអាចនាំមនុស្សហោះទៅកាន់ភពផ្សេង ឬព្យាបាលជំងឺផ្លូវកាយបាន...
+
+ប៉ុន្តែបច្ចេកវិទ្យាមិនអាចលុបបំបាត់ លោភៈ ទោសៈ មោហៈ និង ការវិលកើតវិលស្លាប់ ចេញពីចិត្តមនុស្សបានឡើយ។
+
+គ្មានពន្លឺព្រះធម៌ គឺគ្មានផ្លូវរំលត់ទុក្ខជាអមតៈទេ។`,
+      `យើងកំពុងរស់នៅក្នុង «ភទ្ទកប្ប» ដែលកម្របំផុត!
+
+ការបានកើតជាមនុស្ស មានបច្ចេកវិទ្យាទំនើបប្រើប្រាស់ផង និងចំពេលដែល ពន្លឺព្រះធម៌របស់ព្រះពុទ្ធ នៅភ្លឺស្វាងផង គឺជាភ័ព្វសំណាងដែលរាប់អសង្ខេយ្យកប្បទើបមានម្តង។
+
+កុំទុកឱកាសដ៏កម្រនេះឱ្យកន្លងផុតទៅដោយឥតប្រយោជន៍!
+
+តើអ្នកយល់យ៉ាងណាដែរចំពោះរឿងនេះ? 👇`
+    ],
+    slide1: `តើអាចមានអារ្យធម៌ដែលមានបច្ចេកវិទ្យាទំនើបជាងផែនដី...
+
+តែមិនដែលស្គាល់ពាក្យថា «ព្រះពុទ្ធ» ដែរឬទេ?
+
+(អាថ៌កំបាំងនៃ «សុញ្ញកប្ប» ក្នុងចក្រវាឡ)`,
+    slide2: `ចម្លើយតាមគម្ពីរពុទ្ធសាសនា គឺ «ពិតជាមានមែន!»
+
+ក្នុងវដ្តនៃចក្រវាឡ មានយុគសម័យដ៏យូរអង្វែងរាប់អសង្ខេយ្យឆ្នាំ ដែលហៅថា «សុញ្ញកប្ប» (កប្បទទេចាកព្រះពុទ្ធ)។
+
+ក្នុងយុគសម័យនោះ ពិភពលោកកកើតឡើង និងរីកចម្រើនធម្មតា ប៉ុន្តែ គ្មានព្រះពុទ្ធ ឬព្រះបច្ចេកពុទ្ធ ណាមួយត្រាស់ដឹងឡើយ។`,
+    slide3: `តើមនុស្សក្នុង «សុញ្ញកប្ប» រស់នៅបែបណា?
+
+ពួកគេអាចមានអាយុវែងរាប់ម៉ឺនឆ្នាំ និងមានរូបសម្បត្តិស្អាតបាត។
+ពួកគេអាចអភិវឌ្ឍវិទ្យាសាស្ត្រ យានជំនិះហោះហើរ និងបច្ចេកវិទ្យាទំនើបហួសការស្មាន។
+
+ប៉ុន្តែ... ពួកគេមិនដែលឮពាក្យថា «អរិយសច្ច ៤» ឬ «ព្រះនិព្វាន» សូម្បីតែមួយម៉ាត់!`,
+    slide4: `ទោះជឿនលឿនប៉ុណ្ណា ក៏នៅតែជាប់ក្នុងវាលវដ្តសង្សារ!
+
+វិទ្យាសាស្ត្រអាចនាំមនុស្សហោះទៅកាន់ភពផ្សេង ឬព្យាបាលជំងឺផ្លូវកាយបាន...
+
+ប៉ុន្តែបច្ចេកវិទ្យាមិនអាចលុបបំបាត់ លោភៈ ទោសៈ មោហៈ និង ការវិលកើតវិលស្លាប់ ចេញពីចិត្តមនុស្សបានឡើយ។
+
+គ្មានពន្លឺព្រះធម៌ គឺគ្មានផ្លូវរំលត់ទុក្ខជាអមតៈទេ។`,
+    slide5: `យើងកំពុងរស់នៅក្នុង «ភទ្ទកប្ប» ដែលកម្របំផុត!
+
+ការបានកើតជាមនុស្ស មានបច្ចេកវិទ្យាទំនើបប្រើប្រាស់ផង និងចំពេលដែល ពន្លឺព្រះធម៌របស់ព្រះពុទ្ធ នៅភ្លឺស្វាងផង គឺជាភ័ព្វសំណាងដែលរាប់អសង្ខេយ្យកប្បទើបមានម្តង។
+
+កុំទុកឱកាសដ៏កម្រនេះឱ្យកន្លងផុតទៅដោយឥតប្រយោជន៍!
+
+តើអ្នកយល់យ៉ាងណាដែរចំពោះរឿងនេះ? 👇`,
+    imagePrompts: [
+      `Cinematic sci-fi meets ancient Buddhist cosmology art, a hyper-advanced futuristic civilization with glowing golden skyscrapers and sleek flying spacecraft under a vast deep blue cosmic nebula, mysterious spiritual atmosphere, dramatic golden light beams, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+      `Mystical cosmic illustration of endless rotating galaxies and ancient celestial clockwork rings floating in deep space, symbolizing countless eons of time without enlightenment, warm amber and deep indigo tones, ethereal stardust, 8k photorealistic, vertical 3:4 aspect ratio, open space for typography, no text`,
+      `Futuristic utopian metropolis at twilight with luminous golden bridges, anti-gravity ships, and advanced architecture, yet the citizens below look small and lost in shadow, symbolizing material advancement without spiritual awakening, cinematic lighting, 8k resolution, vertical 3:4 aspect ratio, clean space for text, no text`,
+      `A solitary person standing inside a sleek, glowing high-tech glass observatory looking out at an infinite starry universe, subtle golden light reflecting on their thoughtful face, feeling of existential emptiness despite technological wonders, atmospheric dark blue and warm gold palette, 8k, vertical 3:4 aspect ratio, space for text, no text`,
+      `Majestic serene Buddha silhouette glowing with warm radiant golden light on a tranquil mountain ridge overlooking a sea of clouds and distant stars, symbolizing the rare light of Dhamma in the vast universe, inspiring and peaceful atmosphere, 8k photorealistic, vertical 3:4 aspect ratio, clean space for text, no text`
+    ],
+    imagePrompt: `Cinematic sci-fi meets ancient Buddhist cosmology art, a hyper-advanced futuristic civilization with glowing golden skyscrapers and sleek flying spacecraft under a vast deep blue cosmic nebula, mysterious spiritual atmosphere, dramatic golden light beams, hyper-detailed, 8k resolution, vertical 3:4 aspect ratio, clean dark negative space in the center for text overlay, no text`,
+    caption: `តើមានអារ្យធម៌ដែលមានបច្ចេកវិទ្យាទំនើបជាងផែនដី តែមិនដែលស្គាល់ពាក្យថា «ព្រះពុទ្ធ» ដែរឬទេ? 🌌🛸 ស្វែងយល់ពីអាថ៌កំបាំងនៃ «សុញ្ញកប្ប» និងមូលហេតុដែលការកើតមកចំសម័យបច្ចុប្បន្ន គឺជាឱកាសដ៏កម្របំផុតក្នុងចក្រវាឡ! អូសមើលដល់ចប់ 👉 #ព្រះពុទ្ធសាសនា #ចក្រវាឡ #ទស្សនវិជ្ជាជីវិត #ចំណេះដឹងទូទៅ #សុញ្ញកប្ប #buddhism #universe #philosophy #khmercontent #fyp`
+  },
+  {
     id: 'stress-mental-tension',
     title: 'តើការ «តានតឹងចិត្ត» កើតមកពីអ្វីពិតប្រាកដ?',
     category: 'ចិត្តវិទ្យា & ជីវិត',
     publishedDate: '2026-11-05',
-    isNew: true,
+    isNew: false,
     views: 'Hot',
     likes: 'Top',
     tags: '#buddhist #buddhism #facts #fyp #buddha #mindfulness',

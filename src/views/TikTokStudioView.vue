@@ -331,10 +331,10 @@
               <button
                 type="button"
                 @click="copyPill(getAllSlidesText(activePost), 'ចម្លងគ្រប់ Slide', 'all')"
-                class="copy-pill font-bold col-span-2 sm:col-span-1"
+                class="copy-pill font-bold"
                 :style="{ borderColor: 'var(--accent)', color: 'var(--accent-bright)' }"
               >
-                <span>{{ copiedKey === 'all' ? '✓ ចម្លងគ្រប់ Slide!' : '📑 ចម្លងគ្រប់ Slide' }}</span>
+                <span>{{ copiedKey === 'all' ? '✓ ចម្លងគ្រប់ Slide!' : '📑 គ្រប់ Slide' }}</span>
               </button>
 
               <button
@@ -347,10 +347,19 @@
 
               <button
                 type="button"
-                @click="copyPill(activePost.imagePrompt, 'ចម្លង Midjourney Prompt', 'prompt')"
+                @click="copyPill(currentImagePrompt, `ចម្លង Prompt Slide ${currentSlideIndex + 1}`, 'prompt')"
                 class="copy-pill"
               >
-                <span>{{ copiedKey === 'prompt' ? '✓ បានចម្លង!' : '🎨 Image Prompt' }}</span>
+                <span>{{ copiedKey === 'prompt' ? '✓ បានចម្លង!' : `🎨 Prompt ${currentSlideIndex + 1} (3:4)` }}</span>
+              </button>
+
+              <button
+                type="button"
+                @click="copyPill(getFullScriptText(activePost), 'ចម្លងទម្រង់ពេញ (Full Script)', 'full_script')"
+                class="copy-pill font-bold col-span-2 sm:col-span-3 text-amber-300"
+                :style="{ background: 'var(--accent-soft)', borderColor: 'var(--accent)' }"
+              >
+                <span>{{ copiedKey === 'full_script' ? '✓ បានចម្លងទម្រង់ពេញ (Gemini 3.8 Style)!' : '🌟 ចម្លងទម្រង់ពេញ (៥ ស្លាយ + Prompts + Caption)' }}</span>
               </button>
             </div>
           </div>
@@ -488,6 +497,67 @@
             </div>
           </div>
 
+          <!-- Topic Suggestions List Card (Shown when topics exist) -->
+          <div
+            v-if="activePost?.topics && activePost.topics.length > 0"
+            class="p-4 rounded-2xl border shadow-sm space-y-3"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
+                <span>💡 បញ្ជីប្រធានបទថ្មីៗ ({{ activePost.topics.length }}) ៖</span>
+              </span>
+              <button
+                type="button"
+                @click="copyPill(getFullScriptText(activePost), 'ចម្លងបញ្ជីប្រធានបទទាំងអស់', 'topics_card')"
+                class="px-2.5 py-1 rounded-lg text-xs font-bold border transition cursor-pointer"
+                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+              >
+                <span>{{ copiedKey === 'topics_card' ? '✓ បានចម្លង!' : '📋 ចម្លងបញ្ជីទាំងអស់' }}</span>
+              </button>
+            </div>
+
+            <p v-if="activePost.intro" class="text-xs font-body leading-relaxed text-amber-300/90">
+              {{ activePost.intro }}
+            </p>
+
+            <div class="space-y-2 max-h-[360px] overflow-y-auto pr-1">
+              <div
+                v-for="(t, idx) in activePost.topics"
+                :key="idx"
+                class="p-3 rounded-xl border transition flex flex-col gap-1.5"
+                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div class="text-xs font-bold text-amber-300 flex-1 leading-snug">
+                    {{ idx + 1 }}. {{ t.title || t.hook }}
+                  </div>
+                  <button
+                    type="button"
+                    @click="generateFromTopic(t)"
+                    :disabled="isGenerating"
+                    class="shrink-0 text-[11px] px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold cursor-pointer transition shadow disabled:opacity-50"
+                  >
+                    ✨ ផលិត ៥ ស្លាយ
+                  </button>
+                </div>
+                <div v-if="t.hook && t.hook !== t.title" class="text-xs text-amber-100 font-bold font-display">
+                  {{ t.hook }}
+                </div>
+                <p v-if="t.summary" class="text-xs font-body leading-relaxed text-stone-300">
+                  {{ t.summary }}
+                </p>
+                <div v-if="t.reference" class="text-[10px] font-mono text-amber-400/70">
+                  {{ t.reference }}
+                </div>
+              </div>
+            </div>
+
+            <p v-if="activePost.outro" class="text-xs font-body italic text-amber-200/80 pt-1">
+              {{ activePost.outro }}
+            </p>
+          </div>
+
           <!-- 9:16 Smartphone Mockup Frame -->
           <div class="phone-frame relative mx-auto rounded-[32px] p-3 shadow-2xl border-4"
             :style="{
@@ -597,28 +667,40 @@
             </p>
           </div>
 
-          <!-- Midjourney Image Prompt Card -->
+          <!-- Midjourney Image Prompt Card (Dynamically shows prompt for current slide) -->
           <div
-            v-if="activePost?.imagePrompt"
+            v-if="currentImagePrompt"
             class="p-4 rounded-2xl border shadow-sm space-y-2"
             :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
           >
             <div class="flex items-center justify-between">
               <span class="text-xs font-bold flex items-center gap-1.5" :style="{ color: 'var(--ink)' }">
-                <span>🎨 Midjourney Image Prompt</span>
+                <span>🎨 Prompt រូបភាពស្លាយទី {{ currentSlideIndex + 1 }} (3:4)</span>
               </span>
-              <button
-                type="button"
-                @click="copyPill(activePost.imagePrompt, 'ចម្លង Image Prompt', 'prompt_card')"
-                class="px-2.5 py-1 rounded-lg text-xs font-bold border transition cursor-pointer"
-                :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
-              >
-                <span>{{ copiedKey === 'prompt_card' ? '✓ បានចម្លង!' : '🎨 ចម្លង Prompt' }}</span>
-              </button>
+              <div class="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  @click="copyPill(currentImagePrompt, `ចម្លង Prompt ស្លាយ ${currentSlideIndex + 1}`, 'prompt_card')"
+                  class="px-2.5 py-1 rounded-lg text-xs font-bold border transition cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+                >
+                  <span>{{ copiedKey === 'prompt_card' ? '✓ បានចម្លង!' : '🎨 ចម្លង Prompt' }}</span>
+                </button>
+                <button
+                  v-if="hasMultipleImagePrompts"
+                  type="button"
+                  @click="copyPill(getAllImagePromptsText(activePost), 'ចម្លងគ្រប់ Prompt ទាំង ៥ ស្លាយ', 'all_prompts')"
+                  class="px-2 py-1 rounded-lg text-[11px] font-bold border transition cursor-pointer"
+                  :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--ink-muted)' }"
+                  title="ចម្លងគ្រប់ Prompt ទាំងអស់"
+                >
+                  <span>{{ copiedKey === 'all_prompts' ? '✓ បានចម្លង!' : 'ចម្លងទាំង ៥' }}</span>
+                </button>
+              </div>
             </div>
             <p class="text-xs leading-relaxed font-mono p-3 rounded-xl border select-all max-h-[120px] overflow-y-auto"
               :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)', color: 'var(--ink-soft)' }">
-              {{ activePost.imagePrompt }}
+              {{ currentImagePrompt }}
             </p>
           </div>
 
@@ -710,9 +792,70 @@ const currentSlides = computed(() => {
 })
 
 function getSlideBadge(idx, total) {
-  if (idx === 0) return 'Slide 1 : The Hook (សំណួរចាក់ដោត)'
-  if (idx === total - 1) return `Slide ${idx + 1} : មេរៀនជីវិត & CTA`
-  return `Slide ${idx + 1} : ការពន្យល់ធម៌ពិត (ភាគ ${idx})`
+  if (activePost.value?.slideTitles?.[idx]) {
+    return activePost.value.slideTitles[idx]
+  }
+  if (idx === 0) return 'ស្លាយទី ១ ៖ ក្របមុខទាក់ទាញ (The Hook)'
+  if (idx === 1) return 'ស្លាយទី ២ ៖ ចម្ងល់មនុស្សទូទៅ (The Paradox)'
+  if (idx === 2) return 'ស្លាយទី ៣ ៖ ចម្លើយ & ឧបមា (Visceral Simile)'
+  if (idx === 3) return 'ស្លាយទី ៤ ៖ យន្តការនៃចិត្ត (Real Mechanism)'
+  if (idx === total - 1) return `ស្លាយទី ${idx + 1} ៖ មេរៀនជីវិត & CTA`
+  return `ស្លាយទី ${idx + 1} ៖ ការពន្យល់ធម៌ពិត`
+}
+
+const currentImagePrompt = computed(() => {
+  if (!activePost.value) return ''
+  if (Array.isArray(activePost.value.imagePrompts) && activePost.value.imagePrompts.length > 0) {
+    return activePost.value.imagePrompts[currentSlideIndex.value] || activePost.value.imagePrompts[0] || ''
+  }
+  return activePost.value.imagePrompt || ''
+})
+
+const hasMultipleImagePrompts = computed(() => {
+  return Array.isArray(activePost.value?.imagePrompts) && activePost.value.imagePrompts.length > 1
+})
+
+function getAllImagePromptsText(post) {
+  if (!post) return ''
+  if (Array.isArray(post.imagePrompts) && post.imagePrompts.length > 0) {
+    return post.imagePrompts.map((p, idx) => `=== SLIDE ${idx + 1} PROMPT (3:4) ===\n${p}`).join('\n\n')
+  }
+  return post.imagePrompt || ''
+}
+
+function getFullScriptText(post) {
+  if (!post) return ''
+  if (post.fullScript && post.fullScript.length > 100) {
+    return post.fullScript
+  }
+  const slides = Array.isArray(post.slides) && post.slides.length > 0
+    ? post.slides
+    : [post.slide1, post.slide2, post.slide3, post.slide4, post.slide5].filter(Boolean)
+  const prompts = Array.isArray(post.imagePrompts) ? post.imagePrompts : []
+  const titles = post.slideTitles || [
+    'ស្លាយទី ១៖ ក្របមុខទាក់ទាញ (Hook Cover)',
+    'ស្លាយទី ២៖ ចម្ងល់របស់មនុស្សទូទៅ (The Common Logic)',
+    'ស្លាយទី ៣៖ ចម្លើយដ៏ភ្ញាក់ផ្អើល (ឧបមា)',
+    'ស្លាយទី ៤៖ ហេតុផលស៊ីជម្រៅ (The Real Justice)',
+    'ស្លាយទី ៥៖ មេរៀនជីវិត និងសំណួរចុងបញ្ចប់ (Takeaway & CTA)'
+  ]
+
+  let out = ''
+  if (post.intro) out += `${post.intro}\n\n`
+  slides.forEach((s, idx) => {
+    out += `${titles[idx] || `ស្លាយទី ${idx + 1}`} ៖\n`
+    out += `អក្សរដាក់លើរូបភាព៖\n\n${s}\n\n`
+    if (prompts[idx]) {
+      out += `Image Prompt (3:4):\n${prompts[idx]}\n\n`
+    }
+  })
+  if (post.caption) {
+    out += `Caption សម្រាប់ផុសលើ TikTok (Copy-Paste) ៖\n${post.caption}\n\n`
+  }
+  if (post.outro) {
+    out += `${post.outro}\n`
+  }
+  return out.trim()
 }
 
 const filteredPosts = computed(() => {
@@ -836,6 +979,13 @@ async function handleGenerate() {
     mobileTab.value = 'preview'
     showToast('✨ បានបង្កើត Slide ដោយជោគជ័យ!')
   }
+}
+
+function generateFromTopic(topic) {
+  const q = topic.hook || topic.title || ''
+  if (!q) return
+  inputQuestion.value = q
+  handleGenerate()
 }
 
 function copyCurrentSlide() {

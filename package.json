@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "audit:text": "node scripts/auditKhmerText.js",
+    "audit:text:fix": "node scripts/auditKhmerText.js --fix",
     "bot:poll": "node scripts/bot-polling.js"
   },
   "dependencies": {

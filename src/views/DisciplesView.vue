@@ -235,7 +235,7 @@ const disciples = [
     shortEn: 'Right Chief Disciple, enlightened while fanning the Buddha at Sukarakhata Cave.',
     pastVowKm: 'កាលពី ១ អសង្ខេយ្យ និង ១០០,០០០ កប្បកន្លងទៅ ក្នុងសម័យព្រះពុទ្ធអនោមទស្សី លោកកើតជាតាបសឈ្មោះ សរទៈ បានថ្វាយផ្កាឈូក និងតាំងសច្ចាថា សូមឱ្យបានជាអគ្គសាវ័កស្តាំផ្នែកប្រាជ្ញានៃព្រះពុទ្ធនាអនាគត។',
     pastVowEn: 'Made the aspiration 1 asankhyeyya and 100,000 kalpas ago under Buddha Anomadassi as the hermit Sarada.',
-    awakeningKm: 'បានជួបព្រះអស្សជិតេ្ថរៈ ឮធម៌មួយគាថា ក៏បានសម្រេចសោតាបត្តិផល។ ក្រោយមកបួសបាន ១៥ ថ្ងៃ ខណៈពេលឈរកាន់ផ្លិតផ្លុំថ្វាយព្រះពុទ្ធ ដែលកំពុងសម្តែង «ទីឃនខសូត្រ» ប្រោសទីឃនខបរិព្វាជក ព្រះសារីបុត្តបានពិចារណាវេទនានុបស្សនា ក៏បានសម្រេចព្រះអរហត្តផលជាស្ថាពរ។',
+    awakeningKm: 'បានជួបព្រះអស្សជិតត្ថេរ ឮធម៌មួយគាថា ក៏បានសម្រេចសោតាបត្តិផល។ ក្រោយមកបួសបាន ១៥ ថ្ងៃ ខណៈពេលឈរកាន់ផ្លិតផ្លុំថ្វាយព្រះពុទ្ធ ដែលកំពុងសម្តែង «ទីឃនខសូត្រ» ប្រោសទីឃនខបរិព្វាជក ព្រះសារីបុត្តបានពិចារណាវេទនានុបស្សនា ក៏បានសម្រេចព្រះអរហត្តផលជាស្ថាពរ។',
     awakeningEn: 'Attained Sotapanna upon hearing Assaji recite "Ye dhamma hetuppabhava...", and Arahantship 15 days later contemplating feeling (Vedanā).',
     verseKm: 'សេចក្តីស្លាប់ អាត្មាមិនត្រេកអរឡើយ ជីវិតរស់នៅ អាត្មាក៏មិនត្រេកអរឡើយ អាត្មារង់ចាំតែកាលវេលាមកដល់ ដូចជាអ្នកស៊ីឈ្នួលរង់ចាំទទួលកម្រៃដូច្នេះឯង។',
     verseEn: 'I delight not in death, I delight not in life; I await my time like a hireling waiting for his wages.',

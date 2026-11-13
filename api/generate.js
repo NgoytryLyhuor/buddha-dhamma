@@ -130,14 +130,15 @@ Follow all creator guidelines:
 - If asked for topic ideas: Provide 6 to 10 viral curiosity-gap titles with hook, core substance, and canonical reference.
 Return strictly valid JSON only.`;
 
-    // Primary: gemini-3.8-flash (user requested)
-    // Fallbacks: gemini-2.5-flash, gemini-2.0-flash, gemini-1.5-flash, gemini-1.5-pro
+    // Candidate models with primary 3.8 and robust official fallbacks
+    // Each model has its own independent quota bucket on Google AI Studio
     const candidateModels = [
       'gemini-3.8-flash',
-      'gemini-2.5-flash',
-      'gemini-2.0-flash',
-      'gemini-1.5-flash',
-      'gemini-1.5-pro'
+      'gemini-3.6-flash',
+      'gemini-3.5-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-3.1-flash-lite',
+      'gemini-flash-latest'
     ];
 
     let lastError = null;
@@ -157,7 +158,7 @@ Return strictly valid JSON only.`;
                 responseMimeType: 'application/json'
               }
             }),
-            signal: AbortSignal.timeout(25000)
+            signal: AbortSignal.timeout(10000)
           }
         );
 

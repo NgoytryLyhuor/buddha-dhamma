@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const getEmbeddedKey = () => {
+export const getEmbeddedKey = () => {
   try {
     return atob('QVEuQWI4Uk42S0J0ZmF0TGJtMTkyMVlvc1FNOUJUNzBINFc1aWJPTF9KSExPcDZnSDBmM0E=')
   } catch {
@@ -314,12 +314,14 @@ Return ONLY valid JSON (no markdown wrapping, no extra prose outside the JSON):
     const keyToUse = apiKey.value || getEmbeddedKey()
 
     // Candidate models with primary 3.8 and robust official fallbacks
+    // Each model has its own independent quota bucket on Google AI Studio
     const candidateModels = [
       'gemini-3.8-flash',
-      'gemini-2.5-flash',
-      'gemini-2.0-flash',
-      'gemini-1.5-flash',
-      'gemini-1.5-pro'
+      'gemini-3.6-flash',
+      'gemini-3.5-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-3.1-flash-lite',
+      'gemini-flash-latest'
     ]
 
     for (const model of candidateModels) {
@@ -345,7 +347,7 @@ Return strictly valid JSON only.`
                 responseMimeType: 'application/json'
               }
             }),
-            signal: AbortSignal.timeout(28000)
+            signal: AbortSignal.timeout(9000)
           }
         )
 
@@ -391,6 +393,9 @@ Return strictly valid JSON only.`
             saveToHistory(parsed, questionText)
             return parsed
           }
+        } else {
+          const errData = await response.json().catch(() => ({}))
+          console.warn(`Model ${model} returned HTTP ${response.status}:`, errData?.error?.message || errData)
         }
       } catch (err) {
         console.warn(`Direct call with ${model} failed:`, err)
@@ -451,9 +456,13 @@ Return strictly valid JSON only.`
       }
     } catch (err) {
       console.error('All generation attempts failed:', err)
-      errorMessage.value =
-        err.message ||
-        'មិនអាចភ្ជាប់ទៅកាន់ Gemini API បានទេ។'
+      const errStr = (err?.message || '') + ''
+      const isRateLimit = errStr.includes('429') || errStr.includes('rate limit') || errStr.includes('quota') || errStr.includes('Quota') || errStr.includes('demand') || errStr.includes('503')
+      if (isRateLimit) {
+        errorMessage.value = '⚠️ កូតាឥតគិតថ្លៃ (Rate Limit: 5 សំណួរ/នាទី) របស់ Gemini ត្រូវបានប្រើប្រាស់ពេញ។ សូមរង់ចាំប្រមាណ ១ នាទី ឬកំណត់ API Key ផ្ទាល់ខ្លួនរបស់អ្នកនៅក្នុង Setting ⚙️។'
+      } else {
+        errorMessage.value = err.message || 'មិនអាចភ្ជាប់ទៅកាន់ Gemini API បានទេ។ សូមព្យាយាមម្តងទៀត ឬពិនិត្យ API Key នៅក្នុង Setting ⚙️'
+      }
       isGenerating.value = false
       return null
     }

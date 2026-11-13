@@ -122,11 +122,16 @@
         </div>
 
         <div class="flex items-center justify-between sm:justify-end gap-2">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border"
-            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-[11px]">Key រួចរាល់</span>
-          </div>
+          <button
+            type="button"
+            @click="showApiKeyModal = true"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border transition cursor-pointer hover:border-amber-500"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)', color: 'var(--accent-bright)' }"
+            title="កំណត់ API Key"
+          >
+            <span class="w-2 h-2 rounded-full" :class="isUsingCustomKey ? 'bg-amber-400' : 'bg-emerald-500 animate-pulse'"></span>
+            <span class="text-[11px]">{{ isUsingCustomKey ? 'Key ផ្ទាល់ខ្លួន' : '⚙️ API Key' }}</span>
+          </button>
 
           <button
             type="button"
@@ -272,9 +277,19 @@
             </div>
 
             <!-- Error Alert -->
-            <div v-if="errorMessage" class="p-3 rounded-xl text-xs flex items-start gap-2 bg-red-900/20 border border-red-500/40 text-red-300">
-              <span class="font-bold">⚠️ កំហុស ៖</span>
-              <span>{{ errorMessage }}</span>
+            <div v-if="errorMessage" class="p-3 rounded-xl text-xs flex items-start justify-between gap-2 bg-red-900/20 border border-red-500/40 text-red-300">
+              <div class="flex items-start gap-2 flex-1">
+                <span class="font-bold shrink-0">⚠️ កំហុស ៖</span>
+                <span class="leading-relaxed">{{ errorMessage }}</span>
+              </div>
+              <button
+                v-if="errorMessage.includes('Key') || errorMessage.includes('កូតា') || errorMessage.includes('Rate') || errorMessage.includes('Setting')"
+                type="button"
+                @click="showApiKeyModal = true"
+                class="shrink-0 px-2 py-1 rounded bg-amber-500/30 text-amber-200 border border-amber-500/50 hover:bg-amber-500/50 font-bold cursor-pointer transition text-[11px]"
+              >
+                ⚙️ ប្តូរ Key
+              </button>
             </div>
 
             <!-- Mobile Quick Banner to jump to active post preview -->
@@ -738,6 +753,97 @@
           {{ toastMessage }}
         </div>
       </transition>
+
+      <!-- API Key Settings Modal -->
+      <transition name="fade">
+        <div
+          v-if="showApiKeyModal"
+          class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          @click.self="showApiKeyModal = false"
+        >
+          <div
+            class="w-full max-w-md p-5 sm:p-6 rounded-2xl border shadow-2xl space-y-4"
+            :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+          >
+            <div class="flex items-center justify-between border-b pb-3" :style="{ borderColor: 'var(--border)' }">
+              <h3 class="text-sm sm:text-base font-bold flex items-center gap-2" :style="{ color: 'var(--ink)' }">
+                <span>⚙️ កំណត់ Gemini API Key</span>
+              </h3>
+              <button
+                type="button"
+                @click="showApiKeyModal = false"
+                class="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold hover:bg-stone-800 transition cursor-pointer"
+                :style="{ color: 'var(--ink-muted)' }"
+              >
+                ✕
+              </button>
+            </div>
+
+            <!-- Current Key Status -->
+            <div class="p-3 rounded-xl border space-y-1.5" :style="{ background: 'var(--bg-card-2)', borderColor: 'var(--border)' }">
+              <div class="text-[11px] font-bold flex items-center justify-between">
+                <span :style="{ color: 'var(--ink-muted)' }">ស្ថានភាព Key បច្ចុប្បន្ន ៖</span>
+                <span
+                  class="px-2 py-0.5 rounded text-[10px] font-bold"
+                  :class="isUsingCustomKey ? 'bg-amber-500/20 text-amber-300' : 'bg-emerald-500/20 text-emerald-300'"
+                >
+                  {{ isUsingCustomKey ? 'Key ផ្ទាល់ខ្លួន' : 'Key ដើម (Default Embedded)' }}
+                </span>
+              </div>
+              <div class="text-xs font-mono truncate" :style="{ color: 'var(--ink-soft)' }">
+                {{ maskedApiKey }}
+              </div>
+            </div>
+
+            <!-- Key Input -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold block" :style="{ color: 'var(--ink)' }">
+                បញ្ចូល API Key ថ្មី (Google AI Studio) ៖
+              </label>
+              <input
+                v-model="customKeyInput"
+                type="text"
+                placeholder="AIzaSy..."
+                class="w-full px-3 py-2.5 rounded-xl border text-xs sm:text-sm font-mono transition focus:outline-none focus:ring-2"
+                :style="{
+                  background: 'var(--bg-input)',
+                  borderColor: 'var(--border)',
+                  color: 'var(--ink)',
+                  '--tw-ring-color': 'var(--accent)'
+                }"
+              />
+              <p class="text-[11px] leading-relaxed" :style="{ color: 'var(--ink-faint)' }">
+                ប្រសិនបើ Key ដើមអស់កូតា (Rate limit 5 req/min) លីហួរ អាចយក Free Key ពី 
+                <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-bold">
+                  Google AI Studio ↗
+                </a> 
+                មកបិទភ្ជាប់ត្រង់នេះ។ Key នឹងរក្សាទុកក្នុង Browser របស់អ្នក។
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2 pt-2">
+              <button
+                type="button"
+                @click="saveCustomApiKey"
+                class="flex-1 py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold transition shadow cursor-pointer text-center"
+              >
+                💾 រក្សាទុក Key
+              </button>
+              <button
+                v-if="isUsingCustomKey"
+                type="button"
+                @click="resetToDefaultApiKey"
+                class="py-2.5 px-3 rounded-xl border text-xs font-bold transition cursor-pointer hover:bg-stone-800"
+                :style="{ borderColor: 'var(--border)', color: 'var(--ink-muted)' }"
+                title="ប្តូរមកប្រើ Key ដើមវិញ"
+              >
+                🔄 Key ដើម
+              </button>
+            </div>
+          </div>
+        </div>
+      </transition>
     </Teleport>
   </div>
 </template>
@@ -745,9 +851,11 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { PUBLISHED_AND_CURATED_POSTS } from '../data/tiktokPosts.js'
-import { useGeminiTikTok, PRESET_QUESTIONS } from '../composables/useGeminiTikTok.js'
+import { useGeminiTikTok, PRESET_QUESTIONS, getEmbeddedKey } from '../composables/useGeminiTikTok.js'
 
 const {
+  apiKey,
+  setApiKey,
   isGenerating,
   errorMessage,
   toastMessage,
@@ -759,6 +867,39 @@ const {
   verifyPin,
   logout
 } = useGeminiTikTok()
+
+// API Key Settings Modal State
+const showApiKeyModal = ref(false)
+const customKeyInput = ref('')
+
+const isUsingCustomKey = computed(() => {
+  return !!apiKey.value && apiKey.value !== getEmbeddedKey()
+})
+
+const maskedApiKey = computed(() => {
+  if (!apiKey.value) return 'មិនទាន់មាន Key'
+  if (apiKey.value.length < 12) return '••••••••'
+  return apiKey.value.substring(0, 7) + '••••••••' + apiKey.value.slice(-4)
+})
+
+function saveCustomApiKey() {
+  const k = (customKeyInput.value || '').trim()
+  if (!k) {
+    showToast('⚠️ សូមបញ្ចូល API Key ជាមុនសិន')
+    return
+  }
+  setApiKey(k)
+  customKeyInput.value = ''
+  showApiKeyModal.value = false
+  showToast('✅ បានរក្សាទុក API Key ថ្មី')
+}
+
+function resetToDefaultApiKey() {
+  setApiKey('')
+  customKeyInput.value = ''
+  showApiKeyModal.value = false
+  showToast('🔄 បានប្តូរមកប្រើ Key ដើមវិញ')
+}
 
 // PIN Screen State
 const pinInput = ref('')

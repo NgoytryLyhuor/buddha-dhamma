@@ -38,6 +38,7 @@ const routes = [
   { path: '/questions', name: 'questions', component: lazyView(() => import('./views/QuestionsView.vue')), meta: { titleK: 'សំណួរ–ចម្លើយ ៤៤', titleE: '44 Q&A' } },
   { path: '/rupa-qa', name: 'rupa-qa', component: lazyView(() => import('./views/RupaQaView.vue')), meta: { titleK: 'សំណួររូបបរមត្ថ', titleE: 'Rūpa Paramattha Q&A' } },
   { path: '/cetasika-qa', name: 'cetasika-qa', component: lazyView(() => import('./views/CetasikaQaView.vue')), meta: { titleK: 'សំណួរចេតសិកបរមត្ថ', titleE: 'Cetasika Paramattha Q&A' } },
+  { path: '/milinda-qa', name: 'milinda-qa', component: lazyView(() => import('./views/MilindaQaView.vue')), meta: { titleK: 'គម្ពីរមិលិន្ទប្បញ្ហា ២៤៥ បញ្ហា', titleE: 'Milindapañhā 245 Q&A Lessons' } },
   { path: '/lobha-mula-citta', name: 'lobha-mula-citta', component: lazyView(() => import('./views/LobhaMulaCittaView.vue')), meta: { titleK: 'លោភមូលចិត្ត ៨ ដួង', titleE: '8 Lobha Mūla Citta' } },
   { path: '/paccaya', name: 'paccaya', component: lazyView(() => import('./views/PaccayaView.vue')), meta: { titleK: 'បច្ច័យ ២៤ (គម្ពីរបដ្ឋាន)', titleE: '24 Conditions (Paṭṭhāna)' } },
   { path: '/sangha', name: 'sangha', component: lazyView(() => import('./views/SanghaView.vue')), meta: { titleK: 'ជីវិតព្រះសង្ឃ', titleE: 'Monastic Life & Sangha' } },

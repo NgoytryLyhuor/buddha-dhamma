@@ -194,6 +194,10 @@
                 <span class="text-amber-500 font-bold">•</span>
                 <router-link to="/suttas" class="hover:underline">{{ t('កំពូលព្រះសូត្រ (ធម្មចក្រ, មង្គល...)', 'Key Discourses (Sutta Pitaka)') }}</router-link>
               </li>
+              <li class="flex items-center gap-2">
+                <span class="text-amber-500 font-bold">•</span>
+                <router-link to="/milinda-qa" class="hover:underline">{{ t('មិលិន្ទប្បញ្ហា ២៤៥ បញ្ហា & ឧបមា', 'Milindapañhā (245 Lessons & Similes)') }}</router-link>
+              </li>
             </ul>
           </div>
 
@@ -263,30 +267,30 @@
       </div>
     </div>
 
-    <!-- Featured Creator Spotlight: TikTok Studio & My Gems -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-      <!-- TikTok Studio Card -->
+    <!-- Featured Highlights: Milindapañhā 245, Personal Gems & TikTok Studio -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+      <!-- Milindapañhā 245 Card -->
       <router-link
-        to="/tiktok-studio"
+        to="/milinda-qa"
         class="card-paper card-paper-hover p-5 rounded-2xl border flex items-center justify-between gap-4 group transition-all"
         :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
       >
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-2">
-            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
-              AI CREATOR
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              DHAMMA SŪTRA
             </span>
-            <span class="text-xs font-mono font-bold text-rose-500">@_prove_them_wrong_</span>
+            <span class="text-xs font-mono font-bold text-amber-500">#២៤៥ មេរៀន</span>
           </div>
-          <h3 class="font-display text-base sm:text-lg font-bold mt-1.5 group-hover:text-rose-500 transition truncate" :style="{ color: 'var(--ink)' }">
-            {{ t('TikTok Studio ស្ទូឌីយោបង្កើតមាតិកា', 'TikTok Studio AI Generator') }}
+          <h3 class="font-display text-base sm:text-lg font-bold mt-1.5 group-hover:text-amber-500 transition truncate" :style="{ color: 'var(--ink)' }">
+            {{ t('គម្ពីរមិលិន្ទប្បញ្ហា ២៤៥ មេរៀន', 'Milindapañhā 245 Lessons') }}
           </h3>
           <p class="text-xs mt-1 line-clamp-2" :style="{ color: 'var(--ink-muted)' }">
-            {{ t('បង្កើតអត្ថបទរូបភាព Carousel ៧ ស្លាយតាមរចនាបថផ្ទាល់ខ្លួន ដោយស្វ័យប្រវត្តិតាមព្រះធម៌ពិត។', 'Generate 7-slide carousel scripts tailored in your authentic deep philosophical style.') }}
+            {{ t('ការដេញដោលដ៏អស្ចារ្យរវាងព្រះបាទមិលិន្ទ & ព្រះនាគសេន ស្រាយគ្រប់ចម្ងល់ព្រះធម៌ ព្រមទាំងមានទាញយក PDF ពេញលេញ។', 'Great dialogues between King Milinda & Ven. Nāgasena with 114 vivid parables and PDF download.') }}
           </p>
         </div>
-        <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-xl shrink-0 bg-rose-500/10 text-rose-500 border border-rose-500/20 group-hover:scale-110 transition-transform">
-          🎬
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-xl shrink-0 bg-amber-500/10 text-amber-500 border border-amber-500/20 group-hover:scale-110 transition-transform">
+          📜
         </div>
       </router-link>
 
@@ -312,6 +316,31 @@
         </div>
         <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-xl shrink-0 bg-amber-500/10 text-amber-500 border border-amber-500/20 group-hover:scale-110 transition-transform">
           💎
+        </div>
+      </router-link>
+
+      <!-- TikTok Studio Card -->
+      <router-link
+        to="/tiktok-studio"
+        class="card-paper card-paper-hover p-5 rounded-2xl border flex items-center justify-between gap-4 group transition-all"
+        :style="{ background: 'var(--bg-card)', borderColor: 'var(--border)' }"
+      >
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+              AI CREATOR
+            </span>
+            <span class="text-xs font-mono font-bold text-rose-500">@_prove_them_wrong_</span>
+          </div>
+          <h3 class="font-display text-base sm:text-lg font-bold mt-1.5 group-hover:text-rose-500 transition truncate" :style="{ color: 'var(--ink)' }">
+            {{ t('TikTok Studio ស្ទូឌីយោបង្កើតមាតិកា', 'TikTok Studio AI Generator') }}
+          </h3>
+          <p class="text-xs mt-1 line-clamp-2" :style="{ color: 'var(--ink-muted)' }">
+            {{ t('បង្កើតអត្ថបទរូបភាព Carousel ៧ ស្លាយតាមរចនាបថផ្ទាល់ខ្លួន ដោយស្វ័យប្រវត្តិតាមព្រះធម៌ពិត។', 'Generate 7-slide carousel scripts tailored in your authentic deep philosophical style.') }}
+          </p>
+        </div>
+        <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-xl shrink-0 bg-rose-500/10 text-rose-500 border border-rose-500/20 group-hover:scale-110 transition-transform">
+          🎬
         </div>
       </router-link>
     </div>

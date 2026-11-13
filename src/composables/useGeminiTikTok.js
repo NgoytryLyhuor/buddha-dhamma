@@ -302,6 +302,82 @@ Return ONLY valid JSON (no markdown wrapping, no extra prose outside the JSON):
     return out.trim()
   }
 
+  function normalizePostData(data, questionText = '') {
+    if (!data || typeof data !== 'object') return data
+
+    // 1. Handle if returned under "carousel" array
+    if (Array.isArray(data.carousel) && data.carousel.length > 0) {
+      data.slides = data.carousel.map(c => {
+        if (typeof c === 'object' && c !== null) {
+          const parts = []
+          if (c.hook_title || c.title) parts.push(c.hook_title || c.title)
+          if (c.body_text || c.text || c.content) parts.push(c.body_text || c.text || c.content)
+          return parts.join('\n\n')
+        }
+        return String(c || '')
+      })
+      data.slideTitles = data.carousel.map((c, i) => c.hook_title || c.title || `ស្លាយទី ${c.slide_number || i + 1}`)
+      if (!data.imagePrompts || data.imagePrompts.length === 0) {
+        data.imagePrompts = data.carousel.map(c => c.image_prompt || c.imagePrompt || '')
+      }
+    }
+
+    // 2. Handle if topic suggestions
+    if (data.topics && Array.isArray(data.topics) && data.topics.length > 0) {
+      if (!data.slides || data.slides.length === 0) {
+        data.slides = data.topics.map((t, idx) => {
+          let s = `${idx + 1}. ${t.title || t.hook || ''}\n\n`
+          if (t.hook && t.hook !== t.title) s += `«${t.hook.replace(/^«|»$/g, '')}»\n\n`
+          if (t.summary) s += `ខ្លឹមសារស្នូល៖ ${t.summary}\n\n`
+          if (t.reference) s += `(យោង៖ ${t.reference})`
+          return s.trim()
+        })
+        data.slideTitles = data.topics.map((t, idx) => `ប្រធានបទទី ${idx + 1}`)
+      }
+    }
+
+    // 3. Normalize slides array (handle objects inside slides)
+    if (Array.isArray(data.slides)) {
+      data.slides = data.slides.map(s => {
+        if (typeof s === 'object' && s !== null) {
+          const parts = []
+          if (s.hook_title || s.title) parts.push(s.hook_title || s.title)
+          if (s.body_text || s.text || s.content) parts.push(s.body_text || s.text || s.content)
+          return parts.join('\n\n')
+        }
+        return String(s || '')
+      })
+      data.slide1 = data.slides[0] || ''
+      data.slide2 = data.slides[1] || ''
+      data.slide3 = data.slides[2] || ''
+      data.slide4 = data.slides[3] || ''
+      data.slide5 = data.slides[4] || ''
+    } else {
+      data.slides = [data.slide1, data.slide2, data.slide3, data.slide4, data.slide5].filter(Boolean)
+    }
+
+    // 4. Normalize imagePrompts
+    if (!data.imagePrompts && data.imagePrompt) {
+      data.imagePrompts = [data.imagePrompt, data.imagePrompt, data.imagePrompt, data.imagePrompt, data.imagePrompt]
+    } else if (data.imagePrompts && Array.isArray(data.imagePrompts) && !data.imagePrompt) {
+      data.imagePrompt = data.imagePrompts[0] || ''
+    }
+
+    // 5. Ensure title exists
+    if (!data.title) {
+      if (data.slideTitles?.[0]) {
+        data.title = data.slideTitles[0].substring(0, 50)
+      } else if (data.slides?.[0]) {
+        data.title = data.slides[0].split('\n')[0].substring(0, 50)
+      } else {
+        data.title = questionText.substring(0, 45)
+      }
+    }
+
+    data.fullScript = buildFullScript(data)
+    return data
+  }
+
   async function generatePost(questionText) {
     if (!questionText || !questionText.trim()) {
       errorMessage.value = 'សូមបញ្ចូលសំណួរ ឬប្រធានបទជាមុនសិន!'
@@ -313,15 +389,20 @@ Return ONLY valid JSON (no markdown wrapping, no extra prose outside the JSON):
 
     const keyToUse = apiKey.value || getEmbeddedKey()
 
-    // Candidate models with primary 3.8 and robust official fallbacks
-    // Each model has its own independent quota bucket on Google AI Studio
+    // Candidate models prioritized for speed and quota availability:
+    // 1. gemini-3.5-flash-lite: Super fast (~3.9s), full quota, no stalls
+    // 2. gemini-flash-lite-latest: Fast, full quota
+    // 3. gemini-3.1-flash-lite: Reliable fallback
+    // 4. gemini-3.8-flash: High-end model (recovers when daily quota resets)
+    // 5. gemini-3.6-flash: Fallback
+    // 6. gemini-3.5-flash: Fallback
     const candidateModels = [
+      'gemini-3.5-flash-lite',
+      'gemini-flash-lite-latest',
+      'gemini-3.1-flash-lite',
       'gemini-3.8-flash',
       'gemini-3.6-flash',
-      'gemini-3.5-flash',
-      'gemini-3.5-flash-lite',
-      'gemini-3.1-flash-lite',
-      'gemini-flash-latest'
+      'gemini-3.5-flash'
     ]
 
     for (const model of candidateModels) {
@@ -347,7 +428,7 @@ Return strictly valid JSON only.`
                 responseMimeType: 'application/json'
               }
             }),
-            signal: AbortSignal.timeout(9000)
+            signal: AbortSignal.timeout(18000)
           }
         )
 
@@ -357,41 +438,11 @@ Return strictly valid JSON only.`
           if (text) {
             const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim()
             const parsed = JSON.parse(cleaned)
-
-            if (parsed.topics && Array.isArray(parsed.topics) && parsed.topics.length > 0) {
-              if (!parsed.slides || parsed.slides.length === 0) {
-                parsed.slides = parsed.topics.map((t, idx) => {
-                  let s = `${idx + 1}. ${t.title || t.hook || ''}\n\n`
-                  if (t.hook && t.hook !== t.title) s += `«${t.hook.replace(/^«|»$/g, '')}»\n\n`
-                  if (t.summary) s += `ខ្លឹមសារស្នូល៖ ${t.summary}\n\n`
-                  if (t.reference) s += `(យោង៖ ${t.reference})`
-                  return s.trim()
-                })
-                parsed.slideTitles = parsed.topics.map((t, idx) => `ប្រធានបទទី ${idx + 1}`)
-              }
-            }
-
-            if (parsed.slides && Array.isArray(parsed.slides)) {
-              parsed.slide1 = parsed.slides[0] || ''
-              parsed.slide2 = parsed.slides[1] || ''
-              parsed.slide3 = parsed.slides[2] || ''
-              parsed.slide4 = parsed.slides[3] || ''
-              parsed.slide5 = parsed.slides[4] || ''
-            } else {
-              parsed.slides = [parsed.slide1, parsed.slide2, parsed.slide3, parsed.slide4, parsed.slide5].filter(Boolean)
-            }
-
-            if (!parsed.imagePrompts && parsed.imagePrompt) {
-              parsed.imagePrompts = [parsed.imagePrompt, parsed.imagePrompt, parsed.imagePrompt, parsed.imagePrompt, parsed.imagePrompt]
-            } else if (parsed.imagePrompts && Array.isArray(parsed.imagePrompts) && !parsed.imagePrompt) {
-              parsed.imagePrompt = parsed.imagePrompts[0] || ''
-            }
-
-            parsed.fullScript = buildFullScript(parsed)
+            const normalized = normalizePostData(parsed, questionText)
 
             isGenerating.value = false
-            saveToHistory(parsed, questionText)
-            return parsed
+            saveToHistory(normalized, questionText)
+            return normalized
           }
         } else {
           const errData = await response.json().catch(() => ({}))
@@ -416,41 +467,11 @@ Return strictly valid JSON only.`
 
       const result = await response.json()
       if (response.ok && result.success && result.data) {
-        const postData = result.data
-        if (postData.topics && Array.isArray(postData.topics) && postData.topics.length > 0) {
-          if (!postData.slides || postData.slides.length === 0) {
-            postData.slides = postData.topics.map((t, idx) => {
-              let s = `${idx + 1}. ${t.title || t.hook || ''}\n\n`
-              if (t.hook && t.hook !== t.title) s += `«${t.hook.replace(/^«|»$/g, '')}»\n\n`
-              if (t.summary) s += `ខ្លឹមសារស្នូល៖ ${t.summary}\n\n`
-              if (t.reference) s += `(យោង៖ ${t.reference})`
-              return s.trim()
-            })
-            postData.slideTitles = postData.topics.map((t, idx) => `ប្រធានបទទី ${idx + 1}`)
-          }
-        }
-
-        if (postData.slides && Array.isArray(postData.slides)) {
-          postData.slide1 = postData.slides[0] || ''
-          postData.slide2 = postData.slides[1] || ''
-          postData.slide3 = postData.slides[2] || ''
-          postData.slide4 = postData.slides[3] || ''
-          postData.slide5 = postData.slides[4] || ''
-        } else {
-          postData.slides = [postData.slide1, postData.slide2, postData.slide3, postData.slide4, postData.slide5].filter(Boolean)
-        }
-
-        if (!postData.imagePrompts && postData.imagePrompt) {
-          postData.imagePrompts = [postData.imagePrompt, postData.imagePrompt, postData.imagePrompt, postData.imagePrompt, postData.imagePrompt]
-        } else if (postData.imagePrompts && Array.isArray(postData.imagePrompts) && !postData.imagePrompt) {
-          postData.imagePrompt = postData.imagePrompts[0] || ''
-        }
-
-        postData.fullScript = buildFullScript(postData)
+        const normalized = normalizePostData(result.data, questionText)
 
         isGenerating.value = false
-        saveToHistory(postData, questionText)
-        return postData
+        saveToHistory(normalized, questionText)
+        return normalized
       } else {
         throw new Error(result.error || 'បរាជ័យក្នុងការបង្កើតមាតិកា')
       }

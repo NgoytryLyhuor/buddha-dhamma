@@ -130,15 +130,14 @@ Follow all creator guidelines:
 - If asked for topic ideas: Provide 6 to 10 viral curiosity-gap titles with hook, core substance, and canonical reference.
 Return strictly valid JSON only.`;
 
-    // Candidate models with primary 3.8 and robust official fallbacks
-    // Each model has its own independent quota bucket on Google AI Studio
+    // Candidate models prioritized for speed and quota availability:
     const candidateModels = [
+      'gemini-3.5-flash-lite',
+      'gemini-flash-lite-latest',
+      'gemini-3.1-flash-lite',
       'gemini-3.8-flash',
       'gemini-3.6-flash',
-      'gemini-3.5-flash',
-      'gemini-3.5-flash-lite',
-      'gemini-3.1-flash-lite',
-      'gemini-flash-latest'
+      'gemini-3.5-flash'
     ];
 
     let lastError = null;
@@ -158,7 +157,7 @@ Return strictly valid JSON only.`;
                 responseMimeType: 'application/json'
               }
             }),
-            signal: AbortSignal.timeout(10000)
+            signal: AbortSignal.timeout(18000)
           }
         );
 
@@ -176,7 +175,33 @@ Return strictly valid JSON only.`;
         const cleaned = text.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
         const parsed = JSON.parse(cleaned);
 
-        if (parsed.slides && Array.isArray(parsed.slides)) {
+        // Normalize carousel array if present
+        if (Array.isArray(parsed.carousel) && parsed.carousel.length > 0) {
+          parsed.slides = parsed.carousel.map(c => {
+            if (typeof c === 'object' && c !== null) {
+              const parts = [];
+              if (c.hook_title || c.title) parts.push(c.hook_title || c.title);
+              if (c.body_text || c.text || c.content) parts.push(c.body_text || c.text || c.content);
+              return parts.join('\n\n');
+            }
+            return String(c || '');
+          });
+          parsed.slideTitles = parsed.carousel.map((c, i) => c.hook_title || c.title || `ស្លាយទី ${c.slide_number || i + 1}`);
+          if (!parsed.imagePrompts || parsed.imagePrompts.length === 0) {
+            parsed.imagePrompts = parsed.carousel.map(c => c.image_prompt || c.imagePrompt || '');
+          }
+        }
+
+        if (Array.isArray(parsed.slides)) {
+          parsed.slides = parsed.slides.map(s => {
+            if (typeof s === 'object' && s !== null) {
+              const parts = [];
+              if (s.hook_title || s.title) parts.push(s.hook_title || s.title);
+              if (s.body_text || s.text || s.content) parts.push(s.body_text || s.text || s.content);
+              return parts.join('\n\n');
+            }
+            return String(s || '');
+          });
           parsed.slide1 = parsed.slides[0] || '';
           parsed.slide2 = parsed.slides[1] || '';
           parsed.slide3 = parsed.slides[2] || '';
